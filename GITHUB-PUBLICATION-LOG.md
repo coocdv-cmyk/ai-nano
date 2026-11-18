@@ -7,7 +7,8 @@ Policy: normal commits only; no force push, reset, or history rewriting.
 | Stage | Commit hash | Commit message | Push verification | Tests | Protected hashes |
 |---|---|---|---|---|---|
 | K0 | `54f3c75422eb98b4f28d484fcc8b1dc0db58b27b` | `EXP-K: establish reproducible baseline` | `git ls-remote origin refs/heads/research/exp-k` returned matching hash | EXP-K 28 passed; smoke 9/9; full suite 292 passed, 1 skipped | EXP-I 22/22, EXP-J 84/84 unchanged |
-| K1 | pending | `EXP-K: isolate deep composition failure causes` | pending | EXP-K 30 passed; full suite 294 passed, 1 skipped | EXP-I 22/22, EXP-J 84/84 unchanged |
+| K1 | `f3e9211dfb2e4fa8a7ecde06f00c8154f67e29c0` | `EXP-K: isolate deep composition failure causes` | `git ls-remote` returned matching hash | EXP-K 30 passed; smoke 9/9; full suite 294 passed, 1 skipped | EXP-I 22/22, EXP-J 84/84 unchanged |
+| K2 | pending | `EXP-K: investigate OOD retrieval substitution` | pending | EXP-K 31 passed; full suite 295 passed, 1 skipped | EXP-I 22/22, EXP-J 84/84 unchanged |
 
 ## Notes
 
@@ -19,3 +20,8 @@ Policy: normal commits only; no force push, reset, or history rewriting.
   pre-existing test suite were deliberately not staged (they are test side-effects,
   not EXP-K assets).
 - Every push is verified with `git ls-remote` before the next stage begins.
+- During the K2 synchronization check, `origin/master` had changed from `4d18fb7`
+  to `d3f9b90` ("Merge pull request #1 from coocdv-cmyk/research/exp-k"). This was
+  the owner merging our own K0 publication, not independent work. `HEAD` versus
+  `origin/research/exp-k` remained 0/0; no integration into the research branch
+  was necessary, and no remote commit was overwritten.

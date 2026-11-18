@@ -153,5 +153,25 @@ def test_k1_all_arms_and_classification():
         "constructive.exp_k.types", fromlist=["DeepOutcome"]).DeepOutcome}
     assert all(row["outcome"] in valid for row in k1["episodes"])
     assert "oracle_contract" in k1["comparison_to_baseline"]
+    assert k1["comparison_to_baseline"]["shifted_validation"]["n_paired"] > 0
     assert k1["resources"]["peak_rss_mb"] is not None
+
+
+# --- K2: OOD retrieval ------------------------------------------------------
+
+
+def test_retrieval_abstention_on_ood():
+    from constructive.exp_k import retrieval_ood as K2
+    r = runner.run(stage="K2", quick=True)
+    k2 = r["experiments"]["K2"]
+    assert k2["status"] == "completed"
+    assert k2["completion_status"] == "COMPLETED"
+    assert set(k2["by_arm"]) == set(K2.ARMS)
+    assert k2["n_runs"] > 0
+    for arm, v in k2["by_arm"].items():
+        assert "silent_substitution_ood" in v
+        assert "correct_abstention_ood" in v
+        assert "latency_ms" in v
+    assert "independent_verification" in k2["comparison_to_baseline"]
+    assert k2["comparison_to_baseline"]["independent_verification"]["n_paired"] > 0
 

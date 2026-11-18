@@ -66,3 +66,31 @@ These are hypotheses, not findings. Later stages will confirm or reject them.
 
 **Resource:** 80.22 s wall, peak RSS measured per block, 0 timeouts.
 
+## K2 — OOD retrieval (720 queries, 6 arms, 10 seeds)
+
+| Arm | Silent substitution (OOD) | Correct abstention (OOD) | Correct top (familiar) | Wrong abstention (familiar) |
+|---|---|---|---|---|
+| baseline | **1.000** | 0.000 | 0.867 | 0.000 |
+| type-aware only | 1.000 | 0.000 | 0.867 | 0.000 |
+| OOD rejection | 0.020 | 0.980 | 0.367 | 0.633 |
+| ambiguity abstention | 0.020 | 0.980 | 0.367 | 0.633 |
+| provenance-compatible | 0.000 | 1.000 | 0.367 | 0.633 |
+| independent verification | **0.000** | **1.000** | 0.333 | 0.667 |
+
+**Findings.**
+1. The EXP-J result is **fully reproduced** on independently generated
+   type-matched held-out families: 100% silent substitution at baseline.
+2. Hypothesis "missing type constraints" is **rejected**: type-aware ranking
+   changes nothing, because learned and held-out families share input/output
+   types. The cause is behavioral-similarity collision without an OOD rule.
+3. Behavioral agreement thresholds and ambiguity abstention suppress silent
+   substitution to ~2%, and provenance/independent verification suppress it to
+   0%, but every such arm loses about two thirds of familiar coverage
+   (0.867 → 0.333–0.367) through false rejection.
+4. Therefore no tested safeguard solves retrieval: it converts silent wrong
+   answers into honest abstentions, at a large coverage cost. The best safety
+   arm is `independent_verification` (0% substitution, 100% OOD abstention),
+   but it is the worst on familiar coverage.
+5. Recall@2/precision@2 are dominated by the same trade-off; latency is small
+   (<0.3 ms per query) and is not the limiting factor.
+
