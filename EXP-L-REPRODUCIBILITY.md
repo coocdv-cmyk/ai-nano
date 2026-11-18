@@ -23,6 +23,7 @@ python -m constructive.exp_l.runner --stage L0 --quick   # pilot only; writes *-
 
 python -m constructive.exp_l.runner --stage L1 --no-resume
 python -m constructive.exp_l.runner --stage L2 --no-resume
+python -m constructive.exp_l.runner --stage L3 --no-resume
 ```
 
 `--quick` results are written to separate `*-quick.json` artifacts and snapshots

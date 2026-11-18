@@ -36,7 +36,19 @@
       },
       "gate_pass": true,
       "snapshot": "constructive\\exp_l\\results\\history\\L2-20261118-132625.json"
+    },
+    "L3": {
+      "stage": "L3",
+      "gate": {
+        "type_aware_not_a_solution": true,
+        "heldout_substitution_reduced": true,
+        "familiar_coverage_preserved": true,
+        "recall_not_treated_as_correctness": true,
+        "reproducible": true
+      },
+      "gate_pass": true,
+      "snapshot": "constructive\\exp_l\\results\\history\\L3-20261118-133109.json"
     }
   },
-  "fingerprint": "d503d50bd695eb44"
+  "fingerprint": "820552460b621a16"
 }

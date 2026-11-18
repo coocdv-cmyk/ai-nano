@@ -236,3 +236,50 @@ def test_full_verification_reduces_incorrect_acceptance_vs_baseline():
     f = block["by_method"]["full"]["incorrect_acceptance_rate"]
     assert f <= b
     assert block["gate"]["no_oracle_in_decision"]
+
+
+# --- L3: retrieval generalization ------------------------------------------
+
+from constructive.exp_l.retrieval_generalization import (  # noqa: E402
+    FAMILIAR as RETRIEVAL_FAMILIAR, HELDOUT as RETRIEVAL_HELDOUT,
+    decide as retrieval_decide, make_query, rank, run_l3,
+)
+
+
+def test_family_split_is_disjoint_by_identity():
+    assert not (set(RETRIEVAL_FAMILIAR) & set(RETRIEVAL_HELDOUT))
+    assert len(RETRIEVAL_FAMILIAR) == 6 and len(RETRIEVAL_HELDOUT) == 6
+
+
+def test_heldout_query_has_no_correct_concept_in_pool():
+    q = make_query(1, "heldout")
+    assert q["expected"] is None
+    assert q["target"] in RETRIEVAL_HELDOUT
+    assert q["target"] not in [r["cid"] for r in rank(q)]
+
+
+def test_near_duplicate_is_discriminated_by_behavior():
+    q = make_query(0, "near_duplicate")
+    assert q["expected"] == "c-inc-2"
+    assert rank(q)[0]["cid"] == "c-inc-2"
+
+
+def test_misleading_surface_similarity_fools_similarity_only():
+    hits = 0
+    for seed in range(6):
+        q = make_query(seed, "misleading")
+        sim = retrieval_decide("similarity_only", q)
+        ver = retrieval_decide("rank_verify", q)
+        if sim["accepted"] and sim["cid"] == q["target"]:
+            hits += 1
+        assert not ver["accepted"]
+    assert hits == 0  # surface similarity never retrieves the held-out concept
+
+
+def test_l3_substitution_reduced_with_familiar_coverage():
+    block = run_l3(cfgmod.default_config("L3", seeds=(0, 1, 2)))
+    base = block["by_method"]["baseline"]["silent_substitution_rate"]
+    rv = block["by_method"]["rank_verify"]["silent_substitution_rate"]
+    assert rv < base
+    assert block["by_method"]["rank_verify"]["useful_coverage"] > 0
+    assert block["note"].find("Recall@k") >= 0

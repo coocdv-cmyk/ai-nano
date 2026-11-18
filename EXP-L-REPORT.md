@@ -1,6 +1,6 @@
 # EXP-L Research Report
 
-**Status: L0, L1 and L2 complete. Stages L3–L7 pending.**
+**Status: L0, L1, L2 and L3 complete. Stages L4–L7 pending.**
 
 Branch: `research/exp-l` — created from the verified EXP-K tip
 `1face37bc9c695f5804baf97e6533113695f7af3` (not from `master`; `master` untouched).
@@ -144,8 +144,47 @@ improvements). Two failed L2 diagnostic snapshots are preserved in history.
 
 Artifact: `constructive/exp_l/results/L2-results.json`.
 
+## L3 — Retrieval generalization (gate PASS)
+
+270 queries from 10 seeds, 9 query kinds, 12 concepts split by **family
+identity** (6 familiar families in the retrieval pool, 6 held-out families
+absent). Wall 0.034 s, CPU 0.031 s, peak RSS 24.88 MB.
+
+| Method | Recall@1 | Silent substitution (held-out) | Familiar correct acceptance | Useful coverage |
+|---|---|---|---|---|
+| baseline | 1.000 | 1.000 | 1.000 | 0.333 |
+| type-aware | 1.000 | 1.000 | 1.000 | 0.333 |
+| similarity-only (surface) | 1.000 | 1.000 | 1.000 | 0.333 |
+| evidence-aware | 1.000 | 0.000 | 1.000 | 0.333 |
+| independent verification | 1.000 | 0.250 | 1.000 | 0.333 |
+| abstention-based | 1.000 | 0.000 | 1.000 | 0.333 |
+| rank + verify | 1.000 | 0.000 | 1.000 | 0.333 |
+
+Paired per-seed deltas vs baseline: evidence-aware, abstention and rank+verify
+each reduce substitution by −1.000 [−1.000, −1.000] with familiar correct
+acceptance change 0.000 [0.000, 0.000]. Recall@1 is 1.000 for methods that
+accept everything because the correct concept is always top-ranked — recall
+alone would have hidden the 100% substitution on held-out queries.
+
+**Important limitation.** In this benchmark familiar concepts have perfect
+behavioral agreement and held-out concepts have near-zero agreement, so the
+separation is clean and safeguards cost **no** familiar coverage. This does
+**not** reproduce EXP-K's familiar top-1 collapse (0.867 → 0.333) and must not
+be read as evidence that real retrieval safeguards are free. Type-aware and
+surface-similarity ranking changed nothing, consistent with EXP-K's finding
+that shared input/output types defeat type constraints. Held-out recall is
+undefined (no correct concept in the pool) and is not reported as a success.
+The independent-verification variant still substituted on 25% of held-out
+queries, showing that a single high-agreement candidate is not sufficient.
+
+Decision: `PROMISING_BUT_UNVALIDATED` (behavioral-agreement safeguards);
+`NOT_RECOMMENDED` (type-aware / surface-similarity ranking).
+
+Artifact: `constructive/exp_l/results/L3-results.json`.
+
 ## Decision status
 
 No mechanism is `ELIGIBLE_FOR_SEPARATE_REVIEW` yet. L1 mapping-consistency
-detection is promising but synthetic-only and unvalidated on realistic inputs;
-L2 selective verification lacks a credible effect size.
+detection is promising but synthetic-only; L2 selective verification lacks a
+credible effect size; L3 behavioral safeguards are unvalidated on realistic,
+overlapping concept families.

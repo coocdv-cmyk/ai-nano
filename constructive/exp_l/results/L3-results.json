@@ -1,0 +1,329 @@
+{
+  "stage": "L3",
+  "schema": "exp-l-stage-block-v1",
+  "config": {
+    "stage": "L3",
+    "seed": 0,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "quick": false,
+    "no_resume": false,
+    "merge_only": false,
+    "generator_version": "exp-l-gen-1",
+    "seed_policy": "explicit_sha256_derived_random.Random(seed, stream); no hash() of strings",
+    "n_train": 4,
+    "n_val": 4,
+    "n_test": 8,
+    "time_limit_s": 120.0,
+    "memory_limit_mb": 512.0,
+    "full_test_timeout_s": 300.0
+  },
+  "config_fingerprint": "4b8fc8ee8867382a",
+  "n_queries": 270,
+  "n_rows": 1890,
+  "families": {
+    "familiar": [
+      "c-inc-1",
+      "c-inc-2",
+      "c-dec-1",
+      "c-sign-neg",
+      "c-sign-abs",
+      "c-scale-double"
+    ],
+    "heldout": [
+      "c-mod-7",
+      "c-half",
+      "c-digit-sum",
+      "c-band",
+      "c-square",
+      "c-thresh"
+    ]
+  },
+  "by_method": {
+    "baseline": {
+      "n": 270,
+      "recall_at_1": 1.0,
+      "recall_at_2": 1.0,
+      "recall_at_5": 1.0,
+      "correct_top1_familiar": 1.0,
+      "silent_substitution_rate": 1.0,
+      "correct_abstention_rate": 0.0,
+      "correct_retrieval_acceptance": 0.3333333333333333,
+      "useful_coverage": 0.3333333333333333,
+      "abstention_rate": 0.0,
+      "selective_accuracy": 0.3333333333333333,
+      "by_family_group": {
+        "familiar": {
+          "n": 90,
+          "correct_acceptance": 1.0,
+          "wrong_abstention": 0.0
+        },
+        "heldout": {
+          "n": 180,
+          "silent_substitution": 1.0,
+          "correct_abstention": 0.0
+        }
+      }
+    },
+    "type_aware": {
+      "n": 270,
+      "recall_at_1": 1.0,
+      "recall_at_2": 1.0,
+      "recall_at_5": 1.0,
+      "correct_top1_familiar": 1.0,
+      "silent_substitution_rate": 1.0,
+      "correct_abstention_rate": 0.0,
+      "correct_retrieval_acceptance": 0.3333333333333333,
+      "useful_coverage": 0.3333333333333333,
+      "abstention_rate": 0.0,
+      "selective_accuracy": 0.3333333333333333,
+      "by_family_group": {
+        "familiar": {
+          "n": 90,
+          "correct_acceptance": 1.0,
+          "wrong_abstention": 0.0
+        },
+        "heldout": {
+          "n": 180,
+          "silent_substitution": 1.0,
+          "correct_abstention": 0.0
+        }
+      }
+    },
+    "similarity_only": {
+      "n": 270,
+      "recall_at_1": 1.0,
+      "recall_at_2": 1.0,
+      "recall_at_5": 1.0,
+      "correct_top1_familiar": 1.0,
+      "silent_substitution_rate": 1.0,
+      "correct_abstention_rate": 0.0,
+      "correct_retrieval_acceptance": 0.3333333333333333,
+      "useful_coverage": 0.3333333333333333,
+      "abstention_rate": 0.0,
+      "selective_accuracy": 0.3333333333333333,
+      "by_family_group": {
+        "familiar": {
+          "n": 90,
+          "correct_acceptance": 1.0,
+          "wrong_abstention": 0.0
+        },
+        "heldout": {
+          "n": 180,
+          "silent_substitution": 1.0,
+          "correct_abstention": 0.0
+        }
+      }
+    },
+    "evidence_aware": {
+      "n": 270,
+      "recall_at_1": 1.0,
+      "recall_at_2": 1.0,
+      "recall_at_5": 1.0,
+      "correct_top1_familiar": 1.0,
+      "silent_substitution_rate": 0.0,
+      "correct_abstention_rate": 1.0,
+      "correct_retrieval_acceptance": 0.3333333333333333,
+      "useful_coverage": 0.3333333333333333,
+      "abstention_rate": 0.6666666666666666,
+      "selective_accuracy": 1.0,
+      "by_family_group": {
+        "familiar": {
+          "n": 90,
+          "correct_acceptance": 1.0,
+          "wrong_abstention": 0.0
+        },
+        "heldout": {
+          "n": 180,
+          "silent_substitution": 0.0,
+          "correct_abstention": 1.0
+        }
+      }
+    },
+    "independent_verification": {
+      "n": 270,
+      "recall_at_1": 1.0,
+      "recall_at_2": 1.0,
+      "recall_at_5": 1.0,
+      "correct_top1_familiar": 1.0,
+      "silent_substitution_rate": 0.25,
+      "correct_abstention_rate": 0.75,
+      "correct_retrieval_acceptance": 0.3333333333333333,
+      "useful_coverage": 0.3333333333333333,
+      "abstention_rate": 0.5,
+      "selective_accuracy": 0.6666666666666666,
+      "by_family_group": {
+        "familiar": {
+          "n": 90,
+          "correct_acceptance": 1.0,
+          "wrong_abstention": 0.0
+        },
+        "heldout": {
+          "n": 180,
+          "silent_substitution": 0.25,
+          "correct_abstention": 0.75
+        }
+      }
+    },
+    "abstention": {
+      "n": 270,
+      "recall_at_1": 1.0,
+      "recall_at_2": 1.0,
+      "recall_at_5": 1.0,
+      "correct_top1_familiar": 1.0,
+      "silent_substitution_rate": 0.0,
+      "correct_abstention_rate": 1.0,
+      "correct_retrieval_acceptance": 0.3333333333333333,
+      "useful_coverage": 0.3333333333333333,
+      "abstention_rate": 0.6666666666666666,
+      "selective_accuracy": 1.0,
+      "by_family_group": {
+        "familiar": {
+          "n": 90,
+          "correct_acceptance": 1.0,
+          "wrong_abstention": 0.0
+        },
+        "heldout": {
+          "n": 180,
+          "silent_substitution": 0.0,
+          "correct_abstention": 1.0
+        }
+      }
+    },
+    "rank_verify": {
+      "n": 270,
+      "recall_at_1": 1.0,
+      "recall_at_2": 1.0,
+      "recall_at_5": 1.0,
+      "correct_top1_familiar": 1.0,
+      "silent_substitution_rate": 0.0,
+      "correct_abstention_rate": 1.0,
+      "correct_retrieval_acceptance": 0.3333333333333333,
+      "useful_coverage": 0.3333333333333333,
+      "abstention_rate": 0.6666666666666666,
+      "selective_accuracy": 1.0,
+      "by_family_group": {
+        "familiar": {
+          "n": 90,
+          "correct_acceptance": 1.0,
+          "wrong_abstention": 0.0
+        },
+        "heldout": {
+          "n": 180,
+          "silent_substitution": 0.0,
+          "correct_abstention": 1.0
+        }
+      }
+    }
+  },
+  "comparisons": {
+    "type_aware": {
+      "substitution_delta_vs_baseline": {
+        "mean": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "n": 10
+      },
+      "familiar_correct_acceptance_delta_vs_baseline": {
+        "mean": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "n": 10
+      }
+    },
+    "similarity_only": {
+      "substitution_delta_vs_baseline": {
+        "mean": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "n": 10
+      },
+      "familiar_correct_acceptance_delta_vs_baseline": {
+        "mean": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "n": 10
+      }
+    },
+    "evidence_aware": {
+      "substitution_delta_vs_baseline": {
+        "mean": -1.0,
+        "lo": -1.0,
+        "hi": -1.0,
+        "n": 10
+      },
+      "familiar_correct_acceptance_delta_vs_baseline": {
+        "mean": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "n": 10
+      }
+    },
+    "independent_verification": {
+      "substitution_delta_vs_baseline": {
+        "mean": -0.7500000000000001,
+        "lo": -0.8,
+        "hi": -0.7000000000000001,
+        "n": 10
+      },
+      "familiar_correct_acceptance_delta_vs_baseline": {
+        "mean": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "n": 10
+      }
+    },
+    "abstention": {
+      "substitution_delta_vs_baseline": {
+        "mean": -1.0,
+        "lo": -1.0,
+        "hi": -1.0,
+        "n": 10
+      },
+      "familiar_correct_acceptance_delta_vs_baseline": {
+        "mean": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "n": 10
+      }
+    },
+    "rank_verify": {
+      "substitution_delta_vs_baseline": {
+        "mean": -1.0,
+        "lo": -1.0,
+        "hi": -1.0,
+        "n": 10
+      },
+      "familiar_correct_acceptance_delta_vs_baseline": {
+        "mean": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "n": 10
+      }
+    }
+  },
+  "gate": {
+    "type_aware_not_a_solution": true,
+    "heldout_substitution_reduced": true,
+    "familiar_coverage_preserved": true,
+    "recall_not_treated_as_correctness": true,
+    "reproducible": true
+  },
+  "gate_pass": true,
+  "resources": {
+    "wall_s": 0.03386,
+    "cpu_s": 0.03125,
+    "peak_rss_mb": 24.879
+  },
+  "note": "Recall@k is measured only where a correct concept exists in the pool; held-out recall is undefined and is not reported as a success score."
+}
