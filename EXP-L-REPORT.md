@@ -1,6 +1,6 @@
 # EXP-L Research Report
 
-**Status: L0, L1 and L2 complete. Stages L3–L7 pending.**
+**Status: EXP-L COMPLETE — L0–L7 all passed their gates.**
 
 Branch: `research/exp-l` — created from the verified EXP-K tip
 `1face37bc9c695f5804baf97e6533113695f7af3` (not from `master`; `master` untouched).
@@ -144,8 +144,217 @@ improvements). Two failed L2 diagnostic snapshots are preserved in history.
 
 Artifact: `constructive/exp_l/results/L2-results.json`.
 
-## Decision status
+## L3 — Retrieval generalization (gate PASS)
 
-No mechanism is `ELIGIBLE_FOR_SEPARATE_REVIEW` yet. L1 mapping-consistency
-detection is promising but synthetic-only and unvalidated on realistic inputs;
-L2 selective verification lacks a credible effect size.
+270 queries from 10 seeds, 9 query kinds, 12 concepts split by **family
+identity** (6 familiar families in the retrieval pool, 6 held-out families
+absent). Wall 0.034 s, CPU 0.031 s, peak RSS 24.88 MB.
+
+| Method | Recall@1 | Silent substitution (held-out) | Familiar correct acceptance | Useful coverage |
+|---|---|---|---|---|
+| baseline | 1.000 | 1.000 | 1.000 | 0.333 |
+| type-aware | 1.000 | 1.000 | 1.000 | 0.333 |
+| similarity-only (surface) | 1.000 | 1.000 | 1.000 | 0.333 |
+| evidence-aware | 1.000 | 0.000 | 1.000 | 0.333 |
+| independent verification | 1.000 | 0.250 | 1.000 | 0.333 |
+| abstention-based | 1.000 | 0.000 | 1.000 | 0.333 |
+| rank + verify | 1.000 | 0.000 | 1.000 | 0.333 |
+
+Paired per-seed deltas vs baseline: evidence-aware, abstention and rank+verify
+each reduce substitution by −1.000 [−1.000, −1.000] with familiar correct
+acceptance change 0.000 [0.000, 0.000]. Recall@1 is 1.000 for methods that
+accept everything because the correct concept is always top-ranked — recall
+alone would have hidden the 100% substitution on held-out queries.
+
+**Important limitation.** In this benchmark familiar concepts have perfect
+behavioral agreement and held-out concepts have near-zero agreement, so the
+separation is clean and safeguards cost **no** familiar coverage. This does
+**not** reproduce EXP-K's familiar top-1 collapse (0.867 → 0.333) and must not
+be read as evidence that real retrieval safeguards are free. Type-aware and
+surface-similarity ranking changed nothing, consistent with EXP-K's finding
+that shared input/output types defeat type constraints. Held-out recall is
+undefined (no correct concept in the pool) and is not reported as a success.
+The independent-verification variant still substituted on 25% of held-out
+queries, showing that a single high-agreement candidate is not sufficient.
+
+Decision: `PROMISING_BUT_UNVALIDATED` (behavioral-agreement safeguards);
+`NOT_RECOMMENDED` (type-aware / surface-similarity ranking).
+
+Artifact: `constructive/exp_l/results/L3-results.json`.
+
+## L4 — Conditional calibration (gate PASS with disclosed subgroup regression)
+
+800 evaluation rows (10 seeds × 8 conditions × 10), 480 calibration rows from
+disjoint seeds 201–204. Wall/CPU/memory recorded in the artifact. All
+parameters fitted on calibration seeds only; accuracy is unchanged by every
+post-hoc transform (0.417).
+
+| Method | ECE | Adaptive ECE | Brier | NLL | Accuracy |
+|---|---|---|---|---|---|
+| raw | 0.2491 | 0.2437 | 0.2959 | 0.8111 | 0.417 |
+| temperature (T=5.0) | 0.1177 | 0.1193 | 0.2462 | 0.6854 | 0.417 |
+| binning (10 bins) | 0.0407 | 0.0527 | 0.2265 | 0.7412 | 0.417 |
+| conditional by family | 0.0585 | 0.0716 | 0.2361 | 1.0476 | 0.417 |
+| conditional by depth+evidence | 0.0989 | 0.0889 | 0.2346 | 0.8463 | 0.417 |
+
+Difficult subgroups improved by temperature: deep 0.405→0.147,
+retrieval-uncertain 0.225→0.001, semantic-drift 0.386→0.229,
+adversarial 0.361→0.168, OOD 0.448→0.290. **Hidden regression disclosed:**
+temperature degraded easy subgroups — normal 0.055→0.158 and contradictory
+0.081→0.317; binning degraded normal 0.055→0.203 and low-evidence
+0.030→0.193. Conditional-by-family overfit calibration and produced the worst
+NLL (1.048). Every reported subgroup has n=150 (above the n=30 reliability
+floor). The fitted T=5.0 reflects the deliberately large confidence biases in
+this synthetic fixture and is not transferable to a real model.
+
+Confidence remains a heuristic score: calibration never changed `accuracy` and
+is not evidence of correctness. The gate checks the stated criterion (no
+degradation in *difficult* subgroups), while the easy-subgroup regressions are
+recorded in `subgroup_analysis` and must not be ignored.
+
+Decision: `PROMISING_BUT_UNVALIDATED` (temperature scaling);
+`REQUIRES_MORE_EVIDENCE` (conditional depth+evidence);
+`NOT_RECOMMENDED` (binning and conditional-by-family as general solutions).
+
+Artifact: `constructive/exp_l/results/L4-results.json`.
+
+## L5 — Natural-input bridge (gate PASS, narrowly scoped)
+
+840 self-authored CC0 examples, 14 templates (7 dev, 7 held-out, split by
+template ID so no phrasing crosses splits). No external model, no third-party
+data, no OMEGA-NANO invocation. Wall 0.021 s, CPU 0.031 s, peak RSS 25.45 MB.
+
+| Method | Exact match | Held-out exact match | Correct abstention | Incorrect acceptance | Parse failure |
+|---|---|---|---|---|---|
+| constant (0) | 0.030 | 0.033 | 0.000 | 0.286 | n/a (no parser) |
+| first number | 0.007 | 0.005 | 0.000 | 0.286 | n/a (no parser) |
+| adapter, no ambiguity guard | 0.600 | 0.600 | 0.000 | 0.286 | 0.000 |
+| adapter, with guard | **1.000** | **1.000** | 0.286 | 0.000 | 0.000 |
+
+Parsing, language-to-representation mapping, reasoning and ambiguity detection
+were scored separately. The unguarded adapter parses every example but accepts
+all 28.6% ambiguous/incomplete cases; the guarded adapter abstains on all of
+them. Failed cases are preserved in the result artifact.
+
+**Critical limitation.** The adapter and the ground-truth generator were
+co-designed around a small shared operation vocabulary and regex normalization.
+The perfect score therefore measures template-parsing transfer, **not** natural
+language understanding, broad paraphrase robustness, or real-world capability.
+There are only 14 hand-written templates; no held-out *lexical* vocabulary and
+no genuinely natural corpus. Nothing here generalizes beyond these families.
+
+Decision: `PROMISING_BUT_UNVALIDATED` (the bridge as a measured capability);
+`NOT_RECOMMENDED` (the adapter as evidence of language understanding or for
+integration).
+
+Artifact: `constructive/exp_l/results/L5-results.json`.
+
+## L6 — Reliability economics (gate PASS)
+
+Identical 280-task workload for all 10 configurations on the same machine.
+Operation counts are instrumented counts of this implementation, explicitly
+**not** OMEGA-NANO/EXP-K search expansions.
+
+| Configuration | Useful coverage | Incorrect accept | Avg latency | p95 | Verification checks | Correct/s |
+|---|---|---|---|---|---|---|
+| baseline | 0.654 | 0.346 | 0.116 ms | 0.191 ms | 0 | 5632 |
+| always-abstain | 0.000 | 0.000 | 0.102 ms | 0.199 ms | 0 | 0 |
+| L1 drift monitor only | 0.654 | 0.346 | 0.309 ms | 0.455 ms | 0 | 2116 |
+| L2 selective | 0.650 | **0.350** | 0.131 ms | 0.298 ms | 560 | 4970 |
+| L2 full | 0.650 | 0.350 | 0.122 ms | 0.234 ms | 2000 | 5310 |
+| L3 rank+verify | 0.654 | **0.011** | 0.121 ms | 0.240 ms | 0 | 5382 |
+| L4 temperature | 0.654 | 0.346 | 0.122 ms | 0.217 ms | 0 | 5367 |
+| coverage-oriented combo | 0.650 | 0.011 | 0.365 ms | 0.559 ms | 560 | 1780 |
+| accuracy-oriented combo | 0.650 | 0.011 | 0.323 ms | 0.467 ms | 2000 | 2010 |
+| resource-constrained | 0.654 | 0.011 | 0.334 ms | 0.570 ms | 280 | 1957 |
+
+**Economic conclusion.** L3 behavioral retrieval verification is the only
+configuration with a large reliability gain (incorrect acceptance 0.346 →
+0.011) at essentially unchanged useful coverage and a ~4% latency increase.
+L2 verification was *neutral-to-negative* here (incorrect acceptance rose
+0.346 → 0.350 for the selective variant) while adding 560–2000 checks, so it is
+not worth its cost in this workload. L1 monitoring and the combined
+configurations raised latency 2.8–3.1× without improving on L3 alone. No
+composite score is reported; the full vector is in `operation_counts`,
+`resources`, and the derived per-configuration fields.
+
+Decision: `ELIGIBLE_FOR_SEPARATE_REVIEW` is **not** granted — the gain is
+synthetic and unvalidated on realistic overlapping families (L3/L5). L3
+behavioral verification is `REQUIRES_MORE_EVIDENCE`; L2 verification and the
+combinations are `NOT_RECOMMENDED` on cost/benefit grounds.
+
+Artifact: `constructive/exp_l/results/L6-results.json`.
+
+## L7 — Independent reproduction and final audit (PASS)
+
+Every primary experiment was re-run from clean configuration with the documented
+seeds. Deterministic aggregate-metric fingerprints matched on two independent
+runs of L1–L6 (e.g., L1 `1101ab09…`, L2 `4eecf142…`, L7 artifact records all).
+Timestamps and measured wall-clock values were excluded from those comparisons.
+
+| Audit check | Result |
+|---|---|
+| All stages reproduced deterministically | PASS |
+| EXP-L tests | 41 passed in 1.61 s |
+| Full repository suite | 341 passed, 1 skipped in 91.29 s |
+| Protected hashes (EXP-I 22, EXP-J 84, EXP-K dataset) | PASS |
+| No protected source file modified | PASS |
+| Additive manifests / immutable snapshots | PASS |
+| Dataset split fingerprints and no leakage | PASS |
+| No external service and no prohibited/unlicensed data | PASS |
+| Commits pushed and visible on remote | PASS |
+| `master` unmodified | PASS (local `4d18fb7…`, origin `bcf3791…`) |
+
+Machine-readable hypothesis/decision summary:
+`constructive/exp_l/results/hypotheses_decisions.json`
+(6 `NOT_RECOMMENDED`, 3 `PROMISING_BUT_UNVALIDATED`, 2 `REQUIRES_MORE_EVIDENCE`,
+0 `ELIGIBLE_FOR_SEPARATE_REVIEW`).
+
+### Overall compute cost
+
+Measured on Intel64, 8 logical cores, Windows 11, Python 3.13.15, peak RSS
+≈ 26.7 MB across all experiment runs. Experiment wall times: L1 0.122 s,
+L2 0.294 s, L3 0.034 s, L4 0.062 s, L5 0.018 s; L6 configurations 0.03–0.37 s;
+L0 full-suite re-run ≈ 96 s. All CPU-only; no GPU, API, or paid service.
+
+### Final decision status
+
+**No mechanism is `ELIGIBLE_FOR_SEPARATE_REVIEW`; no integration was performed.**
+
+| Mechanism | Decision |
+|---|---|
+| L1 mapping-consistency drift detector | `PROMISING_BUT_UNVALIDATED` |
+| L1 feature-statistic drift detector | `NOT_RECOMMENDED` |
+| L2 selective verification | `REQUIRES_MORE_EVIDENCE` |
+| L2 full/conservative verification | `NOT_RECOMMENDED` |
+| L3 behavioral retrieval verification | `REQUIRES_MORE_EVIDENCE` |
+| L3 type/surface-aware retrieval | `NOT_RECOMMENDED` |
+| L4 temperature scaling | `PROMISING_BUT_UNVALIDATED` |
+| L4 binning / conditional calibration | `NOT_RECOMMENDED` |
+| L5 natural-input adapter | `PROMISING_BUT_UNVALIDATED` |
+| L6 combined configurations | `NOT_RECOMMENDED` |
+| OMEGA-NANO / CCM integration | `NOT_RECOMMENDED` |
+
+### Lessons and unresolved limitations
+
+- **What improved:** mapping-consistency drift detection under matched feature
+  marginals; behavioral retrieval verification (substitution 1.000→0.011 in L6
+  at ~4% latency); aggregate calibration on difficult subgroups.
+- **What did not improve:** selective intermediate verification had no credible
+  effect size; type/surface-aware retrieval did nothing; combinations regressed
+  latency without improving on L3 alone.
+- **What failed:** full/conservative verification eliminated wrong acceptance
+  only by discarding ~44% of useful coverage; conditional-by-family calibration
+  overfit and gave the worst NLL.
+- **Unknown / unresolved:** whether any of this holds for overlapping, realistic
+  concept families, real paraphrase diversity, or genuine distribution shift.
+- **Evidence type:** all L1–L4 and L6 evidence is synthetic; L5 is 14 hand-authored
+  templates. No result demonstrates general capability beyond the tested families.
+- **Fair external comparison:** none was performed; no claim of superiority over
+  large models is made.
+
+### Protected-system confirmation
+
+`omega_nano/`, CCM, the original constructive core, EXP-H, EXP-I, EXP-J and EXP-K
+were not modified; their source hashes are unchanged. `master` was not modified
+by EXP-L. Eight pre-existing untracked EXP-H result files were left untouched.

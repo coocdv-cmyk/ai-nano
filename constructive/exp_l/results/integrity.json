@@ -36,7 +36,77 @@
       },
       "gate_pass": true,
       "snapshot": "constructive\\exp_l\\results\\history\\L2-20261118-132625.json"
+    },
+    "L3": {
+      "stage": "L3",
+      "gate": {
+        "type_aware_not_a_solution": true,
+        "heldout_substitution_reduced": true,
+        "familiar_coverage_preserved": true,
+        "recall_not_treated_as_correctness": true,
+        "reproducible": true
+      },
+      "gate_pass": true,
+      "snapshot": "constructive\\exp_l\\results\\history\\L3-20261118-133109.json"
+    },
+    "L4": {
+      "stage": "L4",
+      "gate": {
+        "calibration_split_disjoint": true,
+        "aggregate_ece_improved": true,
+        "no_difficult_subgroup_degradation": true,
+        "small_groups_labelled_exploratory": true,
+        "confidence_not_claimed_as_correctness": true,
+        "reproducible": true
+      },
+      "gate_pass": true,
+      "snapshot": "constructive\\exp_l\\results\\history\\L4-20261118-133605.json"
+    },
+    "L5": {
+      "stage": "L5",
+      "gate": {
+        "template_split": true,
+        "parsing_separate_from_reasoning": true,
+        "no_external_model": true,
+        "heldout_transfer_measurable": true,
+        "ambiguous_handled": true,
+        "license_documented": true
+      },
+      "gate_pass": true,
+      "snapshot": "constructive\\exp_l\\results\\history\\L5-20261118-134157.json"
+    },
+    "L6": {
+      "stage": "L6",
+      "gate": {
+        "identical_workload": true,
+        "vector_metrics_reported": true,
+        "no_composite_score": true,
+        "cost_reported_for_all": true,
+        "some_reliable_gain_at_reasonable_cost": true
+      },
+      "gate_pass": true,
+      "snapshot": "constructive\\exp_l\\results\\history\\L6-20261118-134619.json"
+    },
+    "L7": {
+      "stage": "L7",
+      "gate": {
+        "all_stages_reproduced": true,
+        "exp_l_tests_pass": true,
+        "full_suite_pass": true,
+        "protected_hashes_ok": true,
+        "no_protected_source_modified": true,
+        "manifests_ok": true,
+        "snapshots_ok": true,
+        "split_fingerprints_ok": true,
+        "no_leakage": true,
+        "no_external_service": true,
+        "no_prohibited_data": true,
+        "commits_pushed": true,
+        "master_unmodified": true
+      },
+      "gate_pass": true,
+      "snapshot": "constructive\\exp_l\\results\\history\\L7-20261118-135640.json"
     }
   },
-  "fingerprint": "d503d50bd695eb44"
+  "fingerprint": "eecfa1f1de7d787b"
 }

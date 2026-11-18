@@ -27,6 +27,11 @@ from .reporting import (RESULTS, artifact_name, snapshot, update_integrity,
                         update_latest, write_json)
 from .semantic_drift import run_l1
 from .composition_verification import run_l2
+from .retrieval_generalization import run_l3
+from .conditional_calibration import run_l4
+from .natural_input_bridge import run_l5
+from .reliability_economics import run_l6
+from .audit import run_l7
 
 
 def _git_lines(*args: str) -> list[str]:
@@ -223,6 +228,16 @@ def main(argv: list[str] | None = None) -> int:
         block = persist_block("L1", run_l1(cfg), cfg)
     elif cfg.stage == "L2":
         block = persist_block("L2", run_l2(cfg), cfg)
+    elif cfg.stage == "L3":
+        block = persist_block("L3", run_l3(cfg), cfg)
+    elif cfg.stage == "L4":
+        block = persist_block("L4", run_l4(cfg), cfg)
+    elif cfg.stage == "L5":
+        block = persist_block("L5", run_l5(cfg), cfg)
+    elif cfg.stage == "L6":
+        block = persist_block("L6", run_l6(cfg), cfg)
+    elif cfg.stage == "L7":
+        block = persist_block("L7", run_l7(cfg), cfg)
     else:
         print(f"Stage {cfg.stage} is not implemented yet in this milestone.")
         return 2

@@ -1714,8 +1714,2954 @@
       },
       "note": "Intermediate checkpoints are task specification data; hidden program, held-out test labels and first-error diagnostics are never passed to decide().",
       "snapshot": "constructive\\exp_l\\results\\history\\L2-20261118-132625.json"
+    },
+    "L3": {
+      "stage": "L3",
+      "schema": "exp-l-stage-block-v1",
+      "config": {
+        "stage": "L3",
+        "seed": 0,
+        "seeds": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "quick": false,
+        "no_resume": false,
+        "merge_only": false,
+        "generator_version": "exp-l-gen-1",
+        "seed_policy": "explicit_sha256_derived_random.Random(seed, stream); no hash() of strings",
+        "n_train": 4,
+        "n_val": 4,
+        "n_test": 8,
+        "time_limit_s": 120.0,
+        "memory_limit_mb": 512.0,
+        "full_test_timeout_s": 300.0
+      },
+      "config_fingerprint": "4b8fc8ee8867382a",
+      "n_queries": 270,
+      "n_rows": 1890,
+      "families": {
+        "familiar": [
+          "c-inc-1",
+          "c-inc-2",
+          "c-dec-1",
+          "c-sign-neg",
+          "c-sign-abs",
+          "c-scale-double"
+        ],
+        "heldout": [
+          "c-mod-7",
+          "c-half",
+          "c-digit-sum",
+          "c-band",
+          "c-square",
+          "c-thresh"
+        ]
+      },
+      "by_method": {
+        "baseline": {
+          "n": 270,
+          "recall_at_1": 1.0,
+          "recall_at_2": 1.0,
+          "recall_at_5": 1.0,
+          "correct_top1_familiar": 1.0,
+          "silent_substitution_rate": 1.0,
+          "correct_abstention_rate": 0.0,
+          "correct_retrieval_acceptance": 0.3333333333333333,
+          "useful_coverage": 0.3333333333333333,
+          "abstention_rate": 0.0,
+          "selective_accuracy": 0.3333333333333333,
+          "by_family_group": {
+            "familiar": {
+              "n": 90,
+              "correct_acceptance": 1.0,
+              "wrong_abstention": 0.0
+            },
+            "heldout": {
+              "n": 180,
+              "silent_substitution": 1.0,
+              "correct_abstention": 0.0
+            }
+          }
+        },
+        "type_aware": {
+          "n": 270,
+          "recall_at_1": 1.0,
+          "recall_at_2": 1.0,
+          "recall_at_5": 1.0,
+          "correct_top1_familiar": 1.0,
+          "silent_substitution_rate": 1.0,
+          "correct_abstention_rate": 0.0,
+          "correct_retrieval_acceptance": 0.3333333333333333,
+          "useful_coverage": 0.3333333333333333,
+          "abstention_rate": 0.0,
+          "selective_accuracy": 0.3333333333333333,
+          "by_family_group": {
+            "familiar": {
+              "n": 90,
+              "correct_acceptance": 1.0,
+              "wrong_abstention": 0.0
+            },
+            "heldout": {
+              "n": 180,
+              "silent_substitution": 1.0,
+              "correct_abstention": 0.0
+            }
+          }
+        },
+        "similarity_only": {
+          "n": 270,
+          "recall_at_1": 1.0,
+          "recall_at_2": 1.0,
+          "recall_at_5": 1.0,
+          "correct_top1_familiar": 1.0,
+          "silent_substitution_rate": 1.0,
+          "correct_abstention_rate": 0.0,
+          "correct_retrieval_acceptance": 0.3333333333333333,
+          "useful_coverage": 0.3333333333333333,
+          "abstention_rate": 0.0,
+          "selective_accuracy": 0.3333333333333333,
+          "by_family_group": {
+            "familiar": {
+              "n": 90,
+              "correct_acceptance": 1.0,
+              "wrong_abstention": 0.0
+            },
+            "heldout": {
+              "n": 180,
+              "silent_substitution": 1.0,
+              "correct_abstention": 0.0
+            }
+          }
+        },
+        "evidence_aware": {
+          "n": 270,
+          "recall_at_1": 1.0,
+          "recall_at_2": 1.0,
+          "recall_at_5": 1.0,
+          "correct_top1_familiar": 1.0,
+          "silent_substitution_rate": 0.0,
+          "correct_abstention_rate": 1.0,
+          "correct_retrieval_acceptance": 0.3333333333333333,
+          "useful_coverage": 0.3333333333333333,
+          "abstention_rate": 0.6666666666666666,
+          "selective_accuracy": 1.0,
+          "by_family_group": {
+            "familiar": {
+              "n": 90,
+              "correct_acceptance": 1.0,
+              "wrong_abstention": 0.0
+            },
+            "heldout": {
+              "n": 180,
+              "silent_substitution": 0.0,
+              "correct_abstention": 1.0
+            }
+          }
+        },
+        "independent_verification": {
+          "n": 270,
+          "recall_at_1": 1.0,
+          "recall_at_2": 1.0,
+          "recall_at_5": 1.0,
+          "correct_top1_familiar": 1.0,
+          "silent_substitution_rate": 0.25,
+          "correct_abstention_rate": 0.75,
+          "correct_retrieval_acceptance": 0.3333333333333333,
+          "useful_coverage": 0.3333333333333333,
+          "abstention_rate": 0.5,
+          "selective_accuracy": 0.6666666666666666,
+          "by_family_group": {
+            "familiar": {
+              "n": 90,
+              "correct_acceptance": 1.0,
+              "wrong_abstention": 0.0
+            },
+            "heldout": {
+              "n": 180,
+              "silent_substitution": 0.25,
+              "correct_abstention": 0.75
+            }
+          }
+        },
+        "abstention": {
+          "n": 270,
+          "recall_at_1": 1.0,
+          "recall_at_2": 1.0,
+          "recall_at_5": 1.0,
+          "correct_top1_familiar": 1.0,
+          "silent_substitution_rate": 0.0,
+          "correct_abstention_rate": 1.0,
+          "correct_retrieval_acceptance": 0.3333333333333333,
+          "useful_coverage": 0.3333333333333333,
+          "abstention_rate": 0.6666666666666666,
+          "selective_accuracy": 1.0,
+          "by_family_group": {
+            "familiar": {
+              "n": 90,
+              "correct_acceptance": 1.0,
+              "wrong_abstention": 0.0
+            },
+            "heldout": {
+              "n": 180,
+              "silent_substitution": 0.0,
+              "correct_abstention": 1.0
+            }
+          }
+        },
+        "rank_verify": {
+          "n": 270,
+          "recall_at_1": 1.0,
+          "recall_at_2": 1.0,
+          "recall_at_5": 1.0,
+          "correct_top1_familiar": 1.0,
+          "silent_substitution_rate": 0.0,
+          "correct_abstention_rate": 1.0,
+          "correct_retrieval_acceptance": 0.3333333333333333,
+          "useful_coverage": 0.3333333333333333,
+          "abstention_rate": 0.6666666666666666,
+          "selective_accuracy": 1.0,
+          "by_family_group": {
+            "familiar": {
+              "n": 90,
+              "correct_acceptance": 1.0,
+              "wrong_abstention": 0.0
+            },
+            "heldout": {
+              "n": 180,
+              "silent_substitution": 0.0,
+              "correct_abstention": 1.0
+            }
+          }
+        }
+      },
+      "comparisons": {
+        "type_aware": {
+          "substitution_delta_vs_baseline": {
+            "mean": 0.0,
+            "lo": 0.0,
+            "hi": 0.0,
+            "n": 10
+          },
+          "familiar_correct_acceptance_delta_vs_baseline": {
+            "mean": 0.0,
+            "lo": 0.0,
+            "hi": 0.0,
+            "n": 10
+          }
+        },
+        "similarity_only": {
+          "substitution_delta_vs_baseline": {
+            "mean": 0.0,
+            "lo": 0.0,
+            "hi": 0.0,
+            "n": 10
+          },
+          "familiar_correct_acceptance_delta_vs_baseline": {
+            "mean": 0.0,
+            "lo": 0.0,
+            "hi": 0.0,
+            "n": 10
+          }
+        },
+        "evidence_aware": {
+          "substitution_delta_vs_baseline": {
+            "mean": -1.0,
+            "lo": -1.0,
+            "hi": -1.0,
+            "n": 10
+          },
+          "familiar_correct_acceptance_delta_vs_baseline": {
+            "mean": 0.0,
+            "lo": 0.0,
+            "hi": 0.0,
+            "n": 10
+          }
+        },
+        "independent_verification": {
+          "substitution_delta_vs_baseline": {
+            "mean": -0.7500000000000001,
+            "lo": -0.8,
+            "hi": -0.7000000000000001,
+            "n": 10
+          },
+          "familiar_correct_acceptance_delta_vs_baseline": {
+            "mean": 0.0,
+            "lo": 0.0,
+            "hi": 0.0,
+            "n": 10
+          }
+        },
+        "abstention": {
+          "substitution_delta_vs_baseline": {
+            "mean": -1.0,
+            "lo": -1.0,
+            "hi": -1.0,
+            "n": 10
+          },
+          "familiar_correct_acceptance_delta_vs_baseline": {
+            "mean": 0.0,
+            "lo": 0.0,
+            "hi": 0.0,
+            "n": 10
+          }
+        },
+        "rank_verify": {
+          "substitution_delta_vs_baseline": {
+            "mean": -1.0,
+            "lo": -1.0,
+            "hi": -1.0,
+            "n": 10
+          },
+          "familiar_correct_acceptance_delta_vs_baseline": {
+            "mean": 0.0,
+            "lo": 0.0,
+            "hi": 0.0,
+            "n": 10
+          }
+        }
+      },
+      "gate": {
+        "type_aware_not_a_solution": true,
+        "heldout_substitution_reduced": true,
+        "familiar_coverage_preserved": true,
+        "recall_not_treated_as_correctness": true,
+        "reproducible": true
+      },
+      "gate_pass": true,
+      "resources": {
+        "wall_s": 0.03386,
+        "cpu_s": 0.03125,
+        "peak_rss_mb": 24.879
+      },
+      "note": "Recall@k is measured only where a correct concept exists in the pool; held-out recall is undefined and is not reported as a success score.",
+      "snapshot": "constructive\\exp_l\\results\\history\\L3-20261118-133109.json"
+    },
+    "L4": {
+      "stage": "L4",
+      "schema": "exp-l-stage-block-v1",
+      "config": {
+        "stage": "L4",
+        "seed": 0,
+        "seeds": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "quick": false,
+        "no_resume": false,
+        "merge_only": false,
+        "generator_version": "exp-l-gen-1",
+        "seed_policy": "explicit_sha256_derived_random.Random(seed, stream); no hash() of strings",
+        "n_train": 4,
+        "n_val": 4,
+        "n_test": 8,
+        "time_limit_s": 120.0,
+        "memory_limit_mb": 512.0,
+        "full_test_timeout_s": 300.0
+      },
+      "config_fingerprint": "d7825f9538335c9f",
+      "calibration_seeds": [
+        201,
+        202,
+        203,
+        204
+      ],
+      "eval_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "n_calibration": 480,
+      "n_evaluation": 1200,
+      "min_group_n": 30,
+      "fitted_parameters": {
+        "raw": {},
+        "temperature": {
+          "T": 5.0
+        },
+        "binning": {
+          "values": [
+            0.0,
+            0.07894736842105263,
+            0.41041666666666665,
+            0.41041666666666665,
+            0.41041666666666665,
+            0.42424242424242425,
+            0.34375,
+            0.4972972972972973,
+            0.5510204081632653,
+            0.125
+          ],
+          "counts": [
+            22,
+            38,
+            0,
+            0,
+            0,
+            33,
+            96,
+            185,
+            98,
+            8
+          ]
+        },
+        "conditional_family": {
+          "tables": {
+            "arith": [
+              0.0,
+              0.1,
+              0.425,
+              0.425,
+              0.425,
+              0.0,
+              0.4444444444444444,
+              0.4482758620689655,
+              0.6470588235294118,
+              1.0
+            ],
+            "modular": [
+              0.0,
+              0.0,
+              0.42857142857142855,
+              0.42857142857142855,
+              0.42857142857142855,
+              0.5,
+              0.4444444444444444,
+              0.4857142857142857,
+              0.5714285714285714,
+              0.0
+            ],
+            "sequence": [
+              0.0,
+              0.2,
+              0.44047619047619047,
+              0.44047619047619047,
+              0.44047619047619047,
+              0.42857142857142855,
+              0.2,
+              0.6666666666666666,
+              0.5,
+              0.0
+            ],
+            "boolean": [
+              0.0,
+              0.0,
+              0.4125,
+              0.4125,
+              0.4125,
+              0.42857142857142855,
+              0.375,
+              0.4642857142857143,
+              0.6111111111111112,
+              0.0
+            ],
+            "symbolic": [
+              0.0,
+              0.0,
+              0.35526315789473684,
+              0.35526315789473684,
+              0.35526315789473684,
+              0.75,
+              0.3333333333333333,
+              0.41379310344827586,
+              0.4375,
+              0.35526315789473684
+            ],
+            "scale": [
+              0.0,
+              0.125,
+              0.39473684210526316,
+              0.39473684210526316,
+              0.39473684210526316,
+              0.3333333333333333,
+              0.2222222222222222,
+              0.5,
+              0.5333333333333333,
+              0.39473684210526316
+            ]
+          },
+          "global": [
+            0.0,
+            0.07894736842105263,
+            0.41041666666666665,
+            0.41041666666666665,
+            0.41041666666666665,
+            0.42424242424242425,
+            0.34375,
+            0.4972972972972973,
+            0.5510204081632653,
+            0.125
+          ]
+        },
+        "conditional_depth_evidence": {
+          "tables": {
+            "2|low": [
+              0.0,
+              0.0,
+              0.41875,
+              0.41875,
+              0.41875,
+              0.6,
+              0.4375,
+              0.49122807017543857,
+              0.5,
+              0.0
+            ],
+            "5|medium": [
+              0.0,
+              0.15384615384615385,
+              0.34375,
+              0.34375,
+              0.34375,
+              0.38461538461538464,
+              0.25806451612903225,
+              0.36065573770491804,
+              0.5294117647058824,
+              0.0
+            ],
+            "12|high": [
+              0.0,
+              0.06666666666666667,
+              0.46875,
+              0.46875,
+              0.46875,
+              0.3,
+              0.3333333333333333,
+              0.6268656716417911,
+              0.6538461538461539,
+              0.25
+            ]
+          },
+          "global": [
+            0.0,
+            0.07894736842105263,
+            0.41041666666666665,
+            0.41041666666666665,
+            0.41041666666666665,
+            0.42424242424242425,
+            0.34375,
+            0.4972972972972973,
+            0.5510204081632653,
+            0.125
+          ]
+        }
+      },
+      "by_method": {
+        "raw": {
+          "n": 1200,
+          "ece": 0.2490964215036873,
+          "adaptive_ece": 0.24367579451354202,
+          "brier": 0.29586529493225927,
+          "nll": 0.8111249243566224,
+          "accuracy": 0.4166666666666667,
+          "risk_coverage": [
+            {
+              "threshold": 0.1,
+              "coverage": 0.9541666666666667,
+              "selective_accuracy": 0.43056768558951963,
+              "selective_risk": 0.5694323144104804
+            },
+            {
+              "threshold": 0.2,
+              "coverage": 0.875,
+              "selective_accuracy": 0.46476190476190476,
+              "selective_risk": 0.5352380952380953
+            },
+            {
+              "threshold": 0.3,
+              "coverage": 0.875,
+              "selective_accuracy": 0.46476190476190476,
+              "selective_risk": 0.5352380952380953
+            },
+            {
+              "threshold": 0.4,
+              "coverage": 0.875,
+              "selective_accuracy": 0.46476190476190476,
+              "selective_risk": 0.5352380952380953
+            },
+            {
+              "threshold": 0.5,
+              "coverage": 0.875,
+              "selective_accuracy": 0.46476190476190476,
+              "selective_risk": 0.5352380952380953
+            },
+            {
+              "threshold": 0.6,
+              "coverage": 0.8175,
+              "selective_accuracy": 0.4597349643221203,
+              "selective_risk": 0.5402650356778798
+            },
+            {
+              "threshold": 0.7,
+              "coverage": 0.6125,
+              "selective_accuracy": 0.48027210884353744,
+              "selective_risk": 0.5197278911564626
+            },
+            {
+              "threshold": 0.8,
+              "coverage": 0.21166666666666667,
+              "selective_accuracy": 0.5511811023622047,
+              "selective_risk": 0.44881889763779526
+            },
+            {
+              "threshold": 0.9,
+              "coverage": 0.024166666666666666,
+              "selective_accuracy": 0.3103448275862069,
+              "selective_risk": 0.6896551724137931
+            }
+          ],
+          "by_condition": {
+            "normal": {
+              "n": 150,
+              "reliable": true,
+              "accuracy": 0.72,
+              "mean_confidence": 0.7749571737217864,
+              "ece": 0.05495717372178642
+            },
+            "deep": {
+              "n": 150,
+              "reliable": true,
+              "accuracy": 0.44,
+              "mean_confidence": 0.8453142138991868,
+              "ece": 0.4053142138991867
+            },
+            "retrieval_uncertain": {
+              "n": 150,
+              "reliable": true,
+              "accuracy": 0.5666666666666667,
+              "mean_confidence": 0.7921454372789474,
+              "ece": 0.22547877061228075
+            },
+            "semantic_drift": {
+              "n": 150,
+              "reliable": true,
+              "accuracy": 0.31333333333333335,
+              "mean_confidence": 0.6997856127565281,
+              "ece": 0.3864522794231947
+            },
+            "contradictory": {
+              "n": 150,
+              "reliable": true,
+              "accuracy": 0.08,
+              "mean_confidence": 0.11791390032971644,
+              "ece": 0.08127891625087874
+            },
+            "adversarial": {
+              "n": 150,
+              "reliable": true,
+              "accuracy": 0.38666666666666666,
+              "mean_confidence": 0.7473916473497221,
+              "ece": 0.3607249806830555
+            },
+            "ood": {
+              "n": 150,
+              "reliable": true,
+              "accuracy": 0.25333333333333335,
+              "mean_confidence": 0.701570583351626,
+              "ece": 0.4482372500182926
+            },
+            "low_evidence": {
+              "n": 150,
+              "reliable": true,
+              "accuracy": 0.5733333333333334,
+              "mean_confidence": 0.6036611207541561,
+              "ece": 0.030327787420822726
+            }
+          }
+        },
+        "temperature": {
+          "n": 1200,
+          "ece": 0.11773697308531197,
+          "adaptive_ece": 0.11929418457428376,
+          "brier": 0.24620162463887374,
+          "nll": 0.6853767920144963,
+          "accuracy": 0.4166666666666667,
+          "risk_coverage": [
+            {
+              "threshold": 0.1,
+              "coverage": 1.0,
+              "selective_accuracy": 0.4166666666666667,
+              "selective_risk": 0.5833333333333333
+            },
+            {
+              "threshold": 0.2,
+              "coverage": 1.0,
+              "selective_accuracy": 0.4166666666666667,
+              "selective_risk": 0.5833333333333333
+            },
+            {
+              "threshold": 0.3,
+              "coverage": 1.0,
+              "selective_accuracy": 0.4166666666666667,
+              "selective_risk": 0.5833333333333333
+            },
+            {
+              "threshold": 0.4,
+              "coverage": 0.9391666666666667,
+              "selective_accuracy": 0.43655723158828746,
+              "selective_risk": 0.5634427684117125
+            },
+            {
+              "threshold": 0.5,
+              "coverage": 0.875,
+              "selective_accuracy": 0.46476190476190476,
+              "selective_risk": 0.5352380952380953
+            },
+            {
+              "threshold": 0.6,
+              "coverage": 0.04,
+              "selective_accuracy": 0.3333333333333333,
+              "selective_risk": 0.6666666666666667
+            },
+            {
+              "threshold": 0.7,
+              "coverage": 0.0,
+              "selective_accuracy": null,
+              "selective_risk": null
+            },
+            {
+              "threshold": 0.8,
+              "coverage": 0.0,
+              "selective_accuracy": null,
+              "selective_risk": null
+            },
+            {
+              "threshold": 0.9,
+              "coverage": 0.0,
+              "selective_accuracy": null,
+              "selective_risk": null
+            }
+          ],
+          "by_condition": {
+            "normal": {
+              "n": 150,
+              "reliable": true,
+              "accuracy": 0.72,
+              "mean_confidence": 0.5624903014922864,
+              "ece": 0.15750969850771357
+            },
+            "deep": {
+              "n": 150,
+              "reliable": true,
+              "accuracy": 0.44,
+              "mean_confidence": 0.5866564821182311,
+              "ece": 0.14665648211823099
+            },
+            "retrieval_uncertain": {
+              "n": 150,
+              "reliable": true,
+              "accuracy": 0.5666666666666667,
+              "mean_confidence": 0.567617597224853,
+              "ece": 0.0009509305581864025
+            },
+            "semantic_drift": {
+              "n": 150,
+              "reliable": true,
+              "accuracy": 0.31333333333333335,
+              "mean_confidence": 0.5426437495356493,
+              "ece": 0.22931041620231596
+            },
+            "contradictory": {
+              "n": 150,
+              "reliable": true,
+              "accuracy": 0.08,
+              "mean_confidence": 0.396853752666444,
+              "ece": 0.31685375266644406
+            },
+            "adversarial": {
+              "n": 150,
+              "reliable": true,
+              "accuracy": 0.38666666666666666,
+              "mean_confidence": 0.5546695465825917,
+              "ece": 0.16800287991592505
+            },
+            "ood": {
+              "n": 150,
+              "reliable": true,
+              "accuracy": 0.25333333333333335,
+              "mean_confidence": 0.5430824157866788,
+              "ece": 0.28974908245334546
+            },
+            "low_evidence": {
+              "n": 150,
+              "reliable": true,
+              "accuracy": 0.5733333333333334,
+              "mean_confidence": 0.5212152726090947,
+              "ece": 0.052118060724238635
+            }
+          }
+        },
+        "binning": {
+          "n": 1200,
+          "ece": 0.04067136286332717,
+          "adaptive_ece": 0.05268337487533918,
+          "brier": 0.22648059380521587,
+          "nll": 0.7411542136776393,
+          "accuracy": 0.4166666666666667,
+          "risk_coverage": [
+            {
+              "threshold": 0.1,
+              "coverage": 0.875,
+              "selective_accuracy": 0.46476190476190476,
+              "selective_risk": 0.5352380952380953
+            },
+            {
+              "threshold": 0.2,
+              "coverage": 0.8508333333333333,
+              "selective_accuracy": 0.4691478942213516,
+              "selective_risk": 0.5308521057786484
+            },
+            {
+              "threshold": 0.3,
+              "coverage": 0.8508333333333333,
+              "selective_accuracy": 0.4691478942213516,
+              "selective_risk": 0.5308521057786484
+            },
+            {
+              "threshold": 0.4,
+              "coverage": 0.6458333333333334,
+              "selective_accuracy": 0.4916129032258065,
+              "selective_risk": 0.5083870967741935
+            },
+            {
+              "threshold": 0.5,
+              "coverage": 0.1875,
+              "selective_accuracy": 0.5822222222222222,
+              "selective_risk": 0.4177777777777778
+            },
+            {
+              "threshold": 0.6,
+              "coverage": 0.0,
+              "selective_accuracy": null,
+              "selective_risk": null
+            },
+            {
+              "threshold": 0.7,
+              "coverage": 0.0,
+              "selective_accuracy": null,
+              "selective_risk": null
+            },
+            {
+              "threshold": 0.8,
+              "coverage": 0.0,
+              "selective_accuracy": null,
+              "selective_risk": null
+            },
+            {
+              "threshold": 0.9,
+              "coverage": 0.0,
+              "selective_accuracy": null,
+              "selective_risk": null
+            }
+          ],
+          "by_condition": {
+            "normal": {
+              "n": 150,
+              "reliable": true,
+              "accuracy": 0.72,
+              "mean_confidence": 0.5173539253539254,
+              "ece": 0.20264607464607468
+            },
+            "deep": {
+              "n": 150,
+              "reliable": true,
+              "accuracy": 0.44,
+              "mean_confidence": 0.4546884537598823,
+              "ece": 0.086355120426549
+            },
+            "retrieval_uncertain": {
+              "n": 150,
+              "reliable": true,
+              "accuracy": 0.5666666666666667,
+              "mean_confidence": 0.5198610038610039,
+              "ece": 0.04680566280566281
+            },
+            "semantic_drift": {
+              "n": 150,
+              "reliable": true,
+              "accuracy": 0.31333333333333335,
+              "mean_confidence": 0.41847635135135136,
+              "ece": 0.10514301801801805
+            },
+            "contradictory": {
+              "n": 150,
+              "reliable": true,
+              "accuracy": 0.08,
+              "mean_confidence": 0.05,
+              "ece": 0.03
+            },
+            "adversarial": {
+              "n": 150,
+              "reliable": true,
+              "accuracy": 0.38666666666666666,
+              "mean_confidence": 0.4874673193601765,
+              "ece": 0.13830065269350986
+            },
+            "ood": {
+              "n": 150,
+              "reliable": true,
+              "accuracy": 0.25333333333333335,
+              "mean_confidence": 0.42564189189189194,
+              "ece": 0.17230855855855862
+            },
+            "low_evidence": {
+              "n": 150,
+              "reliable": true,
+              "accuracy": 0.5733333333333334,
+              "mean_confidence": 0.38077651515151517,
+              "ece": 0.19255681818181822
+            }
+          }
+        },
+        "conditional_family": {
+          "n": 1200,
+          "ece": 0.05852765569829464,
+          "adaptive_ece": 0.07162734097470405,
+          "brier": 0.23609999543056753,
+          "nll": 1.0475841371071086,
+          "accuracy": 0.4166666666666667,
+          "risk_coverage": [
+            {
+              "threshold": 0.1,
+              "coverage": 0.8941666666666667,
+              "selective_accuracy": 0.44547996272134205,
+              "selective_risk": 0.554520037278658
+            },
+            {
+              "threshold": 0.2,
+              "coverage": 0.8641666666666666,
+              "selective_accuracy": 0.45901639344262296,
+              "selective_risk": 0.540983606557377
+            },
+            {
+              "threshold": 0.3,
+              "coverage": 0.7925,
+              "selective_accuracy": 0.47634069400630913,
+              "selective_risk": 0.5236593059936909
+            },
+            {
+              "threshold": 0.4,
+              "coverage": 0.7125,
+              "selective_accuracy": 0.48771929824561405,
+              "selective_risk": 0.512280701754386
+            },
+            {
+              "threshold": 0.5,
+              "coverage": 0.3233333333333333,
+              "selective_accuracy": 0.5309278350515464,
+              "selective_risk": 0.4690721649484536
+            },
+            {
+              "threshold": 0.6,
+              "coverage": 0.14333333333333334,
+              "selective_accuracy": 0.4941860465116279,
+              "selective_risk": 0.5058139534883721
+            },
+            {
+              "threshold": 0.7,
+              "coverage": 0.009166666666666667,
+              "selective_accuracy": 0.45454545454545453,
+              "selective_risk": 0.5454545454545454
+            },
+            {
+              "threshold": 0.8,
+              "coverage": 0.004166666666666667,
+              "selective_accuracy": 0.2,
+              "selective_risk": 0.8
+            },
+            {
+              "threshold": 0.9,
+              "coverage": 0.004166666666666667,
+              "selective_accuracy": 0.2,
+              "selective_risk": 0.8
+            }
+          ],
+          "by_condition": {
+            "normal": {
+              "n": 150,
+              "reliable": true,
+              "accuracy": 0.72,
+              "mean_confidence": 0.5181514510018567,
+              "ece": 0.20184854899814328
+            },
+            "deep": {
+              "n": 150,
+              "reliable": true,
+              "accuracy": 0.44,
+              "mean_confidence": 0.4809377475127982,
+              "ece": 0.14760441417946488
+            },
+            "retrieval_uncertain": {
+              "n": 150,
+              "reliable": true,
+              "accuracy": 0.5666666666666667,
+              "mean_confidence": 0.5213574701911415,
+              "ece": 0.13528740998315036
+            },
+            "semantic_drift": {
+              "n": 150,
+              "reliable": true,
+              "accuracy": 0.31333333333333335,
+              "mean_confidence": 0.416090494435322,
+              "ece": 0.11016456850939607
+            },
+            "contradictory": {
+              "n": 150,
+              "reliable": true,
+              "accuracy": 0.08,
+              "mean_confidence": 0.0455,
+              "ece": 0.09883333333333333
+            },
+            "adversarial": {
+              "n": 150,
+              "reliable": true,
+              "accuracy": 0.38666666666666666,
+              "mean_confidence": 0.49159532127027056,
+              "ece": 0.1171508768258261
+            },
+            "ood": {
+              "n": 150,
+              "reliable": true,
+              "accuracy": 0.25333333333333335,
+              "mean_confidence": 0.4334607735814633,
+              "ece": 0.18546077358146323
+            },
+            "low_evidence": {
+              "n": 150,
+              "reliable": true,
+              "accuracy": 0.5733333333333334,
+              "mean_confidence": 0.3711190476190476,
+              "ece": 0.20888095238095242
+            }
+          }
+        },
+        "conditional_depth_evidence": {
+          "n": 1200,
+          "ece": 0.09885574108683975,
+          "adaptive_ece": 0.08890702313812178,
+          "brier": 0.23458662844617,
+          "nll": 0.8463310520849043,
+          "accuracy": 0.4166666666666667,
+          "risk_coverage": [
+            {
+              "threshold": 0.1,
+              "coverage": 0.8875,
+              "selective_accuracy": 0.45539906103286387,
+              "selective_risk": 0.5446009389671361
+            },
+            {
+              "threshold": 0.2,
+              "coverage": 0.8616666666666667,
+              "selective_accuracy": 0.4671179883945841,
+              "selective_risk": 0.5328820116054158
+            },
+            {
+              "threshold": 0.3,
+              "coverage": 0.7891666666666667,
+              "selective_accuracy": 0.4751847940865892,
+              "selective_risk": 0.5248152059134108
+            },
+            {
+              "threshold": 0.4,
+              "coverage": 0.5466666666666666,
+              "selective_accuracy": 0.4801829268292683,
+              "selective_risk": 0.5198170731707317
+            },
+            {
+              "threshold": 0.5,
+              "coverage": 0.3358333333333333,
+              "selective_accuracy": 0.5285359801488834,
+              "selective_risk": 0.47146401985111663
+            },
+            {
+              "threshold": 0.6,
+              "coverage": 0.21416666666666667,
+              "selective_accuracy": 0.5019455252918288,
+              "selective_risk": 0.4980544747081712
+            },
+            {
+              "threshold": 0.7,
+              "coverage": 0.0,
+              "selective_accuracy": null,
+              "selective_risk": null
+            },
+            {
+              "threshold": 0.8,
+              "coverage": 0.0,
+              "selective_accuracy": null,
+              "selective_risk": null
+            },
+            {
+              "threshold": 0.9,
+              "coverage": 0.0,
+              "selective_accuracy": null,
+              "selective_risk": null
+            }
+          ],
+          "by_condition": {
+            "normal": {
+              "n": 150,
+              "reliable": true,
+              "accuracy": 0.72,
+              "mean_confidence": 0.512970003777942,
+              "ece": 0.20702999622205806
+            },
+            "deep": {
+              "n": 150,
+              "reliable": true,
+              "accuracy": 0.44,
+              "mean_confidence": 0.45338525926826745,
+              "ece": 0.12087159806608169
+            },
+            "retrieval_uncertain": {
+              "n": 150,
+              "reliable": true,
+              "accuracy": 0.5666666666666667,
+              "mean_confidence": 0.5235594055847204,
+              "ece": 0.08154583743097046
+            },
+            "semantic_drift": {
+              "n": 150,
+              "reliable": true,
+              "accuracy": 0.31333333333333335,
+              "mean_confidence": 0.4229681190266209,
+              "ece": 0.1233982265535026
+            },
+            "contradictory": {
+              "n": 150,
+              "reliable": true,
+              "accuracy": 0.08,
+              "mean_confidence": 0.046905982905982906,
+              "ece": 0.07001709401709402
+            },
+            "adversarial": {
+              "n": 150,
+              "reliable": true,
+              "accuracy": 0.38666666666666666,
+              "mean_confidence": 0.4894783874922185,
+              "ece": 0.17389338388033837
+            },
+            "ood": {
+              "n": 150,
+              "reliable": true,
+              "accuracy": 0.25333333333333335,
+              "mean_confidence": 0.4271342772739511,
+              "ece": 0.17380094394061768
+            },
+            "low_evidence": {
+              "n": 150,
+              "reliable": true,
+              "accuracy": 0.5733333333333334,
+              "mean_confidence": 0.3799117728149986,
+              "ece": 0.2040882271850014
+            }
+          }
+        }
+      },
+      "subgroup_analysis": {
+        "raw": {
+          "degraded_difficult": [],
+          "degraded_easy": [],
+          "degraded_all_reliable": []
+        },
+        "temperature": {
+          "degraded_difficult": [],
+          "degraded_easy": [
+            "normal",
+            "contradictory"
+          ],
+          "degraded_all_reliable": [
+            "normal",
+            "contradictory"
+          ]
+        },
+        "binning": {
+          "degraded_difficult": [],
+          "degraded_easy": [
+            "normal",
+            "low_evidence"
+          ],
+          "degraded_all_reliable": [
+            "normal",
+            "low_evidence"
+          ]
+        },
+        "conditional_family": {
+          "degraded_difficult": [],
+          "degraded_easy": [
+            "normal",
+            "low_evidence"
+          ],
+          "degraded_all_reliable": [
+            "normal",
+            "low_evidence"
+          ]
+        },
+        "conditional_depth_evidence": {
+          "degraded_difficult": [],
+          "degraded_easy": [
+            "normal",
+            "low_evidence"
+          ],
+          "degraded_all_reliable": [
+            "normal",
+            "low_evidence"
+          ]
+        }
+      },
+      "gate": {
+        "calibration_split_disjoint": true,
+        "aggregate_ece_improved": true,
+        "no_difficult_subgroup_degradation": true,
+        "small_groups_labelled_exploratory": true,
+        "confidence_not_claimed_as_correctness": true,
+        "reproducible": true
+      },
+      "gate_pass": true,
+      "resources": {
+        "wall_s": 0.06175,
+        "cpu_s": 0.046875,
+        "peak_rss_mb": 25.348
+      },
+      "note": "Confidence is a heuristic score, not a posterior. Calibration changes reported confidence, never accuracy or decisions.",
+      "snapshot": "constructive\\exp_l\\results\\history\\L4-20261118-133605.json"
+    },
+    "L5": {
+      "stage": "L5",
+      "schema": "exp-l-stage-block-v1",
+      "config": {
+        "stage": "L5",
+        "seed": 0,
+        "seeds": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "quick": false,
+        "no_resume": false,
+        "merge_only": false,
+        "generator_version": "exp-l-gen-1",
+        "seed_policy": "explicit_sha256_derived_random.Random(seed, stream); no hash() of strings",
+        "n_train": 4,
+        "n_val": 4,
+        "n_test": 8,
+        "time_limit_s": 120.0,
+        "memory_limit_mb": 512.0,
+        "full_test_timeout_s": 300.0
+      },
+      "config_fingerprint": "e2071eaa8ce06fa4",
+      "provenance": {
+        "license": "CC0-1.0 (original examples authored for EXP-L; no third-party data)",
+        "source": "original agent-authored examples",
+        "external_model": false,
+        "third_party_data": false
+      },
+      "n_examples": 840,
+      "templates": [
+        "dev-rule-even",
+        "dev-multi",
+        "dev-classify",
+        "dev-arith",
+        "dev-entity",
+        "dev-contradict",
+        "dev-incomplete",
+        "held-rule-odd",
+        "held-multi",
+        "held-classify",
+        "held-arith",
+        "held-entity",
+        "held-contradict",
+        "held-incomplete"
+      ],
+      "by_method": {
+        "constant": {
+          "n": 840,
+          "exact_match": 0.02976190476190476,
+          "correct_abstention": 0.0,
+          "incorrect_acceptance": 0.2857142857142857,
+          "parsing_failure_rate": null,
+          "heldout_exact_match": 0.03333333333333333,
+          "by_family": {
+            "arith_word": {
+              "n": 120,
+              "correct": 17
+            },
+            "contradictory": {
+              "n": 120,
+              "correct": 0
+            },
+            "entity_relation": {
+              "n": 120,
+              "correct": 0
+            },
+            "incomplete": {
+              "n": 120,
+              "correct": 0
+            },
+            "multi_step": {
+              "n": 120,
+              "correct": 2
+            },
+            "rule_apply": {
+              "n": 120,
+              "correct": 6
+            },
+            "text_classify": {
+              "n": 120,
+              "correct": 0
+            }
+          },
+          "n_failures_preserved": 815,
+          "failure_examples": [
+            {
+              "outcome": "wrong_acceptance",
+              "answered": true,
+              "parse_ok": null,
+              "split": "dev",
+              "family": "rule_apply",
+              "template": "dev-rule-even",
+              "text": "If 8 is even, double it; otherwise subtract one. What is the result?",
+              "expected": 16,
+              "got": 0
+            },
+            {
+              "outcome": "wrong_acceptance",
+              "answered": true,
+              "parse_ok": null,
+              "split": "dev",
+              "family": "rule_apply",
+              "template": "dev-rule-even",
+              "text": "If 13 is even, double it; otherwise subtract one. What is the result?",
+              "expected": 12,
+              "got": 0
+            },
+            {
+              "outcome": "wrong_acceptance",
+              "answered": true,
+              "parse_ok": null,
+              "split": "dev",
+              "family": "rule_apply",
+              "template": "dev-rule-even",
+              "text": "If 13 is even, double it; otherwise subtract one. What is the result?",
+              "expected": 12,
+              "got": 0
+            },
+            {
+              "outcome": "wrong_acceptance",
+              "answered": true,
+              "parse_ok": null,
+              "split": "dev",
+              "family": "rule_apply",
+              "template": "dev-rule-even",
+              "text": "If 3 is even, double it; otherwise subtract one. What is the result?",
+              "expected": 2,
+              "got": 0
+            },
+            {
+              "outcome": "wrong_acceptance",
+              "answered": true,
+              "parse_ok": null,
+              "split": "dev",
+              "family": "multi_step",
+              "template": "dev-multi",
+              "text": "Start with 5, add 1, then multiply by 4. What is the final value?",
+              "expected": 24,
+              "got": 0
+            },
+            {
+              "outcome": "wrong_acceptance",
+              "answered": true,
+              "parse_ok": null,
+              "split": "dev",
+              "family": "multi_step",
+              "template": "dev-multi",
+              "text": "Start with 40, add 4, then multiply by 4. What is the final value?",
+              "expected": 176,
+              "got": 0
+            },
+            {
+              "outcome": "wrong_acceptance",
+              "answered": true,
+              "parse_ok": null,
+              "split": "dev",
+              "family": "multi_step",
+              "template": "dev-multi",
+              "text": "Start with 38, add 4, then multiply by 4. What is the final value?",
+              "expected": 168,
+              "got": 0
+            },
+            {
+              "outcome": "wrong_acceptance",
+              "answered": true,
+              "parse_ok": null,
+              "split": "dev",
+              "family": "multi_step",
+              "template": "dev-multi",
+              "text": "Start with 22, add 9, then multiply by 5. What is the final value?",
+              "expected": 155,
+              "got": 0
+            },
+            {
+              "outcome": "wrong_acceptance",
+              "answered": true,
+              "parse_ok": null,
+              "split": "dev",
+              "family": "multi_step",
+              "template": "dev-multi",
+              "text": "Start with 8, add 1, then multiply by 4. What is the final value?",
+              "expected": 36,
+              "got": 0
+            },
+            {
+              "outcome": "wrong_acceptance",
+              "answered": true,
+              "parse_ok": null,
+              "split": "dev",
+              "family": "multi_step",
+              "template": "dev-multi",
+              "text": "Start with 19, add 3, then multiply by 4. What is the final value?",
+              "expected": 88,
+              "got": 0
+            },
+            {
+              "outcome": "wrong_acceptance",
+              "answered": true,
+              "parse_ok": null,
+              "split": "dev",
+              "family": "text_classify",
+              "template": "dev-classify",
+              "text": "Classify this review as POSITIVE or NEGATIVE: 'terrible'.",
+              "expected": "NEGATIVE",
+              "got": 0
+            },
+            {
+              "outcome": "wrong_acceptance",
+              "answered": true,
+              "parse_ok": null,
+              "split": "dev",
+              "family": "text_classify",
+              "template": "dev-classify",
+              "text": "Classify this review as POSITIVE or NEGATIVE: 'terrible'.",
+              "expected": "NEGATIVE",
+              "got": 0
+            },
+            {
+              "outcome": "wrong_acceptance",
+              "answered": true,
+              "parse_ok": null,
+              "split": "dev",
+              "family": "text_classify",
+              "template": "dev-classify",
+              "text": "Classify this review as POSITIVE or NEGATIVE: 'good'.",
+              "expected": "POSITIVE",
+              "got": 0
+            },
+            {
+              "outcome": "wrong_acceptance",
+              "answered": true,
+              "parse_ok": null,
+              "split": "dev",
+              "family": "text_classify",
+              "template": "dev-classify",
+              "text": "Classify this review as POSITIVE or NEGATIVE: 'awful'.",
+              "expected": "NEGATIVE",
+              "got": 0
+            },
+            {
+              "outcome": "wrong_acceptance",
+              "answered": true,
+              "parse_ok": null,
+              "split": "dev",
+              "family": "text_classify",
+              "template": "dev-classify",
+              "text": "Classify this review as POSITIVE or NEGATIVE: 'good'.",
+              "expected": "POSITIVE",
+              "got": 0
+            },
+            {
+              "outcome": "wrong_acceptance",
+              "answered": true,
+              "parse_ok": null,
+              "split": "dev",
+              "family": "text_classify",
+              "template": "dev-classify",
+              "text": "Classify this review as POSITIVE or NEGATIVE: 'bad'.",
+              "expected": "NEGATIVE",
+              "got": 0
+            },
+            {
+              "outcome": "wrong_acceptance",
+              "answered": true,
+              "parse_ok": null,
+              "split": "dev",
+              "family": "arith_word",
+              "template": "dev-arith",
+              "text": "Compute (12 plus 4) modulo 7.",
+              "expected": 2,
+              "got": 0
+            },
+            {
+              "outcome": "wrong_acceptance",
+              "answered": true,
+              "parse_ok": null,
+              "split": "dev",
+              "family": "arith_word",
+              "template": "dev-arith",
+              "text": "Compute (1 plus 3) modulo 8.",
+              "expected": 4,
+              "got": 0
+            },
+            {
+              "outcome": "wrong_acceptance",
+              "answered": true,
+              "parse_ok": null,
+              "split": "dev",
+              "family": "arith_word",
+              "template": "dev-arith",
+              "text": "Compute (35 plus 1) modulo 7.",
+              "expected": 1,
+              "got": 0
+            },
+            {
+              "outcome": "wrong_acceptance",
+              "answered": true,
+              "parse_ok": null,
+              "split": "dev",
+              "family": "arith_word",
+              "template": "dev-arith",
+              "text": "Compute (30 plus 3) modulo 8.",
+              "expected": 1,
+              "got": 0
+            }
+          ]
+        },
+        "first_number": {
+          "n": 840,
+          "exact_match": 0.007142857142857143,
+          "correct_abstention": 0.0,
+          "incorrect_acceptance": 0.2857142857142857,
+          "parsing_failure_rate": null,
+          "heldout_exact_match": 0.004761904761904762,
+          "by_family": {
+            "arith_word": {
+              "n": 120,
+              "correct": 1
+            },
+            "contradictory": {
+              "n": 120,
+              "correct": 0
+            },
+            "entity_relation": {
+              "n": 120,
+              "correct": 0
+            },
+            "incomplete": {
+              "n": 120,
+              "correct": 0
+            },
+            "multi_step": {
+              "n": 120,
+              "correct": 1
+            },
+            "rule_apply": {
+              "n": 120,
+              "correct": 4
+            },
+            "text_classify": {
+              "n": 120,
+              "correct": 0
+            }
+          },
+          "n_failures_preserved": 834,
+          "failure_examples": [
+            {
+              "outcome": "wrong_acceptance",
+              "answered": true,
+              "parse_ok": null,
+              "split": "dev",
+              "family": "rule_apply",
+              "template": "dev-rule-even",
+              "text": "If 8 is even, double it; otherwise subtract one. What is the result?",
+              "expected": 16,
+              "got": 8
+            },
+            {
+              "outcome": "wrong_acceptance",
+              "answered": true,
+              "parse_ok": null,
+              "split": "dev",
+              "family": "rule_apply",
+              "template": "dev-rule-even",
+              "text": "If 13 is even, double it; otherwise subtract one. What is the result?",
+              "expected": 12,
+              "got": 13
+            },
+            {
+              "outcome": "wrong_acceptance",
+              "answered": true,
+              "parse_ok": null,
+              "split": "dev",
+              "family": "rule_apply",
+              "template": "dev-rule-even",
+              "text": "If 1 is even, double it; otherwise subtract one. What is the result?",
+              "expected": 0,
+              "got": 1
+            },
+            {
+              "outcome": "wrong_acceptance",
+              "answered": true,
+              "parse_ok": null,
+              "split": "dev",
+              "family": "rule_apply",
+              "template": "dev-rule-even",
+              "text": "If 13 is even, double it; otherwise subtract one. What is the result?",
+              "expected": 12,
+              "got": 13
+            },
+            {
+              "outcome": "wrong_acceptance",
+              "answered": true,
+              "parse_ok": null,
+              "split": "dev",
+              "family": "rule_apply",
+              "template": "dev-rule-even",
+              "text": "If 3 is even, double it; otherwise subtract one. What is the result?",
+              "expected": 2,
+              "got": 3
+            },
+            {
+              "outcome": "wrong_acceptance",
+              "answered": true,
+              "parse_ok": null,
+              "split": "dev",
+              "family": "multi_step",
+              "template": "dev-multi",
+              "text": "Start with 5, add 1, then multiply by 4. What is the final value?",
+              "expected": 24,
+              "got": 5
+            },
+            {
+              "outcome": "wrong_acceptance",
+              "answered": true,
+              "parse_ok": null,
+              "split": "dev",
+              "family": "multi_step",
+              "template": "dev-multi",
+              "text": "Start with 40, add 4, then multiply by 4. What is the final value?",
+              "expected": 176,
+              "got": 40
+            },
+            {
+              "outcome": "wrong_acceptance",
+              "answered": true,
+              "parse_ok": null,
+              "split": "dev",
+              "family": "multi_step",
+              "template": "dev-multi",
+              "text": "Start with 38, add 4, then multiply by 4. What is the final value?",
+              "expected": 168,
+              "got": 38
+            },
+            {
+              "outcome": "wrong_acceptance",
+              "answered": true,
+              "parse_ok": null,
+              "split": "dev",
+              "family": "multi_step",
+              "template": "dev-multi",
+              "text": "Start with 22, add 9, then multiply by 5. What is the final value?",
+              "expected": 155,
+              "got": 22
+            },
+            {
+              "outcome": "wrong_acceptance",
+              "answered": true,
+              "parse_ok": null,
+              "split": "dev",
+              "family": "multi_step",
+              "template": "dev-multi",
+              "text": "Start with 8, add 1, then multiply by 4. What is the final value?",
+              "expected": 36,
+              "got": 8
+            },
+            {
+              "outcome": "wrong_acceptance",
+              "answered": true,
+              "parse_ok": null,
+              "split": "dev",
+              "family": "multi_step",
+              "template": "dev-multi",
+              "text": "Start with 19, add 3, then multiply by 4. What is the final value?",
+              "expected": 88,
+              "got": 19
+            },
+            {
+              "outcome": "wrong_acceptance",
+              "answered": true,
+              "parse_ok": null,
+              "split": "dev",
+              "family": "text_classify",
+              "template": "dev-classify",
+              "text": "Classify this review as POSITIVE or NEGATIVE: 'terrible'.",
+              "expected": "NEGATIVE",
+              "got": 0
+            },
+            {
+              "outcome": "wrong_acceptance",
+              "answered": true,
+              "parse_ok": null,
+              "split": "dev",
+              "family": "text_classify",
+              "template": "dev-classify",
+              "text": "Classify this review as POSITIVE or NEGATIVE: 'terrible'.",
+              "expected": "NEGATIVE",
+              "got": 0
+            },
+            {
+              "outcome": "wrong_acceptance",
+              "answered": true,
+              "parse_ok": null,
+              "split": "dev",
+              "family": "text_classify",
+              "template": "dev-classify",
+              "text": "Classify this review as POSITIVE or NEGATIVE: 'good'.",
+              "expected": "POSITIVE",
+              "got": 0
+            },
+            {
+              "outcome": "wrong_acceptance",
+              "answered": true,
+              "parse_ok": null,
+              "split": "dev",
+              "family": "text_classify",
+              "template": "dev-classify",
+              "text": "Classify this review as POSITIVE or NEGATIVE: 'awful'.",
+              "expected": "NEGATIVE",
+              "got": 0
+            },
+            {
+              "outcome": "wrong_acceptance",
+              "answered": true,
+              "parse_ok": null,
+              "split": "dev",
+              "family": "text_classify",
+              "template": "dev-classify",
+              "text": "Classify this review as POSITIVE or NEGATIVE: 'good'.",
+              "expected": "POSITIVE",
+              "got": 0
+            },
+            {
+              "outcome": "wrong_acceptance",
+              "answered": true,
+              "parse_ok": null,
+              "split": "dev",
+              "family": "text_classify",
+              "template": "dev-classify",
+              "text": "Classify this review as POSITIVE or NEGATIVE: 'bad'.",
+              "expected": "NEGATIVE",
+              "got": 0
+            },
+            {
+              "outcome": "wrong_acceptance",
+              "answered": true,
+              "parse_ok": null,
+              "split": "dev",
+              "family": "arith_word",
+              "template": "dev-arith",
+              "text": "Compute (12 plus 4) modulo 7.",
+              "expected": 2,
+              "got": 12
+            },
+            {
+              "outcome": "wrong_acceptance",
+              "answered": true,
+              "parse_ok": null,
+              "split": "dev",
+              "family": "arith_word",
+              "template": "dev-arith",
+              "text": "Compute (1 plus 3) modulo 8.",
+              "expected": 4,
+              "got": 1
+            },
+            {
+              "outcome": "wrong_acceptance",
+              "answered": true,
+              "parse_ok": null,
+              "split": "dev",
+              "family": "arith_word",
+              "template": "dev-arith",
+              "text": "Compute (35 plus 1) modulo 7.",
+              "expected": 1,
+              "got": 35
+            }
+          ]
+        },
+        "adapter_no_guard": {
+          "n": 840,
+          "exact_match": 0.6,
+          "correct_abstention": 0.0,
+          "incorrect_acceptance": 0.2857142857142857,
+          "parsing_failure_rate": 0.0,
+          "heldout_exact_match": 0.6,
+          "by_family": {
+            "arith_word": {
+              "n": 120,
+              "correct": 120
+            },
+            "contradictory": {
+              "n": 120,
+              "correct": 0
+            },
+            "entity_relation": {
+              "n": 120,
+              "correct": 0
+            },
+            "incomplete": {
+              "n": 120,
+              "correct": 0
+            },
+            "multi_step": {
+              "n": 120,
+              "correct": 120
+            },
+            "rule_apply": {
+              "n": 120,
+              "correct": 120
+            },
+            "text_classify": {
+              "n": 120,
+              "correct": 0
+            }
+          },
+          "n_failures_preserved": 480,
+          "failure_examples": [
+            {
+              "outcome": "wrong_abstention",
+              "answered": false,
+              "parse_ok": true,
+              "split": "dev",
+              "family": "text_classify",
+              "template": "dev-classify",
+              "text": "Classify this review as POSITIVE or NEGATIVE: 'terrible'.",
+              "expected": "NEGATIVE",
+              "got": null
+            },
+            {
+              "outcome": "wrong_abstention",
+              "answered": false,
+              "parse_ok": true,
+              "split": "dev",
+              "family": "text_classify",
+              "template": "dev-classify",
+              "text": "Classify this review as POSITIVE or NEGATIVE: 'terrible'.",
+              "expected": "NEGATIVE",
+              "got": null
+            },
+            {
+              "outcome": "wrong_abstention",
+              "answered": false,
+              "parse_ok": true,
+              "split": "dev",
+              "family": "text_classify",
+              "template": "dev-classify",
+              "text": "Classify this review as POSITIVE or NEGATIVE: 'good'.",
+              "expected": "POSITIVE",
+              "got": null
+            },
+            {
+              "outcome": "wrong_abstention",
+              "answered": false,
+              "parse_ok": true,
+              "split": "dev",
+              "family": "text_classify",
+              "template": "dev-classify",
+              "text": "Classify this review as POSITIVE or NEGATIVE: 'awful'.",
+              "expected": "NEGATIVE",
+              "got": null
+            },
+            {
+              "outcome": "wrong_abstention",
+              "answered": false,
+              "parse_ok": true,
+              "split": "dev",
+              "family": "text_classify",
+              "template": "dev-classify",
+              "text": "Classify this review as POSITIVE or NEGATIVE: 'good'.",
+              "expected": "POSITIVE",
+              "got": null
+            },
+            {
+              "outcome": "wrong_abstention",
+              "answered": false,
+              "parse_ok": true,
+              "split": "dev",
+              "family": "text_classify",
+              "template": "dev-classify",
+              "text": "Classify this review as POSITIVE or NEGATIVE: 'bad'.",
+              "expected": "NEGATIVE",
+              "got": null
+            },
+            {
+              "outcome": "wrong_abstention",
+              "answered": false,
+              "parse_ok": true,
+              "split": "dev",
+              "family": "entity_relation",
+              "template": "dev-entity",
+              "text": "In the sentence 'Ab manages Bx', what relation holds?",
+              "expected": "manages",
+              "got": null
+            },
+            {
+              "outcome": "wrong_abstention",
+              "answered": false,
+              "parse_ok": true,
+              "split": "dev",
+              "family": "entity_relation",
+              "template": "dev-entity",
+              "text": "In the sentence 'Aa manages Bx', what relation holds?",
+              "expected": "manages",
+              "got": null
+            },
+            {
+              "outcome": "wrong_abstention",
+              "answered": false,
+              "parse_ok": true,
+              "split": "dev",
+              "family": "entity_relation",
+              "template": "dev-entity",
+              "text": "In the sentence 'Ab manages Bz', what relation holds?",
+              "expected": "manages",
+              "got": null
+            },
+            {
+              "outcome": "wrong_abstention",
+              "answered": false,
+              "parse_ok": true,
+              "split": "dev",
+              "family": "entity_relation",
+              "template": "dev-entity",
+              "text": "In the sentence 'Ac manages By', what relation holds?",
+              "expected": "manages",
+              "got": null
+            },
+            {
+              "outcome": "wrong_abstention",
+              "answered": false,
+              "parse_ok": true,
+              "split": "dev",
+              "family": "entity_relation",
+              "template": "dev-entity",
+              "text": "In the sentence 'Aa manages Bz', what relation holds?",
+              "expected": "manages",
+              "got": null
+            },
+            {
+              "outcome": "wrong_abstention",
+              "answered": false,
+              "parse_ok": true,
+              "split": "dev",
+              "family": "entity_relation",
+              "template": "dev-entity",
+              "text": "In the sentence 'Ac manages By', what relation holds?",
+              "expected": "manages",
+              "got": null
+            },
+            {
+              "outcome": "incorrect_acceptance",
+              "answered": true,
+              "parse_ok": true,
+              "split": "dev",
+              "family": "contradictory",
+              "template": "dev-contradict",
+              "text": "Double 40 and also add one to 37. What is the result?",
+              "expected": null,
+              "got": 117
+            },
+            {
+              "outcome": "incorrect_acceptance",
+              "answered": true,
+              "parse_ok": true,
+              "split": "dev",
+              "family": "contradictory",
+              "template": "dev-contradict",
+              "text": "Double 33 and also add one to 0. What is the result?",
+              "expected": null,
+              "got": 66
+            },
+            {
+              "outcome": "incorrect_acceptance",
+              "answered": true,
+              "parse_ok": true,
+              "split": "dev",
+              "family": "contradictory",
+              "template": "dev-contradict",
+              "text": "Double 4 and also add one to 13. What is the result?",
+              "expected": null,
+              "got": 21
+            },
+            {
+              "outcome": "incorrect_acceptance",
+              "answered": true,
+              "parse_ok": true,
+              "split": "dev",
+              "family": "contradictory",
+              "template": "dev-contradict",
+              "text": "Double 23 and also add one to 11. What is the result?",
+              "expected": null,
+              "got": 57
+            },
+            {
+              "outcome": "incorrect_acceptance",
+              "answered": true,
+              "parse_ok": true,
+              "split": "dev",
+              "family": "contradictory",
+              "template": "dev-contradict",
+              "text": "Double 25 and also add one to 39. What is the result?",
+              "expected": null,
+              "got": 89
+            },
+            {
+              "outcome": "incorrect_acceptance",
+              "answered": true,
+              "parse_ok": true,
+              "split": "dev",
+              "family": "contradictory",
+              "template": "dev-contradict",
+              "text": "Double 34 and also add one to 30. What is the result?",
+              "expected": null,
+              "got": 98
+            },
+            {
+              "outcome": "incorrect_acceptance",
+              "answered": true,
+              "parse_ok": true,
+              "split": "dev",
+              "family": "incomplete",
+              "template": "dev-incomplete",
+              "text": "Add 5 to the number and report the result.",
+              "expected": null,
+              "got": 5
+            },
+            {
+              "outcome": "incorrect_acceptance",
+              "answered": true,
+              "parse_ok": true,
+              "split": "dev",
+              "family": "incomplete",
+              "template": "dev-incomplete",
+              "text": "Add 3 to the number and report the result.",
+              "expected": null,
+              "got": 3
+            }
+          ]
+        },
+        "adapter_with_guard": {
+          "n": 840,
+          "exact_match": 1.0,
+          "correct_abstention": 0.2857142857142857,
+          "incorrect_acceptance": 0.0,
+          "parsing_failure_rate": 0.0,
+          "heldout_exact_match": 1.0,
+          "by_family": {
+            "arith_word": {
+              "n": 120,
+              "correct": 120
+            },
+            "contradictory": {
+              "n": 120,
+              "correct": 0
+            },
+            "entity_relation": {
+              "n": 120,
+              "correct": 120
+            },
+            "incomplete": {
+              "n": 120,
+              "correct": 0
+            },
+            "multi_step": {
+              "n": 120,
+              "correct": 120
+            },
+            "rule_apply": {
+              "n": 120,
+              "correct": 120
+            },
+            "text_classify": {
+              "n": 120,
+              "correct": 120
+            }
+          },
+          "n_failures_preserved": 0,
+          "failure_examples": []
+        }
+      },
+      "gate": {
+        "template_split": true,
+        "parsing_separate_from_reasoning": true,
+        "no_external_model": true,
+        "heldout_transfer_measurable": true,
+        "ambiguous_handled": true,
+        "license_documented": true
+      },
+      "gate_pass": true,
+      "resources": {
+        "wall_s": 0.017968,
+        "cpu_s": 0.015625,
+        "peak_rss_mb": 25.387
+      },
+      "note": "Template-parsing transfer only. This is NOT evidence of natural-language understanding or general capability. Parsing, mapping, reasoning and ambiguity detection are scored separately. The adapter and the ground-truth generator share a small operation vocabulary and were co-designed; perfect accuracy therefore reflects shared conventions, not linguistic generality.",
+      "snapshot": "constructive\\exp_l\\results\\history\\L5-20261118-134157.json"
+    },
+    "L6": {
+      "stage": "L6",
+      "schema": "exp-l-stage-block-v1",
+      "config": {
+        "stage": "L6",
+        "seed": 0,
+        "seeds": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "quick": false,
+        "no_resume": false,
+        "merge_only": false,
+        "generator_version": "exp-l-gen-1",
+        "seed_policy": "explicit_sha256_derived_random.Random(seed, stream); no hash() of strings",
+        "n_train": 4,
+        "n_val": 4,
+        "n_test": 8,
+        "time_limit_s": 120.0,
+        "memory_limit_mb": 512.0,
+        "full_test_timeout_s": 300.0
+      },
+      "config_fingerprint": "4db4a596cdc05e6c",
+      "n_tasks": 280,
+      "configurations": {
+        "baseline": {
+          "n": 280,
+          "resources": {
+            "wall_s": 0.032495,
+            "cpu_s": 0.03125,
+            "peak_rss_mb": 24.926
+          },
+          "operation_counts": {
+            "node_evaluations": 0,
+            "verification_checks": 0,
+            "retrieval_scoring_ops": 0,
+            "candidates_inspected": 0,
+            "calibration_ops": 0,
+            "drift_signal_ops": 0
+          },
+          "correct_acceptance": 183,
+          "incorrect_acceptance": 97,
+          "useful_coverage": 0.6535714285714286,
+          "incorrect_acceptance_rate": 0.3464285714285714,
+          "abstention_rate": 0.0,
+          "avg_latency_ms": 0.11605357142857145,
+          "p95_latency_ms": 0.19050002447329462,
+          "throughput_per_s": 8616.710263117402,
+          "correctly_accepted_per_s": 5631.635636251731,
+          "useful_coverage_per_mb": 0.026220469733267616,
+          "incorrect_acceptances_per_1000": 346.42857142857144,
+          "verification_cost_per_extra_correct": null,
+          "latency_increase_per_incorrect_reduction_ms": null,
+          "delta_useful_coverage": 0.0,
+          "delta_incorrect_acceptance": 0.0
+        },
+        "always_abstain": {
+          "n": 280,
+          "resources": {
+            "wall_s": 0.02855,
+            "cpu_s": 0.015625,
+            "peak_rss_mb": 24.945
+          },
+          "operation_counts": {
+            "node_evaluations": 0,
+            "verification_checks": 0,
+            "retrieval_scoring_ops": 0,
+            "candidates_inspected": 0,
+            "calibration_ops": 0,
+            "drift_signal_ops": 0
+          },
+          "correct_acceptance": 0,
+          "incorrect_acceptance": 0,
+          "useful_coverage": 0.0,
+          "incorrect_acceptance_rate": 0.0,
+          "abstention_rate": 1.0,
+          "avg_latency_ms": 0.10196428571428572,
+          "p95_latency_ms": 0.19880000036209822,
+          "throughput_per_s": 9807.355516637479,
+          "correctly_accepted_per_s": 0.0,
+          "useful_coverage_per_mb": 0.0,
+          "incorrect_acceptances_per_1000": 0.0,
+          "verification_cost_per_extra_correct": null,
+          "latency_increase_per_incorrect_reduction_ms": -0.14525036818851272,
+          "delta_useful_coverage": -0.6535714285714286,
+          "delta_incorrect_acceptance": -0.3464285714285714
+        },
+        "l1_drift_only": {
+          "n": 280,
+          "resources": {
+            "wall_s": 0.086482,
+            "cpu_s": 0.09375,
+            "peak_rss_mb": 24.977
+          },
+          "operation_counts": {
+            "node_evaluations": 0,
+            "verification_checks": 0,
+            "retrieval_scoring_ops": 0,
+            "candidates_inspected": 0,
+            "calibration_ops": 0,
+            "drift_signal_ops": 6720
+          },
+          "correct_acceptance": 183,
+          "incorrect_acceptance": 97,
+          "useful_coverage": 0.6535714285714286,
+          "incorrect_acceptance_rate": 0.3464285714285714,
+          "abstention_rate": 0.0,
+          "avg_latency_ms": 0.3088642857142857,
+          "p95_latency_ms": 0.454699998954311,
+          "throughput_per_s": 3237.667954025115,
+          "correctly_accepted_per_s": 2116.0472699521288,
+          "useful_coverage_per_mb": 0.02616693071911873,
+          "incorrect_acceptances_per_1000": 346.42857142857144,
+          "verification_cost_per_extra_correct": null,
+          "latency_increase_per_incorrect_reduction_ms": null,
+          "delta_useful_coverage": 0.0,
+          "delta_incorrect_acceptance": 0.0
+        },
+        "l2_selective": {
+          "n": 280,
+          "resources": {
+            "wall_s": 0.036623,
+            "cpu_s": 0.03125,
+            "peak_rss_mb": 24.996
+          },
+          "operation_counts": {
+            "node_evaluations": 10000,
+            "verification_checks": 560,
+            "retrieval_scoring_ops": 0,
+            "candidates_inspected": 0,
+            "calibration_ops": 0,
+            "drift_signal_ops": 0
+          },
+          "correct_acceptance": 182,
+          "incorrect_acceptance": 98,
+          "useful_coverage": 0.65,
+          "incorrect_acceptance_rate": 0.35,
+          "abstention_rate": 0.0,
+          "avg_latency_ms": 0.1307964285714286,
+          "p95_latency_ms": 0.2982000005431473,
+          "throughput_per_s": 7645.46869453622,
+          "correctly_accepted_per_s": 4969.554651448543,
+          "useful_coverage_per_mb": 0.026004160665706516,
+          "incorrect_acceptances_per_1000": 350.0,
+          "verification_cost_per_extra_correct": null,
+          "latency_increase_per_incorrect_reduction_ms": null,
+          "delta_useful_coverage": -0.0035714285714285587,
+          "delta_incorrect_acceptance": 0.0035714285714285587
+        },
+        "l2_full": {
+          "n": 280,
+          "resources": {
+            "wall_s": 0.034274,
+            "cpu_s": 0.046875,
+            "peak_rss_mb": 25.023
+          },
+          "operation_counts": {
+            "node_evaluations": 10000,
+            "verification_checks": 2000,
+            "retrieval_scoring_ops": 0,
+            "candidates_inspected": 0,
+            "calibration_ops": 0,
+            "drift_signal_ops": 0
+          },
+          "correct_acceptance": 182,
+          "incorrect_acceptance": 98,
+          "useful_coverage": 0.65,
+          "incorrect_acceptance_rate": 0.35,
+          "abstention_rate": 0.0,
+          "avg_latency_ms": 0.12240714285714287,
+          "p95_latency_ms": 0.2339000056963414,
+          "throughput_per_s": 8169.45789811519,
+          "correctly_accepted_per_s": 5310.147633774874,
+          "useful_coverage_per_mb": 0.02597610198617272,
+          "incorrect_acceptances_per_1000": 350.0,
+          "verification_cost_per_extra_correct": null,
+          "latency_increase_per_incorrect_reduction_ms": null,
+          "delta_useful_coverage": -0.0035714285714285587,
+          "delta_incorrect_acceptance": 0.0035714285714285587
+        },
+        "l3_rank_verify": {
+          "n": 280,
+          "resources": {
+            "wall_s": 0.034005,
+            "cpu_s": 0.03125,
+            "peak_rss_mb": 25.047
+          },
+          "operation_counts": {
+            "node_evaluations": 0,
+            "verification_checks": 0,
+            "retrieval_scoring_ops": 10080,
+            "candidates_inspected": 1680,
+            "calibration_ops": 0,
+            "drift_signal_ops": 0
+          },
+          "correct_acceptance": 183,
+          "incorrect_acceptance": 3,
+          "useful_coverage": 0.6535714285714286,
+          "incorrect_acceptance_rate": 0.010714285714285714,
+          "abstention_rate": 0.3357142857142857,
+          "avg_latency_ms": 0.12144642857142858,
+          "p95_latency_ms": 0.2398999931756407,
+          "throughput_per_s": 8234.083223055433,
+          "correctly_accepted_per_s": 5381.561535068372,
+          "useful_coverage_per_mb": 0.02609380079735811,
+          "incorrect_acceptances_per_1000": 10.714285714285714,
+          "verification_cost_per_extra_correct": null,
+          "latency_increase_per_incorrect_reduction_ms": 0.057370820668692875,
+          "delta_useful_coverage": 0.0,
+          "delta_incorrect_acceptance": -0.3357142857142857
+        },
+        "l4_temperature": {
+          "n": 280,
+          "resources": {
+            "wall_s": 0.034097,
+            "cpu_s": 0.03125,
+            "peak_rss_mb": 25.082
+          },
+          "operation_counts": {
+            "node_evaluations": 0,
+            "verification_checks": 0,
+            "retrieval_scoring_ops": 0,
+            "candidates_inspected": 0,
+            "calibration_ops": 280,
+            "drift_signal_ops": 0
+          },
+          "correct_acceptance": 183,
+          "incorrect_acceptance": 97,
+          "useful_coverage": 0.6535714285714286,
+          "incorrect_acceptance_rate": 0.3464285714285714,
+          "abstention_rate": 0.0,
+          "avg_latency_ms": 0.12177500000000001,
+          "p95_latency_ms": 0.21739999647252262,
+          "throughput_per_s": 8211.86614658181,
+          "correctly_accepted_per_s": 5367.041088658826,
+          "useful_coverage_per_mb": 0.02605738890724139,
+          "incorrect_acceptances_per_1000": 346.42857142857144,
+          "verification_cost_per_extra_correct": null,
+          "latency_increase_per_incorrect_reduction_ms": null,
+          "delta_useful_coverage": 0.0,
+          "delta_incorrect_acceptance": 0.0
+        },
+        "coverage_oriented": {
+          "n": 280,
+          "resources": {
+            "wall_s": 0.102275,
+            "cpu_s": 0.078125,
+            "peak_rss_mb": 25.113
+          },
+          "operation_counts": {
+            "node_evaluations": 10000,
+            "verification_checks": 560,
+            "retrieval_scoring_ops": 10080,
+            "candidates_inspected": 1680,
+            "calibration_ops": 0,
+            "drift_signal_ops": 6720
+          },
+          "correct_acceptance": 182,
+          "incorrect_acceptance": 3,
+          "useful_coverage": 0.65,
+          "incorrect_acceptance_rate": 0.010714285714285714,
+          "abstention_rate": 0.3392857142857143,
+          "avg_latency_ms": 0.36526785714285714,
+          "p95_latency_ms": 0.5593999812845141,
+          "throughput_per_s": 2737.7169396235636,
+          "correctly_accepted_per_s": 1779.5160107553165,
+          "useful_coverage_per_mb": 0.025883008800222995,
+          "incorrect_acceptances_per_1000": 10.714285714285714,
+          "verification_cost_per_extra_correct": null,
+          "latency_increase_per_incorrect_reduction_ms": 2.6512158054711246,
+          "delta_useful_coverage": -0.0035714285714285587,
+          "delta_incorrect_acceptance": -0.3357142857142857
+        },
+        "accuracy_oriented": {
+          "n": 280,
+          "resources": {
+            "wall_s": 0.090536,
+            "cpu_s": 0.09375,
+            "peak_rss_mb": 25.152
+          },
+          "operation_counts": {
+            "node_evaluations": 10000,
+            "verification_checks": 2000,
+            "retrieval_scoring_ops": 10080,
+            "candidates_inspected": 1680,
+            "calibration_ops": 280,
+            "drift_signal_ops": 6720
+          },
+          "correct_acceptance": 182,
+          "incorrect_acceptance": 3,
+          "useful_coverage": 0.65,
+          "incorrect_acceptance_rate": 0.010714285714285714,
+          "abstention_rate": 0.3392857142857143,
+          "avg_latency_ms": 0.32334285714285715,
+          "p95_latency_ms": 0.46729997848160565,
+          "throughput_per_s": 3092.6924096492003,
+          "correctly_accepted_per_s": 2010.2500662719801,
+          "useful_coverage_per_mb": 0.025842875318066158,
+          "incorrect_acceptances_per_1000": 10.714285714285714,
+          "verification_cost_per_extra_correct": null,
+          "latency_increase_per_incorrect_reduction_ms": 2.2052051671732524,
+          "delta_useful_coverage": -0.0035714285714285587,
+          "delta_incorrect_acceptance": -0.3357142857142857
+        },
+        "resource_constrained": {
+          "n": 280,
+          "resources": {
+            "wall_s": 0.093525,
+            "cpu_s": 0.09375,
+            "peak_rss_mb": 25.176
+          },
+          "operation_counts": {
+            "node_evaluations": 10000,
+            "verification_checks": 280,
+            "retrieval_scoring_ops": 10080,
+            "candidates_inspected": 1680,
+            "calibration_ops": 0,
+            "drift_signal_ops": 6720
+          },
+          "correct_acceptance": 183,
+          "incorrect_acceptance": 3,
+          "useful_coverage": 0.6535714285714286,
+          "incorrect_acceptance_rate": 0.010714285714285714,
+          "abstention_rate": 0.3357142857142857,
+          "avg_latency_ms": 0.3340178571428571,
+          "p95_latency_ms": 0.5698000022675842,
+          "throughput_per_s": 2993.8519112536756,
+          "correctly_accepted_per_s": 1956.6960705693666,
+          "useful_coverage_per_mb": 0.025960098052567073,
+          "incorrect_acceptances_per_1000": 10.714285714285714,
+          "verification_cost_per_extra_correct": null,
+          "latency_increase_per_incorrect_reduction_ms": 2.3187689969604857,
+          "delta_useful_coverage": 0.0,
+          "delta_incorrect_acceptance": -0.3357142857142857
+        }
+      },
+      "baseline_reference": {
+        "useful_coverage": 0.6535714285714286,
+        "incorrect_acceptance_rate": 0.3464285714285714,
+        "avg_latency_ms": 0.11605357142857145,
+        "p95_latency_ms": 0.19050002447329462,
+        "resources": {
+          "wall_s": 0.032495,
+          "cpu_s": 0.03125,
+          "peak_rss_mb": 24.926
+        }
+      },
+      "gate": {
+        "identical_workload": true,
+        "vector_metrics_reported": true,
+        "no_composite_score": true,
+        "cost_reported_for_all": true,
+        "some_reliable_gain_at_reasonable_cost": true
+      },
+      "gate_pass": true,
+      "note": "Operation counts are instrumented counts of this implementation, not EXP-K/OMEGA-NANO search expansions. All configurations use the identical workload and hardware.",
+      "snapshot": "constructive\\exp_l\\results\\history\\L6-20261118-134619.json"
+    },
+    "L7": {
+      "stage": "L7",
+      "schema": "exp-l-stage-block-v1",
+      "config": {
+        "stage": "L7",
+        "seed": 0,
+        "seeds": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "quick": false,
+        "no_resume": false,
+        "merge_only": false,
+        "generator_version": "exp-l-gen-1",
+        "seed_policy": "explicit_sha256_derived_random.Random(seed, stream); no hash() of strings",
+        "n_train": 4,
+        "n_val": 4,
+        "n_test": 8,
+        "time_limit_s": 120.0,
+        "memory_limit_mb": 512.0,
+        "full_test_timeout_s": 300.0
+      },
+      "config_fingerprint": "9acc32026f2c1c76",
+      "environment": {
+        "captured_utc": "2026-11-18T13:55:01.018362+00:00",
+        "python": {
+          "version": "3.13.15",
+          "implementation": "CPython",
+          "executable": "C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\python.exe"
+        },
+        "os": {
+          "platform": "Windows-11-10.0.26200-SP0",
+          "system": "Windows",
+          "release": "11",
+          "machine": "AMD64",
+          "processor": "Intel64 Family 6 Model 140 Stepping 1, GenuineIntel"
+        },
+        "cpu": {
+          "logical_cores": 8,
+          "device": "cpu",
+          "acceleration": "none"
+        },
+        "memory": {
+          "total_gb": 16.818,
+          "available_gb": 3.91
+        },
+        "dependencies": {
+          "numpy": {
+            "installed": true,
+            "version": "2.5.3"
+          },
+          "scipy": {
+            "installed": true,
+            "version": "1.18.1"
+          },
+          "pytest": {
+            "installed": true,
+            "version": "9.2.0"
+          },
+          "psutil": {
+            "installed": true,
+            "version": "7.2.2"
+          }
+        },
+        "git": {
+          "commit": "4d34c4b8afa7c2ee18bd5f203939a20e5244d99f",
+          "branch": "research/exp-l"
+        },
+        "repository_root": "D:\\ai model",
+        "external_services_required": false,
+        "gpu_required": false
+      },
+      "reproduction": {
+        "L0": {
+          "deterministic": true,
+          "fingerprint": "2a71b32c014c907f"
+        },
+        "L1": {
+          "deterministic": true,
+          "fingerprint_a": "1101ab09a1d20a5a",
+          "fingerprint_b": "1101ab09a1d20a5a",
+          "gate_pass": true
+        },
+        "L2": {
+          "deterministic": true,
+          "fingerprint_a": "4eecf14292d34f89",
+          "fingerprint_b": "4eecf14292d34f89",
+          "gate_pass": true
+        },
+        "L3": {
+          "deterministic": true,
+          "fingerprint_a": "6a7d83db3066214c",
+          "fingerprint_b": "6a7d83db3066214c",
+          "gate_pass": true
+        },
+        "L4": {
+          "deterministic": true,
+          "fingerprint_a": "df01d1252de9a072",
+          "fingerprint_b": "df01d1252de9a072",
+          "gate_pass": true
+        },
+        "L5": {
+          "deterministic": true,
+          "fingerprint_a": "27aa328adc3201ee",
+          "fingerprint_b": "27aa328adc3201ee",
+          "gate_pass": true
+        },
+        "L6": {
+          "deterministic": true,
+          "fingerprint_a": "da1471f7a0c29f39",
+          "fingerprint_b": "da1471f7a0c29f39",
+          "gate_pass": true
+        }
+      },
+      "tests": {
+        "exp_l": {
+          "args": [
+            "tests/test_exp_l.py",
+            "-q"
+          ],
+          "returncode": 0,
+          "summary": "41 passed in 1.61s",
+          "passed": true,
+          "timed_out": false
+        },
+        "full": {
+          "args": [
+            "-q"
+          ],
+          "returncode": 0,
+          "summary": "341 passed, 1 skipped in 91.29s (0:01:31)",
+          "passed": true,
+          "timed_out": false
+        }
+      },
+      "protected": {
+        "git": {
+          "commit": "4d34c4b8afa7c2ee18bd5f203939a20e5244d99f",
+          "branch": "research/exp-l"
+        },
+        "exp_i": {
+          "manifest": "constructive/exp_i/results/baseline_hashes.json",
+          "algorithm": "SHA-256",
+          "n_files": 22,
+          "changed": [],
+          "missing": [],
+          "all_unchanged": true
+        },
+        "exp_j": {
+          "manifest": "constructive/exp_j/results/baseline_hashes.json",
+          "algorithm": "SHA-256",
+          "n_files": 84,
+          "changed": [],
+          "missing": [],
+          "all_unchanged": true
+        },
+        "exp_k_integrity": {
+          "manifest": "constructive/exp_k/results/integrity.json",
+          "recorded_git_head": "86a8141c755626658363ed3f0d3ad04a99254ee5",
+          "recorded_git_branch": "research/exp-k",
+          "checks": [
+            {
+              "name": "exp_j",
+              "manifest": "constructive/exp_j/results/baseline_hashes.json",
+              "algorithm": "SHA-256",
+              "n_files": 84,
+              "changed": [],
+              "missing": [],
+              "all_unchanged": true
+            },
+            {
+              "name": "exp_i",
+              "manifest": "constructive/exp_i/results/baseline_hashes.json",
+              "algorithm": "SHA-256",
+              "n_files": 22,
+              "changed": [],
+              "missing": [],
+              "all_unchanged": true
+            }
+          ],
+          "all_ok": true
+        },
+        "exp_k_dataset": {
+          "manifest": "constructive/exp_k/results/manifests/k0_dataset_manifest.json",
+          "recorded_fingerprint": "e38c3562b722c40b",
+          "recomputed_fingerprint": "e38c3562b722c40b",
+          "fingerprint_match": true,
+          "n_datasets": 160,
+          "all_splits_disjoint": true,
+          "dirty": [],
+          "all_ok": true
+        },
+        "source_hashes": {
+          "constructive/core.py": "9347f2e7b9593121b97307a1a7f87b1d28a27270a75e9a1b8122b820dad7fcf8",
+          "constructive/model.py": "862a96b4ee58417fb8df1144f4ca72ffdaa7992c93a78e3a8a6d14e44ce9b0aa",
+          "constructive/worlds.py": "07d6fc6c66677a1fc4f16403927e0407c2c98f0bb8ef8afb4f52fb950555bfb7",
+          "constructive/baselines.py": "52ee402734b4cf0a5d430ab224a73554b3f166a9076e7e953eb7704e30ada77d",
+          "constructive/bench.py": "ff9646b531bf4e24c770f3e86dc8e49dde39245597ca6a5e66185809548ba402",
+          "omega_nano/engine.py": "bdaa8af9d66010996de7eec7c3060102ee561a0c21ab04d0880529bfb448c5ae",
+          "omega_nano/model.py": "c502a3e6c7c075fe70dcfebfade2d44b6fe098ad868c3f446b09e23a1b70927d",
+          "omega_nano/reasoner.py": "49bb5b4bda161998d7cafed1a581fa2326eac9e910ae1dc5470ebe1ccbbbeeef",
+          "omega_nano/core/engine.py": "68de2b623411f533a86a4364d09a5aaa627773c26501ff8a0dc0c6d0e89542e5"
+        },
+        "source_hash_fingerprint": "14d6e805992f6ec4",
+        "all_protected_ok": true
+      },
+      "git": {
+        "head": "4d34c4b8afa7c2ee18bd5f203939a20e5244d99f",
+        "remote_exp_l": "4d34c4b8afa7c2ee18bd5f203939a20e5244d99f",
+        "push_verified": true,
+        "local_master": "4d18fb798fe07ac0218564ec294fb9620fc00064",
+        "master_unchanged": true,
+        "origin_master": "bcf3791fa6d2d794e9a09f4edbb47a062bed1b5c",
+        "origin_master_as_recorded": true,
+        "protected_source_modified": [],
+        "no_protected_source_modified": true
+      },
+      "static": {
+        "forbidden_imports": [],
+        "no_external_service": true,
+        "secret_like_strings": [],
+        "no_secret_like_strings": true,
+        "oversized_files": [],
+        "no_prohibited_corpus": true,
+        "natural_data_license": "CC0-1.0 (original examples authored for EXP-L; no third-party data)",
+        "natural_data_third_party": false
+      },
+      "artifacts": {
+        "stages": {
+          "L0": {
+            "artifact": "L0-baseline.json",
+            "exists": true,
+            "gate_pass": true,
+            "config_fingerprint": "cea8b4c3633520d7",
+            "n_snapshots": 2,
+            "snapshot_matches": true
+          },
+          "L1": {
+            "artifact": "L1-results.json",
+            "exists": true,
+            "gate_pass": true,
+            "config_fingerprint": "7ca3c61315d48d72",
+            "n_snapshots": 1,
+            "snapshot_matches": true
+          },
+          "L2": {
+            "artifact": "L2-results.json",
+            "exists": true,
+            "gate_pass": true,
+            "config_fingerprint": "7445742b327d68f1",
+            "n_snapshots": 3,
+            "snapshot_matches": true
+          },
+          "L3": {
+            "artifact": "L3-results.json",
+            "exists": true,
+            "gate_pass": true,
+            "config_fingerprint": "4b8fc8ee8867382a",
+            "n_snapshots": 1,
+            "snapshot_matches": true
+          },
+          "L4": {
+            "artifact": "L4-results.json",
+            "exists": true,
+            "gate_pass": true,
+            "config_fingerprint": "d7825f9538335c9f",
+            "n_snapshots": 2,
+            "snapshot_matches": true
+          },
+          "L5": {
+            "artifact": "L5-results.json",
+            "exists": true,
+            "gate_pass": true,
+            "config_fingerprint": "e2071eaa8ce06fa4",
+            "n_snapshots": 2,
+            "snapshot_matches": true
+          },
+          "L6": {
+            "artifact": "L6-results.json",
+            "exists": true,
+            "gate_pass": true,
+            "config_fingerprint": "4db4a596cdc05e6c",
+            "n_snapshots": 1,
+            "snapshot_matches": true
+          }
+        },
+        "additive_integrity_exists": true,
+        "integrity_stages": [
+          "L0",
+          "L1",
+          "L2",
+          "L3",
+          "L4",
+          "L5",
+          "L6",
+          "L7"
+        ],
+        "latest_stages": [
+          "L0",
+          "L1",
+          "L2",
+          "L3",
+          "L4",
+          "L5",
+          "L6",
+          "L7"
+        ],
+        "all_gates_pass": true,
+        "all_snapshots_match": true
+      },
+      "leakage": {
+        "l1_calibration_seeds_disjoint": true,
+        "l4_calibration_seeds_disjoint": true,
+        "l3_family_split": true,
+        "l5_template_split": true,
+        "l2_oracle_isolated": true,
+        "l2_public_view_tested": true,
+        "natural_data_license": "CC0-1.0 (original examples authored for EXP-L; no third-party data)",
+        "no_test_threshold_tuning": true
+      },
+      "checks": {
+        "all_stages_reproduced": true,
+        "exp_l_tests_pass": true,
+        "full_suite_pass": true,
+        "protected_hashes_ok": true,
+        "no_protected_source_modified": true,
+        "manifests_ok": true,
+        "snapshots_ok": true,
+        "split_fingerprints_ok": true,
+        "no_leakage": true,
+        "no_external_service": true,
+        "no_prohibited_data": true,
+        "commits_pushed": true,
+        "master_unmodified": true
+      },
+      "gate": {
+        "all_stages_reproduced": true,
+        "exp_l_tests_pass": true,
+        "full_suite_pass": true,
+        "protected_hashes_ok": true,
+        "no_protected_source_modified": true,
+        "manifests_ok": true,
+        "snapshots_ok": true,
+        "split_fingerprints_ok": true,
+        "no_leakage": true,
+        "no_external_service": true,
+        "no_prohibited_data": true,
+        "commits_pushed": true,
+        "master_unmodified": true
+      },
+      "gate_pass": true,
+      "hypotheses_decisions": "hypotheses_decisions.json",
+      "decisions": [
+        {
+          "mechanism": "L1 semantic/mapping-consistency drift detector",
+          "hypothesis": "mapping consistency detects semantic change under matched feature marginals",
+          "primary_metric": "semantic drift recall at controlled false-alarm rate",
+          "evidence": "synthetic; 420 streams, 10 seeds; recall 1.000 vs 0.183 random, FAR 0.000",
+          "decision": "PROMISING_BUT_UNVALIDATED"
+        },
+        {
+          "mechanism": "L1 feature-statistic detector",
+          "hypothesis": "feature statistics can detect semantic drift",
+          "primary_metric": "semantic recall",
+          "evidence": "feature recall 1.000 but semantic recall 0.150 (<= random)",
+          "decision": "NOT_RECOMMENDED"
+        },
+        {
+          "mechanism": "L2 selective intermediate verification",
+          "hypothesis": "targeted checks reduce wrong acceptance without coverage loss",
+          "primary_metric": "incorrect acceptance vs useful coverage",
+          "evidence": "paired CI for selective includes zero; coverage loss 0.052",
+          "decision": "REQUIRES_MORE_EVIDENCE"
+        },
+        {
+          "mechanism": "L2 full/conservative verification",
+          "hypothesis": "full checking improves correctness",
+          "primary_metric": "incorrect acceptance",
+          "evidence": "credible IA reduction but 0.146 useful-coverage loss",
+          "decision": "NOT_RECOMMENDED"
+        },
+        {
+          "mechanism": "L3 behavioral retrieval verification",
+          "hypothesis": "behavioral agreement suppresses substitution and preserves coverage",
+          "primary_metric": "silent substitution vs familiar coverage",
+          "evidence": "substitution 1.000->0.000, familiar coverage 1.000; synthetic clean separation",
+          "decision": "REQUIRES_MORE_EVIDENCE"
+        },
+        {
+          "mechanism": "L3 type/surface-aware retrieval",
+          "hypothesis": "type or surface constraints help discrimination",
+          "primary_metric": "substitution",
+          "evidence": "no change vs baseline",
+          "decision": "NOT_RECOMMENDED"
+        },
+        {
+          "mechanism": "L4 temperature scaling",
+          "hypothesis": "post-hoc calibration helps across conditions",
+          "primary_metric": "ECE by subgroup",
+          "evidence": "aggregate ECE 0.249->0.118; difficult subgroups improved; normal/contradictory degraded",
+          "decision": "PROMISING_BUT_UNVALIDATED"
+        },
+        {
+          "mechanism": "L4 conditional/binning calibration",
+          "hypothesis": "conditional calibration fixes subgroup miscalibration",
+          "primary_metric": "subgroup ECE / NLL",
+          "evidence": "easy subgroups degraded; conditional-family NLL 1.048",
+          "decision": "NOT_RECOMMENDED"
+        },
+        {
+          "mechanism": "L5 natural-input adapter",
+          "hypothesis": "symbolic mechanisms transfer to modest realistic inputs",
+          "primary_metric": "held-out template exact match",
+          "evidence": "1.000 on 7 co-designed templates; not language understanding",
+          "decision": "PROMISING_BUT_UNVALIDATED"
+        },
+        {
+          "mechanism": "L6 combined configurations",
+          "hypothesis": "combining mechanisms improves reliability per cost",
+          "primary_metric": "reliability vs latency/operations",
+          "evidence": "2.8-3.1x latency without improvement over L3 alone",
+          "decision": "NOT_RECOMMENDED"
+        },
+        {
+          "mechanism": "OMEGA-NANO / CCM integration",
+          "hypothesis": "EXP-L mechanisms merit production integration",
+          "primary_metric": "held-out reliability, coverage, cost",
+          "evidence": "no mechanism is ELIGIBLE_FOR_SEPARATE_REVIEW; no integration performed",
+          "decision": "NOT_RECOMMENDED"
+        }
+      ],
+      "limitations": [
+        "All core evidence is synthetic or hand-authored template data.",
+        "No mechanism is ELIGIBLE_FOR_SEPARATE_REVIEW.",
+        "EXP-K's familiar-coverage collapse was not reproduced in L3.",
+        "L4 regressed easy calibration subgroups.",
+        "No fair comparison against large models was performed.",
+        "Eight pre-existing untracked EXP-H result files remain untouched."
+      ],
+      "note": "Independent reproduction compares deterministic aggregate metric fingerprints; timestamps and measured wall time may differ.",
+      "snapshot": "constructive\\exp_l\\results\\history\\L7-20261118-135640.json"
     }
   },
-  "updated_utc": "2026-11-18T13:26:25.814742+00:00",
-  "fingerprint": "879973bec81a7b47"
+  "updated_utc": "2026-11-18T13:56:40.974122+00:00",
+  "fingerprint": "fa5783132917b707"
 }

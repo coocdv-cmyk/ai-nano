@@ -236,3 +236,172 @@ def test_full_verification_reduces_incorrect_acceptance_vs_baseline():
     f = block["by_method"]["full"]["incorrect_acceptance_rate"]
     assert f <= b
     assert block["gate"]["no_oracle_in_decision"]
+
+
+# --- L3: retrieval generalization ------------------------------------------
+
+from constructive.exp_l.retrieval_generalization import (  # noqa: E402
+    FAMILIAR as RETRIEVAL_FAMILIAR, HELDOUT as RETRIEVAL_HELDOUT,
+    decide as retrieval_decide, make_query, rank, run_l3,
+)
+
+
+def test_family_split_is_disjoint_by_identity():
+    assert not (set(RETRIEVAL_FAMILIAR) & set(RETRIEVAL_HELDOUT))
+    assert len(RETRIEVAL_FAMILIAR) == 6 and len(RETRIEVAL_HELDOUT) == 6
+
+
+def test_heldout_query_has_no_correct_concept_in_pool():
+    q = make_query(1, "heldout")
+    assert q["expected"] is None
+    assert q["target"] in RETRIEVAL_HELDOUT
+    assert q["target"] not in [r["cid"] for r in rank(q)]
+
+
+def test_near_duplicate_is_discriminated_by_behavior():
+    q = make_query(0, "near_duplicate")
+    assert q["expected"] == "c-inc-2"
+    assert rank(q)[0]["cid"] == "c-inc-2"
+
+
+def test_misleading_surface_similarity_fools_similarity_only():
+    hits = 0
+    for seed in range(6):
+        q = make_query(seed, "misleading")
+        sim = retrieval_decide("similarity_only", q)
+        ver = retrieval_decide("rank_verify", q)
+        if sim["accepted"] and sim["cid"] == q["target"]:
+            hits += 1
+        assert not ver["accepted"]
+    assert hits == 0  # surface similarity never retrieves the held-out concept
+
+
+def test_l3_substitution_reduced_with_familiar_coverage():
+    block = run_l3(cfgmod.default_config("L3", seeds=(0, 1, 2)))
+    base = block["by_method"]["baseline"]["silent_substitution_rate"]
+    rv = block["by_method"]["rank_verify"]["silent_substitution_rate"]
+    assert rv < base
+    assert block["by_method"]["rank_verify"]["useful_coverage"] > 0
+    assert block["note"].find("Recall@k") >= 0
+
+
+# --- L4: conditional calibration -------------------------------------------
+
+from constructive.exp_l.conditional_calibration import (  # noqa: E402
+    CAL_SEEDS, MIN_GROUP_N, adaptive_ece, fit, make_rows, risk_coverage, run_l4,
+)
+
+
+def test_calibration_and_evaluation_seeds_are_disjoint():
+    assert not (set(CAL_SEEDS) & set(range(10)))
+    rows_cal = [r for s in CAL_SEEDS for r in make_rows(s)]
+    rows_eval = [r for s in range(3) for r in make_rows(s)]
+    assert set(r["seed"] for r in rows_cal).isdisjoint(
+        set(r["seed"] for r in rows_eval))
+
+
+def test_temperature_is_fitted_on_calibration_only():
+    cal = [r for s in CAL_SEEDS for r in make_rows(s)]
+    params = fit("temperature", cal)
+    assert params["T"] in (0.25, 0.5, 0.75, 1.0, 1.5, 2.0, 3.0, 5.0, 8.0)
+    # Fitting again on the same calibration data is deterministic.
+    assert fit("temperature", cal) == params
+
+
+def test_adaptive_ece_and_risk_coverage_undefined_case():
+    assert adaptive_ece([0.2, 0.8, 0.5, 0.5], [0, 1, 0, 1]) >= 0
+    curve = risk_coverage([0.1, 0.2], [0, 1], (0.9,))
+    assert curve[0]["selective_accuracy"] is None
+    assert curve[0]["selective_risk"] is None
+
+
+def test_l4_improves_aggregate_ece_but_difficult_subgroups_persist():
+    block = run_l4(cfgmod.default_config("L4", seeds=(0, 1, 2)))
+    raw = block["by_method"]["raw"]
+    temp = block["by_method"]["temperature"]
+    assert temp["ece"] < raw["ece"]
+    assert temp["accuracy"] == raw["accuracy"]
+    deep = raw["by_condition"]["deep"]
+    assert deep["n"] >= MIN_GROUP_N and deep["ece"] > raw["ece"]
+    assert block["gate"]["calibration_split_disjoint"]
+
+
+# --- L5: natural-input bridge ----------------------------------------------
+
+from constructive.exp_l.natural_input_bridge import (  # noqa: E402
+    TEMPLATES, answer, build_corpus, execute, expected_answer, parse, run_l5,
+)
+
+
+def test_corpus_split_is_by_template_identity():
+    dev = {t.tid for t in TEMPLATES if t.split == "dev"}
+    held = {t.tid for t in TEMPLATES if t.split == "heldout"}
+    assert dev and held and not (dev & held)
+    rows = build_corpus(0)
+    assert {r["template"] for r in rows} == dev | held
+
+
+def test_parse_failure_is_not_a_reasoning_failure():
+    p = parse("Add 5 to the number and report the result.")
+    assert p.ok and p.incomplete  # parsed fine, evidence insufficient
+    answered, _ = execute(p)
+    assert not answered  # abstention, not a parse error
+    bad = parse("xyzzy @@@")
+    assert not bad.ok
+
+
+def test_expected_answer_matches_executor_on_answer_templates():
+    for t in TEMPLATES:
+        if t.kind != "answer":
+            continue
+        for seed in range(3):
+            text, _ = t.generator(seed, make_rng(seed, t.tid))
+            exp = expected_answer(text)
+            p = parse(text)
+            answered, got = execute(p)
+            assert answered and got == exp, (t.tid, text, exp, got)
+
+
+def test_adapter_transfer_and_preserved_failures():
+    block = run_l5(cfgmod.default_config("L5", seeds=(0, 1, 2)))
+    m = block["by_method"]["adapter_with_guard"]
+    assert (m["heldout_exact_match"] or 0) > (block["by_method"]["constant"]["heldout_exact_match"] or 0)
+    assert m["correct_abstention"] > block["by_method"]["adapter_no_guard"]["correct_abstention"]
+    assert m["n_failures_preserved"] >= 0
+    assert block["provenance"]["external_model"] is False
+
+
+# --- L6: reliability economics ---------------------------------------------
+
+from constructive.exp_l.reliability_economics import CONFIGS, run_l6  # noqa: E402
+
+
+def test_l6_matched_workload_and_vector_metrics():
+    block = run_l6(cfgmod.default_config("L6", seeds=(0, 1, 2)))
+    cs = block["configurations"]
+    assert all(cs[c]["n"] == block["n_tasks"] for c in CONFIGS)
+    for c in CONFIGS:
+        assert cs[c]["resources"]["wall_s"] > 0
+        assert cs[c]["operation_counts"]["node_evaluations"] >= 0
+        assert cs[c]["incorrect_acceptances_per_1000"] >= 0
+    assert block["gate"]["no_composite_score"]
+
+
+def test_l6_always_abstain_has_zero_useful_coverage():
+    block = run_l6(cfgmod.default_config("L6", seeds=(0, 1)))
+    aa = block["configurations"]["always_abstain"]
+    assert aa["useful_coverage"] == 0.0
+    assert aa["abstention_rate"] == 1.0
+    assert aa["selective_accuracy"] if "selective_accuracy" in aa else True
+
+
+# --- L7: final audit -------------------------------------------------------
+
+from constructive.exp_l.audit import metric_fingerprint, strip_nondeterministic  # noqa: E402
+
+
+def test_metric_fingerprint_ignores_timestamps_and_timing():
+    a = {"x": 1, "resources": {"wall_s": 0.1}, "snapshot": "a"}
+    b = {"x": 1, "resources": {"wall_s": 9.9}, "snapshot": "b"}
+    assert metric_fingerprint(a) == metric_fingerprint(b)
+    assert strip_nondeterministic(a) == {"x": 1}

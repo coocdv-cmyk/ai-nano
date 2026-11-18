@@ -1,0 +1,895 @@
+{
+  "stage": "L5",
+  "schema": "exp-l-stage-block-v1",
+  "config": {
+    "stage": "L5",
+    "seed": 0,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "quick": false,
+    "no_resume": false,
+    "merge_only": false,
+    "generator_version": "exp-l-gen-1",
+    "seed_policy": "explicit_sha256_derived_random.Random(seed, stream); no hash() of strings",
+    "n_train": 4,
+    "n_val": 4,
+    "n_test": 8,
+    "time_limit_s": 120.0,
+    "memory_limit_mb": 512.0,
+    "full_test_timeout_s": 300.0
+  },
+  "config_fingerprint": "e2071eaa8ce06fa4",
+  "provenance": {
+    "license": "CC0-1.0 (original examples authored for EXP-L; no third-party data)",
+    "source": "original agent-authored examples",
+    "external_model": false,
+    "third_party_data": false
+  },
+  "n_examples": 840,
+  "templates": [
+    "dev-rule-even",
+    "dev-multi",
+    "dev-classify",
+    "dev-arith",
+    "dev-entity",
+    "dev-contradict",
+    "dev-incomplete",
+    "held-rule-odd",
+    "held-multi",
+    "held-classify",
+    "held-arith",
+    "held-entity",
+    "held-contradict",
+    "held-incomplete"
+  ],
+  "by_method": {
+    "constant": {
+      "n": 840,
+      "exact_match": 0.02976190476190476,
+      "correct_abstention": 0.0,
+      "incorrect_acceptance": 0.2857142857142857,
+      "parsing_failure_rate": 1.0,
+      "heldout_exact_match": 0.03333333333333333,
+      "by_family": {
+        "arith_word": {
+          "n": 120,
+          "correct": 17
+        },
+        "contradictory": {
+          "n": 120,
+          "correct": 0
+        },
+        "entity_relation": {
+          "n": 120,
+          "correct": 0
+        },
+        "incomplete": {
+          "n": 120,
+          "correct": 0
+        },
+        "multi_step": {
+          "n": 120,
+          "correct": 2
+        },
+        "rule_apply": {
+          "n": 120,
+          "correct": 6
+        },
+        "text_classify": {
+          "n": 120,
+          "correct": 0
+        }
+      },
+      "n_failures_preserved": 815,
+      "failure_examples": [
+        {
+          "outcome": "wrong_acceptance",
+          "answered": true,
+          "parse_ok": false,
+          "split": "dev",
+          "family": "rule_apply",
+          "template": "dev-rule-even",
+          "text": "If 8 is even, double it; otherwise subtract one. What is the result?",
+          "expected": 16,
+          "got": 0
+        },
+        {
+          "outcome": "wrong_acceptance",
+          "answered": true,
+          "parse_ok": false,
+          "split": "dev",
+          "family": "rule_apply",
+          "template": "dev-rule-even",
+          "text": "If 13 is even, double it; otherwise subtract one. What is the result?",
+          "expected": 12,
+          "got": 0
+        },
+        {
+          "outcome": "wrong_acceptance",
+          "answered": true,
+          "parse_ok": false,
+          "split": "dev",
+          "family": "rule_apply",
+          "template": "dev-rule-even",
+          "text": "If 13 is even, double it; otherwise subtract one. What is the result?",
+          "expected": 12,
+          "got": 0
+        },
+        {
+          "outcome": "wrong_acceptance",
+          "answered": true,
+          "parse_ok": false,
+          "split": "dev",
+          "family": "rule_apply",
+          "template": "dev-rule-even",
+          "text": "If 3 is even, double it; otherwise subtract one. What is the result?",
+          "expected": 2,
+          "got": 0
+        },
+        {
+          "outcome": "wrong_acceptance",
+          "answered": true,
+          "parse_ok": false,
+          "split": "dev",
+          "family": "multi_step",
+          "template": "dev-multi",
+          "text": "Start with 5, add 1, then multiply by 4. What is the final value?",
+          "expected": 24,
+          "got": 0
+        },
+        {
+          "outcome": "wrong_acceptance",
+          "answered": true,
+          "parse_ok": false,
+          "split": "dev",
+          "family": "multi_step",
+          "template": "dev-multi",
+          "text": "Start with 40, add 4, then multiply by 4. What is the final value?",
+          "expected": 176,
+          "got": 0
+        },
+        {
+          "outcome": "wrong_acceptance",
+          "answered": true,
+          "parse_ok": false,
+          "split": "dev",
+          "family": "multi_step",
+          "template": "dev-multi",
+          "text": "Start with 38, add 4, then multiply by 4. What is the final value?",
+          "expected": 168,
+          "got": 0
+        },
+        {
+          "outcome": "wrong_acceptance",
+          "answered": true,
+          "parse_ok": false,
+          "split": "dev",
+          "family": "multi_step",
+          "template": "dev-multi",
+          "text": "Start with 22, add 9, then multiply by 5. What is the final value?",
+          "expected": 155,
+          "got": 0
+        },
+        {
+          "outcome": "wrong_acceptance",
+          "answered": true,
+          "parse_ok": false,
+          "split": "dev",
+          "family": "multi_step",
+          "template": "dev-multi",
+          "text": "Start with 8, add 1, then multiply by 4. What is the final value?",
+          "expected": 36,
+          "got": 0
+        },
+        {
+          "outcome": "wrong_acceptance",
+          "answered": true,
+          "parse_ok": false,
+          "split": "dev",
+          "family": "multi_step",
+          "template": "dev-multi",
+          "text": "Start with 19, add 3, then multiply by 4. What is the final value?",
+          "expected": 88,
+          "got": 0
+        },
+        {
+          "outcome": "wrong_acceptance",
+          "answered": true,
+          "parse_ok": false,
+          "split": "dev",
+          "family": "text_classify",
+          "template": "dev-classify",
+          "text": "Classify this review as POSITIVE or NEGATIVE: 'terrible'.",
+          "expected": "NEGATIVE",
+          "got": 0
+        },
+        {
+          "outcome": "wrong_acceptance",
+          "answered": true,
+          "parse_ok": false,
+          "split": "dev",
+          "family": "text_classify",
+          "template": "dev-classify",
+          "text": "Classify this review as POSITIVE or NEGATIVE: 'terrible'.",
+          "expected": "NEGATIVE",
+          "got": 0
+        },
+        {
+          "outcome": "wrong_acceptance",
+          "answered": true,
+          "parse_ok": false,
+          "split": "dev",
+          "family": "text_classify",
+          "template": "dev-classify",
+          "text": "Classify this review as POSITIVE or NEGATIVE: 'good'.",
+          "expected": "POSITIVE",
+          "got": 0
+        },
+        {
+          "outcome": "wrong_acceptance",
+          "answered": true,
+          "parse_ok": false,
+          "split": "dev",
+          "family": "text_classify",
+          "template": "dev-classify",
+          "text": "Classify this review as POSITIVE or NEGATIVE: 'awful'.",
+          "expected": "NEGATIVE",
+          "got": 0
+        },
+        {
+          "outcome": "wrong_acceptance",
+          "answered": true,
+          "parse_ok": false,
+          "split": "dev",
+          "family": "text_classify",
+          "template": "dev-classify",
+          "text": "Classify this review as POSITIVE or NEGATIVE: 'good'.",
+          "expected": "POSITIVE",
+          "got": 0
+        },
+        {
+          "outcome": "wrong_acceptance",
+          "answered": true,
+          "parse_ok": false,
+          "split": "dev",
+          "family": "text_classify",
+          "template": "dev-classify",
+          "text": "Classify this review as POSITIVE or NEGATIVE: 'bad'.",
+          "expected": "NEGATIVE",
+          "got": 0
+        },
+        {
+          "outcome": "wrong_acceptance",
+          "answered": true,
+          "parse_ok": false,
+          "split": "dev",
+          "family": "arith_word",
+          "template": "dev-arith",
+          "text": "Compute (12 plus 4) modulo 7.",
+          "expected": 2,
+          "got": 0
+        },
+        {
+          "outcome": "wrong_acceptance",
+          "answered": true,
+          "parse_ok": false,
+          "split": "dev",
+          "family": "arith_word",
+          "template": "dev-arith",
+          "text": "Compute (1 plus 3) modulo 8.",
+          "expected": 4,
+          "got": 0
+        },
+        {
+          "outcome": "wrong_acceptance",
+          "answered": true,
+          "parse_ok": false,
+          "split": "dev",
+          "family": "arith_word",
+          "template": "dev-arith",
+          "text": "Compute (35 plus 1) modulo 7.",
+          "expected": 1,
+          "got": 0
+        },
+        {
+          "outcome": "wrong_acceptance",
+          "answered": true,
+          "parse_ok": false,
+          "split": "dev",
+          "family": "arith_word",
+          "template": "dev-arith",
+          "text": "Compute (30 plus 3) modulo 8.",
+          "expected": 1,
+          "got": 0
+        }
+      ]
+    },
+    "first_number": {
+      "n": 840,
+      "exact_match": 0.007142857142857143,
+      "correct_abstention": 0.0,
+      "incorrect_acceptance": 0.2857142857142857,
+      "parsing_failure_rate": 1.0,
+      "heldout_exact_match": 0.004761904761904762,
+      "by_family": {
+        "arith_word": {
+          "n": 120,
+          "correct": 1
+        },
+        "contradictory": {
+          "n": 120,
+          "correct": 0
+        },
+        "entity_relation": {
+          "n": 120,
+          "correct": 0
+        },
+        "incomplete": {
+          "n": 120,
+          "correct": 0
+        },
+        "multi_step": {
+          "n": 120,
+          "correct": 1
+        },
+        "rule_apply": {
+          "n": 120,
+          "correct": 4
+        },
+        "text_classify": {
+          "n": 120,
+          "correct": 0
+        }
+      },
+      "n_failures_preserved": 834,
+      "failure_examples": [
+        {
+          "outcome": "wrong_acceptance",
+          "answered": true,
+          "parse_ok": false,
+          "split": "dev",
+          "family": "rule_apply",
+          "template": "dev-rule-even",
+          "text": "If 8 is even, double it; otherwise subtract one. What is the result?",
+          "expected": 16,
+          "got": 8
+        },
+        {
+          "outcome": "wrong_acceptance",
+          "answered": true,
+          "parse_ok": false,
+          "split": "dev",
+          "family": "rule_apply",
+          "template": "dev-rule-even",
+          "text": "If 13 is even, double it; otherwise subtract one. What is the result?",
+          "expected": 12,
+          "got": 13
+        },
+        {
+          "outcome": "wrong_acceptance",
+          "answered": true,
+          "parse_ok": false,
+          "split": "dev",
+          "family": "rule_apply",
+          "template": "dev-rule-even",
+          "text": "If 1 is even, double it; otherwise subtract one. What is the result?",
+          "expected": 0,
+          "got": 1
+        },
+        {
+          "outcome": "wrong_acceptance",
+          "answered": true,
+          "parse_ok": false,
+          "split": "dev",
+          "family": "rule_apply",
+          "template": "dev-rule-even",
+          "text": "If 13 is even, double it; otherwise subtract one. What is the result?",
+          "expected": 12,
+          "got": 13
+        },
+        {
+          "outcome": "wrong_acceptance",
+          "answered": true,
+          "parse_ok": false,
+          "split": "dev",
+          "family": "rule_apply",
+          "template": "dev-rule-even",
+          "text": "If 3 is even, double it; otherwise subtract one. What is the result?",
+          "expected": 2,
+          "got": 3
+        },
+        {
+          "outcome": "wrong_acceptance",
+          "answered": true,
+          "parse_ok": false,
+          "split": "dev",
+          "family": "multi_step",
+          "template": "dev-multi",
+          "text": "Start with 5, add 1, then multiply by 4. What is the final value?",
+          "expected": 24,
+          "got": 5
+        },
+        {
+          "outcome": "wrong_acceptance",
+          "answered": true,
+          "parse_ok": false,
+          "split": "dev",
+          "family": "multi_step",
+          "template": "dev-multi",
+          "text": "Start with 40, add 4, then multiply by 4. What is the final value?",
+          "expected": 176,
+          "got": 40
+        },
+        {
+          "outcome": "wrong_acceptance",
+          "answered": true,
+          "parse_ok": false,
+          "split": "dev",
+          "family": "multi_step",
+          "template": "dev-multi",
+          "text": "Start with 38, add 4, then multiply by 4. What is the final value?",
+          "expected": 168,
+          "got": 38
+        },
+        {
+          "outcome": "wrong_acceptance",
+          "answered": true,
+          "parse_ok": false,
+          "split": "dev",
+          "family": "multi_step",
+          "template": "dev-multi",
+          "text": "Start with 22, add 9, then multiply by 5. What is the final value?",
+          "expected": 155,
+          "got": 22
+        },
+        {
+          "outcome": "wrong_acceptance",
+          "answered": true,
+          "parse_ok": false,
+          "split": "dev",
+          "family": "multi_step",
+          "template": "dev-multi",
+          "text": "Start with 8, add 1, then multiply by 4. What is the final value?",
+          "expected": 36,
+          "got": 8
+        },
+        {
+          "outcome": "wrong_acceptance",
+          "answered": true,
+          "parse_ok": false,
+          "split": "dev",
+          "family": "multi_step",
+          "template": "dev-multi",
+          "text": "Start with 19, add 3, then multiply by 4. What is the final value?",
+          "expected": 88,
+          "got": 19
+        },
+        {
+          "outcome": "wrong_acceptance",
+          "answered": true,
+          "parse_ok": false,
+          "split": "dev",
+          "family": "text_classify",
+          "template": "dev-classify",
+          "text": "Classify this review as POSITIVE or NEGATIVE: 'terrible'.",
+          "expected": "NEGATIVE",
+          "got": 0
+        },
+        {
+          "outcome": "wrong_acceptance",
+          "answered": true,
+          "parse_ok": false,
+          "split": "dev",
+          "family": "text_classify",
+          "template": "dev-classify",
+          "text": "Classify this review as POSITIVE or NEGATIVE: 'terrible'.",
+          "expected": "NEGATIVE",
+          "got": 0
+        },
+        {
+          "outcome": "wrong_acceptance",
+          "answered": true,
+          "parse_ok": false,
+          "split": "dev",
+          "family": "text_classify",
+          "template": "dev-classify",
+          "text": "Classify this review as POSITIVE or NEGATIVE: 'good'.",
+          "expected": "POSITIVE",
+          "got": 0
+        },
+        {
+          "outcome": "wrong_acceptance",
+          "answered": true,
+          "parse_ok": false,
+          "split": "dev",
+          "family": "text_classify",
+          "template": "dev-classify",
+          "text": "Classify this review as POSITIVE or NEGATIVE: 'awful'.",
+          "expected": "NEGATIVE",
+          "got": 0
+        },
+        {
+          "outcome": "wrong_acceptance",
+          "answered": true,
+          "parse_ok": false,
+          "split": "dev",
+          "family": "text_classify",
+          "template": "dev-classify",
+          "text": "Classify this review as POSITIVE or NEGATIVE: 'good'.",
+          "expected": "POSITIVE",
+          "got": 0
+        },
+        {
+          "outcome": "wrong_acceptance",
+          "answered": true,
+          "parse_ok": false,
+          "split": "dev",
+          "family": "text_classify",
+          "template": "dev-classify",
+          "text": "Classify this review as POSITIVE or NEGATIVE: 'bad'.",
+          "expected": "NEGATIVE",
+          "got": 0
+        },
+        {
+          "outcome": "wrong_acceptance",
+          "answered": true,
+          "parse_ok": false,
+          "split": "dev",
+          "family": "arith_word",
+          "template": "dev-arith",
+          "text": "Compute (12 plus 4) modulo 7.",
+          "expected": 2,
+          "got": 12
+        },
+        {
+          "outcome": "wrong_acceptance",
+          "answered": true,
+          "parse_ok": false,
+          "split": "dev",
+          "family": "arith_word",
+          "template": "dev-arith",
+          "text": "Compute (1 plus 3) modulo 8.",
+          "expected": 4,
+          "got": 1
+        },
+        {
+          "outcome": "wrong_acceptance",
+          "answered": true,
+          "parse_ok": false,
+          "split": "dev",
+          "family": "arith_word",
+          "template": "dev-arith",
+          "text": "Compute (35 plus 1) modulo 7.",
+          "expected": 1,
+          "got": 35
+        }
+      ]
+    },
+    "adapter_no_guard": {
+      "n": 840,
+      "exact_match": 0.6,
+      "correct_abstention": 0.0,
+      "incorrect_acceptance": 0.2857142857142857,
+      "parsing_failure_rate": 0.0,
+      "heldout_exact_match": 0.6,
+      "by_family": {
+        "arith_word": {
+          "n": 120,
+          "correct": 120
+        },
+        "contradictory": {
+          "n": 120,
+          "correct": 0
+        },
+        "entity_relation": {
+          "n": 120,
+          "correct": 0
+        },
+        "incomplete": {
+          "n": 120,
+          "correct": 0
+        },
+        "multi_step": {
+          "n": 120,
+          "correct": 120
+        },
+        "rule_apply": {
+          "n": 120,
+          "correct": 120
+        },
+        "text_classify": {
+          "n": 120,
+          "correct": 0
+        }
+      },
+      "n_failures_preserved": 480,
+      "failure_examples": [
+        {
+          "outcome": "wrong_abstention",
+          "answered": false,
+          "parse_ok": true,
+          "split": "dev",
+          "family": "text_classify",
+          "template": "dev-classify",
+          "text": "Classify this review as POSITIVE or NEGATIVE: 'terrible'.",
+          "expected": "NEGATIVE",
+          "got": null
+        },
+        {
+          "outcome": "wrong_abstention",
+          "answered": false,
+          "parse_ok": true,
+          "split": "dev",
+          "family": "text_classify",
+          "template": "dev-classify",
+          "text": "Classify this review as POSITIVE or NEGATIVE: 'terrible'.",
+          "expected": "NEGATIVE",
+          "got": null
+        },
+        {
+          "outcome": "wrong_abstention",
+          "answered": false,
+          "parse_ok": true,
+          "split": "dev",
+          "family": "text_classify",
+          "template": "dev-classify",
+          "text": "Classify this review as POSITIVE or NEGATIVE: 'good'.",
+          "expected": "POSITIVE",
+          "got": null
+        },
+        {
+          "outcome": "wrong_abstention",
+          "answered": false,
+          "parse_ok": true,
+          "split": "dev",
+          "family": "text_classify",
+          "template": "dev-classify",
+          "text": "Classify this review as POSITIVE or NEGATIVE: 'awful'.",
+          "expected": "NEGATIVE",
+          "got": null
+        },
+        {
+          "outcome": "wrong_abstention",
+          "answered": false,
+          "parse_ok": true,
+          "split": "dev",
+          "family": "text_classify",
+          "template": "dev-classify",
+          "text": "Classify this review as POSITIVE or NEGATIVE: 'good'.",
+          "expected": "POSITIVE",
+          "got": null
+        },
+        {
+          "outcome": "wrong_abstention",
+          "answered": false,
+          "parse_ok": true,
+          "split": "dev",
+          "family": "text_classify",
+          "template": "dev-classify",
+          "text": "Classify this review as POSITIVE or NEGATIVE: 'bad'.",
+          "expected": "NEGATIVE",
+          "got": null
+        },
+        {
+          "outcome": "wrong_abstention",
+          "answered": false,
+          "parse_ok": true,
+          "split": "dev",
+          "family": "entity_relation",
+          "template": "dev-entity",
+          "text": "In the sentence 'Ab manages Bx', what relation holds?",
+          "expected": "manages",
+          "got": null
+        },
+        {
+          "outcome": "wrong_abstention",
+          "answered": false,
+          "parse_ok": true,
+          "split": "dev",
+          "family": "entity_relation",
+          "template": "dev-entity",
+          "text": "In the sentence 'Aa manages Bx', what relation holds?",
+          "expected": "manages",
+          "got": null
+        },
+        {
+          "outcome": "wrong_abstention",
+          "answered": false,
+          "parse_ok": true,
+          "split": "dev",
+          "family": "entity_relation",
+          "template": "dev-entity",
+          "text": "In the sentence 'Ab manages Bz', what relation holds?",
+          "expected": "manages",
+          "got": null
+        },
+        {
+          "outcome": "wrong_abstention",
+          "answered": false,
+          "parse_ok": true,
+          "split": "dev",
+          "family": "entity_relation",
+          "template": "dev-entity",
+          "text": "In the sentence 'Ac manages By', what relation holds?",
+          "expected": "manages",
+          "got": null
+        },
+        {
+          "outcome": "wrong_abstention",
+          "answered": false,
+          "parse_ok": true,
+          "split": "dev",
+          "family": "entity_relation",
+          "template": "dev-entity",
+          "text": "In the sentence 'Aa manages Bz', what relation holds?",
+          "expected": "manages",
+          "got": null
+        },
+        {
+          "outcome": "wrong_abstention",
+          "answered": false,
+          "parse_ok": true,
+          "split": "dev",
+          "family": "entity_relation",
+          "template": "dev-entity",
+          "text": "In the sentence 'Ac manages By', what relation holds?",
+          "expected": "manages",
+          "got": null
+        },
+        {
+          "outcome": "incorrect_acceptance",
+          "answered": true,
+          "parse_ok": true,
+          "split": "dev",
+          "family": "contradictory",
+          "template": "dev-contradict",
+          "text": "Double 40 and also add one to 37. What is the result?",
+          "expected": null,
+          "got": 117
+        },
+        {
+          "outcome": "incorrect_acceptance",
+          "answered": true,
+          "parse_ok": true,
+          "split": "dev",
+          "family": "contradictory",
+          "template": "dev-contradict",
+          "text": "Double 33 and also add one to 0. What is the result?",
+          "expected": null,
+          "got": 66
+        },
+        {
+          "outcome": "incorrect_acceptance",
+          "answered": true,
+          "parse_ok": true,
+          "split": "dev",
+          "family": "contradictory",
+          "template": "dev-contradict",
+          "text": "Double 4 and also add one to 13. What is the result?",
+          "expected": null,
+          "got": 21
+        },
+        {
+          "outcome": "incorrect_acceptance",
+          "answered": true,
+          "parse_ok": true,
+          "split": "dev",
+          "family": "contradictory",
+          "template": "dev-contradict",
+          "text": "Double 23 and also add one to 11. What is the result?",
+          "expected": null,
+          "got": 57
+        },
+        {
+          "outcome": "incorrect_acceptance",
+          "answered": true,
+          "parse_ok": true,
+          "split": "dev",
+          "family": "contradictory",
+          "template": "dev-contradict",
+          "text": "Double 25 and also add one to 39. What is the result?",
+          "expected": null,
+          "got": 89
+        },
+        {
+          "outcome": "incorrect_acceptance",
+          "answered": true,
+          "parse_ok": true,
+          "split": "dev",
+          "family": "contradictory",
+          "template": "dev-contradict",
+          "text": "Double 34 and also add one to 30. What is the result?",
+          "expected": null,
+          "got": 98
+        },
+        {
+          "outcome": "incorrect_acceptance",
+          "answered": true,
+          "parse_ok": true,
+          "split": "dev",
+          "family": "incomplete",
+          "template": "dev-incomplete",
+          "text": "Add 5 to the number and report the result.",
+          "expected": null,
+          "got": 5
+        },
+        {
+          "outcome": "incorrect_acceptance",
+          "answered": true,
+          "parse_ok": true,
+          "split": "dev",
+          "family": "incomplete",
+          "template": "dev-incomplete",
+          "text": "Add 3 to the number and report the result.",
+          "expected": null,
+          "got": 3
+        }
+      ]
+    },
+    "adapter_with_guard": {
+      "n": 840,
+      "exact_match": 1.0,
+      "correct_abstention": 0.2857142857142857,
+      "incorrect_acceptance": 0.0,
+      "parsing_failure_rate": 0.0,
+      "heldout_exact_match": 1.0,
+      "by_family": {
+        "arith_word": {
+          "n": 120,
+          "correct": 120
+        },
+        "contradictory": {
+          "n": 120,
+          "correct": 0
+        },
+        "entity_relation": {
+          "n": 120,
+          "correct": 120
+        },
+        "incomplete": {
+          "n": 120,
+          "correct": 0
+        },
+        "multi_step": {
+          "n": 120,
+          "correct": 120
+        },
+        "rule_apply": {
+          "n": 120,
+          "correct": 120
+        },
+        "text_classify": {
+          "n": 120,
+          "correct": 120
+        }
+      },
+      "n_failures_preserved": 0,
+      "failure_examples": []
+    }
+  },
+  "gate": {
+    "template_split": true,
+    "parsing_separate_from_reasoning": true,
+    "no_external_model": true,
+    "heldout_transfer_measurable": true,
+    "ambiguous_handled": true,
+    "license_documented": true
+  },
+  "gate_pass": true,
+  "resources": {
+    "wall_s": 0.020807,
+    "cpu_s": 0.03125,
+    "peak_rss_mb": 25.449
+  },
+  "note": "Template-parsing transfer only. This is NOT evidence of natural-language understanding or general capability. Parsing, mapping, reasoning and ambiguity detection are scored separately."
+}
