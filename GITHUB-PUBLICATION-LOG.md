@@ -45,6 +45,7 @@ Policy: normal commits only; no force push, reset, or history rewriting.
 | L1 | `4a67749573de147454bfaecb9b60fca2e13a2062` | `EXP-L: detect semantic drift under matched feature marginals` | `git ls-remote origin refs/heads/research/exp-l` returned matching hash | EXP-L 20 passed; full suite 320 passed, 1 skipped; gate PASS | EXP-I 22/22, EXP-J 84/84 unchanged |
 | L2 | `dbd28d2510cd2831fd85b7121a21810f66ab35b0` | `EXP-L: evaluate selective intermediate verification without oracle access` | `git ls-remote origin refs/heads/research/exp-l` returned matching hash | EXP-L 25 passed; full suite 325 passed, 1 skipped; gate PASS | EXP-I 22/22, EXP-J 84/84 unchanged |
 | L3 | `c5542bc602275b18d1eaea61072a6eff321ad633` | `EXP-L: evaluate held-out-family retrieval and silent substitution` | `git ls-remote origin refs/heads/research/exp-l` returned matching hash | EXP-L 30 passed; full suite 330 passed, 1 skipped; gate PASS | EXP-I 22/22, EXP-J 84/84 unchanged |
+| L4 | `0e43dc5e8b4dc5ed66345e751fd9db2e01586e13` | `EXP-L: evaluate conditional calibration with disjoint partitions` | `git ls-remote origin refs/heads/research/exp-l` returned matching hash | EXP-L 34 passed; full suite 334 passed, 1 skipped; gate PASS (easy-subgroup regression disclosed) | EXP-I 22/22, EXP-J 84/84 unchanged |
 
 ## EXP-L notes
 
