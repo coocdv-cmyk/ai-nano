@@ -47,7 +47,7 @@
         "c-neg_abs_mod"
       ],
       "ambiguous": true,
-      "latency_ms": 0.191,
+      "latency_ms": 0.15,
       "diagnostic": {
         "compat": true,
         "agree": 0.5555555555555556
@@ -68,7 +68,7 @@
         "c-if_even"
       ],
       "ambiguous": false,
-      "latency_ms": 0.3915,
+      "latency_ms": 0.3207,
       "diagnostic": {
         "compat": true,
         "agree": 1.0
@@ -89,7 +89,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": false,
-      "latency_ms": 0.18,
+      "latency_ms": 0.14,
       "diagnostic": {
         "compat": true,
         "agree": 0.6666666666666666
@@ -110,7 +110,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": false,
-      "latency_ms": 0.1797,
+      "latency_ms": 0.1413,
       "diagnostic": {
         "compat": true,
         "agree": 1.0
@@ -131,7 +131,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": false,
-      "latency_ms": 0.421,
+      "latency_ms": 0.3072,
       "diagnostic": {
         "compat": true,
         "agree": 0.5555555555555556
@@ -152,7 +152,7 @@
         "c-band_shift"
       ],
       "ambiguous": true,
-      "latency_ms": 0.1811,
+      "latency_ms": 0.1467,
       "diagnostic": {
         "compat": true,
         "agree": 0.2222222222222222
@@ -173,7 +173,7 @@
         "c-neg_abs_mod"
       ],
       "ambiguous": true,
-      "latency_ms": 0.1907,
+      "latency_ms": 0.1405,
       "diagnostic": {
         "compat": true,
         "agree": 0.3333333333333333
@@ -194,7 +194,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": true,
-      "latency_ms": 0.3904,
+      "latency_ms": 0.3218,
       "diagnostic": {
         "compat": true,
         "agree": 0.1111111111111111
@@ -215,7 +215,7 @@
         "c-mod_double"
       ],
       "ambiguous": true,
-      "latency_ms": 0.1817,
+      "latency_ms": 0.139,
       "diagnostic": {
         "compat": true,
         "agree": 0.1111111111111111
@@ -236,7 +236,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": false,
-      "latency_ms": 0.1884,
+      "latency_ms": 0.1406,
       "diagnostic": {
         "compat": true,
         "agree": 0.5555555555555556
@@ -257,7 +257,7 @@
         "c-if_even"
       ],
       "ambiguous": false,
-      "latency_ms": 0.2435,
+      "latency_ms": 0.1982,
       "diagnostic": {
         "compat": true,
         "agree": 1.0
@@ -278,7 +278,7 @@
         "c-if_even"
       ],
       "ambiguous": true,
-      "latency_ms": 0.088,
+      "latency_ms": 0.0804,
       "diagnostic": {
         "compat": true,
         "agree": 0.5
@@ -299,7 +299,7 @@
         "c-if_even"
       ],
       "ambiguous": false,
-      "latency_ms": 0.1797,
+      "latency_ms": 0.1433,
       "diagnostic": {
         "compat": true,
         "agree": 0.7777777777777778
@@ -320,7 +320,7 @@
         "c-neg_abs_mod"
       ],
       "ambiguous": false,
-      "latency_ms": 0.1818,
+      "latency_ms": 0.1387,
       "diagnostic": {
         "compat": true,
         "agree": 1.0
@@ -341,7 +341,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": false,
-      "latency_ms": 0.3828,
+      "latency_ms": 0.3297,
       "diagnostic": {
         "compat": true,
         "agree": 0.5555555555555556
@@ -362,7 +362,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": false,
-      "latency_ms": 0.1881,
+      "latency_ms": 0.1579,
       "diagnostic": {
         "compat": true,
         "agree": 1.0
@@ -383,7 +383,7 @@
         "c-mod_double"
       ],
       "ambiguous": false,
-      "latency_ms": 0.2296,
+      "latency_ms": 0.1551,
       "diagnostic": {
         "compat": true,
         "agree": 0.4444444444444444
@@ -404,7 +404,7 @@
         "c-band_shift"
       ],
       "ambiguous": true,
-      "latency_ms": 0.4461,
+      "latency_ms": 0.3115,
       "diagnostic": {
         "compat": true,
         "agree": 0.2222222222222222
@@ -425,7 +425,7 @@
         "c-if_even"
       ],
       "ambiguous": false,
-      "latency_ms": 0.2251,
+      "latency_ms": 0.1385,
       "diagnostic": {
         "compat": true,
         "agree": 0.6666666666666666
@@ -446,7 +446,7 @@
         "c-if_even"
       ],
       "ambiguous": true,
-      "latency_ms": 0.7406,
+      "latency_ms": 0.4123,
       "diagnostic": {
         "compat": true,
         "agree": 0.2222222222222222
@@ -467,7 +467,7 @@
         "c-if_even"
       ],
       "ambiguous": true,
-      "latency_ms": 0.2077,
+      "latency_ms": 0.1508,
       "diagnostic": {
         "compat": true,
         "agree": 0.0
@@ -488,7 +488,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": false,
-      "latency_ms": 0.2014,
+      "latency_ms": 0.1399,
       "diagnostic": {
         "compat": true,
         "agree": 0.6666666666666666
@@ -509,7 +509,7 @@
         "c-if_even"
       ],
       "ambiguous": false,
-      "latency_ms": 0.0355,
+      "latency_ms": 0.0256,
       "diagnostic": {
         "compat": true,
         "agree": 1.0
@@ -530,7 +530,7 @@
         "c-if_even"
       ],
       "ambiguous": false,
-      "latency_ms": 0.3167,
+      "latency_ms": 0.2431,
       "diagnostic": {
         "compat": true,
         "agree": 0.5
@@ -551,7 +551,7 @@
         "c-neg_abs_mod"
       ],
       "ambiguous": true,
-      "latency_ms": 0.2089,
+      "latency_ms": 0.1419,
       "diagnostic": {
         "compat": true,
         "agree": 0.5555555555555556
@@ -572,7 +572,7 @@
         "c-if_even"
       ],
       "ambiguous": false,
-      "latency_ms": 0.2091,
+      "latency_ms": 0.1375,
       "diagnostic": {
         "compat": true,
         "agree": 1.0
@@ -593,7 +593,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": false,
-      "latency_ms": 0.4243,
+      "latency_ms": 0.3202,
       "diagnostic": {
         "compat": true,
         "agree": 0.6666666666666666
@@ -614,7 +614,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": false,
-      "latency_ms": 0.1813,
+      "latency_ms": 0.1367,
       "diagnostic": {
         "compat": true,
         "agree": 1.0
@@ -635,7 +635,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": false,
-      "latency_ms": 0.3834,
+      "latency_ms": 0.3053,
       "diagnostic": {
         "compat": true,
         "agree": 0.5555555555555556
@@ -656,7 +656,7 @@
         "c-band_shift"
       ],
       "ambiguous": true,
-      "latency_ms": 0.1817,
+      "latency_ms": 0.1617,
       "diagnostic": {
         "compat": true,
         "agree": 0.2222222222222222
@@ -677,7 +677,7 @@
         "c-neg_abs_mod"
       ],
       "ambiguous": true,
-      "latency_ms": 0.1814,
+      "latency_ms": 0.151,
       "diagnostic": {
         "compat": true,
         "agree": 0.3333333333333333
@@ -698,7 +698,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": true,
-      "latency_ms": 0.3839,
+      "latency_ms": 0.3175,
       "diagnostic": {
         "compat": true,
         "agree": 0.1111111111111111
@@ -719,7 +719,7 @@
         "c-mod_double"
       ],
       "ambiguous": true,
-      "latency_ms": 0.1817,
+      "latency_ms": 0.1382,
       "diagnostic": {
         "compat": true,
         "agree": 0.1111111111111111
@@ -740,7 +740,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": false,
-      "latency_ms": 0.1816,
+      "latency_ms": 0.1383,
       "diagnostic": {
         "compat": true,
         "agree": 0.5555555555555556
@@ -761,7 +761,7 @@
         "c-if_even"
       ],
       "ambiguous": false,
-      "latency_ms": 0.0318,
+      "latency_ms": 0.0245,
       "diagnostic": {
         "compat": true,
         "agree": 1.0
@@ -782,7 +782,7 @@
         "c-if_even"
       ],
       "ambiguous": true,
-      "latency_ms": 0.3094,
+      "latency_ms": 0.2368,
       "diagnostic": {
         "compat": true,
         "agree": 0.5
@@ -803,7 +803,7 @@
         "c-if_even"
       ],
       "ambiguous": false,
-      "latency_ms": 0.1995,
+      "latency_ms": 0.1408,
       "diagnostic": {
         "compat": true,
         "agree": 0.7777777777777778
@@ -824,7 +824,7 @@
         "c-neg_abs_mod"
       ],
       "ambiguous": false,
-      "latency_ms": 0.2026,
+      "latency_ms": 0.1394,
       "diagnostic": {
         "compat": true,
         "agree": 1.0
@@ -845,7 +845,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": false,
-      "latency_ms": 0.4386,
+      "latency_ms": 0.3039,
       "diagnostic": {
         "compat": true,
         "agree": 0.5555555555555556
@@ -866,7 +866,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": false,
-      "latency_ms": 0.2208,
+      "latency_ms": 0.1383,
       "diagnostic": {
         "compat": true,
         "agree": 1.0
@@ -887,7 +887,7 @@
         "c-mod_double"
       ],
       "ambiguous": false,
-      "latency_ms": 0.1831,
+      "latency_ms": 0.1384,
       "diagnostic": {
         "compat": true,
         "agree": 0.4444444444444444
@@ -908,7 +908,7 @@
         "c-band_shift"
       ],
       "ambiguous": true,
-      "latency_ms": 0.3825,
+      "latency_ms": 0.3035,
       "diagnostic": {
         "compat": true,
         "agree": 0.2222222222222222
@@ -929,7 +929,7 @@
         "c-if_even"
       ],
       "ambiguous": false,
-      "latency_ms": 0.1995,
+      "latency_ms": 0.1372,
       "diagnostic": {
         "compat": true,
         "agree": 0.6666666666666666
@@ -950,7 +950,7 @@
         "c-if_even"
       ],
       "ambiguous": true,
-      "latency_ms": 0.1984,
+      "latency_ms": 0.1393,
       "diagnostic": {
         "compat": true,
         "agree": 0.2222222222222222
@@ -971,7 +971,7 @@
         "c-if_even"
       ],
       "ambiguous": true,
-      "latency_ms": 0.2042,
+      "latency_ms": 0.1385,
       "diagnostic": {
         "compat": true,
         "agree": 0.0
@@ -992,7 +992,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": false,
-      "latency_ms": 0.1797,
+      "latency_ms": 0.1383,
       "diagnostic": {
         "compat": true,
         "agree": 0.6666666666666666
@@ -1013,7 +1013,7 @@
         "c-if_even"
       ],
       "ambiguous": false,
-      "latency_ms": 0.0312,
+      "latency_ms": 0.0293,
       "diagnostic": {
         "compat": true,
         "agree": 1.0
@@ -1034,7 +1034,7 @@
         "c-if_even"
       ],
       "ambiguous": false,
-      "latency_ms": 0.1081,
+      "latency_ms": 0.0672,
       "diagnostic": {
         "compat": true,
         "agree": 0.5
@@ -1055,7 +1055,7 @@
         "c-neg_abs_mod"
       ],
       "ambiguous": true,
-      "latency_ms": 0.2011,
+      "latency_ms": 0.1482,
       "diagnostic": {
         "compat": true,
         "agree": 0.5555555555555556
@@ -1076,7 +1076,7 @@
         "c-if_even"
       ],
       "ambiguous": false,
-      "latency_ms": 0.2118,
+      "latency_ms": 0.1437,
       "diagnostic": {
         "compat": true,
         "agree": 1.0
@@ -1097,7 +1097,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": false,
-      "latency_ms": 0.472,
+      "latency_ms": 0.3461,
       "diagnostic": {
         "compat": true,
         "agree": 0.6666666666666666
@@ -1118,7 +1118,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": false,
-      "latency_ms": 0.2089,
+      "latency_ms": 0.1479,
       "diagnostic": {
         "compat": true,
         "agree": 1.0
@@ -1139,7 +1139,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": false,
-      "latency_ms": 0.2123,
+      "latency_ms": 0.1411,
       "diagnostic": {
         "compat": true,
         "agree": 0.5555555555555556
@@ -1160,7 +1160,7 @@
         "c-band_shift"
       ],
       "ambiguous": true,
-      "latency_ms": 0.4203,
+      "latency_ms": 0.3082,
       "diagnostic": {
         "compat": true,
         "agree": 0.2222222222222222
@@ -1181,7 +1181,7 @@
         "c-neg_abs_mod"
       ],
       "ambiguous": true,
-      "latency_ms": 0.205,
+      "latency_ms": 0.1408,
       "diagnostic": {
         "compat": true,
         "agree": 0.3333333333333333
@@ -1202,7 +1202,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": true,
-      "latency_ms": 0.4236,
+      "latency_ms": 0.3236,
       "diagnostic": {
         "compat": true,
         "agree": 0.1111111111111111
@@ -1223,7 +1223,7 @@
         "c-mod_double"
       ],
       "ambiguous": true,
-      "latency_ms": 0.2009,
+      "latency_ms": 0.1383,
       "diagnostic": {
         "compat": true,
         "agree": 0.1111111111111111
@@ -1244,7 +1244,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": false,
-      "latency_ms": 0.2031,
+      "latency_ms": 0.1403,
       "diagnostic": {
         "compat": true,
         "agree": 0.5555555555555556
@@ -1265,7 +1265,7 @@
         "c-if_even"
       ],
       "ambiguous": false,
-      "latency_ms": 0.0438,
+      "latency_ms": 0.0254,
       "diagnostic": {
         "compat": true,
         "agree": 1.0
@@ -1286,7 +1286,7 @@
         "c-if_even"
       ],
       "ambiguous": true,
-      "latency_ms": 0.152,
+      "latency_ms": 0.0684,
       "diagnostic": {
         "compat": true,
         "agree": 0.5
@@ -1307,7 +1307,7 @@
         "c-if_even"
       ],
       "ambiguous": false,
-      "latency_ms": 0.1986,
+      "latency_ms": 0.144,
       "diagnostic": {
         "compat": true,
         "agree": 0.7777777777777778
@@ -1328,7 +1328,7 @@
         "c-neg_abs_mod"
       ],
       "ambiguous": false,
-      "latency_ms": 0.182,
+      "latency_ms": 0.1502,
       "diagnostic": {
         "compat": true,
         "agree": 1.0
@@ -1349,7 +1349,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": false,
-      "latency_ms": 0.4273,
+      "latency_ms": 0.3032,
       "diagnostic": {
         "compat": true,
         "agree": 0.5555555555555556
@@ -1370,7 +1370,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": false,
-      "latency_ms": 0.2341,
+      "latency_ms": 0.1376,
       "diagnostic": {
         "compat": true,
         "agree": 1.0
@@ -1391,7 +1391,7 @@
         "c-mod_double"
       ],
       "ambiguous": false,
-      "latency_ms": 0.3017,
+      "latency_ms": 0.14,
       "diagnostic": {
         "compat": true,
         "agree": 0.4444444444444444
@@ -1412,7 +1412,7 @@
         "c-band_shift"
       ],
       "ambiguous": true,
-      "latency_ms": 0.5999,
+      "latency_ms": 0.3039,
       "diagnostic": {
         "compat": true,
         "agree": 0.2222222222222222
@@ -1433,7 +1433,7 @@
         "c-if_even"
       ],
       "ambiguous": false,
-      "latency_ms": 0.2775,
+      "latency_ms": 0.138,
       "diagnostic": {
         "compat": true,
         "agree": 0.6666666666666666
@@ -1454,7 +1454,7 @@
         "c-if_even"
       ],
       "ambiguous": true,
-      "latency_ms": 0.2055,
+      "latency_ms": 0.1437,
       "diagnostic": {
         "compat": true,
         "agree": 0.2222222222222222
@@ -1475,7 +1475,7 @@
         "c-if_even"
       ],
       "ambiguous": true,
-      "latency_ms": 0.4408,
+      "latency_ms": 0.3031,
       "diagnostic": {
         "compat": true,
         "agree": 0.0
@@ -1496,7 +1496,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": false,
-      "latency_ms": 0.2044,
+      "latency_ms": 0.1391,
       "diagnostic": {
         "compat": true,
         "agree": 0.6666666666666666
@@ -1517,7 +1517,7 @@
         "c-if_even"
       ],
       "ambiguous": false,
-      "latency_ms": 0.0382,
+      "latency_ms": 0.0253,
       "diagnostic": {
         "compat": true,
         "agree": 1.0
@@ -1538,7 +1538,7 @@
         "c-if_even"
       ],
       "ambiguous": false,
-      "latency_ms": 0.0928,
+      "latency_ms": 0.0684,
       "diagnostic": {
         "compat": true,
         "agree": 0.5
@@ -1559,7 +1559,7 @@
         "c-neg_abs_mod"
       ],
       "ambiguous": true,
-      "latency_ms": 0.1881,
+      "latency_ms": 0.1434,
       "diagnostic": {
         "compat": true,
         "agree": 0.5555555555555556
@@ -1580,7 +1580,7 @@
         "c-if_even"
       ],
       "ambiguous": false,
-      "latency_ms": 0.1831,
+      "latency_ms": 0.141,
       "diagnostic": {
         "compat": true,
         "agree": 1.0
@@ -1601,7 +1601,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": false,
-      "latency_ms": 0.3993,
+      "latency_ms": 0.32,
       "diagnostic": {
         "compat": true,
         "agree": 0.6666666666666666
@@ -1622,7 +1622,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": false,
-      "latency_ms": 0.1803,
+      "latency_ms": 0.1428,
       "diagnostic": {
         "compat": true,
         "agree": 1.0
@@ -1643,7 +1643,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": false,
-      "latency_ms": 0.1826,
+      "latency_ms": 0.1495,
       "diagnostic": {
         "compat": true,
         "agree": 0.5555555555555556
@@ -1664,7 +1664,7 @@
         "c-band_shift"
       ],
       "ambiguous": true,
-      "latency_ms": 0.3813,
+      "latency_ms": 0.3437,
       "diagnostic": {
         "compat": true,
         "agree": 0.2222222222222222
@@ -1685,7 +1685,7 @@
         "c-neg_abs_mod"
       ],
       "ambiguous": true,
-      "latency_ms": 0.1851,
+      "latency_ms": 0.1546,
       "diagnostic": {
         "compat": true,
         "agree": 0.3333333333333333
@@ -1706,7 +1706,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": true,
-      "latency_ms": 0.1806,
+      "latency_ms": 0.1538,
       "diagnostic": {
         "compat": true,
         "agree": 0.1111111111111111
@@ -1727,7 +1727,7 @@
         "c-mod_double"
       ],
       "ambiguous": true,
-      "latency_ms": 0.38,
+      "latency_ms": 0.3049,
       "diagnostic": {
         "compat": true,
         "agree": 0.1111111111111111
@@ -1748,7 +1748,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": false,
-      "latency_ms": 0.1809,
+      "latency_ms": 0.1446,
       "diagnostic": {
         "compat": true,
         "agree": 0.5555555555555556
@@ -1769,7 +1769,7 @@
         "c-if_even"
       ],
       "ambiguous": false,
-      "latency_ms": 0.0312,
+      "latency_ms": 0.028,
       "diagnostic": {
         "compat": true,
         "agree": 1.0
@@ -1790,7 +1790,7 @@
         "c-if_even"
       ],
       "ambiguous": true,
-      "latency_ms": 0.0885,
+      "latency_ms": 0.0763,
       "diagnostic": {
         "compat": true,
         "agree": 0.5
@@ -1811,7 +1811,7 @@
         "c-if_even"
       ],
       "ambiguous": false,
-      "latency_ms": 0.4081,
+      "latency_ms": 0.3357,
       "diagnostic": {
         "compat": true,
         "agree": 0.7777777777777778
@@ -1832,7 +1832,7 @@
         "c-neg_abs_mod"
       ],
       "ambiguous": false,
-      "latency_ms": 0.1797,
+      "latency_ms": 0.1386,
       "diagnostic": {
         "compat": true,
         "agree": 1.0
@@ -1853,7 +1853,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": false,
-      "latency_ms": 0.1798,
+      "latency_ms": 0.1389,
       "diagnostic": {
         "compat": true,
         "agree": 0.5555555555555556
@@ -1874,7 +1874,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": false,
-      "latency_ms": 0.1796,
+      "latency_ms": 0.1485,
       "diagnostic": {
         "compat": true,
         "agree": 1.0
@@ -1895,7 +1895,7 @@
         "c-mod_double"
       ],
       "ambiguous": false,
-      "latency_ms": 0.1816,
+      "latency_ms": 0.1411,
       "diagnostic": {
         "compat": true,
         "agree": 0.4444444444444444
@@ -1916,7 +1916,7 @@
         "c-band_shift"
       ],
       "ambiguous": true,
-      "latency_ms": 0.4217,
+      "latency_ms": 0.3161,
       "diagnostic": {
         "compat": true,
         "agree": 0.2222222222222222
@@ -1937,7 +1937,7 @@
         "c-if_even"
       ],
       "ambiguous": false,
-      "latency_ms": 0.1806,
+      "latency_ms": 0.1376,
       "diagnostic": {
         "compat": true,
         "agree": 0.6666666666666666
@@ -1958,7 +1958,7 @@
         "c-if_even"
       ],
       "ambiguous": true,
-      "latency_ms": 0.1796,
+      "latency_ms": 0.1391,
       "diagnostic": {
         "compat": true,
         "agree": 0.2222222222222222
@@ -1979,7 +1979,7 @@
         "c-if_even"
       ],
       "ambiguous": true,
-      "latency_ms": 0.3839,
+      "latency_ms": 0.3068,
       "diagnostic": {
         "compat": true,
         "agree": 0.0
@@ -2000,7 +2000,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": false,
-      "latency_ms": 0.18,
+      "latency_ms": 0.1371,
       "diagnostic": {
         "compat": true,
         "agree": 0.6666666666666666
@@ -2021,7 +2021,7 @@
         "c-if_even"
       ],
       "ambiguous": false,
-      "latency_ms": 0.0314,
+      "latency_ms": 0.0251,
       "diagnostic": {
         "compat": true,
         "agree": 1.0
@@ -2042,7 +2042,7 @@
         "c-if_even"
       ],
       "ambiguous": false,
-      "latency_ms": 0.0945,
+      "latency_ms": 0.0744,
       "diagnostic": {
         "compat": true,
         "agree": 0.5
@@ -2063,7 +2063,7 @@
         "c-neg_abs_mod"
       ],
       "ambiguous": true,
-      "latency_ms": 0.1904,
+      "latency_ms": 0.1433,
       "diagnostic": {
         "compat": true,
         "agree": 0.5555555555555556
@@ -2084,7 +2084,7 @@
         "c-if_even"
       ],
       "ambiguous": false,
-      "latency_ms": 0.1812,
+      "latency_ms": 0.1524,
       "diagnostic": {
         "compat": true,
         "agree": 1.0
@@ -2105,7 +2105,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": false,
-      "latency_ms": 0.3894,
+      "latency_ms": 0.3207,
       "diagnostic": {
         "compat": true,
         "agree": 0.6666666666666666
@@ -2126,7 +2126,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": false,
-      "latency_ms": 0.179,
+      "latency_ms": 0.1378,
       "diagnostic": {
         "compat": true,
         "agree": 1.0
@@ -2147,7 +2147,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": false,
-      "latency_ms": 0.1821,
+      "latency_ms": 0.1402,
       "diagnostic": {
         "compat": true,
         "agree": 0.5555555555555556
@@ -2168,7 +2168,7 @@
         "c-band_shift"
       ],
       "ambiguous": true,
-      "latency_ms": 0.3823,
+      "latency_ms": 0.3069,
       "diagnostic": {
         "compat": true,
         "agree": 0.2222222222222222
@@ -2189,7 +2189,7 @@
         "c-neg_abs_mod"
       ],
       "ambiguous": true,
-      "latency_ms": 0.1803,
+      "latency_ms": 0.1421,
       "diagnostic": {
         "compat": true,
         "agree": 0.3333333333333333
@@ -2210,7 +2210,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": true,
-      "latency_ms": 0.1805,
+      "latency_ms": 0.1416,
       "diagnostic": {
         "compat": true,
         "agree": 0.1111111111111111
@@ -2231,7 +2231,7 @@
         "c-mod_double"
       ],
       "ambiguous": true,
-      "latency_ms": 0.3809,
+      "latency_ms": 0.3228,
       "diagnostic": {
         "compat": true,
         "agree": 0.1111111111111111
@@ -2252,7 +2252,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": false,
-      "latency_ms": 0.1794,
+      "latency_ms": 0.1382,
       "diagnostic": {
         "compat": true,
         "agree": 0.5555555555555556
@@ -2273,7 +2273,7 @@
         "c-if_even"
       ],
       "ambiguous": false,
-      "latency_ms": 0.0316,
+      "latency_ms": 0.0252,
       "diagnostic": {
         "compat": true,
         "agree": 1.0
@@ -2294,7 +2294,7 @@
         "c-if_even"
       ],
       "ambiguous": true,
-      "latency_ms": 0.0888,
+      "latency_ms": 0.0674,
       "diagnostic": {
         "compat": true,
         "agree": 0.5
@@ -2315,7 +2315,7 @@
         "c-if_even"
       ],
       "ambiguous": false,
-      "latency_ms": 0.5344,
+      "latency_ms": 0.3068,
       "diagnostic": {
         "compat": true,
         "agree": 0.7777777777777778
@@ -2336,7 +2336,7 @@
         "c-neg_abs_mod"
       ],
       "ambiguous": false,
-      "latency_ms": 0.2237,
+      "latency_ms": 0.2295,
       "diagnostic": {
         "compat": true,
         "agree": 1.0
@@ -2357,7 +2357,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": false,
-      "latency_ms": 0.202,
+      "latency_ms": 0.1629,
       "diagnostic": {
         "compat": true,
         "agree": 0.5555555555555556
@@ -2378,7 +2378,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": false,
-      "latency_ms": 0.4039,
+      "latency_ms": 0.3468,
       "diagnostic": {
         "compat": true,
         "agree": 1.0
@@ -2399,7 +2399,7 @@
         "c-mod_double"
       ],
       "ambiguous": false,
-      "latency_ms": 0.3794,
+      "latency_ms": 0.1463,
       "diagnostic": {
         "compat": true,
         "agree": 0.4444444444444444
@@ -2420,7 +2420,7 @@
         "c-band_shift"
       ],
       "ambiguous": true,
-      "latency_ms": 0.6168,
+      "latency_ms": 0.1512,
       "diagnostic": {
         "compat": true,
         "agree": 0.2222222222222222
@@ -2441,7 +2441,7 @@
         "c-if_even"
       ],
       "ambiguous": false,
-      "latency_ms": 0.235,
+      "latency_ms": 0.1516,
       "diagnostic": {
         "compat": true,
         "agree": 0.6666666666666666
@@ -2462,7 +2462,7 @@
         "c-if_even"
       ],
       "ambiguous": true,
-      "latency_ms": 0.2136,
+      "latency_ms": 0.1544,
       "diagnostic": {
         "compat": true,
         "agree": 0.2222222222222222
@@ -2483,7 +2483,7 @@
         "c-if_even"
       ],
       "ambiguous": true,
-      "latency_ms": 0.5044,
+      "latency_ms": 0.349,
       "diagnostic": {
         "compat": true,
         "agree": 0.0
@@ -2504,7 +2504,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": false,
-      "latency_ms": 0.2513,
+      "latency_ms": 0.1516,
       "diagnostic": {
         "compat": true,
         "agree": 0.6666666666666666
@@ -2525,7 +2525,7 @@
         "c-if_even"
       ],
       "ambiguous": false,
-      "latency_ms": 0.0375,
+      "latency_ms": 0.0288,
       "diagnostic": {
         "compat": true,
         "agree": 1.0
@@ -2546,7 +2546,7 @@
         "c-if_even"
       ],
       "ambiguous": false,
-      "latency_ms": 0.1031,
+      "latency_ms": 0.0745,
       "diagnostic": {
         "compat": true,
         "agree": 0.5
@@ -2567,7 +2567,7 @@
         "c-neg_abs_mod"
       ],
       "ambiguous": true,
-      "latency_ms": 0.4132,
+      "latency_ms": 0.3317,
       "diagnostic": {
         "compat": true,
         "agree": 0.5555555555555556,
@@ -2589,7 +2589,7 @@
         "c-if_even"
       ],
       "ambiguous": false,
-      "latency_ms": 0.1823,
+      "latency_ms": 0.1397,
       "diagnostic": {
         "compat": true,
         "agree": 1.0,
@@ -2611,7 +2611,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": false,
-      "latency_ms": 0.392,
+      "latency_ms": 0.3078,
       "diagnostic": {
         "compat": true,
         "agree": 0.6666666666666666,
@@ -2633,7 +2633,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": false,
-      "latency_ms": 0.1809,
+      "latency_ms": 0.1457,
       "diagnostic": {
         "compat": true,
         "agree": 1.0,
@@ -2655,7 +2655,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": false,
-      "latency_ms": 0.3976,
+      "latency_ms": 0.3069,
       "diagnostic": {
         "compat": true,
         "agree": 0.5555555555555556,
@@ -2677,7 +2677,7 @@
         "c-band_shift"
       ],
       "ambiguous": true,
-      "latency_ms": 0.188,
+      "latency_ms": 0.139,
       "diagnostic": {
         "compat": true,
         "agree": 0.2222222222222222,
@@ -2699,7 +2699,7 @@
         "c-neg_abs_mod"
       ],
       "ambiguous": true,
-      "latency_ms": 0.3827,
+      "latency_ms": 0.3102,
       "diagnostic": {
         "compat": true,
         "agree": 0.3333333333333333,
@@ -2721,7 +2721,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": true,
-      "latency_ms": 0.1859,
+      "latency_ms": 0.1399,
       "diagnostic": {
         "compat": true,
         "agree": 0.1111111111111111,
@@ -2743,7 +2743,7 @@
         "c-mod_double"
       ],
       "ambiguous": true,
-      "latency_ms": 0.3934,
+      "latency_ms": 0.3056,
       "diagnostic": {
         "compat": true,
         "agree": 0.1111111111111111,
@@ -2765,7 +2765,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": false,
-      "latency_ms": 0.1819,
+      "latency_ms": 0.1424,
       "diagnostic": {
         "compat": true,
         "agree": 0.5555555555555556,
@@ -2787,7 +2787,7 @@
         "c-if_even"
       ],
       "ambiguous": false,
-      "latency_ms": 0.0356,
+      "latency_ms": 0.0279,
       "diagnostic": {
         "compat": true,
         "agree": 1.0,
@@ -2809,7 +2809,7 @@
         "c-if_even"
       ],
       "ambiguous": true,
-      "latency_ms": 0.3001,
+      "latency_ms": 0.2362,
       "diagnostic": {
         "compat": true,
         "agree": 0.5,
@@ -2831,7 +2831,7 @@
         "c-if_even"
       ],
       "ambiguous": false,
-      "latency_ms": 0.1799,
+      "latency_ms": 0.137,
       "diagnostic": {
         "compat": true,
         "agree": 0.7777777777777778,
@@ -2853,7 +2853,7 @@
         "c-neg_abs_mod"
       ],
       "ambiguous": false,
-      "latency_ms": 0.3878,
+      "latency_ms": 0.3176,
       "diagnostic": {
         "compat": true,
         "agree": 1.0,
@@ -2875,7 +2875,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": false,
-      "latency_ms": 0.1889,
+      "latency_ms": 0.1401,
       "diagnostic": {
         "compat": true,
         "agree": 0.5555555555555556,
@@ -2897,7 +2897,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": false,
-      "latency_ms": 0.1863,
+      "latency_ms": 0.1374,
       "diagnostic": {
         "compat": true,
         "agree": 1.0,
@@ -2919,7 +2919,7 @@
         "c-mod_double"
       ],
       "ambiguous": false,
-      "latency_ms": 0.1855,
+      "latency_ms": 0.1372,
       "diagnostic": {
         "compat": true,
         "agree": 0.4444444444444444,
@@ -2941,7 +2941,7 @@
         "c-band_shift"
       ],
       "ambiguous": true,
-      "latency_ms": 0.3878,
+      "latency_ms": 0.3343,
       "diagnostic": {
         "compat": true,
         "agree": 0.2222222222222222,
@@ -2963,7 +2963,7 @@
         "c-if_even"
       ],
       "ambiguous": false,
-      "latency_ms": 0.1797,
+      "latency_ms": 0.1533,
       "diagnostic": {
         "compat": true,
         "agree": 0.6666666666666666,
@@ -2985,7 +2985,7 @@
         "c-if_even"
       ],
       "ambiguous": true,
-      "latency_ms": 0.3886,
+      "latency_ms": 0.3214,
       "diagnostic": {
         "compat": true,
         "agree": 0.2222222222222222,
@@ -3007,7 +3007,7 @@
         "c-if_even"
       ],
       "ambiguous": true,
-      "latency_ms": 0.1988,
+      "latency_ms": 0.1378,
       "diagnostic": {
         "compat": true,
         "agree": 0.0,
@@ -3029,7 +3029,7 @@
         "c-digital_root_square"
       ],
       "ambiguous": false,
-      "latency_ms": 0.4083,
+      "latency_ms": 0.3661,
       "diagnostic": {
         "compat": true,
         "agree": 0.6666666666666666,
@@ -3051,7 +3051,7 @@
         "c-if_even"
       ],
       "ambiguous": false,
-      "latency_ms": 0.0323,
+      "latency_ms": 0.0255,
       "diagnostic": {
         "compat": true,
         "agree": 1.0,
@@ -3073,7 +3073,7 @@
         "c-if_even"
       ],
       "ambiguous": false,
-      "latency_ms": 0.0867,
+      "latency_ms": 0.0679,
       "diagnostic": {
         "compat": true,
         "agree": 0.5,
@@ -3180,12 +3180,12 @@
       },
       "latency_ms": {
         "n": 24,
-        "mean": 0.256754,
-        "median": 0.1962,
-        "std": 0.142896,
-        "ci95": 0.057169,
-        "min": 0.0355,
-        "max": 0.7406
+        "mean": 0.190533,
+        "median": 0.14835,
+        "std": 0.09206,
+        "ci95": 0.036831,
+        "min": 0.0256,
+        "max": 0.4123
       }
     },
     "type_aware": {
@@ -3286,12 +3286,12 @@
       },
       "latency_ms": {
         "n": 24,
-        "mean": 0.225279,
-        "median": 0.1995,
-        "std": 0.106632,
-        "ci95": 0.042661,
-        "min": 0.0312,
-        "max": 0.4386
+        "mean": 0.167654,
+        "median": 0.1389,
+        "std": 0.083528,
+        "ci95": 0.033418,
+        "min": 0.0245,
+        "max": 0.3202
       }
     },
     "ood_rejection": {
@@ -3394,12 +3394,12 @@
       },
       "latency_ms": {
         "n": 24,
-        "mean": 0.256567,
-        "median": 0.2072,
-        "std": 0.136619,
-        "ci95": 0.054658,
-        "min": 0.0382,
-        "max": 0.5999
+        "mean": 0.169521,
+        "median": 0.1424,
+        "std": 0.0914,
+        "ci95": 0.036567,
+        "min": 0.0253,
+        "max": 0.3461
       }
     },
     "ambiguity_abstention": {
@@ -3502,12 +3502,12 @@
       },
       "latency_ms": {
         "n": 24,
-        "mean": 0.215063,
-        "median": 0.18075,
-        "std": 0.113862,
-        "ci95": 0.045554,
-        "min": 0.0312,
-        "max": 0.4217
+        "mean": 0.172567,
+        "median": 0.1431,
+        "std": 0.092982,
+        "ci95": 0.0372,
+        "min": 0.0251,
+        "max": 0.3437
       }
     },
     "provenance_compatible": {
@@ -3610,12 +3610,12 @@
       },
       "latency_ms": {
         "n": 24,
-        "mean": 0.260458,
-        "median": 0.2078,
-        "std": 0.151327,
-        "ci95": 0.060542,
-        "min": 0.0316,
-        "max": 0.6168
+        "mean": 0.178833,
+        "median": 0.1514,
+        "std": 0.09497,
+        "ci95": 0.037995,
+        "min": 0.0252,
+        "max": 0.349
       }
     },
     "independent_verification": {
@@ -3718,12 +3718,12 @@
       },
       "latency_ms": {
         "n": 24,
-        "mean": 0.251842,
-        "median": 0.18845,
-        "std": 0.122106,
-        "ci95": 0.048852,
-        "min": 0.0323,
-        "max": 0.4132
+        "mean": 0.200358,
+        "median": 0.14405,
+        "std": 0.103161,
+        "ci95": 0.041272,
+        "min": 0.0255,
+        "max": 0.3661
       }
     }
   },
@@ -3854,8 +3854,8 @@
     "Held-out families are generated independently of the concept pool."
   ],
   "resources": {
-    "elapsed_s": 0.059867,
-    "peak_rss_mb": 526.73,
+    "elapsed_s": 0.046142,
+    "peak_rss_mb": 526.47,
     "expansions": 0,
     "nodes": 0,
     "validation_calls": 0,
@@ -3865,7 +3865,7 @@
   },
   "completion_status": "COMPLETED",
   "resource_report": {
-    "elapsed_s": 0.143112400022801,
+    "elapsed_s": 0.13157710002269596,
     "nodes_used": 0,
     "global_deadline_s": 600.0,
     "node_budget": null,
@@ -3874,11 +3874,11 @@
     "diagnostics": {
       "last_completed_scope": "K2",
       "last_scope_status": "COMPLETED",
-      "scope_elapsed_s": 0.06006859999615699,
+      "scope_elapsed_s": 0.04637539997929707,
       "scope_nodes": 0
     },
     "memory_guard_mb": null,
-    "peak_rss_mb": 526.73
+    "peak_rss_mb": 526.47
   },
   "reproducibility": {
     "config_fingerprint": "753747c19207d0e9",
@@ -3917,7 +3917,7 @@
       "acceleration": "none (CPU-only; no external APIs)",
       "python": "3.13.15"
     },
-    "git_commit": "0c4e9812767109a93ba2c8e5ebec68b1a9c233a7",
+    "git_commit": "3d445c9de0ea09994229b1f3b9f741498def96fc",
     "git_branch": "research/exp-k",
     "source_fingerprints": {
       "constructive/exp_j/generators.py": "b09b085f682c7221afd417de19d28d70457598a016f2be6c6f4d6f0e22a75ccf",

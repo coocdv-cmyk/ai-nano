@@ -192,3 +192,20 @@ def test_drift_thresholds_fixed_on_calibration():
     assert all(v["n_streams"] > 0 for v in k3["by_arm"].values())
     assert "combined" in k3["comparison_to_baseline"]
 
+
+# --- K4: calibration --------------------------------------------------------
+
+
+def test_calibration_uses_separate_split():
+    from constructive.exp_k import calibration as K4
+    r = runner.run(stage="K4", quick=True)
+    k4 = r["experiments"]["K4"]
+    assert k4["status"] == "completed"
+    assert k4["completion_status"] == "COMPLETED"
+    assert set(k4["by_method"]) == set(K4.METHODS)
+    assert k4["n_calibration"] > 0 and k4["n_evaluation"] > 0
+    assert set(k4["calibration_seeds"]).isdisjoint(set(k4["seeds"]))
+    assert set(k4["by_condition"]) == set(K4.CONDITIONS)
+    assert k4["by_method"]["raw"]["ece"] is not None
+    assert "caveats" in k4
+

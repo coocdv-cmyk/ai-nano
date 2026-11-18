@@ -123,3 +123,32 @@ These are hypotheses, not findings. Later stages will confirm or reject them.
 5. Thresholds (`feature_threshold=19.96`, `window=2`, `accuracy_threshold=0.825`)
    were fixed on calibration seeds 101–103 before held-out evaluation.
 
+## K4 — Calibration (140 calibration + 350 held-out rows, 5 methods)
+
+| Method | ECE | Brier | NLL | Accuracy |
+|---|---|---|---|---|
+| raw | 0.1258 | 0.0841 | 0.2840 | 0.491 |
+| temperature (T=0.75) | **0.0741** | 0.0770 | 0.2639 | 0.491 |
+| isotonic | 0.0982 | **0.0679** | 0.8983 | 0.491 |
+| binning | 0.0842 | 0.0768 | **0.2620** | 0.491 |
+| conformal abstention | risk-controlled coverage (ECE not applicable) | | | |
+
+Per-condition raw ECE: normal 0.185, deep **0.424**, OOD 0.163, noise 0.015,
+contradictory 0.000, retrieval substitution **0.410**.
+
+**Findings.**
+1. EXP-J's calibration failure is **reproduced** (raw ECE 0.126 on this held-out
+   split; 0.185 on the normal-condition subset alone).
+2. Temperature scaling (fit on separate seeds) nearly halves ECE, and binning
+   gives the best NLL. Isotonic improves Brier but **destroys NLL** on only 140
+   calibration rows — a concrete small-sample warning.
+3. No method changes accuracy: these are post-hoc probability transforms.
+   Calibrating confidence is not the same as making the underlying decisions
+   correct (Hypothesis 4 is **partially confirmed**).
+4. Calibration **fails where it matters most**: deep compositions (ECE 0.424,
+   temperature makes it worse) and retrieval substitutions (0.410) have near-zero
+   accuracy yet high confidence. Contradictory cases are trivially calibrated
+   because the engine emits confidence 0.
+5. Conformal-style abstention is measured as a risk/coverage trade-off, not as
+   a probability transform, and is not claimed to prove correctness.
+

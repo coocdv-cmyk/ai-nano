@@ -50,6 +50,9 @@ def _dispatch(stage: str, cfg: ExpKConfig) -> Callable[[], dict[str, Any]]:
     if stage == "K3":
         from . import drift_detection
         return lambda: drift_detection.run_k3(cfg)
+    if stage == "K4":
+        from . import calibration
+        return lambda: calibration.run_k4(cfg)
     # Later stages are registered as they are implemented and verified.
     raise KeyError(f"stage {stage} is not implemented in this revision")
 
