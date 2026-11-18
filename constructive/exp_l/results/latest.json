@@ -1,0 +1,1721 @@
+{
+  "schema": "exp-l-results-v1",
+  "stages": {
+    "L0": {
+      "stage": "L0",
+      "schema": "exp-l-stage-block-v1",
+      "exp_l_version": "0.1.0",
+      "git": {
+        "commit": "1face37bc9c695f5804baf97e6533113695f7af3",
+        "branch": "research/exp-l"
+      },
+      "config": {
+        "stage": "L0",
+        "seed": 0,
+        "seeds": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "quick": false,
+        "no_resume": false,
+        "merge_only": false,
+        "generator_version": "exp-l-gen-1",
+        "seed_policy": "explicit_sha256_derived_random.Random(seed, stream); no hash() of strings",
+        "n_train": 4,
+        "n_val": 4,
+        "n_test": 8,
+        "time_limit_s": 120.0,
+        "memory_limit_mb": 512.0,
+        "full_test_timeout_s": 300.0
+      },
+      "config_fingerprint": "cea8b4c3633520d7",
+      "working_tree": {
+        "tracked_modified": [],
+        "tracked_source_modified": [],
+        "untracked": [
+          "constructive/exp_h/results/stage-a-20261118-160909.json",
+          "constructive/exp_h/results/stage-a-20261118-161835.json",
+          "constructive/exp_h/results/stage-a-20261118-162221.json",
+          "constructive/exp_h/results/stage-a-20261118-162604.json",
+          "constructive/exp_h/results/stage-a-20261118-162925.json",
+          "constructive/exp_h/results/stage-a-20261118-163408.json",
+          "constructive/exp_h/results/stage-a-20261118-163857.json",
+          "constructive/exp_h/results/stage-a-20261118-164722.json",
+          "constructive/exp_l/__init__.py",
+          "constructive/exp_l/config.py",
+          "constructive/exp_l/datasets.py",
+          "constructive/exp_l/determinism.py",
+          "constructive/exp_l/environment.py",
+          "constructive/exp_l/integrity.py",
+          "constructive/exp_l/reporting.py",
+          "constructive/exp_l/results/L0-baseline.json",
+          "constructive/exp_l/results/L0-environment.json",
+          "constructive/exp_l/results/L0-integrity.json",
+          "constructive/exp_l/results/history/L0-20261118-130812.json",
+          "constructive/exp_l/results/integrity.json",
+          "constructive/exp_l/results/latest.json",
+          "constructive/exp_l/runner.py",
+          "tests/test_exp_l.py"
+        ],
+        "clean": false,
+        "note": "The legacy suite regenerates its own quick-run JSON result files; these are restored after a milestone run. Untracked EXP-H result files are preserved untouched per explicit authorization; they are not EXP-L artifacts."
+      },
+      "smoke_test": {
+        "fixture": "minimal_fixture/v1",
+        "fingerprint": "c105dfffc3b44951",
+        "other_seed_fingerprint": "d6e645107c8e5943",
+        "rng_stream_reproducible": true,
+        "deterministic_reproduction": true,
+        "passed": true
+      },
+      "full_test_suite": {
+        "command": "python -m pytest -q",
+        "returncode": 0,
+        "summary": "312 passed, 1 skipped in 96.43s (0:01:36)",
+        "elapsed_s": 98.046,
+        "passed": true,
+        "timed_out": false
+      },
+      "gate": {
+        "protected_hashes_ok": true,
+        "no_tracked_source_modifications": true,
+        "full_tests_ok": true,
+        "smoke_ok": true
+      },
+      "gate_pass": true,
+      "wall_s": 98.668,
+      "captured_utc": "2026-11-18T13:11:22.322292+00:00",
+      "integrity": {
+        "stage": "L0",
+        "schema": "exp-l-integrity-v1",
+        "git": {
+          "commit": "1face37bc9c695f5804baf97e6533113695f7af3",
+          "branch": "research/exp-l"
+        },
+        "exp_i": {
+          "manifest": "constructive/exp_i/results/baseline_hashes.json",
+          "algorithm": "SHA-256",
+          "n_files": 22,
+          "changed": [],
+          "missing": [],
+          "all_unchanged": true
+        },
+        "exp_j": {
+          "manifest": "constructive/exp_j/results/baseline_hashes.json",
+          "algorithm": "SHA-256",
+          "n_files": 84,
+          "changed": [],
+          "missing": [],
+          "all_unchanged": true
+        },
+        "exp_k_integrity": {
+          "manifest": "constructive/exp_k/results/integrity.json",
+          "recorded_git_head": "86a8141c755626658363ed3f0d3ad04a99254ee5",
+          "recorded_git_branch": "research/exp-k",
+          "checks": [
+            {
+              "name": "exp_j",
+              "manifest": "constructive/exp_j/results/baseline_hashes.json",
+              "algorithm": "SHA-256",
+              "n_files": 84,
+              "changed": [],
+              "missing": [],
+              "all_unchanged": true
+            },
+            {
+              "name": "exp_i",
+              "manifest": "constructive/exp_i/results/baseline_hashes.json",
+              "algorithm": "SHA-256",
+              "n_files": 22,
+              "changed": [],
+              "missing": [],
+              "all_unchanged": true
+            }
+          ],
+          "all_ok": true
+        },
+        "exp_k_dataset": {
+          "manifest": "constructive/exp_k/results/manifests/k0_dataset_manifest.json",
+          "recorded_fingerprint": "e38c3562b722c40b",
+          "recomputed_fingerprint": "e38c3562b722c40b",
+          "fingerprint_match": true,
+          "n_datasets": 160,
+          "all_splits_disjoint": true,
+          "dirty": [],
+          "all_ok": true
+        },
+        "source_hashes": {
+          "constructive/core.py": "9347f2e7b9593121b97307a1a7f87b1d28a27270a75e9a1b8122b820dad7fcf8",
+          "constructive/model.py": "862a96b4ee58417fb8df1144f4ca72ffdaa7992c93a78e3a8a6d14e44ce9b0aa",
+          "constructive/worlds.py": "07d6fc6c66677a1fc4f16403927e0407c2c98f0bb8ef8afb4f52fb950555bfb7",
+          "constructive/baselines.py": "52ee402734b4cf0a5d430ab224a73554b3f166a9076e7e953eb7704e30ada77d",
+          "constructive/bench.py": "ff9646b531bf4e24c770f3e86dc8e49dde39245597ca6a5e66185809548ba402",
+          "omega_nano/engine.py": "bdaa8af9d66010996de7eec7c3060102ee561a0c21ab04d0880529bfb448c5ae",
+          "omega_nano/model.py": "c502a3e6c7c075fe70dcfebfade2d44b6fe098ad868c3f446b09e23a1b70927d",
+          "omega_nano/reasoner.py": "49bb5b4bda161998d7cafed1a581fa2326eac9e910ae1dc5470ebe1ccbbbeeef",
+          "omega_nano/core/engine.py": "68de2b623411f533a86a4364d09a5aaa627773c26501ff8a0dc0c6d0e89542e5"
+        },
+        "source_hash_fingerprint": "14d6e805992f6ec4",
+        "all_protected_ok": true
+      },
+      "environment": {
+        "stage": "L0",
+        "schema": "exp-l-environment-v1",
+        "captured_utc": "2026-11-18T13:11:22.322292+00:00",
+        "python": {
+          "version": "3.13.15",
+          "implementation": "CPython",
+          "executable": "C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\python.exe"
+        },
+        "os": {
+          "platform": "Windows-11-10.0.26200-SP0",
+          "system": "Windows",
+          "release": "11",
+          "machine": "AMD64",
+          "processor": "Intel64 Family 6 Model 140 Stepping 1, GenuineIntel"
+        },
+        "cpu": {
+          "logical_cores": 8,
+          "device": "cpu",
+          "acceleration": "none"
+        },
+        "memory": {
+          "total_gb": 16.818,
+          "available_gb": 3.688
+        },
+        "dependencies": {
+          "numpy": {
+            "installed": true,
+            "version": "2.5.3"
+          },
+          "scipy": {
+            "installed": true,
+            "version": "1.18.1"
+          },
+          "pytest": {
+            "installed": true,
+            "version": "9.2.0"
+          },
+          "psutil": {
+            "installed": true,
+            "version": "7.2.2"
+          }
+        },
+        "git": {
+          "commit": "1face37bc9c695f5804baf97e6533113695f7af3",
+          "branch": "research/exp-l"
+        },
+        "repository_root": "D:\\ai model",
+        "external_services_required": false,
+        "gpu_required": false
+      },
+      "fingerprint": "aa12b27d1d2f9b58",
+      "snapshot": "constructive\\exp_l\\results\\history\\L0-20261118-131300.json"
+    },
+    "L1": {
+      "stage": "L1",
+      "schema": "exp-l-stage-block-v1",
+      "config": {
+        "stage": "L1",
+        "seed": 0,
+        "seeds": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "quick": false,
+        "no_resume": false,
+        "merge_only": false,
+        "generator_version": "exp-l-gen-1",
+        "seed_policy": "explicit_sha256_derived_random.Random(seed, stream); no hash() of strings",
+        "n_train": 4,
+        "n_val": 4,
+        "n_test": 8,
+        "time_limit_s": 120.0,
+        "memory_limit_mb": 512.0,
+        "full_test_timeout_s": 300.0
+      },
+      "config_fingerprint": "7ca3c61315d48d72",
+      "thresholds": {
+        "feature_threshold": 5.583333333333334,
+        "consistency_threshold": 0.95,
+        "change_point_threshold": 0.15,
+        "random_probability": 0.05,
+        "window": 2,
+        "calibration_seeds": [
+          101,
+          102,
+          103
+        ]
+      },
+      "n_streams": 420,
+      "n_evaluations": 2520,
+      "by_detector": {
+        "acceptance": {
+          "categories": {
+            "stable": {
+              "n": 60,
+              "detection_recall": {
+                "mean": 0.0,
+                "lo": 0.0,
+                "hi": 0.0,
+                "n": 10
+              },
+              "false_alarm_rate": 0.0,
+              "detection_delay": {
+                "n": 0,
+                "mean": null,
+                "median": null,
+                "min": null,
+                "max": null
+              }
+            },
+            "feature": {
+              "n": 60,
+              "detection_recall": {
+                "mean": 0.0,
+                "lo": 0.0,
+                "hi": 0.0,
+                "n": 10
+              },
+              "false_alarm_rate": null,
+              "detection_delay": {
+                "n": 0,
+                "mean": null,
+                "median": null,
+                "min": null,
+                "max": null
+              }
+            },
+            "semantic_abrupt": {
+              "n": 60,
+              "detection_recall": {
+                "mean": 1.0,
+                "lo": 1.0,
+                "hi": 1.0,
+                "n": 10
+              },
+              "false_alarm_rate": null,
+              "detection_delay": {
+                "n": 60,
+                "mean": 0.0,
+                "median": 0.0,
+                "min": 0.0,
+                "max": 0.0
+              }
+            },
+            "semantic_gradual": {
+              "n": 60,
+              "detection_recall": {
+                "mean": 1.0,
+                "lo": 1.0,
+                "hi": 1.0,
+                "n": 10
+              },
+              "false_alarm_rate": null,
+              "detection_delay": {
+                "n": 60,
+                "mean": 0.06666666666666667,
+                "median": 0.0,
+                "min": 0.0,
+                "max": 1.0
+              }
+            },
+            "semantic_context": {
+              "n": 60,
+              "detection_recall": {
+                "mean": 1.0,
+                "lo": 1.0,
+                "hi": 1.0,
+                "n": 10
+              },
+              "false_alarm_rate": null,
+              "detection_delay": {
+                "n": 60,
+                "mean": 0.0,
+                "median": 0.0,
+                "min": 0.0,
+                "max": 0.0
+              }
+            },
+            "camouflage": {
+              "n": 60,
+              "detection_recall": {
+                "mean": 1.0,
+                "lo": 1.0,
+                "hi": 1.0,
+                "n": 10
+              },
+              "false_alarm_rate": null,
+              "detection_delay": {
+                "n": 60,
+                "mean": 0.0,
+                "median": 0.0,
+                "min": 0.0,
+                "max": 0.0
+              }
+            },
+            "mixed": {
+              "n": 60,
+              "detection_recall": {
+                "mean": 1.0,
+                "lo": 1.0,
+                "hi": 1.0,
+                "n": 10
+              },
+              "false_alarm_rate": null,
+              "detection_delay": {
+                "n": 60,
+                "mean": 0.0,
+                "median": 0.0,
+                "min": 0.0,
+                "max": 0.0
+              }
+            }
+          },
+          "semantic_recall": {
+            "mean": 1.0,
+            "lo": 1.0,
+            "hi": 1.0,
+            "n": 10
+          },
+          "feature_recall": {
+            "mean": 0.0,
+            "lo": 0.0,
+            "hi": 0.0,
+            "n": 10
+          },
+          "overall": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "tp": 300,
+            "fp": 0,
+            "fn": 60
+          },
+          "tn": 60,
+          "auroc": 0.9166666666666666,
+          "paired_vs_random_recall": {
+            "mean": 0.625,
+            "lo": 0.5777777777777778,
+            "hi": 0.675,
+            "n": 10
+          },
+          "resources": {
+            "wall_s": 0.122028,
+            "cpu_s": 0.125,
+            "peak_rss_mb": 25.191
+          }
+        },
+        "feature_stats": {
+          "categories": {
+            "stable": {
+              "n": 60,
+              "detection_recall": {
+                "mean": 0.18333333333333332,
+                "lo": 0.11666666666666665,
+                "hi": 0.25,
+                "n": 10
+              },
+              "false_alarm_rate": 0.13333333333333333,
+              "detection_delay": {
+                "n": 11,
+                "mean": 0.9090909090909091,
+                "median": 1.0,
+                "min": 0.0,
+                "max": 3.0
+              }
+            },
+            "feature": {
+              "n": 60,
+              "detection_recall": {
+                "mean": 1.0,
+                "lo": 1.0,
+                "hi": 1.0,
+                "n": 10
+              },
+              "false_alarm_rate": null,
+              "detection_delay": {
+                "n": 60,
+                "mean": 0.0,
+                "median": 0.0,
+                "min": 0.0,
+                "max": 0.0
+              }
+            },
+            "semantic_abrupt": {
+              "n": 60,
+              "detection_recall": {
+                "mean": 0.16666666666666666,
+                "lo": 0.08333333333333333,
+                "hi": 0.25,
+                "n": 10
+              },
+              "false_alarm_rate": null,
+              "detection_delay": {
+                "n": 10,
+                "mean": 1.4,
+                "median": 1.5,
+                "min": 0.0,
+                "max": 3.0
+              }
+            },
+            "semantic_gradual": {
+              "n": 60,
+              "detection_recall": {
+                "mean": 0.16666666666666666,
+                "lo": 0.1,
+                "hi": 0.2333333333333333,
+                "n": 10
+              },
+              "false_alarm_rate": null,
+              "detection_delay": {
+                "n": 10,
+                "mean": 1.3,
+                "median": 1.5,
+                "min": 0.0,
+                "max": 3.0
+              }
+            },
+            "semantic_context": {
+              "n": 60,
+              "detection_recall": {
+                "mean": 0.2333333333333333,
+                "lo": 0.16666666666666666,
+                "hi": 0.31666666666666665,
+                "n": 10
+              },
+              "false_alarm_rate": null,
+              "detection_delay": {
+                "n": 14,
+                "mean": 1.1428571428571428,
+                "median": 1.0,
+                "min": 0.0,
+                "max": 3.0
+              }
+            },
+            "camouflage": {
+              "n": 60,
+              "detection_recall": {
+                "mean": 0.03333333333333333,
+                "lo": 0.0,
+                "hi": 0.08333333333333333,
+                "n": 10
+              },
+              "false_alarm_rate": null,
+              "detection_delay": {
+                "n": 2,
+                "mean": 0.0,
+                "median": 0.0,
+                "min": 0.0,
+                "max": 0.0
+              }
+            },
+            "mixed": {
+              "n": 60,
+              "detection_recall": {
+                "mean": 1.0,
+                "lo": 1.0,
+                "hi": 1.0,
+                "n": 10
+              },
+              "false_alarm_rate": null,
+              "detection_delay": {
+                "n": 60,
+                "mean": 0.0,
+                "median": 0.0,
+                "min": 0.0,
+                "max": 0.0
+              }
+            }
+          },
+          "semantic_recall": {
+            "mean": 0.15,
+            "lo": 0.12083333333333332,
+            "hi": 0.17916666666666667,
+            "n": 10
+          },
+          "feature_recall": {
+            "mean": 1.0,
+            "lo": 1.0,
+            "hi": 1.0,
+            "n": 10
+          },
+          "overall": {
+            "precision": 0.9512195121951219,
+            "recall": 0.43333333333333335,
+            "f1": 0.5954198473282443,
+            "tp": 156,
+            "fp": 8,
+            "fn": 204
+          },
+          "tn": 52,
+          "auroc": 0.6419212962962964,
+          "paired_vs_random_recall": {
+            "mean": 0.225,
+            "lo": 0.1638888888888889,
+            "hi": 0.2861111111111111,
+            "n": 10
+          },
+          "resources": {
+            "wall_s": 0.122028,
+            "cpu_s": 0.125,
+            "peak_rss_mb": 25.191
+          }
+        },
+        "semantic_consistency": {
+          "categories": {
+            "stable": {
+              "n": 60,
+              "detection_recall": {
+                "mean": 0.0,
+                "lo": 0.0,
+                "hi": 0.0,
+                "n": 10
+              },
+              "false_alarm_rate": 0.0,
+              "detection_delay": {
+                "n": 0,
+                "mean": null,
+                "median": null,
+                "min": null,
+                "max": null
+              }
+            },
+            "feature": {
+              "n": 60,
+              "detection_recall": {
+                "mean": 0.0,
+                "lo": 0.0,
+                "hi": 0.0,
+                "n": 10
+              },
+              "false_alarm_rate": null,
+              "detection_delay": {
+                "n": 0,
+                "mean": null,
+                "median": null,
+                "min": null,
+                "max": null
+              }
+            },
+            "semantic_abrupt": {
+              "n": 60,
+              "detection_recall": {
+                "mean": 1.0,
+                "lo": 1.0,
+                "hi": 1.0,
+                "n": 10
+              },
+              "false_alarm_rate": null,
+              "detection_delay": {
+                "n": 60,
+                "mean": 1.0,
+                "median": 1.0,
+                "min": 1.0,
+                "max": 1.0
+              }
+            },
+            "semantic_gradual": {
+              "n": 60,
+              "detection_recall": {
+                "mean": 1.0,
+                "lo": 1.0,
+                "hi": 1.0,
+                "n": 10
+              },
+              "false_alarm_rate": null,
+              "detection_delay": {
+                "n": 60,
+                "mean": 1.1,
+                "median": 1.0,
+                "min": 1.0,
+                "max": 3.0
+              }
+            },
+            "semantic_context": {
+              "n": 60,
+              "detection_recall": {
+                "mean": 1.0,
+                "lo": 1.0,
+                "hi": 1.0,
+                "n": 10
+              },
+              "false_alarm_rate": null,
+              "detection_delay": {
+                "n": 60,
+                "mean": 1.0,
+                "median": 1.0,
+                "min": 1.0,
+                "max": 1.0
+              }
+            },
+            "camouflage": {
+              "n": 60,
+              "detection_recall": {
+                "mean": 1.0,
+                "lo": 1.0,
+                "hi": 1.0,
+                "n": 10
+              },
+              "false_alarm_rate": null,
+              "detection_delay": {
+                "n": 60,
+                "mean": 1.0,
+                "median": 1.0,
+                "min": 1.0,
+                "max": 1.0
+              }
+            },
+            "mixed": {
+              "n": 60,
+              "detection_recall": {
+                "mean": 1.0,
+                "lo": 1.0,
+                "hi": 1.0,
+                "n": 10
+              },
+              "false_alarm_rate": null,
+              "detection_delay": {
+                "n": 60,
+                "mean": 1.0,
+                "median": 1.0,
+                "min": 1.0,
+                "max": 1.0
+              }
+            }
+          },
+          "semantic_recall": {
+            "mean": 1.0,
+            "lo": 1.0,
+            "hi": 1.0,
+            "n": 10
+          },
+          "feature_recall": {
+            "mean": 0.0,
+            "lo": 0.0,
+            "hi": 0.0,
+            "n": 10
+          },
+          "overall": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "tp": 300,
+            "fp": 0,
+            "fn": 60
+          },
+          "tn": 60,
+          "auroc": 0.9166666666666666,
+          "paired_vs_random_recall": {
+            "mean": 0.625,
+            "lo": 0.5777777777777777,
+            "hi": 0.675,
+            "n": 10
+          },
+          "resources": {
+            "wall_s": 0.122028,
+            "cpu_s": 0.125,
+            "peak_rss_mb": 25.191
+          }
+        },
+        "change_point": {
+          "categories": {
+            "stable": {
+              "n": 60,
+              "detection_recall": {
+                "mean": 0.0,
+                "lo": 0.0,
+                "hi": 0.0,
+                "n": 10
+              },
+              "false_alarm_rate": 0.0,
+              "detection_delay": {
+                "n": 0,
+                "mean": null,
+                "median": null,
+                "min": null,
+                "max": null
+              }
+            },
+            "feature": {
+              "n": 60,
+              "detection_recall": {
+                "mean": 0.0,
+                "lo": 0.0,
+                "hi": 0.0,
+                "n": 10
+              },
+              "false_alarm_rate": null,
+              "detection_delay": {
+                "n": 0,
+                "mean": null,
+                "median": null,
+                "min": null,
+                "max": null
+              }
+            },
+            "semantic_abrupt": {
+              "n": 60,
+              "detection_recall": {
+                "mean": 1.0,
+                "lo": 1.0,
+                "hi": 1.0,
+                "n": 10
+              },
+              "false_alarm_rate": null,
+              "detection_delay": {
+                "n": 60,
+                "mean": 0.0,
+                "median": 0.0,
+                "min": 0.0,
+                "max": 0.0
+              }
+            },
+            "semantic_gradual": {
+              "n": 60,
+              "detection_recall": {
+                "mean": 1.0,
+                "lo": 1.0,
+                "hi": 1.0,
+                "n": 10
+              },
+              "false_alarm_rate": null,
+              "detection_delay": {
+                "n": 60,
+                "mean": 1.0,
+                "median": 1.0,
+                "min": 0.0,
+                "max": 2.0
+              }
+            },
+            "semantic_context": {
+              "n": 60,
+              "detection_recall": {
+                "mean": 1.0,
+                "lo": 1.0,
+                "hi": 1.0,
+                "n": 10
+              },
+              "false_alarm_rate": null,
+              "detection_delay": {
+                "n": 60,
+                "mean": 0.016666666666666666,
+                "median": 0.0,
+                "min": 0.0,
+                "max": 1.0
+              }
+            },
+            "camouflage": {
+              "n": 60,
+              "detection_recall": {
+                "mean": 1.0,
+                "lo": 1.0,
+                "hi": 1.0,
+                "n": 10
+              },
+              "false_alarm_rate": null,
+              "detection_delay": {
+                "n": 60,
+                "mean": 0.03333333333333333,
+                "median": 0.0,
+                "min": 0.0,
+                "max": 2.0
+              }
+            },
+            "mixed": {
+              "n": 60,
+              "detection_recall": {
+                "mean": 1.0,
+                "lo": 1.0,
+                "hi": 1.0,
+                "n": 10
+              },
+              "false_alarm_rate": null,
+              "detection_delay": {
+                "n": 60,
+                "mean": 0.05,
+                "median": 0.0,
+                "min": 0.0,
+                "max": 1.0
+              }
+            }
+          },
+          "semantic_recall": {
+            "mean": 1.0,
+            "lo": 1.0,
+            "hi": 1.0,
+            "n": 10
+          },
+          "feature_recall": {
+            "mean": 0.0,
+            "lo": 0.0,
+            "hi": 0.0,
+            "n": 10
+          },
+          "overall": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "tp": 300,
+            "fp": 0,
+            "fn": 60
+          },
+          "tn": 60,
+          "auroc": 0.9166666666666666,
+          "paired_vs_random_recall": {
+            "mean": 0.625,
+            "lo": 0.575,
+            "hi": 0.675,
+            "n": 10
+          },
+          "resources": {
+            "wall_s": 0.122028,
+            "cpu_s": 0.125,
+            "peak_rss_mb": 25.191
+          }
+        },
+        "combined": {
+          "categories": {
+            "stable": {
+              "n": 60,
+              "detection_recall": {
+                "mean": 0.18333333333333332,
+                "lo": 0.11666666666666665,
+                "hi": 0.25,
+                "n": 10
+              },
+              "false_alarm_rate": 0.13333333333333333,
+              "detection_delay": {
+                "n": 11,
+                "mean": 0.9090909090909091,
+                "median": 1.0,
+                "min": 0.0,
+                "max": 3.0
+              }
+            },
+            "feature": {
+              "n": 60,
+              "detection_recall": {
+                "mean": 1.0,
+                "lo": 1.0,
+                "hi": 1.0,
+                "n": 10
+              },
+              "false_alarm_rate": null,
+              "detection_delay": {
+                "n": 60,
+                "mean": 0.0,
+                "median": 0.0,
+                "min": 0.0,
+                "max": 0.0
+              }
+            },
+            "semantic_abrupt": {
+              "n": 60,
+              "detection_recall": {
+                "mean": 1.0,
+                "lo": 1.0,
+                "hi": 1.0,
+                "n": 10
+              },
+              "false_alarm_rate": null,
+              "detection_delay": {
+                "n": 60,
+                "mean": 0.9666666666666667,
+                "median": 1.0,
+                "min": 0.0,
+                "max": 1.0
+              }
+            },
+            "semantic_gradual": {
+              "n": 60,
+              "detection_recall": {
+                "mean": 1.0,
+                "lo": 1.0,
+                "hi": 1.0,
+                "n": 10
+              },
+              "false_alarm_rate": null,
+              "detection_delay": {
+                "n": 60,
+                "mean": 1.0333333333333334,
+                "median": 1.0,
+                "min": 0.0,
+                "max": 3.0
+              }
+            },
+            "semantic_context": {
+              "n": 60,
+              "detection_recall": {
+                "mean": 1.0,
+                "lo": 1.0,
+                "hi": 1.0,
+                "n": 10
+              },
+              "false_alarm_rate": null,
+              "detection_delay": {
+                "n": 60,
+                "mean": 0.9333333333333333,
+                "median": 1.0,
+                "min": 0.0,
+                "max": 1.0
+              }
+            },
+            "camouflage": {
+              "n": 60,
+              "detection_recall": {
+                "mean": 1.0,
+                "lo": 1.0,
+                "hi": 1.0,
+                "n": 10
+              },
+              "false_alarm_rate": null,
+              "detection_delay": {
+                "n": 60,
+                "mean": 0.9666666666666667,
+                "median": 1.0,
+                "min": 0.0,
+                "max": 1.0
+              }
+            },
+            "mixed": {
+              "n": 60,
+              "detection_recall": {
+                "mean": 1.0,
+                "lo": 1.0,
+                "hi": 1.0,
+                "n": 10
+              },
+              "false_alarm_rate": null,
+              "detection_delay": {
+                "n": 60,
+                "mean": 0.0,
+                "median": 0.0,
+                "min": 0.0,
+                "max": 0.0
+              }
+            }
+          },
+          "semantic_recall": {
+            "mean": 1.0,
+            "lo": 1.0,
+            "hi": 1.0,
+            "n": 10
+          },
+          "feature_recall": {
+            "mean": 1.0,
+            "lo": 1.0,
+            "hi": 1.0,
+            "n": 10
+          },
+          "overall": {
+            "precision": 0.9782608695652174,
+            "recall": 1.0,
+            "f1": 0.989010989010989,
+            "tp": 360,
+            "fp": 8,
+            "fn": 0
+          },
+          "tn": 52,
+          "auroc": 0.737037037037037,
+          "paired_vs_random_recall": {
+            "mean": 0.7916666666666667,
+            "lo": 0.7444444444444445,
+            "hi": 0.8416666666666666,
+            "n": 10
+          },
+          "resources": {
+            "wall_s": 0.122028,
+            "cpu_s": 0.125,
+            "peak_rss_mb": 25.191
+          }
+        },
+        "random": {
+          "categories": {
+            "stable": {
+              "n": 60,
+              "detection_recall": {
+                "mean": 0.18333333333333332,
+                "lo": 0.11666666666666665,
+                "hi": 0.25,
+                "n": 10
+              },
+              "false_alarm_rate": 0.18333333333333332,
+              "detection_delay": {
+                "n": 11,
+                "mean": 1.5454545454545454,
+                "median": 1.0,
+                "min": 0.0,
+                "max": 3.0
+              }
+            },
+            "feature": {
+              "n": 60,
+              "detection_recall": {
+                "mean": 0.25,
+                "lo": 0.15,
+                "hi": 0.35,
+                "n": 10
+              },
+              "false_alarm_rate": null,
+              "detection_delay": {
+                "n": 15,
+                "mean": 1.6,
+                "median": 2.0,
+                "min": 0.0,
+                "max": 3.0
+              }
+            },
+            "semantic_abrupt": {
+              "n": 60,
+              "detection_recall": {
+                "mean": 0.1,
+                "lo": 0.03333333333333333,
+                "hi": 0.16666666666666666,
+                "n": 10
+              },
+              "false_alarm_rate": null,
+              "detection_delay": {
+                "n": 6,
+                "mean": 1.6666666666666667,
+                "median": 1.5,
+                "min": 0.0,
+                "max": 3.0
+              }
+            },
+            "semantic_gradual": {
+              "n": 60,
+              "detection_recall": {
+                "mean": 0.2,
+                "lo": 0.06666666666666667,
+                "hi": 0.36666666666666664,
+                "n": 10
+              },
+              "false_alarm_rate": null,
+              "detection_delay": {
+                "n": 12,
+                "mean": 1.75,
+                "median": 2.0,
+                "min": 0.0,
+                "max": 3.0
+              }
+            },
+            "semantic_context": {
+              "n": 60,
+              "detection_recall": {
+                "mean": 0.21666666666666665,
+                "lo": 0.11666666666666665,
+                "hi": 0.31666666666666665,
+                "n": 10
+              },
+              "false_alarm_rate": null,
+              "detection_delay": {
+                "n": 13,
+                "mean": 1.5384615384615385,
+                "median": 2.0,
+                "min": 0.0,
+                "max": 3.0
+              }
+            },
+            "camouflage": {
+              "n": 60,
+              "detection_recall": {
+                "mean": 0.21666666666666665,
+                "lo": 0.11666666666666665,
+                "hi": 0.33333333333333337,
+                "n": 10
+              },
+              "false_alarm_rate": null,
+              "detection_delay": {
+                "n": 13,
+                "mean": 1.3076923076923077,
+                "median": 1.0,
+                "min": 0.0,
+                "max": 3.0
+              }
+            },
+            "mixed": {
+              "n": 60,
+              "detection_recall": {
+                "mean": 0.26666666666666666,
+                "lo": 0.16666666666666666,
+                "hi": 0.36666666666666664,
+                "n": 10
+              },
+              "false_alarm_rate": null,
+              "detection_delay": {
+                "n": 16,
+                "mean": 2.0,
+                "median": 2.0,
+                "min": 1.0,
+                "max": 3.0
+              }
+            }
+          },
+          "semantic_recall": {
+            "mean": 0.18333333333333332,
+            "lo": 0.11666666666666665,
+            "hi": 0.25,
+            "n": 10
+          },
+          "feature_recall": {
+            "mean": 0.25,
+            "lo": 0.15,
+            "hi": 0.35,
+            "n": 10
+          },
+          "overall": {
+            "precision": 0.872093023255814,
+            "recall": 0.20833333333333334,
+            "f1": 0.33632286995515703,
+            "tp": 75,
+            "fp": 11,
+            "fn": 285
+          },
+          "tn": 49,
+          "auroc": 0.475462962962963,
+          "paired_vs_random_recall": {
+            "mean": 0.0,
+            "lo": 0.0,
+            "hi": 0.0,
+            "n": 10
+          },
+          "resources": {
+            "wall_s": 0.122028,
+            "cpu_s": 0.125,
+            "peak_rss_mb": 25.191
+          }
+        }
+      },
+      "gate": {
+        "semantic_beats_random": true,
+        "feature_not_credited_as_semantic": true,
+        "false_alarms_controlled": true,
+        "reproducible": true
+      },
+      "gate_pass": true,
+      "resources": {
+        "wall_s": 0.122028,
+        "cpu_s": 0.125,
+        "peak_rss_mb": 25.191
+      },
+      "note": "Semantic targets are held out of the reference library. Feature drift is reported separately and never counted as semantic-drift detection.",
+      "snapshot": "constructive\\exp_l\\results\\history\\L1-20261118-131756.json"
+    },
+    "L2": {
+      "stage": "L2",
+      "schema": "exp-l-stage-block-v1",
+      "config": {
+        "stage": "L2",
+        "seed": 0,
+        "seeds": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "quick": false,
+        "no_resume": false,
+        "merge_only": false,
+        "generator_version": "exp-l-gen-1",
+        "seed_policy": "explicit_sha256_derived_random.Random(seed, stream); no hash() of strings",
+        "n_train": 4,
+        "n_val": 4,
+        "n_test": 8,
+        "time_limit_s": 120.0,
+        "memory_limit_mb": 512.0,
+        "full_test_timeout_s": 300.0
+      },
+      "config_fingerprint": "7445742b327d68f1",
+      "n_cases": 560,
+      "n_rows": 3920,
+      "by_method": {
+        "baseline": {
+          "n": 560,
+          "incorrect_acceptance_rate": 0.02142857142857143,
+          "correct_acceptance_rate": 0.33214285714285713,
+          "useful_coverage": 0.33214285714285713,
+          "abstention_rate": 0.6464285714285715,
+          "selective_accuracy": 0.9393939393939394,
+          "error_detection_recall": 0.8080357142857143,
+          "error_detection_precision": 1.0,
+          "verification_calls": 0.0,
+          "by_depth": {
+            "2": {
+              "useful_coverage": 0.2875,
+              "incorrect_acceptance": 0.0375
+            },
+            "3": {
+              "useful_coverage": 0.3125,
+              "incorrect_acceptance": 0.0125
+            },
+            "4": {
+              "useful_coverage": 0.2875,
+              "incorrect_acceptance": 0.025
+            },
+            "5": {
+              "useful_coverage": 0.3875,
+              "incorrect_acceptance": 0.0375
+            },
+            "8": {
+              "useful_coverage": 0.35,
+              "incorrect_acceptance": 0.025
+            },
+            "12": {
+              "useful_coverage": 0.3125,
+              "incorrect_acceptance": 0.0125
+            },
+            "16": {
+              "useful_coverage": 0.3875,
+              "incorrect_acceptance": 0.0
+            }
+          }
+        },
+        "always_abstain": {
+          "n": 560,
+          "incorrect_acceptance_rate": 0.0,
+          "correct_acceptance_rate": 0.0,
+          "useful_coverage": 0.0,
+          "abstention_rate": 1.0,
+          "selective_accuracy": null,
+          "error_detection_recall": 1.0,
+          "error_detection_precision": 0.8,
+          "verification_calls": 0.0,
+          "by_depth": {
+            "2": {
+              "useful_coverage": 0.0,
+              "incorrect_acceptance": 0.0
+            },
+            "3": {
+              "useful_coverage": 0.0,
+              "incorrect_acceptance": 0.0
+            },
+            "4": {
+              "useful_coverage": 0.0,
+              "incorrect_acceptance": 0.0
+            },
+            "5": {
+              "useful_coverage": 0.0,
+              "incorrect_acceptance": 0.0
+            },
+            "8": {
+              "useful_coverage": 0.0,
+              "incorrect_acceptance": 0.0
+            },
+            "12": {
+              "useful_coverage": 0.0,
+              "incorrect_acceptance": 0.0
+            },
+            "16": {
+              "useful_coverage": 0.0,
+              "incorrect_acceptance": 0.0
+            }
+          }
+        },
+        "conservative": {
+          "n": 560,
+          "incorrect_acceptance_rate": 0.0,
+          "correct_acceptance_rate": 0.18571428571428572,
+          "useful_coverage": 0.18571428571428572,
+          "abstention_rate": 0.8142857142857143,
+          "selective_accuracy": 1.0,
+          "error_detection_recall": 1.0,
+          "error_detection_precision": 0.9824561403508771,
+          "verification_calls": 5.0,
+          "by_depth": {
+            "2": {
+              "useful_coverage": 0.15,
+              "incorrect_acceptance": 0.0
+            },
+            "3": {
+              "useful_coverage": 0.1875,
+              "incorrect_acceptance": 0.0
+            },
+            "4": {
+              "useful_coverage": 0.175,
+              "incorrect_acceptance": 0.0
+            },
+            "5": {
+              "useful_coverage": 0.225,
+              "incorrect_acceptance": 0.0
+            },
+            "8": {
+              "useful_coverage": 0.175,
+              "incorrect_acceptance": 0.0
+            },
+            "12": {
+              "useful_coverage": 0.1875,
+              "incorrect_acceptance": 0.0
+            },
+            "16": {
+              "useful_coverage": 0.2,
+              "incorrect_acceptance": 0.0
+            }
+          }
+        },
+        "local": {
+          "n": 560,
+          "incorrect_acceptance_rate": 0.017857142857142856,
+          "correct_acceptance_rate": 0.2625,
+          "useful_coverage": 0.2625,
+          "abstention_rate": 0.7196428571428571,
+          "selective_accuracy": 0.9363057324840764,
+          "error_detection_recall": 0.8995535714285714,
+          "error_detection_precision": 1.0,
+          "verification_calls": 1.3535714285714286,
+          "by_depth": {
+            "2": {
+              "useful_coverage": 0.15,
+              "incorrect_acceptance": 0.0375
+            },
+            "3": {
+              "useful_coverage": 0.2125,
+              "incorrect_acceptance": 0.0125
+            },
+            "4": {
+              "useful_coverage": 0.225,
+              "incorrect_acceptance": 0.0125
+            },
+            "5": {
+              "useful_coverage": 0.2875,
+              "incorrect_acceptance": 0.0375
+            },
+            "8": {
+              "useful_coverage": 0.3125,
+              "incorrect_acceptance": 0.0125
+            },
+            "12": {
+              "useful_coverage": 0.3,
+              "incorrect_acceptance": 0.0125
+            },
+            "16": {
+              "useful_coverage": 0.35,
+              "incorrect_acceptance": 0.0
+            }
+          }
+        },
+        "selective": {
+          "n": 560,
+          "incorrect_acceptance_rate": 0.01607142857142857,
+          "correct_acceptance_rate": 0.28035714285714286,
+          "useful_coverage": 0.28035714285714286,
+          "abstention_rate": 0.7035714285714286,
+          "selective_accuracy": 0.9457831325301205,
+          "error_detection_recall": 0.8794642857142857,
+          "error_detection_precision": 1.0,
+          "verification_calls": 1.2446428571428572,
+          "by_depth": {
+            "2": {
+              "useful_coverage": 0.275,
+              "incorrect_acceptance": 0.0375
+            },
+            "3": {
+              "useful_coverage": 0.3125,
+              "incorrect_acceptance": 0.0125
+            },
+            "4": {
+              "useful_coverage": 0.2625,
+              "incorrect_acceptance": 0.0125
+            },
+            "5": {
+              "useful_coverage": 0.3,
+              "incorrect_acceptance": 0.0375
+            },
+            "8": {
+              "useful_coverage": 0.275,
+              "incorrect_acceptance": 0.0
+            },
+            "12": {
+              "useful_coverage": 0.2625,
+              "incorrect_acceptance": 0.0125
+            },
+            "16": {
+              "useful_coverage": 0.275,
+              "incorrect_acceptance": 0.0
+            }
+          }
+        },
+        "full": {
+          "n": 560,
+          "incorrect_acceptance_rate": 0.014285714285714285,
+          "correct_acceptance_rate": 0.18571428571428572,
+          "useful_coverage": 0.18571428571428572,
+          "abstention_rate": 0.8,
+          "selective_accuracy": 0.9285714285714286,
+          "error_detection_recall": 1.0,
+          "error_detection_precision": 1.0,
+          "verification_calls": 3.232142857142857,
+          "by_depth": {
+            "2": {
+              "useful_coverage": 0.15,
+              "incorrect_acceptance": 0.0375
+            },
+            "3": {
+              "useful_coverage": 0.1875,
+              "incorrect_acceptance": 0.0125
+            },
+            "4": {
+              "useful_coverage": 0.175,
+              "incorrect_acceptance": 0.0125
+            },
+            "5": {
+              "useful_coverage": 0.225,
+              "incorrect_acceptance": 0.025
+            },
+            "8": {
+              "useful_coverage": 0.175,
+              "incorrect_acceptance": 0.0
+            },
+            "12": {
+              "useful_coverage": 0.1875,
+              "incorrect_acceptance": 0.0125
+            },
+            "16": {
+              "useful_coverage": 0.2,
+              "incorrect_acceptance": 0.0
+            }
+          }
+        },
+        "budget": {
+          "n": 560,
+          "incorrect_acceptance_rate": 0.014285714285714285,
+          "correct_acceptance_rate": 0.18571428571428572,
+          "useful_coverage": 0.18571428571428572,
+          "abstention_rate": 0.8,
+          "selective_accuracy": 0.9285714285714286,
+          "error_detection_recall": 1.0,
+          "error_detection_precision": 1.0,
+          "verification_calls": 3.232142857142857,
+          "by_depth": {
+            "2": {
+              "useful_coverage": 0.15,
+              "incorrect_acceptance": 0.0375
+            },
+            "3": {
+              "useful_coverage": 0.1875,
+              "incorrect_acceptance": 0.0125
+            },
+            "4": {
+              "useful_coverage": 0.175,
+              "incorrect_acceptance": 0.0125
+            },
+            "5": {
+              "useful_coverage": 0.225,
+              "incorrect_acceptance": 0.025
+            },
+            "8": {
+              "useful_coverage": 0.175,
+              "incorrect_acceptance": 0.0
+            },
+            "12": {
+              "useful_coverage": 0.1875,
+              "incorrect_acceptance": 0.0125
+            },
+            "16": {
+              "useful_coverage": 0.2,
+              "incorrect_acceptance": 0.0
+            }
+          }
+        }
+      },
+      "comparisons": {
+        "conservative": {
+          "incorrect_acceptance_delta_vs_baseline": {
+            "mean": -0.02142857142857143,
+            "lo": -0.030357142857142853,
+            "hi": -0.010714285714285714,
+            "n": 10
+          },
+          "useful_coverage_delta_vs_baseline": {
+            "mean": -0.14642857142857144,
+            "lo": -0.15892857142857145,
+            "hi": -0.13392857142857145,
+            "n": 10
+          }
+        },
+        "local": {
+          "incorrect_acceptance_delta_vs_baseline": {
+            "mean": -0.0035714285714285713,
+            "lo": -0.008928571428571428,
+            "hi": 0.0,
+            "n": 10
+          },
+          "useful_coverage_delta_vs_baseline": {
+            "mean": -0.06964285714285715,
+            "lo": -0.08035714285714288,
+            "hi": -0.06071428571428571,
+            "n": 10
+          }
+        },
+        "selective": {
+          "incorrect_acceptance_delta_vs_baseline": {
+            "mean": -0.005357142857142857,
+            "lo": -0.010714285714285714,
+            "hi": 0.0,
+            "n": 10
+          },
+          "useful_coverage_delta_vs_baseline": {
+            "mean": -0.05178571428571429,
+            "lo": -0.06250000000000003,
+            "hi": -0.04107142857142858,
+            "n": 10
+          }
+        },
+        "full": {
+          "incorrect_acceptance_delta_vs_baseline": {
+            "mean": -0.007142857142857143,
+            "lo": -0.014285714285714285,
+            "hi": 0.0,
+            "n": 10
+          },
+          "useful_coverage_delta_vs_baseline": {
+            "mean": -0.14642857142857144,
+            "lo": -0.15892857142857145,
+            "hi": -0.13392857142857145,
+            "n": 10
+          }
+        },
+        "budget": {
+          "incorrect_acceptance_delta_vs_baseline": {
+            "mean": -0.007142857142857143,
+            "lo": -0.014285714285714285,
+            "hi": 0.0,
+            "n": 10
+          },
+          "useful_coverage_delta_vs_baseline": {
+            "mean": -0.14642857142857144,
+            "lo": -0.15892857142857145,
+            "hi": -0.13392857142857145,
+            "n": 10
+          }
+        }
+      },
+      "risk_coverage_curve": [
+        {
+          "budget": 0,
+          "useful_coverage": 0.33214285714285713,
+          "incorrect_acceptance": 0.02142857142857143
+        },
+        {
+          "budget": 1,
+          "useful_coverage": 0.2785714285714286,
+          "incorrect_acceptance": 0.017857142857142856
+        },
+        {
+          "budget": 2,
+          "useful_coverage": 0.24642857142857144,
+          "incorrect_acceptance": 0.017857142857142856
+        },
+        {
+          "budget": 3,
+          "useful_coverage": 0.24791666666666667,
+          "incorrect_acceptance": 0.0125
+        },
+        {
+          "budget": 4,
+          "useful_coverage": 0.2525,
+          "incorrect_acceptance": 0.0125
+        },
+        {
+          "budget": 5,
+          "useful_coverage": 0.253125,
+          "incorrect_acceptance": 0.009375
+        },
+        {
+          "budget": 6,
+          "useful_coverage": 0.25833333333333336,
+          "incorrect_acceptance": 0.004166666666666667
+        },
+        {
+          "budget": 7,
+          "useful_coverage": 0.25,
+          "incorrect_acceptance": 0.004166666666666667
+        },
+        {
+          "budget": 8,
+          "useful_coverage": 0.23333333333333334,
+          "incorrect_acceptance": 0.004166666666666667
+        },
+        {
+          "budget": 9,
+          "useful_coverage": 0.25625,
+          "incorrect_acceptance": 0.00625
+        },
+        {
+          "budget": 10,
+          "useful_coverage": 0.23125,
+          "incorrect_acceptance": 0.00625
+        },
+        {
+          "budget": 11,
+          "useful_coverage": 0.21875,
+          "incorrect_acceptance": 0.00625
+        },
+        {
+          "budget": 12,
+          "useful_coverage": 0.2125,
+          "incorrect_acceptance": 0.00625
+        },
+        {
+          "budget": 13,
+          "useful_coverage": 0.2375,
+          "incorrect_acceptance": 0.0
+        },
+        {
+          "budget": 14,
+          "useful_coverage": 0.2375,
+          "incorrect_acceptance": 0.0
+        },
+        {
+          "budget": 15,
+          "useful_coverage": 0.2125,
+          "incorrect_acceptance": 0.0
+        },
+        {
+          "budget": 16,
+          "useful_coverage": 0.2,
+          "incorrect_acceptance": 0.0
+        }
+      ],
+      "gate": {
+        "no_oracle_in_decision": true,
+        "selective_accuracy_undefined_when_no_acceptance": true,
+        "risk_coverage_tradeoff_present": true,
+        "selective_preserves_more_coverage_than_full": true,
+        "reproducible": true
+      },
+      "gate_pass": true,
+      "resources": {
+        "wall_s": 0.294488,
+        "cpu_s": 0.296875,
+        "peak_rss_mb": 26.719
+      },
+      "note": "Intermediate checkpoints are task specification data; hidden program, held-out test labels and first-error diagnostics are never passed to decide().",
+      "snapshot": "constructive\\exp_l\\results\\history\\L2-20261118-132625.json"
+    }
+  },
+  "updated_utc": "2026-11-18T13:26:25.814742+00:00",
+  "fingerprint": "879973bec81a7b47"
+}

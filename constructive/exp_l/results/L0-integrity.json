@@ -1,0 +1,73 @@
+{
+  "stage": "L0",
+  "schema": "exp-l-integrity-v1",
+  "git": {
+    "commit": "1face37bc9c695f5804baf97e6533113695f7af3",
+    "branch": "research/exp-l"
+  },
+  "exp_i": {
+    "manifest": "constructive/exp_i/results/baseline_hashes.json",
+    "algorithm": "SHA-256",
+    "n_files": 22,
+    "changed": [],
+    "missing": [],
+    "all_unchanged": true
+  },
+  "exp_j": {
+    "manifest": "constructive/exp_j/results/baseline_hashes.json",
+    "algorithm": "SHA-256",
+    "n_files": 84,
+    "changed": [],
+    "missing": [],
+    "all_unchanged": true
+  },
+  "exp_k_integrity": {
+    "manifest": "constructive/exp_k/results/integrity.json",
+    "recorded_git_head": "86a8141c755626658363ed3f0d3ad04a99254ee5",
+    "recorded_git_branch": "research/exp-k",
+    "checks": [
+      {
+        "name": "exp_j",
+        "manifest": "constructive/exp_j/results/baseline_hashes.json",
+        "algorithm": "SHA-256",
+        "n_files": 84,
+        "changed": [],
+        "missing": [],
+        "all_unchanged": true
+      },
+      {
+        "name": "exp_i",
+        "manifest": "constructive/exp_i/results/baseline_hashes.json",
+        "algorithm": "SHA-256",
+        "n_files": 22,
+        "changed": [],
+        "missing": [],
+        "all_unchanged": true
+      }
+    ],
+    "all_ok": true
+  },
+  "exp_k_dataset": {
+    "manifest": "constructive/exp_k/results/manifests/k0_dataset_manifest.json",
+    "recorded_fingerprint": "e38c3562b722c40b",
+    "recomputed_fingerprint": "e38c3562b722c40b",
+    "fingerprint_match": true,
+    "n_datasets": 160,
+    "all_splits_disjoint": true,
+    "dirty": [],
+    "all_ok": true
+  },
+  "source_hashes": {
+    "constructive/core.py": "9347f2e7b9593121b97307a1a7f87b1d28a27270a75e9a1b8122b820dad7fcf8",
+    "constructive/model.py": "862a96b4ee58417fb8df1144f4ca72ffdaa7992c93a78e3a8a6d14e44ce9b0aa",
+    "constructive/worlds.py": "07d6fc6c66677a1fc4f16403927e0407c2c98f0bb8ef8afb4f52fb950555bfb7",
+    "constructive/baselines.py": "52ee402734b4cf0a5d430ab224a73554b3f166a9076e7e953eb7704e30ada77d",
+    "constructive/bench.py": "ff9646b531bf4e24c770f3e86dc8e49dde39245597ca6a5e66185809548ba402",
+    "omega_nano/engine.py": "bdaa8af9d66010996de7eec7c3060102ee561a0c21ab04d0880529bfb448c5ae",
+    "omega_nano/model.py": "c502a3e6c7c075fe70dcfebfade2d44b6fe098ad868c3f446b09e23a1b70927d",
+    "omega_nano/reasoner.py": "49bb5b4bda161998d7cafed1a581fa2326eac9e910ae1dc5470ebe1ccbbbeeef",
+    "omega_nano/core/engine.py": "68de2b623411f533a86a4364d09a5aaa627773c26501ff8a0dc0c6d0e89542e5"
+  },
+  "source_hash_fingerprint": "14d6e805992f6ec4",
+  "all_protected_ok": true
+}
