@@ -283,3 +283,44 @@ def test_l3_substitution_reduced_with_familiar_coverage():
     assert rv < base
     assert block["by_method"]["rank_verify"]["useful_coverage"] > 0
     assert block["note"].find("Recall@k") >= 0
+
+
+# --- L4: conditional calibration -------------------------------------------
+
+from constructive.exp_l.conditional_calibration import (  # noqa: E402
+    CAL_SEEDS, MIN_GROUP_N, adaptive_ece, fit, make_rows, risk_coverage, run_l4,
+)
+
+
+def test_calibration_and_evaluation_seeds_are_disjoint():
+    assert not (set(CAL_SEEDS) & set(range(10)))
+    rows_cal = [r for s in CAL_SEEDS for r in make_rows(s)]
+    rows_eval = [r for s in range(3) for r in make_rows(s)]
+    assert set(r["seed"] for r in rows_cal).isdisjoint(
+        set(r["seed"] for r in rows_eval))
+
+
+def test_temperature_is_fitted_on_calibration_only():
+    cal = [r for s in CAL_SEEDS for r in make_rows(s)]
+    params = fit("temperature", cal)
+    assert params["T"] in (0.25, 0.5, 0.75, 1.0, 1.5, 2.0, 3.0, 5.0, 8.0)
+    # Fitting again on the same calibration data is deterministic.
+    assert fit("temperature", cal) == params
+
+
+def test_adaptive_ece_and_risk_coverage_undefined_case():
+    assert adaptive_ece([0.2, 0.8, 0.5, 0.5], [0, 1, 0, 1]) >= 0
+    curve = risk_coverage([0.1, 0.2], [0, 1], (0.9,))
+    assert curve[0]["selective_accuracy"] is None
+    assert curve[0]["selective_risk"] is None
+
+
+def test_l4_improves_aggregate_ece_but_difficult_subgroups_persist():
+    block = run_l4(cfgmod.default_config("L4", seeds=(0, 1, 2)))
+    raw = block["by_method"]["raw"]
+    temp = block["by_method"]["temperature"]
+    assert temp["ece"] < raw["ece"]
+    assert temp["accuracy"] == raw["accuracy"]
+    deep = raw["by_condition"]["deep"]
+    assert deep["n"] >= MIN_GROUP_N and deep["ece"] > raw["ece"]
+    assert block["gate"]["calibration_split_disjoint"]

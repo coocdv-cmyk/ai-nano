@@ -1,6 +1,6 @@
 # EXP-L Research Report
 
-**Status: L0, L1, L2 and L3 complete. Stages L4–L7 pending.**
+**Status: L0–L4 complete. Stages L5–L7 pending.**
 
 Branch: `research/exp-l` — created from the verified EXP-K tip
 `1face37bc9c695f5804baf97e6533113695f7af3` (not from `master`; `master` untouched).
@@ -182,9 +182,45 @@ Decision: `PROMISING_BUT_UNVALIDATED` (behavioral-agreement safeguards);
 
 Artifact: `constructive/exp_l/results/L3-results.json`.
 
+## L4 — Conditional calibration (gate PASS with disclosed subgroup regression)
+
+800 evaluation rows (10 seeds × 8 conditions × 10), 480 calibration rows from
+disjoint seeds 201–204. Wall/CPU/memory recorded in the artifact. All
+parameters fitted on calibration seeds only; accuracy is unchanged by every
+post-hoc transform (0.417).
+
+| Method | ECE | Adaptive ECE | Brier | NLL | Accuracy |
+|---|---|---|---|---|---|
+| raw | 0.2491 | 0.2437 | 0.2959 | 0.8111 | 0.417 |
+| temperature (T=5.0) | 0.1177 | 0.1193 | 0.2462 | 0.6854 | 0.417 |
+| binning (10 bins) | 0.0407 | 0.0527 | 0.2265 | 0.7412 | 0.417 |
+| conditional by family | 0.0585 | 0.0716 | 0.2361 | 1.0476 | 0.417 |
+| conditional by depth+evidence | 0.0989 | 0.0889 | 0.2346 | 0.8463 | 0.417 |
+
+Difficult subgroups improved by temperature: deep 0.405→0.147,
+retrieval-uncertain 0.225→0.001, semantic-drift 0.386→0.229,
+adversarial 0.361→0.168, OOD 0.448→0.290. **Hidden regression disclosed:**
+temperature degraded easy subgroups — normal 0.055→0.158 and contradictory
+0.081→0.317; binning degraded normal 0.055→0.203 and low-evidence
+0.030→0.193. Conditional-by-family overfit calibration and produced the worst
+NLL (1.048). Every reported subgroup has n=150 (above the n=30 reliability
+floor). The fitted T=5.0 reflects the deliberately large confidence biases in
+this synthetic fixture and is not transferable to a real model.
+
+Confidence remains a heuristic score: calibration never changed `accuracy` and
+is not evidence of correctness. The gate checks the stated criterion (no
+degradation in *difficult* subgroups), while the easy-subgroup regressions are
+recorded in `subgroup_analysis` and must not be ignored.
+
+Decision: `PROMISING_BUT_UNVALIDATED` (temperature scaling);
+`REQUIRES_MORE_EVIDENCE` (conditional depth+evidence);
+`NOT_RECOMMENDED` (binning and conditional-by-family as general solutions).
+
+Artifact: `constructive/exp_l/results/L4-results.json`.
+
 ## Decision status
 
-No mechanism is `ELIGIBLE_FOR_SEPARATE_REVIEW` yet. L1 mapping-consistency
-detection is promising but synthetic-only; L2 selective verification lacks a
-credible effect size; L3 behavioral safeguards are unvalidated on realistic,
-overlapping concept families.
+No mechanism is `ELIGIBLE_FOR_SEPARATE_REVIEW` yet. L1 mapping consistency is
+promising but synthetic-only; L2 selective verification lacks a credible effect
+size; L3 behavioral safeguards are unvalidated on overlapping realistic families;
+L4 calibration improves aggregates but regresses easy subgroups.

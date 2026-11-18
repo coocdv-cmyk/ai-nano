@@ -48,7 +48,20 @@
       },
       "gate_pass": true,
       "snapshot": "constructive\\exp_l\\results\\history\\L3-20261118-133109.json"
+    },
+    "L4": {
+      "stage": "L4",
+      "gate": {
+        "calibration_split_disjoint": true,
+        "aggregate_ece_improved": true,
+        "no_difficult_subgroup_degradation": true,
+        "small_groups_labelled_exploratory": true,
+        "confidence_not_claimed_as_correctness": true,
+        "reproducible": true
+      },
+      "gate_pass": true,
+      "snapshot": "constructive\\exp_l\\results\\history\\L4-20261118-133605.json"
     }
   },
-  "fingerprint": "820552460b621a16"
+  "fingerprint": "34e8d0366dcb0a1f"
 }
