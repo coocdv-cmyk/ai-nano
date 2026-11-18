@@ -1,0 +1,218 @@
+{
+  "stage": "L0",
+  "schema": "exp-l-stage-block-v1",
+  "exp_l_version": "0.1.0",
+  "git": {
+    "commit": "1face37bc9c695f5804baf97e6533113695f7af3",
+    "branch": "research/exp-l"
+  },
+  "config": {
+    "stage": "L0",
+    "seed": 0,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "quick": false,
+    "no_resume": false,
+    "merge_only": false,
+    "generator_version": "exp-l-gen-1",
+    "seed_policy": "explicit_sha256_derived_random.Random(seed, stream); no hash() of strings",
+    "n_train": 4,
+    "n_val": 4,
+    "n_test": 8,
+    "time_limit_s": 120.0,
+    "memory_limit_mb": 512.0,
+    "full_test_timeout_s": 300.0
+  },
+  "config_fingerprint": "cea8b4c3633520d7",
+  "working_tree": {
+    "tracked_modified": [],
+    "tracked_source_modified": [],
+    "untracked": [
+      "constructive/exp_h/results/stage-a-20261118-160909.json",
+      "constructive/exp_h/results/stage-a-20261118-161835.json",
+      "constructive/exp_h/results/stage-a-20261118-162221.json",
+      "constructive/exp_h/results/stage-a-20261118-162604.json",
+      "constructive/exp_h/results/stage-a-20261118-162925.json",
+      "constructive/exp_h/results/stage-a-20261118-163408.json",
+      "constructive/exp_h/results/stage-a-20261118-163857.json",
+      "constructive/exp_h/results/stage-a-20261118-164722.json",
+      "constructive/exp_l/__init__.py",
+      "constructive/exp_l/config.py",
+      "constructive/exp_l/datasets.py",
+      "constructive/exp_l/determinism.py",
+      "constructive/exp_l/environment.py",
+      "constructive/exp_l/integrity.py",
+      "constructive/exp_l/reporting.py",
+      "constructive/exp_l/results/L0-baseline.json",
+      "constructive/exp_l/results/L0-environment.json",
+      "constructive/exp_l/results/L0-integrity.json",
+      "constructive/exp_l/results/history/L0-20261118-130812.json",
+      "constructive/exp_l/results/integrity.json",
+      "constructive/exp_l/results/latest.json",
+      "constructive/exp_l/runner.py",
+      "tests/test_exp_l.py"
+    ],
+    "clean": false,
+    "note": "The legacy suite regenerates its own quick-run JSON result files; these are restored after a milestone run. Untracked EXP-H result files are preserved untouched per explicit authorization; they are not EXP-L artifacts."
+  },
+  "smoke_test": {
+    "fixture": "minimal_fixture/v1",
+    "fingerprint": "c105dfffc3b44951",
+    "other_seed_fingerprint": "d6e645107c8e5943",
+    "rng_stream_reproducible": true,
+    "deterministic_reproduction": true,
+    "passed": true
+  },
+  "full_test_suite": {
+    "command": "python -m pytest -q",
+    "returncode": 0,
+    "summary": "312 passed, 1 skipped in 96.43s (0:01:36)",
+    "elapsed_s": 98.046,
+    "passed": true,
+    "timed_out": false
+  },
+  "gate": {
+    "protected_hashes_ok": true,
+    "no_tracked_source_modifications": true,
+    "full_tests_ok": true,
+    "smoke_ok": true
+  },
+  "gate_pass": true,
+  "wall_s": 98.668,
+  "captured_utc": "2026-11-18T13:11:22.322292+00:00",
+  "integrity": {
+    "stage": "L0",
+    "schema": "exp-l-integrity-v1",
+    "git": {
+      "commit": "1face37bc9c695f5804baf97e6533113695f7af3",
+      "branch": "research/exp-l"
+    },
+    "exp_i": {
+      "manifest": "constructive/exp_i/results/baseline_hashes.json",
+      "algorithm": "SHA-256",
+      "n_files": 22,
+      "changed": [],
+      "missing": [],
+      "all_unchanged": true
+    },
+    "exp_j": {
+      "manifest": "constructive/exp_j/results/baseline_hashes.json",
+      "algorithm": "SHA-256",
+      "n_files": 84,
+      "changed": [],
+      "missing": [],
+      "all_unchanged": true
+    },
+    "exp_k_integrity": {
+      "manifest": "constructive/exp_k/results/integrity.json",
+      "recorded_git_head": "86a8141c755626658363ed3f0d3ad04a99254ee5",
+      "recorded_git_branch": "research/exp-k",
+      "checks": [
+        {
+          "name": "exp_j",
+          "manifest": "constructive/exp_j/results/baseline_hashes.json",
+          "algorithm": "SHA-256",
+          "n_files": 84,
+          "changed": [],
+          "missing": [],
+          "all_unchanged": true
+        },
+        {
+          "name": "exp_i",
+          "manifest": "constructive/exp_i/results/baseline_hashes.json",
+          "algorithm": "SHA-256",
+          "n_files": 22,
+          "changed": [],
+          "missing": [],
+          "all_unchanged": true
+        }
+      ],
+      "all_ok": true
+    },
+    "exp_k_dataset": {
+      "manifest": "constructive/exp_k/results/manifests/k0_dataset_manifest.json",
+      "recorded_fingerprint": "e38c3562b722c40b",
+      "recomputed_fingerprint": "e38c3562b722c40b",
+      "fingerprint_match": true,
+      "n_datasets": 160,
+      "all_splits_disjoint": true,
+      "dirty": [],
+      "all_ok": true
+    },
+    "source_hashes": {
+      "constructive/core.py": "9347f2e7b9593121b97307a1a7f87b1d28a27270a75e9a1b8122b820dad7fcf8",
+      "constructive/model.py": "862a96b4ee58417fb8df1144f4ca72ffdaa7992c93a78e3a8a6d14e44ce9b0aa",
+      "constructive/worlds.py": "07d6fc6c66677a1fc4f16403927e0407c2c98f0bb8ef8afb4f52fb950555bfb7",
+      "constructive/baselines.py": "52ee402734b4cf0a5d430ab224a73554b3f166a9076e7e953eb7704e30ada77d",
+      "constructive/bench.py": "ff9646b531bf4e24c770f3e86dc8e49dde39245597ca6a5e66185809548ba402",
+      "omega_nano/engine.py": "bdaa8af9d66010996de7eec7c3060102ee561a0c21ab04d0880529bfb448c5ae",
+      "omega_nano/model.py": "c502a3e6c7c075fe70dcfebfade2d44b6fe098ad868c3f446b09e23a1b70927d",
+      "omega_nano/reasoner.py": "49bb5b4bda161998d7cafed1a581fa2326eac9e910ae1dc5470ebe1ccbbbeeef",
+      "omega_nano/core/engine.py": "68de2b623411f533a86a4364d09a5aaa627773c26501ff8a0dc0c6d0e89542e5"
+    },
+    "source_hash_fingerprint": "14d6e805992f6ec4",
+    "all_protected_ok": true
+  },
+  "environment": {
+    "stage": "L0",
+    "schema": "exp-l-environment-v1",
+    "captured_utc": "2026-11-18T13:11:22.322292+00:00",
+    "python": {
+      "version": "3.13.15",
+      "implementation": "CPython",
+      "executable": "C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\python.exe"
+    },
+    "os": {
+      "platform": "Windows-11-10.0.26200-SP0",
+      "system": "Windows",
+      "release": "11",
+      "machine": "AMD64",
+      "processor": "Intel64 Family 6 Model 140 Stepping 1, GenuineIntel"
+    },
+    "cpu": {
+      "logical_cores": 8,
+      "device": "cpu",
+      "acceleration": "none"
+    },
+    "memory": {
+      "total_gb": 16.818,
+      "available_gb": 3.688
+    },
+    "dependencies": {
+      "numpy": {
+        "installed": true,
+        "version": "2.5.3"
+      },
+      "scipy": {
+        "installed": true,
+        "version": "1.18.1"
+      },
+      "pytest": {
+        "installed": true,
+        "version": "9.2.0"
+      },
+      "psutil": {
+        "installed": true,
+        "version": "7.2.2"
+      }
+    },
+    "git": {
+      "commit": "1face37bc9c695f5804baf97e6533113695f7af3",
+      "branch": "research/exp-l"
+    },
+    "repository_root": "D:\\ai model",
+    "external_services_required": false,
+    "gpu_required": false
+  },
+  "fingerprint": "aa12b27d1d2f9b58"
+}

@@ -1,0 +1,19 @@
+{
+  "schema": "exp-l-additive-integrity-v1",
+  "note": "Additive manifest. Never replaces EXP-I/EXP-J/EXP-K manifests.",
+  "stages": {
+    "L0": {
+      "stage": "L0",
+      "gate": {
+        "protected_hashes_ok": true,
+        "no_tracked_source_modifications": true,
+        "full_tests_ok": true,
+        "smoke_ok": true
+      },
+      "gate_pass": true,
+      "protected": true,
+      "snapshot": "constructive\\exp_l\\results\\history\\L0-20261118-131300.json"
+    }
+  },
+  "fingerprint": "1061a3261f77e4a4"
+}

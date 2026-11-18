@@ -1,0 +1,51 @@
+{
+  "stage": "L0",
+  "schema": "exp-l-environment-v1",
+  "captured_utc": "2026-11-18T13:11:22.322292+00:00",
+  "python": {
+    "version": "3.13.15",
+    "implementation": "CPython",
+    "executable": "C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\python.exe"
+  },
+  "os": {
+    "platform": "Windows-11-10.0.26200-SP0",
+    "system": "Windows",
+    "release": "11",
+    "machine": "AMD64",
+    "processor": "Intel64 Family 6 Model 140 Stepping 1, GenuineIntel"
+  },
+  "cpu": {
+    "logical_cores": 8,
+    "device": "cpu",
+    "acceleration": "none"
+  },
+  "memory": {
+    "total_gb": 16.818,
+    "available_gb": 3.688
+  },
+  "dependencies": {
+    "numpy": {
+      "installed": true,
+      "version": "2.5.3"
+    },
+    "scipy": {
+      "installed": true,
+      "version": "1.18.1"
+    },
+    "pytest": {
+      "installed": true,
+      "version": "9.2.0"
+    },
+    "psutil": {
+      "installed": true,
+      "version": "7.2.2"
+    }
+  },
+  "git": {
+    "commit": "1face37bc9c695f5804baf97e6533113695f7af3",
+    "branch": "research/exp-l"
+  },
+  "repository_root": "D:\\ai model",
+  "external_services_required": false,
+  "gpu_required": false
+}

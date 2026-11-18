@@ -1,0 +1,93 @@
+{
+  "stage": "L0",
+  "schema": "exp-l-stage-block-v1",
+  "exp_l_version": "0.1.0",
+  "git": {
+    "commit": "1face37bc9c695f5804baf97e6533113695f7af3",
+    "branch": "research/exp-l"
+  },
+  "config": {
+    "stage": "L0",
+    "seed": 0,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "quick": false,
+    "no_resume": false,
+    "merge_only": false,
+    "generator_version": "exp-l-gen-1",
+    "seed_policy": "explicit_sha256_derived_random.Random(seed, stream); no hash() of strings",
+    "n_train": 4,
+    "n_val": 4,
+    "n_test": 8,
+    "time_limit_s": 120.0,
+    "memory_limit_mb": 512.0,
+    "full_test_timeout_s": 300.0
+  },
+  "config_fingerprint": "cea8b4c3633520d7",
+  "working_tree": {
+    "tracked_modified": [],
+    "tracked_source_modified": [],
+    "untracked": [
+      "constructive/exp_h/results/stage-a-20261118-160909.json",
+      "constructive/exp_h/results/stage-a-20261118-161835.json",
+      "constructive/exp_h/results/stage-a-20261118-162221.json",
+      "constructive/exp_h/results/stage-a-20261118-162604.json",
+      "constructive/exp_h/results/stage-a-20261118-162925.json",
+      "constructive/exp_h/results/stage-a-20261118-163408.json",
+      "constructive/exp_h/results/stage-a-20261118-163857.json",
+      "constructive/exp_h/results/stage-a-20261118-164722.json",
+      "constructive/exp_l/__init__.py",
+      "constructive/exp_l/config.py",
+      "constructive/exp_l/datasets.py",
+      "constructive/exp_l/determinism.py",
+      "constructive/exp_l/environment.py",
+      "constructive/exp_l/integrity.py",
+      "constructive/exp_l/reporting.py",
+      "constructive/exp_l/results/L0-baseline.json",
+      "constructive/exp_l/results/L0-environment.json",
+      "constructive/exp_l/results/L0-integrity.json",
+      "constructive/exp_l/results/history/L0-20261118-130812.json",
+      "constructive/exp_l/results/integrity.json",
+      "constructive/exp_l/results/latest.json",
+      "constructive/exp_l/runner.py",
+      "tests/test_exp_l.py"
+    ],
+    "clean": false,
+    "note": "The legacy suite regenerates its own quick-run JSON result files; these are restored after a milestone run. Untracked EXP-H result files are preserved untouched per explicit authorization; they are not EXP-L artifacts."
+  },
+  "smoke_test": {
+    "fixture": "minimal_fixture/v1",
+    "fingerprint": "c105dfffc3b44951",
+    "other_seed_fingerprint": "d6e645107c8e5943",
+    "rng_stream_reproducible": true,
+    "deterministic_reproduction": true,
+    "passed": true
+  },
+  "full_test_suite": {
+    "command": "python -m pytest -q",
+    "returncode": 0,
+    "summary": "312 passed, 1 skipped in 96.43s (0:01:36)",
+    "elapsed_s": 98.046,
+    "passed": true,
+    "timed_out": false
+  },
+  "gate": {
+    "protected_hashes_ok": true,
+    "no_tracked_source_modifications": true,
+    "full_tests_ok": true,
+    "smoke_ok": true
+  },
+  "gate_pass": true,
+  "wall_s": 98.668,
+  "captured_utc": "2026-11-18T13:11:22.322292+00:00"
+}
