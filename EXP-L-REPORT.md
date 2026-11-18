@@ -1,6 +1,6 @@
 # EXP-L Research Report
 
-**Status: L0–L5 complete. Stages L6–L7 pending.**
+**Status: L0–L6 complete. L7 final audit pending.**
 
 Branch: `research/exp-l` — created from the verified EXP-K tip
 `1face37bc9c695f5804baf97e6533113695f7af3` (not from `master`; `master` untouched).
@@ -249,9 +249,46 @@ integration).
 
 Artifact: `constructive/exp_l/results/L5-results.json`.
 
+## L6 — Reliability economics (gate PASS)
+
+Identical 280-task workload for all 10 configurations on the same machine.
+Operation counts are instrumented counts of this implementation, explicitly
+**not** OMEGA-NANO/EXP-K search expansions.
+
+| Configuration | Useful coverage | Incorrect accept | Avg latency | p95 | Verification checks | Correct/s |
+|---|---|---|---|---|---|---|
+| baseline | 0.654 | 0.346 | 0.116 ms | 0.191 ms | 0 | 5632 |
+| always-abstain | 0.000 | 0.000 | 0.102 ms | 0.199 ms | 0 | 0 |
+| L1 drift monitor only | 0.654 | 0.346 | 0.309 ms | 0.455 ms | 0 | 2116 |
+| L2 selective | 0.650 | **0.350** | 0.131 ms | 0.298 ms | 560 | 4970 |
+| L2 full | 0.650 | 0.350 | 0.122 ms | 0.234 ms | 2000 | 5310 |
+| L3 rank+verify | 0.654 | **0.011** | 0.121 ms | 0.240 ms | 0 | 5382 |
+| L4 temperature | 0.654 | 0.346 | 0.122 ms | 0.217 ms | 0 | 5367 |
+| coverage-oriented combo | 0.650 | 0.011 | 0.365 ms | 0.559 ms | 560 | 1780 |
+| accuracy-oriented combo | 0.650 | 0.011 | 0.323 ms | 0.467 ms | 2000 | 2010 |
+| resource-constrained | 0.654 | 0.011 | 0.334 ms | 0.570 ms | 280 | 1957 |
+
+**Economic conclusion.** L3 behavioral retrieval verification is the only
+configuration with a large reliability gain (incorrect acceptance 0.346 →
+0.011) at essentially unchanged useful coverage and a ~4% latency increase.
+L2 verification was *neutral-to-negative* here (incorrect acceptance rose
+0.346 → 0.350 for the selective variant) while adding 560–2000 checks, so it is
+not worth its cost in this workload. L1 monitoring and the combined
+configurations raised latency 2.8–3.1× without improving on L3 alone. No
+composite score is reported; the full vector is in `operation_counts`,
+`resources`, and the derived per-configuration fields.
+
+Decision: `ELIGIBLE_FOR_SEPARATE_REVIEW` is **not** granted — the gain is
+synthetic and unvalidated on realistic overlapping families (L3/L5). L3
+behavioral verification is `REQUIRES_MORE_EVIDENCE`; L2 verification and the
+combinations are `NOT_RECOMMENDED` on cost/benefit grounds.
+
+Artifact: `constructive/exp_l/results/L6-results.json`.
+
 ## Decision status
 
 No mechanism is `ELIGIBLE_FOR_SEPARATE_REVIEW`. L1 mapping consistency is
-promising but synthetic-only; L2 selective verification lacks a credible effect
-size; L3 behavioral safeguards are unvalidated on overlapping realistic families;
-L4 calibration regresses easy subgroups; L5 shows template-level transfer only.
+promising but synthetic-only; L2 selective verification is neutral-to-negative
+and costly; L3 behavioral safeguards give the best reliability-per-cost but are
+unvalidated on overlapping realistic families; L4 calibration regresses easy
+subgroups; L5 shows template-level transfer only.

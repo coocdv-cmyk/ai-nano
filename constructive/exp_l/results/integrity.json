@@ -74,7 +74,19 @@
       },
       "gate_pass": true,
       "snapshot": "constructive\\exp_l\\results\\history\\L5-20261118-134157.json"
+    },
+    "L6": {
+      "stage": "L6",
+      "gate": {
+        "identical_workload": true,
+        "vector_metrics_reported": true,
+        "no_composite_score": true,
+        "cost_reported_for_all": true,
+        "some_reliable_gain_at_reasonable_cost": true
+      },
+      "gate_pass": true,
+      "snapshot": "constructive\\exp_l\\results\\history\\L6-20261118-134619.json"
     }
   },
-  "fingerprint": "8e91869e632015e4"
+  "fingerprint": "d765250e8e9f6c42"
 }

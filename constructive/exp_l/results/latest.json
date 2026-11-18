@@ -3844,8 +3844,374 @@
       },
       "note": "Template-parsing transfer only. This is NOT evidence of natural-language understanding or general capability. Parsing, mapping, reasoning and ambiguity detection are scored separately. The adapter and the ground-truth generator share a small operation vocabulary and were co-designed; perfect accuracy therefore reflects shared conventions, not linguistic generality.",
       "snapshot": "constructive\\exp_l\\results\\history\\L5-20261118-134157.json"
+    },
+    "L6": {
+      "stage": "L6",
+      "schema": "exp-l-stage-block-v1",
+      "config": {
+        "stage": "L6",
+        "seed": 0,
+        "seeds": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "quick": false,
+        "no_resume": false,
+        "merge_only": false,
+        "generator_version": "exp-l-gen-1",
+        "seed_policy": "explicit_sha256_derived_random.Random(seed, stream); no hash() of strings",
+        "n_train": 4,
+        "n_val": 4,
+        "n_test": 8,
+        "time_limit_s": 120.0,
+        "memory_limit_mb": 512.0,
+        "full_test_timeout_s": 300.0
+      },
+      "config_fingerprint": "4db4a596cdc05e6c",
+      "n_tasks": 280,
+      "configurations": {
+        "baseline": {
+          "n": 280,
+          "resources": {
+            "wall_s": 0.032495,
+            "cpu_s": 0.03125,
+            "peak_rss_mb": 24.926
+          },
+          "operation_counts": {
+            "node_evaluations": 0,
+            "verification_checks": 0,
+            "retrieval_scoring_ops": 0,
+            "candidates_inspected": 0,
+            "calibration_ops": 0,
+            "drift_signal_ops": 0
+          },
+          "correct_acceptance": 183,
+          "incorrect_acceptance": 97,
+          "useful_coverage": 0.6535714285714286,
+          "incorrect_acceptance_rate": 0.3464285714285714,
+          "abstention_rate": 0.0,
+          "avg_latency_ms": 0.11605357142857145,
+          "p95_latency_ms": 0.19050002447329462,
+          "throughput_per_s": 8616.710263117402,
+          "correctly_accepted_per_s": 5631.635636251731,
+          "useful_coverage_per_mb": 0.026220469733267616,
+          "incorrect_acceptances_per_1000": 346.42857142857144,
+          "verification_cost_per_extra_correct": null,
+          "latency_increase_per_incorrect_reduction_ms": null,
+          "delta_useful_coverage": 0.0,
+          "delta_incorrect_acceptance": 0.0
+        },
+        "always_abstain": {
+          "n": 280,
+          "resources": {
+            "wall_s": 0.02855,
+            "cpu_s": 0.015625,
+            "peak_rss_mb": 24.945
+          },
+          "operation_counts": {
+            "node_evaluations": 0,
+            "verification_checks": 0,
+            "retrieval_scoring_ops": 0,
+            "candidates_inspected": 0,
+            "calibration_ops": 0,
+            "drift_signal_ops": 0
+          },
+          "correct_acceptance": 0,
+          "incorrect_acceptance": 0,
+          "useful_coverage": 0.0,
+          "incorrect_acceptance_rate": 0.0,
+          "abstention_rate": 1.0,
+          "avg_latency_ms": 0.10196428571428572,
+          "p95_latency_ms": 0.19880000036209822,
+          "throughput_per_s": 9807.355516637479,
+          "correctly_accepted_per_s": 0.0,
+          "useful_coverage_per_mb": 0.0,
+          "incorrect_acceptances_per_1000": 0.0,
+          "verification_cost_per_extra_correct": null,
+          "latency_increase_per_incorrect_reduction_ms": -0.14525036818851272,
+          "delta_useful_coverage": -0.6535714285714286,
+          "delta_incorrect_acceptance": -0.3464285714285714
+        },
+        "l1_drift_only": {
+          "n": 280,
+          "resources": {
+            "wall_s": 0.086482,
+            "cpu_s": 0.09375,
+            "peak_rss_mb": 24.977
+          },
+          "operation_counts": {
+            "node_evaluations": 0,
+            "verification_checks": 0,
+            "retrieval_scoring_ops": 0,
+            "candidates_inspected": 0,
+            "calibration_ops": 0,
+            "drift_signal_ops": 6720
+          },
+          "correct_acceptance": 183,
+          "incorrect_acceptance": 97,
+          "useful_coverage": 0.6535714285714286,
+          "incorrect_acceptance_rate": 0.3464285714285714,
+          "abstention_rate": 0.0,
+          "avg_latency_ms": 0.3088642857142857,
+          "p95_latency_ms": 0.454699998954311,
+          "throughput_per_s": 3237.667954025115,
+          "correctly_accepted_per_s": 2116.0472699521288,
+          "useful_coverage_per_mb": 0.02616693071911873,
+          "incorrect_acceptances_per_1000": 346.42857142857144,
+          "verification_cost_per_extra_correct": null,
+          "latency_increase_per_incorrect_reduction_ms": null,
+          "delta_useful_coverage": 0.0,
+          "delta_incorrect_acceptance": 0.0
+        },
+        "l2_selective": {
+          "n": 280,
+          "resources": {
+            "wall_s": 0.036623,
+            "cpu_s": 0.03125,
+            "peak_rss_mb": 24.996
+          },
+          "operation_counts": {
+            "node_evaluations": 10000,
+            "verification_checks": 560,
+            "retrieval_scoring_ops": 0,
+            "candidates_inspected": 0,
+            "calibration_ops": 0,
+            "drift_signal_ops": 0
+          },
+          "correct_acceptance": 182,
+          "incorrect_acceptance": 98,
+          "useful_coverage": 0.65,
+          "incorrect_acceptance_rate": 0.35,
+          "abstention_rate": 0.0,
+          "avg_latency_ms": 0.1307964285714286,
+          "p95_latency_ms": 0.2982000005431473,
+          "throughput_per_s": 7645.46869453622,
+          "correctly_accepted_per_s": 4969.554651448543,
+          "useful_coverage_per_mb": 0.026004160665706516,
+          "incorrect_acceptances_per_1000": 350.0,
+          "verification_cost_per_extra_correct": null,
+          "latency_increase_per_incorrect_reduction_ms": null,
+          "delta_useful_coverage": -0.0035714285714285587,
+          "delta_incorrect_acceptance": 0.0035714285714285587
+        },
+        "l2_full": {
+          "n": 280,
+          "resources": {
+            "wall_s": 0.034274,
+            "cpu_s": 0.046875,
+            "peak_rss_mb": 25.023
+          },
+          "operation_counts": {
+            "node_evaluations": 10000,
+            "verification_checks": 2000,
+            "retrieval_scoring_ops": 0,
+            "candidates_inspected": 0,
+            "calibration_ops": 0,
+            "drift_signal_ops": 0
+          },
+          "correct_acceptance": 182,
+          "incorrect_acceptance": 98,
+          "useful_coverage": 0.65,
+          "incorrect_acceptance_rate": 0.35,
+          "abstention_rate": 0.0,
+          "avg_latency_ms": 0.12240714285714287,
+          "p95_latency_ms": 0.2339000056963414,
+          "throughput_per_s": 8169.45789811519,
+          "correctly_accepted_per_s": 5310.147633774874,
+          "useful_coverage_per_mb": 0.02597610198617272,
+          "incorrect_acceptances_per_1000": 350.0,
+          "verification_cost_per_extra_correct": null,
+          "latency_increase_per_incorrect_reduction_ms": null,
+          "delta_useful_coverage": -0.0035714285714285587,
+          "delta_incorrect_acceptance": 0.0035714285714285587
+        },
+        "l3_rank_verify": {
+          "n": 280,
+          "resources": {
+            "wall_s": 0.034005,
+            "cpu_s": 0.03125,
+            "peak_rss_mb": 25.047
+          },
+          "operation_counts": {
+            "node_evaluations": 0,
+            "verification_checks": 0,
+            "retrieval_scoring_ops": 10080,
+            "candidates_inspected": 1680,
+            "calibration_ops": 0,
+            "drift_signal_ops": 0
+          },
+          "correct_acceptance": 183,
+          "incorrect_acceptance": 3,
+          "useful_coverage": 0.6535714285714286,
+          "incorrect_acceptance_rate": 0.010714285714285714,
+          "abstention_rate": 0.3357142857142857,
+          "avg_latency_ms": 0.12144642857142858,
+          "p95_latency_ms": 0.2398999931756407,
+          "throughput_per_s": 8234.083223055433,
+          "correctly_accepted_per_s": 5381.561535068372,
+          "useful_coverage_per_mb": 0.02609380079735811,
+          "incorrect_acceptances_per_1000": 10.714285714285714,
+          "verification_cost_per_extra_correct": null,
+          "latency_increase_per_incorrect_reduction_ms": 0.057370820668692875,
+          "delta_useful_coverage": 0.0,
+          "delta_incorrect_acceptance": -0.3357142857142857
+        },
+        "l4_temperature": {
+          "n": 280,
+          "resources": {
+            "wall_s": 0.034097,
+            "cpu_s": 0.03125,
+            "peak_rss_mb": 25.082
+          },
+          "operation_counts": {
+            "node_evaluations": 0,
+            "verification_checks": 0,
+            "retrieval_scoring_ops": 0,
+            "candidates_inspected": 0,
+            "calibration_ops": 280,
+            "drift_signal_ops": 0
+          },
+          "correct_acceptance": 183,
+          "incorrect_acceptance": 97,
+          "useful_coverage": 0.6535714285714286,
+          "incorrect_acceptance_rate": 0.3464285714285714,
+          "abstention_rate": 0.0,
+          "avg_latency_ms": 0.12177500000000001,
+          "p95_latency_ms": 0.21739999647252262,
+          "throughput_per_s": 8211.86614658181,
+          "correctly_accepted_per_s": 5367.041088658826,
+          "useful_coverage_per_mb": 0.02605738890724139,
+          "incorrect_acceptances_per_1000": 346.42857142857144,
+          "verification_cost_per_extra_correct": null,
+          "latency_increase_per_incorrect_reduction_ms": null,
+          "delta_useful_coverage": 0.0,
+          "delta_incorrect_acceptance": 0.0
+        },
+        "coverage_oriented": {
+          "n": 280,
+          "resources": {
+            "wall_s": 0.102275,
+            "cpu_s": 0.078125,
+            "peak_rss_mb": 25.113
+          },
+          "operation_counts": {
+            "node_evaluations": 10000,
+            "verification_checks": 560,
+            "retrieval_scoring_ops": 10080,
+            "candidates_inspected": 1680,
+            "calibration_ops": 0,
+            "drift_signal_ops": 6720
+          },
+          "correct_acceptance": 182,
+          "incorrect_acceptance": 3,
+          "useful_coverage": 0.65,
+          "incorrect_acceptance_rate": 0.010714285714285714,
+          "abstention_rate": 0.3392857142857143,
+          "avg_latency_ms": 0.36526785714285714,
+          "p95_latency_ms": 0.5593999812845141,
+          "throughput_per_s": 2737.7169396235636,
+          "correctly_accepted_per_s": 1779.5160107553165,
+          "useful_coverage_per_mb": 0.025883008800222995,
+          "incorrect_acceptances_per_1000": 10.714285714285714,
+          "verification_cost_per_extra_correct": null,
+          "latency_increase_per_incorrect_reduction_ms": 2.6512158054711246,
+          "delta_useful_coverage": -0.0035714285714285587,
+          "delta_incorrect_acceptance": -0.3357142857142857
+        },
+        "accuracy_oriented": {
+          "n": 280,
+          "resources": {
+            "wall_s": 0.090536,
+            "cpu_s": 0.09375,
+            "peak_rss_mb": 25.152
+          },
+          "operation_counts": {
+            "node_evaluations": 10000,
+            "verification_checks": 2000,
+            "retrieval_scoring_ops": 10080,
+            "candidates_inspected": 1680,
+            "calibration_ops": 280,
+            "drift_signal_ops": 6720
+          },
+          "correct_acceptance": 182,
+          "incorrect_acceptance": 3,
+          "useful_coverage": 0.65,
+          "incorrect_acceptance_rate": 0.010714285714285714,
+          "abstention_rate": 0.3392857142857143,
+          "avg_latency_ms": 0.32334285714285715,
+          "p95_latency_ms": 0.46729997848160565,
+          "throughput_per_s": 3092.6924096492003,
+          "correctly_accepted_per_s": 2010.2500662719801,
+          "useful_coverage_per_mb": 0.025842875318066158,
+          "incorrect_acceptances_per_1000": 10.714285714285714,
+          "verification_cost_per_extra_correct": null,
+          "latency_increase_per_incorrect_reduction_ms": 2.2052051671732524,
+          "delta_useful_coverage": -0.0035714285714285587,
+          "delta_incorrect_acceptance": -0.3357142857142857
+        },
+        "resource_constrained": {
+          "n": 280,
+          "resources": {
+            "wall_s": 0.093525,
+            "cpu_s": 0.09375,
+            "peak_rss_mb": 25.176
+          },
+          "operation_counts": {
+            "node_evaluations": 10000,
+            "verification_checks": 280,
+            "retrieval_scoring_ops": 10080,
+            "candidates_inspected": 1680,
+            "calibration_ops": 0,
+            "drift_signal_ops": 6720
+          },
+          "correct_acceptance": 183,
+          "incorrect_acceptance": 3,
+          "useful_coverage": 0.6535714285714286,
+          "incorrect_acceptance_rate": 0.010714285714285714,
+          "abstention_rate": 0.3357142857142857,
+          "avg_latency_ms": 0.3340178571428571,
+          "p95_latency_ms": 0.5698000022675842,
+          "throughput_per_s": 2993.8519112536756,
+          "correctly_accepted_per_s": 1956.6960705693666,
+          "useful_coverage_per_mb": 0.025960098052567073,
+          "incorrect_acceptances_per_1000": 10.714285714285714,
+          "verification_cost_per_extra_correct": null,
+          "latency_increase_per_incorrect_reduction_ms": 2.3187689969604857,
+          "delta_useful_coverage": 0.0,
+          "delta_incorrect_acceptance": -0.3357142857142857
+        }
+      },
+      "baseline_reference": {
+        "useful_coverage": 0.6535714285714286,
+        "incorrect_acceptance_rate": 0.3464285714285714,
+        "avg_latency_ms": 0.11605357142857145,
+        "p95_latency_ms": 0.19050002447329462,
+        "resources": {
+          "wall_s": 0.032495,
+          "cpu_s": 0.03125,
+          "peak_rss_mb": 24.926
+        }
+      },
+      "gate": {
+        "identical_workload": true,
+        "vector_metrics_reported": true,
+        "no_composite_score": true,
+        "cost_reported_for_all": true,
+        "some_reliable_gain_at_reasonable_cost": true
+      },
+      "gate_pass": true,
+      "note": "Operation counts are instrumented counts of this implementation, not EXP-K/OMEGA-NANO search expansions. All configurations use the identical workload and hardware.",
+      "snapshot": "constructive\\exp_l\\results\\history\\L6-20261118-134619.json"
     }
   },
-  "updated_utc": "2026-11-18T13:41:57.170474+00:00",
-  "fingerprint": "af68f14f0e6ac439"
+  "updated_utc": "2026-11-18T13:46:19.813161+00:00",
+  "fingerprint": "38468f16bb46e209"
 }

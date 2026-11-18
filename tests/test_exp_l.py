@@ -369,3 +369,27 @@ def test_adapter_transfer_and_preserved_failures():
     assert m["correct_abstention"] > block["by_method"]["adapter_no_guard"]["correct_abstention"]
     assert m["n_failures_preserved"] >= 0
     assert block["provenance"]["external_model"] is False
+
+
+# --- L6: reliability economics ---------------------------------------------
+
+from constructive.exp_l.reliability_economics import CONFIGS, run_l6  # noqa: E402
+
+
+def test_l6_matched_workload_and_vector_metrics():
+    block = run_l6(cfgmod.default_config("L6", seeds=(0, 1, 2)))
+    cs = block["configurations"]
+    assert all(cs[c]["n"] == block["n_tasks"] for c in CONFIGS)
+    for c in CONFIGS:
+        assert cs[c]["resources"]["wall_s"] > 0
+        assert cs[c]["operation_counts"]["node_evaluations"] >= 0
+        assert cs[c]["incorrect_acceptances_per_1000"] >= 0
+    assert block["gate"]["no_composite_score"]
+
+
+def test_l6_always_abstain_has_zero_useful_coverage():
+    block = run_l6(cfgmod.default_config("L6", seeds=(0, 1)))
+    aa = block["configurations"]["always_abstain"]
+    assert aa["useful_coverage"] == 0.0
+    assert aa["abstention_rate"] == 1.0
+    assert aa["selective_accuracy"] if "selective_accuracy" in aa else True
