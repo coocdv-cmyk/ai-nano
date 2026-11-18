@@ -192,3 +192,47 @@ def test_l1_semantic_detector_beats_random_on_small_campaign():
     rnd = block["by_detector"]["random"]["semantic_recall"]["mean"]
     assert sem > rnd
     assert block["by_detector"]["semantic_consistency"]["auroc"] is not None
+
+
+# --- L2: selective composition verification --------------------------------
+
+from constructive.exp_l.composition_verification import (  # noqa: E402
+    DEPTHS, METHODS, decide, make_case, public_view, run_l2,
+)
+
+
+def test_public_view_excludes_all_oracle_fields():
+    case = make_case(2, 5, "one_error")
+    pub = public_view(case)
+    for forbidden in ("hidden", "test_xs", "correct", "first_error",
+                      "intermediate_error"):
+        assert forbidden not in pub
+
+
+def test_decision_is_independent_of_ground_truth():
+    # Two cases with identical public evidence but different hidden truth must
+    # produce identical decisions (no oracle leakage).
+    c1 = make_case(1, 4, "correct")
+    c2 = make_case(1, 4, "correct")
+    for m in METHODS:
+        assert decide(m, public_view(c1)) == decide(m, public_view(c2))
+
+
+def test_always_abstain_has_undefined_selective_accuracy():
+    block = run_l2(cfgmod.default_config("L2", seeds=(0,)))
+    assert block["by_method"]["always_abstain"]["selective_accuracy"] is None
+    assert block["by_method"]["always_abstain"]["useful_coverage"] == 0.0
+
+
+def test_compensating_case_has_correct_final_but_invalid_path():
+    case = make_case(4, 6, "compensating")
+    assert case["correct"] is True
+    assert case["intermediate_error"] is True
+
+
+def test_full_verification_reduces_incorrect_acceptance_vs_baseline():
+    block = run_l2(cfgmod.default_config("L2", seeds=(0, 1, 2)))
+    b = block["by_method"]["baseline"]["incorrect_acceptance_rate"]
+    f = block["by_method"]["full"]["incorrect_acceptance_rate"]
+    assert f <= b
+    assert block["gate"]["no_oracle_in_decision"]

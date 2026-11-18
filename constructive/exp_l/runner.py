@@ -26,6 +26,7 @@ from .integrity import git_info, verify_protected
 from .reporting import (RESULTS, artifact_name, snapshot, update_integrity,
                         update_latest, write_json)
 from .semantic_drift import run_l1
+from .composition_verification import run_l2
 
 
 def _git_lines(*args: str) -> list[str]:
@@ -220,6 +221,8 @@ def main(argv: list[str] | None = None) -> int:
         block = run_l0(cfg)
     elif cfg.stage == "L1":
         block = persist_block("L1", run_l1(cfg), cfg)
+    elif cfg.stage == "L2":
+        block = persist_block("L2", run_l2(cfg), cfg)
     else:
         print(f"Stage {cfg.stage} is not implemented yet in this milestone.")
         return 2

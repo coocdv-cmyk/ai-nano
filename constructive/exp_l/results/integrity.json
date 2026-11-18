@@ -24,7 +24,19 @@
       },
       "gate_pass": true,
       "snapshot": "constructive\\exp_l\\results\\history\\L1-20261118-131756.json"
+    },
+    "L2": {
+      "stage": "L2",
+      "gate": {
+        "no_oracle_in_decision": true,
+        "selective_accuracy_undefined_when_no_acceptance": true,
+        "risk_coverage_tradeoff_present": true,
+        "selective_preserves_more_coverage_than_full": true,
+        "reproducible": true
+      },
+      "gate_pass": true,
+      "snapshot": "constructive\\exp_l\\results\\history\\L2-20261118-132625.json"
     }
   },
-  "fingerprint": "3ce464350b92e35d"
+  "fingerprint": "d503d50bd695eb44"
 }

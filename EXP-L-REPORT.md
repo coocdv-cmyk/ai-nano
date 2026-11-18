@@ -1,6 +1,6 @@
 # EXP-L Research Report
 
-**Status: L0 and L1 complete. Stages L2–L7 pending.**
+**Status: L0, L1 and L2 complete. Stages L3–L7 pending.**
 
 Branch: `research/exp-l` — created from the verified EXP-K tip
 `1face37bc9c695f5804baf97e6533113695f7af3` (not from `master`; `master` untouched).
@@ -97,7 +97,55 @@ Decision: `PROMISING_BUT_UNVALIDATED` (mapping-consistency detection);
 
 Artifact: `constructive/exp_l/results/L1-results.json`.
 
+## L2 — Selective composition verification (gate PASS, hypothesis weakly supported)
+
+490 cases per seed (7 depths × 7 case types), 10 seeds; 7 methods. Wall 0.35 s,
+CPU 0.34 s, peak RSS 26.6 MB. `decide()` receives a stripped `public_view`; the
+hidden program, held-out test labels and first-error diagnostics never reach an
+operational decision.
+
+| Method | Incorrect accept | Useful coverage | Abstention | Selective accuracy | Checks/task |
+|---|---|---|---|---|---|
+| baseline | 0.021 | 0.332 | 0.646 | 0.939 | 0.0 |
+| always-abstain | 0.000 | 0.000 | 1.000 | **undefined** | 0.0 |
+| conservative | 0.000 | 0.186 | 0.814 | 1.000 | 5.0 |
+| local (first 2) | 0.018 | 0.263 | 0.720 | 0.936 | 1.4 |
+| selective (uncertain steps) | 0.016 | 0.280 | 0.704 | 0.946 | 1.2 |
+| full (all steps) | 0.014 | 0.186 | 0.800 | 0.929 | 3.2 |
+| budget (=depth) | 0.014 | 0.186 | 0.800 | 0.929 | 3.2 |
+
+Paired per-seed bootstrap deltas vs baseline (10 seeds):
+
+| Method | Δ incorrect acceptance [95% CI] | Δ useful coverage [95% CI] |
+|---|---|---|
+| selective | −0.0054 [−0.0107, 0.000] | −0.0518 [−0.0625, −0.0411] |
+| full | −0.0071 [−0.0143, 0.000] | −0.1464 [−0.1589, −0.1339] |
+| conservative | −0.0214 [−0.0304, −0.0107] | −0.1464 [−0.1589, −0.1339] |
+
+The risk-coverage curve falls from 0.021 to 0.000 incorrect acceptance as the
+checkpoint budget grows, but is **not strictly monotone** (small bumps at
+budgets 8–12) and useful coverage falls from 0.332 to 0.200. Selective checking
+preserves more useful coverage than full checking (0.280 vs 0.186) but its
+incorrect-acceptance reduction is not statistically distinguishable from zero.
+Only the conservative policy shows a credible reduction, and it sacrifices
+roughly 44% of useful coverage. Compensating-error cases (correct final answer
+via an invalid intermediate path) are correctly identified as intermediate
+errors and are rejected by full/conservative verification — at a coverage cost.
+
+**Conclusion.** The hypothesis that targeted intermediate verification gives a
+credible correctness gain at low coverage cost is **not supported** by this
+synthetic benchmark. The structural gate passed (oracle isolation, undefined
+selective accuracy for all-abstain, a real risk-coverage trade-off), but the
+effect size is too small to be practically meaningful.
+
+Decision: `REQUIRES_MORE_EVIDENCE` (selective verification);
+`NOT_RECOMMENDED` (full/conservative verification as coverage-preserving
+improvements). Two failed L2 diagnostic snapshots are preserved in history.
+
+Artifact: `constructive/exp_l/results/L2-results.json`.
+
 ## Decision status
 
 No mechanism is `ELIGIBLE_FOR_SEPARATE_REVIEW` yet. L1 mapping-consistency
-detection is promising but synthetic-only and unvalidated on realistic inputs.
+detection is promising but synthetic-only and unvalidated on realistic inputs;
+L2 selective verification lacks a credible effect size.
