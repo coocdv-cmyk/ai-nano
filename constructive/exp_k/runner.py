@@ -53,6 +53,9 @@ def _dispatch(stage: str, cfg: ExpKConfig) -> Callable[[], dict[str, Any]]:
     if stage == "K4":
         from . import calibration
         return lambda: calibration.run_k4(cfg)
+    if stage == "K5":
+        from . import interactions
+        return lambda: interactions.run_k5(cfg)
     # Later stages are registered as they are implemented and verified.
     raise KeyError(f"stage {stage} is not implemented in this revision")
 

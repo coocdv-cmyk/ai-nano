@@ -209,3 +209,20 @@ def test_calibration_uses_separate_split():
     assert k4["by_method"]["raw"]["ece"] is not None
     assert "caveats" in k4
 
+
+# --- K5: interactions -------------------------------------------------------
+
+
+def test_k5_factorial_arms():
+    from constructive.exp_k import interactions as K5
+    r = runner.run(stage="K5", quick=True)
+    k5 = r["experiments"]["K5"]
+    assert k5["status"] == "completed"
+    assert k5["completion_status"] == "COMPLETED"
+    assert k5["n_combinations"] == len(K5.COMBINATIONS)
+    for name, v in k5["combinations"].items():
+        assert set(v["cells"]) == {"baseline", f"A_only[{v['mechanism_a']}]",
+                                   f"B_only[{v['mechanism_b']}]", "A_and_B"}
+        assert "interaction_effects" in v
+        assert isinstance(v["regressions"], list)
+

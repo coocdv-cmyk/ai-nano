@@ -152,3 +152,29 @@ contradictory 0.000, retrieval substitution **0.410**.
 5. Conformal-style abstention is measured as a risk/coverage trade-off, not as
    a probability transform, and is not claimed to prove correctness.
 
+## K5 — Cross-mechanism interactions (10 factorial pairs, 4 arms each)
+
+13 regressions were recorded across the 10 pairs. The clearest:
+
+| Combination | Baseline wrong | Both-on wrong | Both-on coverage | Regressed metrics |
+|---|---|---|---|---|
+| evidence + deep search | 0.967 | 0.667 | 0.667 | correct, wrong, coverage, expansions |
+| noisy evidence + deep search | 0.967 | 0.433 | 0.433 | correct, coverage, expansions |
+| CEGIS + resource governance | 0.967 | 0.500 | 0.833 | coverage, expansions |
+| type checking + composition | 0.967 | 0.733 | 0.933 | coverage, expansions |
+
+**Findings.**
+1. Combining mechanisms generally reduces wrong acceptance, but only by
+   converting cases into abstentions: coverage falls by the same amount in
+   several pairs. This repeats the K1/K2 pattern at the system level.
+2. `evidence_validation + deep_search` is the most damaging combination: even
+   the correct-acceptance metric regresses, confirming EXP-J's reported
+   interaction regression on independent generators.
+3. **Important limitation:** in the OOD/drift-source combinations
+   (`retrieval + ood_abstention`, `drift_detection + retrieval`,
+   `drift_detection + calibration`, `contradictory_evidence + retrieval`,
+   `calibration + abstention`), the factorial toggles did not change decisions
+   in this evaluation core; those cells are saturated at wrong=1.0 and their
+   interaction terms are **uninformative**, not evidence of robustness. They are
+   retained in the raw results and must not be quoted as positive findings.
+

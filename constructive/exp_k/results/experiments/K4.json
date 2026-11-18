@@ -1034,8 +1034,8 @@
     "Retrieval substitutions are scored on retrieval confidence, not answer confidence."
   ],
   "resources": {
-    "elapsed_s": 2.935727,
-    "peak_rss_mb": 526.47,
+    "elapsed_s": 3.366435,
+    "peak_rss_mb": 528.7,
     "expansions": 0,
     "nodes": 0,
     "validation_calls": 0,
@@ -1045,7 +1045,7 @@
   },
   "completion_status": "COMPLETED",
   "resource_report": {
-    "elapsed_s": 3.0168332000030205,
+    "elapsed_s": 3.451271400001133,
     "nodes_used": 0,
     "global_deadline_s": 600.0,
     "node_budget": null,
@@ -1054,11 +1054,11 @@
     "diagnostics": {
       "last_completed_scope": "K4",
       "last_scope_status": "COMPLETED",
-      "scope_elapsed_s": 2.9359347999852616,
+      "scope_elapsed_s": 3.3666586999897845,
       "scope_nodes": 0
     },
     "memory_guard_mb": null,
-    "peak_rss_mb": 526.47
+    "peak_rss_mb": 528.7
   },
   "reproducibility": {
     "config_fingerprint": "753747c19207d0e9",
@@ -1097,7 +1097,7 @@
       "acceleration": "none (CPU-only; no external APIs)",
       "python": "3.13.15"
     },
-    "git_commit": "3d445c9de0ea09994229b1f3b9f741498def96fc",
+    "git_commit": "74c581e5ae33808b73521a15e03ae80315ba081c",
     "git_branch": "research/exp-k",
     "source_fingerprints": {
       "constructive/exp_j/generators.py": "b09b085f682c7221afd417de19d28d70457598a016f2be6c6f4d6f0e22a75ccf",
