@@ -2196,8 +2196,8 @@
     "Some mechanisms are only meaningful for the episode source where they are applied."
   ],
   "resources": {
-    "elapsed_s": 12.619318,
-    "peak_rss_mb": 528.7,
+    "elapsed_s": 12.074262,
+    "peak_rss_mb": 527.33,
     "expansions": 0,
     "nodes": 0,
     "validation_calls": 0,
@@ -2207,7 +2207,7 @@
   },
   "completion_status": "COMPLETED",
   "resource_report": {
-    "elapsed_s": 12.701983200007817,
+    "elapsed_s": 12.153933800000232,
     "nodes_used": 0,
     "global_deadline_s": 600.0,
     "node_budget": null,
@@ -2216,11 +2216,11 @@
     "diagnostics": {
       "last_completed_scope": "K5",
       "last_scope_status": "COMPLETED",
-      "scope_elapsed_s": 12.619548799993936,
+      "scope_elapsed_s": 12.074473399989074,
       "scope_nodes": 0
     },
     "memory_guard_mb": null,
-    "peak_rss_mb": 528.7
+    "peak_rss_mb": 527.33
   },
   "reproducibility": {
     "config_fingerprint": "753747c19207d0e9",
@@ -2259,7 +2259,7 @@
       "acceleration": "none (CPU-only; no external APIs)",
       "python": "3.13.15"
     },
-    "git_commit": "74c581e5ae33808b73521a15e03ae80315ba081c",
+    "git_commit": "f58b50477e32372e0e5b335f4ced6f986062cbcc",
     "git_branch": "research/exp-k",
     "source_fingerprints": {
       "constructive/exp_j/generators.py": "b09b085f682c7221afd417de19d28d70457598a016f2be6c6f4d6f0e22a75ccf",

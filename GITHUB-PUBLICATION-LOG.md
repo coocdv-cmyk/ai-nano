@@ -11,7 +11,8 @@ Policy: normal commits only; no force push, reset, or history rewriting.
 | K2 | `0c4e9812767109a93ba2c8e5ebec68b1a9c233a7` | `EXP-K: investigate OOD retrieval substitution` | `git ls-remote` returned matching hash | EXP-K 31 passed; smoke 9/9; full suite 295 passed, 1 skipped | EXP-I 22/22, EXP-J 84/84 unchanged |
 | K3 | `3d445c9de0ea09994229b1f3b9f741498def96fc` | `EXP-K: investigate drift detection failures` | `git ls-remote` returned matching hash | EXP-K 32 passed; full suite 296 passed, 1 skipped | EXP-I 22/22, EXP-J 84/84 unchanged |
 | K4 | `74c581e5ae33808b73521a15e03ae80315ba081c` | `EXP-K: evaluate confidence calibration` | `git ls-remote` returned matching hash | EXP-K 33 passed; full suite 297 passed, 1 skipped | EXP-I 22/22, EXP-J 84/84 unchanged |
-| K5 | pending | `EXP-K: test cross-mechanism interactions` | pending | EXP-K 34 passed; full suite 298 passed, 1 skipped | EXP-I 22/22, EXP-J 84/84 unchanged |
+| K5 | `f58b50477e32372e0e5b335f4ced6f986062cbcc` | `EXP-K: test cross-mechanism interactions` | `git ls-remote` returned matching hash | EXP-K 34 passed; full suite 298 passed, 1 skipped | EXP-I 22/22, EXP-J 84/84 unchanged |
+| K6 | pending | `EXP-K: complete adversarial reliability campaign` | pending | EXP-K 35 passed; full suite 299 passed, 1 skipped | EXP-I 22/22, EXP-J 84/84 unchanged |
 
 ## Notes
 

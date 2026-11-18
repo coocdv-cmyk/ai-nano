@@ -56,6 +56,9 @@ def _dispatch(stage: str, cfg: ExpKConfig) -> Callable[[], dict[str, Any]]:
     if stage == "K5":
         from . import interactions
         return lambda: interactions.run_k5(cfg)
+    if stage == "K6":
+        from . import adversarial
+        return lambda: adversarial.run_k6(cfg)
     # Later stages are registered as they are implemented and verified.
     raise KeyError(f"stage {stage} is not implemented in this revision")
 

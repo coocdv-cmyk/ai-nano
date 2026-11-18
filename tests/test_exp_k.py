@@ -226,3 +226,18 @@ def test_k5_factorial_arms():
         assert "interaction_effects" in v
         assert isinstance(v["regressions"], list)
 
+
+# --- K6: adversarial --------------------------------------------------------
+
+
+def test_k6_adversarial_attacks_and_abstain_control():
+    from constructive.exp_k import adversarial as K6
+    r = runner.run(stage="K6", quick=True)
+    k6 = r["experiments"]["K6"]
+    assert k6["status"] == "completed"
+    assert k6["completion_status"] == "COMPLETED"
+    assert set(k6["by_attack"]) == set(K6.ATTACKS)
+    assert k6["n_runs"] > 0
+    assert k6["always_abstain_useful_coverage"]["mean"] == 0.0
+    assert "no_label_leakage" in k6
+

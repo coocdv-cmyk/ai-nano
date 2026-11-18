@@ -178,3 +178,37 @@ contradictory 0.000, retrieval substitution **0.410**.
    interaction terms are **uninformative**, not evidence of robustness. They are
    retained in the raw results and must not be quoted as positive findings.
 
+## K6 — Adversarial reliability (12 attacks × 10 seeds × 2 policies)
+
+Useful coverage (correct acceptance) is **0.408** for the system versus
+**0.000** for an always-abstain control: the system is not merely refusing
+everything. Incorrect acceptance by attack:
+
+| Attack | Wrong | Correct |
+|---|---|---|
+| misleading positive | 0.2 | 0.0 |
+| correlated support | 0.0 | 0.8 |
+| missing counterexamples | 0.0 | 0.9 |
+| near-identical rules | 0.0 | 0.8 |
+| **incorrect intermediate** | **0.3** | 0.0 |
+| noisy observations | 0.0 | 0.2 |
+| contradictory observations | 0.0 | 0.0 |
+| unseen families | 0.0 | 0.6 |
+| misleading retrieval neighbors | 0.0 | 0.6 |
+| abrupt distribution change | 0.0 | 1.0 |
+| **deep deceptive** | **0.4** | 0.0 |
+| **resource exhaustion** | **0.4** | 0.0 |
+
+**Findings.**
+1. All non-composition attacks are handled with zero incorrect acceptance,
+   mostly by honest abstention (contradictory evidence) or correct retrieval.
+2. Every remaining unsafe case is a **composition attack**. Even when
+   intermediate values look locally correct, the whole program is wrong — the
+   same first-error propagation found in K1.
+3. Resource exhaustion does not cause silent wrong answers in general, but the
+   tightly budgeted deep chains still yield 40% incorrect acceptance: the
+   budget caps search, not acceptance of an incidental fit.
+4. One K6 run initially failed with a generator bug (`abs()` on list inputs);
+   the failure was preserved as an immutable snapshot, the bug was fixed, and
+   the rerun above is the reported result. This is disclosed rather than hidden.
+
