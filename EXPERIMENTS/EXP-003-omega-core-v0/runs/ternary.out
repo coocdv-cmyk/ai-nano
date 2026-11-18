@@ -1,0 +1,12 @@
+[ternary] params {'total': 3344640, 'block_matrices': 3211264, 'other': 133376}  budget 30.0 min
+{'step': 100, 'minutes': 4.85, 'train_bpb': 2.8234, 'val_bpb': 3.1363, 'lr': 0.00191}
+{'step': 200, 'minutes': 9.28, 'train_bpb': 2.9022, 'val_bpb': 2.767, 'lr': 0.001635}
+{'step': 300, 'minutes': 12.73, 'train_bpb': 2.4262, 'val_bpb': 2.532, 'lr': 0.001348}
+{'step': 400, 'minutes': 16.33, 'train_bpb': 2.0864, 'val_bpb': 2.3906, 'lr': 0.001005}
+{'step': 500, 'minutes': 19.79, 'train_bpb': 1.7808, 'val_bpb': 2.253, 'lr': 0.000694}
+{'step': 600, 'minutes': 23.69, 'train_bpb': 2.0777, 'val_bpb': 2.1564, 'lr': 0.000409}
+{'step': 700, 'minutes': 27.24, 'train_bpb': 2.0825, 'val_bpb': 2.0866, 'lr': 0.000248}
+FINAL {'steps': 784, 'minutes': 30.85, 'val_bpb': 2.0554, 'train_tokens': 3211264, 'tokens_per_s_training': 1735}
+info as election is with versions of this be used internal shost set used an be subned to exken't formands ands of the releging
+help or replease as as masse an the dispatch file matchor
+    the the do

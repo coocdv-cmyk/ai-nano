@@ -1,0 +1,60 @@
+{
+  "stage": "A",
+  "n_checks": 13,
+  "passed": 13,
+  "failures": 0,
+  "checks": [
+    {
+      "name": "dsl_conditional",
+      "pass": true
+    },
+    {
+      "name": "dsl_exclusion",
+      "pass": true
+    },
+    {
+      "name": "dsl_type_safety",
+      "pass": true
+    },
+    {
+      "name": "dsl_depth_cap",
+      "pass": true
+    },
+    {
+      "name": "dsl_magnitude_cap",
+      "pass": true
+    },
+    {
+      "name": "twin_splits_disjoint",
+      "pass": true
+    },
+    {
+      "name": "validation_twin_accepts_correct",
+      "pass": true
+    },
+    {
+      "name": "validation_ambiguous_abstains",
+      "pass": true
+    },
+    {
+      "name": "validation_contradictory_state",
+      "pass": true
+    },
+    {
+      "name": "retrieval_immutable_history",
+      "pass": true
+    },
+    {
+      "name": "search_finds_composition",
+      "pass": true
+    },
+    {
+      "name": "search_node_budget",
+      "pass": true
+    },
+    {
+      "name": "resource_deadline",
+      "pass": true
+    }
+  ]
+}

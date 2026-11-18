@@ -1,0 +1,91 @@
+{
+  "arm": "ternary",
+  "config": {
+    "vocab": 256,
+    "d": 256,
+    "layers": 4,
+    "heads": 4,
+    "hidden": 704,
+    "ctx": 256,
+    "ternary": true
+  },
+  "params": {
+    "total": 3344640,
+    "block_matrices": 3211264,
+    "other": 133376
+  },
+  "args": {
+    "arm": "ternary",
+    "minutes": 30.0,
+    "batch": 16,
+    "lr": 0.002,
+    "threads": 2,
+    "seed": 0,
+    "eval_every": 100
+  },
+  "baselines_bpb": {
+    "uniform": 8.0,
+    "zlib-9": 1.8296,
+    "bz2-9": 1.4657,
+    "lzma-extreme": 1.4341,
+    "order2-ngram (trained)": 2.5793
+  },
+  "curve": [
+    {
+      "step": 100,
+      "minutes": 4.85,
+      "train_bpb": 2.8234,
+      "val_bpb": 3.1363,
+      "lr": 0.00191
+    },
+    {
+      "step": 200,
+      "minutes": 9.28,
+      "train_bpb": 2.9022,
+      "val_bpb": 2.767,
+      "lr": 0.001635
+    },
+    {
+      "step": 300,
+      "minutes": 12.73,
+      "train_bpb": 2.4262,
+      "val_bpb": 2.532,
+      "lr": 0.001348
+    },
+    {
+      "step": 400,
+      "minutes": 16.33,
+      "train_bpb": 2.0864,
+      "val_bpb": 2.3906,
+      "lr": 0.001005
+    },
+    {
+      "step": 500,
+      "minutes": 19.79,
+      "train_bpb": 1.7808,
+      "val_bpb": 2.253,
+      "lr": 0.000694
+    },
+    {
+      "step": 600,
+      "minutes": 23.69,
+      "train_bpb": 2.0777,
+      "val_bpb": 2.1564,
+      "lr": 0.000409
+    },
+    {
+      "step": 700,
+      "minutes": 27.24,
+      "train_bpb": 2.0825,
+      "val_bpb": 2.0866,
+      "lr": 0.000248
+    }
+  ],
+  "final": {
+    "steps": 784,
+    "minutes": 30.85,
+    "val_bpb": 2.0554,
+    "train_tokens": 3211264,
+    "tokens_per_s_training": 1735
+  }
+}

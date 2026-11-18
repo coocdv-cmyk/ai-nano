@@ -1,0 +1,625 @@
+{
+  "experiment_id": "I-E",
+  "experiment_name": "Numeric and Structural Generalization",
+  "status": "completed",
+  "rules": [
+    "sum_digits",
+    "square",
+    "fib",
+    "is_prime",
+    "sum_of_evens",
+    "distinct_count",
+    "nearest",
+    "same_shape",
+    "left_of"
+  ],
+  "seeds": [
+    0
+  ],
+  "n_episodes": 9,
+  "episodes": [
+    {
+      "rule": "sum_digits",
+      "seed": 0,
+      "state": "INSUFFICIENT_EVIDENCE",
+      "accepted": false,
+      "expressiveness": "NOT_IDENTIFIABLE",
+      "in_domain_reference_accuracy": 1.0,
+      "accepted_candidate_test_accuracy": null,
+      "domain_boundary": {
+        "train_domain": [
+          0,
+          9
+        ],
+        "test_domain": [
+          10,
+          60
+        ],
+        "structure": "numeric-magnitude",
+        "extrapolating": true,
+        "claim": "abstained: available evidence does not identify the rule across the domain boundary; extrapolation is NOT credited"
+      },
+      "false_acceptance": false,
+      "failure_category": "insufficient-evidence",
+      "n_test": 12
+    },
+    {
+      "rule": "square",
+      "seed": 0,
+      "state": "ACCEPTED",
+      "accepted": true,
+      "expressiveness": "EXPRESSIBLE_DISCOVERED",
+      "in_domain_reference_accuracy": 1.0,
+      "accepted_candidate_test_accuracy": 1.0,
+      "domain_boundary": {
+        "train_domain": [
+          0,
+          9
+        ],
+        "test_domain": [
+          10,
+          60
+        ],
+        "structure": "numeric-magnitude",
+        "extrapolating": true,
+        "claim": "accepted extrapolation: the rule was discriminated within the validated domain and applied beyond it; OOD accuracy measured"
+      },
+      "false_acceptance": false,
+      "failure_category": "success",
+      "n_test": 12
+    },
+    {
+      "rule": "fib",
+      "seed": 0,
+      "state": "ACCEPTED",
+      "accepted": true,
+      "expressiveness": "EXPRESSIBLE_DISCOVERED",
+      "in_domain_reference_accuracy": 1.0,
+      "accepted_candidate_test_accuracy": 1.0,
+      "domain_boundary": {
+        "train_domain": [
+          0,
+          9
+        ],
+        "test_domain": [
+          10,
+          60
+        ],
+        "structure": "numeric-magnitude",
+        "extrapolating": true,
+        "claim": "accepted extrapolation: the rule was discriminated within the validated domain and applied beyond it; OOD accuracy measured"
+      },
+      "false_acceptance": false,
+      "failure_category": "success",
+      "n_test": 12
+    },
+    {
+      "rule": "is_prime",
+      "seed": 0,
+      "state": "ACCEPTED",
+      "accepted": true,
+      "expressiveness": "EXPRESSIBLE_DISCOVERED",
+      "in_domain_reference_accuracy": 1.0,
+      "accepted_candidate_test_accuracy": 1.0,
+      "domain_boundary": {
+        "train_domain": [
+          0,
+          9
+        ],
+        "test_domain": [
+          10,
+          60
+        ],
+        "structure": "numeric-magnitude",
+        "extrapolating": true,
+        "claim": "accepted extrapolation: the rule was discriminated within the validated domain and applied beyond it; OOD accuracy measured"
+      },
+      "false_acceptance": false,
+      "failure_category": "success",
+      "n_test": 12
+    },
+    {
+      "rule": "sum_of_evens",
+      "seed": 0,
+      "state": "ACCEPTED",
+      "accepted": true,
+      "expressiveness": "EXPRESSIBLE_DISCOVERED",
+      "in_domain_reference_accuracy": 1.0,
+      "accepted_candidate_test_accuracy": 1.0,
+      "domain_boundary": {
+        "train_domain": [
+          0,
+          9
+        ],
+        "test_domain": [
+          10,
+          60
+        ],
+        "structure": "list-length",
+        "extrapolating": true,
+        "claim": "accepted extrapolation: the rule was discriminated within the validated domain and applied beyond it; OOD accuracy measured"
+      },
+      "false_acceptance": false,
+      "failure_category": "success",
+      "n_test": 12
+    },
+    {
+      "rule": "distinct_count",
+      "seed": 0,
+      "state": "ACCEPTED",
+      "accepted": true,
+      "expressiveness": "EXPRESSIBLE_DISCOVERED",
+      "in_domain_reference_accuracy": 1.0,
+      "accepted_candidate_test_accuracy": 1.0,
+      "domain_boundary": {
+        "train_domain": [
+          0,
+          9
+        ],
+        "test_domain": [
+          10,
+          60
+        ],
+        "structure": "list-length",
+        "extrapolating": true,
+        "claim": "accepted extrapolation: the rule was discriminated within the validated domain and applied beyond it; OOD accuracy measured"
+      },
+      "false_acceptance": false,
+      "failure_category": "success",
+      "n_test": 12
+    },
+    {
+      "rule": "nearest",
+      "seed": 0,
+      "state": "REJECTED",
+      "accepted": false,
+      "expressiveness": "NOT_EXPRESSIBLE",
+      "in_domain_reference_accuracy": 1.0,
+      "accepted_candidate_test_accuracy": null,
+      "domain_boundary": {
+        "train_domain": [
+          0,
+          9
+        ],
+        "test_domain": [
+          10,
+          60
+        ],
+        "structure": "scene-density",
+        "extrapolating": true,
+        "claim": "abstained: available evidence does not identify the rule across the domain boundary; extrapolation is NOT credited"
+      },
+      "false_acceptance": false,
+      "failure_category": "representation-limitation",
+      "n_test": 12
+    },
+    {
+      "rule": "same_shape",
+      "seed": 0,
+      "state": "REJECTED",
+      "accepted": false,
+      "expressiveness": "NOT_EXPRESSIBLE",
+      "in_domain_reference_accuracy": 1.0,
+      "accepted_candidate_test_accuracy": null,
+      "domain_boundary": {
+        "train_domain": [
+          0,
+          9
+        ],
+        "test_domain": [
+          10,
+          60
+        ],
+        "structure": "scene-density",
+        "extrapolating": true,
+        "claim": "abstained: available evidence does not identify the rule across the domain boundary; extrapolation is NOT credited"
+      },
+      "false_acceptance": false,
+      "failure_category": "representation-limitation",
+      "n_test": 12
+    },
+    {
+      "rule": "left_of",
+      "seed": 0,
+      "state": "REJECTED",
+      "accepted": false,
+      "expressiveness": "NOT_EXPRESSIBLE",
+      "in_domain_reference_accuracy": 1.0,
+      "accepted_candidate_test_accuracy": null,
+      "domain_boundary": {
+        "train_domain": [
+          0,
+          9
+        ],
+        "test_domain": [
+          10,
+          60
+        ],
+        "structure": "scene-density",
+        "extrapolating": true,
+        "claim": "abstained: available evidence does not identify the rule across the domain boundary; extrapolation is NOT credited"
+      },
+      "false_acceptance": false,
+      "failure_category": "representation-limitation",
+      "n_test": 12
+    }
+  ],
+  "summary": {
+    "sum_digits": {
+      "n": 1,
+      "acceptance_rate": {
+        "n": 1,
+        "mean": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "false_acceptance_rate": {
+        "n": 1,
+        "mean": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "ood_accuracy_given_acceptance": {
+        "n": 0,
+        "mean": null,
+        "std": null,
+        "ci95": null,
+        "median": null,
+        "min": null,
+        "max": null
+      },
+      "states": {
+        "INSUFFICIENT_EVIDENCE": 1
+      }
+    },
+    "square": {
+      "n": 1,
+      "acceptance_rate": {
+        "n": 1,
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "false_acceptance_rate": {
+        "n": 1,
+        "mean": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "ood_accuracy_given_acceptance": {
+        "n": 1,
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "states": {
+        "ACCEPTED": 1
+      }
+    },
+    "fib": {
+      "n": 1,
+      "acceptance_rate": {
+        "n": 1,
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "false_acceptance_rate": {
+        "n": 1,
+        "mean": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "ood_accuracy_given_acceptance": {
+        "n": 1,
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "states": {
+        "ACCEPTED": 1
+      }
+    },
+    "is_prime": {
+      "n": 1,
+      "acceptance_rate": {
+        "n": 1,
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "false_acceptance_rate": {
+        "n": 1,
+        "mean": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "ood_accuracy_given_acceptance": {
+        "n": 1,
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "states": {
+        "ACCEPTED": 1
+      }
+    },
+    "sum_of_evens": {
+      "n": 1,
+      "acceptance_rate": {
+        "n": 1,
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "false_acceptance_rate": {
+        "n": 1,
+        "mean": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "ood_accuracy_given_acceptance": {
+        "n": 1,
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "states": {
+        "ACCEPTED": 1
+      }
+    },
+    "distinct_count": {
+      "n": 1,
+      "acceptance_rate": {
+        "n": 1,
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "false_acceptance_rate": {
+        "n": 1,
+        "mean": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "ood_accuracy_given_acceptance": {
+        "n": 1,
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "states": {
+        "ACCEPTED": 1
+      }
+    },
+    "nearest": {
+      "n": 1,
+      "acceptance_rate": {
+        "n": 1,
+        "mean": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "false_acceptance_rate": {
+        "n": 1,
+        "mean": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "ood_accuracy_given_acceptance": {
+        "n": 0,
+        "mean": null,
+        "std": null,
+        "ci95": null,
+        "median": null,
+        "min": null,
+        "max": null
+      },
+      "states": {
+        "REJECTED": 1
+      }
+    },
+    "same_shape": {
+      "n": 1,
+      "acceptance_rate": {
+        "n": 1,
+        "mean": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "false_acceptance_rate": {
+        "n": 1,
+        "mean": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "ood_accuracy_given_acceptance": {
+        "n": 0,
+        "mean": null,
+        "std": null,
+        "ci95": null,
+        "median": null,
+        "min": null,
+        "max": null
+      },
+      "states": {
+        "REJECTED": 1
+      }
+    },
+    "left_of": {
+      "n": 1,
+      "acceptance_rate": {
+        "n": 1,
+        "mean": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "false_acceptance_rate": {
+        "n": 1,
+        "mean": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "ood_accuracy_given_acceptance": {
+        "n": 0,
+        "mean": null,
+        "std": null,
+        "ci95": null,
+        "median": null,
+        "min": null,
+        "max": null
+      },
+      "states": {
+        "REJECTED": 1
+      }
+    }
+  },
+  "baseline_reference": {
+    "source": "CONSTRUCTIVE-EXP-H-REPORT.md H3",
+    "numeric_ood_accuracy": 0.728,
+    "sum_digits_ood_accuracy": 0.185,
+    "note": "EXP-H accepted sum_digits spuriously; EXP-I must abstain or generalize"
+  },
+  "reproducibility": {
+    "config_fingerprint": "50d32cd65792e6e5",
+    "configuration": {
+      "seeds": [
+        0
+      ],
+      "n_episodes": 8,
+      "n_val": 4,
+      "abstain_threshold": 0.6,
+      "max_program_depth": 8,
+      "max_program_nodes": 64,
+      "max_int_magnitude": 1000000000,
+      "max_steps": 10000,
+      "search_node_budget": 20000,
+      "fit_deadline_s": 3.0,
+      "experiment_deadline_s": 120.0,
+      "campaign_deadline_s": 900.0,
+      "quick": true
+    },
+    "hardware": {
+      "cpu": "11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz",
+      "logical_cores": 8,
+      "ram_gb": 16.82,
+      "os": "Windows-11-10.0.26200-SP0",
+      "cuda": false,
+      "device": "cpu",
+      "acceleration": "none (CPU-only, no external APIs)"
+    },
+    "software": {
+      "python": "3.13.15",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "exp_i": "0.1.0",
+      "numpy": "2.5.3"
+    },
+    "source_revision": "no-commits",
+    "note": "No commits in repository; source_revision='no-commits' is expected."
+  },
+  "resource_report": {
+    "elapsed_s": 1.4637227000202984,
+    "nodes_used": 0,
+    "global_deadline_s": 880.7431106000149,
+    "node_budget": 800000,
+    "cancelled": false,
+    "timeouts": [],
+    "diagnostics": {
+      "last_completed_scope": "I-E",
+      "last_scope_status": "COMPLETED",
+      "scope_elapsed_s": 0.004470599989872426,
+      "scope_nodes": 0
+    },
+    "memory_guard_mb": null
+  },
+  "completion_status": "COMPLETED",
+  "dataset_fingerprint": "ae43c6eb002adb7d",
+  "hardware": {
+    "cpu": "11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz",
+    "logical_cores": 8,
+    "ram_gb": 16.82,
+    "os": "Windows-11-10.0.26200-SP0",
+    "cuda": false,
+    "device": "cpu",
+    "acceleration": "none (CPU-only, no external APIs)"
+  },
+  "software": {
+    "python": "3.13.15",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "exp_i": "0.1.0",
+    "numpy": "2.5.3"
+  },
+  "limitations": [
+    "Synthetic tasks in a small typed DSL; no natural-language validity claimed.",
+    "Results are CPU-only and local to these generator families."
+  ]
+}

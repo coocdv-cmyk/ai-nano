@@ -1,0 +1,23 @@
+{
+  "experiment_id": "A-smoke",
+  "experiment_name": "EXP-H Stage A Smoke",
+  "status": "passed",
+  "checks": {
+    "hidden_program_roundtrip": true,
+    "ast_default_env_eval": true,
+    "ast_safety": true,
+    "ast_sites_enumeration": true,
+    "ast_buggy_differs": true,
+    "h1_vocab_task_builds": true,
+    "h1_exclusion_task_builds": true,
+    "h1_conditional_task_builds": true,
+    "twin_task_builds": true,
+    "h2_chain_builds": true,
+    "ood_list_builds": true,
+    "ood_numeric_builds": true,
+    "ood_scene_builds": true,
+    "abstraction_stream_builds": true,
+    "ccm_protected_interfaces_available": true
+  },
+  "failures": 0
+}

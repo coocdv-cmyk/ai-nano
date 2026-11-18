@@ -1,0 +1,178 @@
+"""Command-line interface: `python -m omega_nano <command>`."""
+
+from __future__ import annotations
+
+import argparse
+import json
+import sys
+import time
+from pathlib import Path
+
+from .config import load_config
+from .engine import Engine
+from .model import TaskStatus
+from .report import render
+
+ICON = {"done": "OK", "failed": "FAIL", "blocked": "BLOCKED", "awaiting_approval": "APPROVAL?",
+        "paused": "PAUSED", "running": "RUNNING", "planned": "PLANNED"}
+
+
+def _print_task(task, verbose: bool = True) -> None:
+    print(f"[{ICON.get(task.status.value, task.status.value)}] task {task.id}  tier={task.tier}  mode={task.mode}")
+    if verbose:
+        for s in task.steps:
+            mark = {"done": "+", "failed": "x", "awaiting_approval": "?", "started": "~",
+                    "denied": "-"}.get(s.status.value, " ")
+            extra = ""
+            o = s.output or {}
+            for k in ("value", "answer", "path", "count", "exit_code"):
+                if o.get(k) is not None:
+                    extra = f"{k}={str(o[k])[:100]}"
+                    break
+            print(f"  [{mark}] {s.idx}. {s.tool:<16} {extra}{'  (recovered)' if s.recovered else ''}")
+    if task.summary:
+        print(f"  {task.summary}")
+
+
+def main(argv: list[str] | None = None) -> int:
+    for stream in (sys.stdout, sys.stderr):
+        try:
+            stream.reconfigure(encoding="utf-8")
+        except (AttributeError, ValueError):
+            pass
+    ap = argparse.ArgumentParser(prog="omega", description="OMEGA-NANO local resumable agent")
+    ap.add_argument("--home", help="state directory (default: ./.omega or $OMEGA_HOME)")
+    sub = ap.add_subparsers(dest="cmd", required=True)
+
+    r = sub.add_parser("run", help="submit and execute a task")
+    r.add_argument("goal")
+    r.add_argument("--mode", default="workspace", choices=["read_only", "ask", "workspace", "autonomous"])
+    r.add_argument("--key", help="idempotency key: re-delivering the same key never runs twice")
+    r.add_argument("--plan", help="JSON file with an explicit plan [{tool,args,expect,why}]")
+    r.add_argument("--report", action="store_true", help="print the full report afterwards")
+
+    sub.add_parser("resume", help="resume every interrupted task")
+    a = sub.add_parser("approve", help="approve the pending step of a task")
+    a.add_argument("task_id")
+    d = sub.add_parser("deny", help="deny the pending step of a task")
+    d.add_argument("task_id")
+    st = sub.add_parser("status", help="show one task, or list tasks")
+    st.add_argument("task_id", nargs="?")
+    rp = sub.add_parser("report", help="full markdown report for a task")
+    rp.add_argument("task_id")
+    rp.add_argument("--out", help="write the report to this file")
+    sub.add_parser("stop", help="emergency stop: pause all tasks before their next step")
+    sub.add_parser("unstop", help="clear the emergency stop")
+    sub.add_parser("tools", help="list tools, scopes and parameters")
+    sub.add_parser("doctor", help="hardware, environment and state health")
+
+    m = sub.add_parser("mem", help="memory fabric")
+    msub = m.add_subparsers(dest="mcmd", required=True)
+    ma = msub.add_parser("add")
+    ma.add_argument("text")
+    ma.add_argument("--kind", default="semantic")
+    ma.add_argument("--key")
+    ma.add_argument("--source", default="cli")
+    ms = msub.add_parser("search")
+    ms.add_argument("query")
+    ms.add_argument("-k", type=int, default=5)
+    ms.add_argument("--kind")
+    ms.add_argument("--history", action="store_true")
+    mf = msub.add_parser("forget")
+    mf.add_argument("id", type=int)
+    mh = msub.add_parser("history")
+    mh.add_argument("key")
+    msub.add_parser("stats")
+
+    args = ap.parse_args(argv)
+    cfg = load_config(args.home)
+    eng = Engine(cfg)
+    try:
+        return _dispatch(args, eng, cfg)
+    finally:
+        eng.close()
+
+
+def _dispatch(args, eng: Engine, cfg) -> int:
+    if args.cmd == "run":
+        plan = json.loads(Path(args.plan).read_text(encoding="utf-8")) if args.plan else None
+        t0 = time.perf_counter()
+        task = eng.submit(args.goal, mode=args.mode, idem_key=args.key, plan=plan)
+        if task.status == TaskStatus.PLANNED:
+            task = eng.run(task.id)
+        _print_task(task)
+        print(f"  elapsed {round((time.perf_counter() - t0) * 1000, 1)} ms · state in {cfg.home}")
+        if task.status == TaskStatus.AWAITING_APPROVAL:
+            print(f"  -> approve with: python -m omega_nano approve {task.id}")
+        if args.report:
+            print(render(task, eng.store))
+        return 0 if task.status == TaskStatus.DONE else 2
+    if args.cmd == "resume":
+        tasks = eng.resume_all()
+        if not tasks:
+            print("nothing to resume")
+        for t in tasks:
+            _print_task(t)
+        return 0
+    if args.cmd in ("approve", "deny"):
+        task = eng.approve(args.task_id, deny=args.cmd == "deny")
+        _print_task(task)
+        return 0 if task.status == TaskStatus.DONE else 2
+    if args.cmd == "status":
+        if args.task_id:
+            _print_task(eng.store.load(args.task_id)[0])
+        else:
+            for row in eng.store.list_tasks()[:50]:
+                print(f"{row['id']}  {row['status']:<18} {row['goal'][:80]}")
+        return 0
+    if args.cmd == "report":
+        text = render(eng.store.load(args.task_id)[0], eng.store)
+        if args.out:
+            Path(args.out).write_text(text, encoding="utf-8")
+            print(f"report written to {args.out}")
+        else:
+            print(text)
+        return 0
+    if args.cmd == "stop":
+        eng.stop()
+        print("emergency stop set: running tasks pause before their next step")
+        return 0
+    if args.cmd == "unstop":
+        eng.clear_stop()
+        print("emergency stop cleared; run `resume` to continue paused tasks")
+        return 0
+    if args.cmd == "tools":
+        for t in eng.tools.all():
+            d = t.describe()
+            params = ", ".join(f"{k}:{v['type']}{'' if v['required'] else '?'}" for k, v in d["params"].items())
+            print(f"{d['name']:<16} scopes={','.join(d['scopes']) or '-':<12} idempotent={d['idempotent']!s:<5} ({params})")
+            print(f"{'':16} {d['description']}")
+        return 0
+    if args.cmd == "doctor":
+        from .hw import detect
+        print(json.dumps({"hardware": detect(), "home": str(cfg.home), "workspace": str(cfg.workspace),
+                          "llm_backend": cfg.llm_url or None, "emergency_stop": cfg.stop_file.exists(),
+                          "tasks": {s.value: len(eng.store.list_tasks({s})) for s in TaskStatus},
+                          "memory": eng.memory.stats()}, indent=2, ensure_ascii=False))
+        return 0
+    if args.cmd == "mem":
+        mem = eng.memory
+        if args.mcmd == "add":
+            print(json.dumps(mem.remember(args.text, kind=args.kind, key=args.key, source=args.source)))
+        elif args.mcmd == "search":
+            t0 = time.perf_counter()
+            hits = mem.recall(args.query, k=args.k, kind=args.kind, include_history=args.history)
+            ms = round((time.perf_counter() - t0) * 1000, 2)
+            for h in hits:
+                hist = "" if h.valid_to is None else "  [superseded]"
+                print(f"#{h.id} score={h.score:.4f} cos={h.cosine:.3f} lex={h.lexical_rank} vec={h.vector_rank} "
+                      f"conf={h.confidence} src={h.source}{hist}\n    {h.text}")
+            print(f"({len(hits)} hits in {ms} ms)")
+        elif args.mcmd == "forget":
+            print("deleted" if mem.forget(args.id) else "no such memory")
+        elif args.mcmd == "history":
+            print(json.dumps(mem.history(args.key), indent=2, ensure_ascii=False))
+        elif args.mcmd == "stats":
+            print(json.dumps(mem.stats(), indent=2))
+        return 0
+    return 1

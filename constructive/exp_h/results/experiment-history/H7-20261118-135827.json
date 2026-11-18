@@ -1,0 +1,686 @@
+{
+  "experiment_id": "H7",
+  "experiment_name": "Adversarial Validation, Identifiability and Robustness",
+  "status": "completed",
+  "episodes": [
+    {
+      "system": "ccm",
+      "task": "math-square-noisy",
+      "family": "noise",
+      "k": 4,
+      "seed": 0,
+      "accepted": true,
+      "abstained": false,
+      "reason": "one inconsistent example quarantined",
+      "quarantined": [
+        0
+      ],
+      "failure_category": "success",
+      "fit_s": 0.3132698999834247,
+      "nodes": 6575,
+      "peak_bytes": 2522499,
+      "n_concepts": 1,
+      "new_nodes": 2,
+      "new_params": 2,
+      "test_n": 20,
+      "test_answered": 20,
+      "test_correct": 20,
+      "test_accuracy": 1.0,
+      "coverage": 1.0,
+      "confidence": 0.65,
+      "margin": 1.0,
+      "candidates": [
+        "square(x)"
+      ],
+      "sub_experiment": "corrupted-label"
+    },
+    {
+      "system": "ccm",
+      "task": "h3-is_prime-numeric-s900",
+      "family": "numeric-ood",
+      "k": 3,
+      "seed": 900,
+      "accepted": true,
+      "abstained": false,
+      "reason": "",
+      "quarantined": [],
+      "failure_category": "success",
+      "fit_s": 0.004577699990477413,
+      "nodes": 43,
+      "peak_bytes": 70617,
+      "n_concepts": 1,
+      "new_nodes": 2,
+      "new_params": 2,
+      "test_n": 20,
+      "test_answered": 20,
+      "test_correct": 20,
+      "test_accuracy": 1.0,
+      "coverage": 1.0,
+      "confidence": 1.0,
+      "margin": 1.0,
+      "candidates": [
+        "is_prime(x)"
+      ],
+      "sub_experiment": "shift-numeric"
+    },
+    {
+      "system": "ccm",
+      "task": "h3-same_shape-ood-s900",
+      "family": "structure-ood",
+      "k": 3,
+      "seed": 900,
+      "accepted": true,
+      "abstained": false,
+      "reason": "",
+      "quarantined": [],
+      "failure_category": "success",
+      "fit_s": 0.003897499991580844,
+      "nodes": 27,
+      "peak_bytes": 55500,
+      "n_concepts": 1,
+      "new_nodes": 4,
+      "new_params": 4,
+      "test_n": 20,
+      "test_answered": 20,
+      "test_correct": 20,
+      "test_accuracy": 1.0,
+      "coverage": 1.0,
+      "confidence": 1.0,
+      "margin": 1.0,
+      "candidates": [
+        "same_shape(x, query(x))"
+      ],
+      "sub_experiment": "shift-structure"
+    },
+    {
+      "system": "ccm",
+      "task": "h7-near-dup-s0",
+      "family": "exp_h",
+      "k": 4,
+      "seed": 0,
+      "accepted": true,
+      "abstained": false,
+      "reason": "",
+      "quarantined": [],
+      "failure_category": "success",
+      "fit_s": 0.0037930999824311584,
+      "nodes": 25,
+      "peak_bytes": 59768,
+      "n_concepts": 1,
+      "new_nodes": 2,
+      "new_params": 2,
+      "test_n": 20,
+      "test_answered": 20,
+      "test_correct": 20,
+      "test_accuracy": 1.0,
+      "coverage": 1.0,
+      "confidence": 1.0,
+      "margin": 1.0,
+      "candidates": [
+        "square(x)"
+      ],
+      "sub_experiment": "near-duplicate-examples"
+    },
+    {
+      "system": "ccm",
+      "task": "contradict-square-double",
+      "family": "contradiction",
+      "k": 4,
+      "seed": 0,
+      "accepted": false,
+      "abstained": true,
+      "reason": "no program reproduces all examples",
+      "quarantined": [],
+      "failure_category": "search-explosion",
+      "fit_s": 0.5326243999879807,
+      "nodes": 8792,
+      "peak_bytes": 3310046,
+      "n_concepts": 0,
+      "new_nodes": 0,
+      "new_params": 0,
+      "test_n": 20,
+      "test_answered": 0,
+      "test_correct": 0,
+      "test_accuracy": 0.0,
+      "coverage": 0.0,
+      "confidence": 0.0,
+      "margin": 0.0,
+      "candidates": [
+        "double(x)",
+        "square(x)"
+      ],
+      "sub_experiment": "contradiction"
+    }
+  ],
+  "summary": {
+    "contradiction": {
+      "n": 1,
+      "accepted_rate": 0.0,
+      "accuracy_mean": {
+        "n": 1,
+        "mean": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "median": 0.0
+      },
+      "coverage_mean": 0.0,
+      "false_accepts_estimate": 0,
+      "failure_categories": {
+        "search-explosion": 1
+      }
+    },
+    "corrupted-label": {
+      "n": 1,
+      "accepted_rate": 1.0,
+      "accuracy_mean": {
+        "n": 1,
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 1.0,
+        "max": 1.0,
+        "median": 1.0
+      },
+      "coverage_mean": 1.0,
+      "false_accepts_estimate": 0,
+      "failure_categories": {
+        "success": 1
+      }
+    },
+    "near-duplicate-examples": {
+      "n": 1,
+      "accepted_rate": 1.0,
+      "accuracy_mean": {
+        "n": 1,
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 1.0,
+        "max": 1.0,
+        "median": 1.0
+      },
+      "coverage_mean": 1.0,
+      "false_accepts_estimate": 0,
+      "failure_categories": {
+        "success": 1
+      }
+    },
+    "shift-numeric": {
+      "n": 1,
+      "accepted_rate": 1.0,
+      "accuracy_mean": {
+        "n": 1,
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 1.0,
+        "max": 1.0,
+        "median": 1.0
+      },
+      "coverage_mean": 1.0,
+      "false_accepts_estimate": 0,
+      "failure_categories": {
+        "success": 1
+      }
+    },
+    "shift-structure": {
+      "n": 1,
+      "accepted_rate": 1.0,
+      "accuracy_mean": {
+        "n": 1,
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 1.0,
+        "max": 1.0,
+        "median": 1.0
+      },
+      "coverage_mean": 1.0,
+      "false_accepts_estimate": 0,
+      "failure_categories": {
+        "success": 1
+      }
+    }
+  },
+  "order_sensitivity": [
+    {
+      "seed": 0,
+      "shuffle": 0,
+      "accepted": true,
+      "accepted_program": "same_shape(x, query(x))",
+      "abstained": false
+    },
+    {
+      "seed": 0,
+      "shuffle": 1,
+      "accepted": true,
+      "accepted_program": "same_shape(x, query(x))",
+      "abstained": false
+    },
+    {
+      "seed": 0,
+      "shuffle": 2,
+      "accepted": true,
+      "accepted_program": "same_shape(x, query(x))",
+      "abstained": false
+    },
+    {
+      "seed": 0,
+      "shuffle": 3,
+      "accepted": true,
+      "accepted_program": "same_shape(x, query(x))",
+      "abstained": false
+    }
+  ],
+  "twin_small_k": [
+    {
+      "system": "ccm",
+      "task": "h1-twin-s0",
+      "family": "nonidentifiable",
+      "k": 1,
+      "seed": 0,
+      "accepted": false,
+      "abstained": true,
+      "reason": "fits all examples but fails held-out validation",
+      "quarantined": [],
+      "failure_category": "validation-failure",
+      "fit_s": 0.004361600003903732,
+      "nodes": 28,
+      "peak_bytes": 62886,
+      "n_concepts": 0,
+      "new_nodes": 0,
+      "new_params": 0,
+      "test_n": 20,
+      "test_answered": 0,
+      "test_correct": 0,
+      "test_accuracy": 0.0,
+      "coverage": 0.0,
+      "confidence": 0.0,
+      "margin": 0.0,
+      "candidates": [
+        "7",
+        "mod(8)(x)"
+      ],
+      "k_small": 1
+    },
+    {
+      "system": "ccm",
+      "task": "h1-ltwin-s0",
+      "family": "nonidentifiable",
+      "k": 1,
+      "seed": 0,
+      "accepted": true,
+      "abstained": false,
+      "reason": "",
+      "quarantined": [],
+      "failure_category": "success",
+      "fit_s": 0.00496479999856092,
+      "nodes": 52,
+      "peak_bytes": 70348,
+      "n_concepts": 1,
+      "new_nodes": 2,
+      "new_params": 2,
+      "test_n": 20,
+      "test_answered": 20,
+      "test_correct": 20,
+      "test_accuracy": 1.0,
+      "coverage": 1.0,
+      "confidence": 1.0,
+      "margin": 1.0,
+      "candidates": [
+        "max_list(x)"
+      ],
+      "k_small": 1
+    },
+    {
+      "system": "ccm",
+      "task": "h1-twin-s0",
+      "family": "nonidentifiable",
+      "k": 2,
+      "seed": 0,
+      "accepted": false,
+      "abstained": true,
+      "reason": "fits all examples but fails held-out validation",
+      "quarantined": [],
+      "failure_category": "validation-failure",
+      "fit_s": 0.030547300004400313,
+      "nodes": 840,
+      "peak_bytes": 288384,
+      "n_concepts": 0,
+      "new_nodes": 0,
+      "new_params": 0,
+      "test_n": 20,
+      "test_answered": 0,
+      "test_correct": 0,
+      "test_accuracy": 0.0,
+      "coverage": 0.0,
+      "confidence": 0.0,
+      "margin": 0.0,
+      "candidates": [
+        "add(7)(mod(7)(x))"
+      ],
+      "k_small": 2
+    },
+    {
+      "system": "ccm",
+      "task": "h1-ltwin-s0",
+      "family": "nonidentifiable",
+      "k": 2,
+      "seed": 0,
+      "accepted": true,
+      "abstained": false,
+      "reason": "",
+      "quarantined": [],
+      "failure_category": "success",
+      "fit_s": 0.0056201999832410365,
+      "nodes": 52,
+      "peak_bytes": 78252,
+      "n_concepts": 1,
+      "new_nodes": 2,
+      "new_params": 2,
+      "test_n": 20,
+      "test_answered": 20,
+      "test_correct": 20,
+      "test_accuracy": 1.0,
+      "coverage": 1.0,
+      "confidence": 1.0,
+      "margin": 1.0,
+      "candidates": [
+        "max_list(x)"
+      ],
+      "k_small": 2
+    },
+    {
+      "system": "ccm",
+      "task": "h1-twin-s0",
+      "family": "nonidentifiable",
+      "k": 3,
+      "seed": 0,
+      "accepted": false,
+      "abstained": true,
+      "reason": "ambiguous with low support",
+      "quarantined": [],
+      "failure_category": "non-identifiable",
+      "fit_s": 0.5784388000029139,
+      "nodes": 12741,
+      "peak_bytes": 5382627,
+      "n_concepts": 1,
+      "new_nodes": 0,
+      "new_params": 0,
+      "test_n": 20,
+      "test_answered": 0,
+      "test_correct": 0,
+      "test_accuracy": 0.0,
+      "coverage": 0.0,
+      "confidence": 0.5,
+      "margin": 0.0,
+      "candidates": [
+        "add1(mod(8)(sub1(x)))",
+        "sub1(sum_digits(add1(x)))"
+      ],
+      "k_small": 3
+    },
+    {
+      "system": "ccm",
+      "task": "h1-ltwin-s0",
+      "family": "nonidentifiable",
+      "k": 3,
+      "seed": 0,
+      "accepted": true,
+      "abstained": false,
+      "reason": "",
+      "quarantined": [],
+      "failure_category": "success",
+      "fit_s": 0.008384600019780919,
+      "nodes": 52,
+      "peak_bytes": 83268,
+      "n_concepts": 1,
+      "new_nodes": 2,
+      "new_params": 2,
+      "test_n": 20,
+      "test_answered": 20,
+      "test_correct": 20,
+      "test_accuracy": 1.0,
+      "coverage": 1.0,
+      "confidence": 1.0,
+      "margin": 1.0,
+      "candidates": [
+        "max_list(x)"
+      ],
+      "k_small": 3
+    },
+    {
+      "system": "ccm",
+      "task": "h1-twin-s0",
+      "family": "nonidentifiable",
+      "k": 5,
+      "seed": 0,
+      "accepted": false,
+      "abstained": true,
+      "reason": "ambiguous with low support",
+      "quarantined": [],
+      "failure_category": "non-identifiable",
+      "fit_s": 0.9262481000041589,
+      "nodes": 16796,
+      "peak_bytes": 7356541,
+      "n_concepts": 1,
+      "new_nodes": 0,
+      "new_params": 0,
+      "test_n": 20,
+      "test_answered": 0,
+      "test_correct": 0,
+      "test_accuracy": 0.0,
+      "coverage": 0.0,
+      "confidence": 0.5,
+      "margin": 0.0,
+      "candidates": [
+        "add1(mod(8)(sub1(x)))",
+        "sub1(sum_digits(add1(x)))"
+      ],
+      "k_small": 5
+    },
+    {
+      "system": "ccm",
+      "task": "h1-ltwin-s0",
+      "family": "nonidentifiable",
+      "k": 5,
+      "seed": 0,
+      "accepted": true,
+      "abstained": false,
+      "reason": "",
+      "quarantined": [],
+      "failure_category": "success",
+      "fit_s": 0.009331700013717636,
+      "nodes": 58,
+      "peak_bytes": 105260,
+      "n_concepts": 1,
+      "new_nodes": 2,
+      "new_params": 2,
+      "test_n": 20,
+      "test_answered": 20,
+      "test_correct": 20,
+      "test_accuracy": 1.0,
+      "coverage": 1.0,
+      "confidence": 1.0,
+      "margin": 1.0,
+      "candidates": [
+        "max_list(x)"
+      ],
+      "k_small": 5
+    }
+  ],
+  "bounded_domain_checks": [
+    {
+      "rule": "square",
+      "seed": 0,
+      "accepted": true,
+      "prediction_misses_in_bounded_domain": 0,
+      "domain_size": 61
+    },
+    {
+      "rule": "digital_root",
+      "seed": 0,
+      "accepted": false,
+      "prediction_misses_in_bounded_domain": null,
+      "domain_size": 61
+    },
+    {
+      "rule": "is_prime",
+      "seed": 0,
+      "accepted": false,
+      "prediction_misses_in_bounded_domain": null,
+      "domain_size": 61
+    }
+  ],
+  "blind_positive_is_prime": [
+    {
+      "system": "ccm",
+      "task": "h7-prime-blind-s0",
+      "family": "exp_h",
+      "k": 4,
+      "seed": 0,
+      "accepted": true,
+      "abstained": false,
+      "reason": "",
+      "quarantined": [],
+      "failure_category": "undergeneralization",
+      "fit_s": 0.003692600002977997,
+      "nodes": 33,
+      "peak_bytes": 58008,
+      "n_concepts": 1,
+      "new_nodes": 1,
+      "new_params": 1,
+      "test_n": 39,
+      "test_answered": 39,
+      "test_correct": 29,
+      "test_accuracy": 0.7435897435897436,
+      "coverage": 1.0,
+      "confidence": 1.0,
+      "margin": 1.0,
+      "candidates": [
+        "False"
+      ]
+    }
+  ],
+  "sub_summary": {
+    "contradiction": {
+      "n": 1,
+      "accepted_rate": 0.0,
+      "accuracy_mean": {
+        "n": 1,
+        "mean": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "median": 0.0
+      },
+      "coverage_mean": 0.0,
+      "false_accepts_estimate": 0,
+      "failure_categories": {
+        "search-explosion": 1
+      }
+    },
+    "corrupted-label": {
+      "n": 1,
+      "accepted_rate": 1.0,
+      "accuracy_mean": {
+        "n": 1,
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 1.0,
+        "max": 1.0,
+        "median": 1.0
+      },
+      "coverage_mean": 1.0,
+      "false_accepts_estimate": 0,
+      "failure_categories": {
+        "success": 1
+      }
+    },
+    "near-duplicate-examples": {
+      "n": 1,
+      "accepted_rate": 1.0,
+      "accuracy_mean": {
+        "n": 1,
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 1.0,
+        "max": 1.0,
+        "median": 1.0
+      },
+      "coverage_mean": 1.0,
+      "false_accepts_estimate": 0,
+      "failure_categories": {
+        "success": 1
+      }
+    },
+    "shift-numeric": {
+      "n": 1,
+      "accepted_rate": 1.0,
+      "accuracy_mean": {
+        "n": 1,
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 1.0,
+        "max": 1.0,
+        "median": 1.0
+      },
+      "coverage_mean": 1.0,
+      "false_accepts_estimate": 0,
+      "failure_categories": {
+        "success": 1
+      }
+    },
+    "shift-structure": {
+      "n": 1,
+      "accepted_rate": 1.0,
+      "accuracy_mean": {
+        "n": 1,
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 1.0,
+        "max": 1.0,
+        "median": 1.0
+      },
+      "coverage_mean": 1.0,
+      "false_accepts_estimate": 0,
+      "failure_categories": {
+        "success": 1
+      }
+    }
+  },
+  "hardware": {
+    "cpu": "11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz",
+    "logical_cores": 8,
+    "ram_gb": 16.82,
+    "os": "Windows-11-10.0.26200-SP0",
+    "cuda": false,
+    "c_compiler": "none on PATH",
+    "device": "cpu"
+  },
+  "wall_s": 3.9128530000161845,
+  "software": {
+    "python": "3.13.15",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "exp_h": "0.1.0",
+    "numpy": "2.5.3",
+    "constructive_root": "D:\\ai model\\constructive"
+  },
+  "dataset_fingerprint": "4f2378cefbdf0d32",
+  "source_revision": "no-commits",
+  "hardware_caveat": "peak bytes are traced Python heap (tracemalloc), not OS RSS",
+  "configuration": {},
+  "training": {
+    "examples": 18,
+    "concepts": 4
+  },
+  "limitations": [],
+  "artifacts": []
+}

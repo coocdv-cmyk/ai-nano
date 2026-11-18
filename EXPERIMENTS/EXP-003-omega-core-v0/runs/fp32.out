@@ -1,0 +1,15 @@
+[fp32] params {'total': 3344640, 'block_matrices': 3211264, 'other': 133376}  budget 30.0 min
+{'step': 100, 'minutes': 4.39, 'train_bpb': 2.7058, 'val_bpb': 3.0319, 'lr': 0.001924}
+{'step': 200, 'minutes': 8.77, 'train_bpb': 2.7759, 'val_bpb': 2.6554, 'lr': 0.001668}
+{'step': 300, 'minutes': 11.93, 'train_bpb': 2.3954, 'val_bpb': 2.4204, 'lr': 0.001409}
+{'step': 400, 'minutes': 15.38, 'train_bpb': 2.0262, 'val_bpb': 2.258, 'lr': 0.001089}
+{'step': 500, 'minutes': 18.66, 'train_bpb': 1.6462, 'val_bpb': 2.1306, 'lr': 0.000787}
+{'step': 600, 'minutes': 22.26, 'train_bpb': 1.9544, 'val_bpb': 2.0422, 'lr': 0.000509}
+{'step': 700, 'minutes': 25.53, 'train_bpb': 1.9345, 'val_bpb': 1.9573, 'lr': 0.000311}
+{'step': 800, 'minutes': 28.77, 'train_bpb': 1.991, 'val_bpb': 1.9241, 'lr': 0.000211}
+FINAL {'steps': 837, 'minutes': 30.74, 'val_bpb': 1.8944, 'train_tokens': 3428352, 'tokens_per_s_training': 1859}
+instring(obj)
+    if display flogrof import None:
+        then the time a not encoding to exkipper (None, thers, str, trace) and
+
+# Insching to status coquent be dicated by the argument used to the 

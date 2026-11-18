@@ -1,0 +1,458 @@
+{
+  "benchmark": "memory-fabric-v1",
+  "date": "2026-11-17 22:50",
+  "hardware": {
+    "os": "Windows 10 (10.0.22621)",
+    "machine": "AMD64",
+    "cpu": "Intel(R) Core(TM) i7-7820HQ CPU @ 2.90GHz",
+    "logical_cpus": 7,
+    "ram_gb": 7.41,
+    "python": "3.10.11",
+    "sqlite": "3.40.1",
+    "numpy": "1.26.4",
+    "torch": "2.1.2+cpu",
+    "cuda": false,
+    "runtime_path": "cpu"
+  },
+  "method": "synthetic invented-entity facts, 10% Arabic; single-threaded queries; warm cache",
+  "runs": [
+    {
+      "records": 1000,
+      "ingest_s": 0.477,
+      "ingest_per_s": 2098,
+      "storage": {
+        "records": 1000,
+        "active": 1000,
+        "bytes_on_disk": 1260536,
+        "bytes_per_record": 1260.5,
+        "dim": 512,
+        "vector_bytes_per_record": 512,
+        "backend": "numba-int8"
+      },
+      "by_signals": {
+        "hybrid": {
+          "paraphrase": {
+            "n": 300,
+            "recall@1": 1.0,
+            "recall@5": 1.0,
+            "mrr@5": 1.0,
+            "p50_ms": 2.11,
+            "p95_ms": 3.32
+          },
+          "typo": {
+            "n": 300,
+            "recall@1": 0.537,
+            "recall@5": 0.97,
+            "mrr@5": 0.699,
+            "p50_ms": 4.04,
+            "p95_ms": 6.35
+          },
+          "arabic": {
+            "n": 100,
+            "recall@1": 1.0,
+            "recall@5": 1.0,
+            "mrr@5": 1.0,
+            "p50_ms": 1.52,
+            "p95_ms": 2.29
+          }
+        },
+        "lexical+vector": {
+          "paraphrase": {
+            "n": 300,
+            "recall@1": 1.0,
+            "recall@5": 1.0,
+            "mrr@5": 1.0,
+            "p50_ms": 1.86,
+            "p95_ms": 2.74
+          },
+          "typo": {
+            "n": 300,
+            "recall@1": 0.083,
+            "recall@5": 0.333,
+            "mrr@5": 0.173,
+            "p50_ms": 1.84,
+            "p95_ms": 2.73
+          },
+          "arabic": {
+            "n": 100,
+            "recall@1": 1.0,
+            "recall@5": 1.0,
+            "mrr@5": 1.0,
+            "p50_ms": 1.42,
+            "p95_ms": 2.18
+          }
+        },
+        "lexical_only": {
+          "paraphrase": {
+            "n": 300,
+            "recall@1": 1.0,
+            "recall@5": 1.0,
+            "mrr@5": 1.0,
+            "p50_ms": 0.61,
+            "p95_ms": 0.89
+          },
+          "typo": {
+            "n": 300,
+            "recall@1": 0.007,
+            "recall@5": 0.027,
+            "mrr@5": 0.013,
+            "p50_ms": 0.6,
+            "p95_ms": 1.1
+          },
+          "arabic": {
+            "n": 100,
+            "recall@1": 1.0,
+            "recall@5": 1.0,
+            "mrr@5": 1.0,
+            "p50_ms": 0.15,
+            "p95_ms": 0.26
+          }
+        },
+        "vector_only": {
+          "paraphrase": {
+            "n": 300,
+            "recall@1": 0.997,
+            "recall@5": 1.0,
+            "mrr@5": 0.998,
+            "p50_ms": 1.27,
+            "p95_ms": 1.84
+          },
+          "typo": {
+            "n": 300,
+            "recall@1": 0.237,
+            "recall@5": 0.81,
+            "mrr@5": 0.443,
+            "p50_ms": 1.4,
+            "p95_ms": 2.9
+          },
+          "arabic": {
+            "n": 100,
+            "recall@1": 1.0,
+            "recall@5": 1.0,
+            "mrr@5": 1.0,
+            "p50_ms": 1.57,
+            "p95_ms": 2.35
+          }
+        },
+        "fuzzy_only": {
+          "paraphrase": {
+            "n": 300,
+            "recall@1": 0.0,
+            "recall@5": 0.0,
+            "mrr@5": 0.0,
+            "p50_ms": 0.11,
+            "p95_ms": 0.13
+          },
+          "typo": {
+            "n": 300,
+            "recall@1": 0.72,
+            "recall@5": 0.723,
+            "mrr@5": 0.722,
+            "p50_ms": 1.28,
+            "p95_ms": 1.89
+          },
+          "arabic": {
+            "n": 100,
+            "recall@1": 0.0,
+            "recall@5": 0.0,
+            "mrr@5": 0.0,
+            "p50_ms": 0.07,
+            "p95_ms": 0.07
+          }
+        }
+      }
+    },
+    {
+      "records": 10000,
+      "ingest_s": 6.87,
+      "ingest_per_s": 1456,
+      "storage": {
+        "records": 10000,
+        "active": 10000,
+        "bytes_on_disk": 16434160,
+        "bytes_per_record": 1643.4,
+        "dim": 512,
+        "vector_bytes_per_record": 512,
+        "backend": "numba-int8"
+      },
+      "by_signals": {
+        "hybrid": {
+          "paraphrase": {
+            "n": 300,
+            "recall@1": 1.0,
+            "recall@5": 1.0,
+            "mrr@5": 1.0,
+            "p50_ms": 15.42,
+            "p95_ms": 20.61
+          },
+          "typo": {
+            "n": 300,
+            "recall@1": 0.69,
+            "recall@5": 0.943,
+            "mrr@5": 0.787,
+            "p50_ms": 21.95,
+            "p95_ms": 62.88
+          },
+          "arabic": {
+            "n": 300,
+            "recall@1": 1.0,
+            "recall@5": 1.0,
+            "mrr@5": 1.0,
+            "p50_ms": 1.92,
+            "p95_ms": 3.95
+          }
+        },
+        "lexical+vector": {
+          "paraphrase": {
+            "n": 300,
+            "recall@1": 1.0,
+            "recall@5": 1.0,
+            "mrr@5": 1.0,
+            "p50_ms": 4.75,
+            "p95_ms": 11.14
+          },
+          "typo": {
+            "n": 300,
+            "recall@1": 0.02,
+            "recall@5": 0.063,
+            "mrr@5": 0.036,
+            "p50_ms": 5.13,
+            "p95_ms": 11.59
+          },
+          "arabic": {
+            "n": 300,
+            "recall@1": 1.0,
+            "recall@5": 1.0,
+            "mrr@5": 1.0,
+            "p50_ms": 3.01,
+            "p95_ms": 5.33
+          }
+        },
+        "lexical_only": {
+          "paraphrase": {
+            "n": 300,
+            "recall@1": 1.0,
+            "recall@5": 1.0,
+            "mrr@5": 1.0,
+            "p50_ms": 2.89,
+            "p95_ms": 5.52
+          },
+          "typo": {
+            "n": 300,
+            "recall@1": 0.0,
+            "recall@5": 0.0,
+            "mrr@5": 0.0,
+            "p50_ms": 2.42,
+            "p95_ms": 3.73
+          },
+          "arabic": {
+            "n": 300,
+            "recall@1": 1.0,
+            "recall@5": 1.0,
+            "mrr@5": 1.0,
+            "p50_ms": 0.29,
+            "p95_ms": 0.48
+          }
+        },
+        "vector_only": {
+          "paraphrase": {
+            "n": 300,
+            "recall@1": 0.993,
+            "recall@5": 1.0,
+            "mrr@5": 0.996,
+            "p50_ms": 2.42,
+            "p95_ms": 4.37
+          },
+          "typo": {
+            "n": 300,
+            "recall@1": 0.017,
+            "recall@5": 0.097,
+            "mrr@5": 0.04,
+            "p50_ms": 2.7,
+            "p95_ms": 5.13
+          },
+          "arabic": {
+            "n": 300,
+            "recall@1": 0.99,
+            "recall@5": 1.0,
+            "mrr@5": 0.994,
+            "p50_ms": 2.22,
+            "p95_ms": 3.6
+          }
+        },
+        "fuzzy_only": {
+          "paraphrase": {
+            "n": 300,
+            "recall@1": 0.0,
+            "recall@5": 0.0,
+            "mrr@5": 0.0,
+            "p50_ms": 0.25,
+            "p95_ms": 0.32
+          },
+          "typo": {
+            "n": 300,
+            "recall@1": 0.663,
+            "recall@5": 0.74,
+            "mrr@5": 0.698,
+            "p50_ms": 7.31,
+            "p95_ms": 16.66
+          },
+          "arabic": {
+            "n": 300,
+            "recall@1": 0.0,
+            "recall@5": 0.0,
+            "mrr@5": 0.0,
+            "p50_ms": 0.09,
+            "p95_ms": 0.1
+          }
+        }
+      }
+    },
+    {
+      "records": 50000,
+      "ingest_s": 29.208,
+      "ingest_per_s": 1712,
+      "storage": {
+        "records": 50000,
+        "active": 50000,
+        "bytes_on_disk": 62602904,
+        "bytes_per_record": 1252.1,
+        "dim": 512,
+        "vector_bytes_per_record": 512,
+        "backend": "numba-int8"
+      },
+      "by_signals": {
+        "hybrid": {
+          "paraphrase": {
+            "n": 300,
+            "recall@1": 1.0,
+            "recall@5": 1.0,
+            "mrr@5": 1.0,
+            "p50_ms": 22.61,
+            "p95_ms": 48.76
+          },
+          "typo": {
+            "n": 300,
+            "recall@1": 0.33,
+            "recall@5": 0.83,
+            "mrr@5": 0.483,
+            "p50_ms": 58.93,
+            "p95_ms": 131.17
+          },
+          "arabic": {
+            "n": 300,
+            "recall@1": 1.0,
+            "recall@5": 1.0,
+            "mrr@5": 1.0,
+            "p50_ms": 5.07,
+            "p95_ms": 8.97
+          }
+        },
+        "lexical+vector": {
+          "paraphrase": {
+            "n": 300,
+            "recall@1": 1.0,
+            "recall@5": 1.0,
+            "mrr@5": 1.0,
+            "p50_ms": 17.59,
+            "p95_ms": 45.9
+          },
+          "typo": {
+            "n": 300,
+            "recall@1": 0.0,
+            "recall@5": 0.01,
+            "mrr@5": 0.003,
+            "p50_ms": 18.97,
+            "p95_ms": 45.96
+          },
+          "arabic": {
+            "n": 300,
+            "recall@1": 1.0,
+            "recall@5": 1.0,
+            "mrr@5": 1.0,
+            "p50_ms": 7.08,
+            "p95_ms": 15.09
+          }
+        },
+        "lexical_only": {
+          "paraphrase": {
+            "n": 300,
+            "recall@1": 1.0,
+            "recall@5": 1.0,
+            "mrr@5": 1.0,
+            "p50_ms": 13.56,
+            "p95_ms": 29.87
+          },
+          "typo": {
+            "n": 300,
+            "recall@1": 0.0,
+            "recall@5": 0.0,
+            "mrr@5": 0.0,
+            "p50_ms": 12.91,
+            "p95_ms": 25.1
+          },
+          "arabic": {
+            "n": 300,
+            "recall@1": 1.0,
+            "recall@5": 1.0,
+            "mrr@5": 1.0,
+            "p50_ms": 1.02,
+            "p95_ms": 1.29
+          }
+        },
+        "vector_only": {
+          "paraphrase": {
+            "n": 300,
+            "recall@1": 0.92,
+            "recall@5": 0.99,
+            "mrr@5": 0.954,
+            "p50_ms": 5.02,
+            "p95_ms": 6.03
+          },
+          "typo": {
+            "n": 300,
+            "recall@1": 0.003,
+            "recall@5": 0.03,
+            "mrr@5": 0.013,
+            "p50_ms": 5.37,
+            "p95_ms": 7.52
+          },
+          "arabic": {
+            "n": 300,
+            "recall@1": 0.957,
+            "recall@5": 1.0,
+            "mrr@5": 0.977,
+            "p50_ms": 5.47,
+            "p95_ms": 6.45
+          }
+        },
+        "fuzzy_only": {
+          "paraphrase": {
+            "n": 300,
+            "recall@1": 0.0,
+            "recall@5": 0.0,
+            "mrr@5": 0.0,
+            "p50_ms": 1.16,
+            "p95_ms": 2.32
+          },
+          "typo": {
+            "n": 300,
+            "recall@1": 0.553,
+            "recall@5": 0.713,
+            "mrr@5": 0.618,
+            "p50_ms": 31.51,
+            "p95_ms": 66.24
+          },
+          "arabic": {
+            "n": 300,
+            "recall@1": 0.0,
+            "recall@5": 0.0,
+            "mrr@5": 0.0,
+            "p50_ms": 0.1,
+            "p95_ms": 0.22
+          }
+        }
+      }
+    }
+  ]
+}

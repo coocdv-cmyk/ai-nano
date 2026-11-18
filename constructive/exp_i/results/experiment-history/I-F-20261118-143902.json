@@ -1,0 +1,815 @@
+{
+  "experiment_id": "I-F",
+  "experiment_name": "Verified Program Repair",
+  "status": "completed",
+  "cases": [
+    "sum_range",
+    "sum_range",
+    "sum_gcd",
+    "clamp",
+    "sum_squares",
+    "pow2"
+  ],
+  "episodes": [
+    {
+      "name": "sum_range",
+      "seed": 0,
+      "status": "completed",
+      "repair_found": true,
+      "n_candidates": 197,
+      "n_plausible": 1,
+      "state": "VERIFIED_EQUIVALENT",
+      "equivalent_on_domain": true,
+      "verification_coverage": 1.0,
+      "counterexamples": [],
+      "false_repair_detected": false,
+      "false_verified_repair": false,
+      "reasons": [
+        "exhaustively equivalent on 44 bounded inputs"
+      ],
+      "failure_category": "success"
+    },
+    {
+      "name": "sum_range",
+      "seed": 1,
+      "status": "completed",
+      "repair_found": true,
+      "n_candidates": 197,
+      "n_plausible": 1,
+      "state": "VERIFIED_EQUIVALENT",
+      "equivalent_on_domain": true,
+      "verification_coverage": 1.0,
+      "counterexamples": [],
+      "false_repair_detected": false,
+      "false_verified_repair": false,
+      "reasons": [
+        "exhaustively equivalent on 44 bounded inputs"
+      ],
+      "failure_category": "success"
+    },
+    {
+      "name": "sum_range",
+      "seed": 2,
+      "status": "completed",
+      "repair_found": true,
+      "n_candidates": 197,
+      "n_plausible": 1,
+      "state": "VERIFIED_EQUIVALENT",
+      "equivalent_on_domain": true,
+      "verification_coverage": 1.0,
+      "counterexamples": [],
+      "false_repair_detected": false,
+      "false_verified_repair": false,
+      "reasons": [
+        "exhaustively equivalent on 44 bounded inputs"
+      ],
+      "failure_category": "success"
+    },
+    {
+      "name": "sum_range",
+      "seed": 3,
+      "status": "completed",
+      "repair_found": true,
+      "n_candidates": 197,
+      "n_plausible": 1,
+      "state": "VERIFIED_EQUIVALENT",
+      "equivalent_on_domain": true,
+      "verification_coverage": 1.0,
+      "counterexamples": [],
+      "false_repair_detected": false,
+      "false_verified_repair": false,
+      "reasons": [
+        "exhaustively equivalent on 44 bounded inputs"
+      ],
+      "failure_category": "success"
+    },
+    {
+      "name": "sum_range",
+      "seed": 4,
+      "status": "completed",
+      "repair_found": true,
+      "n_candidates": 197,
+      "n_plausible": 1,
+      "state": "VERIFIED_EQUIVALENT",
+      "equivalent_on_domain": true,
+      "verification_coverage": 1.0,
+      "counterexamples": [],
+      "false_repair_detected": false,
+      "false_verified_repair": false,
+      "reasons": [
+        "exhaustively equivalent on 44 bounded inputs"
+      ],
+      "failure_category": "success"
+    },
+    {
+      "name": "sum_range",
+      "seed": 5,
+      "status": "completed",
+      "repair_found": true,
+      "n_candidates": 197,
+      "n_plausible": 1,
+      "state": "VERIFIED_EQUIVALENT",
+      "equivalent_on_domain": true,
+      "verification_coverage": 1.0,
+      "counterexamples": [],
+      "false_repair_detected": false,
+      "false_verified_repair": false,
+      "reasons": [
+        "exhaustively equivalent on 44 bounded inputs"
+      ],
+      "failure_category": "success"
+    },
+    {
+      "name": "sum_range",
+      "seed": 0,
+      "status": "completed",
+      "repair_found": true,
+      "n_candidates": 197,
+      "n_plausible": 1,
+      "state": "VERIFIED_EQUIVALENT",
+      "equivalent_on_domain": true,
+      "verification_coverage": 1.0,
+      "counterexamples": [],
+      "false_repair_detected": false,
+      "false_verified_repair": false,
+      "reasons": [
+        "exhaustively equivalent on 44 bounded inputs"
+      ],
+      "failure_category": "success"
+    },
+    {
+      "name": "sum_range",
+      "seed": 1,
+      "status": "completed",
+      "repair_found": true,
+      "n_candidates": 197,
+      "n_plausible": 1,
+      "state": "VERIFIED_EQUIVALENT",
+      "equivalent_on_domain": true,
+      "verification_coverage": 1.0,
+      "counterexamples": [],
+      "false_repair_detected": false,
+      "false_verified_repair": false,
+      "reasons": [
+        "exhaustively equivalent on 44 bounded inputs"
+      ],
+      "failure_category": "success"
+    },
+    {
+      "name": "sum_range",
+      "seed": 2,
+      "status": "completed",
+      "repair_found": true,
+      "n_candidates": 197,
+      "n_plausible": 1,
+      "state": "VERIFIED_EQUIVALENT",
+      "equivalent_on_domain": true,
+      "verification_coverage": 1.0,
+      "counterexamples": [],
+      "false_repair_detected": false,
+      "false_verified_repair": false,
+      "reasons": [
+        "exhaustively equivalent on 44 bounded inputs"
+      ],
+      "failure_category": "success"
+    },
+    {
+      "name": "sum_range",
+      "seed": 3,
+      "status": "completed",
+      "repair_found": true,
+      "n_candidates": 197,
+      "n_plausible": 1,
+      "state": "VERIFIED_EQUIVALENT",
+      "equivalent_on_domain": true,
+      "verification_coverage": 1.0,
+      "counterexamples": [],
+      "false_repair_detected": false,
+      "false_verified_repair": false,
+      "reasons": [
+        "exhaustively equivalent on 44 bounded inputs"
+      ],
+      "failure_category": "success"
+    },
+    {
+      "name": "sum_range",
+      "seed": 4,
+      "status": "completed",
+      "repair_found": true,
+      "n_candidates": 197,
+      "n_plausible": 1,
+      "state": "VERIFIED_EQUIVALENT",
+      "equivalent_on_domain": true,
+      "verification_coverage": 1.0,
+      "counterexamples": [],
+      "false_repair_detected": false,
+      "false_verified_repair": false,
+      "reasons": [
+        "exhaustively equivalent on 44 bounded inputs"
+      ],
+      "failure_category": "success"
+    },
+    {
+      "name": "sum_range",
+      "seed": 5,
+      "status": "completed",
+      "repair_found": true,
+      "n_candidates": 197,
+      "n_plausible": 1,
+      "state": "VERIFIED_EQUIVALENT",
+      "equivalent_on_domain": true,
+      "verification_coverage": 1.0,
+      "counterexamples": [],
+      "false_repair_detected": false,
+      "false_verified_repair": false,
+      "reasons": [
+        "exhaustively equivalent on 44 bounded inputs"
+      ],
+      "failure_category": "success"
+    },
+    {
+      "name": "sum_gcd",
+      "seed": 0,
+      "status": "completed",
+      "repair_found": true,
+      "n_candidates": 69,
+      "n_plausible": 3,
+      "state": "AMBIGUOUS",
+      "equivalent_on_domain": true,
+      "verification_coverage": 1.0,
+      "counterexamples": [],
+      "false_repair_detected": false,
+      "false_verified_repair": false,
+      "reasons": [
+        "multiple plausible repairs pass visible examples; equivalence claimed only on bounded domain"
+      ],
+      "failure_category": "success"
+    },
+    {
+      "name": "sum_gcd",
+      "seed": 1,
+      "status": "completed",
+      "repair_found": true,
+      "n_candidates": 69,
+      "n_plausible": 3,
+      "state": "AMBIGUOUS",
+      "equivalent_on_domain": true,
+      "verification_coverage": 1.0,
+      "counterexamples": [],
+      "false_repair_detected": false,
+      "false_verified_repair": false,
+      "reasons": [
+        "multiple plausible repairs pass visible examples; equivalence claimed only on bounded domain"
+      ],
+      "failure_category": "success"
+    },
+    {
+      "name": "sum_gcd",
+      "seed": 2,
+      "status": "completed",
+      "repair_found": true,
+      "n_candidates": 69,
+      "n_plausible": 4,
+      "state": "AMBIGUOUS",
+      "equivalent_on_domain": true,
+      "verification_coverage": 1.0,
+      "counterexamples": [],
+      "false_repair_detected": false,
+      "false_verified_repair": false,
+      "reasons": [
+        "multiple plausible repairs pass visible examples; equivalence claimed only on bounded domain"
+      ],
+      "failure_category": "success"
+    },
+    {
+      "name": "sum_gcd",
+      "seed": 3,
+      "status": "completed",
+      "repair_found": true,
+      "n_candidates": 69,
+      "n_plausible": 3,
+      "state": "AMBIGUOUS",
+      "equivalent_on_domain": true,
+      "verification_coverage": 1.0,
+      "counterexamples": [],
+      "false_repair_detected": false,
+      "false_verified_repair": false,
+      "reasons": [
+        "multiple plausible repairs pass visible examples; equivalence claimed only on bounded domain"
+      ],
+      "failure_category": "success"
+    },
+    {
+      "name": "sum_gcd",
+      "seed": 4,
+      "status": "completed",
+      "repair_found": true,
+      "n_candidates": 69,
+      "n_plausible": 2,
+      "state": "AMBIGUOUS",
+      "equivalent_on_domain": true,
+      "verification_coverage": 1.0,
+      "counterexamples": [],
+      "false_repair_detected": false,
+      "false_verified_repair": false,
+      "reasons": [
+        "multiple plausible repairs pass visible examples; equivalence claimed only on bounded domain"
+      ],
+      "failure_category": "success"
+    },
+    {
+      "name": "sum_gcd",
+      "seed": 5,
+      "status": "completed",
+      "repair_found": true,
+      "n_candidates": 69,
+      "n_plausible": 3,
+      "state": "AMBIGUOUS",
+      "equivalent_on_domain": true,
+      "verification_coverage": 1.0,
+      "counterexamples": [],
+      "false_repair_detected": false,
+      "false_verified_repair": false,
+      "reasons": [
+        "multiple plausible repairs pass visible examples; equivalence claimed only on bounded domain"
+      ],
+      "failure_category": "success"
+    },
+    {
+      "name": "clamp",
+      "seed": 0,
+      "status": "completed",
+      "repair_found": true,
+      "n_candidates": 35,
+      "n_plausible": 4,
+      "state": "AMBIGUOUS",
+      "equivalent_on_domain": true,
+      "verification_coverage": 1.0,
+      "counterexamples": [],
+      "false_repair_detected": false,
+      "false_verified_repair": false,
+      "reasons": [
+        "multiple plausible repairs pass visible examples; equivalence claimed only on bounded domain"
+      ],
+      "failure_category": "success"
+    },
+    {
+      "name": "clamp",
+      "seed": 1,
+      "status": "completed",
+      "repair_found": true,
+      "n_candidates": 35,
+      "n_plausible": 5,
+      "state": "AMBIGUOUS",
+      "equivalent_on_domain": true,
+      "verification_coverage": 1.0,
+      "counterexamples": [],
+      "false_repair_detected": false,
+      "false_verified_repair": false,
+      "reasons": [
+        "multiple plausible repairs pass visible examples; equivalence claimed only on bounded domain"
+      ],
+      "failure_category": "success"
+    },
+    {
+      "name": "clamp",
+      "seed": 2,
+      "status": "completed",
+      "repair_found": true,
+      "n_candidates": 35,
+      "n_plausible": 6,
+      "state": "AMBIGUOUS",
+      "equivalent_on_domain": true,
+      "verification_coverage": 1.0,
+      "counterexamples": [],
+      "false_repair_detected": false,
+      "false_verified_repair": false,
+      "reasons": [
+        "multiple plausible repairs pass visible examples; equivalence claimed only on bounded domain"
+      ],
+      "failure_category": "success"
+    },
+    {
+      "name": "clamp",
+      "seed": 3,
+      "status": "completed",
+      "repair_found": true,
+      "n_candidates": 35,
+      "n_plausible": 4,
+      "state": "AMBIGUOUS",
+      "equivalent_on_domain": true,
+      "verification_coverage": 1.0,
+      "counterexamples": [],
+      "false_repair_detected": false,
+      "false_verified_repair": false,
+      "reasons": [
+        "multiple plausible repairs pass visible examples; equivalence claimed only on bounded domain"
+      ],
+      "failure_category": "success"
+    },
+    {
+      "name": "clamp",
+      "seed": 4,
+      "status": "completed",
+      "repair_found": true,
+      "n_candidates": 35,
+      "n_plausible": 5,
+      "state": "NOT_EQUIVALENT",
+      "equivalent_on_domain": false,
+      "verification_coverage": 0.8958333333333334,
+      "counterexamples": [
+        {
+          "x": 5,
+          "lo": 0,
+          "hi": 4
+        },
+        {
+          "x": 5,
+          "lo": 3,
+          "hi": 4
+        },
+        {
+          "x": 6,
+          "lo": 0,
+          "hi": 4
+        }
+      ],
+      "false_repair_detected": true,
+      "false_verified_repair": false,
+      "reasons": [
+        "9 bounded/adversarial counterexample(s); visible-example pass is insufficient"
+      ],
+      "failure_category": "false-repair-detected"
+    },
+    {
+      "name": "clamp",
+      "seed": 5,
+      "status": "completed",
+      "repair_found": true,
+      "n_candidates": 35,
+      "n_plausible": 4,
+      "state": "AMBIGUOUS",
+      "equivalent_on_domain": true,
+      "verification_coverage": 1.0,
+      "counterexamples": [],
+      "false_repair_detected": false,
+      "false_verified_repair": false,
+      "reasons": [
+        "multiple plausible repairs pass visible examples; equivalence claimed only on bounded domain"
+      ],
+      "failure_category": "success"
+    },
+    {
+      "name": "sum_squares",
+      "seed": 0,
+      "status": "completed",
+      "repair_found": true,
+      "n_candidates": 389,
+      "n_plausible": 3,
+      "state": "AMBIGUOUS",
+      "equivalent_on_domain": true,
+      "verification_coverage": 1.0,
+      "counterexamples": [],
+      "false_repair_detected": false,
+      "false_verified_repair": false,
+      "reasons": [
+        "multiple plausible repairs pass visible examples; equivalence claimed only on bounded domain"
+      ],
+      "failure_category": "success"
+    },
+    {
+      "name": "sum_squares",
+      "seed": 1,
+      "status": "completed",
+      "repair_found": true,
+      "n_candidates": 389,
+      "n_plausible": 2,
+      "state": "AMBIGUOUS",
+      "equivalent_on_domain": true,
+      "verification_coverage": 1.0,
+      "counterexamples": [],
+      "false_repair_detected": false,
+      "false_verified_repair": false,
+      "reasons": [
+        "multiple plausible repairs pass visible examples; equivalence claimed only on bounded domain"
+      ],
+      "failure_category": "success"
+    },
+    {
+      "name": "sum_squares",
+      "seed": 2,
+      "status": "completed",
+      "repair_found": true,
+      "n_candidates": 389,
+      "n_plausible": 2,
+      "state": "AMBIGUOUS",
+      "equivalent_on_domain": true,
+      "verification_coverage": 1.0,
+      "counterexamples": [],
+      "false_repair_detected": false,
+      "false_verified_repair": false,
+      "reasons": [
+        "multiple plausible repairs pass visible examples; equivalence claimed only on bounded domain"
+      ],
+      "failure_category": "success"
+    },
+    {
+      "name": "sum_squares",
+      "seed": 3,
+      "status": "completed",
+      "repair_found": true,
+      "n_candidates": 389,
+      "n_plausible": 2,
+      "state": "AMBIGUOUS",
+      "equivalent_on_domain": true,
+      "verification_coverage": 1.0,
+      "counterexamples": [],
+      "false_repair_detected": false,
+      "false_verified_repair": false,
+      "reasons": [
+        "multiple plausible repairs pass visible examples; equivalence claimed only on bounded domain"
+      ],
+      "failure_category": "success"
+    },
+    {
+      "name": "sum_squares",
+      "seed": 4,
+      "status": "completed",
+      "repair_found": true,
+      "n_candidates": 389,
+      "n_plausible": 2,
+      "state": "AMBIGUOUS",
+      "equivalent_on_domain": true,
+      "verification_coverage": 1.0,
+      "counterexamples": [],
+      "false_repair_detected": false,
+      "false_verified_repair": false,
+      "reasons": [
+        "multiple plausible repairs pass visible examples; equivalence claimed only on bounded domain"
+      ],
+      "failure_category": "success"
+    },
+    {
+      "name": "sum_squares",
+      "seed": 5,
+      "status": "completed",
+      "repair_found": true,
+      "n_candidates": 389,
+      "n_plausible": 2,
+      "state": "AMBIGUOUS",
+      "equivalent_on_domain": true,
+      "verification_coverage": 1.0,
+      "counterexamples": [],
+      "false_repair_detected": false,
+      "false_verified_repair": false,
+      "reasons": [
+        "multiple plausible repairs pass visible examples; equivalence claimed only on bounded domain"
+      ],
+      "failure_category": "success"
+    },
+    {
+      "name": "pow2",
+      "seed": 0,
+      "status": "completed",
+      "repair_found": true,
+      "n_candidates": 389,
+      "n_plausible": 5,
+      "state": "NOT_EQUIVALENT",
+      "equivalent_on_domain": false,
+      "verification_coverage": 1.0,
+      "counterexamples": [
+        {
+          "n": 1
+        },
+        {
+          "n": 3
+        },
+        {
+          "n": 5
+        }
+      ],
+      "false_repair_detected": true,
+      "false_verified_repair": false,
+      "reasons": [
+        "10 bounded/adversarial counterexample(s); visible-example pass is insufficient"
+      ],
+      "failure_category": "false-repair-detected"
+    },
+    {
+      "name": "pow2",
+      "seed": 1,
+      "status": "completed",
+      "repair_found": true,
+      "n_candidates": 389,
+      "n_plausible": 2,
+      "state": "AMBIGUOUS",
+      "equivalent_on_domain": true,
+      "verification_coverage": 1.0,
+      "counterexamples": [],
+      "false_repair_detected": false,
+      "false_verified_repair": false,
+      "reasons": [
+        "multiple plausible repairs pass visible examples; equivalence claimed only on bounded domain"
+      ],
+      "failure_category": "success"
+    },
+    {
+      "name": "pow2",
+      "seed": 2,
+      "status": "completed",
+      "repair_found": true,
+      "n_candidates": 389,
+      "n_plausible": 2,
+      "state": "AMBIGUOUS",
+      "equivalent_on_domain": true,
+      "verification_coverage": 1.0,
+      "counterexamples": [],
+      "false_repair_detected": false,
+      "false_verified_repair": false,
+      "reasons": [
+        "multiple plausible repairs pass visible examples; equivalence claimed only on bounded domain"
+      ],
+      "failure_category": "success"
+    },
+    {
+      "name": "pow2",
+      "seed": 3,
+      "status": "completed",
+      "repair_found": true,
+      "n_candidates": 389,
+      "n_plausible": 2,
+      "state": "AMBIGUOUS",
+      "equivalent_on_domain": true,
+      "verification_coverage": 1.0,
+      "counterexamples": [],
+      "false_repair_detected": false,
+      "false_verified_repair": false,
+      "reasons": [
+        "multiple plausible repairs pass visible examples; equivalence claimed only on bounded domain"
+      ],
+      "failure_category": "success"
+    },
+    {
+      "name": "pow2",
+      "seed": 4,
+      "status": "completed",
+      "repair_found": true,
+      "n_candidates": 389,
+      "n_plausible": 5,
+      "state": "NOT_EQUIVALENT",
+      "equivalent_on_domain": false,
+      "verification_coverage": 1.0,
+      "counterexamples": [
+        {
+          "n": 0
+        }
+      ],
+      "false_repair_detected": true,
+      "false_verified_repair": false,
+      "reasons": [
+        "1 bounded/adversarial counterexample(s); visible-example pass is insufficient"
+      ],
+      "failure_category": "false-repair-detected"
+    },
+    {
+      "name": "pow2",
+      "seed": 5,
+      "status": "completed",
+      "repair_found": true,
+      "n_candidates": 389,
+      "n_plausible": 4,
+      "state": "AMBIGUOUS",
+      "equivalent_on_domain": true,
+      "verification_coverage": 1.0,
+      "counterexamples": [],
+      "false_repair_detected": false,
+      "false_verified_repair": false,
+      "reasons": [
+        "multiple plausible repairs pass visible examples; equivalence claimed only on bounded domain"
+      ],
+      "failure_category": "success"
+    }
+  ],
+  "summary": {
+    "n": 36,
+    "repair_rate": {
+      "n": 36,
+      "mean": 1.0,
+      "std": 0.0,
+      "ci95": 0.0,
+      "median": 1.0,
+      "min": 1.0,
+      "max": 1.0
+    },
+    "false_verified_rate": {
+      "n": 36,
+      "mean": 0.0,
+      "std": 0.0,
+      "ci95": 0.0,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 0.0
+    },
+    "false_repair_detection_rate": {
+      "n": 36,
+      "mean": 0.083333,
+      "std": 0.276385,
+      "ci95": 0.090284,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "verification_coverage": {
+      "n": 36,
+      "mean": 0.997106,
+      "std": 0.017118,
+      "ci95": 0.005592,
+      "median": 1.0,
+      "min": 0.895833,
+      "max": 1.0
+    },
+    "states": {
+      "AMBIGUOUS": 21,
+      "VERIFIED_EQUIVALENT": 12,
+      "NOT_EQUIVALENT": 3
+    }
+  },
+  "baseline_reference": {
+    "source": "CONSTRUCTIVE-EXP-H-REPORT.md H5",
+    "false_repairs": "5/144",
+    "note": "original 5 false-repair templates replayed"
+  },
+  "reproducibility": {
+    "config_fingerprint": "50d32cd65792e6e5",
+    "configuration": {
+      "seeds": [
+        0
+      ],
+      "n_episodes": 8,
+      "n_val": 4,
+      "abstain_threshold": 0.6,
+      "max_program_depth": 8,
+      "max_program_nodes": 64,
+      "max_int_magnitude": 1000000000,
+      "max_steps": 10000,
+      "search_node_budget": 20000,
+      "fit_deadline_s": 3.0,
+      "experiment_deadline_s": 120.0,
+      "campaign_deadline_s": 900.0,
+      "quick": true
+    },
+    "hardware": {
+      "cpu": "11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz",
+      "logical_cores": 8,
+      "ram_gb": 16.82,
+      "os": "Windows-11-10.0.26200-SP0",
+      "cuda": false,
+      "device": "cpu",
+      "acceleration": "none (CPU-only, no external APIs)"
+    },
+    "software": {
+      "python": "3.13.15",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "exp_i": "0.1.0",
+      "numpy": "2.5.3"
+    },
+    "source_revision": "no-commits",
+    "note": "No commits in repository; source_revision='no-commits' is expected."
+  },
+  "resource_report": {
+    "elapsed_s": 4.674712099978933,
+    "nodes_used": 0,
+    "global_deadline_s": 876.554845000006,
+    "node_budget": 800000,
+    "cancelled": false,
+    "timeouts": [],
+    "diagnostics": {
+      "last_completed_scope": "I-F",
+      "last_scope_status": "COMPLETED",
+      "scope_elapsed_s": 3.2249452999967616,
+      "scope_nodes": 0
+    },
+    "memory_guard_mb": null
+  },
+  "completion_status": "COMPLETED",
+  "dataset_fingerprint": "223beea70771ece9",
+  "hardware": {
+    "cpu": "11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz",
+    "logical_cores": 8,
+    "ram_gb": 16.82,
+    "os": "Windows-11-10.0.26200-SP0",
+    "cuda": false,
+    "device": "cpu",
+    "acceleration": "none (CPU-only, no external APIs)"
+  },
+  "software": {
+    "python": "3.13.15",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "exp_i": "0.1.0",
+    "numpy": "2.5.3"
+  },
+  "limitations": [
+    "Synthetic tasks in a small typed DSL; no natural-language validity claimed.",
+    "Results are CPU-only and local to these generator families."
+  ]
+}

@@ -1,0 +1,432 @@
+{
+  "experiment_id": "I-A",
+  "experiment_name": "Evidence Engine and Multi-Sample Validation",
+  "status": "completed",
+  "n_episodes": 16,
+  "episodes": [
+    {
+      "condition": "discriminating",
+      "seed": 1000,
+      "state": "ACCEPTED",
+      "accepted": true,
+      "candidate": "sum_digits",
+      "correct_acceptance": true,
+      "wrong_acceptance": false,
+      "non_identifiable": false,
+      "insufficient": false,
+      "confidence": 0.88,
+      "test_accuracy_if_accepted": 1.0,
+      "informative_observations": 2,
+      "redundant_observations": 0,
+      "failure_category": "success"
+    },
+    {
+      "condition": "discriminating",
+      "seed": 1001,
+      "state": "ACCEPTED",
+      "accepted": true,
+      "candidate": "sum_digits",
+      "correct_acceptance": true,
+      "wrong_acceptance": false,
+      "non_identifiable": false,
+      "insufficient": false,
+      "confidence": 0.88,
+      "test_accuracy_if_accepted": 1.0,
+      "informative_observations": 1,
+      "redundant_observations": 0,
+      "failure_category": "success"
+    },
+    {
+      "condition": "discriminating",
+      "seed": 1002,
+      "state": "ACCEPTED",
+      "accepted": true,
+      "candidate": "sum_digits",
+      "correct_acceptance": true,
+      "wrong_acceptance": false,
+      "non_identifiable": false,
+      "insufficient": false,
+      "confidence": 0.88,
+      "test_accuracy_if_accepted": 1.0,
+      "informative_observations": 1,
+      "redundant_observations": 0,
+      "failure_category": "success"
+    },
+    {
+      "condition": "discriminating",
+      "seed": 1003,
+      "state": "ACCEPTED",
+      "accepted": true,
+      "candidate": "sum_digits",
+      "correct_acceptance": true,
+      "wrong_acceptance": false,
+      "non_identifiable": false,
+      "insufficient": false,
+      "confidence": 0.88,
+      "test_accuracy_if_accepted": 1.0,
+      "informative_observations": 1,
+      "redundant_observations": 0,
+      "failure_category": "success"
+    },
+    {
+      "condition": "discriminating",
+      "seed": 1004,
+      "state": "ACCEPTED",
+      "accepted": true,
+      "candidate": "sum_digits",
+      "correct_acceptance": true,
+      "wrong_acceptance": false,
+      "non_identifiable": false,
+      "insufficient": false,
+      "confidence": 0.88,
+      "test_accuracy_if_accepted": 1.0,
+      "informative_observations": 1,
+      "redundant_observations": 0,
+      "failure_category": "success"
+    },
+    {
+      "condition": "discriminating",
+      "seed": 1005,
+      "state": "ACCEPTED",
+      "accepted": true,
+      "candidate": "sum_digits",
+      "correct_acceptance": true,
+      "wrong_acceptance": false,
+      "non_identifiable": false,
+      "insufficient": false,
+      "confidence": 0.88,
+      "test_accuracy_if_accepted": 1.0,
+      "informative_observations": 2,
+      "redundant_observations": 0,
+      "failure_category": "success"
+    },
+    {
+      "condition": "discriminating",
+      "seed": 1006,
+      "state": "ACCEPTED",
+      "accepted": true,
+      "candidate": "sum_digits",
+      "correct_acceptance": true,
+      "wrong_acceptance": false,
+      "non_identifiable": false,
+      "insufficient": false,
+      "confidence": 0.88,
+      "test_accuracy_if_accepted": 1.0,
+      "informative_observations": 1,
+      "redundant_observations": 0,
+      "failure_category": "success"
+    },
+    {
+      "condition": "discriminating",
+      "seed": 1007,
+      "state": "ACCEPTED",
+      "accepted": true,
+      "candidate": "sum_digits",
+      "correct_acceptance": true,
+      "wrong_acceptance": false,
+      "non_identifiable": false,
+      "insufficient": false,
+      "confidence": 0.88,
+      "test_accuracy_if_accepted": 1.0,
+      "informative_observations": 1,
+      "redundant_observations": 0,
+      "failure_category": "success"
+    },
+    {
+      "condition": "ambiguous",
+      "seed": 1000,
+      "state": "INSUFFICIENT_EVIDENCE",
+      "accepted": false,
+      "candidate": null,
+      "correct_acceptance": false,
+      "wrong_acceptance": false,
+      "non_identifiable": false,
+      "insufficient": true,
+      "confidence": 0.0,
+      "test_accuracy_if_accepted": null,
+      "informative_observations": 1,
+      "redundant_observations": 3,
+      "failure_category": "insufficient-evidence"
+    },
+    {
+      "condition": "ambiguous",
+      "seed": 1001,
+      "state": "INSUFFICIENT_EVIDENCE",
+      "accepted": false,
+      "candidate": null,
+      "correct_acceptance": false,
+      "wrong_acceptance": false,
+      "non_identifiable": false,
+      "insufficient": true,
+      "confidence": 0.0,
+      "test_accuracy_if_accepted": null,
+      "informative_observations": 0,
+      "redundant_observations": 4,
+      "failure_category": "insufficient-evidence"
+    },
+    {
+      "condition": "ambiguous",
+      "seed": 1002,
+      "state": "INSUFFICIENT_EVIDENCE",
+      "accepted": false,
+      "candidate": null,
+      "correct_acceptance": false,
+      "wrong_acceptance": false,
+      "non_identifiable": false,
+      "insufficient": true,
+      "confidence": 0.0,
+      "test_accuracy_if_accepted": null,
+      "informative_observations": 1,
+      "redundant_observations": 3,
+      "failure_category": "insufficient-evidence"
+    },
+    {
+      "condition": "ambiguous",
+      "seed": 1003,
+      "state": "INSUFFICIENT_EVIDENCE",
+      "accepted": false,
+      "candidate": null,
+      "correct_acceptance": false,
+      "wrong_acceptance": false,
+      "non_identifiable": false,
+      "insufficient": true,
+      "confidence": 0.0,
+      "test_accuracy_if_accepted": null,
+      "informative_observations": 0,
+      "redundant_observations": 4,
+      "failure_category": "insufficient-evidence"
+    },
+    {
+      "condition": "ambiguous",
+      "seed": 1004,
+      "state": "INSUFFICIENT_EVIDENCE",
+      "accepted": false,
+      "candidate": null,
+      "correct_acceptance": false,
+      "wrong_acceptance": false,
+      "non_identifiable": false,
+      "insufficient": true,
+      "confidence": 0.0,
+      "test_accuracy_if_accepted": null,
+      "informative_observations": 1,
+      "redundant_observations": 3,
+      "failure_category": "insufficient-evidence"
+    },
+    {
+      "condition": "ambiguous",
+      "seed": 1005,
+      "state": "INSUFFICIENT_EVIDENCE",
+      "accepted": false,
+      "candidate": null,
+      "correct_acceptance": false,
+      "wrong_acceptance": false,
+      "non_identifiable": false,
+      "insufficient": true,
+      "confidence": 0.0,
+      "test_accuracy_if_accepted": null,
+      "informative_observations": 1,
+      "redundant_observations": 3,
+      "failure_category": "insufficient-evidence"
+    },
+    {
+      "condition": "ambiguous",
+      "seed": 1006,
+      "state": "INSUFFICIENT_EVIDENCE",
+      "accepted": false,
+      "candidate": null,
+      "correct_acceptance": false,
+      "wrong_acceptance": false,
+      "non_identifiable": false,
+      "insufficient": true,
+      "confidence": 0.0,
+      "test_accuracy_if_accepted": null,
+      "informative_observations": 1,
+      "redundant_observations": 3,
+      "failure_category": "insufficient-evidence"
+    },
+    {
+      "condition": "ambiguous",
+      "seed": 1007,
+      "state": "INSUFFICIENT_EVIDENCE",
+      "accepted": false,
+      "candidate": null,
+      "correct_acceptance": false,
+      "wrong_acceptance": false,
+      "non_identifiable": false,
+      "insufficient": true,
+      "confidence": 0.0,
+      "test_accuracy_if_accepted": null,
+      "informative_observations": 0,
+      "redundant_observations": 4,
+      "failure_category": "insufficient-evidence"
+    }
+  ],
+  "validation_states": {
+    "ACCEPTED": 8,
+    "INSUFFICIENT_EVIDENCE": 8
+  },
+  "accuracy_coverage_tradeoff": {
+    "discriminating": {
+      "coverage": {
+        "n": 8,
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "selective_accuracy": {
+        "n": 8,
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "wrong_acceptance_rate": {
+        "n": 8,
+        "mean": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "false_rejection_rate": {
+        "n": 8,
+        "mean": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      }
+    },
+    "ambiguous": {
+      "coverage": {
+        "n": 8,
+        "mean": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "correct_abstention_rate": {
+        "n": 8,
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "wrong_acceptance_rate": {
+        "n": 8,
+        "mean": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      }
+    }
+  },
+  "calibration": {
+    "ece_independent": 0.0,
+    "n_calibration": 8,
+    "n_eval": 8,
+    "report": {
+      "n": 8,
+      "ece": 0.0,
+      "bins": [
+        {
+          "bin": 0,
+          "n": 8,
+          "empirical_accuracy": 0.0
+        }
+      ],
+      "note": "ECE computed on a split independent of candidate selection and test."
+    }
+  },
+  "baseline_reference": {
+    "source": "CONSTRUCTIVE-EXP-H-REPORT.md H1 twins",
+    "wrong_twin_acceptance": "15/60 (0.25 of accepted)",
+    "abstain_rate": 0.15
+  },
+  "reproducibility": {
+    "config_fingerprint": "50d32cd65792e6e5",
+    "configuration": {
+      "seeds": [
+        0
+      ],
+      "n_episodes": 8,
+      "n_val": 4,
+      "abstain_threshold": 0.6,
+      "max_program_depth": 8,
+      "max_program_nodes": 64,
+      "max_int_magnitude": 1000000000,
+      "max_steps": 10000,
+      "search_node_budget": 20000,
+      "fit_deadline_s": 3.0,
+      "experiment_deadline_s": 120.0,
+      "campaign_deadline_s": 900.0,
+      "quick": true
+    },
+    "hardware": {
+      "cpu": "11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz",
+      "logical_cores": 8,
+      "ram_gb": 16.82,
+      "os": "Windows-11-10.0.26200-SP0",
+      "cuda": false,
+      "device": "cpu",
+      "acceleration": "none (CPU-only, no external APIs)"
+    },
+    "software": {
+      "python": "3.13.15",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "exp_i": "0.1.0",
+      "numpy": "2.5.3"
+    },
+    "source_revision": "no-commits",
+    "note": "No commits in repository; source_revision='no-commits' is expected."
+  },
+  "resource_report": {
+    "elapsed_s": 3.3437287000124343,
+    "nodes_used": 0,
+    "global_deadline_s": 899.9999960999994,
+    "node_budget": 800000,
+    "cancelled": false,
+    "timeouts": [],
+    "diagnostics": {
+      "last_completed_scope": "I-A",
+      "last_scope_status": "COMPLETED",
+      "scope_elapsed_s": 0.012653399986447766,
+      "scope_nodes": 0
+    },
+    "memory_guard_mb": null
+  },
+  "completion_status": "COMPLETED",
+  "dataset_fingerprint": "06d00e08edb47952",
+  "hardware": {
+    "cpu": "11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz",
+    "logical_cores": 8,
+    "ram_gb": 16.82,
+    "os": "Windows-11-10.0.26200-SP0",
+    "cuda": false,
+    "device": "cpu",
+    "acceleration": "none (CPU-only, no external APIs)"
+  },
+  "software": {
+    "python": "3.13.15",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "exp_i": "0.1.0",
+    "numpy": "2.5.3"
+  },
+  "limitations": [
+    "Synthetic tasks in a small typed DSL; no natural-language validity claimed.",
+    "Results are CPU-only and local to these generator families."
+  ]
+}

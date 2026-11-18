@@ -1,0 +1,114 @@
+{
+  "experiment_id": "I-H",
+  "experiment_name": "Resource Governance",
+  "status": "completed",
+  "checks": [
+    {
+      "check": "global_deadline_enforced",
+      "pass": true,
+      "status": "TIMED_OUT",
+      "reports": 1
+    },
+    {
+      "check": "node_budget_enforced",
+      "pass": true
+    },
+    {
+      "check": "cancellation_propagates",
+      "pass": true
+    },
+    {
+      "check": "timeout_never_false_success",
+      "pass": true,
+      "status": "TIMED_OUT"
+    },
+    {
+      "check": "repeated_runs_deterministic",
+      "pass": true
+    },
+    {
+      "check": "failure_isolation_records_diagnostic",
+      "pass": true
+    }
+  ],
+  "all_pass": true,
+  "completion_status_policy": "TIMED_OUT/PARTIAL are never mapped to COMPLETED",
+  "reproducibility": {
+    "config_fingerprint": "441a6c173a8f4a6e",
+    "configuration": {
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "n_episodes": 30,
+      "n_val": 4,
+      "abstain_threshold": 0.6,
+      "max_program_depth": 8,
+      "max_program_nodes": 64,
+      "max_int_magnitude": 1000000000,
+      "max_steps": 10000,
+      "search_node_budget": 20000,
+      "fit_deadline_s": 3.0,
+      "experiment_deadline_s": 120.0,
+      "campaign_deadline_s": 900.0,
+      "quick": false
+    },
+    "hardware": {
+      "cpu": "11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz",
+      "logical_cores": 8,
+      "ram_gb": 16.82,
+      "os": "Windows-11-10.0.26200-SP0",
+      "cuda": false,
+      "device": "cpu",
+      "acceleration": "none (CPU-only, no external APIs)"
+    },
+    "software": {
+      "python": "3.13.15",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "exp_i": "0.1.0",
+      "numpy": "2.5.3"
+    },
+    "source_revision": "no-commits",
+    "note": "No commits in repository; source_revision='no-commits' is expected."
+  },
+  "resource_report": {
+    "elapsed_s": 1.5164237999997567,
+    "nodes_used": 0,
+    "global_deadline_s": 841.1389354999992,
+    "node_budget": 800000,
+    "cancelled": false,
+    "timeouts": [],
+    "diagnostics": {
+      "last_completed_scope": "I-H",
+      "last_scope_status": "COMPLETED",
+      "scope_elapsed_s": 0.06913129999884404,
+      "scope_nodes": 0
+    },
+    "memory_guard_mb": null,
+    "peak_rss_mb": 0.0
+  },
+  "completion_status": "COMPLETED",
+  "dataset_fingerprint": "389874ce25fb6010",
+  "hardware": {
+    "cpu": "11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz",
+    "logical_cores": 8,
+    "ram_gb": 16.82,
+    "os": "Windows-11-10.0.26200-SP0",
+    "cuda": false,
+    "device": "cpu",
+    "acceleration": "none (CPU-only, no external APIs)"
+  },
+  "software": {
+    "python": "3.13.15",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "exp_i": "0.1.0",
+    "numpy": "2.5.3"
+  },
+  "limitations": [
+    "Synthetic tasks in a small typed DSL; no natural-language validity claimed.",
+    "Results are CPU-only and local to these generator families."
+  ]
+}

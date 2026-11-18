@@ -1,0 +1,225 @@
+{
+  "experiment_id": "I-B",
+  "experiment_name": "Typed Structural DSL Evolution",
+  "status": "completed",
+  "checks": {
+    "expressiveness": {
+      "bitwise_exclusion": {
+        "hidden_ops": [
+          "bxor",
+          "var"
+        ],
+        "expressiveness": "EXPRESSIBLE_DISCOVERED",
+        "translated": true,
+        "well_typed": true,
+        "issues": [],
+        "hidden_program": "bxor(3,var())",
+        "example_eval": {
+          "-3": -2,
+          "0": 3,
+          "2": 1,
+          "7": 4,
+          "19": 16
+        }
+      },
+      "conditional": {
+        "hidden_ops": [
+          "double",
+          "gt",
+          "if_else",
+          "neg",
+          "var"
+        ],
+        "expressiveness": "NOT_EXPRESSIBLE",
+        "translated": true,
+        "well_typed": true,
+        "issues": [],
+        "hidden_program": "if_else(gt(3,var()),double(var()),neg(var()))",
+        "example_eval": {
+          "-3": 3,
+          "0": 0,
+          "2": -2,
+          "7": 14,
+          "19": 38
+        }
+      },
+      "nested_conditional": {
+        "hidden_ops": [
+          "abs",
+          "even",
+          "gt",
+          "if_else",
+          "square",
+          "sub1",
+          "var"
+        ],
+        "expressiveness": "NOT_EXPRESSIBLE",
+        "translated": true,
+        "well_typed": true,
+        "issues": [],
+        "hidden_program": "if_else(even(var()),if_else(gt(5,var()),square(var()),sub1(var())),abs(var()))",
+        "example_eval": {
+          "-3": 3,
+          "0": -1,
+          "2": 1,
+          "7": 7,
+          "19": 19
+        }
+      },
+      "sum_digits": {
+        "hidden_ops": [
+          "sum_digits",
+          "var"
+        ],
+        "expressiveness": "EXPRESSIBLE_DISCOVERED",
+        "translated": true,
+        "well_typed": true,
+        "issues": [],
+        "hidden_program": "sum_digits(var())",
+        "example_eval": {
+          "-3": 3,
+          "0": 0,
+          "2": 2,
+          "7": 7,
+          "19": 10
+        }
+      }
+    },
+    "unseen_compositions": {
+      "not_prime": {
+        "program": "not(is_prime(var(int)))",
+        "type": "bool",
+        "issues": [],
+        "outputs": [
+          true,
+          true,
+          false,
+          false,
+          false
+        ]
+      },
+      "even_and_gt": {
+        "program": "and(even(var(int)),gt(3;var(int)))",
+        "type": "bool",
+        "issues": [],
+        "outputs": [
+          false,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "cond_filter_sum": {
+        "program": "sum_list(filter_gt(2;evens(var(list))))",
+        "type": "int",
+        "issues": [],
+        "outputs": [
+          "ERR:evens runtime type/value failure: 'int' object is not iterable",
+          "ERR:evens runtime type/value failure: 'int' object is not iterable",
+          "ERR:evens runtime type/value failure: 'int' object is not iterable",
+          "ERR:evens runtime type/value failure: 'int' object is not iterable",
+          "ERR:evens runtime type/value failure: 'int' object is not iterable"
+        ]
+      },
+      "neg_magnitude": {
+        "program": "abs(neg(sum_digits(var(int))))",
+        "type": "int",
+        "issues": [],
+        "outputs": [
+          3,
+          0,
+          2,
+          7,
+          10
+        ]
+      }
+    },
+    "safety": {
+      "depth_cap_rejects": true,
+      "type_mismatch_rejects": true,
+      "magnitude_cap_rejects": true,
+      "cycles_impossible": true,
+      "safe_execution_no_eval": "AST interpreter only; no eval/exec used"
+    }
+  },
+  "all_checks_pass": true,
+  "note": "Distinguishes expressible-but-undiscovered, not-expressible, not-identifiable and compute-limited categories.",
+  "reproducibility": {
+    "config_fingerprint": "441a6c173a8f4a6e",
+    "configuration": {
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "n_episodes": 30,
+      "n_val": 4,
+      "abstain_threshold": 0.6,
+      "max_program_depth": 8,
+      "max_program_nodes": 64,
+      "max_int_magnitude": 1000000000,
+      "max_steps": 10000,
+      "search_node_budget": 20000,
+      "fit_deadline_s": 3.0,
+      "experiment_deadline_s": 120.0,
+      "campaign_deadline_s": 900.0,
+      "quick": false
+    },
+    "hardware": {
+      "cpu": "11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz",
+      "logical_cores": 8,
+      "ram_gb": 16.82,
+      "os": "Windows-11-10.0.26200-SP0",
+      "cuda": false,
+      "device": "cpu",
+      "acceleration": "none (CPU-only, no external APIs)"
+    },
+    "software": {
+      "python": "3.13.15",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "exp_i": "0.1.0",
+      "numpy": "2.5.3"
+    },
+    "source_revision": "no-commits",
+    "note": "No commits in repository; source_revision='no-commits' is expected."
+  },
+  "resource_report": {
+    "elapsed_s": 1.483341199986171,
+    "nodes_used": 0,
+    "global_deadline_s": 893.9519723999838,
+    "node_budget": 800000,
+    "cancelled": false,
+    "timeouts": [],
+    "diagnostics": {
+      "last_completed_scope": "I-B",
+      "last_scope_status": "COMPLETED",
+      "scope_elapsed_s": 0.01079800000297837,
+      "scope_nodes": 0
+    },
+    "memory_guard_mb": null
+  },
+  "completion_status": "COMPLETED",
+  "dataset_fingerprint": "01305efe6ef87b75",
+  "hardware": {
+    "cpu": "11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz",
+    "logical_cores": 8,
+    "ram_gb": 16.82,
+    "os": "Windows-11-10.0.26200-SP0",
+    "cuda": false,
+    "device": "cpu",
+    "acceleration": "none (CPU-only, no external APIs)"
+  },
+  "software": {
+    "python": "3.13.15",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "exp_i": "0.1.0",
+    "numpy": "2.5.3"
+  },
+  "limitations": [
+    "Synthetic tasks in a small typed DSL; no natural-language validity claimed.",
+    "Results are CPU-only and local to these generator families."
+  ]
+}

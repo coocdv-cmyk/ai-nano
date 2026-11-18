@@ -1,0 +1,53 @@
+# --- OMEGA-NANO existing rules (preserved verbatim) ---
+.omega/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.nbi
+*.nbc
+EXPERIMENTS/**/*.pt
+
+# --- Secrets and local credentials ---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+*.p12
+id_rsa
+id_ed25519
+
+# --- Python virtual environments / tooling ---
+.venv/
+venv/
+env/
+env.bak/
+.eggs/
+*.egg-info/
+.mypy_cache/
+.ruff_cache/
+.tox/
+
+# --- IDE / local agent settings containing machine-specific data ---
+.idea/
+.vscode/
+.claude/
+
+# --- OS-generated metadata / temporary files ---
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+*.temp
+*.bak
+*.swp
+*~
+
+# --- Local logs and transient caches (NOT research results) ---
+logs/
+*.log
+
+# NOTE: research assets are deliberately NOT ignored:
+# constructive/exp_{h,i,j}/**, results/latest.json, experiment snapshots,
+# historical manifests/SHA-256 records, reports, tests and benchmarks.

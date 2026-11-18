@@ -1,0 +1,4095 @@
+{
+  "experiment_id": "I-G",
+  "experiment_name": "Autonomous Abstraction Discovery and Transfer",
+  "status": "completed",
+  "families": [
+    "shared-core",
+    "unrelated-sum",
+    "unrelated-max",
+    "unrelated-sq"
+  ],
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "episodes": [
+    {
+      "seed": 0,
+      "family": "shared-core",
+      "arm": "baseline",
+      "task": "abs-shared-core-sum_list-s0",
+      "stream_index": 0,
+      "accepted": false,
+      "expansions": 164,
+      "nodes": 280,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.1833189000026323,
+      "test_accuracy": 0.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "search-explosion",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 0,
+      "family": "shared-core",
+      "arm": "baseline",
+      "task": "abs-shared-core-len_list-s0",
+      "stream_index": 1,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 279,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.1930601000203751,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 0,
+      "family": "shared-core",
+      "arm": "baseline",
+      "task": "abs-shared-core-max_list-s0",
+      "stream_index": 2,
+      "accepted": false,
+      "expansions": 164,
+      "nodes": 281,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.17459260000032373,
+      "test_accuracy": 0.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "search-explosion",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 0,
+      "family": "shared-core",
+      "arm": "baseline",
+      "task": "abs-shared-core-min_list-s0",
+      "stream_index": 3,
+      "accepted": false,
+      "expansions": 164,
+      "nodes": 284,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.18122769999899901,
+      "test_accuracy": 0.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "search-explosion",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 0,
+      "family": "shared-core",
+      "arm": "baseline",
+      "task": "abs-shared-core-sum_squares-s0",
+      "stream_index": 4,
+      "accepted": false,
+      "expansions": 164,
+      "nodes": 281,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.1647248999797739,
+      "test_accuracy": 0.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "search-explosion",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 0,
+      "family": "shared-core",
+      "arm": "harvest",
+      "task": "abs-shared-core-sum_list-s0",
+      "stream_index": 0,
+      "accepted": false,
+      "expansions": 164,
+      "nodes": 280,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.19315140001708642,
+      "test_accuracy": 0.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "search-explosion",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 0,
+      "family": "shared-core",
+      "arm": "harvest",
+      "task": "abs-shared-core-len_list-s0",
+      "stream_index": 1,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 279,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.16813969999202527,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 0,
+      "family": "shared-core",
+      "arm": "harvest",
+      "task": "abs-shared-core-max_list-s0",
+      "stream_index": 2,
+      "accepted": false,
+      "expansions": 164,
+      "nodes": 281,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.1886174000101164,
+      "test_accuracy": 0.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "search-explosion",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 0,
+      "family": "shared-core",
+      "arm": "harvest",
+      "task": "abs-shared-core-min_list-s0",
+      "stream_index": 3,
+      "accepted": false,
+      "expansions": 164,
+      "nodes": 284,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.19321450000279583,
+      "test_accuracy": 0.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "search-explosion",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 0,
+      "family": "shared-core",
+      "arm": "harvest",
+      "task": "abs-shared-core-sum_squares-s0",
+      "stream_index": 4,
+      "accepted": false,
+      "expansions": 164,
+      "nodes": 281,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.20889270000043325,
+      "test_accuracy": 0.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "search-explosion",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 0,
+      "family": "unrelated-sum",
+      "arm": "baseline",
+      "task": "abs-unrelated-sum-sum_list-s0",
+      "stream_index": 0,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 280,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.1732575999922119,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 0,
+      "family": "unrelated-sum",
+      "arm": "baseline",
+      "task": "abs-unrelated-sum-len_list-s0",
+      "stream_index": 1,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 281,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.18900869999197312,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 0,
+      "family": "unrelated-sum",
+      "arm": "baseline",
+      "task": "abs-unrelated-sum-max_list-s0",
+      "stream_index": 2,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 282,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.18197629999485798,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 0,
+      "family": "unrelated-sum",
+      "arm": "baseline",
+      "task": "abs-unrelated-sum-min_list-s0",
+      "stream_index": 3,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 280,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.16768719998071902,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 0,
+      "family": "unrelated-sum",
+      "arm": "baseline",
+      "task": "abs-unrelated-sum-sum_squares-s0",
+      "stream_index": 4,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 279,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.17006299999775365,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 0,
+      "family": "unrelated-sum",
+      "arm": "harvest",
+      "task": "abs-unrelated-sum-sum_list-s0",
+      "stream_index": 0,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 280,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.22471400001086295,
+      "test_accuracy": 1.0,
+      "n_abstractions": 1,
+      "harvested": [
+        "a001"
+      ],
+      "reuse": true,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 1,
+        "n_active": 1,
+        "n_validated": 1,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [
+          {
+            "id": "a001",
+            "body": "evens(var(list))",
+            "score": 0.6,
+            "validated": true,
+            "active": true
+          }
+        ],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 0,
+      "family": "unrelated-sum",
+      "arm": "harvest",
+      "task": "abs-unrelated-sum-len_list-s0",
+      "stream_index": 1,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 282,
+      "cache_hits": 31,
+      "timed_out": false,
+      "fit_s": 0.19064839999191463,
+      "test_accuracy": 1.0,
+      "n_abstractions": 1,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 1,
+        "n_active": 1,
+        "n_validated": 1,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [
+          {
+            "id": "a001",
+            "body": "evens(var(list))",
+            "score": 0.6,
+            "validated": true,
+            "active": true
+          }
+        ],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 0,
+      "family": "unrelated-sum",
+      "arm": "harvest",
+      "task": "abs-unrelated-sum-max_list-s0",
+      "stream_index": 2,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 283,
+      "cache_hits": 31,
+      "timed_out": false,
+      "fit_s": 0.17783860000781715,
+      "test_accuracy": 1.0,
+      "n_abstractions": 2,
+      "harvested": [
+        "a002"
+      ],
+      "reuse": true,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 2,
+        "n_active": 2,
+        "n_validated": 2,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [
+          {
+            "id": "a001",
+            "body": "evens(var(list))",
+            "score": 0.6,
+            "validated": true,
+            "active": true
+          },
+          {
+            "id": "a002",
+            "body": "evens(var(list))",
+            "score": 0.6,
+            "validated": true,
+            "active": true
+          }
+        ],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 0,
+      "family": "unrelated-sum",
+      "arm": "harvest",
+      "task": "abs-unrelated-sum-min_list-s0",
+      "stream_index": 3,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 282,
+      "cache_hits": 32,
+      "timed_out": false,
+      "fit_s": 0.17773899997700937,
+      "test_accuracy": 1.0,
+      "n_abstractions": 3,
+      "harvested": [
+        "a003"
+      ],
+      "reuse": true,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 3,
+        "n_active": 3,
+        "n_validated": 3,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [
+          {
+            "id": "a001",
+            "body": "evens(var(list))",
+            "score": 0.6,
+            "validated": true,
+            "active": true
+          },
+          {
+            "id": "a002",
+            "body": "evens(var(list))",
+            "score": 0.6,
+            "validated": true,
+            "active": true
+          },
+          {
+            "id": "a003",
+            "body": "evens(var(list))",
+            "score": 0.6,
+            "validated": true,
+            "active": true
+          }
+        ],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 0,
+      "family": "unrelated-sum",
+      "arm": "harvest",
+      "task": "abs-unrelated-sum-sum_squares-s0",
+      "stream_index": 4,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 282,
+      "cache_hits": 33,
+      "timed_out": false,
+      "fit_s": 0.17031419998966157,
+      "test_accuracy": 1.0,
+      "n_abstractions": 4,
+      "harvested": [
+        "a004"
+      ],
+      "reuse": true,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 4,
+        "n_active": 4,
+        "n_validated": 3,
+        "n_retired": 0,
+        "n_rejected": 1,
+        "items": [
+          {
+            "id": "a001",
+            "body": "evens(var(list))",
+            "score": 0.6,
+            "validated": true,
+            "active": true
+          },
+          {
+            "id": "a002",
+            "body": "evens(var(list))",
+            "score": 0.6,
+            "validated": true,
+            "active": true
+          },
+          {
+            "id": "a003",
+            "body": "evens(var(list))",
+            "score": 0.6,
+            "validated": true,
+            "active": true
+          },
+          {
+            "id": "a004",
+            "body": "evens(var(list))",
+            "score": 0.6,
+            "validated": false,
+            "active": true
+          }
+        ],
+        "rejected": [
+          {
+            "id": "a004",
+            "reason": "constant/meaningless behavior"
+          }
+        ]
+      }
+    },
+    {
+      "seed": 0,
+      "family": "unrelated-max",
+      "arm": "baseline",
+      "task": "abs-unrelated-max-sum_list-s0",
+      "stream_index": 0,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 275,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.20581240000319667,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 0,
+      "family": "unrelated-max",
+      "arm": "baseline",
+      "task": "abs-unrelated-max-len_list-s0",
+      "stream_index": 1,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 283,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.3674409000086598,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 0,
+      "family": "unrelated-max",
+      "arm": "baseline",
+      "task": "abs-unrelated-max-max_list-s0",
+      "stream_index": 2,
+      "accepted": true,
+      "expansions": 162,
+      "nodes": 271,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.19137749998481013,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 0,
+      "family": "unrelated-max",
+      "arm": "baseline",
+      "task": "abs-unrelated-max-min_list-s0",
+      "stream_index": 3,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 281,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.1881940999883227,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 0,
+      "family": "unrelated-max",
+      "arm": "baseline",
+      "task": "abs-unrelated-max-sum_squares-s0",
+      "stream_index": 4,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 278,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.16741009999532253,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 0,
+      "family": "unrelated-max",
+      "arm": "harvest",
+      "task": "abs-unrelated-max-sum_list-s0",
+      "stream_index": 0,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 275,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.16826599999330938,
+      "test_accuracy": 1.0,
+      "n_abstractions": 1,
+      "harvested": [
+        "a001"
+      ],
+      "reuse": true,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 1,
+        "n_active": 1,
+        "n_validated": 1,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [
+          {
+            "id": "a001",
+            "body": "unique(var(list))",
+            "score": 0.5,
+            "validated": true,
+            "active": true
+          }
+        ],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 0,
+      "family": "unrelated-max",
+      "arm": "harvest",
+      "task": "abs-unrelated-max-len_list-s0",
+      "stream_index": 1,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 284,
+      "cache_hits": 31,
+      "timed_out": false,
+      "fit_s": 0.1775844999938272,
+      "test_accuracy": 1.0,
+      "n_abstractions": 2,
+      "harvested": [
+        "a002"
+      ],
+      "reuse": true,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 2,
+        "n_active": 2,
+        "n_validated": 2,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [
+          {
+            "id": "a001",
+            "body": "unique(var(list))",
+            "score": 0.5,
+            "validated": true,
+            "active": true
+          },
+          {
+            "id": "a002",
+            "body": "unique(var(list))",
+            "score": 0.4375,
+            "validated": true,
+            "active": true
+          }
+        ],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 0,
+      "family": "unrelated-max",
+      "arm": "harvest",
+      "task": "abs-unrelated-max-max_list-s0",
+      "stream_index": 2,
+      "accepted": true,
+      "expansions": 162,
+      "nodes": 273,
+      "cache_hits": 32,
+      "timed_out": false,
+      "fit_s": 0.18541830001049675,
+      "test_accuracy": 1.0,
+      "n_abstractions": 2,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 2,
+        "n_active": 2,
+        "n_validated": 2,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [
+          {
+            "id": "a001",
+            "body": "unique(var(list))",
+            "score": 0.5,
+            "validated": true,
+            "active": true
+          },
+          {
+            "id": "a002",
+            "body": "unique(var(list))",
+            "score": 0.4375,
+            "validated": true,
+            "active": true
+          }
+        ],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 0,
+      "family": "unrelated-max",
+      "arm": "harvest",
+      "task": "abs-unrelated-max-min_list-s0",
+      "stream_index": 3,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 283,
+      "cache_hits": 32,
+      "timed_out": false,
+      "fit_s": 0.18199640000239015,
+      "test_accuracy": 1.0,
+      "n_abstractions": 2,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 2,
+        "n_active": 2,
+        "n_validated": 2,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [
+          {
+            "id": "a001",
+            "body": "unique(var(list))",
+            "score": 0.5,
+            "validated": true,
+            "active": true
+          },
+          {
+            "id": "a002",
+            "body": "unique(var(list))",
+            "score": 0.4375,
+            "validated": true,
+            "active": true
+          }
+        ],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 0,
+      "family": "unrelated-max",
+      "arm": "harvest",
+      "task": "abs-unrelated-max-sum_squares-s0",
+      "stream_index": 4,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 280,
+      "cache_hits": 32,
+      "timed_out": false,
+      "fit_s": 0.1729326999920886,
+      "test_accuracy": 1.0,
+      "n_abstractions": 3,
+      "harvested": [
+        "a003"
+      ],
+      "reuse": true,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 3,
+        "n_active": 3,
+        "n_validated": 2,
+        "n_retired": 0,
+        "n_rejected": 1,
+        "items": [
+          {
+            "id": "a001",
+            "body": "unique(var(list))",
+            "score": 0.5,
+            "validated": true,
+            "active": true
+          },
+          {
+            "id": "a002",
+            "body": "unique(var(list))",
+            "score": 0.4375,
+            "validated": true,
+            "active": true
+          },
+          {
+            "id": "a003",
+            "body": "unique(var(list))",
+            "score": 0.5,
+            "validated": false,
+            "active": true
+          }
+        ],
+        "rejected": [
+          {
+            "id": "a003",
+            "reason": "constant/meaningless behavior"
+          }
+        ]
+      }
+    },
+    {
+      "seed": 0,
+      "family": "unrelated-sq",
+      "arm": "baseline",
+      "task": "abs-unrelated-sq-sum_list-s0",
+      "stream_index": 0,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 281,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.1761895999952685,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 0,
+      "family": "unrelated-sq",
+      "arm": "baseline",
+      "task": "abs-unrelated-sq-len_list-s0",
+      "stream_index": 1,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 279,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.15227049999521114,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 0,
+      "family": "unrelated-sq",
+      "arm": "baseline",
+      "task": "abs-unrelated-sq-max_list-s0",
+      "stream_index": 2,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 281,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.22225560000515543,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 0,
+      "family": "unrelated-sq",
+      "arm": "baseline",
+      "task": "abs-unrelated-sq-min_list-s0",
+      "stream_index": 3,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 279,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.16285059999790974,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 0,
+      "family": "unrelated-sq",
+      "arm": "baseline",
+      "task": "abs-unrelated-sq-sum_squares-s0",
+      "stream_index": 4,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 282,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.16503190001822077,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 0,
+      "family": "unrelated-sq",
+      "arm": "harvest",
+      "task": "abs-unrelated-sq-sum_list-s0",
+      "stream_index": 0,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 281,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.1689009999972768,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 0,
+      "family": "unrelated-sq",
+      "arm": "harvest",
+      "task": "abs-unrelated-sq-len_list-s0",
+      "stream_index": 1,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 279,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.17736209998838603,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 0,
+      "family": "unrelated-sq",
+      "arm": "harvest",
+      "task": "abs-unrelated-sq-max_list-s0",
+      "stream_index": 2,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 281,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.197582799999509,
+      "test_accuracy": 1.0,
+      "n_abstractions": 1,
+      "harvested": [
+        "a001"
+      ],
+      "reuse": true,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 1,
+        "n_active": 1,
+        "n_validated": 1,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [
+          {
+            "id": "a001",
+            "body": "map_square(var(list))",
+            "score": 0.5,
+            "validated": true,
+            "active": true
+          }
+        ],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 0,
+      "family": "unrelated-sq",
+      "arm": "harvest",
+      "task": "abs-unrelated-sq-min_list-s0",
+      "stream_index": 3,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 280,
+      "cache_hits": 31,
+      "timed_out": false,
+      "fit_s": 0.1684077999962028,
+      "test_accuracy": 1.0,
+      "n_abstractions": 2,
+      "harvested": [
+        "a002"
+      ],
+      "reuse": true,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 2,
+        "n_active": 2,
+        "n_validated": 2,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [
+          {
+            "id": "a001",
+            "body": "map_square(var(list))",
+            "score": 0.5,
+            "validated": true,
+            "active": true
+          },
+          {
+            "id": "a002",
+            "body": "map_square(var(list))",
+            "score": 0.5,
+            "validated": true,
+            "active": true
+          }
+        ],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 0,
+      "family": "unrelated-sq",
+      "arm": "harvest",
+      "task": "abs-unrelated-sq-sum_squares-s0",
+      "stream_index": 4,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 284,
+      "cache_hits": 32,
+      "timed_out": false,
+      "fit_s": 0.16365329999825917,
+      "test_accuracy": 1.0,
+      "n_abstractions": 3,
+      "harvested": [
+        "a003"
+      ],
+      "reuse": true,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 3,
+        "n_active": 3,
+        "n_validated": 2,
+        "n_retired": 0,
+        "n_rejected": 1,
+        "items": [
+          {
+            "id": "a001",
+            "body": "map_square(var(list))",
+            "score": 0.5,
+            "validated": true,
+            "active": true
+          },
+          {
+            "id": "a002",
+            "body": "map_square(var(list))",
+            "score": 0.5,
+            "validated": true,
+            "active": true
+          },
+          {
+            "id": "a003",
+            "body": "map_square(var(list))",
+            "score": 0.5,
+            "validated": false,
+            "active": true
+          }
+        ],
+        "rejected": [
+          {
+            "id": "a003",
+            "reason": "constant/meaningless behavior"
+          }
+        ]
+      }
+    },
+    {
+      "seed": 1,
+      "family": "shared-core",
+      "arm": "baseline",
+      "task": "abs-shared-core-sum_list-s1",
+      "stream_index": 0,
+      "accepted": false,
+      "expansions": 164,
+      "nodes": 280,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.17850340000586584,
+      "test_accuracy": 0.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "search-explosion",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 1,
+      "family": "shared-core",
+      "arm": "baseline",
+      "task": "abs-shared-core-len_list-s1",
+      "stream_index": 1,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 285,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.1697330999886617,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 1,
+      "family": "shared-core",
+      "arm": "baseline",
+      "task": "abs-shared-core-max_list-s1",
+      "stream_index": 2,
+      "accepted": false,
+      "expansions": 164,
+      "nodes": 276,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.1710284999862779,
+      "test_accuracy": 0.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "search-explosion",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 1,
+      "family": "shared-core",
+      "arm": "baseline",
+      "task": "abs-shared-core-min_list-s1",
+      "stream_index": 3,
+      "accepted": false,
+      "expansions": 164,
+      "nodes": 279,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.17120519999298267,
+      "test_accuracy": 0.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "search-explosion",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 1,
+      "family": "shared-core",
+      "arm": "baseline",
+      "task": "abs-shared-core-sum_squares-s1",
+      "stream_index": 4,
+      "accepted": false,
+      "expansions": 164,
+      "nodes": 282,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.19339909998234361,
+      "test_accuracy": 0.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "search-explosion",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 1,
+      "family": "shared-core",
+      "arm": "harvest",
+      "task": "abs-shared-core-sum_list-s1",
+      "stream_index": 0,
+      "accepted": false,
+      "expansions": 164,
+      "nodes": 280,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.17433360000723042,
+      "test_accuracy": 0.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "search-explosion",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 1,
+      "family": "shared-core",
+      "arm": "harvest",
+      "task": "abs-shared-core-len_list-s1",
+      "stream_index": 1,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 285,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.16756640002131462,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 1,
+      "family": "shared-core",
+      "arm": "harvest",
+      "task": "abs-shared-core-max_list-s1",
+      "stream_index": 2,
+      "accepted": false,
+      "expansions": 164,
+      "nodes": 276,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.16273879999062046,
+      "test_accuracy": 0.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "search-explosion",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 1,
+      "family": "shared-core",
+      "arm": "harvest",
+      "task": "abs-shared-core-min_list-s1",
+      "stream_index": 3,
+      "accepted": false,
+      "expansions": 164,
+      "nodes": 279,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.16895739999017678,
+      "test_accuracy": 0.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "search-explosion",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 1,
+      "family": "shared-core",
+      "arm": "harvest",
+      "task": "abs-shared-core-sum_squares-s1",
+      "stream_index": 4,
+      "accepted": false,
+      "expansions": 164,
+      "nodes": 282,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.170357499999227,
+      "test_accuracy": 0.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "search-explosion",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 1,
+      "family": "unrelated-sum",
+      "arm": "baseline",
+      "task": "abs-unrelated-sum-sum_list-s1",
+      "stream_index": 0,
+      "accepted": true,
+      "expansions": 169,
+      "nodes": 289,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.164429199998267,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 1,
+      "family": "unrelated-sum",
+      "arm": "baseline",
+      "task": "abs-unrelated-sum-len_list-s1",
+      "stream_index": 1,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 281,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.16461239999625832,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 1,
+      "family": "unrelated-sum",
+      "arm": "baseline",
+      "task": "abs-unrelated-sum-max_list-s1",
+      "stream_index": 2,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 288,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.16453869998804294,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 1,
+      "family": "unrelated-sum",
+      "arm": "baseline",
+      "task": "abs-unrelated-sum-min_list-s1",
+      "stream_index": 3,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 283,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.16300549998413771,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 1,
+      "family": "unrelated-sum",
+      "arm": "baseline",
+      "task": "abs-unrelated-sum-sum_squares-s1",
+      "stream_index": 4,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 283,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.17903660002048127,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 1,
+      "family": "unrelated-sum",
+      "arm": "harvest",
+      "task": "abs-unrelated-sum-sum_list-s1",
+      "stream_index": 0,
+      "accepted": true,
+      "expansions": 169,
+      "nodes": 289,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.13661339998361655,
+      "test_accuracy": 1.0,
+      "n_abstractions": 1,
+      "harvested": [
+        "a001"
+      ],
+      "reuse": true,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 1,
+        "n_active": 1,
+        "n_validated": 1,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [
+          {
+            "id": "a001",
+            "body": "evens(var(list))",
+            "score": 0.5,
+            "validated": true,
+            "active": true
+          }
+        ],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 1,
+      "family": "unrelated-sum",
+      "arm": "harvest",
+      "task": "abs-unrelated-sum-len_list-s1",
+      "stream_index": 1,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 282,
+      "cache_hits": 31,
+      "timed_out": false,
+      "fit_s": 0.1634986000135541,
+      "test_accuracy": 1.0,
+      "n_abstractions": 1,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 1,
+        "n_active": 1,
+        "n_validated": 1,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [
+          {
+            "id": "a001",
+            "body": "evens(var(list))",
+            "score": 0.5,
+            "validated": true,
+            "active": true
+          }
+        ],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 1,
+      "family": "unrelated-sum",
+      "arm": "harvest",
+      "task": "abs-unrelated-sum-max_list-s1",
+      "stream_index": 2,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 289,
+      "cache_hits": 31,
+      "timed_out": false,
+      "fit_s": 0.17392739999922924,
+      "test_accuracy": 1.0,
+      "n_abstractions": 2,
+      "harvested": [
+        "a002"
+      ],
+      "reuse": true,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 2,
+        "n_active": 2,
+        "n_validated": 2,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [
+          {
+            "id": "a001",
+            "body": "evens(var(list))",
+            "score": 0.5,
+            "validated": true,
+            "active": true
+          },
+          {
+            "id": "a002",
+            "body": "evens(var(list))",
+            "score": 0.5,
+            "validated": true,
+            "active": true
+          }
+        ],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 1,
+      "family": "unrelated-sum",
+      "arm": "harvest",
+      "task": "abs-unrelated-sum-min_list-s1",
+      "stream_index": 3,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 285,
+      "cache_hits": 32,
+      "timed_out": false,
+      "fit_s": 0.16876430000411347,
+      "test_accuracy": 1.0,
+      "n_abstractions": 2,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 2,
+        "n_active": 2,
+        "n_validated": 2,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [
+          {
+            "id": "a001",
+            "body": "evens(var(list))",
+            "score": 0.5,
+            "validated": true,
+            "active": true
+          },
+          {
+            "id": "a002",
+            "body": "evens(var(list))",
+            "score": 0.5,
+            "validated": true,
+            "active": true
+          }
+        ],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 1,
+      "family": "unrelated-sum",
+      "arm": "harvest",
+      "task": "abs-unrelated-sum-sum_squares-s1",
+      "stream_index": 4,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 285,
+      "cache_hits": 32,
+      "timed_out": false,
+      "fit_s": 0.13732349997735582,
+      "test_accuracy": 1.0,
+      "n_abstractions": 3,
+      "harvested": [
+        "a003"
+      ],
+      "reuse": true,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 3,
+        "n_active": 3,
+        "n_validated": 2,
+        "n_retired": 0,
+        "n_rejected": 1,
+        "items": [
+          {
+            "id": "a001",
+            "body": "evens(var(list))",
+            "score": 0.5,
+            "validated": true,
+            "active": true
+          },
+          {
+            "id": "a002",
+            "body": "evens(var(list))",
+            "score": 0.5,
+            "validated": true,
+            "active": true
+          },
+          {
+            "id": "a003",
+            "body": "evens(var(list))",
+            "score": 0.5,
+            "validated": false,
+            "active": true
+          }
+        ],
+        "rejected": [
+          {
+            "id": "a003",
+            "reason": "constant/meaningless behavior"
+          }
+        ]
+      }
+    },
+    {
+      "seed": 1,
+      "family": "unrelated-max",
+      "arm": "baseline",
+      "task": "abs-unrelated-max-sum_list-s1",
+      "stream_index": 0,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 279,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.13611570000648499,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 1,
+      "family": "unrelated-max",
+      "arm": "baseline",
+      "task": "abs-unrelated-max-len_list-s1",
+      "stream_index": 1,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 279,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.1460034000047017,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 1,
+      "family": "unrelated-max",
+      "arm": "baseline",
+      "task": "abs-unrelated-max-max_list-s1",
+      "stream_index": 2,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 272,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.163907999987714,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 1,
+      "family": "unrelated-max",
+      "arm": "baseline",
+      "task": "abs-unrelated-max-min_list-s1",
+      "stream_index": 3,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 284,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.16537129998323508,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 1,
+      "family": "unrelated-max",
+      "arm": "baseline",
+      "task": "abs-unrelated-max-sum_squares-s1",
+      "stream_index": 4,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 283,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.1646857000014279,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 1,
+      "family": "unrelated-max",
+      "arm": "harvest",
+      "task": "abs-unrelated-max-sum_list-s1",
+      "stream_index": 0,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 279,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.1603303000156302,
+      "test_accuracy": 1.0,
+      "n_abstractions": 1,
+      "harvested": [
+        "a001"
+      ],
+      "reuse": true,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 1,
+        "n_active": 1,
+        "n_validated": 1,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [
+          {
+            "id": "a001",
+            "body": "unique(var(list))",
+            "score": 0.5,
+            "validated": true,
+            "active": true
+          }
+        ],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 1,
+      "family": "unrelated-max",
+      "arm": "harvest",
+      "task": "abs-unrelated-max-len_list-s1",
+      "stream_index": 1,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 280,
+      "cache_hits": 31,
+      "timed_out": false,
+      "fit_s": 0.1964954000141006,
+      "test_accuracy": 1.0,
+      "n_abstractions": 2,
+      "harvested": [
+        "a002"
+      ],
+      "reuse": true,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 2,
+        "n_active": 2,
+        "n_validated": 2,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [
+          {
+            "id": "a001",
+            "body": "unique(var(list))",
+            "score": 0.5,
+            "validated": true,
+            "active": true
+          },
+          {
+            "id": "a002",
+            "body": "unique(var(list))",
+            "score": 0.4375,
+            "validated": true,
+            "active": true
+          }
+        ],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 1,
+      "family": "unrelated-max",
+      "arm": "harvest",
+      "task": "abs-unrelated-max-max_list-s1",
+      "stream_index": 2,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 274,
+      "cache_hits": 32,
+      "timed_out": false,
+      "fit_s": 0.16338769998401403,
+      "test_accuracy": 1.0,
+      "n_abstractions": 2,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 2,
+        "n_active": 2,
+        "n_validated": 2,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [
+          {
+            "id": "a001",
+            "body": "unique(var(list))",
+            "score": 0.5,
+            "validated": true,
+            "active": true
+          },
+          {
+            "id": "a002",
+            "body": "unique(var(list))",
+            "score": 0.4375,
+            "validated": true,
+            "active": true
+          }
+        ],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 1,
+      "family": "unrelated-max",
+      "arm": "harvest",
+      "task": "abs-unrelated-max-min_list-s1",
+      "stream_index": 3,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 286,
+      "cache_hits": 32,
+      "timed_out": false,
+      "fit_s": 0.16098210000200197,
+      "test_accuracy": 1.0,
+      "n_abstractions": 2,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 2,
+        "n_active": 2,
+        "n_validated": 2,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [
+          {
+            "id": "a001",
+            "body": "unique(var(list))",
+            "score": 0.5,
+            "validated": true,
+            "active": true
+          },
+          {
+            "id": "a002",
+            "body": "unique(var(list))",
+            "score": 0.4375,
+            "validated": true,
+            "active": true
+          }
+        ],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 1,
+      "family": "unrelated-max",
+      "arm": "harvest",
+      "task": "abs-unrelated-max-sum_squares-s1",
+      "stream_index": 4,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 285,
+      "cache_hits": 32,
+      "timed_out": false,
+      "fit_s": 0.16448840001248755,
+      "test_accuracy": 1.0,
+      "n_abstractions": 3,
+      "harvested": [
+        "a003"
+      ],
+      "reuse": true,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 3,
+        "n_active": 3,
+        "n_validated": 2,
+        "n_retired": 0,
+        "n_rejected": 1,
+        "items": [
+          {
+            "id": "a001",
+            "body": "unique(var(list))",
+            "score": 0.5,
+            "validated": true,
+            "active": true
+          },
+          {
+            "id": "a002",
+            "body": "unique(var(list))",
+            "score": 0.4375,
+            "validated": true,
+            "active": true
+          },
+          {
+            "id": "a003",
+            "body": "unique(var(list))",
+            "score": 0.5,
+            "validated": false,
+            "active": true
+          }
+        ],
+        "rejected": [
+          {
+            "id": "a003",
+            "reason": "constant/meaningless behavior"
+          }
+        ]
+      }
+    },
+    {
+      "seed": 1,
+      "family": "unrelated-sq",
+      "arm": "baseline",
+      "task": "abs-unrelated-sq-sum_list-s1",
+      "stream_index": 0,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 275,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.17679369999677874,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 1,
+      "family": "unrelated-sq",
+      "arm": "baseline",
+      "task": "abs-unrelated-sq-len_list-s1",
+      "stream_index": 1,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 281,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.15841070000897162,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 1,
+      "family": "unrelated-sq",
+      "arm": "baseline",
+      "task": "abs-unrelated-sq-max_list-s1",
+      "stream_index": 2,
+      "accepted": true,
+      "expansions": 167,
+      "nodes": 288,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.14421220001531765,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 1,
+      "family": "unrelated-sq",
+      "arm": "baseline",
+      "task": "abs-unrelated-sq-min_list-s1",
+      "stream_index": 3,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 282,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.16392339998856187,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 1,
+      "family": "unrelated-sq",
+      "arm": "baseline",
+      "task": "abs-unrelated-sq-sum_squares-s1",
+      "stream_index": 4,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 283,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.1471509999828413,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 1,
+      "family": "unrelated-sq",
+      "arm": "harvest",
+      "task": "abs-unrelated-sq-sum_list-s1",
+      "stream_index": 0,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 275,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.15145490001305006,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 1,
+      "family": "unrelated-sq",
+      "arm": "harvest",
+      "task": "abs-unrelated-sq-len_list-s1",
+      "stream_index": 1,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 281,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.15995719999773428,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 1,
+      "family": "unrelated-sq",
+      "arm": "harvest",
+      "task": "abs-unrelated-sq-max_list-s1",
+      "stream_index": 2,
+      "accepted": true,
+      "expansions": 167,
+      "nodes": 288,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.1753251000191085,
+      "test_accuracy": 1.0,
+      "n_abstractions": 1,
+      "harvested": [
+        "a001"
+      ],
+      "reuse": true,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 1,
+        "n_active": 1,
+        "n_validated": 1,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [
+          {
+            "id": "a001",
+            "body": "map_square(var(list))",
+            "score": 0.5,
+            "validated": true,
+            "active": true
+          }
+        ],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 1,
+      "family": "unrelated-sq",
+      "arm": "harvest",
+      "task": "abs-unrelated-sq-min_list-s1",
+      "stream_index": 3,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 283,
+      "cache_hits": 31,
+      "timed_out": false,
+      "fit_s": 0.17072000002372079,
+      "test_accuracy": 1.0,
+      "n_abstractions": 2,
+      "harvested": [
+        "a002"
+      ],
+      "reuse": true,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 2,
+        "n_active": 2,
+        "n_validated": 2,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [
+          {
+            "id": "a001",
+            "body": "map_square(var(list))",
+            "score": 0.5,
+            "validated": true,
+            "active": true
+          },
+          {
+            "id": "a002",
+            "body": "map_square(var(list))",
+            "score": 0.5,
+            "validated": true,
+            "active": true
+          }
+        ],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 1,
+      "family": "unrelated-sq",
+      "arm": "harvest",
+      "task": "abs-unrelated-sq-sum_squares-s1",
+      "stream_index": 4,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 285,
+      "cache_hits": 32,
+      "timed_out": false,
+      "fit_s": 0.16875330000766553,
+      "test_accuracy": 1.0,
+      "n_abstractions": 3,
+      "harvested": [
+        "a003"
+      ],
+      "reuse": true,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 3,
+        "n_active": 3,
+        "n_validated": 2,
+        "n_retired": 0,
+        "n_rejected": 1,
+        "items": [
+          {
+            "id": "a001",
+            "body": "map_square(var(list))",
+            "score": 0.5,
+            "validated": true,
+            "active": true
+          },
+          {
+            "id": "a002",
+            "body": "map_square(var(list))",
+            "score": 0.5,
+            "validated": true,
+            "active": true
+          },
+          {
+            "id": "a003",
+            "body": "map_square(var(list))",
+            "score": 0.5,
+            "validated": false,
+            "active": true
+          }
+        ],
+        "rejected": [
+          {
+            "id": "a003",
+            "reason": "constant/meaningless behavior"
+          }
+        ]
+      }
+    },
+    {
+      "seed": 2,
+      "family": "shared-core",
+      "arm": "baseline",
+      "task": "abs-shared-core-sum_list-s2",
+      "stream_index": 0,
+      "accepted": false,
+      "expansions": 164,
+      "nodes": 281,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.17360199999529868,
+      "test_accuracy": 0.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "search-explosion",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 2,
+      "family": "shared-core",
+      "arm": "baseline",
+      "task": "abs-shared-core-len_list-s2",
+      "stream_index": 1,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 272,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.1779116000107024,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 2,
+      "family": "shared-core",
+      "arm": "baseline",
+      "task": "abs-shared-core-max_list-s2",
+      "stream_index": 2,
+      "accepted": false,
+      "expansions": 164,
+      "nodes": 282,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.16207890000077896,
+      "test_accuracy": 0.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "search-explosion",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 2,
+      "family": "shared-core",
+      "arm": "baseline",
+      "task": "abs-shared-core-min_list-s2",
+      "stream_index": 3,
+      "accepted": true,
+      "expansions": 162,
+      "nodes": 264,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.14561740000499412,
+      "test_accuracy": 0.375,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "undergeneralization",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 2,
+      "family": "shared-core",
+      "arm": "baseline",
+      "task": "abs-shared-core-sum_squares-s2",
+      "stream_index": 4,
+      "accepted": false,
+      "expansions": 164,
+      "nodes": 279,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.1651780999964103,
+      "test_accuracy": 0.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "search-explosion",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 2,
+      "family": "shared-core",
+      "arm": "harvest",
+      "task": "abs-shared-core-sum_list-s2",
+      "stream_index": 0,
+      "accepted": false,
+      "expansions": 164,
+      "nodes": 281,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.16598230000818148,
+      "test_accuracy": 0.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "search-explosion",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 2,
+      "family": "shared-core",
+      "arm": "harvest",
+      "task": "abs-shared-core-len_list-s2",
+      "stream_index": 1,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 272,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.2010420000005979,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 2,
+      "family": "shared-core",
+      "arm": "harvest",
+      "task": "abs-shared-core-max_list-s2",
+      "stream_index": 2,
+      "accepted": false,
+      "expansions": 164,
+      "nodes": 282,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.2098097999987658,
+      "test_accuracy": 0.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "search-explosion",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 2,
+      "family": "shared-core",
+      "arm": "harvest",
+      "task": "abs-shared-core-min_list-s2",
+      "stream_index": 3,
+      "accepted": true,
+      "expansions": 162,
+      "nodes": 264,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.19192440001643263,
+      "test_accuracy": 0.375,
+      "n_abstractions": 1,
+      "harvested": [
+        "a001"
+      ],
+      "reuse": false,
+      "failure_category": "undergeneralization",
+      "abstraction_report": {
+        "n_total": 1,
+        "n_active": 1,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 1,
+        "items": [
+          {
+            "id": "a001",
+            "body": "double(lit(3))",
+            "score": 0.525,
+            "validated": false,
+            "active": true
+          }
+        ],
+        "rejected": [
+          {
+            "id": "a001",
+            "reason": "constant/meaningless behavior"
+          }
+        ]
+      }
+    },
+    {
+      "seed": 2,
+      "family": "shared-core",
+      "arm": "harvest",
+      "task": "abs-shared-core-sum_squares-s2",
+      "stream_index": 4,
+      "accepted": false,
+      "expansions": 164,
+      "nodes": 279,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.24231969998800196,
+      "test_accuracy": 0.0,
+      "n_abstractions": 1,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "search-explosion",
+      "abstraction_report": {
+        "n_total": 1,
+        "n_active": 1,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 1,
+        "items": [
+          {
+            "id": "a001",
+            "body": "double(lit(3))",
+            "score": 0.525,
+            "validated": false,
+            "active": true
+          }
+        ],
+        "rejected": [
+          {
+            "id": "a001",
+            "reason": "constant/meaningless behavior"
+          }
+        ]
+      }
+    },
+    {
+      "seed": 2,
+      "family": "unrelated-sum",
+      "arm": "baseline",
+      "task": "abs-unrelated-sum-sum_list-s2",
+      "stream_index": 0,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 281,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.224870700010797,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 2,
+      "family": "unrelated-sum",
+      "arm": "baseline",
+      "task": "abs-unrelated-sum-len_list-s2",
+      "stream_index": 1,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 285,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.1734786000160966,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 2,
+      "family": "unrelated-sum",
+      "arm": "baseline",
+      "task": "abs-unrelated-sum-max_list-s2",
+      "stream_index": 2,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 277,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.1691802999994252,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 2,
+      "family": "unrelated-sum",
+      "arm": "baseline",
+      "task": "abs-unrelated-sum-min_list-s2",
+      "stream_index": 3,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 282,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.18488039998919703,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 2,
+      "family": "unrelated-sum",
+      "arm": "baseline",
+      "task": "abs-unrelated-sum-sum_squares-s2",
+      "stream_index": 4,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 280,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.18559340000501834,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 2,
+      "family": "unrelated-sum",
+      "arm": "harvest",
+      "task": "abs-unrelated-sum-sum_list-s2",
+      "stream_index": 0,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 281,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.20027480000862852,
+      "test_accuracy": 1.0,
+      "n_abstractions": 1,
+      "harvested": [
+        "a001"
+      ],
+      "reuse": true,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 1,
+        "n_active": 1,
+        "n_validated": 1,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [
+          {
+            "id": "a001",
+            "body": "evens(var(list))",
+            "score": 0.6,
+            "validated": true,
+            "active": true
+          }
+        ],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 2,
+      "family": "unrelated-sum",
+      "arm": "harvest",
+      "task": "abs-unrelated-sum-len_list-s2",
+      "stream_index": 1,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 286,
+      "cache_hits": 31,
+      "timed_out": false,
+      "fit_s": 0.19204709999030456,
+      "test_accuracy": 1.0,
+      "n_abstractions": 1,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 1,
+        "n_active": 1,
+        "n_validated": 1,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [
+          {
+            "id": "a001",
+            "body": "evens(var(list))",
+            "score": 0.6,
+            "validated": true,
+            "active": true
+          }
+        ],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 2,
+      "family": "unrelated-sum",
+      "arm": "harvest",
+      "task": "abs-unrelated-sum-max_list-s2",
+      "stream_index": 2,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 278,
+      "cache_hits": 31,
+      "timed_out": false,
+      "fit_s": 0.17201959999511018,
+      "test_accuracy": 1.0,
+      "n_abstractions": 2,
+      "harvested": [
+        "a002"
+      ],
+      "reuse": true,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 2,
+        "n_active": 2,
+        "n_validated": 2,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [
+          {
+            "id": "a001",
+            "body": "evens(var(list))",
+            "score": 0.6,
+            "validated": true,
+            "active": true
+          },
+          {
+            "id": "a002",
+            "body": "evens(var(list))",
+            "score": 0.6,
+            "validated": true,
+            "active": true
+          }
+        ],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 2,
+      "family": "unrelated-sum",
+      "arm": "harvest",
+      "task": "abs-unrelated-sum-min_list-s2",
+      "stream_index": 3,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 284,
+      "cache_hits": 32,
+      "timed_out": false,
+      "fit_s": 0.1669646999798715,
+      "test_accuracy": 1.0,
+      "n_abstractions": 3,
+      "harvested": [
+        "a003"
+      ],
+      "reuse": true,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 3,
+        "n_active": 3,
+        "n_validated": 3,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [
+          {
+            "id": "a001",
+            "body": "evens(var(list))",
+            "score": 0.6,
+            "validated": true,
+            "active": true
+          },
+          {
+            "id": "a002",
+            "body": "evens(var(list))",
+            "score": 0.6,
+            "validated": true,
+            "active": true
+          },
+          {
+            "id": "a003",
+            "body": "evens(var(list))",
+            "score": 0.6,
+            "validated": true,
+            "active": true
+          }
+        ],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 2,
+      "family": "unrelated-sum",
+      "arm": "harvest",
+      "task": "abs-unrelated-sum-sum_squares-s2",
+      "stream_index": 4,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 283,
+      "cache_hits": 33,
+      "timed_out": false,
+      "fit_s": 0.1805797000124585,
+      "test_accuracy": 1.0,
+      "n_abstractions": 4,
+      "harvested": [
+        "a004"
+      ],
+      "reuse": true,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 4,
+        "n_active": 4,
+        "n_validated": 3,
+        "n_retired": 0,
+        "n_rejected": 1,
+        "items": [
+          {
+            "id": "a001",
+            "body": "evens(var(list))",
+            "score": 0.6,
+            "validated": true,
+            "active": true
+          },
+          {
+            "id": "a002",
+            "body": "evens(var(list))",
+            "score": 0.6,
+            "validated": true,
+            "active": true
+          },
+          {
+            "id": "a003",
+            "body": "evens(var(list))",
+            "score": 0.6,
+            "validated": true,
+            "active": true
+          },
+          {
+            "id": "a004",
+            "body": "evens(var(list))",
+            "score": 0.6,
+            "validated": false,
+            "active": true
+          }
+        ],
+        "rejected": [
+          {
+            "id": "a004",
+            "reason": "constant/meaningless behavior"
+          }
+        ]
+      }
+    },
+    {
+      "seed": 2,
+      "family": "unrelated-max",
+      "arm": "baseline",
+      "task": "abs-unrelated-max-sum_list-s2",
+      "stream_index": 0,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 283,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.2179508999979589,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 2,
+      "family": "unrelated-max",
+      "arm": "baseline",
+      "task": "abs-unrelated-max-len_list-s2",
+      "stream_index": 1,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 275,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.181880700023612,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 2,
+      "family": "unrelated-max",
+      "arm": "baseline",
+      "task": "abs-unrelated-max-max_list-s2",
+      "stream_index": 2,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 281,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.16961630000150762,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 2,
+      "family": "unrelated-max",
+      "arm": "baseline",
+      "task": "abs-unrelated-max-min_list-s2",
+      "stream_index": 3,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 274,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.16208440001355484,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 2,
+      "family": "unrelated-max",
+      "arm": "baseline",
+      "task": "abs-unrelated-max-sum_squares-s2",
+      "stream_index": 4,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 280,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.16377700000884943,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 2,
+      "family": "unrelated-max",
+      "arm": "harvest",
+      "task": "abs-unrelated-max-sum_list-s2",
+      "stream_index": 0,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 283,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.16960459999972954,
+      "test_accuracy": 1.0,
+      "n_abstractions": 1,
+      "harvested": [
+        "a001"
+      ],
+      "reuse": true,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 1,
+        "n_active": 1,
+        "n_validated": 1,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [
+          {
+            "id": "a001",
+            "body": "unique(var(list))",
+            "score": 0.5,
+            "validated": true,
+            "active": true
+          }
+        ],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 2,
+      "family": "unrelated-max",
+      "arm": "harvest",
+      "task": "abs-unrelated-max-len_list-s2",
+      "stream_index": 1,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 276,
+      "cache_hits": 31,
+      "timed_out": false,
+      "fit_s": 0.18190369999501854,
+      "test_accuracy": 1.0,
+      "n_abstractions": 2,
+      "harvested": [
+        "a002"
+      ],
+      "reuse": true,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 2,
+        "n_active": 2,
+        "n_validated": 2,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [
+          {
+            "id": "a001",
+            "body": "unique(var(list))",
+            "score": 0.5,
+            "validated": true,
+            "active": true
+          },
+          {
+            "id": "a002",
+            "body": "unique(var(list))",
+            "score": 0.5,
+            "validated": true,
+            "active": true
+          }
+        ],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 2,
+      "family": "unrelated-max",
+      "arm": "harvest",
+      "task": "abs-unrelated-max-max_list-s2",
+      "stream_index": 2,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 283,
+      "cache_hits": 32,
+      "timed_out": false,
+      "fit_s": 0.1707481000048574,
+      "test_accuracy": 1.0,
+      "n_abstractions": 2,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 2,
+        "n_active": 2,
+        "n_validated": 2,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [
+          {
+            "id": "a001",
+            "body": "unique(var(list))",
+            "score": 0.5,
+            "validated": true,
+            "active": true
+          },
+          {
+            "id": "a002",
+            "body": "unique(var(list))",
+            "score": 0.5,
+            "validated": true,
+            "active": true
+          }
+        ],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 2,
+      "family": "unrelated-max",
+      "arm": "harvest",
+      "task": "abs-unrelated-max-min_list-s2",
+      "stream_index": 3,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 276,
+      "cache_hits": 32,
+      "timed_out": false,
+      "fit_s": 0.17407559999264777,
+      "test_accuracy": 1.0,
+      "n_abstractions": 2,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 2,
+        "n_active": 2,
+        "n_validated": 2,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [
+          {
+            "id": "a001",
+            "body": "unique(var(list))",
+            "score": 0.5,
+            "validated": true,
+            "active": true
+          },
+          {
+            "id": "a002",
+            "body": "unique(var(list))",
+            "score": 0.5,
+            "validated": true,
+            "active": true
+          }
+        ],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 2,
+      "family": "unrelated-max",
+      "arm": "harvest",
+      "task": "abs-unrelated-max-sum_squares-s2",
+      "stream_index": 4,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 282,
+      "cache_hits": 32,
+      "timed_out": false,
+      "fit_s": 0.15949140000157058,
+      "test_accuracy": 1.0,
+      "n_abstractions": 3,
+      "harvested": [
+        "a003"
+      ],
+      "reuse": true,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 3,
+        "n_active": 3,
+        "n_validated": 2,
+        "n_retired": 0,
+        "n_rejected": 1,
+        "items": [
+          {
+            "id": "a001",
+            "body": "unique(var(list))",
+            "score": 0.5,
+            "validated": true,
+            "active": true
+          },
+          {
+            "id": "a002",
+            "body": "unique(var(list))",
+            "score": 0.5,
+            "validated": true,
+            "active": true
+          },
+          {
+            "id": "a003",
+            "body": "unique(var(list))",
+            "score": 0.5,
+            "validated": false,
+            "active": true
+          }
+        ],
+        "rejected": [
+          {
+            "id": "a003",
+            "reason": "constant/meaningless behavior"
+          }
+        ]
+      }
+    },
+    {
+      "seed": 2,
+      "family": "unrelated-sq",
+      "arm": "baseline",
+      "task": "abs-unrelated-sq-sum_list-s2",
+      "stream_index": 0,
+      "accepted": true,
+      "expansions": 162,
+      "nodes": 270,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.15639530000044033,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 2,
+      "family": "unrelated-sq",
+      "arm": "baseline",
+      "task": "abs-unrelated-sq-len_list-s2",
+      "stream_index": 1,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 279,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.17518039999413304,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 2,
+      "family": "unrelated-sq",
+      "arm": "baseline",
+      "task": "abs-unrelated-sq-max_list-s2",
+      "stream_index": 2,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 278,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.17505379999056458,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 2,
+      "family": "unrelated-sq",
+      "arm": "baseline",
+      "task": "abs-unrelated-sq-min_list-s2",
+      "stream_index": 3,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 280,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.18093850000877865,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 2,
+      "family": "unrelated-sq",
+      "arm": "baseline",
+      "task": "abs-unrelated-sq-sum_squares-s2",
+      "stream_index": 4,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 284,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.15939039998920634,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 2,
+      "family": "unrelated-sq",
+      "arm": "harvest",
+      "task": "abs-unrelated-sq-sum_list-s2",
+      "stream_index": 0,
+      "accepted": true,
+      "expansions": 162,
+      "nodes": 270,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.17666209998424165,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 2,
+      "family": "unrelated-sq",
+      "arm": "harvest",
+      "task": "abs-unrelated-sq-len_list-s2",
+      "stream_index": 1,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 279,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.16660900000715628,
+      "test_accuracy": 1.0,
+      "n_abstractions": 0,
+      "harvested": [],
+      "reuse": false,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 0,
+        "n_active": 0,
+        "n_validated": 0,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 2,
+      "family": "unrelated-sq",
+      "arm": "harvest",
+      "task": "abs-unrelated-sq-max_list-s2",
+      "stream_index": 2,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 278,
+      "cache_hits": 30,
+      "timed_out": false,
+      "fit_s": 0.17204900001524948,
+      "test_accuracy": 1.0,
+      "n_abstractions": 1,
+      "harvested": [
+        "a001"
+      ],
+      "reuse": true,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 1,
+        "n_active": 1,
+        "n_validated": 1,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [
+          {
+            "id": "a001",
+            "body": "map_square(var(list))",
+            "score": 0.5,
+            "validated": true,
+            "active": true
+          }
+        ],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 2,
+      "family": "unrelated-sq",
+      "arm": "harvest",
+      "task": "abs-unrelated-sq-min_list-s2",
+      "stream_index": 3,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 281,
+      "cache_hits": 31,
+      "timed_out": false,
+      "fit_s": 0.1620186000072863,
+      "test_accuracy": 1.0,
+      "n_abstractions": 2,
+      "harvested": [
+        "a002"
+      ],
+      "reuse": true,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 2,
+        "n_active": 2,
+        "n_validated": 2,
+        "n_retired": 0,
+        "n_rejected": 0,
+        "items": [
+          {
+            "id": "a001",
+            "body": "map_square(var(list))",
+            "score": 0.5,
+            "validated": true,
+            "active": true
+          },
+          {
+            "id": "a002",
+            "body": "map_square(var(list))",
+            "score": 0.5,
+            "validated": true,
+            "active": true
+          }
+        ],
+        "rejected": []
+      }
+    },
+    {
+      "seed": 2,
+      "family": "unrelated-sq",
+      "arm": "harvest",
+      "task": "abs-unrelated-sq-sum_squares-s2",
+      "stream_index": 4,
+      "accepted": true,
+      "expansions": 164,
+      "nodes": 286,
+      "cache_hits": 32,
+      "timed_out": false,
+      "fit_s": 0.17443849999108352,
+      "test_accuracy": 1.0,
+      "n_abstractions": 3,
+      "harvested": [
+        "a003"
+      ],
+      "reuse": true,
+      "failure_category": "success",
+      "abstraction_report": {
+        "n_total": 3,
+        "n_active": 3,
+        "n_validated": 2,
+        "n_retired": 0,
+        "n_rejected": 1,
+        "items": [
+          {
+            "id": "a001",
+            "body": "map_square(var(list))",
+            "score": 0.5,
+            "validated": true,
+            "active": true
+          },
+          {
+            "id": "a002",
+            "body": "map_square(var(list))",
+            "score": 0.5,
+            "validated": true,
+            "active": true
+          },
+          {
+            "id": "a003",
+            "body": "map_square(var(list))",
+            "score": 0.5,
+            "validated": false,
+            "active": true
+          }
+        ],
+        "rejected": [
+          {
+            "id": "a003",
+            "reason": "constant/meaningless behavior"
+          }
+        ]
+      }
+    }
+  ],
+  "summary": {
+    "baseline": {
+      "n": 60,
+      "accuracy": 0.80625,
+      "acceptance": 0.816667,
+      "expansions_sum": 9842,
+      "expansions_median": 164.0,
+      "fit_s_median": 0.17054574999201577,
+      "fit_s_total": 10.568476,
+      "reuse_count": 0,
+      "n_abstractions_created": 0
+    },
+    "harvest": {
+      "n": 60,
+      "accuracy": 0.80625,
+      "acceptance": 0.816667,
+      "expansions_sum": 9842,
+      "expansions_median": 164.0,
+      "fit_s_median": 0.17203430000517983,
+      "fit_s_total": 10.581915,
+      "reuse_count": 29,
+      "n_abstractions_created": 81
+    }
+  },
+  "baseline_reference": {
+    "source": "CONSTRUCTIVE-EXP-H-REPORT.md H6",
+    "expansion_ratio": 2.66,
+    "fit_speedup": 6.1,
+    "accuracy": [
+      0.786,
+      0.944
+    ],
+    "false_abstractions": 1,
+    "note": "H6 benefit was confined to shared-core; transfer is measured here"
+  },
+  "promotion": "none: macros remain isolated, never integrated into CCM or OMEGA-NANO",
+  "reproducibility": {
+    "config_fingerprint": "441a6c173a8f4a6e",
+    "configuration": {
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "n_episodes": 30,
+      "n_val": 4,
+      "abstain_threshold": 0.6,
+      "max_program_depth": 8,
+      "max_program_nodes": 64,
+      "max_int_magnitude": 1000000000,
+      "max_steps": 10000,
+      "search_node_budget": 20000,
+      "fit_deadline_s": 3.0,
+      "experiment_deadline_s": 120.0,
+      "campaign_deadline_s": 900.0,
+      "quick": false
+    },
+    "hardware": {
+      "cpu": "11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz",
+      "logical_cores": 8,
+      "ram_gb": 16.82,
+      "os": "Windows-11-10.0.26200-SP0",
+      "cuda": false,
+      "device": "cpu",
+      "acceleration": "none (CPU-only, no external APIs)"
+    },
+    "software": {
+      "python": "3.13.15",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "exp_i": "0.1.0",
+      "numpy": "2.5.3"
+    },
+    "source_revision": "no-commits",
+    "note": "No commits in repository; source_revision='no-commits' is expected."
+  },
+  "resource_report": {
+    "elapsed_s": 22.686959499988006,
+    "nodes_used": 0,
+    "global_deadline_s": 865.3935509000148,
+    "node_budget": 800000,
+    "cancelled": false,
+    "timeouts": [],
+    "diagnostics": {
+      "last_completed_scope": "I-G",
+      "last_scope_status": "COMPLETED",
+      "scope_elapsed_s": 21.20323839999037,
+      "scope_nodes": 0
+    },
+    "memory_guard_mb": null,
+    "peak_rss_mb": 206.96
+  },
+  "completion_status": "COMPLETED",
+  "dataset_fingerprint": "f984c67f59bef222",
+  "hardware": {
+    "cpu": "11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz",
+    "logical_cores": 8,
+    "ram_gb": 16.82,
+    "os": "Windows-11-10.0.26200-SP0",
+    "cuda": false,
+    "device": "cpu",
+    "acceleration": "none (CPU-only, no external APIs)"
+  },
+  "software": {
+    "python": "3.13.15",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "exp_i": "0.1.0",
+    "numpy": "2.5.3"
+  },
+  "limitations": [
+    "Synthetic tasks in a small typed DSL; no natural-language validity claimed.",
+    "Results are CPU-only and local to these generator families."
+  ]
+}

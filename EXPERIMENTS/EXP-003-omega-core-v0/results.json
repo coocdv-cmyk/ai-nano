@@ -1,0 +1,215 @@
+{
+  "experiment": "EXP-003-omega-core-v0",
+  "date": "2026-11-17 23:41",
+  "hardware": {
+    "os": "Windows 10 (10.0.22621)",
+    "machine": "AMD64",
+    "cpu": "Intel(R) Core(TM) i7-7820HQ CPU @ 2.90GHz",
+    "logical_cpus": 7,
+    "ram_gb": 7.41,
+    "python": "3.10.11",
+    "sqlite": "3.40.1",
+    "numpy": "1.26.4",
+    "torch": "2.1.2+cpu",
+    "cuda": false,
+    "runtime_path": "cpu"
+  },
+  "arms": {
+    "fp32": {
+      "final": {
+        "steps": 837,
+        "minutes": 30.74,
+        "val_bpb": 1.8944,
+        "train_tokens": 3428352,
+        "tokens_per_s_training": 1859
+      },
+      "curve": [
+        {
+          "step": 100,
+          "minutes": 4.39,
+          "train_bpb": 2.7058,
+          "val_bpb": 3.0319,
+          "lr": 0.001924
+        },
+        {
+          "step": 200,
+          "minutes": 8.77,
+          "train_bpb": 2.7759,
+          "val_bpb": 2.6554,
+          "lr": 0.001668
+        },
+        {
+          "step": 300,
+          "minutes": 11.93,
+          "train_bpb": 2.3954,
+          "val_bpb": 2.4204,
+          "lr": 0.001409
+        },
+        {
+          "step": 400,
+          "minutes": 15.38,
+          "train_bpb": 2.0262,
+          "val_bpb": 2.258,
+          "lr": 0.001089
+        },
+        {
+          "step": 500,
+          "minutes": 18.66,
+          "train_bpb": 1.6462,
+          "val_bpb": 2.1306,
+          "lr": 0.000787
+        },
+        {
+          "step": 600,
+          "minutes": 22.26,
+          "train_bpb": 1.9544,
+          "val_bpb": 2.0422,
+          "lr": 0.000509
+        },
+        {
+          "step": 700,
+          "minutes": 25.53,
+          "train_bpb": 1.9345,
+          "val_bpb": 1.9573,
+          "lr": 0.000311
+        },
+        {
+          "step": 800,
+          "minutes": 28.77,
+          "train_bpb": 1.991,
+          "val_bpb": 1.9241,
+          "lr": 0.000211
+        }
+      ],
+      "params": {
+        "total": 3344640,
+        "block_matrices": 3211264,
+        "other": 133376
+      },
+      "speed": {
+        "threads_1": {
+          "single_stream_tok_s": 402,
+          "aggregate_tok_s_batch2": 416,
+          "threads": 1,
+          "block_weight_bytes": 12845056,
+          "total_weight_bytes": 13444176,
+          "n_new": 2000,
+          "note": "tokens are bytes; includes window re-encode every ctx/2 tokens"
+        },
+        "threads_7": {
+          "single_stream_tok_s": 427,
+          "aggregate_tok_s_batch14": 1276,
+          "threads": 7,
+          "block_weight_bytes": 12845056,
+          "total_weight_bytes": 13444176,
+          "n_new": 2000,
+          "note": "tokens are bytes; includes window re-encode every ctx/2 tokens"
+        }
+      },
+      "samples": {
+        "def ": "_file_index.__init__(self):\n            return self._field(self, extract_name)\n\n\nclass Unixy(self, object=sidentifier):\n    \"\"\"Return on a string a characters.\n\n    def __init__(self, encoding, list, self._parser, *protocol):\n        return",
+        "import os\n\nclass ": "Compress():\n    \"\"\"\n    if sume import RequestError:\n        objects = None\n\n    def __init__(self):\n        \"\"\"Get a signal a subclass the package a be in this to the ```Pygman_direction``` in returning.\n\n    The Runtime of the string in s",
+        "    for i in range(": "%s)):\n                continue\n            encoder = os.format()\n                if self.display_parsead_name in self._charset_strip_class_regeref()\n\n        self._request.set(self._parse_transpace, state=None):\n            self.open(self._",
+        "# Return the ": "addition of the connection to content return the signal\n\n# functions on intement in the the are that it only in the can completes content to call Preference tracker.\r\n    \"\"\"\r\n    class Internal(locations, str):\r\n        \"\"\"The string the c"
+      }
+    },
+    "ternary": {
+      "final": {
+        "steps": 784,
+        "minutes": 30.85,
+        "val_bpb": 2.0554,
+        "train_tokens": 3211264,
+        "tokens_per_s_training": 1735
+      },
+      "curve": [
+        {
+          "step": 100,
+          "minutes": 4.85,
+          "train_bpb": 2.8234,
+          "val_bpb": 3.1363,
+          "lr": 0.00191
+        },
+        {
+          "step": 200,
+          "minutes": 9.28,
+          "train_bpb": 2.9022,
+          "val_bpb": 2.767,
+          "lr": 0.001635
+        },
+        {
+          "step": 300,
+          "minutes": 12.73,
+          "train_bpb": 2.4262,
+          "val_bpb": 2.532,
+          "lr": 0.001348
+        },
+        {
+          "step": 400,
+          "minutes": 16.33,
+          "train_bpb": 2.0864,
+          "val_bpb": 2.3906,
+          "lr": 0.001005
+        },
+        {
+          "step": 500,
+          "minutes": 19.79,
+          "train_bpb": 1.7808,
+          "val_bpb": 2.253,
+          "lr": 0.000694
+        },
+        {
+          "step": 600,
+          "minutes": 23.69,
+          "train_bpb": 2.0777,
+          "val_bpb": 2.1564,
+          "lr": 0.000409
+        },
+        {
+          "step": 700,
+          "minutes": 27.24,
+          "train_bpb": 2.0825,
+          "val_bpb": 2.0866,
+          "lr": 0.000248
+        }
+      ],
+      "params": {
+        "total": 3344640,
+        "block_matrices": 3211264,
+        "other": 133376
+      },
+      "speed": {
+        "threads_1": {
+          "single_stream_tok_s": 841,
+          "aggregate_tok_s_batch2": 831,
+          "threads": 1,
+          "block_weight_bytes": 3211264,
+          "total_weight_bytes": 3810384,
+          "n_new": 2000,
+          "note": "tokens are bytes; includes window re-encode every ctx/2 tokens"
+        },
+        "threads_7": {
+          "single_stream_tok_s": 810,
+          "aggregate_tok_s_batch14": 2865,
+          "threads": 7,
+          "block_weight_bytes": 3211264,
+          "total_weight_bytes": 3810384,
+          "n_new": 2000,
+          "note": "tokens are bytes; includes window re-encode every ctx/2 tokens"
+        }
+      },
+      "samples": {
+        "def ": "_initer(self, is node_enterse_file_skin_self, localized\n                                                                                                                                                                                        ",
+        "import os\n\nclass ": "Control distredList\nimport string in or of required to 'argument function the file the suppresent.\n        if not subclass or string be the packed\n        # to Without able an line is be configing is the shoulded this the set resulte the se",
+        "    for i in range(": "\"instring or # the Size the released in the method not 'argument function the file the sumes the set is the Procession all the treate of explaced an be signert as method final is so the level default the set this set the dictional be the se",
+        "# Return the ": "be suble process or the test set the for listem compile are the returnified be file the the as or be it protal and the caller returns is a so a sear a requests are the a eat the class a level exception\r\nfrom this this the returned from is c"
+      }
+    }
+  },
+  "baselines_bpb": {
+    "uniform": 8.0,
+    "zlib-9": 1.8296,
+    "bz2-9": 1.4657,
+    "lzma-extreme": 1.4341,
+    "order2-ngram (trained)": 2.5793
+  }
+}

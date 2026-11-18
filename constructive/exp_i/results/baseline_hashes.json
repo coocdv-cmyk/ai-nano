@@ -1,0 +1,29 @@
+{
+  "recorded_at": "20261118-143600",
+  "algorithm": "SHA-256",
+  "note": "recorded at STAGE 0 before any EXP-I implementation",
+  "files": {
+    "constructive/core.py": "9347f2e7b9593121b97307a1a7f87b1d28a27270a75e9a1b8122b820dad7fcf8",
+    "constructive/model.py": "862a96b4ee58417fb8df1144f4ca72ffdaa7992c93a78e3a8a6d14e44ce9b0aa",
+    "constructive/worlds.py": "07d6fc6c66677a1fc4f16403927e0407c2c98f0bb8ef8afb4f52fb950555bfb7",
+    "constructive/baselines.py": "52ee402734b4cf0a5d430ab224a73554b3f166a9076e7e953eb7704e30ada77d",
+    "constructive/bench.py": "ff9646b531bf4e24c770f3e86dc8e49dde39245597ca6a5e66185809548ba402",
+    "constructive/__init__.py": "fb9b3371e6dd7340d6758f4321da5e009b7919b2b8527b01dd5d290feff569ea",
+    "constructive/exp_h/runner.py": "a73568fa60af6e20e9bd5b47bcb62465ece446789a0f82ecc3365764c0328c77",
+    "constructive/exp_h/smoke.py": "10ddfda20a84c108ee324c8c4ba739e624d2de78f1d4e943a66be2c8bbd0609d",
+    "constructive/exp_h/engine.py": "665ae61184649f1f5ce2c2da17b6d94ba5adf20f665d7720465518cb65c8be8c",
+    "constructive/exp_h/generators.py": "d0d87048eb7149e7db910ee5c5429fdba8e4f0eecc0f5a795baa690179d3a3f2",
+    "constructive/exp_h/episode.py": "fe1b27e72c97d65912311e3c17683fde1e19f89af003de77ece89fef2141c112",
+    "constructive/exp_h/config.py": "9b6ebabbcfc9368cf911b06cb7081935a992be392cbbc528f6af58f806d72142",
+    "constructive/exp_h/metrics.py": "11fdd15b81e9652ef270a381ed89cfbd65d3ec87377398d21e84081550529765",
+    "constructive/exp_h/h4_pool.py": "18ba2fb46677ab690eb4dc43769e51b6282d6ca8d415dc13f6758ab65e6a0b6b",
+    "tests/test_exp_h.py": "4ef9597ca891a38322d2cf232d72062359d7178cbfc30d4a781a27fc2c581599",
+    "tests/test_constructive.py": "1235b3f0873560ff25c3885037d930d0331bf75e0df0d670714aad4eaf4fb4c7",
+    "tests/conftest.py": "f512cf6a65e9c02e2ad63cb7b45182f3a560e21594b4a25aadab0bb0b0865324",
+    "omega_nano/engine.py": "bdaa8af9d66010996de7eec7c3060102ee561a0c21ab04d0880529bfb448c5ae",
+    "omega_nano/memory.py": "d1ba21a23d88b33d94f05d25f5096181a307b7f157777c3d88a3c92eef3f2572",
+    "omega_nano/model.py": "c502a3e6c7c075fe70dcfebfade2d44b6fe098ad868c3f446b09e23a1b70927d",
+    "omega_nano/reasoner.py": "49bb5b4bda161998d7cafed1a581fa2326eac9e910ae1dc5470ebe1ccbbbeeef",
+    "omega_nano/core/engine.py": "68de2b623411f533a86a4364d09a5aaa627773c26501ff8a0dc0c6d0e89542e5"
+  }
+}

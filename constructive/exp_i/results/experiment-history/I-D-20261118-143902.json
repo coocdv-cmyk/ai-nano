@@ -1,0 +1,489 @@
+{
+  "experiment_id": "I-D",
+  "experiment_name": "Deep Composition and Search Control",
+  "status": "completed",
+  "depths": [
+    2,
+    3,
+    5,
+    8,
+    12,
+    16
+  ],
+  "seeds": [
+    0
+  ],
+  "episodes": [
+    {
+      "family": "unary_chain",
+      "depth": 2,
+      "seed": 0,
+      "accepted": true,
+      "correct_acceptance": false,
+      "spurious_acceptance": true,
+      "expansions": 83,
+      "nodes": 247,
+      "cache_hits": 17,
+      "cache_size": 574,
+      "wall_s": 0.08965949999401346,
+      "timed_out": false,
+      "reason": "",
+      "n_test": 10,
+      "failure_category": "wrong-acceptance"
+    },
+    {
+      "family": "unary_chain",
+      "depth": 3,
+      "seed": 0,
+      "accepted": true,
+      "correct_acceptance": false,
+      "spurious_acceptance": true,
+      "expansions": 87,
+      "nodes": 369,
+      "cache_hits": 17,
+      "cache_size": 672,
+      "wall_s": 0.10292939998907968,
+      "timed_out": false,
+      "reason": "",
+      "n_test": 10,
+      "failure_category": "wrong-acceptance"
+    },
+    {
+      "family": "unary_chain",
+      "depth": 5,
+      "seed": 0,
+      "accepted": true,
+      "correct_acceptance": false,
+      "spurious_acceptance": true,
+      "expansions": 82,
+      "nodes": 318,
+      "cache_hits": 17,
+      "cache_size": 653,
+      "wall_s": 0.10124089999590069,
+      "timed_out": false,
+      "reason": "",
+      "n_test": 10,
+      "failure_category": "wrong-acceptance"
+    },
+    {
+      "family": "unary_chain",
+      "depth": 8,
+      "seed": 0,
+      "accepted": false,
+      "correct_acceptance": false,
+      "spurious_acceptance": false,
+      "expansions": 81,
+      "nodes": 242,
+      "cache_hits": 17,
+      "cache_size": 574,
+      "wall_s": 0.08933670000988059,
+      "timed_out": false,
+      "reason": "no program reproduces all support examples",
+      "n_test": 10,
+      "failure_category": "search-explosion"
+    },
+    {
+      "family": "unary_chain",
+      "depth": 12,
+      "seed": 0,
+      "accepted": false,
+      "correct_acceptance": false,
+      "spurious_acceptance": false,
+      "expansions": 81,
+      "nodes": 285,
+      "cache_hits": 17,
+      "cache_size": 619,
+      "wall_s": 0.09525089999078773,
+      "timed_out": false,
+      "reason": "no program reproduces all support examples",
+      "n_test": 10,
+      "failure_category": "search-explosion"
+    },
+    {
+      "family": "unary_chain",
+      "depth": 16,
+      "seed": 0,
+      "accepted": false,
+      "correct_acceptance": false,
+      "spurious_acceptance": false,
+      "expansions": 79,
+      "nodes": 299,
+      "cache_hits": 17,
+      "cache_size": 619,
+      "wall_s": 0.08816089999163523,
+      "timed_out": false,
+      "reason": "no program reproduces all support examples",
+      "n_test": 10,
+      "failure_category": "search-explosion"
+    }
+  ],
+  "summary": {
+    "depth_2": {
+      "n": 1,
+      "correct_acceptance": {
+        "n": 1,
+        "mean": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "spurious_acceptance": {
+        "n": 1,
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "expansions": {
+        "n": 1,
+        "mean": 83.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 83.0,
+        "min": 83.0,
+        "max": 83.0
+      },
+      "wall_s": {
+        "n": 1,
+        "mean": 0.089659,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 0.089659,
+        "min": 0.089659,
+        "max": 0.089659
+      },
+      "timeout_rate": {
+        "n": 1,
+        "mean": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      }
+    },
+    "depth_3": {
+      "n": 1,
+      "correct_acceptance": {
+        "n": 1,
+        "mean": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "spurious_acceptance": {
+        "n": 1,
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "expansions": {
+        "n": 1,
+        "mean": 87.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 87.0,
+        "min": 87.0,
+        "max": 87.0
+      },
+      "wall_s": {
+        "n": 1,
+        "mean": 0.102929,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 0.102929,
+        "min": 0.102929,
+        "max": 0.102929
+      },
+      "timeout_rate": {
+        "n": 1,
+        "mean": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      }
+    },
+    "depth_5": {
+      "n": 1,
+      "correct_acceptance": {
+        "n": 1,
+        "mean": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "spurious_acceptance": {
+        "n": 1,
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "expansions": {
+        "n": 1,
+        "mean": 82.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 82.0,
+        "min": 82.0,
+        "max": 82.0
+      },
+      "wall_s": {
+        "n": 1,
+        "mean": 0.101241,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 0.101241,
+        "min": 0.101241,
+        "max": 0.101241
+      },
+      "timeout_rate": {
+        "n": 1,
+        "mean": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      }
+    },
+    "depth_8": {
+      "n": 1,
+      "correct_acceptance": {
+        "n": 1,
+        "mean": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "spurious_acceptance": {
+        "n": 1,
+        "mean": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "expansions": {
+        "n": 1,
+        "mean": 81.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 81.0,
+        "min": 81.0,
+        "max": 81.0
+      },
+      "wall_s": {
+        "n": 1,
+        "mean": 0.089337,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 0.089337,
+        "min": 0.089337,
+        "max": 0.089337
+      },
+      "timeout_rate": {
+        "n": 1,
+        "mean": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      }
+    },
+    "depth_12": {
+      "n": 1,
+      "correct_acceptance": {
+        "n": 1,
+        "mean": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "spurious_acceptance": {
+        "n": 1,
+        "mean": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "expansions": {
+        "n": 1,
+        "mean": 81.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 81.0,
+        "min": 81.0,
+        "max": 81.0
+      },
+      "wall_s": {
+        "n": 1,
+        "mean": 0.095251,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 0.095251,
+        "min": 0.095251,
+        "max": 0.095251
+      },
+      "timeout_rate": {
+        "n": 1,
+        "mean": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      }
+    },
+    "depth_16": {
+      "n": 1,
+      "correct_acceptance": {
+        "n": 1,
+        "mean": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "spurious_acceptance": {
+        "n": 1,
+        "mean": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "expansions": {
+        "n": 1,
+        "mean": 79.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 79.0,
+        "min": 79.0,
+        "max": 79.0
+      },
+      "wall_s": {
+        "n": 1,
+        "mean": 0.088161,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 0.088161,
+        "min": 0.088161,
+        "max": 0.088161
+      },
+      "timeout_rate": {
+        "n": 1,
+        "mean": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      }
+    }
+  },
+  "baseline_reference": {
+    "source": "CONSTRUCTIVE-EXP-H-REPORT.md H2",
+    "depth_2_accuracy": 1.0,
+    "spurious_rate_depth_3_plus": "0.33-0.67",
+    "timeouts": 2
+  },
+  "reproducibility": {
+    "config_fingerprint": "50d32cd65792e6e5",
+    "configuration": {
+      "seeds": [
+        0
+      ],
+      "n_episodes": 8,
+      "n_val": 4,
+      "abstain_threshold": 0.6,
+      "max_program_depth": 8,
+      "max_program_nodes": 64,
+      "max_int_magnitude": 1000000000,
+      "max_steps": 10000,
+      "search_node_budget": 20000,
+      "fit_deadline_s": 3.0,
+      "experiment_deadline_s": 120.0,
+      "campaign_deadline_s": 900.0,
+      "quick": true
+    },
+    "hardware": {
+      "cpu": "11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz",
+      "logical_cores": 8,
+      "ram_gb": 16.82,
+      "os": "Windows-11-10.0.26200-SP0",
+      "cuda": false,
+      "device": "cpu",
+      "acceleration": "none (CPU-only, no external APIs)"
+    },
+    "software": {
+      "python": "3.13.15",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "exp_i": "0.1.0",
+      "numpy": "2.5.3"
+    },
+    "source_revision": "no-commits",
+    "note": "No commits in repository; source_revision='no-commits' is expected."
+  },
+  "resource_report": {
+    "elapsed_s": 2.003469099989161,
+    "nodes_used": 0,
+    "global_deadline_s": 885.4598435999942,
+    "node_budget": 800000,
+    "cancelled": false,
+    "timeouts": [],
+    "diagnostics": {
+      "last_completed_scope": "I-D",
+      "last_scope_status": "COMPLETED",
+      "scope_elapsed_s": 0.5699835999985225,
+      "scope_nodes": 0
+    },
+    "memory_guard_mb": null
+  },
+  "completion_status": "COMPLETED",
+  "dataset_fingerprint": "e964ff1a9693acd3",
+  "hardware": {
+    "cpu": "11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz",
+    "logical_cores": 8,
+    "ram_gb": 16.82,
+    "os": "Windows-11-10.0.26200-SP0",
+    "cuda": false,
+    "device": "cpu",
+    "acceleration": "none (CPU-only, no external APIs)"
+  },
+  "software": {
+    "python": "3.13.15",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "exp_i": "0.1.0",
+    "numpy": "2.5.3"
+  },
+  "limitations": [
+    "Synthetic tasks in a small typed DSL; no natural-language validity claimed.",
+    "Results are CPU-only and local to these generator families."
+  ]
+}

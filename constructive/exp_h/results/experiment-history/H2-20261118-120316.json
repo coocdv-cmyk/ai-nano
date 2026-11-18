@@ -1,0 +1,31 @@
+{
+  "experiment_id": "H2",
+  "experiment_name": "H2",
+  "status": "error",
+  "error": "HiddenError: expected pair, got 2",
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\ai model\\constructive\\exp_h\\runner.py\", line 164, in run\n    res = dispatch[exp_id]()\n  File \"D:\\ai model\\constructive\\exp_h\\runner.py\", line 121, in <lambda>\n    H2: lambda: h2_scaling.run_h2(cfg, seeds=cfg.seeds[:3] if not quick else seeds[:1],\n                ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                                  depths=(2, 3, 5, 8, 12, 16) if not quick else (2, 4),\n                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                                  time_budget_s=2.0 if quick else 3.0),\n                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\ai model\\constructive\\exp_h\\h2_scaling.py\", line 29, in run_h2\n    task = build_h2_task(seed, depth, family, k=4)\n  File \"D:\\ai model\\constructive\\exp_h\\generators.py\", line 512, in build_h2_task\n    labels = [eval_hidden(node, p) for p in pairs]\n              ~~~~~~~~~~~^^^^^^^^^\n  File \"D:\\ai model\\constructive\\exp_h\\engine.py\", line 215, in eval_hidden\n    a, b = _need_pair(args[0])\n           ~~~~~~~~~~^^^^^^^^^\n  File \"D:\\ai model\\constructive\\exp_h\\engine.py\", line 244, in _need_pair\n    raise HiddenError(f\"expected pair, got {v!r}\")\nconstructive.exp_h.engine.HiddenError: expected pair, got 2\n",
+  "episodes": [],
+  "wall_s": 0.0,
+  "software": {
+    "python": "3.13.15",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "exp_h": "0.1.0",
+    "numpy": "2.5.3",
+    "constructive_root": "D:\\ai model\\constructive"
+  },
+  "hardware": {
+    "cpu": "11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz",
+    "logical_cores": 8,
+    "ram_gb": 16.82,
+    "os": "Windows-11-10.0.26200-SP0",
+    "cuda": false,
+    "c_compiler": "none on PATH",
+    "device": "cpu"
+  },
+  "dataset_fingerprint": "9ed9912911a9f3bf",
+  "source_revision": "no-commits",
+  "limitations": [
+    "experiment crashed; analyze traceback"
+  ],
+  "artifacts": []
+}

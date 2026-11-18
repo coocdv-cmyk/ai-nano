@@ -1,0 +1,43 @@
+{
+  "benchmark": "engine-loop-v1",
+  "date": "2026-11-17 22:30",
+  "hardware": {
+    "os": "Windows 10 (10.0.22621)",
+    "machine": "AMD64",
+    "cpu": "Intel(R) Core(TM) i7-7820HQ CPU @ 2.90GHz",
+    "logical_cpus": 7,
+    "ram_gb": 7.41,
+    "python": "3.10.11",
+    "sqlite": "3.40.1",
+    "numpy": "1.26.4",
+    "torch": "2.1.2+cpu",
+    "cuda": false,
+    "runtime_path": "cpu"
+  },
+  "t1:rules": {
+    "runs": 200,
+    "e2e_p50_ms": 22.723,
+    "e2e_p95_ms": 39.663,
+    "plan_p50_ms": 0.119,
+    "step_exec_verify_p50_ms": 2.457,
+    "tasks_per_s": 40.4
+  },
+  "t0:plan-cache": {
+    "runs": 200,
+    "e2e_p50_ms": 13.35,
+    "e2e_p95_ms": 43.191,
+    "plan_p50_ms": 0.089,
+    "step_exec_verify_p50_ms": 2.375,
+    "tasks_per_s": 52.5
+  },
+  "checkpoint_avg_bytes": 2017,
+  "checkpoints": 4000,
+  "saves_per_3step_task": 10.0,
+  "crash_recovery": {
+    "crash_exit_code": 77,
+    "resume_wall_ms_incl_python_startup": 407.3,
+    "run_until_crash_wall_ms": 376.8,
+    "recovered_without_reexecution": true,
+    "final_ok": true
+  }
+}

@@ -1,0 +1,3702 @@
+{
+  "experiment_id": "J3",
+  "experiment_name": "Deep Composition Reliability",
+  "status": "completed",
+  "seeds": [
+    0,
+    1
+  ],
+  "depths": [
+    2,
+    3,
+    4,
+    5,
+    8,
+    12,
+    16
+  ],
+  "strategies": [
+    "plain",
+    "factorized",
+    "cegis",
+    "cached"
+  ],
+  "n_runs": 56,
+  "episodes": [
+    {
+      "strategy": "plain",
+      "depth": 2,
+      "seed": 0,
+      "hidden": "add1(add1(var(int)))",
+      "n_candidates": 0,
+      "found_correct": false,
+      "accepted": false,
+      "state": "REJECTED",
+      "outcome": "correct_not_discovered",
+      "expansions": 65,
+      "nodes": 110,
+      "cache_hits": 17,
+      "elapsed_s": 0.024704,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 20,
+      "status": "completed"
+    },
+    {
+      "strategy": "factorized",
+      "depth": 2,
+      "seed": 0,
+      "hidden": "add1(add1(var(int)))",
+      "n_candidates": 0,
+      "found_correct": false,
+      "accepted": false,
+      "state": "REJECTED",
+      "outcome": "correct_not_discovered",
+      "expansions": 40,
+      "nodes": 85,
+      "cache_hits": 1,
+      "elapsed_s": 0.010095,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 20,
+      "status": "completed"
+    },
+    {
+      "strategy": "cegis",
+      "depth": 2,
+      "seed": 0,
+      "hidden": "add1(add1(var(int)))",
+      "n_candidates": 0,
+      "found_correct": false,
+      "accepted": false,
+      "state": "REJECTED",
+      "outcome": "correct_not_discovered",
+      "expansions": 65,
+      "nodes": 110,
+      "cache_hits": 17,
+      "elapsed_s": 0.024113,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 20,
+      "status": "completed"
+    },
+    {
+      "strategy": "cached",
+      "depth": 2,
+      "seed": 0,
+      "hidden": "add1(add1(var(int)))",
+      "n_candidates": 0,
+      "found_correct": false,
+      "accepted": false,
+      "state": "REJECTED",
+      "outcome": "correct_not_discovered",
+      "expansions": 65,
+      "nodes": 110,
+      "cache_hits": 17,
+      "elapsed_s": 0.023611,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 20,
+      "status": "completed"
+    },
+    {
+      "strategy": "plain",
+      "depth": 2,
+      "seed": 1,
+      "hidden": "neg(abs(var(int)))",
+      "n_candidates": 1,
+      "found_correct": true,
+      "accepted": true,
+      "state": "ACCEPTED",
+      "outcome": "correct_discovered",
+      "expansions": 49,
+      "nodes": 99,
+      "cache_hits": 17,
+      "elapsed_s": 0.022427,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 20,
+      "status": "completed"
+    },
+    {
+      "strategy": "factorized",
+      "depth": 2,
+      "seed": 1,
+      "hidden": "neg(abs(var(int)))",
+      "n_candidates": 1,
+      "found_correct": true,
+      "accepted": true,
+      "state": "ACCEPTED",
+      "outcome": "correct_discovered",
+      "expansions": 36,
+      "nodes": 86,
+      "cache_hits": 2,
+      "elapsed_s": 0.011202,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 20,
+      "status": "completed"
+    },
+    {
+      "strategy": "cegis",
+      "depth": 2,
+      "seed": 1,
+      "hidden": "neg(abs(var(int)))",
+      "n_candidates": 1,
+      "found_correct": true,
+      "accepted": true,
+      "state": "ACCEPTED",
+      "outcome": "correct_discovered",
+      "expansions": 49,
+      "nodes": 99,
+      "cache_hits": 17,
+      "elapsed_s": 0.022481,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 20,
+      "status": "completed"
+    },
+    {
+      "strategy": "cached",
+      "depth": 2,
+      "seed": 1,
+      "hidden": "neg(abs(var(int)))",
+      "n_candidates": 1,
+      "found_correct": true,
+      "accepted": true,
+      "state": "ACCEPTED",
+      "outcome": "correct_discovered",
+      "expansions": 114,
+      "nodes": 209,
+      "cache_hits": 34,
+      "elapsed_s": 0.022107,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 20,
+      "status": "completed"
+    },
+    {
+      "strategy": "plain",
+      "depth": 3,
+      "seed": 0,
+      "hidden": "sum_digits(sum_digits(sub1(var(int))))",
+      "n_candidates": 3,
+      "found_correct": false,
+      "accepted": true,
+      "state": "ACCEPTED",
+      "outcome": "incorrect_accepted",
+      "expansions": 180,
+      "nodes": 353,
+      "cache_hits": 17,
+      "elapsed_s": 0.136825,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 60,
+      "status": "completed"
+    },
+    {
+      "strategy": "factorized",
+      "depth": 3,
+      "seed": 0,
+      "hidden": "sum_digits(sum_digits(sub1(var(int))))",
+      "n_candidates": 3,
+      "found_correct": false,
+      "accepted": true,
+      "state": "ACCEPTED",
+      "outcome": "incorrect_accepted",
+      "expansions": 69,
+      "nodes": 114,
+      "cache_hits": 2,
+      "elapsed_s": 0.020385,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 60,
+      "status": "completed"
+    },
+    {
+      "strategy": "cegis",
+      "depth": 3,
+      "seed": 0,
+      "hidden": "sum_digits(sum_digits(sub1(var(int))))",
+      "n_candidates": 2,
+      "found_correct": false,
+      "accepted": true,
+      "state": "ACCEPTED",
+      "outcome": "incorrect_accepted",
+      "expansions": 360,
+      "nodes": 706,
+      "cache_hits": 34,
+      "elapsed_s": 0.163005,
+      "timed_out": false,
+      "n_injected": 1,
+      "verification_calls": 40,
+      "status": "completed"
+    },
+    {
+      "strategy": "cached",
+      "depth": 3,
+      "seed": 0,
+      "hidden": "sum_digits(sum_digits(sub1(var(int))))",
+      "n_candidates": 3,
+      "found_correct": false,
+      "accepted": true,
+      "state": "ACCEPTED",
+      "outcome": "incorrect_accepted",
+      "expansions": 180,
+      "nodes": 353,
+      "cache_hits": 17,
+      "elapsed_s": 0.140661,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 60,
+      "status": "completed"
+    },
+    {
+      "strategy": "plain",
+      "depth": 3,
+      "seed": 1,
+      "hidden": "sub1(sum_digits(abs(var(int))))",
+      "n_candidates": 3,
+      "found_correct": false,
+      "accepted": true,
+      "state": "ACCEPTED",
+      "outcome": "incorrect_accepted",
+      "expansions": 179,
+      "nodes": 361,
+      "cache_hits": 17,
+      "elapsed_s": 0.144293,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 60,
+      "status": "completed"
+    },
+    {
+      "strategy": "factorized",
+      "depth": 3,
+      "seed": 1,
+      "hidden": "sub1(sum_digits(abs(var(int))))",
+      "n_candidates": 3,
+      "found_correct": true,
+      "accepted": true,
+      "state": "ACCEPTED",
+      "outcome": "correct_discovered",
+      "expansions": 71,
+      "nodes": 117,
+      "cache_hits": 3,
+      "elapsed_s": 0.023066,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 60,
+      "status": "completed"
+    },
+    {
+      "strategy": "cegis",
+      "depth": 3,
+      "seed": 1,
+      "hidden": "sub1(sum_digits(abs(var(int))))",
+      "n_candidates": 2,
+      "found_correct": false,
+      "accepted": true,
+      "state": "ACCEPTED",
+      "outcome": "incorrect_accepted",
+      "expansions": 358,
+      "nodes": 722,
+      "cache_hits": 34,
+      "elapsed_s": 0.160811,
+      "timed_out": false,
+      "n_injected": 1,
+      "verification_calls": 40,
+      "status": "completed"
+    },
+    {
+      "strategy": "cached",
+      "depth": 3,
+      "seed": 1,
+      "hidden": "sub1(sum_digits(abs(var(int))))",
+      "n_candidates": 3,
+      "found_correct": false,
+      "accepted": true,
+      "state": "ACCEPTED",
+      "outcome": "incorrect_accepted",
+      "expansions": 359,
+      "nodes": 714,
+      "cache_hits": 34,
+      "elapsed_s": 0.138797,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 60,
+      "status": "completed"
+    },
+    {
+      "strategy": "plain",
+      "depth": 4,
+      "seed": 0,
+      "hidden": "digital_root(add1(neg(sub1(var(int)))))",
+      "n_candidates": 2,
+      "found_correct": false,
+      "accepted": false,
+      "state": "REJECTED",
+      "outcome": "correct_not_discovered",
+      "expansions": 178,
+      "nodes": 567,
+      "cache_hits": 17,
+      "elapsed_s": 0.23539,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 40,
+      "status": "completed"
+    },
+    {
+      "strategy": "factorized",
+      "depth": 4,
+      "seed": 0,
+      "hidden": "digital_root(add1(neg(sub1(var(int)))))",
+      "n_candidates": 1,
+      "found_correct": true,
+      "accepted": true,
+      "state": "ACCEPTED",
+      "outcome": "correct_discovered",
+      "expansions": 131,
+      "nodes": 178,
+      "cache_hits": 4,
+      "elapsed_s": 0.052057,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 20,
+      "status": "completed"
+    },
+    {
+      "strategy": "cegis",
+      "depth": 4,
+      "seed": 0,
+      "hidden": "digital_root(add1(neg(sub1(var(int)))))",
+      "n_candidates": 1,
+      "found_correct": false,
+      "accepted": false,
+      "state": "REJECTED",
+      "outcome": "correct_not_discovered",
+      "expansions": 356,
+      "nodes": 1134,
+      "cache_hits": 34,
+      "elapsed_s": 0.23177,
+      "timed_out": false,
+      "n_injected": 1,
+      "verification_calls": 20,
+      "status": "completed"
+    },
+    {
+      "strategy": "cached",
+      "depth": 4,
+      "seed": 0,
+      "hidden": "digital_root(add1(neg(sub1(var(int)))))",
+      "n_candidates": 2,
+      "found_correct": false,
+      "accepted": false,
+      "state": "REJECTED",
+      "outcome": "correct_not_discovered",
+      "expansions": 178,
+      "nodes": 567,
+      "cache_hits": 17,
+      "elapsed_s": 0.219913,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 40,
+      "status": "completed"
+    },
+    {
+      "strategy": "plain",
+      "depth": 4,
+      "seed": 1,
+      "hidden": "digital_root(digital_root(neg(digital_root(var(int)))))",
+      "n_candidates": 2,
+      "found_correct": false,
+      "accepted": true,
+      "state": "ACCEPTED",
+      "outcome": "incorrect_accepted",
+      "expansions": 180,
+      "nodes": 562,
+      "cache_hits": 17,
+      "elapsed_s": 0.206913,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 40,
+      "status": "completed"
+    },
+    {
+      "strategy": "factorized",
+      "depth": 4,
+      "seed": 1,
+      "hidden": "digital_root(digital_root(neg(digital_root(var(int)))))",
+      "n_candidates": 2,
+      "found_correct": false,
+      "accepted": true,
+      "state": "ACCEPTED",
+      "outcome": "incorrect_accepted",
+      "expansions": 74,
+      "nodes": 119,
+      "cache_hits": 2,
+      "elapsed_s": 0.024097,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 40,
+      "status": "completed"
+    },
+    {
+      "strategy": "cegis",
+      "depth": 4,
+      "seed": 1,
+      "hidden": "digital_root(digital_root(neg(digital_root(var(int)))))",
+      "n_candidates": 1,
+      "found_correct": false,
+      "accepted": true,
+      "state": "ACCEPTED",
+      "outcome": "incorrect_accepted",
+      "expansions": 360,
+      "nodes": 1124,
+      "cache_hits": 34,
+      "elapsed_s": 0.236373,
+      "timed_out": false,
+      "n_injected": 1,
+      "verification_calls": 20,
+      "status": "completed"
+    },
+    {
+      "strategy": "cached",
+      "depth": 4,
+      "seed": 1,
+      "hidden": "digital_root(digital_root(neg(digital_root(var(int)))))",
+      "n_candidates": 2,
+      "found_correct": false,
+      "accepted": true,
+      "state": "ACCEPTED",
+      "outcome": "incorrect_accepted",
+      "expansions": 358,
+      "nodes": 1129,
+      "cache_hits": 34,
+      "elapsed_s": 0.246937,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 40,
+      "status": "completed"
+    },
+    {
+      "strategy": "plain",
+      "depth": 5,
+      "seed": 0,
+      "hidden": "digital_root(neg(digital_root(neg(sum_digits(var(int))))))",
+      "n_candidates": 2,
+      "found_correct": false,
+      "accepted": true,
+      "state": "ACCEPTED",
+      "outcome": "incorrect_accepted",
+      "expansions": 182,
+      "nodes": 567,
+      "cache_hits": 17,
+      "elapsed_s": 0.242327,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 40,
+      "status": "completed"
+    },
+    {
+      "strategy": "factorized",
+      "depth": 5,
+      "seed": 0,
+      "hidden": "digital_root(neg(digital_root(neg(sum_digits(var(int))))))",
+      "n_candidates": 2,
+      "found_correct": false,
+      "accepted": true,
+      "state": "ACCEPTED",
+      "outcome": "incorrect_accepted",
+      "expansions": 88,
+      "nodes": 131,
+      "cache_hits": 3,
+      "elapsed_s": 0.033701,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 40,
+      "status": "completed"
+    },
+    {
+      "strategy": "cegis",
+      "depth": 5,
+      "seed": 0,
+      "hidden": "digital_root(neg(digital_root(neg(sum_digits(var(int))))))",
+      "n_candidates": 1,
+      "found_correct": false,
+      "accepted": true,
+      "state": "ACCEPTED",
+      "outcome": "incorrect_accepted",
+      "expansions": 364,
+      "nodes": 1134,
+      "cache_hits": 34,
+      "elapsed_s": 0.268535,
+      "timed_out": false,
+      "n_injected": 1,
+      "verification_calls": 20,
+      "status": "completed"
+    },
+    {
+      "strategy": "cached",
+      "depth": 5,
+      "seed": 0,
+      "hidden": "digital_root(neg(digital_root(neg(sum_digits(var(int))))))",
+      "n_candidates": 2,
+      "found_correct": false,
+      "accepted": true,
+      "state": "ACCEPTED",
+      "outcome": "incorrect_accepted",
+      "expansions": 182,
+      "nodes": 567,
+      "cache_hits": 17,
+      "elapsed_s": 0.221712,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 40,
+      "status": "completed"
+    },
+    {
+      "strategy": "plain",
+      "depth": 5,
+      "seed": 1,
+      "hidden": "abs(add1(sum_digits(abs(sum_digits(var(int))))))",
+      "n_candidates": 2,
+      "found_correct": false,
+      "accepted": true,
+      "state": "ACCEPTED",
+      "outcome": "incorrect_accepted",
+      "expansions": 179,
+      "nodes": 506,
+      "cache_hits": 17,
+      "elapsed_s": 0.219366,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 40,
+      "status": "completed"
+    },
+    {
+      "strategy": "factorized",
+      "depth": 5,
+      "seed": 1,
+      "hidden": "abs(add1(sum_digits(abs(sum_digits(var(int))))))",
+      "n_candidates": 2,
+      "found_correct": false,
+      "accepted": true,
+      "state": "ACCEPTED",
+      "outcome": "incorrect_accepted",
+      "expansions": 83,
+      "nodes": 129,
+      "cache_hits": 3,
+      "elapsed_s": 0.027423,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 40,
+      "status": "completed"
+    },
+    {
+      "strategy": "cegis",
+      "depth": 5,
+      "seed": 1,
+      "hidden": "abs(add1(sum_digits(abs(sum_digits(var(int))))))",
+      "n_candidates": 1,
+      "found_correct": false,
+      "accepted": true,
+      "state": "ACCEPTED",
+      "outcome": "incorrect_accepted",
+      "expansions": 358,
+      "nodes": 1012,
+      "cache_hits": 34,
+      "elapsed_s": 0.244069,
+      "timed_out": false,
+      "n_injected": 1,
+      "verification_calls": 20,
+      "status": "completed"
+    },
+    {
+      "strategy": "cached",
+      "depth": 5,
+      "seed": 1,
+      "hidden": "abs(add1(sum_digits(abs(sum_digits(var(int))))))",
+      "n_candidates": 2,
+      "found_correct": false,
+      "accepted": true,
+      "state": "ACCEPTED",
+      "outcome": "incorrect_accepted",
+      "expansions": 361,
+      "nodes": 1073,
+      "cache_hits": 34,
+      "elapsed_s": 0.224068,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 40,
+      "status": "completed"
+    },
+    {
+      "strategy": "plain",
+      "depth": 8,
+      "seed": 0,
+      "hidden": "add1(add1(digital_root(sub1(sub1(abs(neg(sub1(var(int)))))))))",
+      "n_candidates": 0,
+      "found_correct": false,
+      "accepted": false,
+      "state": "REJECTED",
+      "outcome": "correct_not_discovered",
+      "expansions": 180,
+      "nodes": 566,
+      "cache_hits": 17,
+      "elapsed_s": 0.222537,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 20,
+      "status": "completed"
+    },
+    {
+      "strategy": "factorized",
+      "depth": 8,
+      "seed": 0,
+      "hidden": "add1(add1(digital_root(sub1(sub1(abs(neg(sub1(var(int)))))))))",
+      "n_candidates": 0,
+      "found_correct": false,
+      "accepted": false,
+      "state": "REJECTED",
+      "outcome": "correct_not_discovered",
+      "expansions": 149,
+      "nodes": 194,
+      "cache_hits": 5,
+      "elapsed_s": 0.058266,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 20,
+      "status": "completed"
+    },
+    {
+      "strategy": "cegis",
+      "depth": 8,
+      "seed": 0,
+      "hidden": "add1(add1(digital_root(sub1(sub1(abs(neg(sub1(var(int)))))))))",
+      "n_candidates": 0,
+      "found_correct": false,
+      "accepted": false,
+      "state": "REJECTED",
+      "outcome": "correct_not_discovered",
+      "expansions": 180,
+      "nodes": 566,
+      "cache_hits": 17,
+      "elapsed_s": 0.247809,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 20,
+      "status": "completed"
+    },
+    {
+      "strategy": "cached",
+      "depth": 8,
+      "seed": 0,
+      "hidden": "add1(add1(digital_root(sub1(sub1(abs(neg(sub1(var(int)))))))))",
+      "n_candidates": 0,
+      "found_correct": false,
+      "accepted": false,
+      "state": "REJECTED",
+      "outcome": "correct_not_discovered",
+      "expansions": 180,
+      "nodes": 566,
+      "cache_hits": 17,
+      "elapsed_s": 0.239908,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 20,
+      "status": "completed"
+    },
+    {
+      "strategy": "plain",
+      "depth": 8,
+      "seed": 1,
+      "hidden": "digital_root(neg(digital_root(sum_digits(sum_digits(sum_digits(digital_root(add1(var(int)))))))))",
+      "n_candidates": 1,
+      "found_correct": false,
+      "accepted": true,
+      "state": "ACCEPTED",
+      "outcome": "incorrect_accepted",
+      "expansions": 180,
+      "nodes": 570,
+      "cache_hits": 17,
+      "elapsed_s": 0.230387,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 20,
+      "status": "completed"
+    },
+    {
+      "strategy": "factorized",
+      "depth": 8,
+      "seed": 1,
+      "hidden": "digital_root(neg(digital_root(sum_digits(sum_digits(sum_digits(digital_root(add1(var(int)))))))))",
+      "n_candidates": 1,
+      "found_correct": false,
+      "accepted": true,
+      "state": "ACCEPTED",
+      "outcome": "incorrect_accepted",
+      "expansions": 136,
+      "nodes": 181,
+      "cache_hits": 4,
+      "elapsed_s": 0.046121,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 20,
+      "status": "completed"
+    },
+    {
+      "strategy": "cegis",
+      "depth": 8,
+      "seed": 1,
+      "hidden": "digital_root(neg(digital_root(sum_digits(sum_digits(sum_digits(digital_root(add1(var(int)))))))))",
+      "n_candidates": 1,
+      "found_correct": false,
+      "accepted": true,
+      "state": "ACCEPTED",
+      "outcome": "incorrect_accepted",
+      "expansions": 180,
+      "nodes": 570,
+      "cache_hits": 17,
+      "elapsed_s": 0.233175,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 20,
+      "status": "completed"
+    },
+    {
+      "strategy": "cached",
+      "depth": 8,
+      "seed": 1,
+      "hidden": "digital_root(neg(digital_root(sum_digits(sum_digits(sum_digits(digital_root(add1(var(int)))))))))",
+      "n_candidates": 1,
+      "found_correct": false,
+      "accepted": true,
+      "state": "ACCEPTED",
+      "outcome": "incorrect_accepted",
+      "expansions": 360,
+      "nodes": 1136,
+      "cache_hits": 34,
+      "elapsed_s": 0.234648,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 20,
+      "status": "completed"
+    },
+    {
+      "strategy": "plain",
+      "depth": 12,
+      "seed": 0,
+      "hidden": "neg(abs(neg(add1(abs(sub1(neg(digital_root(sum_digits(digital_root(neg(abs(var(int)))))))))))))",
+      "n_candidates": 1,
+      "found_correct": false,
+      "accepted": false,
+      "state": "REJECTED",
+      "outcome": "correct_not_discovered",
+      "expansions": 181,
+      "nodes": 618,
+      "cache_hits": 17,
+      "elapsed_s": 0.240488,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 20,
+      "status": "completed"
+    },
+    {
+      "strategy": "factorized",
+      "depth": 12,
+      "seed": 0,
+      "hidden": "neg(abs(neg(add1(abs(sub1(neg(digital_root(sum_digits(digital_root(neg(abs(var(int)))))))))))))",
+      "n_candidates": 1,
+      "found_correct": false,
+      "accepted": false,
+      "state": "REJECTED",
+      "outcome": "correct_not_discovered",
+      "expansions": 156,
+      "nodes": 204,
+      "cache_hits": 6,
+      "elapsed_s": 0.066211,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 20,
+      "status": "completed"
+    },
+    {
+      "strategy": "cegis",
+      "depth": 12,
+      "seed": 0,
+      "hidden": "neg(abs(neg(add1(abs(sub1(neg(digital_root(sum_digits(digital_root(neg(abs(var(int)))))))))))))",
+      "n_candidates": 0,
+      "found_correct": false,
+      "accepted": false,
+      "state": "REJECTED",
+      "outcome": "correct_not_discovered",
+      "expansions": 362,
+      "nodes": 1236,
+      "cache_hits": 34,
+      "elapsed_s": 0.287905,
+      "timed_out": false,
+      "n_injected": 1,
+      "verification_calls": 20,
+      "status": "completed"
+    },
+    {
+      "strategy": "cached",
+      "depth": 12,
+      "seed": 0,
+      "hidden": "neg(abs(neg(add1(abs(sub1(neg(digital_root(sum_digits(digital_root(neg(abs(var(int)))))))))))))",
+      "n_candidates": 1,
+      "found_correct": false,
+      "accepted": false,
+      "state": "REJECTED",
+      "outcome": "correct_not_discovered",
+      "expansions": 181,
+      "nodes": 618,
+      "cache_hits": 17,
+      "elapsed_s": 0.261454,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 20,
+      "status": "completed"
+    },
+    {
+      "strategy": "plain",
+      "depth": 12,
+      "seed": 1,
+      "hidden": "sum_digits(sub1(abs(abs(digital_root(add1(sub1(sub1(sub1(add1(add1(sub1(var(int)))))))))))))",
+      "n_candidates": 2,
+      "found_correct": false,
+      "accepted": true,
+      "state": "ACCEPTED",
+      "outcome": "incorrect_accepted",
+      "expansions": 183,
+      "nodes": 664,
+      "cache_hits": 17,
+      "elapsed_s": 0.261883,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 40,
+      "status": "completed"
+    },
+    {
+      "strategy": "factorized",
+      "depth": 12,
+      "seed": 1,
+      "hidden": "sum_digits(sub1(abs(abs(digital_root(add1(sub1(sub1(sub1(add1(add1(sub1(var(int)))))))))))))",
+      "n_candidates": 2,
+      "found_correct": false,
+      "accepted": true,
+      "state": "ACCEPTED",
+      "outcome": "incorrect_accepted",
+      "expansions": 134,
+      "nodes": 176,
+      "cache_hits": 5,
+      "elapsed_s": 0.050891,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 40,
+      "status": "completed"
+    },
+    {
+      "strategy": "cegis",
+      "depth": 12,
+      "seed": 1,
+      "hidden": "sum_digits(sub1(abs(abs(digital_root(add1(sub1(sub1(sub1(add1(add1(sub1(var(int)))))))))))))",
+      "n_candidates": 1,
+      "found_correct": false,
+      "accepted": true,
+      "state": "ACCEPTED",
+      "outcome": "incorrect_accepted",
+      "expansions": 366,
+      "nodes": 1328,
+      "cache_hits": 34,
+      "elapsed_s": 0.288362,
+      "timed_out": false,
+      "n_injected": 1,
+      "verification_calls": 20,
+      "status": "completed"
+    },
+    {
+      "strategy": "cached",
+      "depth": 12,
+      "seed": 1,
+      "hidden": "sum_digits(sub1(abs(abs(digital_root(add1(sub1(sub1(sub1(add1(add1(sub1(var(int)))))))))))))",
+      "n_candidates": 2,
+      "found_correct": false,
+      "accepted": true,
+      "state": "ACCEPTED",
+      "outcome": "incorrect_accepted",
+      "expansions": 364,
+      "nodes": 1282,
+      "cache_hits": 34,
+      "elapsed_s": 0.242035,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 40,
+      "status": "completed"
+    },
+    {
+      "strategy": "plain",
+      "depth": 16,
+      "seed": 0,
+      "hidden": "add1(sub1(digital_root(sub1(neg(digital_root(digital_root(abs(add1(abs(sub1(abs(neg(abs(abs(neg(var(int)))))))))))))))))",
+      "n_candidates": 0,
+      "found_correct": false,
+      "accepted": false,
+      "state": "REJECTED",
+      "outcome": "correct_not_discovered",
+      "expansions": 179,
+      "nodes": 500,
+      "cache_hits": 17,
+      "elapsed_s": 0.237362,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 20,
+      "status": "completed"
+    },
+    {
+      "strategy": "factorized",
+      "depth": 16,
+      "seed": 0,
+      "hidden": "add1(sub1(digital_root(sub1(neg(digital_root(digital_root(abs(add1(abs(sub1(abs(neg(abs(abs(neg(var(int)))))))))))))))))",
+      "n_candidates": 0,
+      "found_correct": false,
+      "accepted": false,
+      "state": "REJECTED",
+      "outcome": "correct_not_discovered",
+      "expansions": 139,
+      "nodes": 185,
+      "cache_hits": 5,
+      "elapsed_s": 0.053408,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 20,
+      "status": "completed"
+    },
+    {
+      "strategy": "cegis",
+      "depth": 16,
+      "seed": 0,
+      "hidden": "add1(sub1(digital_root(sub1(neg(digital_root(digital_root(abs(add1(abs(sub1(abs(neg(abs(abs(neg(var(int)))))))))))))))))",
+      "n_candidates": 0,
+      "found_correct": false,
+      "accepted": false,
+      "state": "REJECTED",
+      "outcome": "correct_not_discovered",
+      "expansions": 179,
+      "nodes": 500,
+      "cache_hits": 17,
+      "elapsed_s": 0.230997,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 20,
+      "status": "completed"
+    },
+    {
+      "strategy": "cached",
+      "depth": 16,
+      "seed": 0,
+      "hidden": "add1(sub1(digital_root(sub1(neg(digital_root(digital_root(abs(add1(abs(sub1(abs(neg(abs(abs(neg(var(int)))))))))))))))))",
+      "n_candidates": 0,
+      "found_correct": false,
+      "accepted": false,
+      "state": "REJECTED",
+      "outcome": "correct_not_discovered",
+      "expansions": 179,
+      "nodes": 500,
+      "cache_hits": 17,
+      "elapsed_s": 0.207614,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 20,
+      "status": "completed"
+    },
+    {
+      "strategy": "plain",
+      "depth": 16,
+      "seed": 1,
+      "hidden": "abs(add1(digital_root(abs(abs(neg(digital_root(digital_root(sub1(abs(sum_digits(abs(abs(sub1(digital_root(sum_digits(var(int)))))))))))))))))",
+      "n_candidates": 2,
+      "found_correct": false,
+      "accepted": true,
+      "state": "ACCEPTED",
+      "outcome": "incorrect_accepted",
+      "expansions": 180,
+      "nodes": 586,
+      "cache_hits": 17,
+      "elapsed_s": 0.203536,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 40,
+      "status": "completed"
+    },
+    {
+      "strategy": "factorized",
+      "depth": 16,
+      "seed": 1,
+      "hidden": "abs(add1(digital_root(abs(abs(neg(digital_root(digital_root(sub1(abs(sum_digits(abs(abs(sub1(digital_root(sum_digits(var(int)))))))))))))))))",
+      "n_candidates": 2,
+      "found_correct": false,
+      "accepted": true,
+      "state": "ACCEPTED",
+      "outcome": "incorrect_accepted",
+      "expansions": 168,
+      "nodes": 213,
+      "cache_hits": 6,
+      "elapsed_s": 0.054344,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 40,
+      "status": "completed"
+    },
+    {
+      "strategy": "cegis",
+      "depth": 16,
+      "seed": 1,
+      "hidden": "abs(add1(digital_root(abs(abs(neg(digital_root(digital_root(sub1(abs(sum_digits(abs(abs(sub1(digital_root(sum_digits(var(int)))))))))))))))))",
+      "n_candidates": 1,
+      "found_correct": false,
+      "accepted": true,
+      "state": "ACCEPTED",
+      "outcome": "incorrect_accepted",
+      "expansions": 360,
+      "nodes": 1172,
+      "cache_hits": 34,
+      "elapsed_s": 0.241787,
+      "timed_out": false,
+      "n_injected": 1,
+      "verification_calls": 20,
+      "status": "completed"
+    },
+    {
+      "strategy": "cached",
+      "depth": 16,
+      "seed": 1,
+      "hidden": "abs(add1(digital_root(abs(abs(neg(digital_root(digital_root(sub1(abs(sum_digits(abs(abs(sub1(digital_root(sum_digits(var(int)))))))))))))))))",
+      "n_candidates": 2,
+      "found_correct": false,
+      "accepted": true,
+      "state": "ACCEPTED",
+      "outcome": "incorrect_accepted",
+      "expansions": 359,
+      "nodes": 1086,
+      "cache_hits": 34,
+      "elapsed_s": 0.232575,
+      "timed_out": false,
+      "n_injected": 0,
+      "verification_calls": 40,
+      "status": "completed"
+    }
+  ],
+  "by_depth_strategy": {
+    "d2/plain": {
+      "n": 2,
+      "outcomes": {
+        "correct_discovered": 1,
+        "correct_not_discovered": 1
+      },
+      "incorrect_acceptance": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "correct_discovery": {
+        "n": 2,
+        "mean": 0.5,
+        "median": 0.5,
+        "std": 0.5,
+        "ci95": 0.692952,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "found_correct": {
+        "n": 2,
+        "mean": 0.5,
+        "median": 0.5,
+        "std": 0.5,
+        "ci95": 0.692952,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "budget_exhaustion": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "expansions": {
+        "n": 2,
+        "mean": 57.0,
+        "median": 57.0,
+        "std": 8.0,
+        "ci95": 11.087231,
+        "min": 49.0,
+        "max": 65.0
+      },
+      "nodes": {
+        "n": 2,
+        "mean": 104.5,
+        "median": 104.5,
+        "std": 5.5,
+        "ci95": 7.622471,
+        "min": 99.0,
+        "max": 110.0
+      },
+      "cache_hits": {
+        "n": 2,
+        "mean": 17.0,
+        "median": 17.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 17.0,
+        "max": 17.0
+      },
+      "elapsed_s": {
+        "n": 2,
+        "mean": 0.023565,
+        "median": 0.023565,
+        "std": 0.001139,
+        "ci95": 0.001578,
+        "min": 0.022427,
+        "max": 0.024704
+      },
+      "verification_calls": {
+        "n": 2,
+        "mean": 20.0,
+        "median": 20.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 20.0,
+        "max": 20.0
+      },
+      "n_errors": 0
+    },
+    "d2/factorized": {
+      "n": 2,
+      "outcomes": {
+        "correct_discovered": 1,
+        "correct_not_discovered": 1
+      },
+      "incorrect_acceptance": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "correct_discovery": {
+        "n": 2,
+        "mean": 0.5,
+        "median": 0.5,
+        "std": 0.5,
+        "ci95": 0.692952,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "found_correct": {
+        "n": 2,
+        "mean": 0.5,
+        "median": 0.5,
+        "std": 0.5,
+        "ci95": 0.692952,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "budget_exhaustion": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "expansions": {
+        "n": 2,
+        "mean": 38.0,
+        "median": 38.0,
+        "std": 2.0,
+        "ci95": 2.771808,
+        "min": 36.0,
+        "max": 40.0
+      },
+      "nodes": {
+        "n": 2,
+        "mean": 85.5,
+        "median": 85.5,
+        "std": 0.5,
+        "ci95": 0.692952,
+        "min": 85.0,
+        "max": 86.0
+      },
+      "cache_hits": {
+        "n": 2,
+        "mean": 1.5,
+        "median": 1.5,
+        "std": 0.5,
+        "ci95": 0.692952,
+        "min": 1.0,
+        "max": 2.0
+      },
+      "elapsed_s": {
+        "n": 2,
+        "mean": 0.010648,
+        "median": 0.010648,
+        "std": 0.000554,
+        "ci95": 0.000767,
+        "min": 0.010095,
+        "max": 0.011202
+      },
+      "verification_calls": {
+        "n": 2,
+        "mean": 20.0,
+        "median": 20.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 20.0,
+        "max": 20.0
+      },
+      "n_errors": 0
+    },
+    "d2/cegis": {
+      "n": 2,
+      "outcomes": {
+        "correct_discovered": 1,
+        "correct_not_discovered": 1
+      },
+      "incorrect_acceptance": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "correct_discovery": {
+        "n": 2,
+        "mean": 0.5,
+        "median": 0.5,
+        "std": 0.5,
+        "ci95": 0.692952,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "found_correct": {
+        "n": 2,
+        "mean": 0.5,
+        "median": 0.5,
+        "std": 0.5,
+        "ci95": 0.692952,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "budget_exhaustion": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "expansions": {
+        "n": 2,
+        "mean": 57.0,
+        "median": 57.0,
+        "std": 8.0,
+        "ci95": 11.087231,
+        "min": 49.0,
+        "max": 65.0
+      },
+      "nodes": {
+        "n": 2,
+        "mean": 104.5,
+        "median": 104.5,
+        "std": 5.5,
+        "ci95": 7.622471,
+        "min": 99.0,
+        "max": 110.0
+      },
+      "cache_hits": {
+        "n": 2,
+        "mean": 17.0,
+        "median": 17.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 17.0,
+        "max": 17.0
+      },
+      "elapsed_s": {
+        "n": 2,
+        "mean": 0.023297,
+        "median": 0.023297,
+        "std": 0.000816,
+        "ci95": 0.001131,
+        "min": 0.022481,
+        "max": 0.024113
+      },
+      "verification_calls": {
+        "n": 2,
+        "mean": 20.0,
+        "median": 20.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 20.0,
+        "max": 20.0
+      },
+      "n_errors": 0
+    },
+    "d2/cached": {
+      "n": 2,
+      "outcomes": {
+        "correct_discovered": 1,
+        "correct_not_discovered": 1
+      },
+      "incorrect_acceptance": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "correct_discovery": {
+        "n": 2,
+        "mean": 0.5,
+        "median": 0.5,
+        "std": 0.5,
+        "ci95": 0.692952,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "found_correct": {
+        "n": 2,
+        "mean": 0.5,
+        "median": 0.5,
+        "std": 0.5,
+        "ci95": 0.692952,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "budget_exhaustion": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "expansions": {
+        "n": 2,
+        "mean": 89.5,
+        "median": 89.5,
+        "std": 24.5,
+        "ci95": 33.954644,
+        "min": 65.0,
+        "max": 114.0
+      },
+      "nodes": {
+        "n": 2,
+        "mean": 159.5,
+        "median": 159.5,
+        "std": 49.5,
+        "ci95": 68.602239,
+        "min": 110.0,
+        "max": 209.0
+      },
+      "cache_hits": {
+        "n": 2,
+        "mean": 25.5,
+        "median": 25.5,
+        "std": 8.5,
+        "ci95": 11.780183,
+        "min": 17.0,
+        "max": 34.0
+      },
+      "elapsed_s": {
+        "n": 2,
+        "mean": 0.022859,
+        "median": 0.022859,
+        "std": 0.000752,
+        "ci95": 0.001042,
+        "min": 0.022107,
+        "max": 0.023611
+      },
+      "verification_calls": {
+        "n": 2,
+        "mean": 20.0,
+        "median": 20.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 20.0,
+        "max": 20.0
+      },
+      "n_errors": 0
+    },
+    "d3/plain": {
+      "n": 2,
+      "outcomes": {
+        "incorrect_accepted": 2
+      },
+      "incorrect_acceptance": {
+        "n": 2,
+        "mean": 1.0,
+        "median": 1.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "correct_discovery": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "found_correct": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "budget_exhaustion": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "expansions": {
+        "n": 2,
+        "mean": 179.5,
+        "median": 179.5,
+        "std": 0.5,
+        "ci95": 0.692952,
+        "min": 179.0,
+        "max": 180.0
+      },
+      "nodes": {
+        "n": 2,
+        "mean": 357.0,
+        "median": 357.0,
+        "std": 4.0,
+        "ci95": 5.543615,
+        "min": 353.0,
+        "max": 361.0
+      },
+      "cache_hits": {
+        "n": 2,
+        "mean": 17.0,
+        "median": 17.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 17.0,
+        "max": 17.0
+      },
+      "elapsed_s": {
+        "n": 2,
+        "mean": 0.140559,
+        "median": 0.140559,
+        "std": 0.003734,
+        "ci95": 0.005175,
+        "min": 0.136825,
+        "max": 0.144293
+      },
+      "verification_calls": {
+        "n": 2,
+        "mean": 60.0,
+        "median": 60.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 60.0,
+        "max": 60.0
+      },
+      "n_errors": 0
+    },
+    "d3/factorized": {
+      "n": 2,
+      "outcomes": {
+        "correct_discovered": 1,
+        "incorrect_accepted": 1
+      },
+      "incorrect_acceptance": {
+        "n": 2,
+        "mean": 0.5,
+        "median": 0.5,
+        "std": 0.5,
+        "ci95": 0.692952,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "correct_discovery": {
+        "n": 2,
+        "mean": 0.5,
+        "median": 0.5,
+        "std": 0.5,
+        "ci95": 0.692952,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "found_correct": {
+        "n": 2,
+        "mean": 0.5,
+        "median": 0.5,
+        "std": 0.5,
+        "ci95": 0.692952,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "budget_exhaustion": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "expansions": {
+        "n": 2,
+        "mean": 70.0,
+        "median": 70.0,
+        "std": 1.0,
+        "ci95": 1.385904,
+        "min": 69.0,
+        "max": 71.0
+      },
+      "nodes": {
+        "n": 2,
+        "mean": 115.5,
+        "median": 115.5,
+        "std": 1.5,
+        "ci95": 2.078856,
+        "min": 114.0,
+        "max": 117.0
+      },
+      "cache_hits": {
+        "n": 2,
+        "mean": 2.5,
+        "median": 2.5,
+        "std": 0.5,
+        "ci95": 0.692952,
+        "min": 2.0,
+        "max": 3.0
+      },
+      "elapsed_s": {
+        "n": 2,
+        "mean": 0.021726,
+        "median": 0.021726,
+        "std": 0.00134,
+        "ci95": 0.001858,
+        "min": 0.020385,
+        "max": 0.023066
+      },
+      "verification_calls": {
+        "n": 2,
+        "mean": 60.0,
+        "median": 60.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 60.0,
+        "max": 60.0
+      },
+      "n_errors": 0
+    },
+    "d3/cegis": {
+      "n": 2,
+      "outcomes": {
+        "incorrect_accepted": 2
+      },
+      "incorrect_acceptance": {
+        "n": 2,
+        "mean": 1.0,
+        "median": 1.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "correct_discovery": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "found_correct": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "budget_exhaustion": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "expansions": {
+        "n": 2,
+        "mean": 359.0,
+        "median": 359.0,
+        "std": 1.0,
+        "ci95": 1.385904,
+        "min": 358.0,
+        "max": 360.0
+      },
+      "nodes": {
+        "n": 2,
+        "mean": 714.0,
+        "median": 714.0,
+        "std": 8.0,
+        "ci95": 11.087231,
+        "min": 706.0,
+        "max": 722.0
+      },
+      "cache_hits": {
+        "n": 2,
+        "mean": 34.0,
+        "median": 34.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 34.0,
+        "max": 34.0
+      },
+      "elapsed_s": {
+        "n": 2,
+        "mean": 0.161908,
+        "median": 0.161908,
+        "std": 0.001097,
+        "ci95": 0.00152,
+        "min": 0.160811,
+        "max": 0.163005
+      },
+      "verification_calls": {
+        "n": 2,
+        "mean": 40.0,
+        "median": 40.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 40.0,
+        "max": 40.0
+      },
+      "n_errors": 0
+    },
+    "d3/cached": {
+      "n": 2,
+      "outcomes": {
+        "incorrect_accepted": 2
+      },
+      "incorrect_acceptance": {
+        "n": 2,
+        "mean": 1.0,
+        "median": 1.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "correct_discovery": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "found_correct": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "budget_exhaustion": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "expansions": {
+        "n": 2,
+        "mean": 269.5,
+        "median": 269.5,
+        "std": 89.5,
+        "ci95": 124.038392,
+        "min": 180.0,
+        "max": 359.0
+      },
+      "nodes": {
+        "n": 2,
+        "mean": 533.5,
+        "median": 533.5,
+        "std": 180.5,
+        "ci95": 250.15564,
+        "min": 353.0,
+        "max": 714.0
+      },
+      "cache_hits": {
+        "n": 2,
+        "mean": 25.5,
+        "median": 25.5,
+        "std": 8.5,
+        "ci95": 11.780183,
+        "min": 17.0,
+        "max": 34.0
+      },
+      "elapsed_s": {
+        "n": 2,
+        "mean": 0.139729,
+        "median": 0.139729,
+        "std": 0.000932,
+        "ci95": 0.001292,
+        "min": 0.138797,
+        "max": 0.140661
+      },
+      "verification_calls": {
+        "n": 2,
+        "mean": 60.0,
+        "median": 60.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 60.0,
+        "max": 60.0
+      },
+      "n_errors": 0
+    },
+    "d4/plain": {
+      "n": 2,
+      "outcomes": {
+        "correct_not_discovered": 1,
+        "incorrect_accepted": 1
+      },
+      "incorrect_acceptance": {
+        "n": 2,
+        "mean": 0.5,
+        "median": 0.5,
+        "std": 0.5,
+        "ci95": 0.692952,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "correct_discovery": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "found_correct": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "budget_exhaustion": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "expansions": {
+        "n": 2,
+        "mean": 179.0,
+        "median": 179.0,
+        "std": 1.0,
+        "ci95": 1.385904,
+        "min": 178.0,
+        "max": 180.0
+      },
+      "nodes": {
+        "n": 2,
+        "mean": 564.5,
+        "median": 564.5,
+        "std": 2.5,
+        "ci95": 3.46476,
+        "min": 562.0,
+        "max": 567.0
+      },
+      "cache_hits": {
+        "n": 2,
+        "mean": 17.0,
+        "median": 17.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 17.0,
+        "max": 17.0
+      },
+      "elapsed_s": {
+        "n": 2,
+        "mean": 0.221152,
+        "median": 0.221152,
+        "std": 0.014238,
+        "ci95": 0.019733,
+        "min": 0.206913,
+        "max": 0.23539
+      },
+      "verification_calls": {
+        "n": 2,
+        "mean": 40.0,
+        "median": 40.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 40.0,
+        "max": 40.0
+      },
+      "n_errors": 0
+    },
+    "d4/factorized": {
+      "n": 2,
+      "outcomes": {
+        "correct_discovered": 1,
+        "incorrect_accepted": 1
+      },
+      "incorrect_acceptance": {
+        "n": 2,
+        "mean": 0.5,
+        "median": 0.5,
+        "std": 0.5,
+        "ci95": 0.692952,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "correct_discovery": {
+        "n": 2,
+        "mean": 0.5,
+        "median": 0.5,
+        "std": 0.5,
+        "ci95": 0.692952,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "found_correct": {
+        "n": 2,
+        "mean": 0.5,
+        "median": 0.5,
+        "std": 0.5,
+        "ci95": 0.692952,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "budget_exhaustion": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "expansions": {
+        "n": 2,
+        "mean": 102.5,
+        "median": 102.5,
+        "std": 28.5,
+        "ci95": 39.498259,
+        "min": 74.0,
+        "max": 131.0
+      },
+      "nodes": {
+        "n": 2,
+        "mean": 148.5,
+        "median": 148.5,
+        "std": 29.5,
+        "ci95": 40.884163,
+        "min": 119.0,
+        "max": 178.0
+      },
+      "cache_hits": {
+        "n": 2,
+        "mean": 3.0,
+        "median": 3.0,
+        "std": 1.0,
+        "ci95": 1.385904,
+        "min": 2.0,
+        "max": 4.0
+      },
+      "elapsed_s": {
+        "n": 2,
+        "mean": 0.038077,
+        "median": 0.038077,
+        "std": 0.01398,
+        "ci95": 0.019375,
+        "min": 0.024097,
+        "max": 0.052057
+      },
+      "verification_calls": {
+        "n": 2,
+        "mean": 30.0,
+        "median": 30.0,
+        "std": 10.0,
+        "ci95": 13.859038,
+        "min": 20.0,
+        "max": 40.0
+      },
+      "n_errors": 0
+    },
+    "d4/cegis": {
+      "n": 2,
+      "outcomes": {
+        "correct_not_discovered": 1,
+        "incorrect_accepted": 1
+      },
+      "incorrect_acceptance": {
+        "n": 2,
+        "mean": 0.5,
+        "median": 0.5,
+        "std": 0.5,
+        "ci95": 0.692952,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "correct_discovery": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "found_correct": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "budget_exhaustion": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "expansions": {
+        "n": 2,
+        "mean": 358.0,
+        "median": 358.0,
+        "std": 2.0,
+        "ci95": 2.771808,
+        "min": 356.0,
+        "max": 360.0
+      },
+      "nodes": {
+        "n": 2,
+        "mean": 1129.0,
+        "median": 1129.0,
+        "std": 5.0,
+        "ci95": 6.929519,
+        "min": 1124.0,
+        "max": 1134.0
+      },
+      "cache_hits": {
+        "n": 2,
+        "mean": 34.0,
+        "median": 34.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 34.0,
+        "max": 34.0
+      },
+      "elapsed_s": {
+        "n": 2,
+        "mean": 0.234071,
+        "median": 0.234071,
+        "std": 0.002301,
+        "ci95": 0.00319,
+        "min": 0.23177,
+        "max": 0.236373
+      },
+      "verification_calls": {
+        "n": 2,
+        "mean": 20.0,
+        "median": 20.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 20.0,
+        "max": 20.0
+      },
+      "n_errors": 0
+    },
+    "d4/cached": {
+      "n": 2,
+      "outcomes": {
+        "correct_not_discovered": 1,
+        "incorrect_accepted": 1
+      },
+      "incorrect_acceptance": {
+        "n": 2,
+        "mean": 0.5,
+        "median": 0.5,
+        "std": 0.5,
+        "ci95": 0.692952,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "correct_discovery": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "found_correct": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "budget_exhaustion": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "expansions": {
+        "n": 2,
+        "mean": 268.0,
+        "median": 268.0,
+        "std": 90.0,
+        "ci95": 124.731344,
+        "min": 178.0,
+        "max": 358.0
+      },
+      "nodes": {
+        "n": 2,
+        "mean": 848.0,
+        "median": 848.0,
+        "std": 281.0,
+        "ci95": 389.438975,
+        "min": 567.0,
+        "max": 1129.0
+      },
+      "cache_hits": {
+        "n": 2,
+        "mean": 25.5,
+        "median": 25.5,
+        "std": 8.5,
+        "ci95": 11.780183,
+        "min": 17.0,
+        "max": 34.0
+      },
+      "elapsed_s": {
+        "n": 2,
+        "mean": 0.233425,
+        "median": 0.233425,
+        "std": 0.013512,
+        "ci95": 0.018726,
+        "min": 0.219913,
+        "max": 0.246937
+      },
+      "verification_calls": {
+        "n": 2,
+        "mean": 40.0,
+        "median": 40.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 40.0,
+        "max": 40.0
+      },
+      "n_errors": 0
+    },
+    "d5/plain": {
+      "n": 2,
+      "outcomes": {
+        "incorrect_accepted": 2
+      },
+      "incorrect_acceptance": {
+        "n": 2,
+        "mean": 1.0,
+        "median": 1.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "correct_discovery": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "found_correct": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "budget_exhaustion": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "expansions": {
+        "n": 2,
+        "mean": 180.5,
+        "median": 180.5,
+        "std": 1.5,
+        "ci95": 2.078856,
+        "min": 179.0,
+        "max": 182.0
+      },
+      "nodes": {
+        "n": 2,
+        "mean": 536.5,
+        "median": 536.5,
+        "std": 30.5,
+        "ci95": 42.270067,
+        "min": 506.0,
+        "max": 567.0
+      },
+      "cache_hits": {
+        "n": 2,
+        "mean": 17.0,
+        "median": 17.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 17.0,
+        "max": 17.0
+      },
+      "elapsed_s": {
+        "n": 2,
+        "mean": 0.230847,
+        "median": 0.230847,
+        "std": 0.01148,
+        "ci95": 0.015911,
+        "min": 0.219366,
+        "max": 0.242327
+      },
+      "verification_calls": {
+        "n": 2,
+        "mean": 40.0,
+        "median": 40.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 40.0,
+        "max": 40.0
+      },
+      "n_errors": 0
+    },
+    "d5/factorized": {
+      "n": 2,
+      "outcomes": {
+        "incorrect_accepted": 2
+      },
+      "incorrect_acceptance": {
+        "n": 2,
+        "mean": 1.0,
+        "median": 1.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "correct_discovery": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "found_correct": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "budget_exhaustion": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "expansions": {
+        "n": 2,
+        "mean": 85.5,
+        "median": 85.5,
+        "std": 2.5,
+        "ci95": 3.46476,
+        "min": 83.0,
+        "max": 88.0
+      },
+      "nodes": {
+        "n": 2,
+        "mean": 130.0,
+        "median": 130.0,
+        "std": 1.0,
+        "ci95": 1.385904,
+        "min": 129.0,
+        "max": 131.0
+      },
+      "cache_hits": {
+        "n": 2,
+        "mean": 3.0,
+        "median": 3.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 3.0,
+        "max": 3.0
+      },
+      "elapsed_s": {
+        "n": 2,
+        "mean": 0.030562,
+        "median": 0.030562,
+        "std": 0.003139,
+        "ci95": 0.00435,
+        "min": 0.027423,
+        "max": 0.033701
+      },
+      "verification_calls": {
+        "n": 2,
+        "mean": 40.0,
+        "median": 40.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 40.0,
+        "max": 40.0
+      },
+      "n_errors": 0
+    },
+    "d5/cegis": {
+      "n": 2,
+      "outcomes": {
+        "incorrect_accepted": 2
+      },
+      "incorrect_acceptance": {
+        "n": 2,
+        "mean": 1.0,
+        "median": 1.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "correct_discovery": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "found_correct": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "budget_exhaustion": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "expansions": {
+        "n": 2,
+        "mean": 361.0,
+        "median": 361.0,
+        "std": 3.0,
+        "ci95": 4.157711,
+        "min": 358.0,
+        "max": 364.0
+      },
+      "nodes": {
+        "n": 2,
+        "mean": 1073.0,
+        "median": 1073.0,
+        "std": 61.0,
+        "ci95": 84.540133,
+        "min": 1012.0,
+        "max": 1134.0
+      },
+      "cache_hits": {
+        "n": 2,
+        "mean": 34.0,
+        "median": 34.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 34.0,
+        "max": 34.0
+      },
+      "elapsed_s": {
+        "n": 2,
+        "mean": 0.256302,
+        "median": 0.256302,
+        "std": 0.012233,
+        "ci95": 0.016954,
+        "min": 0.244069,
+        "max": 0.268535
+      },
+      "verification_calls": {
+        "n": 2,
+        "mean": 20.0,
+        "median": 20.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 20.0,
+        "max": 20.0
+      },
+      "n_errors": 0
+    },
+    "d5/cached": {
+      "n": 2,
+      "outcomes": {
+        "incorrect_accepted": 2
+      },
+      "incorrect_acceptance": {
+        "n": 2,
+        "mean": 1.0,
+        "median": 1.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "correct_discovery": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "found_correct": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "budget_exhaustion": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "expansions": {
+        "n": 2,
+        "mean": 271.5,
+        "median": 271.5,
+        "std": 89.5,
+        "ci95": 124.038392,
+        "min": 182.0,
+        "max": 361.0
+      },
+      "nodes": {
+        "n": 2,
+        "mean": 820.0,
+        "median": 820.0,
+        "std": 253.0,
+        "ci95": 350.633668,
+        "min": 567.0,
+        "max": 1073.0
+      },
+      "cache_hits": {
+        "n": 2,
+        "mean": 25.5,
+        "median": 25.5,
+        "std": 8.5,
+        "ci95": 11.780183,
+        "min": 17.0,
+        "max": 34.0
+      },
+      "elapsed_s": {
+        "n": 2,
+        "mean": 0.22289,
+        "median": 0.22289,
+        "std": 0.001178,
+        "ci95": 0.001633,
+        "min": 0.221712,
+        "max": 0.224068
+      },
+      "verification_calls": {
+        "n": 2,
+        "mean": 40.0,
+        "median": 40.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 40.0,
+        "max": 40.0
+      },
+      "n_errors": 0
+    },
+    "d8/plain": {
+      "n": 2,
+      "outcomes": {
+        "correct_not_discovered": 1,
+        "incorrect_accepted": 1
+      },
+      "incorrect_acceptance": {
+        "n": 2,
+        "mean": 0.5,
+        "median": 0.5,
+        "std": 0.5,
+        "ci95": 0.692952,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "correct_discovery": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "found_correct": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "budget_exhaustion": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "expansions": {
+        "n": 2,
+        "mean": 180.0,
+        "median": 180.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 180.0,
+        "max": 180.0
+      },
+      "nodes": {
+        "n": 2,
+        "mean": 568.0,
+        "median": 568.0,
+        "std": 2.0,
+        "ci95": 2.771808,
+        "min": 566.0,
+        "max": 570.0
+      },
+      "cache_hits": {
+        "n": 2,
+        "mean": 17.0,
+        "median": 17.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 17.0,
+        "max": 17.0
+      },
+      "elapsed_s": {
+        "n": 2,
+        "mean": 0.226462,
+        "median": 0.226462,
+        "std": 0.003925,
+        "ci95": 0.00544,
+        "min": 0.222537,
+        "max": 0.230387
+      },
+      "verification_calls": {
+        "n": 2,
+        "mean": 20.0,
+        "median": 20.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 20.0,
+        "max": 20.0
+      },
+      "n_errors": 0
+    },
+    "d8/factorized": {
+      "n": 2,
+      "outcomes": {
+        "correct_not_discovered": 1,
+        "incorrect_accepted": 1
+      },
+      "incorrect_acceptance": {
+        "n": 2,
+        "mean": 0.5,
+        "median": 0.5,
+        "std": 0.5,
+        "ci95": 0.692952,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "correct_discovery": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "found_correct": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "budget_exhaustion": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "expansions": {
+        "n": 2,
+        "mean": 142.5,
+        "median": 142.5,
+        "std": 6.5,
+        "ci95": 9.008375,
+        "min": 136.0,
+        "max": 149.0
+      },
+      "nodes": {
+        "n": 2,
+        "mean": 187.5,
+        "median": 187.5,
+        "std": 6.5,
+        "ci95": 9.008375,
+        "min": 181.0,
+        "max": 194.0
+      },
+      "cache_hits": {
+        "n": 2,
+        "mean": 4.5,
+        "median": 4.5,
+        "std": 0.5,
+        "ci95": 0.692952,
+        "min": 4.0,
+        "max": 5.0
+      },
+      "elapsed_s": {
+        "n": 2,
+        "mean": 0.052194,
+        "median": 0.052194,
+        "std": 0.006072,
+        "ci95": 0.008416,
+        "min": 0.046121,
+        "max": 0.058266
+      },
+      "verification_calls": {
+        "n": 2,
+        "mean": 20.0,
+        "median": 20.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 20.0,
+        "max": 20.0
+      },
+      "n_errors": 0
+    },
+    "d8/cegis": {
+      "n": 2,
+      "outcomes": {
+        "correct_not_discovered": 1,
+        "incorrect_accepted": 1
+      },
+      "incorrect_acceptance": {
+        "n": 2,
+        "mean": 0.5,
+        "median": 0.5,
+        "std": 0.5,
+        "ci95": 0.692952,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "correct_discovery": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "found_correct": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "budget_exhaustion": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "expansions": {
+        "n": 2,
+        "mean": 180.0,
+        "median": 180.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 180.0,
+        "max": 180.0
+      },
+      "nodes": {
+        "n": 2,
+        "mean": 568.0,
+        "median": 568.0,
+        "std": 2.0,
+        "ci95": 2.771808,
+        "min": 566.0,
+        "max": 570.0
+      },
+      "cache_hits": {
+        "n": 2,
+        "mean": 17.0,
+        "median": 17.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 17.0,
+        "max": 17.0
+      },
+      "elapsed_s": {
+        "n": 2,
+        "mean": 0.240492,
+        "median": 0.240492,
+        "std": 0.007317,
+        "ci95": 0.010141,
+        "min": 0.233175,
+        "max": 0.247809
+      },
+      "verification_calls": {
+        "n": 2,
+        "mean": 20.0,
+        "median": 20.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 20.0,
+        "max": 20.0
+      },
+      "n_errors": 0
+    },
+    "d8/cached": {
+      "n": 2,
+      "outcomes": {
+        "correct_not_discovered": 1,
+        "incorrect_accepted": 1
+      },
+      "incorrect_acceptance": {
+        "n": 2,
+        "mean": 0.5,
+        "median": 0.5,
+        "std": 0.5,
+        "ci95": 0.692952,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "correct_discovery": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "found_correct": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "budget_exhaustion": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "expansions": {
+        "n": 2,
+        "mean": 270.0,
+        "median": 270.0,
+        "std": 90.0,
+        "ci95": 124.731344,
+        "min": 180.0,
+        "max": 360.0
+      },
+      "nodes": {
+        "n": 2,
+        "mean": 851.0,
+        "median": 851.0,
+        "std": 285.0,
+        "ci95": 394.98259,
+        "min": 566.0,
+        "max": 1136.0
+      },
+      "cache_hits": {
+        "n": 2,
+        "mean": 25.5,
+        "median": 25.5,
+        "std": 8.5,
+        "ci95": 11.780183,
+        "min": 17.0,
+        "max": 34.0
+      },
+      "elapsed_s": {
+        "n": 2,
+        "mean": 0.237278,
+        "median": 0.237278,
+        "std": 0.00263,
+        "ci95": 0.003645,
+        "min": 0.234648,
+        "max": 0.239908
+      },
+      "verification_calls": {
+        "n": 2,
+        "mean": 20.0,
+        "median": 20.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 20.0,
+        "max": 20.0
+      },
+      "n_errors": 0
+    },
+    "d12/plain": {
+      "n": 2,
+      "outcomes": {
+        "correct_not_discovered": 1,
+        "incorrect_accepted": 1
+      },
+      "incorrect_acceptance": {
+        "n": 2,
+        "mean": 0.5,
+        "median": 0.5,
+        "std": 0.5,
+        "ci95": 0.692952,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "correct_discovery": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "found_correct": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "budget_exhaustion": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "expansions": {
+        "n": 2,
+        "mean": 182.0,
+        "median": 182.0,
+        "std": 1.0,
+        "ci95": 1.385904,
+        "min": 181.0,
+        "max": 183.0
+      },
+      "nodes": {
+        "n": 2,
+        "mean": 641.0,
+        "median": 641.0,
+        "std": 23.0,
+        "ci95": 31.875788,
+        "min": 618.0,
+        "max": 664.0
+      },
+      "cache_hits": {
+        "n": 2,
+        "mean": 17.0,
+        "median": 17.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 17.0,
+        "max": 17.0
+      },
+      "elapsed_s": {
+        "n": 2,
+        "mean": 0.251186,
+        "median": 0.251186,
+        "std": 0.010697,
+        "ci95": 0.014826,
+        "min": 0.240488,
+        "max": 0.261883
+      },
+      "verification_calls": {
+        "n": 2,
+        "mean": 30.0,
+        "median": 30.0,
+        "std": 10.0,
+        "ci95": 13.859038,
+        "min": 20.0,
+        "max": 40.0
+      },
+      "n_errors": 0
+    },
+    "d12/factorized": {
+      "n": 2,
+      "outcomes": {
+        "correct_not_discovered": 1,
+        "incorrect_accepted": 1
+      },
+      "incorrect_acceptance": {
+        "n": 2,
+        "mean": 0.5,
+        "median": 0.5,
+        "std": 0.5,
+        "ci95": 0.692952,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "correct_discovery": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "found_correct": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "budget_exhaustion": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "expansions": {
+        "n": 2,
+        "mean": 145.0,
+        "median": 145.0,
+        "std": 11.0,
+        "ci95": 15.244942,
+        "min": 134.0,
+        "max": 156.0
+      },
+      "nodes": {
+        "n": 2,
+        "mean": 190.0,
+        "median": 190.0,
+        "std": 14.0,
+        "ci95": 19.402654,
+        "min": 176.0,
+        "max": 204.0
+      },
+      "cache_hits": {
+        "n": 2,
+        "mean": 5.5,
+        "median": 5.5,
+        "std": 0.5,
+        "ci95": 0.692952,
+        "min": 5.0,
+        "max": 6.0
+      },
+      "elapsed_s": {
+        "n": 2,
+        "mean": 0.058551,
+        "median": 0.058551,
+        "std": 0.00766,
+        "ci95": 0.010616,
+        "min": 0.050891,
+        "max": 0.066211
+      },
+      "verification_calls": {
+        "n": 2,
+        "mean": 30.0,
+        "median": 30.0,
+        "std": 10.0,
+        "ci95": 13.859038,
+        "min": 20.0,
+        "max": 40.0
+      },
+      "n_errors": 0
+    },
+    "d12/cegis": {
+      "n": 2,
+      "outcomes": {
+        "correct_not_discovered": 1,
+        "incorrect_accepted": 1
+      },
+      "incorrect_acceptance": {
+        "n": 2,
+        "mean": 0.5,
+        "median": 0.5,
+        "std": 0.5,
+        "ci95": 0.692952,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "correct_discovery": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "found_correct": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "budget_exhaustion": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "expansions": {
+        "n": 2,
+        "mean": 364.0,
+        "median": 364.0,
+        "std": 2.0,
+        "ci95": 2.771808,
+        "min": 362.0,
+        "max": 366.0
+      },
+      "nodes": {
+        "n": 2,
+        "mean": 1282.0,
+        "median": 1282.0,
+        "std": 46.0,
+        "ci95": 63.751576,
+        "min": 1236.0,
+        "max": 1328.0
+      },
+      "cache_hits": {
+        "n": 2,
+        "mean": 34.0,
+        "median": 34.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 34.0,
+        "max": 34.0
+      },
+      "elapsed_s": {
+        "n": 2,
+        "mean": 0.288134,
+        "median": 0.288134,
+        "std": 0.000228,
+        "ci95": 0.000317,
+        "min": 0.287905,
+        "max": 0.288362
+      },
+      "verification_calls": {
+        "n": 2,
+        "mean": 20.0,
+        "median": 20.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 20.0,
+        "max": 20.0
+      },
+      "n_errors": 0
+    },
+    "d12/cached": {
+      "n": 2,
+      "outcomes": {
+        "correct_not_discovered": 1,
+        "incorrect_accepted": 1
+      },
+      "incorrect_acceptance": {
+        "n": 2,
+        "mean": 0.5,
+        "median": 0.5,
+        "std": 0.5,
+        "ci95": 0.692952,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "correct_discovery": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "found_correct": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "budget_exhaustion": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "expansions": {
+        "n": 2,
+        "mean": 272.5,
+        "median": 272.5,
+        "std": 91.5,
+        "ci95": 126.8102,
+        "min": 181.0,
+        "max": 364.0
+      },
+      "nodes": {
+        "n": 2,
+        "mean": 950.0,
+        "median": 950.0,
+        "std": 332.0,
+        "ci95": 460.12007,
+        "min": 618.0,
+        "max": 1282.0
+      },
+      "cache_hits": {
+        "n": 2,
+        "mean": 25.5,
+        "median": 25.5,
+        "std": 8.5,
+        "ci95": 11.780183,
+        "min": 17.0,
+        "max": 34.0
+      },
+      "elapsed_s": {
+        "n": 2,
+        "mean": 0.251745,
+        "median": 0.251745,
+        "std": 0.00971,
+        "ci95": 0.013456,
+        "min": 0.242035,
+        "max": 0.261454
+      },
+      "verification_calls": {
+        "n": 2,
+        "mean": 30.0,
+        "median": 30.0,
+        "std": 10.0,
+        "ci95": 13.859038,
+        "min": 20.0,
+        "max": 40.0
+      },
+      "n_errors": 0
+    },
+    "d16/plain": {
+      "n": 2,
+      "outcomes": {
+        "correct_not_discovered": 1,
+        "incorrect_accepted": 1
+      },
+      "incorrect_acceptance": {
+        "n": 2,
+        "mean": 0.5,
+        "median": 0.5,
+        "std": 0.5,
+        "ci95": 0.692952,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "correct_discovery": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "found_correct": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "budget_exhaustion": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "expansions": {
+        "n": 2,
+        "mean": 179.5,
+        "median": 179.5,
+        "std": 0.5,
+        "ci95": 0.692952,
+        "min": 179.0,
+        "max": 180.0
+      },
+      "nodes": {
+        "n": 2,
+        "mean": 543.0,
+        "median": 543.0,
+        "std": 43.0,
+        "ci95": 59.593864,
+        "min": 500.0,
+        "max": 586.0
+      },
+      "cache_hits": {
+        "n": 2,
+        "mean": 17.0,
+        "median": 17.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 17.0,
+        "max": 17.0
+      },
+      "elapsed_s": {
+        "n": 2,
+        "mean": 0.220449,
+        "median": 0.220449,
+        "std": 0.016913,
+        "ci95": 0.02344,
+        "min": 0.203536,
+        "max": 0.237362
+      },
+      "verification_calls": {
+        "n": 2,
+        "mean": 30.0,
+        "median": 30.0,
+        "std": 10.0,
+        "ci95": 13.859038,
+        "min": 20.0,
+        "max": 40.0
+      },
+      "n_errors": 0
+    },
+    "d16/factorized": {
+      "n": 2,
+      "outcomes": {
+        "correct_not_discovered": 1,
+        "incorrect_accepted": 1
+      },
+      "incorrect_acceptance": {
+        "n": 2,
+        "mean": 0.5,
+        "median": 0.5,
+        "std": 0.5,
+        "ci95": 0.692952,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "correct_discovery": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "found_correct": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "budget_exhaustion": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "expansions": {
+        "n": 2,
+        "mean": 153.5,
+        "median": 153.5,
+        "std": 14.5,
+        "ci95": 20.095605,
+        "min": 139.0,
+        "max": 168.0
+      },
+      "nodes": {
+        "n": 2,
+        "mean": 199.0,
+        "median": 199.0,
+        "std": 14.0,
+        "ci95": 19.402654,
+        "min": 185.0,
+        "max": 213.0
+      },
+      "cache_hits": {
+        "n": 2,
+        "mean": 5.5,
+        "median": 5.5,
+        "std": 0.5,
+        "ci95": 0.692952,
+        "min": 5.0,
+        "max": 6.0
+      },
+      "elapsed_s": {
+        "n": 2,
+        "mean": 0.053876,
+        "median": 0.053876,
+        "std": 0.000468,
+        "ci95": 0.000649,
+        "min": 0.053408,
+        "max": 0.054344
+      },
+      "verification_calls": {
+        "n": 2,
+        "mean": 30.0,
+        "median": 30.0,
+        "std": 10.0,
+        "ci95": 13.859038,
+        "min": 20.0,
+        "max": 40.0
+      },
+      "n_errors": 0
+    },
+    "d16/cegis": {
+      "n": 2,
+      "outcomes": {
+        "correct_not_discovered": 1,
+        "incorrect_accepted": 1
+      },
+      "incorrect_acceptance": {
+        "n": 2,
+        "mean": 0.5,
+        "median": 0.5,
+        "std": 0.5,
+        "ci95": 0.692952,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "correct_discovery": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "found_correct": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "budget_exhaustion": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "expansions": {
+        "n": 2,
+        "mean": 269.5,
+        "median": 269.5,
+        "std": 90.5,
+        "ci95": 125.424296,
+        "min": 179.0,
+        "max": 360.0
+      },
+      "nodes": {
+        "n": 2,
+        "mean": 836.0,
+        "median": 836.0,
+        "std": 336.0,
+        "ci95": 465.663685,
+        "min": 500.0,
+        "max": 1172.0
+      },
+      "cache_hits": {
+        "n": 2,
+        "mean": 25.5,
+        "median": 25.5,
+        "std": 8.5,
+        "ci95": 11.780183,
+        "min": 17.0,
+        "max": 34.0
+      },
+      "elapsed_s": {
+        "n": 2,
+        "mean": 0.236392,
+        "median": 0.236392,
+        "std": 0.005395,
+        "ci95": 0.007477,
+        "min": 0.230997,
+        "max": 0.241787
+      },
+      "verification_calls": {
+        "n": 2,
+        "mean": 20.0,
+        "median": 20.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 20.0,
+        "max": 20.0
+      },
+      "n_errors": 0
+    },
+    "d16/cached": {
+      "n": 2,
+      "outcomes": {
+        "correct_not_discovered": 1,
+        "incorrect_accepted": 1
+      },
+      "incorrect_acceptance": {
+        "n": 2,
+        "mean": 0.5,
+        "median": 0.5,
+        "std": 0.5,
+        "ci95": 0.692952,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "correct_discovery": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "found_correct": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "budget_exhaustion": {
+        "n": 2,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "expansions": {
+        "n": 2,
+        "mean": 269.0,
+        "median": 269.0,
+        "std": 90.0,
+        "ci95": 124.731344,
+        "min": 179.0,
+        "max": 359.0
+      },
+      "nodes": {
+        "n": 2,
+        "mean": 793.0,
+        "median": 793.0,
+        "std": 293.0,
+        "ci95": 406.069821,
+        "min": 500.0,
+        "max": 1086.0
+      },
+      "cache_hits": {
+        "n": 2,
+        "mean": 25.5,
+        "median": 25.5,
+        "std": 8.5,
+        "ci95": 11.780183,
+        "min": 17.0,
+        "max": 34.0
+      },
+      "elapsed_s": {
+        "n": 2,
+        "mean": 0.220094,
+        "median": 0.220094,
+        "std": 0.012481,
+        "ci95": 0.017297,
+        "min": 0.207614,
+        "max": 0.232575
+      },
+      "verification_calls": {
+        "n": 2,
+        "mean": 30.0,
+        "median": 30.0,
+        "std": 10.0,
+        "ci95": 13.859038,
+        "min": 20.0,
+        "max": 40.0
+      },
+      "n_errors": 0
+    }
+  },
+  "outcome_totals": {
+    "correct_discovered": 6,
+    "correct_not_discovered": 19,
+    "incorrect_accepted": 31
+  },
+  "budgets": {
+    "node_budget": 4000,
+    "fit_deadline_s": 1.5,
+    "note": "Hard caps; never raised to force a success."
+  },
+  "limitations": [
+    "Safe unary chain pool keeps magnitudes bounded; not all DSL ops appear.",
+    "factorized strategy is oracle-guided (uses hidden op set) and is an upper bound."
+  ],
+  "resources": {
+    "elapsed_s": 10.748373,
+    "peak_rss_mb": 35.8,
+    "expansions": 11066,
+    "nodes": 30064,
+    "cache_hits": 1037,
+    "verification_calls": 1740,
+    "memory_per_concept_bytes": null,
+    "timed_out": false,
+    "notes": []
+  },
+  "completion_status": "COMPLETED",
+  "reproducibility": {
+    "config_fingerprint": "5cbb11650a1b4d78",
+    "configuration": {
+      "seeds": [
+        0,
+        1
+      ],
+      "n_episodes": 6,
+      "n_val": 3,
+      "abstain_threshold": 0.6,
+      "max_cost": 4.0,
+      "search_beam": 24,
+      "search_node_budget": 4000,
+      "fit_deadline_s": 1.5,
+      "experiment_deadline_s": 60.0,
+      "campaign_deadline_s": 300.0,
+      "depths": [
+        2,
+        3,
+        4,
+        5,
+        8,
+        12,
+        16
+      ],
+      "noise_levels": [
+        0.0,
+        0.01,
+        0.05,
+        0.1,
+        0.2,
+        0.3
+      ],
+      "quick": true
+    },
+    "hardware": {
+      "cpu": "11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz",
+      "logical_cores": 8,
+      "ram_gb": 16.82,
+      "os": "Windows-11-10.0.26200-SP0",
+      "cuda": false,
+      "device": "cpu",
+      "acceleration": "none (CPU-only, no external APIs)"
+    },
+    "software": {
+      "python": "3.13.15",
+      "exp_j": "0.1.0",
+      "source_revision": "no-commits"
+    },
+    "source_revision": "no-commits",
+    "exp_i_source_hashes": {
+      "constructive/exp_i/__init__.py": "8f29023c30321e3a1be64e0206be92e2e52c3edfeecf4bab7b8d624e986bf64d",
+      "constructive/exp_i/abstraction.py": "52ed023ba72b9f4173405f73e3f42324b883ddcf8d964442c5969d1aac52d17c",
+      "constructive/exp_i/analysis.py": "1216ad51f5b77628884d31debeff7297595567907b4613982de1aa89cdc41c36",
+      "constructive/exp_i/config.py": "6cdcbe1bafc38a08d98a97f2baa029f9ce0f44b5f2a53c5cbfaf92fd59a2eaa9",
+      "constructive/exp_i/dsl.py": "b7f0b474c7cd0e78d2a1e1fcab48842b0d72b4534231f447b3da53c9ff06640c",
+      "constructive/exp_i/evidence.py": "65d2f01647f8e5135eb102738a12253fd39d932812332cf40505941b0b836c28",
+      "constructive/exp_i/experiments.py": "5186d7ec1c60ce5c88fd07943f386a632dfa4e95018f1879ad4a6b5e5f3e47cb",
+      "constructive/exp_i/generalization.py": "2d5fdd9995fc5e7ee4f847a0a024d1c330ab7a1fda93008802b4c598f8b475d6",
+      "constructive/exp_i/generators.py": "34020728b95efcfb8e6fa79fbed648d68077950bf2ebe46aa73dc61af4c48303",
+      "constructive/exp_i/metrics.py": "8a8e97b88ca9dc3738f6ea5b3bca428087fa50243618d003abfd7281dad98014",
+      "constructive/exp_i/repair.py": "2ebcde253dbc9bba675b07bc9d7d29636fb66e14af5e40972f90f697889a7622",
+      "constructive/exp_i/resources.py": "e4d3ea98cc819446679ffe4b7cc2be525d7b1b58e5e979966add048e641c6bf7",
+      "constructive/exp_i/retrieval.py": "cb3759cffe29ceffd295348a0dd0dd5b4df5c1e88cda84342e9b90b2ea4f16cd",
+      "constructive/exp_i/runner.py": "b28443dc9e939f10f320fab9e6422051b6a39b0e419ac8b3be5e87e629878949",
+      "constructive/exp_i/search.py": "c115d96734e9d0a785b5383b06416b641a1992319c42792aa2debd5af28223aa",
+      "constructive/exp_i/smoke.py": "33baff59e987ee3bd194b60631a48e38e0d5766da8a2e5566809bf4a0c4c7d89",
+      "constructive/exp_i/types.py": "06c6e46ff10f832cb670738359f62f0840190ba063836aaac37f5f2f4d5b3194",
+      "constructive/exp_i/validation.py": "9db84dea68aeb88268538c4b287166914a3c7b64566a18edd7bb872aa3a99314"
+    },
+    "note": "System under test is EXP-I (read-only); generators are EXP-J-original."
+  },
+  "resource_report": {
+    "elapsed_s": 12.217035199981183,
+    "nodes_used": 0,
+    "global_deadline_s": 292.8366359999927,
+    "node_budget": 1600000,
+    "cancelled": false,
+    "timeouts": [],
+    "diagnostics": {
+      "last_completed_scope": "J3",
+      "last_scope_status": "COMPLETED",
+      "scope_elapsed_s": 10.749415700003738,
+      "scope_nodes": 0
+    },
+    "memory_guard_mb": null,
+    "peak_rss_mb": 35.84
+  },
+  "dataset_fingerprint": "49f998a35e4795cb",
+  "hardware": {
+    "cpu": "11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz",
+    "logical_cores": 8,
+    "ram_gb": 16.82,
+    "os": "Windows-11-10.0.26200-SP0",
+    "cuda": false,
+    "device": "cpu",
+    "acceleration": "none (CPU-only, no external APIs)"
+  }
+}

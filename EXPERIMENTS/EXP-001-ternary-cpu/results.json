@@ -1,0 +1,217 @@
+{
+  "experiment": "EXP-001-ternary-cpu",
+  "date": "2026-11-17 22:54",
+  "hardware": {
+    "os": "Windows 10 (10.0.22621)",
+    "machine": "AMD64",
+    "cpu": "Intel(R) Core(TM) i7-7820HQ CPU @ 2.90GHz",
+    "logical_cpus": 7,
+    "ram_gb": 7.41,
+    "python": "3.10.11",
+    "sqlite": "3.40.1",
+    "numpy": "1.26.4",
+    "torch": "2.1.2+cpu",
+    "cuda": false,
+    "runtime_path": "cpu"
+  },
+  "threads": 7,
+  "batch": 1,
+  "method": "median of 30 runs after 3 warmups",
+  "results": [
+    {
+      "shape": [
+        2048,
+        2048
+      ],
+      "weights": 4194304,
+      "kernels": {
+        "fp32-numpy": {
+          "median_ms": 1.2781,
+          "stdev_ms": 0.2957,
+          "weight_bytes": 16777216,
+          "effective_GBps": 13.13,
+          "max_rel_err_vs_fp32": 0.0,
+          "speedup_vs_fp32_numpy": 1.0
+        },
+        "fp32-torch": {
+          "median_ms": 1.2714,
+          "stdev_ms": 0.3748,
+          "weight_bytes": 16777216,
+          "effective_GBps": 13.2,
+          "max_rel_err_vs_fp32": 3.66e-07,
+          "speedup_vs_fp32_numpy": 1.01
+        },
+        "int8-torch-dyn": {
+          "median_ms": 0.3104,
+          "stdev_ms": 0.1149,
+          "weight_bytes": 4194304,
+          "effective_GBps": 13.51,
+          "max_rel_err_vs_fp32": 0.0181,
+          "speedup_vs_fp32_numpy": 4.12
+        },
+        "i8-numba": {
+          "median_ms": 0.1041,
+          "stdev_ms": 0.0485,
+          "weight_bytes": 4194304,
+          "effective_GBps": 40.29,
+          "max_rel_err_vs_fp32": 3.33e-07,
+          "speedup_vs_fp32_numpy": 12.28
+        },
+        "t2-decode": {
+          "median_ms": 0.5132,
+          "stdev_ms": 0.1662,
+          "weight_bytes": 1048576,
+          "effective_GBps": 2.04,
+          "max_rel_err_vs_fp32": 3.99e-07,
+          "speedup_vs_fp32_numpy": 2.49
+        },
+        "t2-lut": {
+          "median_ms": 0.465,
+          "stdev_ms": 0.1161,
+          "weight_bytes": 1048576,
+          "effective_GBps": 2.25,
+          "max_rel_err_vs_fp32": 3.33e-07,
+          "speedup_vs_fp32_numpy": 2.75
+        },
+        "t2-colmajor": {
+          "median_ms": 0.6458,
+          "stdev_ms": 0.1268,
+          "weight_bytes": 1048576,
+          "effective_GBps": 1.62,
+          "max_rel_err_vs_fp32": 1.66e-06,
+          "speedup_vs_fp32_numpy": 1.98
+        }
+      }
+    },
+    {
+      "shape": [
+        4096,
+        4096
+      ],
+      "weights": 16777216,
+      "kernels": {
+        "fp32-numpy": {
+          "median_ms": 4.6148,
+          "stdev_ms": 0.2402,
+          "weight_bytes": 67108864,
+          "effective_GBps": 14.54,
+          "max_rel_err_vs_fp32": 0.0,
+          "speedup_vs_fp32_numpy": 1.0
+        },
+        "fp32-torch": {
+          "median_ms": 4.7793,
+          "stdev_ms": 0.2696,
+          "weight_bytes": 67108864,
+          "effective_GBps": 14.04,
+          "max_rel_err_vs_fp32": 4.72e-07,
+          "speedup_vs_fp32_numpy": 0.97
+        },
+        "int8-torch-dyn": {
+          "median_ms": 1.2573,
+          "stdev_ms": 0.2298,
+          "weight_bytes": 16777216,
+          "effective_GBps": 13.34,
+          "max_rel_err_vs_fp32": 0.0165,
+          "speedup_vs_fp32_numpy": 3.67
+        },
+        "i8-numba": {
+          "median_ms": 0.9889,
+          "stdev_ms": 0.21,
+          "weight_bytes": 16777216,
+          "effective_GBps": 16.96,
+          "max_rel_err_vs_fp32": 3.93e-07,
+          "speedup_vs_fp32_numpy": 4.67
+        },
+        "t2-decode": {
+          "median_ms": 2.0462,
+          "stdev_ms": 0.5153,
+          "weight_bytes": 4194304,
+          "effective_GBps": 2.05,
+          "max_rel_err_vs_fp32": 4.13e-07,
+          "speedup_vs_fp32_numpy": 2.26
+        },
+        "t2-lut": {
+          "median_ms": 2.8199,
+          "stdev_ms": 0.3581,
+          "weight_bytes": 4194304,
+          "effective_GBps": 1.49,
+          "max_rel_err_vs_fp32": 4.33e-07,
+          "speedup_vs_fp32_numpy": 1.64
+        },
+        "t2-colmajor": {
+          "median_ms": 2.9159,
+          "stdev_ms": 0.857,
+          "weight_bytes": 4194304,
+          "effective_GBps": 1.44,
+          "max_rel_err_vs_fp32": 1.81e-06,
+          "speedup_vs_fp32_numpy": 1.58
+        }
+      }
+    },
+    {
+      "shape": [
+        11008,
+        4096
+      ],
+      "weights": 45088768,
+      "kernels": {
+        "fp32-numpy": {
+          "median_ms": 15.5307,
+          "stdev_ms": 1.2484,
+          "weight_bytes": 180355072,
+          "effective_GBps": 11.61,
+          "max_rel_err_vs_fp32": 0.0,
+          "speedup_vs_fp32_numpy": 1.0
+        },
+        "fp32-torch": {
+          "median_ms": 14.4249,
+          "stdev_ms": 6.2467,
+          "weight_bytes": 180355072,
+          "effective_GBps": 12.5,
+          "max_rel_err_vs_fp32": 4.38e-07,
+          "speedup_vs_fp32_numpy": 1.08
+        },
+        "int8-torch-dyn": {
+          "median_ms": 8.6421,
+          "stdev_ms": 4.7318,
+          "weight_bytes": 45088768,
+          "effective_GBps": 5.22,
+          "max_rel_err_vs_fp32": 0.02,
+          "speedup_vs_fp32_numpy": 1.8
+        },
+        "i8-numba": {
+          "median_ms": 5.2264,
+          "stdev_ms": 12.1337,
+          "weight_bytes": 45088768,
+          "effective_GBps": 8.63,
+          "max_rel_err_vs_fp32": 4.97e-07,
+          "speedup_vs_fp32_numpy": 2.97
+        },
+        "t2-decode": {
+          "median_ms": 7.7808,
+          "stdev_ms": 1.4233,
+          "weight_bytes": 11272192,
+          "effective_GBps": 1.45,
+          "max_rel_err_vs_fp32": 4.78e-07,
+          "speedup_vs_fp32_numpy": 2.0
+        },
+        "t2-lut": {
+          "median_ms": 10.4369,
+          "stdev_ms": 1.7997,
+          "weight_bytes": 11272192,
+          "effective_GBps": 1.08,
+          "max_rel_err_vs_fp32": 4.68e-07,
+          "speedup_vs_fp32_numpy": 1.49
+        },
+        "t2-colmajor": {
+          "median_ms": 12.3377,
+          "stdev_ms": 2.3411,
+          "weight_bytes": 11272192,
+          "effective_GBps": 0.91,
+          "max_rel_err_vs_fp32": 1.91e-06,
+          "speedup_vs_fp32_numpy": 1.26
+        }
+      }
+    }
+  ]
+}

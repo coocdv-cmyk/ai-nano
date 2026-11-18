@@ -1,0 +1,477 @@
+{
+  "experiment_id": "H3",
+  "experiment_name": "Structural OOD and Compositional Generalization",
+  "status": "completed",
+  "episodes": [
+    {
+      "system": "ccm",
+      "task": "h3-sum_of_evens-len-s0",
+      "family": "length-ood",
+      "k": 4,
+      "seed": 0,
+      "accepted": true,
+      "abstained": false,
+      "reason": "",
+      "quarantined": [],
+      "failure_category": "success",
+      "fit_s": 0.4579702999908477,
+      "nodes": 5472,
+      "peak_bytes": 4220255,
+      "n_concepts": 1,
+      "new_nodes": 3,
+      "new_params": 3,
+      "test_n": 12,
+      "test_answered": 12,
+      "test_correct": 12,
+      "test_accuracy": 1.0,
+      "coverage": 1.0,
+      "confidence": 1.0,
+      "margin": 1.0,
+      "candidates": [
+        "sum_list(evens(x))"
+      ],
+      "split_kind": "length-ood"
+    },
+    {
+      "system": "ccm",
+      "task": "h3-distinct_count-len-s0",
+      "family": "length-ood",
+      "k": 4,
+      "seed": 0,
+      "accepted": false,
+      "abstained": true,
+      "reason": "ambiguous with low support",
+      "quarantined": [],
+      "failure_category": "non-identifiable",
+      "fit_s": 0.34326739999232814,
+      "nodes": 4924,
+      "peak_bytes": 3485288,
+      "n_concepts": 1,
+      "new_nodes": 0,
+      "new_params": 0,
+      "test_n": 12,
+      "test_answered": 0,
+      "test_correct": 0,
+      "test_accuracy": 0.0,
+      "coverage": 0.0,
+      "confidence": 0.5,
+      "margin": 0.0,
+      "candidates": [
+        "len_list(take(5)(x))",
+        "len_list(unique(x))"
+      ],
+      "split_kind": "length-ood"
+    },
+    {
+      "system": "ccm",
+      "task": "h3-sum_top3-len-s0",
+      "family": "length-ood",
+      "k": 4,
+      "seed": 0,
+      "accepted": true,
+      "abstained": false,
+      "reason": "",
+      "quarantined": [],
+      "failure_category": "success",
+      "fit_s": 2.8157110000029206,
+      "nodes": 57504,
+      "peak_bytes": 22507062,
+      "n_concepts": 1,
+      "new_nodes": 4,
+      "new_params": 4,
+      "test_n": 12,
+      "test_answered": 12,
+      "test_correct": 12,
+      "test_accuracy": 1.0,
+      "coverage": 1.0,
+      "confidence": 1.0,
+      "margin": 1.0,
+      "candidates": [
+        "sum_list(take(3)(sort_desc(x)))"
+      ],
+      "split_kind": "length-ood"
+    },
+    {
+      "system": "ccm",
+      "task": "h3-square-numeric-s0",
+      "family": "numeric-ood",
+      "k": 3,
+      "seed": 0,
+      "accepted": true,
+      "abstained": false,
+      "reason": "",
+      "quarantined": [],
+      "failure_category": "success",
+      "fit_s": 0.004017500003101304,
+      "nodes": 31,
+      "peak_bytes": 68444,
+      "n_concepts": 1,
+      "new_nodes": 2,
+      "new_params": 2,
+      "test_n": 20,
+      "test_answered": 20,
+      "test_correct": 20,
+      "test_accuracy": 1.0,
+      "coverage": 1.0,
+      "confidence": 1.0,
+      "margin": 1.0,
+      "candidates": [
+        "square(x)"
+      ],
+      "split_kind": "numeric-ood"
+    },
+    {
+      "system": "ccm",
+      "task": "h3-sum_digits-numeric-s0",
+      "family": "numeric-ood",
+      "k": 3,
+      "seed": 0,
+      "accepted": true,
+      "abstained": false,
+      "reason": "",
+      "quarantined": [],
+      "failure_category": "overgeneralization",
+      "fit_s": 0.5040154999878723,
+      "nodes": 12214,
+      "peak_bytes": 4815516,
+      "n_concepts": 1,
+      "new_nodes": 1,
+      "new_params": 1,
+      "test_n": 20,
+      "test_answered": 20,
+      "test_correct": 0,
+      "test_accuracy": 0.0,
+      "coverage": 1.0,
+      "confidence": 1.0,
+      "margin": 1.0,
+      "candidates": [
+        "x"
+      ],
+      "split_kind": "numeric-ood"
+    },
+    {
+      "system": "ccm",
+      "task": "h3-fib-numeric-s0",
+      "family": "numeric-ood",
+      "k": 3,
+      "seed": 0,
+      "accepted": true,
+      "abstained": false,
+      "reason": "",
+      "quarantined": [],
+      "failure_category": "success",
+      "fit_s": 0.003907500009518117,
+      "nodes": 31,
+      "peak_bytes": 68444,
+      "n_concepts": 1,
+      "new_nodes": 2,
+      "new_params": 2,
+      "test_n": 20,
+      "test_answered": 20,
+      "test_correct": 20,
+      "test_accuracy": 1.0,
+      "coverage": 1.0,
+      "confidence": 1.0,
+      "margin": 1.0,
+      "candidates": [
+        "fib(x)"
+      ],
+      "split_kind": "numeric-ood"
+    },
+    {
+      "system": "ccm",
+      "task": "h3-nearest-ood-s0",
+      "family": "structure-ood",
+      "k": 4,
+      "seed": 0,
+      "accepted": true,
+      "abstained": false,
+      "reason": "",
+      "quarantined": [],
+      "failure_category": "success",
+      "fit_s": 0.00566420002724044,
+      "nodes": 27,
+      "peak_bytes": 55876,
+      "n_concepts": 1,
+      "new_nodes": 4,
+      "new_params": 4,
+      "test_n": 20,
+      "test_answered": 20,
+      "test_correct": 20,
+      "test_accuracy": 1.0,
+      "coverage": 1.0,
+      "confidence": 1.0,
+      "margin": 1.0,
+      "candidates": [
+        "nearest(x, query(x))"
+      ],
+      "split_kind": "structure-ood"
+    },
+    {
+      "system": "ccm",
+      "task": "h3-same_shape-ood-s0",
+      "family": "structure-ood",
+      "k": 4,
+      "seed": 0,
+      "accepted": true,
+      "abstained": false,
+      "reason": "",
+      "quarantined": [],
+      "failure_category": "success",
+      "fit_s": 0.0036808000004384667,
+      "nodes": 27,
+      "peak_bytes": 55868,
+      "n_concepts": 1,
+      "new_nodes": 4,
+      "new_params": 4,
+      "test_n": 20,
+      "test_answered": 20,
+      "test_correct": 20,
+      "test_accuracy": 1.0,
+      "coverage": 1.0,
+      "confidence": 1.0,
+      "margin": 1.0,
+      "candidates": [
+        "same_shape(x, query(x))"
+      ],
+      "split_kind": "structure-ood"
+    },
+    {
+      "system": "ccm",
+      "task": "h3-left_of-ood-s0",
+      "family": "structure-ood",
+      "k": 4,
+      "seed": 0,
+      "accepted": true,
+      "abstained": false,
+      "reason": "",
+      "quarantined": [],
+      "failure_category": "success",
+      "fit_s": 0.003982700000051409,
+      "nodes": 27,
+      "peak_bytes": 55876,
+      "n_concepts": 1,
+      "new_nodes": 4,
+      "new_params": 4,
+      "test_n": 20,
+      "test_answered": 20,
+      "test_correct": 20,
+      "test_accuracy": 1.0,
+      "coverage": 1.0,
+      "confidence": 1.0,
+      "margin": 1.0,
+      "candidates": [
+        "left_of(x, query(x))"
+      ],
+      "split_kind": "structure-ood"
+    }
+  ],
+  "summary": {
+    "length-ood": {
+      "n": 3,
+      "accuracy_mean": {
+        "n": 3,
+        "mean": 0.6666666666666666,
+        "std": 0.4714045207910317,
+        "ci95": 0.533434630831327,
+        "min": 0.0,
+        "max": 1.0,
+        "median": 1.0
+      },
+      "accepted_rate": 0.666667,
+      "coverage_mean": 0.666667,
+      "nodes_median": 5472,
+      "failure_categories": {
+        "success": 2,
+        "non-identifiable": 1
+      },
+      "by_rule": {
+        "distinct_count": {
+          "n": 1,
+          "accuracy_mean": {
+            "n": 1,
+            "mean": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "median": 0.0
+          },
+          "accepted_rate": 0.0
+        },
+        "sum_of_evens": {
+          "n": 1,
+          "accuracy_mean": {
+            "n": 1,
+            "mean": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0,
+            "median": 1.0
+          },
+          "accepted_rate": 1.0
+        },
+        "sum_top3": {
+          "n": 1,
+          "accuracy_mean": {
+            "n": 1,
+            "mean": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0,
+            "median": 1.0
+          },
+          "accepted_rate": 1.0
+        }
+      }
+    },
+    "numeric-ood": {
+      "n": 3,
+      "accuracy_mean": {
+        "n": 3,
+        "mean": 0.6666666666666666,
+        "std": 0.4714045207910317,
+        "ci95": 0.533434630831327,
+        "min": 0.0,
+        "max": 1.0,
+        "median": 1.0
+      },
+      "accepted_rate": 1.0,
+      "coverage_mean": 1.0,
+      "nodes_median": 31,
+      "failure_categories": {
+        "success": 2,
+        "overgeneralization": 1
+      },
+      "by_rule": {
+        "fib": {
+          "n": 1,
+          "accuracy_mean": {
+            "n": 1,
+            "mean": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0,
+            "median": 1.0
+          },
+          "accepted_rate": 1.0
+        },
+        "square": {
+          "n": 1,
+          "accuracy_mean": {
+            "n": 1,
+            "mean": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0,
+            "median": 1.0
+          },
+          "accepted_rate": 1.0
+        },
+        "sum_digits": {
+          "n": 1,
+          "accuracy_mean": {
+            "n": 1,
+            "mean": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "median": 0.0
+          },
+          "accepted_rate": 1.0
+        }
+      }
+    },
+    "structure-ood": {
+      "n": 3,
+      "accuracy_mean": {
+        "n": 3,
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 1.0,
+        "max": 1.0,
+        "median": 1.0
+      },
+      "accepted_rate": 1.0,
+      "coverage_mean": 1.0,
+      "nodes_median": 27,
+      "failure_categories": {
+        "success": 3
+      },
+      "by_rule": {
+        "left_of": {
+          "n": 1,
+          "accuracy_mean": {
+            "n": 1,
+            "mean": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0,
+            "median": 1.0
+          },
+          "accepted_rate": 1.0
+        },
+        "nearest": {
+          "n": 1,
+          "accuracy_mean": {
+            "n": 1,
+            "mean": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0,
+            "median": 1.0
+          },
+          "accepted_rate": 1.0
+        },
+        "same_shape": {
+          "n": 1,
+          "accuracy_mean": {
+            "n": 1,
+            "mean": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0,
+            "median": 1.0
+          },
+          "accepted_rate": 1.0
+        }
+      }
+    }
+  },
+  "hardware": {
+    "cpu": "11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz",
+    "logical_cores": 8,
+    "ram_gb": 16.82,
+    "os": "Windows-11-10.0.26200-SP0",
+    "cuda": false,
+    "c_compiler": "none on PATH",
+    "device": "cpu"
+  },
+  "wall_s": 5.550851300009526,
+  "software": {
+    "python": "3.13.15",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "exp_h": "0.1.0",
+    "numpy": "2.5.3",
+    "constructive_root": "D:\\ai model\\constructive"
+  },
+  "dataset_fingerprint": "62f42d70fb4ba558",
+  "source_revision": "no-commits",
+  "hardware_caveat": "peak bytes are traced Python heap (tracemalloc), not OS RSS",
+  "configuration": {},
+  "training": {
+    "examples": 33,
+    "concepts": 8
+  },
+  "limitations": [],
+  "artifacts": []
+}

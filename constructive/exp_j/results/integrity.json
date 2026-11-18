@@ -1,0 +1,8 @@
+{
+  "verified_at": "20261118-154629",
+  "n_files": 84,
+  "protected_files_unchanged": true,
+  "changed": [],
+  "source_revision": "no-commits",
+  "scope": "core + omega_nano + exp_h + exp_i + pre-existing tests"
+}

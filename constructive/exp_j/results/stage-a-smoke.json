@@ -1,0 +1,51 @@
+{
+  "stage": "A",
+  "experiment": "EXP-J smoke",
+  "n_checks": 8,
+  "passed": 8,
+  "failures": 0,
+  "checks": [
+    {
+      "name": "independent_generators",
+      "passed": true,
+      "detail": "no EXP-H/EXP-I generator import or label table in exp_j.generators"
+    },
+    {
+      "name": "new_rule_families",
+      "passed": true,
+      "detail": "12 new rules, disjoint from EXP-I/EXP-H rule names"
+    },
+    {
+      "name": "disjoint_splits",
+      "passed": true,
+      "detail": "all train/validation/test splits disjoint"
+    },
+    {
+      "name": "correct_reference_labels",
+      "passed": true,
+      "detail": "independent reference labels coincide with true programs"
+    },
+    {
+      "name": "dsl_safety",
+      "passed": true,
+      "detail": "DSL validation and bounded evaluation operate"
+    },
+    {
+      "name": "noise_test_invariance",
+      "passed": true,
+      "detail": "test labels unchanged under all noise kinds"
+    },
+    {
+      "name": "drift_phase_order",
+      "passed": true,
+      "detail": "drift phases ordered base<drift<recover (3,9)"
+    },
+    {
+      "name": "protected_manifest",
+      "passed": true,
+      "detail": "84 protected files present and hashable"
+    }
+  ],
+  "source_revision": "no-commits",
+  "status": "completed"
+}
