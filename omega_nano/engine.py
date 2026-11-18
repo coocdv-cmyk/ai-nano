@@ -258,7 +258,7 @@ class Engine:
                     step.ended_at = time.time()
                     self.store.save(task, "recovered_without_reexecution", {"step": step.idx})
                     return "done"
-            if not tool.idempotent and not step.approved:
+            if not tool.is_idempotent(self.ctx, args) and not step.approved:
                 task.transition(TaskStatus.BLOCKED)
                 task.summary = (f"Step {step.idx} ({step.tool}) may have run before an interruption and is not "
                                 f"safe to repeat automatically. Approve to re-run it.")
@@ -297,7 +297,7 @@ class Engine:
             self.store.save(task, "step_failed_verification",
                             {"step": step.idx, "attempt": step.attempts, "error": error,
                              "failed": [v["detail"] for v in ver if not v["passed"]]})
-            if permanent or not tool.idempotent or step.attempts > self.cfg.max_retries:
+            if permanent or not tool.is_idempotent(self.ctx, args) or step.attempts > self.cfg.max_retries:
                 break
             time.sleep(min(self.cfg.backoff_max_s, self.cfg.backoff_base_s * 2 ** (step.attempts - 1)))
 
@@ -405,7 +405,10 @@ class Engine:
         parts = []
         for s in task.steps:
             o = s.output or {}
-            shown = o.get("value") or o.get("answer") or o.get("path") or o.get("count")
+            shown = next(
+                (o[k] for k in ("value", "answer", "completion", "path", "count") if o.get(k) is not None),
+                None,
+            )
             parts.append(f"{s.tool}" + (f" -> {str(shown)[:80]}" if shown is not None else ""))
         rec = sum(1 for s in task.steps if s.recovered)
         return f"All {len(task.steps)} step(s) verified: " + "; ".join(parts) + (

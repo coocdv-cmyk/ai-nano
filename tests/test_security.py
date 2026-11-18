@@ -72,3 +72,13 @@ def test_shell_timeout(tmp_path, cfg):
     out = default_registry().get("shell.run").run(
         _ctx(tmp_path, cfg), {"cmd": "python -c \"import time; time.sleep(5)\"", "timeout_s": 0.5})
     assert not out["ok"] and out["timed_out"]
+
+
+def test_shell_strips_host_secrets_from_env(tmp_path, cfg, monkeypatch):
+    monkeypatch.setenv("OMEGA_FAKE_SECRET_KEY", "do-not-leak-me")
+    sh = default_registry().get("shell.run")
+    out = sh.run(
+        _ctx(tmp_path, cfg),
+        {"cmd": "python -c \"import os; print(os.environ.get('OMEGA_FAKE_SECRET_KEY'))\"", "timeout_s": 10.0},
+    )
+    assert out["ok"] and out["stdout"].strip() == "None"

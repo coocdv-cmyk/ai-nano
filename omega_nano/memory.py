@@ -178,9 +178,10 @@ class MemoryFabric:
             ).fetchone()
             if dup:
                 return {"id": dup[0], "status": "duplicate"}
-            near = self._nearest_active(vec)
-            if near and near[1] >= NEAR_DUP and key is None:
-                return {"id": near[0], "status": "near_duplicate", "cosine": round(near[1], 4)}
+            if key is None:
+                near = self._nearest_active(vec)
+                if near and near[1] >= NEAR_DUP:
+                    return {"id": near[0], "status": "near_duplicate", "cosine": round(near[1], 4)}
             now = time.time()
             superseded = []
             if key:

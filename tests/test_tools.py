@@ -74,3 +74,10 @@ def test_param_int_rejects_bool():
     t = Tool("t", "", {"n": Param("int")}, frozenset(), fn=lambda ctx, n: {"ok": True})
     with pytest.raises(ToolError):
         t.validate({"n": True})
+
+
+def test_fs_write_append_is_non_idempotent(tmp_path):
+    w = default_registry().get("fs.write")
+    c = ctx(tmp_path)
+    assert w.is_idempotent(c, {"path": "a.txt", "content": "x", "mode": "overwrite"}) is True
+    assert w.is_idempotent(c, {"path": "a.txt", "content": "x", "mode": "append"}) is False

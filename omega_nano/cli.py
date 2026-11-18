@@ -25,7 +25,7 @@ def _print_task(task, verbose: bool = True) -> None:
                     "denied": "-"}.get(s.status.value, " ")
             extra = ""
             o = s.output or {}
-            for k in ("value", "answer", "path", "count", "exit_code"):
+            for k in ("value", "answer", "completion", "path", "count", "exit_code"):
                 if o.get(k) is not None:
                     extra = f"{k}={str(o[k])[:100]}"
                     break
@@ -83,6 +83,17 @@ def main(argv: list[str] | None = None) -> int:
     mh = msub.add_parser("history")
     mh.add_argument("key")
     msub.add_parser("stats")
+
+    b = sub.add_parser("brain", help="self-evolving verifier search, skill compiler, and blind evaluation")
+    bsub = b.add_subparsers(dest="bcmd", required=True)
+    be = bsub.add_parser("eval", help="run sealed blind math+code evaluation")
+    be.add_argument("--domain", choices=["math", "code"])
+    be.add_argument("--attempts", type=int, default=4)
+    bs = bsub.add_parser("selfplay", help="run self-play curriculum cycles")
+    bs.add_argument("--cycles", type=int, default=2)
+    bs.add_argument("--tasks", type=int, default=8)
+    bs.add_argument("--level", type=int, default=2)
+    bsub.add_parser("stats", help="show compiled skill & replay buffer statistics")
 
     args = ap.parse_args(argv)
     cfg = load_config(args.home)
@@ -174,5 +185,26 @@ def _dispatch(args, eng: Engine, cfg) -> int:
             print(json.dumps(mem.history(args.key), indent=2, ensure_ascii=False))
         elif args.mcmd == "stats":
             print(json.dumps(mem.stats(), indent=2))
+        return 0
+    if args.cmd == "brain":
+        from .brain import BlindVault, SelfPlayEngine, SkillLibrary
+        from .brain.evolver import SymbolicTacticSolver
+
+        skills = SkillLibrary(cfg.home / "brain.db", memory=eng.memory)
+        try:
+            sp = SelfPlayEngine(skills)
+            solver = SymbolicTacticSolver()
+            if args.bcmd == "eval":
+                report = BlindVault().evaluate(
+                    lambda p: sp.solve(p, solver, max_attempts=args.attempts), domain=args.domain
+                )
+                print(json.dumps(report, indent=2, ensure_ascii=False))
+            elif args.bcmd == "selfplay":
+                cycles = [sp.run_cycle(c, solver, n_tasks=args.tasks, level=args.level) for c in range(1, args.cycles + 1)]
+                print(json.dumps(cycles, indent=2, ensure_ascii=False))
+            elif args.bcmd == "stats":
+                print(json.dumps(skills.stats(), indent=2))
+        finally:
+            skills.close()
         return 0
     return 1

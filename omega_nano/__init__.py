@@ -6,4 +6,4 @@ See OMEGA-NANO-VISION-V3-ENGLISH.md for the mission and ARCHITECTURE.md for
 what is actually implemented.
 """
 
-__version__ = "0.1.0"
+__version__ = "0.3.0"

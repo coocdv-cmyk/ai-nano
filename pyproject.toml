@@ -1,19 +1,21 @@
 [project]
 name = "omega-nano"
-version = "0.1.0"
-description = "OMEGA-NANO: local, resumable, verified tool-using agent and memory fabric (Phase 1)"
+version = "0.3.0"
+description = "OMEGA-NANO: local, resumable, verified tool-using agent, memory fabric, and self-evolving core"
 requires-python = ">=3.10"
 dependencies = []
 
 [project.optional-dependencies]
 fast = ["numpy>=1.24", "numba>=0.58"]
+core = ["torch>=2.1", "numpy>=1.24", "numba>=0.58"]
+brain = ["sympy>=1.12", "mpmath>=1.3"]
 dev = ["pytest>=7"]
 
 [project.scripts]
 omega = "omega_nano.cli:main"
 
 [tool.setuptools]
-packages = ["omega_nano", "omega_nano.tools"]
+packages = ["omega_nano", "omega_nano.tools", "omega_nano.core", "omega_nano.brain"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

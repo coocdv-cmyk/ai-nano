@@ -60,6 +60,8 @@ def export(path: str | Path) -> Weights:
 
     ck = torch.load(path, map_location="cpu", weights_only=True)  # never unpickle arbitrary objects
     cfg = CoreConfig(**ck["config"])
+    if cfg.arch != "v0":
+        raise ValueError(f"native CPU engine supports arch='v0'; got arch={cfg.arch!r} (use PyTorch model directly)")
     st = ck["state"]
 
     def mat(name):
@@ -90,11 +92,32 @@ def export(path: str | Path) -> Weights:
 
 @numba.njit(fastmath=True, cache=True, inline="always")
 def _matvec(w, s, x, out):
-    for o in range(w.shape[0]):
+    O = w.shape[0]
+    I = w.shape[1]
+    o = 0
+    lim = O - (O & 3)
+    while o < lim:
+        s0 = np.float32(0.0)
+        s1 = np.float32(0.0)
+        s2 = np.float32(0.0)
+        s3 = np.float32(0.0)
+        for j in range(I):
+            xj = x[j]
+            s0 += np.float32(w[o, j]) * xj
+            s1 += np.float32(w[o + 1, j]) * xj
+            s2 += np.float32(w[o + 2, j]) * xj
+            s3 += np.float32(w[o + 3, j]) * xj
+        out[o] = s0 * s
+        out[o + 1] = s1 * s
+        out[o + 2] = s2 * s
+        out[o + 3] = s3 * s
+        o += 4
+    while o < O:
         acc = np.float32(0.0)
-        for j in range(w.shape[1]):
+        for j in range(I):
             acc += np.float32(w[o, j]) * x[j]
         out[o] = acc * s
+        o += 1
 
 
 @numba.njit(fastmath=True, cache=True, inline="always")
@@ -109,21 +132,17 @@ def _rmsnorm(x, w, out):
 
 @numba.njit(fastmath=True, cache=True)
 def _step(tok, pos, kc, vc, emb, n1, n2, wqkv, sqkv, wo, so, wg, sg, wu, su, wd, sd, nf, head, cos, sin,
-          heads, logits):
-    """Run one token through the model at position `pos`, filling the KV cache and writing logits."""
+          heads, logits, h, qkv, att, tmp, g, u, scores):
+    """Run one token through the model at position `pos` using a rolling ring KV cache."""
     L = wqkv.shape[0]
+    ctx = kc.shape[1]
     d = emb.shape[1]
     hd = d // heads
     half = hd // 2
     hidden = wg.shape[1]
+    slot = pos % ctx
+    valid_len = pos + 1 if pos < ctx else ctx
     x = emb[tok].copy()
-    h = np.empty(d, np.float32)
-    qkv = np.empty(3 * d, np.float32)
-    att = np.empty(d, np.float32)
-    tmp = np.empty(d, np.float32)
-    g = np.empty(hidden, np.float32)
-    u = np.empty(hidden, np.float32)
-    scores = np.empty(pos + 1, np.float32)
     inv_sqrt = np.float32(1.0 / math.sqrt(hd))
     for l in range(L):
         _rmsnorm(x, n1[l], h)
@@ -140,14 +159,14 @@ def _step(tok, pos, kc, vc, emb, n1, n2, wqkv, sqkv, wo, so, wg, sg, wu, su, wd,
                 qkv[b + 2 * i + 1] = q1 * s + q2 * c
                 k1 = qkv[d + b + 2 * i]
                 k2 = qkv[d + b + 2 * i + 1]
-                kc[l, pos, b + 2 * i] = k1 * c - k2 * s
-                kc[l, pos, b + 2 * i + 1] = k1 * s + k2 * c
+                kc[l, slot, b + 2 * i] = k1 * c - k2 * s
+                kc[l, slot, b + 2 * i + 1] = k1 * s + k2 * c
         for i in range(d):
-            vc[l, pos, i] = qkv[2 * d + i]
+            vc[l, slot, i] = qkv[2 * d + i]
         for hh in range(heads):
             b = hh * hd
             m = np.float32(-1e30)
-            for t in range(pos + 1):
+            for t in range(valid_len):
                 acc = np.float32(0.0)
                 for i in range(hd):
                     acc += qkv[b + i] * kc[l, t, b + i]
@@ -156,15 +175,17 @@ def _step(tok, pos, kc, vc, emb, n1, n2, wqkv, sqkv, wo, so, wg, sg, wu, su, wd,
                 if acc > m:
                     m = acc
             z = np.float32(0.0)
-            for t in range(pos + 1):
+            for t in range(valid_len):
                 e = np.exp(scores[t] - m)
                 scores[t] = e
                 z += e
+            inv_z = np.float32(1.0) / z
             for i in range(hd):
-                acc = np.float32(0.0)
-                for t in range(pos + 1):
-                    acc += scores[t] * vc[l, t, b + i]
-                att[b + i] = acc / z
+                att[b + i] = np.float32(0.0)
+            for t in range(valid_len):
+                w_att = scores[t] * inv_z
+                for i in range(hd):
+                    att[b + i] += w_att * vc[l, t, b + i]
         _matvec(wo[l], so[l], att, tmp)
         for i in range(d):
             x[i] += tmp[i]
@@ -197,66 +218,62 @@ def _sample(logits, temperature, u):
 
 @numba.njit(fastmath=True, cache=True)
 def _generate(prompt, n_new, temperature, seed, out, emb, n1, n2, wqkv, sqkv, wo, so, wg, sg, wu, su, wd, sd,
-              nf, head, cos, sin, heads):
-    ctx = cos.shape[0]
+              nf, head, cos, sin, heads, ctx):
     d = emb.shape[1]
     L = wqkv.shape[0]
+    hidden = wg.shape[1]
     kc = np.zeros((L, ctx, d), np.float32)
     vc = np.zeros((L, ctx, d), np.float32)
     logits = np.empty(head.shape[0], np.float32)
+    h = np.empty(d, np.float32)
+    qkv = np.empty(3 * d, np.float32)
+    att = np.empty(d, np.float32)
+    tmp = np.empty(d, np.float32)
+    g = np.empty(hidden, np.float32)
+    u = np.empty(hidden, np.float32)
+    scores = np.empty(ctx, np.float32)
     np.random.seed(seed)
-    buf = np.empty(ctx, np.int64)
-    n = 0
-    for i in range(prompt.shape[0]):  # keep the last ctx-1 prompt bytes
-        if n == ctx - 1:
-            buf[:n - 1] = buf[1:n]
-            n -= 1
-        buf[n] = prompt[i]
-        n += 1
+    start = prompt.shape[0] - ctx if prompt.shape[0] > ctx else 0
     pos = 0
-    for i in range(n):
-        _step(buf[i], pos, kc, vc, emb, n1, n2, wqkv, sqkv, wo, so, wg, sg, wu, su, wd, sd, nf, head, cos, sin,
-              heads, logits)
+    for i in range(start, prompt.shape[0]):
+        _step(prompt[i], pos, kc, vc, emb, n1, n2, wqkv, sqkv, wo, so, wg, sg, wu, su, wd, sd, nf, head, cos, sin,
+              heads, logits, h, qkv, att, tmp, g, u, scores)
         pos += 1
     for k in range(n_new):
         tok = _sample(logits, temperature, np.random.random())
         out[k] = tok
-        if pos == ctx:
-            # Window full: keep the most recent half and re-encode it (prefill), then continue.
-            keep = ctx // 2
-            buf[:keep - 1] = buf[pos - keep + 1:pos]
-            buf[keep - 1] = tok
-            pos = 0
-            for i in range(keep):
-                _step(buf[i], pos, kc, vc, emb, n1, n2, wqkv, sqkv, wo, so, wg, sg, wu, su, wd, sd, nf, head,
-                      cos, sin, heads, logits)
-                pos += 1
-        else:
-            buf[pos] = tok
-            _step(tok, pos, kc, vc, emb, n1, n2, wqkv, sqkv, wo, so, wg, sg, wu, su, wd, sd, nf, head, cos, sin,
-                  heads, logits)
-            pos += 1
+        _step(tok, pos, kc, vc, emb, n1, n2, wqkv, sqkv, wo, so, wg, sg, wu, su, wd, sd, nf, head, cos, sin,
+              heads, logits, h, qkv, att, tmp, g, u, scores)
+        pos += 1
 
 
 @numba.njit(fastmath=True, cache=True, parallel=True)
 def _generate_batch(prompts, n_new, temperature, seed, out, emb, n1, n2, wqkv, sqkv, wo, so, wg, sg, wu, su, wd,
-                    sd, nf, head, cos, sin, heads):
+                    sd, nf, head, cos, sin, heads, ctx):
     for b in prange(prompts.shape[0]):
         _generate(prompts[b], n_new, temperature, seed + b, out[b], emb, n1, n2, wqkv, sqkv, wo, so, wg, sg, wu,
-                  su, wd, sd, nf, head, cos, sin, heads)
+                  su, wd, sd, nf, head, cos, sin, heads, ctx)
 
 
 @numba.njit(fastmath=True, cache=True)
 def _logits_all(seq, emb, n1, n2, wqkv, sqkv, wo, so, wg, sg, wu, su, wd, sd, nf, head, cos, sin, heads):
     ctx = cos.shape[0]
     d = emb.shape[1]
+    hidden = wg.shape[1]
     kc = np.zeros((wqkv.shape[0], ctx, d), np.float32)
     vc = np.zeros((wqkv.shape[0], ctx, d), np.float32)
     out = np.empty((seq.shape[0], head.shape[0]), np.float32)
     logits = np.empty(head.shape[0], np.float32)
+    h = np.empty(d, np.float32)
+    qkv = np.empty(3 * d, np.float32)
+    att = np.empty(d, np.float32)
+    tmp = np.empty(d, np.float32)
+    g = np.empty(hidden, np.float32)
+    u = np.empty(hidden, np.float32)
+    scores = np.empty(ctx, np.float32)
     for p in range(seq.shape[0]):
         _step(seq[p], p, kc, vc, emb, n1, n2, wqkv, sqkv, wo, so, wg, sg, wu, su, wd, sd, nf, head, cos, sin, heads,
-              logits)
+              logits, h, qkv, att, tmp, g, u, scores)
         out[p] = logits
     return out
 
@@ -264,30 +281,47 @@ def _logits_all(seq, emb, n1, n2, wqkv, sqkv, wo, so, wg, sg, wu, su, wd, sd, nf
 class Engine:
     def __init__(self, weights: Weights):
         self.w = weights
+        hd = weights.cfg.d // weights.cfg.heads
+        self._inv = 1.0 / 10000.0 ** (np.arange(0, hd, 2, dtype=np.float64) / hd)
+
+    def _rope(self, max_pos: int) -> tuple[np.ndarray, np.ndarray]:
+        if max_pos <= self.w.cos.shape[0]:
+            return self.w.cos, self.w.sin
+        ang = np.outer(np.arange(max_pos, dtype=np.float64), self._inv)
+        return np.cos(ang).astype(np.float32), np.sin(ang).astype(np.float32)
 
     @classmethod
     def load(cls, path) -> "Engine":
         return cls(export(path))
 
     def logits(self, seq: bytes) -> np.ndarray:
-        return _logits_all(np.frombuffer(seq, np.uint8).astype(np.int64), *self.w.args(), self.w.cfg.heads)
+        cos, sin = self._rope(len(seq) + 1)
+        args = (*self.w.args()[:-2], cos, sin)
+        return _logits_all(np.frombuffer(seq, np.uint8).astype(np.int64), *args, self.w.cfg.heads)
 
     def generate(self, prompt: bytes, n: int, temperature: float = 0.8, seed: int = 0) -> bytes:
+        ctx = self.w.cfg.ctx
+        cos, sin = self._rope(min(len(prompt), ctx) + n + 1)
+        args = (*self.w.args()[:-2], cos, sin)
         out = np.empty(n, np.int64)
-        _generate(np.frombuffer(prompt, np.uint8).astype(np.int64), n, temperature, seed, out, *self.w.args(),
-                  self.w.cfg.heads)
+        _generate(np.frombuffer(prompt, np.uint8).astype(np.int64), n, temperature, seed, out, *args,
+                  self.w.cfg.heads, ctx)
         return bytes(out.astype(np.uint8).tolist())
 
     def generate_batch(self, prompts: list[bytes], n: int, temperature: float = 0.8, seed: int = 0) -> list[bytes]:
+        ctx = self.w.cfg.ctx
         L = min(len(p) for p in prompts)
-        arr = np.stack([np.frombuffer(p[-L:], np.uint8).astype(np.int64) for p in prompts])
+        arr = (np.stack([np.frombuffer(p[-L:], np.uint8).astype(np.int64) for p in prompts])
+               if L > 0 else np.zeros((len(prompts), 0), np.int64))
+        cos, sin = self._rope(min(L, ctx) + n + 1)
+        args = (*self.w.args()[:-2], cos, sin)
         out = np.empty((len(prompts), n), np.int64)
-        _generate_batch(arr, n, temperature, seed, out, *self.w.args(), self.w.cfg.heads)
+        _generate_batch(arr, n, temperature, seed, out, *args, self.w.cfg.heads, ctx)
         return [bytes(r.astype(np.uint8).tolist()) for r in out]
 
-    def bench(self, n_new: int = 2000, batch: int = 8, prompt: bytes = b"def ") -> dict:
+    def bench(self, n_new: int = 2000, batch: int = 14, prompt: bytes = b"def ") -> dict:
         self.generate(prompt, 8)
-        self.generate_batch([prompt] * 2, 8)
+        self.generate_batch([prompt] * batch, 8)
         t = time.perf_counter()
         self.generate(prompt, n_new, temperature=0.8)
         single = n_new / (time.perf_counter() - t)
@@ -297,4 +331,4 @@ class Engine:
         return {"single_stream_tok_s": round(single), f"aggregate_tok_s_batch{batch}": round(agg),
                 "threads": numba.get_num_threads(), "block_weight_bytes": self.w.bytes_block(),
                 "total_weight_bytes": self.w.bytes_total(), "n_new": n_new,
-                "note": "tokens are bytes; includes window re-encode every ctx/2 tokens"}
+                "note": "tokens are bytes; rolling ring KV cache + row4-unrolled matvec"}

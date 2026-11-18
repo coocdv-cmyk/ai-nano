@@ -29,6 +29,11 @@ class CoreConfig:
     hidden: int = 704  # SwiGLU width (~2/3 of 4d, multiple of 32)
     ctx: int = 256
     ternary: bool = False
+    arch: str = "v0"  # "v0" standard decoder | "v1" looped adaptive-depth + MTP core
+    n_loops: int = 1
+    mtp_k: int = 1
+    ponder_weight: float = 0.01
+    halt_eps: float = 0.05
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -141,3 +146,128 @@ class OmegaCore(nn.Module):
             nxt = torch.multinomial(F.softmax(logits, -1), 1, generator=g)
             idx = torch.cat([idx, nxt.view(1, 1)], dim=1)
         return bytes(idx[0, len(prompt):].tolist())
+
+
+class LoopedOmegaCore(nn.Module):
+    """OMEGA core v1: weight-shared recurrent depth, adaptive halting (ACT), input anchoring, and MTP.
+
+    Instead of spending parameters on many distinct shallow layers, v1 loops a compact
+    weight-shared block core up to `n_loops` iterations per token with learned halting
+    and multi-token auxiliary supervision (`mtp_k`).
+    """
+
+    def __init__(self, cfg: CoreConfig):
+        super().__init__()
+        self.cfg = cfg
+        self.n_loops = max(1, cfg.n_loops)
+        self.mtp_k = max(1, cfg.mtp_k)
+        self.emb = nn.Embedding(cfg.vocab, cfg.d)
+        self.blocks = nn.ModuleList(Block(cfg) for _ in range(cfg.layers))
+        self.loop_emb = nn.Parameter(torch.randn(self.n_loops, cfg.d) * 0.02)
+        self.anchor_gate = nn.Linear(2 * cfg.d, cfg.d, bias=True)
+        self.halt_norm = RMSNorm(cfg.d)
+        self.halt_head = nn.Linear(cfg.d, 1, bias=True)
+        self.norm = RMSNorm(cfg.d)
+        self.head = nn.Linear(cfg.d, cfg.vocab, bias=False)
+        self.mtp_projs = nn.ModuleList(
+            nn.Sequential(RMSNorm(cfg.d), nn.Linear(cfg.d, cfg.d, bias=False))
+            for _ in range(self.mtp_k - 1)
+        )
+        cos, sin = rope_tables(cfg.ctx, cfg.d // cfg.heads)
+        self.register_buffer("cos", cos, persistent=False)
+        self.register_buffer("sin", sin, persistent=False)
+        self.last_avg_loops: float = float(self.n_loops)
+        self.apply(self._init)
+        nn.init.constant_(self.halt_head.bias, -1.0)
+        eff_depth = max(1, cfg.layers * self.n_loops)
+        for b in self.blocks:
+            for lin in (b.proj, b.down):
+                nn.init.normal_(lin.weight, std=0.02 / math.sqrt(2 * eff_depth))
+
+    @staticmethod
+    def _init(m):
+        if isinstance(m, (nn.Linear, nn.Embedding)):
+            nn.init.normal_(m.weight, std=0.02)
+
+    def _run_loops(self, x0: torch.Tensor, early_exit: bool) -> tuple[torch.Tensor, torch.Tensor]:
+        B, T, D = x0.shape
+        x = x0
+        rem = x0.new_ones((B, T, 1))
+        out_state = torch.zeros_like(x0)
+        ponder = x0.new_zeros((B, T, 1))
+        halted = x0.new_zeros((B, T, 1), dtype=torch.bool)
+        for t in range(self.n_loops):
+            gate = torch.sigmoid(self.anchor_gate(torch.cat([x, x0], dim=-1)))
+            h_in = x + gate * x0 + self.loop_emb[t]
+            h = h_in
+            for b in self.blocks:
+                h = b(h, self.cos, self.sin)
+            if early_exit and self.n_loops > 1:
+                x = torch.where(halted, x, h)
+            else:
+                x = h
+            p = torch.sigmoid(self.halt_head(self.halt_norm(x)))
+            is_last = t == self.n_loops - 1
+            q = rem if is_last else rem * p
+            rem = rem * (1.0 - p)
+            out_state = out_state + q * x
+            ponder = ponder + (t + 1) * q
+            if early_exit and not is_last:
+                halted = halted | ((1.0 - rem) >= (1.0 - self.cfg.halt_eps))
+                if bool(halted.all()):
+                    out_state = out_state + rem * x
+                    ponder = ponder + (t + 1) * rem
+                    break
+        self.last_avg_loops = float(ponder.detach().mean().item())
+        return out_state, ponder.mean()
+
+    def forward(self, idx: torch.Tensor, targets: torch.Tensor | None = None):
+        x0 = self.emb(idx)
+        early_exit = (not self.training) and (targets is None)
+        state, mean_ponder = self._run_loops(x0, early_exit=early_exit)
+        h_final = self.norm(state)
+        logits = self.head(h_final)
+        if targets is None:
+            return logits, None
+        loss_0 = F.cross_entropy(logits.reshape(-1, logits.size(-1)), targets.reshape(-1))
+        if not self.training:
+            # Evaluation returns pure next-byte cross-entropy for exact 1:1 val_bpb comparison with v0.
+            return logits, loss_0
+        loss = loss_0 + self.cfg.ponder_weight * mean_ponder
+        if self.mtp_projs and idx.size(1) > 1:
+            mtp_losses = []
+            for offset, proj in enumerate(self.mtp_projs, start=1):
+                if targets.size(1) <= offset:
+                    break
+                h_k = state[:, :-offset, :]
+                logits_k = self.head(proj(h_k))
+                tgt_k = targets[:, offset:]
+                mtp_losses.append(F.cross_entropy(logits_k.reshape(-1, logits_k.size(-1)), tgt_k.reshape(-1)))
+            if mtp_losses:
+                loss = loss + 0.35 * (sum(mtp_losses) / len(mtp_losses))
+        return logits, loss
+
+    def n_params(self) -> dict:
+        block = sum(p.numel() for b in self.blocks for _, p in b.named_parameters() if p.dim() == 2)
+        total = sum(p.numel() for p in self.parameters())
+        return {"total": total, "block_matrices": block, "other": total - block}
+
+    @torch.no_grad()
+    def generate(self, prompt: bytes, n: int, temperature: float = 0.8, top_k: int = 40, seed: int = 0) -> bytes:
+        g = torch.Generator().manual_seed(seed)
+        idx = torch.tensor([list(prompt)], dtype=torch.long)
+        for _ in range(n):
+            logits, _ = self(idx[:, -self.cfg.ctx:])
+            logits = logits[0, -1] / max(temperature, 1e-5)
+            if top_k:
+                v, _ = logits.topk(top_k)
+                logits[logits < v[-1]] = -float("inf")
+            nxt = torch.multinomial(F.softmax(logits, -1), 1, generator=g)
+            idx = torch.cat([idx, nxt.view(1, 1)], dim=1)
+        return bytes(idx[0, len(prompt):].tolist())
+
+
+def build_model(cfg: CoreConfig) -> nn.Module:
+    if cfg.arch == "v1":
+        return LoopedOmegaCore(cfg)
+    return OmegaCore(cfg)

@@ -51,6 +51,8 @@ class Tool:
     # Optional hook that raises the needed scopes for specific arguments, e.g. an
     # overwrite of an existing file becomes DESTRUCTIVE.
     dynamic_scopes: Callable[[ToolContext, dict[str, Any]], frozenset[Scope]] | None = None
+    # Optional hook when idempotency depends on arguments (e.g. fs.write append is non-idempotent).
+    dynamic_idempotent: Callable[[ToolContext, dict[str, Any]], bool] | None = None
     examples: list[str] = field(default_factory=list)
 
     def validate(self, args: dict[str, Any]) -> dict[str, Any]:
@@ -77,6 +79,11 @@ class Tool:
     def needed_scopes(self, ctx: ToolContext, args: dict[str, Any]) -> frozenset[Scope]:
         extra = self.dynamic_scopes(ctx, args) if self.dynamic_scopes else frozenset()
         return self.scopes | extra
+
+    def is_idempotent(self, ctx: ToolContext, args: dict[str, Any]) -> bool:
+        if self.dynamic_idempotent is not None:
+            return bool(self.dynamic_idempotent(ctx, args))
+        return self.idempotent
 
     def run(self, ctx: ToolContext, args: dict[str, Any]) -> dict[str, Any]:
         out = self.fn(ctx, **args)

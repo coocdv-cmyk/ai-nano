@@ -6,9 +6,9 @@ import pytest
 torch = pytest.importorskip("torch")
 pytest.importorskip("numba")
 
-from omega_nano.core.data import baselines  # noqa: E402
+from omega_nano.core.data import baselines, build_corpus  # noqa: E402
 from omega_nano.core.engine import Engine  # noqa: E402
-from omega_nano.core.model import CoreConfig, OmegaCore, ternarize  # noqa: E402
+from omega_nano.core.model import CoreConfig, LoopedOmegaCore, OmegaCore, build_model, ternarize  # noqa: E402
 
 SMALL = dict(d=64, layers=2, heads=2, hidden=96, ctx=32)
 
@@ -99,3 +99,57 @@ def test_baselines_on_toy_data():
     assert b["order2-ngram (trained)"] < 1.0 < b["uniform"]
     noise = rng.integers(0, 256, 20000).astype(np.uint8)
     assert baselines(noise[:15000], noise[15000:])["zlib-9"] > 7.9
+
+
+def test_looped_v1_causality_mtp_and_adaptive_halting(tmp_path):
+    cfg = CoreConfig(d=64, layers=1, heads=2, hidden=96, ctx=32, arch="v1", n_loops=4, mtp_k=3, halt_eps=0.1)
+    m = build_model(cfg)
+    assert isinstance(m, LoopedOmegaCore)
+
+    # Training computes joint loss (next-byte + MTP + ponder); eval returns pure next-byte CE.
+    x = torch.randint(0, 256, (2, 16))
+    y = torch.randint(0, 256, (2, 16))
+    m.train()
+    _, train_loss = m(x, y)
+    train_loss.backward()
+    assert m.loop_emb.grad is not None and m.halt_head.weight.grad is not None
+
+    m.eval()
+    with torch.no_grad():
+        _, eval_loss = m(x, y)
+        assert eval_loss.isfinite()
+        # Strict causality even with early-exit adaptive halting enabled.
+        a = torch.randint(0, 256, (1, 20))
+        b = a.clone()
+        b[0, 15:] = (b[0, 15:] + 7) % 256
+        la, lb = m(a)[0], m(b)[0]
+        assert torch.allclose(la[0, :15], lb[0, :15], atol=1e-5)
+
+    # Generating bytes works cleanly, and native engine rejects v1 cleanly instead of KeyError.
+    out = m.generate(b"def ", 8, temperature=0.8, seed=1)
+    assert len(out) == 8
+    ck = tmp_path / "v1.pt"
+    torch.save({"config": cfg.to_dict(), "state": m.state_dict()}, ck)
+    with pytest.raises(ValueError, match="arch='v0'"):
+        Engine.load(ck)
+
+
+def test_clean_corpus_excludes_site_packages_and_copyleft(tmp_path):
+    lib = tmp_path / "lib"
+    (lib / "site-packages").mkdir(parents=True)
+    (lib / "ensurepip").mkdir(parents=True)
+    (lib / "site-packages" / "third_party.py").write_text("SECRET_THIRD_PARTY = 1\n", encoding="utf-8")
+    (lib / "ensurepip" / "bundled.py").write_text("BUNDLED_PIP = 1\n", encoding="utf-8")
+    (lib / "copyleft_mod.py").write_text("# GNU Lesser General Public License\nCOPYLEFT = 1\n", encoding="utf-8")
+    for i in range(40):
+        (lib / f"clean_{i}.py").write_text(f"def f_{i}(x):\n    return x + {i}\n", encoding="utf-8")
+
+    out = tmp_path / "corpus"
+    meta = build_corpus(out, val_fraction=0.2, stdlib_root=lib)
+    combined = (out / "train.bin").read_bytes() + (out / "val.bin").read_bytes()
+    assert b"SECRET_THIRD_PARTY" not in combined
+    assert b"BUNDLED_PIP" not in combined
+    assert b"COPYLEFT" not in combined
+    assert b"def f_0" in combined
+    assert meta["rejected_count"] == 1
+    assert len(meta["train_sha256"]) == 64 and len(meta["val_sha256"]) == 64

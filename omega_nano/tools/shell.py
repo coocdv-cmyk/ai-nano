@@ -17,6 +17,13 @@ from ..security import Scope
 from .base import Param, Tool, ToolContext, ToolError
 
 MAX_OUT = 64 * 1024
+_SAFE_ENV_KEYS = (
+    "PATH", "SYSTEMROOT", "SystemRoot", "WINDIR", "COMSPEC", "ComSpec", "PATHEXT",
+    "TEMP", "TMP", "LOCALAPPDATA", "APPDATA", "USERPROFILE", "HOME", "LANG",
+    "LC_ALL", "LC_CTYPE", "TERM", "NUMBER_OF_PROCESSORS", "PROCESSOR_ARCHITECTURE",
+    "OS", "SYSTEMDRIVE", "PROGRAMDATA", "PROGRAMFILES", "PROGRAMFILES(X86)",
+    "VIRTUAL_ENV", "CONDA_PREFIX",
+)
 DENY = re.compile(
     r"(\brm\s+-[a-z]*r|\bdel\s+/[sq]|\brmdir\s+/s|\bformat\b|\bshutdown\b|\bmkfs\b|\breg\s+(add|delete)\b"
     r"|\bcurl\b|\bwget\b|invoke-webrequest|\bnetsh\b|\bsc\s+(stop|delete)\b|>\s*/dev/sd|:\(\)\s*\{)",
@@ -58,10 +65,13 @@ def _run(ctx: ToolContext, cmd: str, timeout_s: float) -> dict:
             raise ToolError("shell.run: metacharacters are not allowed in cmd built-ins")
         argv = ["cmd", "/c", *argv]
     timeout_s = max(0.1, min(float(timeout_s), 600.0))
+    safe_env = {k: os.environ[k] for k in _SAFE_ENV_KEYS if k in os.environ}
+    safe_env["PYTHONIOENCODING"] = "utf-8"
+    safe_env["PYTHONUTF8"] = "1"
     try:
         p = subprocess.run(
             argv, cwd=str(ctx.workspace), capture_output=True, timeout=timeout_s,
-            stdin=subprocess.DEVNULL, env={**os.environ, "PYTHONIOENCODING": "utf-8"},
+            stdin=subprocess.DEVNULL, env=safe_env,
         )
     except subprocess.TimeoutExpired:
         return {"ok": False, "error": f"timeout after {timeout_s}s", "exit_code": None, "timed_out": True}

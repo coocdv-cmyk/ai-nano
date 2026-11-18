@@ -1,30 +1,29 @@
-# Architecture — as implemented (0.2.0-dev)
+# Architecture — as implemented (0.3.0-dev / EXP-M M0)
 
 This describes what exists, not what is planned. The target architecture (16 layers) is in the constitution §4.
-Corrected 2026-11-18 by the Phase 0 audit (`PHASE-0-REPOSITORY-AUDIT.md`); the previous version wrongly said the neural
-core was "not started" after `omega_nano/core/` had been implemented and measured as EXP-003.
+Corrected 2026-11-18 by the Phase 0 audit (`PHASE-0-REPOSITORY-AUDIT.md`) and updated on `research/exp-m` (`M0`) after integrating `local-v0.3-brain` (`LoopedOmegaCore`, `omega_nano/brain/`, `reasoner.py` fix) and resolving audit defects #1, #3, #6, #10.
 
 Status vocabulary: **measured** (implemented and benchmarked) · **implemented** (tested, not benchmarked) · **prototype**
 (works on a narrow path) · **partial** (some sub-capability missing) · **absent**.
 
 | # | Constitution layer | Status | Where |
 |---|---|---|---|
-| 1 | Neural core | **v0 measured**: own 3.34 M-param byte-level decoder; below zlib in quality | `omega_nano/core/`, `EXPERIMENTS/EXP-003-omega-core-v0/` |
-| 2 | Adaptive compute controller | prototype: 3 planning tiers | `engine._plan` |
-| 3 | Inference runtime | prototype: native Numba decode loop with KV cache; int8 retrieval kernel in production | `core/engine.py`, `kernels.py` |
+| 1 | Neural core | **v0 measured** (EXP-003, below zlib) + **v1 prototype** (`LoopedOmegaCore`: ACT + MTP) | `omega_nano/core/model.py` |
+| 2 | Adaptive compute controller | prototype: 3 planning tiers + ACT halting in `v1` | `engine._plan`, `LoopedOmegaCore` |
+| 3 | Inference runtime | **implemented**: Numba ring-KV + row4-unrolled matvec (`v0`); int8 retrieval kernel | `core/engine.py`, `kernels.py` |
 | 4 | Memory fabric | **implemented**, measured to 50k records | `memory.py` |
-| 5 | Knowledge ingestion | bulk ingest + dedup; no document parsing yet | `memory.remember_many` |
+| 5 | Knowledge ingestion | bulk ingest + dedup; clean copyleft-free corpus builder | `memory.remember_many`, `core/data.py` |
 | 6 | Retrieval and search | **implemented**: lexical + vector + fuzzy, RRF | `memory.recall` |
-| 7 | Reasoning and planning | rule reasoner (EN/AR) + LLM adapter + revision | `reasoner.py` |
-| 8 | Tool execution | **implemented**: typed, validated, bounded | `tools/` |
+| 7 | Reasoning and planning | rule reasoner (EN/AR) + hardened LLM adapter + `brain` self-play | `reasoner.py`, `brain/` |
+| 8 | Tool execution | **implemented**: typed, validated, bounded, dynamic idempotency | `tools/` |
 | 9 | Computer interaction | not started (Phase 5) | – |
-| 10 | Software engineering engine | not started (Phase 4); shell tool exists | – |
+| 10 | Software engineering engine | code verifier & blind code suite started; no repo indexer yet | `brain/verifiers.py` |
 | 11 | Multimodal | not started (Phase 7) | – |
-| 12 | Verification and critique | **implemented** for world-checkable effects | `verify.py` |
+| 12 | Verification and critique | **implemented**: world checks + SymPy/mpmath + isolated Python | `verify.py`, `brain/verifiers.py` |
 | 13 | Agent orchestration | **implemented** for single-agent durable tasks | `engine.py`, `store.py` |
-| 14 | Security and governance | **implemented**: modes, scopes, approvals, audit, stop | `security.py` |
-| 15 | User interface | CLI + markdown reports | `cli.py`, `report.py` |
-| 16 | Evaluation loop | benchmarks + experiment records | `BENCHMARKS/`, `EXPERIMENTS/` |
+| 14 | Security and governance | **implemented**: modes, scopes, approvals, sanitized shell env, stop | `security.py`, `tools/shell.py` |
+| 15 | User interface | CLI + markdown reports + `brain` subcommands | `cli.py`, `report.py` |
+| 16 | Evaluation loop | benchmarks + experiment records (`EXP-001..004`, `constructive/`) | `BENCHMARKS/`, `EXPERIMENTS/`, `constructive/` |
 
 ## Core invariants
 1. **The plan is never trusted.** Every step is validated against the tool registry, argument schemas and the permission
@@ -54,22 +53,14 @@ Illegal transitions raise. `done` and `failed` are final.
 | t1 | deterministic bilingual rule reasoner | 0.12 ms |
 | t2 | local OpenAI-compatible LLM (optional) | model-dependent |
 
-## Known limitations
+## Known limitations (updated M0)
 - The rule reasoner covers a fixed set of intents. Anything else is blocked unless an LLM backend is configured.
-- In-process tool timeouts abandon the worker thread instead of killing it. `shell.run` uses a real process timeout.
-- `shell.run` uses an allowlist and deny patterns, **not an OS sandbox**. Allowlisted interpreters (python, node) can run
-  arbitrary code and inherit the full process environment. That is why `EXECUTE` needs approval in every mode except
-  `autonomous`. See SECURITY.md.
+- In-process tool timeouts abandon the worker thread instead of killing it. `shell.run` uses a real process timeout and now executes with a minimal sanitized environment allowlist (though it is still not a full OS container/sandbox).
 - One worker per task (lease + PID liveness). There is no distributed queue yet.
-- `fs.write` declares `idempotent=True` for every mode, but `mode="append"` is not idempotent. A verification failure can
-  therefore append the same content up to `max_retries` times. Reproduced 2026-11-18; see audit §8.1.
-- `LocalLLMReasoner.revise` serializes the failed step (including raw `output`) into the prompt. Tool output can therefore
-  influence a revised plan only on this path, contrary to invariant 5. See audit §8.2.
-- The neural core is 3.34 M parameters, trained on ~20 MB for 30 minutes. It is a pipeline proof, not a usable language
-  model: 1.89–2.06 bits/byte on held-out code, worse than zlib (1.83).
-- The native engine re-encodes half the context window every `ctx/2` generated tokens and uses scalar matvecs; both are
-  known, measurable speed losses.
-- Memory retrieval is brute-force vector search: linear in record count, no ANN index.
+- `fs.write` now marks `mode="append"` non-idempotent via `dynamic_idempotent` so verification failures never duplicate appended text on retry; `LocalLLMReasoner.revise` wraps tool outputs under `untrusted_tool_observation`.
+- The neural core (`v0` / `v1` prototype) still operates at raw byte level (`vocab=256`, `ctx=256`) and has not yet cleared `zlib-9` on a full training run (`M1` target).
+- The native Numba engine now uses a rolling ring-KV cache + row4-unrolled matvec for `v0`, while `v1` (`LoopedOmegaCore`) is not yet wired into the native CPU runtime (`M2` target).
+- Memory retrieval is brute-force vector search using feature-hashing (`crc32`) rather than learned semantic embeddings (`M3` target).
 
 ## Data flow — task execution (as implemented)
 

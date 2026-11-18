@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.3.0-dev — 2026-11-18 (`research/exp-m` M0 Foundation & Hygiene)
+
+### Added
+- `RESEARCH/EXP-M-ARCHITECTURE.md` — Program 2/3 specification (`M0`–`M4`) for `OMEGA-NANO V1`.
+- `omega_nano/brain/` (from `local-v0.3-brain`): `MathVerifier` (SymPy/mpmath), `CodeVerifier` (AST + isolated Python), `SkillLibrary`, `SelfPlayEngine`, `BlindVault`, and `omega brain` CLI subcommands.
+- `omega_nano/core/model.py`: `LoopedOmegaCore` (`v1`: weight-shared loops, ACT halting, MTP) + `build_model`.
+- `RESEARCH/RC-004-self-evolving-mind.md` & `EXPERIMENTS/EXP-004-looped-mind-and-speed/`.
+- `.github/workflows/ci.yml` — cross-platform CI matrix for `omega_nano`, `core`, and `brain`.
+
+### Fixed (resolving Phase 0 audit defects)
+- `fs.write` (`mode="append"`) now reports `is_idempotent(...) == False` via `Tool.dynamic_idempotent`, preventing repeated appends on retry or uncertain crash recovery.
+- `LocalLLMReasoner.revise` now isolates failed tool output inside `untrusted_tool_observation` (closing the prompt-injection path).
+- `shell.run` now passes a sanitized allowlist of OS environment variables instead of leaking `os.environ` secrets.
+- `omega_nano/core/data.py` now strictly excludes `site-packages`, `ensurepip`, and copyleft license headers, and writes SHA-256 provenance manifests.
+- `omega_nano/core/engine.py` updated with rolling ring-KV cache and row4-unrolled `_matvec` for `v0`.
+- `pyproject.toml` updated to version `0.3.0`, exporting `omega_nano.core` and `omega_nano.brain` plus `core` and `brain` extras.
+
 ## Unreleased — 2026-11-18 (documentation and audit only)
 
 No production code was modified in this entry. All changes are documents.
