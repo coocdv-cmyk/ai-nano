@@ -1,0 +1,119 @@
+{
+  "exp_id": "EXP-007",
+  "title": "M2 Native 2-Bit Packed LUT, ACT Early-Exit, Self-Speculation & Incremental v2 Engine",
+  "arms": {
+    "v0_ternary": {
+      "params": {
+        "total": 1426752,
+        "block_matrices": 1327104,
+        "other": 99648
+      },
+      "block_fp32_bytes": 5308416,
+      "block_int8_bytes": 1327104,
+      "block_packed_2bit_bytes": 331776,
+      "pytorch_tok_s": 34.2,
+      "pytorch_ttft_ms": 27.09,
+      "native_int8": {
+        "arch": "v0",
+        "ternary": true,
+        "packed_lut": false,
+        "single_stream_tok_s": 2562.8,
+        "aggregate_tok_s_batch4": 7311.2,
+        "ttft_ms": 42.51,
+        "threads": 7,
+        "packed_block_bytes": 331776,
+        "n_new": 400,
+        "stats": {}
+      },
+      "native_packed_lut": {
+        "arch": "v0",
+        "ternary": true,
+        "packed_lut": true,
+        "single_stream_tok_s": 1963.1,
+        "aggregate_tok_s_batch4": 4512.7,
+        "ttft_ms": 78.25,
+        "threads": 7,
+        "packed_block_bytes": 331776,
+        "n_new": 400,
+        "stats": {}
+      },
+      "speedup_pack_vs_pytorch": 57.43,
+      "greedy_exact_match": true
+    },
+    "v1_looped_ternary": {
+      "params": {
+        "total": 333313,
+        "block_matrices": 200704,
+        "other": 132609
+      },
+      "block_fp32_bytes": 802816,
+      "block_packed_2bit_bytes": 50176,
+      "pytorch_tok_s": 75.7,
+      "pytorch_ttft_ms": 26.54,
+      "native_nospec": {
+        "arch": "v1",
+        "ternary": true,
+        "packed_lut": true,
+        "single_stream_tok_s": 6637.6,
+        "aggregate_tok_s_batch4": 18535.1,
+        "ttft_ms": 8.98,
+        "threads": 7,
+        "packed_block_bytes": 50176,
+        "n_new": 300,
+        "stats": {
+          "arch": "v1",
+          "avg_loops": 1.159,
+          "speculative_drafts": 0,
+          "speculative_accepted": 0,
+          "spec_accept_rate": 0.0
+        }
+      },
+      "native_speculative_mtp": {
+        "arch": "v1",
+        "ternary": true,
+        "packed_lut": true,
+        "single_stream_tok_s": 1408.1,
+        "aggregate_tok_s_batch4": 4237.5,
+        "ttft_ms": 8.98,
+        "threads": 7,
+        "packed_block_bytes": 50176,
+        "n_new": 300,
+        "stats": {
+          "arch": "v1",
+          "avg_loops": 2.9407,
+          "speculative_drafts": 595,
+          "speculative_accepted": 1,
+          "spec_accept_rate": 0.0017
+        }
+      },
+      "speedup_vs_pytorch": 18.59,
+      "greedy_exact_match": true
+    },
+    "v2_streaming_core": {
+      "source": "EXP-005/v2_hybrid_ternary",
+      "params": {
+        "total": 869916,
+        "block_matrices": 395264,
+        "other": 474652
+      },
+      "packed_block_bytes": 122880,
+      "pytorch_tok_s": 35.5,
+      "pytorch_ttft_ms": 39.13,
+      "native_v2": {
+        "arch": "v2",
+        "ternary": true,
+        "packed_lut": true,
+        "single_stream_tok_s": 10509.2,
+        "aggregate_tok_s_batch4": 23284.9,
+        "ttft_ms": 9.41,
+        "threads": 7,
+        "packed_block_bytes": 122880,
+        "n_new": 300,
+        "stats": {}
+      },
+      "speedup_vs_pytorch": 295.74,
+      "greedy_exact_match": true
+    }
+  },
+  "total_wall_seconds": 17.44
+}

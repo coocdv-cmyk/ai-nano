@@ -1,7 +1,7 @@
 # EXP-M — Architectural Evolution Specification (`OMEGA-NANO V1` Program)
 
 **Branch:** `research/exp-m`  
-**Status:** Active Program 2 -> Program 3 (`M0` complete, moving to `M1`)  
+**Status:** **COMPLETE (`M0 -> M4` verified across `EXP-005`, `EXP-006`, `EXP-007`, `EXP-008`)**  
 **Constitution anchors:** `OMEGA-NANO-VISION-V3-ENGLISH.md` (§0–§5, §7, §11), `فهم الخطة` (Program 2 & Program 3)
 
 ---

@@ -97,7 +97,15 @@ def main(argv: list[str] | None = None) -> int:
     bir = bsub.add_parser("index-repo", help="index Python repository symbols and call graph into memory")
     bir.add_argument("--path", default=".", help="repository or module path to index")
     bir.add_argument("--no-memory", action="store_true", help="skip persisting indexed symbols into MemoryFabric")
+    bd = bsub.add_parser("distill", help="run Wake-Sleep replay distillation into compact v2 core")
+    bd.add_argument("--seconds", type=float, default=6.0)
+    bd.add_argument("--steps", type=int, default=80)
     bsub.add_parser("stats", help="show compiled skill & replay buffer statistics")
+
+    ag = sub.add_parser("agent", help="run unified OMEGA-NANO V1 offline agent on a goal")
+    ag.add_argument("goal")
+    ag.add_argument("--mode", default="workspace", choices=["read_only", "ask", "workspace", "autonomous"])
+    ag.add_argument("--index", action="store_true", help="index workspace Python symbols before running")
 
     args = ap.parse_args(argv)
     cfg = load_config(args.home)
@@ -204,7 +212,9 @@ def _dispatch(args, eng: Engine, cfg) -> int:
         skills = SkillLibrary(cfg.home / "brain.db", memory=eng.memory)
         try:
             sp = SelfPlayEngine(skills)
-            solver = NeuroSymbolicSolver()
+            ckpt = cfg.home / "core_v2.pt"
+            from .core.distill import NeuralCodeProposer, sleep_distill
+            solver = NeuroSymbolicSolver(neural_proposer=NeuralCodeProposer(ckpt))
             if args.bcmd == "eval":
                 vault = BlindVault.heldout() if args.heldout else BlindVault()
                 report = vault.evaluate(
@@ -214,9 +224,30 @@ def _dispatch(args, eng: Engine, cfg) -> int:
             elif args.bcmd == "selfplay":
                 cycles = [sp.run_cycle(c, solver, n_tasks=args.tasks, level=args.level) for c in range(1, args.cycles + 1)]
                 print(json.dumps(cycles, indent=2, ensure_ascii=False))
+            elif args.bcmd == "distill":
+                res = sleep_distill(
+                    ckpt,
+                    checkpoint_in=ckpt if ckpt.is_file() else None,
+                    skills=skills,
+                    memory=eng.memory,
+                    budget_s=args.seconds,
+                    steps_cap=args.steps,
+                )
+                print(json.dumps(res, indent=2, ensure_ascii=False))
             elif args.bcmd == "stats":
                 print(json.dumps(skills.stats(), indent=2))
         finally:
             skills.close()
+        return 0
+    if args.cmd == "agent":
+        from .agent import OmegaAgent
+
+        agent = OmegaAgent(cfg=cfg)
+        try:
+            if args.index:
+                agent.index_codebase(cfg.workspace)
+            print(json.dumps(agent.handle(args.goal, mode=args.mode), indent=2, ensure_ascii=False, default=str))
+        finally:
+            agent.close()
         return 0
     return 1

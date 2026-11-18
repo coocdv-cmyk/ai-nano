@@ -10,6 +10,7 @@ from omega_nano.core.data import baselines, build_corpus  # noqa: E402
 from omega_nano.core.engine import Engine  # noqa: E402
 from omega_nano.core.model import CoreConfig, LoopedOmegaCore, OmegaCore, build_model, ternarize  # noqa: E402
 from omega_nano.core.model_v2 import OmegaCoreV2, _extract_copy_numba, _extract_copy_py  # noqa: E402
+from omega_nano.core.packed import pack_ternary, unpack_ternary  # noqa: E402
 
 SMALL = dict(d=64, layers=2, heads=2, hidden=96, ctx=32)
 
@@ -126,13 +127,18 @@ def test_looped_v1_causality_mtp_and_adaptive_halting(tmp_path):
         la, lb = m(a)[0], m(b)[0]
         assert torch.allclose(la[0, :15], lb[0, :15], atol=1e-5)
 
-    # Generating bytes works cleanly, and native engine rejects v1 cleanly instead of KeyError.
+    # Generating bytes works cleanly, and native engine loads v1 natively matching PyTorch.
     out = m.generate(b"def ", 8, temperature=0.8, seed=1)
     assert len(out) == 8
     ck = tmp_path / "v1.pt"
     torch.save({"config": cfg.to_dict(), "state": m.state_dict()}, ck)
-    with pytest.raises(ValueError, match="arch='v0'"):
-        Engine.load(ck)
+    eng = Engine.load(ck)
+    seq = bytes(np.random.default_rng(4).integers(0, 256, 20).astype(np.uint8))
+    with torch.no_grad():
+        ref_v1 = m(torch.tensor([list(seq)]))[0][0].numpy()
+    got_v1 = eng.logits(seq)
+    assert np.abs(got_v1 - ref_v1).max() < 2e-3 * max(1.0, np.abs(ref_v1).max())
+    assert (got_v1.argmax(1) == ref_v1.argmax(1)).all()
 
 
 def test_clean_corpus_excludes_site_packages_and_copyleft(tmp_path):
@@ -212,3 +218,87 @@ def test_v2_patched_fast_weights_causality_grads_and_long_context(use_copy):
 
     out = m.generate(b"def f(", 12, temperature=0.8, seed=2)
     assert len(out) == 12
+
+
+def test_pack_ternary_roundtrip_and_v0_compression(tmp_path):
+    rng = np.random.default_rng(11)
+    w = rng.choice([-1, 0, 1], size=(64, 99)).astype(np.int8)
+    packed, orig_in = pack_ternary(w)
+    assert packed.dtype == np.uint8 and orig_in == 99 and packed.shape == (64, 25)
+    assert np.array_equal(unpack_ternary(packed, orig_in), w)
+
+    _, p1 = _ckpt(tmp_path, True)
+    e1 = Engine.load(p1, packed=True)
+    assert e1.w.bytes_packed() == e1.w.bytes_block() // 4
+
+
+def test_native_v1_ternary_speculative_matches_pytorch(tmp_path):
+    torch.manual_seed(5)
+    cfg = CoreConfig(d=64, layers=1, heads=2, hidden=96, ctx=32, arch="v1",
+                     n_loops=3, mtp_k=3, halt_eps=0.1, ternary=True)
+    m = build_model(cfg)
+    with torch.no_grad():
+        for p in m.parameters():
+            if p.dim() == 2:
+                p.normal_(0, 0.18)
+    ck = tmp_path / "v1t.pt"
+    torch.save({"config": cfg.to_dict(), "state": m.state_dict()}, ck)
+
+    eng = Engine.load(ck, packed=True)
+    assert eng.w.bytes_packed() == eng.w.bytes_block_fp32() // 16
+
+    seq = b"def add(a, b):\n    return a"
+    with torch.no_grad():
+        ref_logits = m.eval()(torch.tensor([list(seq)]))[0][0].numpy()
+    got_logits = eng.logits(seq)
+    assert np.abs(got_logits - ref_logits).max() < 2e-3 * max(1.0, np.abs(ref_logits).max())
+
+    # Greedy generation identical between PyTorch, native non-speculative, and native speculative MTP
+    prompt = b"def f(x):"
+    idx = torch.tensor([list(prompt)])
+    with torch.no_grad():
+        for _ in range(14):
+            nxt = m.eval()(idx)[0][0, -1].argmax()
+            idx = torch.cat([idx, nxt.view(1, 1)], 1)
+    want = bytes(idx[0, len(prompt):].tolist())
+
+    assert eng.generate(prompt, 14, temperature=0, speculative=False) == want
+    assert eng.generate(prompt, 14, temperature=0, speculative=True) == want
+    outs = eng.generate_batch([prompt, b"class A: "], 8, temperature=0)
+    assert len(outs) == 2 and all(len(o) == 8 for o in outs)
+
+
+@pytest.mark.parametrize("ternary", [False, True])
+def test_native_v2_matches_pytorch_and_greedy(tmp_path, ternary):
+    torch.manual_seed(7)
+    cfg = CoreConfig(
+        d=64, layers=1, heads=2, hidden=96, ctx=32, arch="v2",
+        n_loops=1, mtp_k=2, patch_size=4, hash_buckets=256, fast_dim=8,
+        use_fast_weights=True, use_copy_gate=True, copy_window=2048, ternary=ternary,
+    )
+    m = build_model(cfg)
+    with torch.no_grad():
+        for p in m.parameters():
+            if p.dim() >= 2:
+                p.normal_(0, 0.14)
+    ck = tmp_path / f"v2_{int(ternary)}.pt"
+    torch.save({"config": cfg.to_dict(), "state": m.state_dict()}, ck)
+
+    eng = Engine.load(ck, packed=True)
+    seq = b"def solve(arr):\n    return arr + arr"
+    with torch.no_grad():
+        ref = m.eval()(torch.tensor([list(seq)]))[0][0].numpy()
+    got = eng.logits(seq)
+    assert np.abs(got - ref).max() < 3e-3 * max(1.0, np.abs(ref).max())
+    assert (got.argmax(1) == ref.argmax(1)).all()
+
+    prompt = b"def run(x):\n    x = x + 1\n    def run(x):\n"
+    idx = torch.tensor([list(prompt)])
+    with torch.no_grad():
+        for _ in range(12):
+            nxt = m.eval()(idx)[0][0, -1].argmax()
+            idx = torch.cat([idx, nxt.view(1, 1)], 1)
+    want = bytes(idx[0, len(prompt):].tolist())
+    assert eng.generate(prompt, 12, temperature=0) == want
+    batch_out = eng.generate_batch([prompt, prompt], 10, temperature=0.8, seed=1)
+    assert len(batch_out) == 2 and all(len(b) == 10 for b in batch_out)

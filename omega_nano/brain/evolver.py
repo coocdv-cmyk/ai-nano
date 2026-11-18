@@ -372,10 +372,12 @@ class NeuroSymbolicSolver(SymbolicTacticSolver):
         self,
         policy: NeuralPolicyRanker | None = None,
         extra_solver: Callable[[BlindProblem, list[AttemptRecord]], str | None] | None = None,
+        neural_proposer: Callable[[BlindProblem, list[AttemptRecord]], str | None] | None = None,
     ):
         super().__init__(extra_solver=extra_solver)
         self.policy = policy or NeuralPolicyRanker()
         self.synthesizer = ExecutionGuidedSynthesizer(policy=self.policy)
+        self.neural_proposer = neural_proposer
 
     def bind_policy(self, policy: NeuralPolicyRanker) -> None:
         self.policy = policy
@@ -390,7 +392,14 @@ class NeuroSymbolicSolver(SymbolicTacticSolver):
                 return cand, None
         if problem.domain == "math":
             return self._propose_math(problem.statement, history), None
-        return self.synthesizer.propose(problem.statement, history)
+        code, hyp = self.synthesizer.propose(problem.statement, history)
+        if code is not None:
+            return code, hyp
+        if self.neural_proposer is not None:
+            cand = self.neural_proposer(problem, history)
+            if cand:
+                return cand, None
+        return None, None
 
     def _propose_code(self, stmt: str, history: list[AttemptRecord]) -> str | None:
         code, _ = self.synthesizer.propose(stmt, history)

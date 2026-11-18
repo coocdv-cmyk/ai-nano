@@ -1,0 +1,144 @@
+{
+  "exp_id": "EXP-008",
+  "title": "M4 Integrated OMEGA-NANO V1 Offline Capability & Efficiency Matrix",
+  "status_snapshot": {
+    "home": "C:\\Users\\mosta\\AppData\\Local\\Temp\\tmpwxsjaxbu\\omega_home",
+    "workspace": "C:\\Users\\mosta\\AppData\\Local\\Temp\\tmpwxsjaxbu\\omega_home\\workspace",
+    "memory": {
+      "records": 450,
+      "active": 450,
+      "bytes_on_disk": 3349376,
+      "bytes_per_record": 7443.1,
+      "dim": 512,
+      "vector_bytes_per_record": 512,
+      "backend": "numba-int8"
+    },
+    "brain": {
+      "skills": 19,
+      "replay_traces": 21,
+      "policy_features": 5098
+    },
+    "core_checkpoint": "C:\\Users\\mosta\\AppData\\Local\\Temp\\tmpwxsjaxbu\\omega_home\\core_v2.pt",
+    "core_ready": true,
+    "rss_mb": 335.7
+  },
+  "workspace_agent": {
+    "write_ok": true,
+    "verify_ok": true,
+    "tier": "t1:rules",
+    "elapsed_ms": 18.12
+  },
+  "live_code_ast_io": {
+    "passed": true,
+    "verified": true,
+    "attempts": 1
+  },
+  "blind_vault": {
+    "passed": 10,
+    "total": 10,
+    "pass_rate": 1.0,
+    "elapsed_ms": 1613.86
+  },
+  "heldout_code": {
+    "passed": 10,
+    "total": 10,
+    "pass_rate": 1.0,
+    "elapsed_ms": 3992.73
+  },
+  "wake_sleep_v2": {
+    "before_val_bpb": 6.7749,
+    "after_val_bpb": 3.0872,
+    "delta_bpb": -3.6877,
+    "steps": 40,
+    "tokens": 40960,
+    "train_bytes": 6268,
+    "val_bytes": 1567,
+    "elapsed_s": 6.104,
+    "params": {
+      "total": 837148,
+      "block_matrices": 444416,
+      "other": 392732
+    },
+    "checkpoint": "C:\\Users\\mosta\\AppData\\Local\\Temp\\tmpwxsjaxbu\\omega_home\\core_v2.pt"
+  },
+  "native_v2_runtime": {
+    "arch": "v2",
+    "ternary": true,
+    "packed_lut": true,
+    "single_stream_tok_s": 13209.0,
+    "aggregate_tok_s_batch4": 25177.6,
+    "ttft_ms": 2.23,
+    "threads": 7,
+    "packed_block_bytes": 135168,
+    "n_new": 240,
+    "stats": {}
+  },
+  "repo_graph": {
+    "workspace": {
+      "root": "C:\\Users\\mosta\\AppData\\Local\\Temp\\tmpwxsjaxbu\\omega_home\\workspace",
+      "files_indexed": 1,
+      "total_symbols": 1,
+      "kinds": {
+        "function": 1
+      },
+      "top_called": [
+        {
+          "symbol": "round",
+          "call_sites": 1
+        }
+      ],
+      "errors": 0,
+      "elapsed_ms": 1.8
+    },
+    "omega_nano": {
+      "root": "D:\\مواقع وتجارب برمجية\\ai model\\omega_nano",
+      "files_indexed": 39,
+      "total_symbols": 426,
+      "kinds": {
+        "function": 167,
+        "class": 60,
+        "method": 199
+      },
+      "top_called": [
+        {
+          "symbol": "len",
+          "call_sites": 68
+        },
+        {
+          "symbol": "append",
+          "call_sites": 56
+        },
+        {
+          "symbol": "range",
+          "call_sites": 54
+        },
+        {
+          "symbol": "get",
+          "call_sites": 50
+        },
+        {
+          "symbol": "strip",
+          "call_sites": 36
+        },
+        {
+          "symbol": "max",
+          "call_sites": 36
+        },
+        {
+          "symbol": "str",
+          "call_sites": 35
+        },
+        {
+          "symbol": "isinstance",
+          "call_sites": 34
+        }
+      ],
+      "errors": 0,
+      "elapsed_ms": 257.85
+    },
+    "repo_recall_hit": true
+  },
+  "bilingual_memory_recall_hit": true,
+  "peak_rss_mb": 335.7,
+  "total_wall_seconds": 13.94
+}
