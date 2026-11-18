@@ -29,6 +29,7 @@ from .semantic_drift import run_l1
 from .composition_verification import run_l2
 from .retrieval_generalization import run_l3
 from .conditional_calibration import run_l4
+from .natural_input_bridge import run_l5
 
 
 def _git_lines(*args: str) -> list[str]:
@@ -229,6 +230,8 @@ def main(argv: list[str] | None = None) -> int:
         block = persist_block("L3", run_l3(cfg), cfg)
     elif cfg.stage == "L4":
         block = persist_block("L4", run_l4(cfg), cfg)
+    elif cfg.stage == "L5":
+        block = persist_block("L5", run_l5(cfg), cfg)
     else:
         print(f"Stage {cfg.stage} is not implemented yet in this milestone.")
         return 2

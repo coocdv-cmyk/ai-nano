@@ -61,7 +61,20 @@
       },
       "gate_pass": true,
       "snapshot": "constructive\\exp_l\\results\\history\\L4-20261118-133605.json"
+    },
+    "L5": {
+      "stage": "L5",
+      "gate": {
+        "template_split": true,
+        "parsing_separate_from_reasoning": true,
+        "no_external_model": true,
+        "heldout_transfer_measurable": true,
+        "ambiguous_handled": true,
+        "license_documented": true
+      },
+      "gate_pass": true,
+      "snapshot": "constructive\\exp_l\\results\\history\\L5-20261118-134157.json"
     }
   },
-  "fingerprint": "34e8d0366dcb0a1f"
+  "fingerprint": "8e91869e632015e4"
 }

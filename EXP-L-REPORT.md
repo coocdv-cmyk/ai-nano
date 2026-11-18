@@ -1,6 +1,6 @@
 # EXP-L Research Report
 
-**Status: L0–L4 complete. Stages L5–L7 pending.**
+**Status: L0–L5 complete. Stages L6–L7 pending.**
 
 Branch: `research/exp-l` — created from the verified EXP-K tip
 `1face37bc9c695f5804baf97e6533113695f7af3` (not from `master`; `master` untouched).
@@ -218,9 +218,40 @@ Decision: `PROMISING_BUT_UNVALIDATED` (temperature scaling);
 
 Artifact: `constructive/exp_l/results/L4-results.json`.
 
+## L5 — Natural-input bridge (gate PASS, narrowly scoped)
+
+840 self-authored CC0 examples, 14 templates (7 dev, 7 held-out, split by
+template ID so no phrasing crosses splits). No external model, no third-party
+data, no OMEGA-NANO invocation. Wall 0.021 s, CPU 0.031 s, peak RSS 25.45 MB.
+
+| Method | Exact match | Held-out exact match | Correct abstention | Incorrect acceptance | Parse failure |
+|---|---|---|---|---|---|
+| constant (0) | 0.030 | 0.033 | 0.000 | 0.286 | n/a (no parser) |
+| first number | 0.007 | 0.005 | 0.000 | 0.286 | n/a (no parser) |
+| adapter, no ambiguity guard | 0.600 | 0.600 | 0.000 | 0.286 | 0.000 |
+| adapter, with guard | **1.000** | **1.000** | 0.286 | 0.000 | 0.000 |
+
+Parsing, language-to-representation mapping, reasoning and ambiguity detection
+were scored separately. The unguarded adapter parses every example but accepts
+all 28.6% ambiguous/incomplete cases; the guarded adapter abstains on all of
+them. Failed cases are preserved in the result artifact.
+
+**Critical limitation.** The adapter and the ground-truth generator were
+co-designed around a small shared operation vocabulary and regex normalization.
+The perfect score therefore measures template-parsing transfer, **not** natural
+language understanding, broad paraphrase robustness, or real-world capability.
+There are only 14 hand-written templates; no held-out *lexical* vocabulary and
+no genuinely natural corpus. Nothing here generalizes beyond these families.
+
+Decision: `PROMISING_BUT_UNVALIDATED` (the bridge as a measured capability);
+`NOT_RECOMMENDED` (the adapter as evidence of language understanding or for
+integration).
+
+Artifact: `constructive/exp_l/results/L5-results.json`.
+
 ## Decision status
 
-No mechanism is `ELIGIBLE_FOR_SEPARATE_REVIEW` yet. L1 mapping consistency is
+No mechanism is `ELIGIBLE_FOR_SEPARATE_REVIEW`. L1 mapping consistency is
 promising but synthetic-only; L2 selective verification lacks a credible effect
 size; L3 behavioral safeguards are unvalidated on overlapping realistic families;
-L4 calibration improves aggregates but regresses easy subgroups.
+L4 calibration regresses easy subgroups; L5 shows template-level transfer only.

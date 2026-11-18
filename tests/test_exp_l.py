@@ -324,3 +324,48 @@ def test_l4_improves_aggregate_ece_but_difficult_subgroups_persist():
     deep = raw["by_condition"]["deep"]
     assert deep["n"] >= MIN_GROUP_N and deep["ece"] > raw["ece"]
     assert block["gate"]["calibration_split_disjoint"]
+
+
+# --- L5: natural-input bridge ----------------------------------------------
+
+from constructive.exp_l.natural_input_bridge import (  # noqa: E402
+    TEMPLATES, answer, build_corpus, execute, expected_answer, parse, run_l5,
+)
+
+
+def test_corpus_split_is_by_template_identity():
+    dev = {t.tid for t in TEMPLATES if t.split == "dev"}
+    held = {t.tid for t in TEMPLATES if t.split == "heldout"}
+    assert dev and held and not (dev & held)
+    rows = build_corpus(0)
+    assert {r["template"] for r in rows} == dev | held
+
+
+def test_parse_failure_is_not_a_reasoning_failure():
+    p = parse("Add 5 to the number and report the result.")
+    assert p.ok and p.incomplete  # parsed fine, evidence insufficient
+    answered, _ = execute(p)
+    assert not answered  # abstention, not a parse error
+    bad = parse("xyzzy @@@")
+    assert not bad.ok
+
+
+def test_expected_answer_matches_executor_on_answer_templates():
+    for t in TEMPLATES:
+        if t.kind != "answer":
+            continue
+        for seed in range(3):
+            text, _ = t.generator(seed, make_rng(seed, t.tid))
+            exp = expected_answer(text)
+            p = parse(text)
+            answered, got = execute(p)
+            assert answered and got == exp, (t.tid, text, exp, got)
+
+
+def test_adapter_transfer_and_preserved_failures():
+    block = run_l5(cfgmod.default_config("L5", seeds=(0, 1, 2)))
+    m = block["by_method"]["adapter_with_guard"]
+    assert (m["heldout_exact_match"] or 0) > (block["by_method"]["constant"]["heldout_exact_match"] or 0)
+    assert m["correct_abstention"] > block["by_method"]["adapter_no_guard"]["correct_abstention"]
+    assert m["n_failures_preserved"] >= 0
+    assert block["provenance"]["external_model"] is False
