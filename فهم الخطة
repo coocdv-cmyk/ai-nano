@@ -1,0 +1,838 @@
+# OMEGA-NANO
+# MASTER RESEARCH VISION & EXECUTION ROADMAP
+
+**Document Type:** Master Research Charter  
+**Project:** OMEGA-NANO  
+**Research Direction:** Evolutionary Architecture Development  
+**Primary Hardware Target:** Ordinary CPU-Based Computers  
+**Optimization Strategy:** Balanced Intelligence, Speed, Memory and Efficiency  
+**Long-Term Objective:** Ultra-Efficient Artificial General Intelligence  
+**Status:** Active Research Vision
+
+---
+
+# PART I — THE FINAL VISION
+
+## 1. Our Mission
+
+OMEGA-NANO aims to develop a fundamentally capable, extremely lightweight, fast, and resource-efficient artificial intelligence architecture that can progressively acquire broad general-purpose intelligence.
+
+The ultimate research ambition is to create an AI system capable of competing with, and potentially substantially outperforming, leading AI systems across a broad range of intellectual and practical capabilities, while operating with dramatically lower computational, memory, and energy requirements.
+
+The project seeks to investigate architectural improvements that could change the relationship between model capability and computational cost.
+
+This is an ambitious research objective, not an established capability or guaranteed outcome.
+
+We will pursue it through measurable experiments, reproducible evidence, and progressive architectural development.
+
+## 2. The Three Strategic Decisions
+
+These decisions define the direction of all future work.
+
+### Decision A — Evolve the Existing Architecture
+
+OMEGA-NANO will follow an evolutionary development strategy.
+
+We will preserve and improve existing architectural foundations when evidence supports them.
+
+However:
+
+- Existing components are not sacred.
+- Historical experiments remain immutable.
+- Weak mechanisms may be replaced.
+- New mechanisms must be evaluated independently.
+- Major architectural changes must be isolated and reproducible.
+- The original OMEGA-NANO implementation must not be damaged by experimental work.
+
+We will evolve the architecture through evidence rather than loyalty to previous implementations.
+
+### Decision B — CPU-First Hardware Design
+
+Ordinary CPU hardware is the primary deployment target.
+
+The architecture must investigate:
+
+- Low-memory operation.
+- Efficient CPU computation.
+- Minimal unnecessary operations.
+- Adaptive computation.
+- Efficient retrieval and memory access.
+- Low-latency inference.
+- Controlled context processing.
+- Efficient training and adaptation.
+- Practical operation without mandatory GPU acceleration.
+
+GPU-assisted experiments may be used when they provide scientific value, but GPU availability must never be a prerequisite for the primary deployment architecture.
+
+### Decision C — Balanced Optimization
+
+We will not maximize one metric while destroying the others.
+
+The primary optimization dimensions are:
+
+1. Intelligence and task capability.
+2. Generalization.
+3. Reasoning reliability.
+4. Inference speed.
+5. Memory efficiency.
+6. Energy efficiency.
+7. Context and memory capacity.
+8. Practical autonomy.
+
+Every architectural improvement must be evaluated against its full cost.
+
+A faster system that becomes unreliable is not automatically an improvement.
+
+A smaller system that loses broad capabilities is not automatically an improvement.
+
+A highly accurate system that requires excessive computation is not automatically an improvement.
+
+---
+
+# PART II — THE TARGET CAPABILITY PROFILE
+
+The following capabilities constitute the long-term target.
+
+They are research objectives, not claims about the current implementation.
+
+## 3. General Reasoning
+
+The system should progressively develop the ability to:
+
+- Solve unfamiliar problems.
+- Perform multi-step reasoning.
+- Understand relationships and abstractions.
+- Form and evaluate hypotheses.
+- Detect contradictions.
+- Plan complex tasks.
+- Revise incorrect conclusions.
+- Recognize uncertainty.
+- Transfer knowledge between different problem domains.
+
+## 4. Language and Communication
+
+The target includes:
+
+- Strong Arabic and English capabilities.
+- Multilingual development.
+- Understanding complex instructions.
+- Long-form text generation.
+- Accurate and coherent extended responses.
+- Context-sensitive communication.
+- Summarization and transformation.
+- Technical and creative writing.
+- Understanding ambiguity and implicit relationships.
+
+## 5. Mathematics and Programming
+
+The system should progressively acquire:
+
+- Arithmetic and symbolic reasoning.
+- Mathematical problem-solving.
+- Algorithm design.
+- Programming across multiple languages.
+- Codebase comprehension.
+- Debugging and testing.
+- Software architecture.
+- Multi-file engineering tasks.
+- Verification of generated code.
+
+## 6. Memory and Long Context
+
+The long-term objective includes:
+
+- Persistent memory.
+- Accurate retrieval of previously acquired information.
+- Reduced forgetting.
+- Knowledge organization.
+- Efficient context compression.
+- Long-term task continuity.
+- Context windows exceeding one million tokens.
+- Reliable use of relevant information across very long inputs.
+
+Important distinction:
+
+Supporting a million-token input is not equivalent to understanding and reliably using all information inside it.
+
+We must separately measure input capacity, effective recall, retrieval accuracy, reasoning over distant information, and computational cost.
+
+## 7. Agents and Tool Use
+
+The target system should eventually:
+
+- Interact with external tools.
+- Operate computers.
+- Control browsers.
+- Execute multi-step workflows.
+- Write and execute code in controlled environments.
+- Coordinate specialized agents.
+- Delegate tasks.
+- Inspect intermediate results.
+- Recover from execution failures.
+- Verify task completion.
+
+## 8. Learning and Adaptation
+
+The research program must investigate:
+
+- Learning new concepts.
+- Learning from examples.
+- Generalizing beyond training examples.
+- Continual learning.
+- Retaining earlier knowledge.
+- Learning from feedback.
+- Self-correction.
+- Efficient knowledge acquisition.
+- Transfer between domains.
+
+## 9. Efficiency
+
+The ultimate ambition is to achieve strong general-purpose capabilities with a much smaller computational footprint than conventional large-scale systems.
+
+We will measure:
+
+- Model parameter count.
+- Model storage size.
+- Peak RAM.
+- CPU utilization.
+- Energy consumption.
+- Tokens per second.
+- Time to complete real tasks.
+- Cost per successfully completed task.
+
+No efficiency claim will be accepted without a defined comparison baseline.
+
+---
+
+# PART III — RESEARCH PRINCIPLES
+
+## 10. The Architecture Must Be Evidence-Driven
+
+Every new mechanism must answer a specific research question.
+
+We will not add components merely because they sound innovative.
+
+Each experiment must contain:
+
+- A hypothesis.
+- A baseline.
+- A control.
+- A reproducible dataset.
+- A predeclared evaluation procedure.
+- Independent test data.
+- Resource measurements.
+- Failure analysis.
+- A clear integration decision.
+
+## 11. Separate the Intelligence Core from the Supporting Systems
+
+A critical architectural principle is to distinguish the actual model's learned capabilities from external systems that assist it.
+
+We must separately evaluate:
+
+**Core intelligence**
+- Representation.
+- Learning.
+- Reasoning.
+- Generalization.
+- Language capabilities.
+
+**Supporting infrastructure**
+- Memory storage.
+- Retrieval.
+- Search.
+- Tool execution.
+- Agent coordination.
+- Context management.
+- Computer and browser control.
+
+A system that completes a task through external search or tools must not automatically be credited with internal knowledge or reasoning that it did not demonstrate.
+
+Both core intelligence and total system capability matter, but they must be measured separately.
+
+## 12. Preserve Scientific Integrity
+
+The following rules apply permanently:
+
+- No fabricated results.
+- No selective removal of failures.
+- No benchmark leakage.
+- No changing thresholds after final test inspection.
+- No treating synthetic results as real-world intelligence.
+- No claiming general intelligence from narrow task success.
+- No integration without independent evidence.
+- No rewriting historical experiment results.
+
+Historical EXP-H, EXP-I, EXP-J and EXP-K results remain research evidence, not production features.
+
+---
+
+# PART IV — THE EXECUTION ROADMAP
+
+The roadmap is organized into seven major development programs.
+
+The number of individual experiments may vary. We will not invent a fixed number of experiments before knowing what the evidence requires.
+
+## PROGRAM 1 — VALIDATE AND COMPLETE THE RESEARCH FOUNDATION
+
+**Current next stage: EXP-L**
+
+Objective:
+
+Determine which existing mechanisms can genuinely support broader intelligence, reliable reasoning and transfer beyond synthetic benchmarks.
+
+### Work packages
+
+- L0: Baseline, integrity and reproducibility.
+- L1: Semantic drift detection.
+- L2: Selective composition verification.
+- L3: Retrieval generalization.
+- L4: Conditional calibration.
+- L5: Natural-input bridge.
+- L6: Reliability economics.
+- L7: Independent reproduction.
+
+### Required outcome
+
+A clear map of:
+
+- Mechanisms worth preserving.
+- Mechanisms that need improvement.
+- Mechanisms that should be abandoned.
+- Fundamental limitations of the current approach.
+
+### Exit gate
+
+Do not proceed on the assumption that EXP-L has solved generalization.
+
+Proceed only with an evidence-based architectural review.
+
+## PROGRAM 2 — ARCHITECTURAL EVOLUTION
+
+**Proposed research family: EXP-M**
+
+Objective:
+
+Improve the existing architecture while preserving its valuable foundations.
+
+Investigate the fundamental mechanisms that determine intelligence and computational efficiency.
+
+### Research directions
+
+1. Knowledge representation.
+2. Concept acquisition.
+3. Abstraction formation.
+4. Compositional reasoning.
+5. Adaptive search.
+6. Memory architecture.
+7. Retrieval and evidence verification.
+8. Learning efficiency.
+9. Resource-aware computation.
+10. Integration between learning and reasoning.
+
+Every direction must be evaluated against an independently measured baseline.
+
+### Required outcome
+
+A documented architectural specification with:
+
+- Core components.
+- Information flow.
+- Learning procedure.
+- Reasoning procedure.
+- Memory model.
+- Resource model.
+- Failure handling.
+- Testable predictions.
+
+### Exit gate
+
+The architecture must demonstrate improvements on held-out tasks without relying exclusively on hand-designed synthetic examples.
+
+## PROGRAM 3 — BUILD THE FIRST INTEGRATED MODEL
+
+**Proposed research family: EXP-N**
+
+Objective:
+
+Move from independent mechanisms to one coherent model.
+
+### Required capabilities
+
+- Defined input and output interfaces.
+- Internal representation.
+- A learning mechanism.
+- A reasoning mechanism.
+- A memory mechanism.
+- An evaluation interface.
+- CPU-based inference.
+- Reproducible model checkpoints.
+
+### Development rule
+
+Build a minimal integrated model first.
+
+Do not attempt to implement every target capability in the first version.
+
+### Required outcome
+
+OMEGA-NANO V1: a runnable, trainable, measurable research model.
+
+It must be a real model with demonstrated learning behavior, not merely a collection of manually programmed rules.
+
+### Exit gate
+
+Show that the model learns from data and improves on held-out tasks.
+
+## PROGRAM 4 — GENERAL CAPABILITY AND LEARNING
+
+**Proposed research family: EXP-O**
+
+Objective:
+
+Expand the model's ability to acquire and transfer knowledge across multiple domains.
+
+### Research directions
+
+- Language acquisition.
+- Mathematical reasoning.
+- Programming.
+- Structured and unstructured information.
+- Multi-step problem-solving.
+- Continual learning.
+- Transfer learning.
+- Long-form generation.
+- Error correction.
+- Robustness to unfamiliar tasks.
+
+### Required outcome
+
+A broader model with independently measured capabilities across multiple domains.
+
+### Exit gate
+
+Demonstrate genuine cross-task transfer and generalization, not just improvements on training distributions.
+
+## PROGRAM 5 — MEMORY, CONTEXT AND AUTONOMOUS EXECUTION
+
+**Proposed research family: EXP-P**
+
+Objective:
+
+Develop persistent memory and practical autonomous operation.
+
+### Research directions
+
+- Long-term memory.
+- Efficient context management.
+- Million-token context research.
+- Long-range information retrieval.
+- Tool use.
+- Browser interaction.
+- Computer control.
+- Multi-agent collaboration.
+- Multi-step planning.
+- Execution verification.
+- Recovery from failures.
+
+### Required outcome
+
+An integrated model and agent system capable of completing increasingly complex practical tasks.
+
+### Exit gate
+
+Demonstrate reliable end-to-end task completion, with tool execution and memory costs reported separately from the model's internal computation.
+
+## PROGRAM 6 — EXTREME EFFICIENCY AND OPTIMIZATION
+
+**Proposed research family: EXP-Q**
+
+Objective:
+
+Improve the balance between capability and computational requirements.
+
+### Research directions
+
+- CPU inference optimization.
+- Adaptive computation.
+- Efficient model representations.
+- Memory reduction.
+- Knowledge compression.
+- Selective activation.
+- Efficient caching.
+- Fast decoding.
+- Context processing optimization.
+- Energy-aware execution.
+
+### Required outcome
+
+A significantly more efficient model without unacceptable degradation in broad capabilities.
+
+### Exit gate
+
+Show improvements on matched hardware and workloads.
+
+Report capability and efficiency together.
+
+## PROGRAM 7 — GLOBAL EVALUATION AND COMPETITIVE VALIDATION
+
+**Proposed research family: EXP-R**
+
+Objective:
+
+Evaluate the resulting system against leading AI models.
+
+### Evaluation domains
+
+- General reasoning.
+- Mathematics.
+- Programming.
+- Language.
+- Long-context retrieval.
+- Long-form generation.
+- Knowledge.
+- Agent tasks.
+- Computer-use tasks.
+- Tool use.
+- Learning and adaptation.
+- Reliability.
+- Speed.
+- Memory.
+- Energy consumption.
+
+### Comparison rules
+
+Use:
+
+- Independent benchmarks.
+- Held-out evaluation tasks.
+- Reproducible testing.
+- Comparable task settings.
+- Clearly identified hardware.
+- Fair inference budgets.
+- External baseline models.
+- Statistical uncertainty reporting.
+
+### Required outcome
+
+An independently reproducible performance profile.
+
+The project may claim competitive superiority only in the specific capabilities and conditions where the evidence supports it.
+
+---
+
+# PART V — HOW WE MEASURE PROGRESS
+
+## 13. Capability Evaluation Matrix
+
+Every integrated model version must have a capability matrix.
+
+| Capability | Required evidence |
+|---|---|
+| Reasoning | Unseen multi-step problems |
+| Mathematics | Held-out mathematical tasks |
+| Programming | Real code generation and repair |
+| Language | Diverse natural-language tasks |
+| Generalization | New task families |
+| Learning | Improvement after new information |
+| Memory | Delayed recall and retrieval accuracy |
+| Long context | Position-sensitive recall and reasoning |
+| Agents | End-to-end task completion |
+| Computer control | Successful verified operations |
+| Tool use | Correct selection and execution |
+| Reliability | Error and false-acceptance rates |
+| Efficiency | CPU time, RAM and energy |
+
+No single benchmark can establish general intelligence.
+
+## 14. Efficiency Evaluation Matrix
+
+Every model version must record:
+
+- Parameter count.
+- Model file size.
+- Peak RAM.
+- Average and p95 latency.
+- Tokens per second.
+- CPU utilization.
+- Energy per task.
+- Task completion time.
+- Accuracy at each resource budget.
+
+We will compare models at matched hardware and clearly defined workloads.
+
+## 15. Competitive Target
+
+The aspiration is to compete with leading systems from companies such as Anthropic and Google and other frontier AI developers.
+
+The comparison set must be verified at the time of evaluation because model names, versions and availability change.
+
+The ambition of tenfold superiority must be converted into separate quantitative targets.
+
+For example:
+
+- Tenfold lower memory on a defined workload.
+- Tenfold lower energy per successful task.
+- Tenfold faster completion of a defined task.
+- Better task accuracy under a matched inference budget.
+
+These are separate achievements. One does not establish the others.
+
+The project must never claim tenfold overall intelligence from one benchmark.
+
+---
+
+# PART VI — DEVELOPMENT AND REPOSITORY GOVERNANCE
+
+## 16. Repository Protection
+
+The existing repository remains the foundation.
+
+Protected systems include:
+
+- Original `omega_nano/`.
+- Original CCM.
+- EXP-H.
+- EXP-I.
+- EXP-J.
+- EXP-K.
+- All historical results and integrity records.
+
+Future experiments must be isolated.
+
+The existing public repository is:
+
+`https://github.com/coocdv-cmyk/ai-nano.git`
+
+## 17. Branch Strategy
+
+Each major research family receives its own research branch.
+
+Examples:
+
+- `research/exp-l`
+- `research/exp-m`
+- `research/exp-n`
+- `research/exp-o`
+- `research/exp-p`
+- `research/exp-q`
+- `research/exp-r`
+
+Never overwrite an existing branch without inspecting its history and contents.
+
+Never force-push.
+
+Never rewrite history.
+
+Never delete historical research artifacts.
+
+## 18. Commit and Publication Policy
+
+After each completed and verified milestone:
+
+1. Run relevant tests.
+2. Run the full suite when required.
+3. Verify protected hashes.
+4. Inspect all changes.
+5. Commit the milestone.
+6. Push normally.
+7. Verify the remote commit.
+8. Record the result.
+
+Do not push incomplete milestones as completed research.
+
+If publication fails, preserve the local work and investigate safely.
+
+## 19. Model Versioning
+
+Use explicit version identifiers for integrated models.
+
+Suggested progression:
+
+- OMEGA-NANO Research Core
+- OMEGA-NANO V1
+- OMEGA-NANO V2
+- OMEGA-NANO V3
+- OMEGA-NANO Experimental AGI Candidate
+
+These labels must reflect actual development status.
+
+Do not call a system an AGI model merely because it has an experimental agent interface.
+
+---
+
+# PART VII — RESOURCE AND HARDWARE STRATEGY
+
+## 20. Primary Hardware Environment
+
+The primary development and deployment reference is an ordinary Windows 11 CPU-only computer.
+
+The previously reported reference environment is:
+
+- Intel Core i5-1135G7.
+- 16 GB RAM.
+- CPU-only.
+- Python-based development environment.
+
+Record actual hardware and software configuration in each benchmark.
+
+## 21. Hardware Scaling
+
+We will distinguish three operating conditions:
+
+**Tier 1 — Ordinary CPU**
+
+The primary target for inference and practical usability.
+
+**Tier 2 — Strong CPU / Larger Memory**
+
+Used to investigate larger configurations and more demanding workloads.
+
+**Tier 3 — Optional Accelerated Research Hardware**
+
+May be used for experiments where it provides genuine value, but must not become a mandatory dependency of the primary architecture.
+
+The architecture must be designed with the deployment constraints in mind from the beginning.
+
+---
+
+# PART VIII — REALISTIC PROJECT MILESTONES
+
+## 22. Milestone A — Research Foundation
+
+Complete EXP-L and establish which mechanisms deserve further development.
+
+## 23. Milestone B — Architectural Specification
+
+Produce a complete, tested architectural proposal.
+
+## 24. Milestone C — First Integrated Model
+
+Produce a runnable model that learns and performs measurable tasks.
+
+## 25. Milestone D — Multi-Domain Capabilities
+
+Expand language, reasoning, programming, mathematics and transfer.
+
+## 26. Milestone E — Persistent Memory and Agents
+
+Develop long-term memory, long-context processing and tool execution.
+
+## 27. Milestone F — CPU Efficiency
+
+Improve model size, speed, RAM and energy consumption while preserving capabilities.
+
+## 28. Milestone G — Competitive Evaluation
+
+Independently test the model against strong external baselines.
+
+These milestones are not guaranteed calendar deadlines.
+
+The schedule depends on experimental results, training data, available compute, architecture complexity and whether fundamental breakthroughs are required.
+
+---
+
+# PART IX — DECISION GATES AND STOP CONDITIONS
+
+## 29. When to Continue
+
+Continue a mechanism when:
+
+- It produces reproducible improvements.
+- It generalizes beyond its development data.
+- It has acceptable resource cost.
+- It does not introduce unacceptable regressions.
+- Its benefits survive independent testing.
+
+## 30. When to Redesign
+
+Redesign a component when:
+
+- Its core hypothesis repeatedly fails.
+- It cannot generalize outside narrow benchmarks.
+- It introduces unacceptable computational cost.
+- It conflicts with other essential mechanisms.
+- Its improvements disappear under independent evaluation.
+
+## 31. When to Abandon a Direction
+
+Abandon a research direction when repeated, well-controlled experiments demonstrate that its expected benefits are not supported.
+
+Preserve the negative findings.
+
+Do not keep a mechanism alive simply because considerable development time has been invested in it.
+
+## 32. No Endless Experimentation
+
+Every research program must have:
+
+- A central question.
+- A limited set of primary hypotheses.
+- Predeclared success criteria.
+- A defined deliverable.
+- A final decision.
+- A clear next step.
+
+Additional experiments are permitted only when they answer a specific unresolved question.
+
+The purpose of experimentation is to build the model, not to generate an endless collection of benchmark reports.
+
+---
+
+# PART X — THE IMMEDIATE EXECUTION PLAN
+
+## 33. What Happens Now
+
+The next action is to complete EXP-L.
+
+We must not start implementing EXP-M before understanding EXP-L's findings.
+
+After EXP-L, perform a formal architectural review.
+
+The review must answer:
+
+1. Which parts of the current architecture are genuinely valuable?
+2. Which mechanisms should be removed or redesigned?
+3. What is the minimum integrated model we can build?
+4. What is the learning mechanism?
+5. What is the internal representation?
+6. How does the model perform reasoning?
+7. How does it retain and retrieve knowledge?
+8. How will it handle natural-language inputs?
+9. How will it improve through training?
+10. How will we measure CPU efficiency?
+
+Then prepare EXP-M with a specific architecture proposal.
+
+Do not automatically proceed through research stages simply because their names appear in this document.
+
+Each stage must be justified by the previous stage's results.
+
+---
+
+# FINAL PROJECT DECLARATION
+
+OMEGA-NANO is a long-term research effort to investigate and develop a new generation of highly efficient artificial intelligence.
+
+Our ambition is to pursue broad general-purpose intelligence with dramatically reduced computational requirements.
+
+We will preserve and evolve existing architectural foundations when they prove useful, replace weak components when evidence requires it, and build an integrated model through measured development.
+
+The project will prioritize:
+
+- Genuine learning over memorized benchmark patterns.
+- Generalization over narrow optimization.
+- Reasoning quality over superficial confidence.
+- Persistent and accurate memory over nominal context size.
+- Practical task completion over artificial demonstrations.
+- CPU efficiency over unnecessary computational scale.
+- Independent evidence over unsupported claims.
+
+We recognize that achieving human-level or frontier-model-level general intelligence in a tiny CPU-efficient system would require major scientific advances and is not guaranteed by the current research.
+
+Nevertheless, the research objective is clear:
+
+**Invent, develop and validate an architecture that can achieve increasingly broad intelligence with radically greater computational efficiency.**
+
+**OMEGA-NANO — Small Footprint. Broad Intelligence. Extreme Efficiency.**
+
