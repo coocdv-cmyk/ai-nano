@@ -43,6 +43,7 @@ Policy: normal commits only; no force push, reset, or history rewriting.
 |---|---|---|---|---|---|
 | L0 | `b3c7d9a165cd2481de146c827c198c981dc16eb4` | `EXP-L: establish reproducible baseline and integrity` | `git ls-remote origin refs/heads/research/exp-l` returned matching hash | EXP-L 12 passed; smoke OK; full suite 312 passed, 1 skipped | EXP-I 22/22, EXP-J 84/84 unchanged; EXP-K dataset fingerprint matched |
 | L1 | `4a67749573de147454bfaecb9b60fca2e13a2062` | `EXP-L: detect semantic drift under matched feature marginals` | `git ls-remote origin refs/heads/research/exp-l` returned matching hash | EXP-L 20 passed; full suite 320 passed, 1 skipped; gate PASS | EXP-I 22/22, EXP-J 84/84 unchanged |
+| L2 | `dbd28d2510cd2831fd85b7121a21810f66ab35b0` | `EXP-L: evaluate selective intermediate verification without oracle access` | `git ls-remote origin refs/heads/research/exp-l` returned matching hash | EXP-L 25 passed; full suite 325 passed, 1 skipped; gate PASS | EXP-I 22/22, EXP-J 84/84 unchanged |
 
 ## EXP-L notes
 
