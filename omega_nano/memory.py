@@ -17,86 +17,33 @@ replaceable component: a learned encoder can be dropped in behind `embed()`.
 from __future__ import annotations
 
 import json
-import math
-import re
 import sqlite3
 import threading
 import time
-import zlib
 from array import array
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
 from . import kernels
+from .semantic import DIM, STOP_WORDS as STOP, encode_text, normalize_text as normalize  # noqa: F401
 
 try:
     import numpy as np
 except ImportError:  # pure-Python fallback keeps the fabric dependency-free
     np = None
 
-DIM = 512
 KINDS = {"semantic", "episodic", "procedural", "project", "preference", "evidence"}
 NEAR_DUP = 0.97
 RRF_K = 60
-
-_AR_DIACRITICS = re.compile(r"[ً-ْٰـ]")
-_AR_MAP = str.maketrans({"أ": "ا", "إ": "ا", "آ": "ا", "ٱ": "ا", "ة": "ه", "ى": "ي", "ؤ": "و", "ئ": "ي",
-                         "٠": "0", "١": "1", "٢": "2", "٣": "3", "٤": "4", "٥": "5", "٦": "6",
-                         "٧": "7", "٨": "8", "٩": "9"})
-_WORD = re.compile(r"\w+", re.UNICODE)
-STOP = set(
-    "the a an of to in on for and or is are was were be been it this that with as at by from what who "
-    "do you know about tell me my your our where when which how why who whom whose many much does did "
-    "kind sort type there their they them can could would should will".split()
-    + "في من على الى إلى عن ما ماذا هل هو هي ان أن و او أو كان تعرف عن لي اين أين متى كيف كم لماذا اي أي "
-      "هذا هذه ذلك التي الذي".split()
-)
-
-
-def normalize(text: str) -> str:
-    text = _AR_DIACRITICS.sub("", text).translate(_AR_MAP).casefold()
-    return " ".join(_WORD.findall(text))
-
-
-STOP = {normalize(w) for w in STOP}  # compare in normalized form (أين -> اين)
 
 
 def tokens(text: str) -> list[str]:
     return normalize(text).split()
 
 
-def _feat(h: str) -> tuple[int, float]:
-    x = zlib.crc32(h.encode("utf-8"))
-    return x % DIM, (1.0 if (x >> 31) & 1 else -1.0)
-
-
 def embed(text: str) -> list[float]:
-    toks = tokens(text)
-    content = [t for t in toks if t not in STOP] or toks
-    feats: dict[str, float] = {}
-
-    def add(f: str, w: float) -> None:
-        feats[f] = feats.get(f, 0.0) + w
-
-    for t in content:
-        add("w:" + t, 1.0)
-        # Arabic definite article and English plural folding for recall.
-        if t.startswith("ال") and len(t) > 3:
-            add("w:" + t[2:], 0.6)
-        if t.endswith("s") and len(t) > 3:
-            add("w:" + t[:-1], 0.6)
-        padded = f"#{t}#"
-        for i in range(len(padded) - 2):
-            add("c:" + padded[i:i + 3], 0.25)
-    for a, b in zip(content, content[1:]):
-        add(f"b:{a}_{b}", 0.7)
-    vec = [0.0] * DIM
-    for f, w in feats.items():
-        i, sign = _feat(f)
-        vec[i] += sign * (1.0 + math.log(w)) if w >= 1 else sign * w
-    norm = math.sqrt(sum(v * v for v in vec)) or 1.0
-    return [v / norm for v in vec]
+    return encode_text(text, dim=DIM)
 
 
 def quantize(vec: list[float]) -> tuple[bytes, float]:
@@ -360,7 +307,9 @@ class MemoryFabric:
             for mid, r in lex_rank.items():
                 fused[mid] = fused.get(mid, 0.0) + 1.0 / (RRF_K + r + 1)
             for mid, r in vec_rank.items():
-                fused[mid] = fused.get(mid, 0.0) + 1.0 / (RRF_K + r + 1)
+                c = cos_by_id.get(mid, 0.0)
+                w_vec = 1.0 + 4.5 * max(0.0, c - 0.15)
+                fused[mid] = fused.get(mid, 0.0) + w_vec / (RRF_K + r + 1)
             for r, mid in enumerate(fuzzy):
                 fused[mid] = fused.get(mid, 0.0) + 1.0 / (RRF_K + r + 1)
             if not fused:

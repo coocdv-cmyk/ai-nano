@@ -9,6 +9,7 @@ Implements Loops 2 & 3 of RC-004:
 
 from __future__ import annotations
 
+import ast
 import math
 import random
 import re
@@ -17,8 +18,10 @@ from typing import Any, Callable
 
 import sympy as sp
 
+from ..semantic import DriftStatus, SemanticDriftMonitor, verify_behavioral_candidates
 from .blind_eval import BlindProblem
 from .skills import SkillLibrary
+from .synthesizer import CandidateHypothesis, ExecutionGuidedSynthesizer, NeuralPolicyRanker
 from .verifiers import CodeVerifier, MathVerifier, VerificationResult, safe_parse_expr
 
 
@@ -35,7 +38,7 @@ class CurriculumProposer:
     def __init__(self, seed: int = 42):
         self.rng = random.Random(seed)
 
-    def generate(self, n: int = 8, level: int = 1) -> list[BlindProblem]:
+    def generate(self, n: int = 8, level: int = 1, diverse_code: bool = False) -> list[BlindProblem]:
         out: list[BlindProblem] = []
         for i in range(n):
             kind = i % 4
@@ -46,7 +49,7 @@ class CurriculumProposer:
             elif kind == 2:
                 out.append(self._make_power_recurrence(i, level))
             else:
-                out.append(self._make_code_task(i, level))
+                out.append(self._make_code_task(i, level, diverse=diverse_code))
         return out
 
     def _make_quadratic_diophantine(self, idx: int, level: int) -> BlindProblem:
@@ -121,7 +124,93 @@ class CurriculumProposer:
             statement=stmt, verify=check_pow,
         )
 
-    def _make_code_task(self, idx: int, level: int) -> BlindProblem:
+    def _make_code_task(self, idx: int, level: int, diverse: bool = False) -> BlindProblem:
+        slot = ((idx // 4) % 6) if diverse else 0
+        if slot == 1:
+            a = self.rng.randint(-15, -5)
+            b = self.rng.randint(2, 5)
+            expected_q = int(a / b)
+            stmt = (
+                "Write Python function eval_postfix(tokens: list[str]) -> int "
+                "evaluating Reverse Polish Notation (+, -, *, /) where division truncates toward zero."
+            )
+            tests = (
+                f"assert eval_postfix(['{a}', '{b}', '/']) == {expected_q}\n"
+                "assert eval_postfix(['2', '1', '+', '3', '*']) == 9\n"
+                "assert eval_postfix(['10', '6', '9', '3', '+', '-11', '*', '/', '*', '17', '+', '5', '+']) == 22\n"
+            )
+            return BlindProblem(
+                id=f"self-code-rpn-{idx}", domain="code", title="Postfix RPN Truncated Division",
+                difficulty=level, statement=stmt,
+                verify=lambda code, T=tests: CodeVerifier.verify_python(code, T),
+            )
+        if slot == 2:
+            x = self.rng.randint(1, 5)
+            y = x + self.rng.randint(2, 4)
+            z = y + self.rng.randint(2, 4)
+            stmt = (
+                "Write Python function merge_ranges(intervals: list[list[int]]) -> list[list[int]] "
+                "merging all overlapping or touching intervals sorted ascending."
+            )
+            tests = (
+                f"assert merge_ranges([[{x}, {y}], [{y}, {z}], [{z + 2}, {z + 5}]]) == [[{x}, {z}], [{z + 2}, {z + 5}]]\n"
+                "assert merge_ranges([]) == []\n"
+            )
+            return BlindProblem(
+                id=f"self-code-merge-{idx}", domain="code", title="Merge Touching Intervals",
+                difficulty=level, statement=stmt,
+                verify=lambda code, T=tests: CodeVerifier.verify_python(code, T),
+            )
+        if slot == 3:
+            stmt = (
+                "Write Python function longest_unique_len(s: str) -> int "
+                "returning the length of the longest substring without repeating characters."
+            )
+            tests = (
+                "assert longest_unique_len('abcabcbb') == 3\n"
+                "assert longest_unique_len('bbbbb') == 1\n"
+                "assert longest_unique_len('pwwkew') == 3\n"
+                "assert longest_unique_len('') == 0\n"
+            )
+            return BlindProblem(
+                id=f"self-code-uniq-{idx}", domain="code", title="Longest Unique Substring",
+                difficulty=level, statement=stmt,
+                verify=lambda code, T=tests: CodeVerifier.verify_python(code, T),
+            )
+        if slot == 4:
+            stmt = (
+                "Write Python function is_valid_brackets(s: str) -> bool "
+                "checking whether brackets (), [], {} are balanced and properly nested."
+            )
+            tests = (
+                "assert is_valid_brackets('()[]{}') is True\n"
+                "assert is_valid_brackets('([{}])') is True\n"
+                "assert is_valid_brackets('([)]') is False\n"
+                "assert is_valid_brackets('(') is False\n"
+            )
+            return BlindProblem(
+                id=f"self-code-brk-{idx}", domain="code", title="Balanced Brackets",
+                difficulty=level, statement=stmt,
+                verify=lambda code, T=tests: CodeVerifier.verify_python(code, T),
+            )
+        if slot == 5:
+            t = self.rng.choice([2, 4, 5])
+            stmt = (
+                "Write Python function lower_bound_idx(nums: list[int], target: int) -> int "
+                "returning the leftmost binary search insertion index in sorted array nums."
+            )
+            tests = (
+                "assert lower_bound_idx([1, 2, 2, 4, 6], 2) == 1\n"
+                "assert lower_bound_idx([1, 2, 2, 4, 6], 3) == 3\n"
+                f"assert lower_bound_idx([1, 2, 2, 4, 6], {t}) == {[1, 2, 2, 4, 6].index(t) if t in [1,2,2,4,6] else 4}\n"
+                "assert lower_bound_idx([], 5) == 0\n"
+            )
+            return BlindProblem(
+                id=f"self-code-lb-{idx}", domain="code", title="Binary Search Lower Bound",
+                difficulty=level, statement=stmt,
+                verify=lambda code, T=tests: CodeVerifier.verify_python(code, T),
+            )
+
         k = self.rng.randint(2, 4)
         stmt = (
             f"Write Python function max_window_sum(nums: list[int], k: int) -> int "
@@ -272,6 +361,53 @@ class SymbolicTacticSolver:
         return None
 
 
+class NeuroSymbolicSolver(SymbolicTacticSolver):
+    """Unified neuro-symbolic solver combining exact math tactics + ExecutionGuidedSynthesizer.
+
+    Keeps iterative math tactics (so Pell uses small bound -> CF counterexample refinement)
+    while using learned policy ranking + CEGIS counterexample repair for arbitrary code tasks.
+    """
+
+    def __init__(
+        self,
+        policy: NeuralPolicyRanker | None = None,
+        extra_solver: Callable[[BlindProblem, list[AttemptRecord]], str | None] | None = None,
+    ):
+        super().__init__(extra_solver=extra_solver)
+        self.policy = policy or NeuralPolicyRanker()
+        self.synthesizer = ExecutionGuidedSynthesizer(policy=self.policy)
+
+    def bind_policy(self, policy: NeuralPolicyRanker) -> None:
+        self.policy = policy
+        self.synthesizer.policy = policy
+
+    def propose_with_meta(
+        self, problem: BlindProblem, history: list[AttemptRecord]
+    ) -> tuple[str | None, CandidateHypothesis | None]:
+        if self.extra_solver is not None:
+            cand = self.extra_solver(problem, history)
+            if cand:
+                return cand, None
+        if problem.domain == "math":
+            return self._propose_math(problem.statement, history), None
+        return self.synthesizer.propose(problem.statement, history)
+
+    def _propose_code(self, stmt: str, history: list[AttemptRecord]) -> str | None:
+        code, _ = self.synthesizer.propose(stmt, history)
+        return code
+
+
+def _extract_primary_symbol(code: str) -> str | None:
+    try:
+        tree = ast.parse(code)
+    except SyntaxError:
+        return None
+    for node in tree.body:
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)):
+            return node.name
+    return None
+
+
 def _compile_generalized_skill(skills: SkillLibrary, problem: BlindProblem, solution: str, proof_status: str) -> str | None:
     """Abstract a verified solution into a reusable parameterized skill when a generalizable family is recognized."""
     stmt = problem.statement
@@ -303,70 +439,135 @@ def _compile_generalized_skill(skills: SkillLibrary, problem: BlindProblem, solu
             {"kind": "code_template", "code": solution}, proof_status,
         )
         return "sliding_window_max_sum"
+    if problem.domain == "code":
+        sym = _extract_primary_symbol(solution)
+        if sym and len(sym) >= 5 and sym.lower() not in {"solve", "solution", "helper", "apply"}:
+            skill_name = f"code_{sym.lower()}"
+            skills.register_skill(
+                skill_name, "code",
+                rf"\b{re.escape(sym)}\b",
+                {"kind": "code_template", "code": solution}, proof_status,
+            )
+            return skill_name
     return None
 
 
 class SelfPlayEngine:
-    """Coordinates iterative verification search, skill compilation, and continual replay."""
+    """Coordinates L3-verified skill recall, L1 drift monitoring, online policy learning, and replay."""
 
-    def __init__(self, skills: SkillLibrary):
+    def __init__(self, skills: SkillLibrary, drift_monitor: SemanticDriftMonitor | None = None):
         self.skills = skills
         self.proposer = CurriculumProposer()
+        self.drift_monitor = drift_monitor or SemanticDriftMonitor(window=12, baseline_rate=0.85, threshold=1.5)
+        self.policy = NeuralPolicyRanker(weights=self.skills.load_policy())
+        self.last_drift_status: DriftStatus | None = None
 
     def solve(self, problem: BlindProblem, solver: Callable[[BlindProblem, list[AttemptRecord]], str | None],
               max_attempts: int = 5, cycle: int = 0) -> dict[str, Any]:
-        # Tier 0+: try compiled generalized skill first (< 1 ms), always verified before trusting.
-        hit = self.skills.match(problem.statement, domain=problem.domain)
-        if hit is not None:
-            skill, groups = hit
-            cand = apply_skill_strategy(skill.strategy, groups)
-            if cand is not None:
-                vr = problem.verify(cand)
-                self.skills.record_outcome(skill.name, vr.passed)
-                if vr.passed:
-                    self.skills.add_replay(
-                        problem.id, problem.domain, problem.statement, cand, 1, vr.status, cycle,
-                        {"via_skill": skill.name},
-                    )
-                    return {
-                        "passed": True, "status": vr.status, "solution": cand,
-                        "attempts": 1, "source": f"skill:{skill.name}", "evidence": vr.evidence,
-                    }
+        if hasattr(solver, "bind_policy"):
+            solver.bind_policy(self.policy)
+
+        # Tier 0+: evaluate all pattern-matched skills via EXP-L L3 behavioral verification guard.
+        skill_l3_rejected = False
+        hits = self.skills.match_candidates(problem.statement, domain=problem.domain, limit=4)
+        if hits:
+            vr_cache: dict[str, VerificationResult] = {}
+            skill_outcomes: list[tuple[str, bool]] = []
+            gen_pairs: list[tuple[str, Callable[[], str]]] = []
+            for skill_item, groups in hits:
+                cand = apply_skill_strategy(skill_item["strategy"], groups)
+                if cand is None:
+                    continue
+                sname = skill_item["name"]
+                gen_pairs.append((sname, lambda s=cand: s))
+
+            def _verify_cached(cand_code: str) -> bool:
+                if cand_code not in vr_cache:
+                    vr_cache[cand_code] = problem.verify(cand_code)
+                return vr_cache[cand_code].passed
+
+            chosen_name, chosen_sol, l3_status = verify_behavioral_candidates(gen_pairs, _verify_cached)
+            for skill_item, groups in hits:
+                cand = apply_skill_strategy(skill_item["strategy"], groups)
+                if cand is None:
+                    continue
+                sname = skill_item["name"]
+                passed_i = bool(cand in vr_cache and vr_cache[cand].passed)
+                self.skills.record_outcome(sname, passed_i, count_use=True)
+                skill_outcomes.append((sname, passed_i))
+
+            drift = self.drift_monitor.observe(chosen_name is not None)
+            self.last_drift_status = drift
+            if chosen_name is not None and chosen_sol is not None:
+                vr = vr_cache[chosen_sol]
+                self.skills.add_replay(
+                    problem.id, problem.domain, problem.statement, chosen_sol, 1, vr.status, cycle,
+                    {"via_skill": chosen_name, "l3_status": l3_status, "drifted": drift.drifted},
+                )
+                return {
+                    "passed": True, "status": vr.status, "solution": chosen_sol,
+                    "attempts": 1, "source": f"skill:{chosen_name}",
+                    "l3_status": l3_status, "l3_rejected_skill": False,
+                    "drift": drift.drifted, "drift_reason": drift.reason,
+                    "evidence": vr.evidence,
+                }
+            skill_l3_rejected = True
 
         history: list[AttemptRecord] = []
+        refuted_hyps: list[CandidateHypothesis] = []
         for idx in range(1, max_attempts + 1):
-            cand = solver(problem, history)
+            if hasattr(solver, "propose_with_meta"):
+                cand, hyp = solver.propose_with_meta(problem, history)
+            else:
+                cand, hyp = solver(problem, history), None
+
             if cand is None:
                 history.append(AttemptRecord(idx, "", VerificationResult("UNVERIFIED", False, 0.0, "No proposal")))
                 continue
             vr = problem.verify(cand)
             history.append(AttemptRecord(idx, cand, vr))
             if vr.passed:
+                if hyp is not None:
+                    self.policy.update(problem.statement, hyp, refuted_hyps, lr=0.35)
+                    self.skills.save_policy(self.policy.export_weights())
                 compiled = _compile_generalized_skill(self.skills, problem, cand, vr.status)
                 self.skills.add_replay(
                     problem.id, problem.domain, problem.statement, cand, idx, vr.status, cycle,
-                    {"compiled_skill": compiled},
+                    {"compiled_skill": compiled, "l3_rejected_skill": skill_l3_rejected},
                 )
                 return {
                     "passed": True, "status": vr.status, "solution": cand,
-                    "attempts": idx, "source": "search", "compiled_skill": compiled, "evidence": vr.evidence,
+                    "attempts": idx, "source": "search", "compiled_skill": compiled,
+                    "l3_rejected_skill": skill_l3_rejected,
+                    "drift": self.last_drift_status.drifted if self.last_drift_status else False,
+                    "evidence": vr.evidence,
                 }
+            if hyp is not None:
+                refuted_hyps.append(hyp)
 
         last = history[-1].verification if history else VerificationResult("UNVERIFIED", False, 0.0, "No attempts")
         return {
             "passed": False, "status": last.status, "solution": history[-1].candidate if history else "",
-            "attempts": len(history), "source": "search", "feedback": last.feedback,
+            "attempts": len(history), "source": "search",
+            "l3_rejected_skill": skill_l3_rejected,
+            "drift": self.last_drift_status.drifted if self.last_drift_status else False,
+            "feedback": last.feedback,
         }
 
     def run_cycle(self, cycle: int, solver: Callable[[BlindProblem, list[AttemptRecord]], str | None],
                   n_tasks: int = 8, level: int = 2, max_attempts: int = 4) -> dict[str, Any]:
-        tasks = self.proposer.generate(n=n_tasks, level=level)
+        tasks = self.proposer.generate(
+            n=n_tasks, level=level, diverse_code=isinstance(solver, NeuroSymbolicSolver)
+        )
         solved = 0
         total_attempts = 0
         compiled: list[str] = []
+        drift_events = 0
         for p in tasks:
             res = self.solve(p, solver, max_attempts=max_attempts, cycle=cycle)
             total_attempts += res["attempts"]
+            if res.get("drift"):
+                drift_events += 1
             if res["passed"]:
                 solved += 1
                 if res.get("compiled_skill"):
@@ -378,5 +579,6 @@ class SelfPlayEngine:
             "solve_rate": round(solved / max(1, n_tasks), 4),
             "avg_attempts": round(total_attempts / max(1, n_tasks), 2),
             "compiled_skills": sorted(set(compiled)),
+            "drift_events": drift_events,
             "library_stats": self.skills.stats(),
         }

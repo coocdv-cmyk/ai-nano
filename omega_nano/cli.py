@@ -89,10 +89,14 @@ def main(argv: list[str] | None = None) -> int:
     be = bsub.add_parser("eval", help="run sealed blind math+code evaluation")
     be.add_argument("--domain", choices=["math", "code"])
     be.add_argument("--attempts", type=int, default=4)
+    be.add_argument("--heldout", action="store_true", help="evaluate on independent held-out coding suite")
     bs = bsub.add_parser("selfplay", help="run self-play curriculum cycles")
     bs.add_argument("--cycles", type=int, default=2)
     bs.add_argument("--tasks", type=int, default=8)
     bs.add_argument("--level", type=int, default=2)
+    bir = bsub.add_parser("index-repo", help="index Python repository symbols and call graph into memory")
+    bir.add_argument("--path", default=".", help="repository or module path to index")
+    bir.add_argument("--no-memory", action="store_true", help="skip persisting indexed symbols into MemoryFabric")
     bsub.add_parser("stats", help="show compiled skill & replay buffer statistics")
 
     args = ap.parse_args(argv)
@@ -187,15 +191,23 @@ def _dispatch(args, eng: Engine, cfg) -> int:
             print(json.dumps(mem.stats(), indent=2))
         return 0
     if args.cmd == "brain":
-        from .brain import BlindVault, SelfPlayEngine, SkillLibrary
-        from .brain.evolver import SymbolicTacticSolver
+        from .brain import BlindVault, NeuroSymbolicSolver, SelfPlayEngine, SkillLibrary, index_repository
+
+        if args.bcmd == "index-repo":
+            graph = index_repository(
+                Path(args.path),
+                memory=None if args.no_memory else eng.memory,
+            )
+            print(json.dumps(graph.summarize(), indent=2, ensure_ascii=False))
+            return 0
 
         skills = SkillLibrary(cfg.home / "brain.db", memory=eng.memory)
         try:
             sp = SelfPlayEngine(skills)
-            solver = SymbolicTacticSolver()
+            solver = NeuroSymbolicSolver()
             if args.bcmd == "eval":
-                report = BlindVault().evaluate(
+                vault = BlindVault.heldout() if args.heldout else BlindVault()
+                report = vault.evaluate(
                     lambda p: sp.solve(p, solver, max_attempts=args.attempts), domain=args.domain
                 )
                 print(json.dumps(report, indent=2, ensure_ascii=False))

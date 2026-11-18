@@ -44,6 +44,11 @@ CREATE TABLE IF NOT EXISTS replay_traces (
     created_at REAL NOT NULL
 );
 CREATE INDEX IF NOT EXISTS replay_domain ON replay_traces(domain, cycle);
+CREATE TABLE IF NOT EXISTS kv_state (
+    key TEXT PRIMARY KEY,
+    value_json TEXT NOT NULL,
+    updated_at REAL NOT NULL
+);
 """
 
 
@@ -115,8 +120,12 @@ class SkillLibrary:
                 )
         return None
 
-    def record_outcome(self, name: str, succeeded: bool) -> None:
+    def record_outcome(self, name: str, succeeded: bool, count_use: bool = False) -> None:
         with self._lock:
+            if count_use:
+                self.conn.execute(
+                    "UPDATE skills SET uses=uses+1, updated_at=? WHERE name=?", (time.time(), name)
+                )
             if succeeded:
                 self.conn.execute(
                     "UPDATE skills SET successes=successes+1, updated_at=? WHERE name=?", (time.time(), name)
@@ -152,8 +161,80 @@ class SkillLibrary:
                 }, ensure_ascii=False) + "\n")
         return len(rows)
 
+    def list_skills(self, domain: str | None = None) -> list[dict[str, Any]]:
+        """Return registered skills sorted by empirical success rate and usage."""
+        sql = (
+            "SELECT id, name, domain, pattern, strategy_json, proof_status, uses, successes "
+            "FROM skills"
+        )
+        params: tuple[Any, ...] = ()
+        if domain is not None:
+            sql += " WHERE domain = ?"
+            params = (domain,)
+        sql += " ORDER BY successes DESC, uses DESC, updated_at DESC"
+        with self._lock:
+            rows = self.conn.execute(sql, params).fetchall()
+        out: list[dict[str, Any]] = []
+        for r in rows:
+            try:
+                strat = json.loads(r[4])
+            except Exception:
+                strat = {}
+            out.append({
+                "id": int(r[0]),
+                "name": str(r[1]),
+                "domain": str(r[2]),
+                "pattern": str(r[3]),
+                "strategy": strat,
+                "proof_status": str(r[5]),
+                "uses": int(r[6]),
+                "successes": int(r[7]),
+            })
+        return out
+
+    def match_candidates(self, statement: str, domain: str | None = None, limit: int = 4) -> list[tuple[dict[str, Any], dict[str, str]]]:
+        """Return all matching skills for L3 behavioral verification instead of trusting first match blindly."""
+        hits: list[tuple[dict[str, Any], dict[str, str]]] = []
+        for item in self.list_skills(domain=domain):
+            try:
+                m = re.search(item["pattern"], statement, re.IGNORECASE | re.DOTALL)
+            except re.error:
+                continue
+            if m:
+                groups = {k: v for k, v in m.groupdict().items() if v is not None}
+                hits.append((item, groups))
+                if len(hits) >= limit:
+                    break
+        return hits
+
+    def save_policy(self, weights: dict[str, Any], key: str = "policy_weights") -> None:
+        """Persist NeuralPolicyRanker weights across restarts."""
+        payload = json.dumps(weights, ensure_ascii=False)
+        now = time.time()
+        with self._lock:
+            self.conn.execute(
+                "INSERT INTO kv_state(key, value_json, updated_at) VALUES(?, ?, ?) "
+                "ON CONFLICT(key) DO UPDATE SET value_json=excluded.value_json, updated_at=excluded.updated_at",
+                (key, payload, now),
+            )
+            self.conn.commit()
+
+    def load_policy(self, key: str = "policy_weights") -> dict[str, Any]:
+        """Load persisted NeuralPolicyRanker weights (empty dict if none stored)."""
+        with self._lock:
+            row = self.conn.execute("SELECT value_json FROM kv_state WHERE key = ?", (key,)).fetchone()
+        if not row:
+            return {}
+        try:
+            data = json.loads(row[0])
+            return data if isinstance(data, dict) else {}
+        except Exception:
+            return {}
+
     def stats(self) -> dict[str, int]:
         with self._lock:
             skills_n = self.conn.execute("SELECT COUNT(*) FROM skills").fetchone()[0]
             replay_n = self.conn.execute("SELECT COUNT(*) FROM replay_traces").fetchone()[0]
-        return {"skills": int(skills_n), "replay_traces": int(replay_n)}
+        policy = self.load_policy()
+        policy_n = len(policy.get("bias", {})) + len(policy.get("pair_w", {})) if policy else 0
+        return {"skills": int(skills_n), "replay_traces": int(replay_n), "policy_features": int(policy_n)}

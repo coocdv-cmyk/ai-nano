@@ -193,6 +193,130 @@ _PROBLEMS: list[BlindProblem] = [
     ),
 ]
 
+HELD_OUT_CODE_PROBLEMS: list[BlindProblem] = [
+    BlindProblem(
+        id="held-bsearch-leftmost", domain="code", title="Binary Search Lower Bound", difficulty=1,
+        statement="Write Python function leftmost_index(nums: list[int], target: int) -> int returning the leftmost binary search insertion index in sorted array nums.",
+        verify=lambda code: CodeVerifier.verify_python(
+            code,
+            "assert leftmost_index([1, 2, 2, 2, 5], 2) == 1\n"
+            "assert leftmost_index([1, 2, 4, 6], 3) == 2\n"
+            "assert leftmost_index([1, 2, 4], 9) == 3\n"
+            "assert leftmost_index([], 5) == 0\n",
+        ),
+    ),
+    BlindProblem(
+        id="held-longest-unique", domain="code", title="Longest Substring Without Repeating Chars", difficulty=2,
+        statement="Write Python function longest_unique_substr(s: str) -> int returning the length of the longest substring without repeating characters.",
+        verify=lambda code: CodeVerifier.verify_python(
+            code,
+            "assert longest_unique_substr('abcabcbb') == 3\n"
+            "assert longest_unique_substr('bbbbb') == 1\n"
+            "assert longest_unique_substr('pwwkew') == 3\n"
+            "assert longest_unique_substr('') == 0\n",
+        ),
+    ),
+    BlindProblem(
+        id="held-coin-change", domain="code", title="Minimum Coin Change", difficulty=2,
+        statement="Write Python function coin_change_min(coins: list[int], amount: int) -> int returning the minimum number of coins to form amount (-1 if impossible).",
+        verify=lambda code: CodeVerifier.verify_python(
+            code,
+            "assert coin_change_min([1, 2, 5], 11) == 3\n"
+            "assert coin_change_min([2], 3) == -1\n"
+            "assert coin_change_min([1], 0) == 0\n"
+            "assert coin_change_min([2, 5, 10, 1], 27) == 4\n",
+        ),
+    ),
+    BlindProblem(
+        id="held-valid-brackets", domain="code", title="Balanced Brackets Validator", difficulty=1,
+        statement="Write Python function is_valid_brackets(s: str) -> bool verifying balanced parentheses/brackets (), [], {}.",
+        verify=lambda code: CodeVerifier.verify_python(
+            code,
+            "assert is_valid_brackets('()[]{}') is True\n"
+            "assert is_valid_brackets('({[]})') is True\n"
+            "assert is_valid_brackets('(]') is False\n"
+            "assert is_valid_brackets('([)]') is False\n"
+            "assert is_valid_brackets('') is True\n",
+        ),
+    ),
+    BlindProblem(
+        id="held-group-anagrams", domain="code", title="Group Anagrams", difficulty=2,
+        statement="Write Python function group_anagrams(words: list[str]) -> list[list[str]] grouping words that are anagrams together.",
+        verify=lambda code: CodeVerifier.verify_python(
+            code,
+            "res = group_anagrams(['eat', 'tea', 'tan', 'ate', 'nat', 'bat'])\n"
+            "norm = sorted([sorted(g) for g in res])\n"
+            "assert norm == [['ate', 'eat', 'tea'], ['bat'], ['nat', 'tan']]\n"
+            "assert group_anagrams([]) == []\n",
+        ),
+    ),
+    BlindProblem(
+        id="held-edit-distance", domain="code", title="Levenshtein Edit Distance", difficulty=3,
+        statement="Write Python function edit_distance(a: str, b: str) -> int computing minimum edit distance (insert, delete, replace) between two strings.",
+        verify=lambda code: CodeVerifier.verify_python(
+            code,
+            "assert edit_distance('horse', 'ros') == 3\n"
+            "assert edit_distance('intention', 'execution') == 5\n"
+            "assert edit_distance('', 'abc') == 3\n"
+            "assert edit_distance('same', 'same') == 0\n",
+        ),
+    ),
+    BlindProblem(
+        id="held-house-robber", domain="code", title="Max Non-Adjacent Subsequence Sum", difficulty=2,
+        statement="Write Python function max_non_adjacent_sum(nums: list[int]) -> int returning the maximum sum of non-adjacent elements (house robber DP).",
+        verify=lambda code: CodeVerifier.verify_python(
+            code,
+            "assert max_non_adjacent_sum([1, 2, 3, 1]) == 4\n"
+            "assert max_non_adjacent_sum([2, 7, 9, 3, 1]) == 12\n"
+            "assert max_non_adjacent_sum([]) == 0\n"
+            "assert max_non_adjacent_sum([5]) == 5\n",
+        ),
+    ),
+    BlindProblem(
+        id="held-rle-encode", domain="code", title="Run-Length String Compressor", difficulty=1,
+        statement="Write Python function rle_encode(s: str) -> str computing run-length encoding like 'aaabbc' -> 'a3b2c1'.",
+        verify=lambda code: CodeVerifier.verify_python(
+            code,
+            "assert rle_encode('aaabbc') == 'a3b2c1'\n"
+            "assert rle_encode('') == ''\n"
+            "assert rle_encode('abcd') == 'a1b1c1d1'\n",
+        ),
+    ),
+    BlindProblem(
+        id="held-kadane-subarray", domain="code", title="Maximum Contiguous Subarray (Kadane)", difficulty=2,
+        statement="Write Python function kadane_max_sum(nums: list[int]) -> int returning maximum contiguous subarray sum (raise ValueError on empty).",
+        verify=lambda code: CodeVerifier.verify_python(
+            code,
+            "assert kadane_max_sum([-2, 1, -3, 4, -1, 2, 1, -5, 4]) == 6\n"
+            "assert kadane_max_sum([-8, -3, -6, -2]) == -2\n"
+            "assert kadane_max_sum([5, 4, -1, 7, 8]) == 23\n",
+        ),
+    ),
+    BlindProblem(
+        id="held-non-overlap-intervals", domain="code", title="Max Non-Overlapping Intervals", difficulty=2,
+        statement="Write Python function max_non_overlapping(intervals: list[list[int]]) -> int returning maximum count of non-overlapping intervals (touching endpoints allowed).",
+        verify=lambda code: CodeVerifier.verify_python(
+            code,
+            "assert max_non_overlapping([[1, 2], [2, 3], [3, 4], [1, 3]]) == 3\n"
+            "assert max_non_overlapping([[1, 2], [1, 2], [1, 2]]) == 1\n"
+            "assert max_non_overlapping([]) == 0\n",
+        ),
+    ),
+]
+
+_HELD_OUT_SEALED: dict[str, SealedReference] = {
+    "held-bsearch-leftmost": SealedReference("held-bsearch-leftmost", "bisect_left loop", "Lower-bound binary search"),
+    "held-longest-unique": SealedReference("held-longest-unique", "sliding window last-seen dict", "O(n) substring window"),
+    "held-coin-change": SealedReference("held-coin-change", "bottom-up 1D DP", "O(amount * len(coins))"),
+    "held-valid-brackets": SealedReference("held-valid-brackets", "stack matching", "O(n) balanced brackets"),
+    "held-group-anagrams": SealedReference("held-group-anagrams", "sorted-tuple bucket dict", "Canonical key grouping"),
+    "held-edit-distance": SealedReference("held-edit-distance", "rolling 1D Levenshtein DP", "O(mn) time O(n) space"),
+    "held-house-robber": SealedReference("held-house-robber", "two-state DP (a, b)", "O(n) non-adjacent sum"),
+    "held-rle-encode": SealedReference("held-rle-encode", "run counter scan", "O(n) RLE"),
+    "held-kadane-subarray": SealedReference("held-kadane-subarray", "Kadane recurrence", "Handles negative arrays"),
+    "held-non-overlap-intervals": SealedReference("held-non-overlap-intervals", "sort by end greedy", "Interval scheduling"),
+}
+
 _SEALED: dict[str, SealedReference] = {
     "math-pell-13": SealedReference("math-pell-13", "649, 180", "Minimal Pell solution via continued fraction sqrt(13)=[3;1,1,1,1,6]"),
     "math-sophie-germain": SealedReference("math-sophie-germain", "(x**2 - 2*x*y + 2*y**2)*(x**2 + 2*x*y + 2*y**2)", "Sophie Germain identity"),
@@ -212,8 +336,13 @@ class BlindVault:
 
     def __init__(self, problems: list[BlindProblem] | None = None,
                  sealed: dict[str, SealedReference] | None = None):
-        self._problems = list(problems or _PROBLEMS)
-        self._sealed = dict(sealed or _SEALED)
+        self._problems = list(problems if problems is not None else _PROBLEMS)
+        self._sealed = dict(sealed if sealed is not None else _SEALED)
+
+    @classmethod
+    def heldout(cls) -> "BlindVault":
+        """Return an independent held-out coding evaluation suite distinct from _PROBLEMS."""
+        return cls(problems=HELD_OUT_CODE_PROBLEMS, sealed=_HELD_OUT_SEALED)
 
     def problems(self, domain: str | None = None) -> list[BlindProblem]:
         return [p for p in self._problems if domain is None or p.domain == domain]

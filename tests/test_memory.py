@@ -105,3 +105,46 @@ def test_typo_and_inflection_tolerance(mem):
     mem.remember("Kalvorinsa Brightwell is headquartered in Dorran")
     assert mem.recall("where is Kalvrinsa headquarterd")[0].text.startswith("Kalvorinsa")  # misspellings
     assert mem.recall("Kalvorinsa headquarters")[0].text.startswith("Kalvorinsa")  # inflection
+
+
+def test_semantic_synonym_crosslingual_and_code_recall(mem):
+    mem.remember("سيارة الشركة الحمراء تحتاج صيانة المحرك", source="fleet")
+    mem.remember("Our Redis cluster stores ephemeral session tokens in RAM", source="ops")
+    mem.remember("كلمة سر قاعدة البيانات مخزنة في ملف البيئة", source="sec")
+    mem.remember("def mergeIntervals(spanList): sorts and combines overlapping ranges", source="repo")
+
+    # Zero overlapping Arabic words: سيارة/شركة/صيانة/محرك vs مركبة/مؤسسة/تصليح/موتور
+    ar_hit = mem.recall("مركبة المؤسسة محتاجة تصليح الموتور")[0]
+    assert "سيارة الشركة" in ar_hit.text and ar_hit.cosine > 0.25
+
+    # Zero overlapping English words: Redis/cluster/ephemeral/tokens/RAM vs cache/temporary/keys/memory
+    en_hit = mem.recall("which cache holds temporary login keys in memory")[0]
+    assert "Redis" in en_hit.text
+
+    # Cross-lingual Arabic memory recalled by English query
+    xl_hit = mem.recall("where is the database password file stored")[0]
+    assert "قاعدة البيانات" in xl_hit.text
+
+    # camelCase identifier split recall
+    code_hit = mem.recall("function to merge interval")[0]
+    assert "mergeIntervals" in code_hit.text
+
+
+def test_exp_l_drift_monitor_and_behavioral_guard():
+    from omega_nano.semantic import SemanticDriftMonitor, verify_behavioral_candidates
+
+    mon = SemanticDriftMonitor(window=8, baseline_rate=0.9, threshold=1.2)
+    for _ in range(5):
+        assert mon.observe(True).drifted is False
+    st = None
+    for _ in range(4):
+        st = mon.observe(False)
+    assert st is not None and st.drifted is True
+
+    name, sol, status = verify_behavioral_candidates(
+        [("wrong_skill", lambda: "4"), ("right_skill", lambda: "5")],
+        verifier=lambda s: s == "5",
+    )
+    assert status == "VERIFIED" and name == "right_skill" and sol == "5"
+    _, _, rej = verify_behavioral_candidates([("a", lambda: "1")], verifier=lambda s: False)
+    assert rej == "REJECTED_ALL"
