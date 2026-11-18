@@ -26,9 +26,16 @@ datasets.py         split-integrity checks, dataset manifests, seed registry
 constructors.py     shared deep-chain / drift / retrieval-pool builders
 engine.py           adapter that drives EXP-I validation read-only
 baseline.py         K0 matched baseline reproduction of all four failures
+deep_composition.py K1 tracing and matched safeguard arms
+retrieval_ood.py    K2 OOD/silent-substitution arms
+drift_detection.py  K3 detector arms with calibration-fixed thresholds
+calibration.py      K4 post-hoc calibration methods on a separate split
+interactions.py     K5 factorial 2x2 interaction analysis
+adversarial.py      K6 twelve-attack adversarial campaign + abstain control
+analysis.py         K7 aggregation, resource accounting, integration decisions
+finalize.py         K7 independent reruns, manifests, git/snapshot verification
 smoke.py            stage-A invariants
 runner.py           stage dispatch, snapshots, integrity, CLI
-analysis.py         aggregation and integration decisions (added in later stages)
 ```
 
 Dependency order: `config/types/metrics/resources` → `generators/distributions` →

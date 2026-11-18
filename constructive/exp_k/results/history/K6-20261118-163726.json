@@ -1,0 +1,24 @@
+{
+  "stage": "K6",
+  "status": "error",
+  "error": "TypeError: bad operand type for abs(): 'list'",
+  "completion_status": "ERROR",
+  "resource_report": {
+    "elapsed_s": 0.01638630000525154,
+    "nodes_used": 0,
+    "global_deadline_s": 1800.0,
+    "node_budget": null,
+    "cancelled": false,
+    "timeouts": [],
+    "diagnostics": {
+      "last_error": "TypeError: bad operand type for abs(): 'list'",
+      "last_scope": "K6",
+      "last_completed_scope": "K6",
+      "last_scope_status": "ERROR",
+      "scope_elapsed_s": 0.01313750000554137,
+      "scope_nodes": 0
+    },
+    "memory_guard_mb": null,
+    "peak_rss_mb": 24.54
+  }
+}

@@ -1,0 +1,3410 @@
+{
+  "stage": "K4",
+  "experiment_id": "K4",
+  "experiment_name": "Confidence Calibration",
+  "status": "completed",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "calibration_seeds": [
+    201,
+    202,
+    203,
+    204
+  ],
+  "n_calibration": 140,
+  "n_evaluation": 350,
+  "fitted_parameters": {
+    "temperature": 0.75,
+    "bins": [
+      0.0,
+      null,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      null,
+      0.8235294117647058,
+      null,
+      null
+    ],
+    "conformal_threshold": 0.768889
+  },
+  "methods": [
+    "raw",
+    "temperature",
+    "isotonic",
+    "binning",
+    "conformal_abstention"
+  ],
+  "episodes": [
+    {
+      "condition": "normal",
+      "family": "mod_double",
+      "seed": 0,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "NON_IDENTIFIABLE"
+    },
+    {
+      "condition": "normal",
+      "family": "mod_double",
+      "seed": 0,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "NON_IDENTIFIABLE"
+    },
+    {
+      "condition": "normal",
+      "family": "digital_root_square",
+      "seed": 0,
+      "confidence": 0.791111,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "digital_root_square",
+      "seed": 0,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "gt_mod",
+      "seed": 0,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "gt_mod",
+      "seed": 0,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "NON_IDENTIFIABLE"
+    },
+    {
+      "condition": "normal",
+      "family": "if_even",
+      "seed": 0,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "if_even",
+      "seed": 0,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "neg_abs_mod",
+      "seed": 0,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "NON_IDENTIFIABLE"
+    },
+    {
+      "condition": "normal",
+      "family": "neg_abs_mod",
+      "seed": 0,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "NON_IDENTIFIABLE"
+    },
+    {
+      "condition": "normal",
+      "family": "band_shift",
+      "seed": 0,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "band_shift",
+      "seed": 0,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "max_map_add",
+      "seed": 0,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "max_map_add",
+      "seed": 0,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "reverse_take_sum",
+      "seed": 0,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "reverse_take_sum",
+      "seed": 0,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "deep",
+      "family": "depth-2",
+      "seed": 0,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "REJECTED"
+    },
+    {
+      "condition": "deep",
+      "family": "depth-5",
+      "seed": 0,
+      "confidence": 0.791111,
+      "correct": 0,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "deep",
+      "family": "depth-12",
+      "seed": 0,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "REJECTED"
+    },
+    {
+      "condition": "ood",
+      "family": "mod_double",
+      "seed": 0,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "ood",
+      "family": "digital_root_square",
+      "seed": 0,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "ood",
+      "family": "gt_mod",
+      "seed": 0,
+      "confidence": 0.791111,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "ood",
+      "family": "if_even",
+      "seed": 0,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "noise",
+      "family": "mod_double",
+      "seed": 0,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "noise",
+      "family": "digital_root_square",
+      "seed": 0,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "noise",
+      "family": "gt_mod",
+      "seed": 0,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "noise",
+      "family": "if_even",
+      "seed": 0,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "mod_double",
+      "seed": 0,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "digital_root_square",
+      "seed": 0,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "gt_mod",
+      "seed": 0,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "if_even",
+      "seed": 0,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "retrieval",
+      "family": "abs_double_mod",
+      "seed": 0,
+      "confidence": 0.422222,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    },
+    {
+      "condition": "retrieval",
+      "family": "sumdigits_add",
+      "seed": 0,
+      "confidence": 0.255556,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    },
+    {
+      "condition": "retrieval",
+      "family": "sub_square",
+      "seed": 0,
+      "confidence": 0.255556,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    },
+    {
+      "condition": "retrieval",
+      "family": "odd_and_gt",
+      "seed": 0,
+      "confidence": 0.533333,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    },
+    {
+      "condition": "normal",
+      "family": "mod_double",
+      "seed": 1,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "mod_double",
+      "seed": 1,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "digital_root_square",
+      "seed": 1,
+      "confidence": 0.791111,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "digital_root_square",
+      "seed": 1,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "gt_mod",
+      "seed": 1,
+      "confidence": 0.768889,
+      "correct": 0,
+      "state": "INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "condition": "normal",
+      "family": "gt_mod",
+      "seed": 1,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "NON_IDENTIFIABLE"
+    },
+    {
+      "condition": "normal",
+      "family": "if_even",
+      "seed": 1,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "if_even",
+      "seed": 1,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "neg_abs_mod",
+      "seed": 1,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "neg_abs_mod",
+      "seed": 1,
+      "confidence": 0.791111,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "band_shift",
+      "seed": 1,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "band_shift",
+      "seed": 1,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "max_map_add",
+      "seed": 1,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "max_map_add",
+      "seed": 1,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "reverse_take_sum",
+      "seed": 1,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "reverse_take_sum",
+      "seed": 1,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "deep",
+      "family": "depth-2",
+      "seed": 1,
+      "confidence": 0.813889,
+      "correct": 0,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "deep",
+      "family": "depth-5",
+      "seed": 1,
+      "confidence": 0.791111,
+      "correct": 0,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "deep",
+      "family": "depth-12",
+      "seed": 1,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "REJECTED"
+    },
+    {
+      "condition": "ood",
+      "family": "mod_double",
+      "seed": 1,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "NON_IDENTIFIABLE"
+    },
+    {
+      "condition": "ood",
+      "family": "digital_root_square",
+      "seed": 1,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "ood",
+      "family": "gt_mod",
+      "seed": 1,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "ood",
+      "family": "if_even",
+      "seed": 1,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "noise",
+      "family": "mod_double",
+      "seed": 1,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "noise",
+      "family": "digital_root_square",
+      "seed": 1,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "noise",
+      "family": "gt_mod",
+      "seed": 1,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "noise",
+      "family": "if_even",
+      "seed": 1,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "mod_double",
+      "seed": 1,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "digital_root_square",
+      "seed": 1,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "gt_mod",
+      "seed": 1,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "if_even",
+      "seed": 1,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "retrieval",
+      "family": "abs_double_mod",
+      "seed": 1,
+      "confidence": 0.477778,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    },
+    {
+      "condition": "retrieval",
+      "family": "sumdigits_add",
+      "seed": 1,
+      "confidence": 0.533333,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    },
+    {
+      "condition": "retrieval",
+      "family": "sub_square",
+      "seed": 1,
+      "confidence": 0.311111,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    },
+    {
+      "condition": "retrieval",
+      "family": "odd_and_gt",
+      "seed": 1,
+      "confidence": 0.533333,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    },
+    {
+      "condition": "normal",
+      "family": "mod_double",
+      "seed": 2,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "NON_IDENTIFIABLE"
+    },
+    {
+      "condition": "normal",
+      "family": "mod_double",
+      "seed": 2,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "digital_root_square",
+      "seed": 2,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "digital_root_square",
+      "seed": 2,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "gt_mod",
+      "seed": 2,
+      "confidence": 0.791111,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "gt_mod",
+      "seed": 2,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "if_even",
+      "seed": 2,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "if_even",
+      "seed": 2,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "neg_abs_mod",
+      "seed": 2,
+      "confidence": 0.791111,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "neg_abs_mod",
+      "seed": 2,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "band_shift",
+      "seed": 2,
+      "confidence": 0.791111,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "band_shift",
+      "seed": 2,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "max_map_add",
+      "seed": 2,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "max_map_add",
+      "seed": 2,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "reverse_take_sum",
+      "seed": 2,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "reverse_take_sum",
+      "seed": 2,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "deep",
+      "family": "depth-2",
+      "seed": 2,
+      "confidence": 0.791111,
+      "correct": 0,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "deep",
+      "family": "depth-5",
+      "seed": 2,
+      "confidence": 0.791111,
+      "correct": 0,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "deep",
+      "family": "depth-12",
+      "seed": 2,
+      "confidence": 0.791111,
+      "correct": 0,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "ood",
+      "family": "mod_double",
+      "seed": 2,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "ood",
+      "family": "digital_root_square",
+      "seed": 2,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "ood",
+      "family": "gt_mod",
+      "seed": 2,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "ood",
+      "family": "if_even",
+      "seed": 2,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "noise",
+      "family": "mod_double",
+      "seed": 2,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "noise",
+      "family": "digital_root_square",
+      "seed": 2,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "noise",
+      "family": "gt_mod",
+      "seed": 2,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "NON_IDENTIFIABLE"
+    },
+    {
+      "condition": "noise",
+      "family": "if_even",
+      "seed": 2,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "mod_double",
+      "seed": 2,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "digital_root_square",
+      "seed": 2,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "gt_mod",
+      "seed": 2,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "if_even",
+      "seed": 2,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "retrieval",
+      "family": "abs_double_mod",
+      "seed": 2,
+      "confidence": 0.533333,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    },
+    {
+      "condition": "retrieval",
+      "family": "sumdigits_add",
+      "seed": 2,
+      "confidence": 0.311111,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    },
+    {
+      "condition": "retrieval",
+      "family": "sub_square",
+      "seed": 2,
+      "confidence": 0.311111,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    },
+    {
+      "condition": "retrieval",
+      "family": "odd_and_gt",
+      "seed": 2,
+      "confidence": 0.533333,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    },
+    {
+      "condition": "normal",
+      "family": "mod_double",
+      "seed": 3,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "mod_double",
+      "seed": 3,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "NON_IDENTIFIABLE"
+    },
+    {
+      "condition": "normal",
+      "family": "digital_root_square",
+      "seed": 3,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "digital_root_square",
+      "seed": 3,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "gt_mod",
+      "seed": 3,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "gt_mod",
+      "seed": 3,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "if_even",
+      "seed": 3,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "if_even",
+      "seed": 3,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "neg_abs_mod",
+      "seed": 3,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "neg_abs_mod",
+      "seed": 3,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "band_shift",
+      "seed": 3,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "band_shift",
+      "seed": 3,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "max_map_add",
+      "seed": 3,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "max_map_add",
+      "seed": 3,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "reverse_take_sum",
+      "seed": 3,
+      "confidence": 0.791111,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "reverse_take_sum",
+      "seed": 3,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "deep",
+      "family": "depth-2",
+      "seed": 3,
+      "confidence": 0.791111,
+      "correct": 0,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "deep",
+      "family": "depth-5",
+      "seed": 3,
+      "confidence": 0.791111,
+      "correct": 0,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "deep",
+      "family": "depth-12",
+      "seed": 3,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "REJECTED"
+    },
+    {
+      "condition": "ood",
+      "family": "mod_double",
+      "seed": 3,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "NON_IDENTIFIABLE"
+    },
+    {
+      "condition": "ood",
+      "family": "digital_root_square",
+      "seed": 3,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "ood",
+      "family": "gt_mod",
+      "seed": 3,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "ood",
+      "family": "if_even",
+      "seed": 3,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "noise",
+      "family": "mod_double",
+      "seed": 3,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "noise",
+      "family": "digital_root_square",
+      "seed": 3,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "noise",
+      "family": "gt_mod",
+      "seed": 3,
+      "confidence": 0.768889,
+      "correct": 0,
+      "state": "INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "condition": "noise",
+      "family": "if_even",
+      "seed": 3,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "mod_double",
+      "seed": 3,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "digital_root_square",
+      "seed": 3,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "gt_mod",
+      "seed": 3,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "if_even",
+      "seed": 3,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "retrieval",
+      "family": "abs_double_mod",
+      "seed": 3,
+      "confidence": 0.533333,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    },
+    {
+      "condition": "retrieval",
+      "family": "sumdigits_add",
+      "seed": 3,
+      "confidence": 0.311111,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    },
+    {
+      "condition": "retrieval",
+      "family": "sub_square",
+      "seed": 3,
+      "confidence": 0.255556,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    },
+    {
+      "condition": "retrieval",
+      "family": "odd_and_gt",
+      "seed": 3,
+      "confidence": 0.533333,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    },
+    {
+      "condition": "normal",
+      "family": "mod_double",
+      "seed": 4,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "NON_IDENTIFIABLE"
+    },
+    {
+      "condition": "normal",
+      "family": "mod_double",
+      "seed": 4,
+      "confidence": 0.791111,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "digital_root_square",
+      "seed": 4,
+      "confidence": 0.791111,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "digital_root_square",
+      "seed": 4,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "gt_mod",
+      "seed": 4,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "NON_IDENTIFIABLE"
+    },
+    {
+      "condition": "normal",
+      "family": "gt_mod",
+      "seed": 4,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "if_even",
+      "seed": 4,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "if_even",
+      "seed": 4,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "neg_abs_mod",
+      "seed": 4,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "neg_abs_mod",
+      "seed": 4,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "NON_IDENTIFIABLE"
+    },
+    {
+      "condition": "normal",
+      "family": "band_shift",
+      "seed": 4,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "band_shift",
+      "seed": 4,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "max_map_add",
+      "seed": 4,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "max_map_add",
+      "seed": 4,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "reverse_take_sum",
+      "seed": 4,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "reverse_take_sum",
+      "seed": 4,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "deep",
+      "family": "depth-2",
+      "seed": 4,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "REJECTED"
+    },
+    {
+      "condition": "deep",
+      "family": "depth-5",
+      "seed": 4,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "REJECTED"
+    },
+    {
+      "condition": "deep",
+      "family": "depth-12",
+      "seed": 4,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "REJECTED"
+    },
+    {
+      "condition": "ood",
+      "family": "mod_double",
+      "seed": 4,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "ood",
+      "family": "digital_root_square",
+      "seed": 4,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "ood",
+      "family": "gt_mod",
+      "seed": 4,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "ood",
+      "family": "if_even",
+      "seed": 4,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "noise",
+      "family": "mod_double",
+      "seed": 4,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "noise",
+      "family": "digital_root_square",
+      "seed": 4,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "noise",
+      "family": "gt_mod",
+      "seed": 4,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "noise",
+      "family": "if_even",
+      "seed": 4,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "mod_double",
+      "seed": 4,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "digital_root_square",
+      "seed": 4,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "gt_mod",
+      "seed": 4,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "if_even",
+      "seed": 4,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "retrieval",
+      "family": "abs_double_mod",
+      "seed": 4,
+      "confidence": 0.311111,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    },
+    {
+      "condition": "retrieval",
+      "family": "sumdigits_add",
+      "seed": 4,
+      "confidence": 0.311111,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    },
+    {
+      "condition": "retrieval",
+      "family": "sub_square",
+      "seed": 4,
+      "confidence": 0.255556,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    },
+    {
+      "condition": "retrieval",
+      "family": "odd_and_gt",
+      "seed": 4,
+      "confidence": 0.588889,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    },
+    {
+      "condition": "normal",
+      "family": "mod_double",
+      "seed": 5,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "mod_double",
+      "seed": 5,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "NON_IDENTIFIABLE"
+    },
+    {
+      "condition": "normal",
+      "family": "digital_root_square",
+      "seed": 5,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "digital_root_square",
+      "seed": 5,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "gt_mod",
+      "seed": 5,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "NON_IDENTIFIABLE"
+    },
+    {
+      "condition": "normal",
+      "family": "gt_mod",
+      "seed": 5,
+      "confidence": 0.768889,
+      "correct": 0,
+      "state": "INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "condition": "normal",
+      "family": "if_even",
+      "seed": 5,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "if_even",
+      "seed": 5,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "neg_abs_mod",
+      "seed": 5,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "neg_abs_mod",
+      "seed": 5,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "band_shift",
+      "seed": 5,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "band_shift",
+      "seed": 5,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "max_map_add",
+      "seed": 5,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "max_map_add",
+      "seed": 5,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "reverse_take_sum",
+      "seed": 5,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "reverse_take_sum",
+      "seed": 5,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "deep",
+      "family": "depth-2",
+      "seed": 5,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "REJECTED"
+    },
+    {
+      "condition": "deep",
+      "family": "depth-5",
+      "seed": 5,
+      "confidence": 0.813889,
+      "correct": 0,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "deep",
+      "family": "depth-12",
+      "seed": 5,
+      "confidence": 0.813889,
+      "correct": 0,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "ood",
+      "family": "mod_double",
+      "seed": 5,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "NON_IDENTIFIABLE"
+    },
+    {
+      "condition": "ood",
+      "family": "digital_root_square",
+      "seed": 5,
+      "confidence": 0.791111,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "ood",
+      "family": "gt_mod",
+      "seed": 5,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "NON_IDENTIFIABLE"
+    },
+    {
+      "condition": "ood",
+      "family": "if_even",
+      "seed": 5,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "noise",
+      "family": "mod_double",
+      "seed": 5,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "noise",
+      "family": "digital_root_square",
+      "seed": 5,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "noise",
+      "family": "gt_mod",
+      "seed": 5,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "NON_IDENTIFIABLE"
+    },
+    {
+      "condition": "noise",
+      "family": "if_even",
+      "seed": 5,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "mod_double",
+      "seed": 5,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "digital_root_square",
+      "seed": 5,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "gt_mod",
+      "seed": 5,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "if_even",
+      "seed": 5,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "retrieval",
+      "family": "abs_double_mod",
+      "seed": 5,
+      "confidence": 0.422222,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    },
+    {
+      "condition": "retrieval",
+      "family": "sumdigits_add",
+      "seed": 5,
+      "confidence": 0.255556,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    },
+    {
+      "condition": "retrieval",
+      "family": "sub_square",
+      "seed": 5,
+      "confidence": 0.255556,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    },
+    {
+      "condition": "retrieval",
+      "family": "odd_and_gt",
+      "seed": 5,
+      "confidence": 0.533333,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    },
+    {
+      "condition": "normal",
+      "family": "mod_double",
+      "seed": 6,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "mod_double",
+      "seed": 6,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "digital_root_square",
+      "seed": 6,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "digital_root_square",
+      "seed": 6,
+      "confidence": 0.791111,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "gt_mod",
+      "seed": 6,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "NON_IDENTIFIABLE"
+    },
+    {
+      "condition": "normal",
+      "family": "gt_mod",
+      "seed": 6,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "if_even",
+      "seed": 6,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "if_even",
+      "seed": 6,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "neg_abs_mod",
+      "seed": 6,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "neg_abs_mod",
+      "seed": 6,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "NON_IDENTIFIABLE"
+    },
+    {
+      "condition": "normal",
+      "family": "band_shift",
+      "seed": 6,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "band_shift",
+      "seed": 6,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "max_map_add",
+      "seed": 6,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "max_map_add",
+      "seed": 6,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "reverse_take_sum",
+      "seed": 6,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "reverse_take_sum",
+      "seed": 6,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "deep",
+      "family": "depth-2",
+      "seed": 6,
+      "confidence": 0.791111,
+      "correct": 0,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "deep",
+      "family": "depth-5",
+      "seed": 6,
+      "confidence": 0.791111,
+      "correct": 0,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "deep",
+      "family": "depth-12",
+      "seed": 6,
+      "confidence": 0.791111,
+      "correct": 0,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "ood",
+      "family": "mod_double",
+      "seed": 6,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "NON_IDENTIFIABLE"
+    },
+    {
+      "condition": "ood",
+      "family": "digital_root_square",
+      "seed": 6,
+      "confidence": 0.791111,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "ood",
+      "family": "gt_mod",
+      "seed": 6,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "NON_IDENTIFIABLE"
+    },
+    {
+      "condition": "ood",
+      "family": "if_even",
+      "seed": 6,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "noise",
+      "family": "mod_double",
+      "seed": 6,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "noise",
+      "family": "digital_root_square",
+      "seed": 6,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "noise",
+      "family": "gt_mod",
+      "seed": 6,
+      "confidence": 0.768889,
+      "correct": 0,
+      "state": "INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "condition": "noise",
+      "family": "if_even",
+      "seed": 6,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "mod_double",
+      "seed": 6,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "digital_root_square",
+      "seed": 6,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "gt_mod",
+      "seed": 6,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "if_even",
+      "seed": 6,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "retrieval",
+      "family": "abs_double_mod",
+      "seed": 6,
+      "confidence": 0.366667,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    },
+    {
+      "condition": "retrieval",
+      "family": "sumdigits_add",
+      "seed": 6,
+      "confidence": 0.477778,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    },
+    {
+      "condition": "retrieval",
+      "family": "sub_square",
+      "seed": 6,
+      "confidence": 0.255556,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    },
+    {
+      "condition": "retrieval",
+      "family": "odd_and_gt",
+      "seed": 6,
+      "confidence": 0.588889,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    },
+    {
+      "condition": "normal",
+      "family": "mod_double",
+      "seed": 7,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "mod_double",
+      "seed": 7,
+      "confidence": 0.791111,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "digital_root_square",
+      "seed": 7,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "digital_root_square",
+      "seed": 7,
+      "confidence": 0.791111,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "gt_mod",
+      "seed": 7,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "NON_IDENTIFIABLE"
+    },
+    {
+      "condition": "normal",
+      "family": "gt_mod",
+      "seed": 7,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "if_even",
+      "seed": 7,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "if_even",
+      "seed": 7,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "neg_abs_mod",
+      "seed": 7,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "neg_abs_mod",
+      "seed": 7,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "NON_IDENTIFIABLE"
+    },
+    {
+      "condition": "normal",
+      "family": "band_shift",
+      "seed": 7,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "band_shift",
+      "seed": 7,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "max_map_add",
+      "seed": 7,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "max_map_add",
+      "seed": 7,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "reverse_take_sum",
+      "seed": 7,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "reverse_take_sum",
+      "seed": 7,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "deep",
+      "family": "depth-2",
+      "seed": 7,
+      "confidence": 0.791111,
+      "correct": 0,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "deep",
+      "family": "depth-5",
+      "seed": 7,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "REJECTED"
+    },
+    {
+      "condition": "deep",
+      "family": "depth-12",
+      "seed": 7,
+      "confidence": 0.791111,
+      "correct": 0,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "ood",
+      "family": "mod_double",
+      "seed": 7,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "NON_IDENTIFIABLE"
+    },
+    {
+      "condition": "ood",
+      "family": "digital_root_square",
+      "seed": 7,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "ood",
+      "family": "gt_mod",
+      "seed": 7,
+      "confidence": 0.791111,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "ood",
+      "family": "if_even",
+      "seed": 7,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "noise",
+      "family": "mod_double",
+      "seed": 7,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "noise",
+      "family": "digital_root_square",
+      "seed": 7,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "noise",
+      "family": "gt_mod",
+      "seed": 7,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "NON_IDENTIFIABLE"
+    },
+    {
+      "condition": "noise",
+      "family": "if_even",
+      "seed": 7,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "mod_double",
+      "seed": 7,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "digital_root_square",
+      "seed": 7,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "gt_mod",
+      "seed": 7,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "if_even",
+      "seed": 7,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "retrieval",
+      "family": "abs_double_mod",
+      "seed": 7,
+      "confidence": 0.477778,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    },
+    {
+      "condition": "retrieval",
+      "family": "sumdigits_add",
+      "seed": 7,
+      "confidence": 0.255556,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    },
+    {
+      "condition": "retrieval",
+      "family": "sub_square",
+      "seed": 7,
+      "confidence": 0.366667,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    },
+    {
+      "condition": "retrieval",
+      "family": "odd_and_gt",
+      "seed": 7,
+      "confidence": 0.533333,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    },
+    {
+      "condition": "normal",
+      "family": "mod_double",
+      "seed": 8,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "mod_double",
+      "seed": 8,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "NON_IDENTIFIABLE"
+    },
+    {
+      "condition": "normal",
+      "family": "digital_root_square",
+      "seed": 8,
+      "confidence": 0.791111,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "digital_root_square",
+      "seed": 8,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "gt_mod",
+      "seed": 8,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "NON_IDENTIFIABLE"
+    },
+    {
+      "condition": "normal",
+      "family": "gt_mod",
+      "seed": 8,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "if_even",
+      "seed": 8,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "if_even",
+      "seed": 8,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "neg_abs_mod",
+      "seed": 8,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "neg_abs_mod",
+      "seed": 8,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "band_shift",
+      "seed": 8,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "band_shift",
+      "seed": 8,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "max_map_add",
+      "seed": 8,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "max_map_add",
+      "seed": 8,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "reverse_take_sum",
+      "seed": 8,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "reverse_take_sum",
+      "seed": 8,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "deep",
+      "family": "depth-2",
+      "seed": 8,
+      "confidence": 0.791111,
+      "correct": 0,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "deep",
+      "family": "depth-5",
+      "seed": 8,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "REJECTED"
+    },
+    {
+      "condition": "deep",
+      "family": "depth-12",
+      "seed": 8,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "REJECTED"
+    },
+    {
+      "condition": "ood",
+      "family": "mod_double",
+      "seed": 8,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "ood",
+      "family": "digital_root_square",
+      "seed": 8,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "ood",
+      "family": "gt_mod",
+      "seed": 8,
+      "confidence": 0.768889,
+      "correct": 0,
+      "state": "INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "condition": "ood",
+      "family": "if_even",
+      "seed": 8,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "noise",
+      "family": "mod_double",
+      "seed": 8,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "noise",
+      "family": "digital_root_square",
+      "seed": 8,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "noise",
+      "family": "gt_mod",
+      "seed": 8,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "NON_IDENTIFIABLE"
+    },
+    {
+      "condition": "noise",
+      "family": "if_even",
+      "seed": 8,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "mod_double",
+      "seed": 8,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "digital_root_square",
+      "seed": 8,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "gt_mod",
+      "seed": 8,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "if_even",
+      "seed": 8,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "retrieval",
+      "family": "abs_double_mod",
+      "seed": 8,
+      "confidence": 0.477778,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    },
+    {
+      "condition": "retrieval",
+      "family": "sumdigits_add",
+      "seed": 8,
+      "confidence": 0.477778,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    },
+    {
+      "condition": "retrieval",
+      "family": "sub_square",
+      "seed": 8,
+      "confidence": 0.255556,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    },
+    {
+      "condition": "retrieval",
+      "family": "odd_and_gt",
+      "seed": 8,
+      "confidence": 0.644444,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    },
+    {
+      "condition": "normal",
+      "family": "mod_double",
+      "seed": 9,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "NON_IDENTIFIABLE"
+    },
+    {
+      "condition": "normal",
+      "family": "mod_double",
+      "seed": 9,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "digital_root_square",
+      "seed": 9,
+      "confidence": 0.791111,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "digital_root_square",
+      "seed": 9,
+      "confidence": 0.791111,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "gt_mod",
+      "seed": 9,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "NON_IDENTIFIABLE"
+    },
+    {
+      "condition": "normal",
+      "family": "gt_mod",
+      "seed": 9,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "if_even",
+      "seed": 9,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "if_even",
+      "seed": 9,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "neg_abs_mod",
+      "seed": 9,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "neg_abs_mod",
+      "seed": 9,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "NON_IDENTIFIABLE"
+    },
+    {
+      "condition": "normal",
+      "family": "band_shift",
+      "seed": 9,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "band_shift",
+      "seed": 9,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "max_map_add",
+      "seed": 9,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "max_map_add",
+      "seed": 9,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "reverse_take_sum",
+      "seed": 9,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "reverse_take_sum",
+      "seed": 9,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "deep",
+      "family": "depth-2",
+      "seed": 9,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "REJECTED"
+    },
+    {
+      "condition": "deep",
+      "family": "depth-5",
+      "seed": 9,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "REJECTED"
+    },
+    {
+      "condition": "deep",
+      "family": "depth-12",
+      "seed": 9,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "REJECTED"
+    },
+    {
+      "condition": "ood",
+      "family": "mod_double",
+      "seed": 9,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "ood",
+      "family": "digital_root_square",
+      "seed": 9,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "ood",
+      "family": "gt_mod",
+      "seed": 9,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "ood",
+      "family": "if_even",
+      "seed": 9,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "noise",
+      "family": "mod_double",
+      "seed": 9,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "noise",
+      "family": "digital_root_square",
+      "seed": 9,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "noise",
+      "family": "gt_mod",
+      "seed": 9,
+      "confidence": 0.768889,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "noise",
+      "family": "if_even",
+      "seed": 9,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "mod_double",
+      "seed": 9,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "digital_root_square",
+      "seed": 9,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "gt_mod",
+      "seed": 9,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "if_even",
+      "seed": 9,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "retrieval",
+      "family": "abs_double_mod",
+      "seed": 9,
+      "confidence": 0.477778,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    },
+    {
+      "condition": "retrieval",
+      "family": "sumdigits_add",
+      "seed": 9,
+      "confidence": 0.311111,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    },
+    {
+      "condition": "retrieval",
+      "family": "sub_square",
+      "seed": 9,
+      "confidence": 0.255556,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    },
+    {
+      "condition": "retrieval",
+      "family": "odd_and_gt",
+      "seed": 9,
+      "confidence": 0.588889,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    }
+  ],
+  "by_method": {
+    "raw": {
+      "n": 350,
+      "ece": 0.125802,
+      "brier": 0.084062,
+      "nll": 0.284046,
+      "accuracy": {
+        "n": 350,
+        "mean": 0.491429,
+        "median": 0.0,
+        "std": 0.499927,
+        "ci95": 0.052375,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "confidence": {
+        "n": 350,
+        "mean": 0.47323,
+        "median": 0.768889,
+        "std": 0.356101,
+        "ci95": 0.037307,
+        "min": 0.0,
+        "max": 0.813889
+      },
+      "reliability_diagram": [
+        {
+          "bin": 0,
+          "n": 117,
+          "mean_confidence": 0.0,
+          "empirical_accuracy": 0.0
+        },
+        {
+          "bin": 2,
+          "n": 10,
+          "mean_confidence": 0.255556,
+          "empirical_accuracy": 0.0
+        },
+        {
+          "bin": 3,
+          "n": 9,
+          "mean_confidence": 0.323457,
+          "empirical_accuracy": 0.0
+        },
+        {
+          "bin": 4,
+          "n": 8,
+          "mean_confidence": 0.463889,
+          "empirical_accuracy": 0.0
+        },
+        {
+          "bin": 5,
+          "n": 12,
+          "mean_confidence": 0.547222,
+          "empirical_accuracy": 0.0
+        },
+        {
+          "bin": 6,
+          "n": 1,
+          "mean_confidence": 0.644444,
+          "empirical_accuracy": 0.0
+        },
+        {
+          "bin": 7,
+          "n": 190,
+          "mean_confidence": 0.772632,
+          "empirical_accuracy": 0.905263
+        },
+        {
+          "bin": 8,
+          "n": 3,
+          "mean_confidence": 0.813889,
+          "empirical_accuracy": 0.0
+        }
+      ]
+    },
+    "temperature": {
+      "n": 350,
+      "ece": 0.074089,
+      "brier": 0.077016,
+      "nll": 0.263873,
+      "accuracy": {
+        "n": 350,
+        "mean": 0.491429,
+        "median": 0.0,
+        "std": 0.499927,
+        "ci95": 0.052375,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "confidence": {
+        "n": 350,
+        "mean": 0.505608,
+        "median": 0.8324,
+        "std": 0.388004,
+        "ci95": 0.040649,
+        "min": 0.0,
+        "max": 0.877322
+      },
+      "reliability_diagram": [
+        {
+          "bin": 0,
+          "n": 117,
+          "mean_confidence": 0.0,
+          "empirical_accuracy": 0.0
+        },
+        {
+          "bin": 1,
+          "n": 10,
+          "mean_confidence": 0.193786,
+          "empirical_accuracy": 0.0
+        },
+        {
+          "bin": 2,
+          "n": 7,
+          "mean_confidence": 0.257327,
+          "empirical_accuracy": 0.0
+        },
+        {
+          "bin": 3,
+          "n": 4,
+          "mean_confidence": 0.36121,
+          "empirical_accuracy": 0.0
+        },
+        {
+          "bin": 4,
+          "n": 6,
+          "mean_confidence": 0.470386,
+          "empirical_accuracy": 0.0
+        },
+        {
+          "bin": 5,
+          "n": 9,
+          "mean_confidence": 0.544393,
+          "empirical_accuracy": 0.0
+        },
+        {
+          "bin": 6,
+          "n": 4,
+          "mean_confidence": 0.635279,
+          "empirical_accuracy": 0.0
+        },
+        {
+          "bin": 8,
+          "n": 193,
+          "mean_confidence": 0.836869,
+          "empirical_accuracy": 0.891192
+        }
+      ]
+    },
+    "isotonic": {
+      "n": 350,
+      "ece": 0.09816,
+      "brier": 0.067859,
+      "nll": 0.89825,
+      "accuracy": {
+        "n": 350,
+        "mean": 0.491429,
+        "median": 0.0,
+        "std": 0.499927,
+        "ci95": 0.052375,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "confidence": {
+        "n": 350,
+        "mean": 0.476063,
+        "median": 0.82716,
+        "std": 0.426076,
+        "ci95": 0.044638,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "reliability_diagram": [
+        {
+          "bin": 0,
+          "n": 154,
+          "mean_confidence": 0.0,
+          "empirical_accuracy": 0.0
+        },
+        {
+          "bin": 4,
+          "n": 2,
+          "mean_confidence": 0.422222,
+          "empirical_accuracy": 0.0
+        },
+        {
+          "bin": 6,
+          "n": 1,
+          "mean_confidence": 0.644444,
+          "empirical_accuracy": 0.0
+        },
+        {
+          "bin": 8,
+          "n": 161,
+          "mean_confidence": 0.826913,
+          "empirical_accuracy": 0.950311
+        },
+        {
+          "bin": 9,
+          "n": 32,
+          "mean_confidence": 1.0,
+          "empirical_accuracy": 0.59375
+        }
+      ]
+    },
+    "binning": {
+      "n": 350,
+      "ece": 0.084219,
+      "brier": 0.076836,
+      "nll": 0.261973,
+      "accuracy": {
+        "n": 350,
+        "mean": 0.491429,
+        "median": 0.0,
+        "std": 0.499927,
+        "ci95": 0.052375,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "confidence": {
+        "n": 350,
+        "mean": 0.50086,
+        "median": 0.823529,
+        "std": 0.379418,
+        "ci95": 0.03975,
+        "min": 0.0,
+        "max": 0.823529
+      },
+      "reliability_diagram": [
+        {
+          "bin": 0,
+          "n": 117,
+          "mean_confidence": 0.0,
+          "empirical_accuracy": 0.0
+        },
+        {
+          "bin": 2,
+          "n": 10,
+          "mean_confidence": 0.255556,
+          "empirical_accuracy": 0.0
+        },
+        {
+          "bin": 3,
+          "n": 9,
+          "mean_confidence": 0.323457,
+          "empirical_accuracy": 0.0
+        },
+        {
+          "bin": 4,
+          "n": 8,
+          "mean_confidence": 0.463889,
+          "empirical_accuracy": 0.0
+        },
+        {
+          "bin": 5,
+          "n": 12,
+          "mean_confidence": 0.547222,
+          "empirical_accuracy": 0.0
+        },
+        {
+          "bin": 6,
+          "n": 1,
+          "mean_confidence": 0.644444,
+          "empirical_accuracy": 0.0
+        },
+        {
+          "bin": 8,
+          "n": 193,
+          "mean_confidence": 0.82338,
+          "empirical_accuracy": 0.891192
+        }
+      ]
+    },
+    "conformal_abstention": {
+      "n": 350,
+      "acc": {
+        "n": 350,
+        "mean": 0.491429,
+        "median": 0.0,
+        "std": 0.499927,
+        "ci95": 0.052375,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "coverage": {
+        "n": 350,
+        "mean": 0.551429,
+        "median": 1.0,
+        "std": 0.497348,
+        "ci95": 0.052104,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "selective_accuracy": 0.8911917098445595,
+      "ece_on_accepted": 0.143221,
+      "note": "Risk-controlled abstention; not a probability transform."
+    }
+  },
+  "by_condition": {
+    "normal": {
+      "n": 160,
+      "accuracy": {
+        "n": 160,
+        "mean": 0.85,
+        "median": 1.0,
+        "std": 0.357071,
+        "ci95": 0.055328,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "raw_confidence": {
+        "n": 160,
+        "mean": 0.66525,
+        "median": 0.768889,
+        "std": 0.265695,
+        "ci95": 0.041169,
+        "min": 0.0,
+        "max": 0.791111
+      },
+      "raw_ece": 0.18475,
+      "temperature_ece": 0.129923,
+      "states": {
+        "ACCEPTED": 136,
+        "INSUFFICIENT_EVIDENCE": 2,
+        "NON_IDENTIFIABLE": 22
+      }
+    },
+    "deep": {
+      "n": 30,
+      "accuracy": {
+        "n": 30,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "raw_confidence": {
+        "n": 30,
+        "mean": 0.424204,
+        "median": 0.791111,
+        "std": 0.396859,
+        "ci95": 0.142012,
+        "min": 0.0,
+        "max": 0.813889
+      },
+      "raw_ece": 0.424204,
+      "temperature_ece": 0.458294,
+      "states": {
+        "ACCEPTED": 16,
+        "REJECTED": 14
+      }
+    },
+    "ood": {
+      "n": 40,
+      "accuracy": {
+        "n": 40,
+        "mean": 0.8,
+        "median": 1.0,
+        "std": 0.4,
+        "ci95": 0.123959,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "raw_confidence": {
+        "n": 40,
+        "mean": 0.636556,
+        "median": 0.768889,
+        "std": 0.29325,
+        "ci95": 0.090877,
+        "min": 0.0,
+        "max": 0.791111
+      },
+      "raw_ece": 0.163444,
+      "temperature_ece": 0.110996,
+      "states": {
+        "ACCEPTED": 32,
+        "INSUFFICIENT_EVIDENCE": 1,
+        "NON_IDENTIFIABLE": 7
+      }
+    },
+    "noise": {
+      "n": 40,
+      "accuracy": {
+        "n": 40,
+        "mean": 0.1,
+        "median": 0.0,
+        "std": 0.3,
+        "ci95": 0.092969,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "raw_confidence": {
+        "n": 40,
+        "mean": 0.115333,
+        "median": 0.0,
+        "std": 0.274548,
+        "ci95": 0.085082,
+        "min": 0.0,
+        "max": 0.768889
+      },
+      "raw_ece": 0.015333,
+      "temperature_ece": 0.02486,
+      "states": {
+        "ACCEPTED": 4,
+        "CONTRADICTORY": 30,
+        "INSUFFICIENT_EVIDENCE": 2,
+        "NON_IDENTIFIABLE": 4
+      }
+    },
+    "contradictory": {
+      "n": 40,
+      "accuracy": {
+        "n": 40,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "raw_confidence": {
+        "n": 40,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "raw_ece": 0.0,
+      "temperature_ece": 0.0,
+      "states": {
+        "CONTRADICTORY": 40
+      }
+    },
+    "retrieval": {
+      "n": 40,
+      "accuracy": {
+        "n": 40,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "raw_confidence": {
+        "n": 40,
+        "mean": 0.409722,
+        "median": 0.422222,
+        "std": 0.125146,
+        "ci95": 0.038783,
+        "min": 0.255556,
+        "max": 0.644444
+      },
+      "raw_ece": 0.409722,
+      "temperature_ece": 0.386174,
+      "states": {
+        "RETRIEVAL_SUBSTITUTION": 40
+      }
+    }
+  },
+  "baseline_reference": {
+    "exp_j_independent_ece": 0.159648
+  },
+  "caveats": [
+    "Predictive confidence is not proof of correctness.",
+    "Confidence values are heuristic blends, not posterior probabilities; post-hoc transforms can reduce ECE without improving decision quality.",
+    "Retrieval substitutions are scored on retrieval confidence, not answer confidence."
+  ],
+  "resources": {
+    "elapsed_s": 6.871397,
+    "peak_rss_mb": 26.66,
+    "expansions": 0,
+    "nodes": 0,
+    "validation_calls": 0,
+    "candidates_evaluated": 0,
+    "timed_out": false,
+    "notes": []
+  },
+  "completion_status": "COMPLETED",
+  "resource_report": {
+    "elapsed_s": 6.885264900018228,
+    "nodes_used": 0,
+    "global_deadline_s": 1800.0,
+    "node_budget": null,
+    "cancelled": false,
+    "timeouts": [],
+    "diagnostics": {
+      "last_completed_scope": "K4",
+      "last_scope_status": "COMPLETED",
+      "scope_elapsed_s": 6.881326900009299,
+      "scope_nodes": 0
+    },
+    "memory_guard_mb": null,
+    "peak_rss_mb": 26.67
+  },
+  "reproducibility": {
+    "config_fingerprint": "9ab19610ebfae9f2",
+    "configuration": {
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "n_val": 5,
+      "n_train": 4,
+      "n_test": 12,
+      "abstain_threshold": 0.6,
+      "search_beam": 24,
+      "search_node_budget": 12000,
+      "max_cost": 4.0,
+      "fit_deadline_s": 2.5,
+      "experiment_deadline_s": 240.0,
+      "campaign_deadline_s": 1800.0,
+      "depths": [
+        2,
+        3,
+        4,
+        5,
+        8,
+        12,
+        16
+      ],
+      "quick": false
+    },
+    "hardware": {
+      "cpu": "Intel64 Family 6 Model 140 Stepping 1, GenuineIntel",
+      "logical_cores": 8,
+      "ram_gb": 16.82,
+      "os": "Windows-11-10.0.26200-SP0",
+      "device": "cpu",
+      "acceleration": "none (CPU-only; no external APIs)",
+      "python": "3.13.15"
+    },
+    "git_commit": "86a8141c755626658363ed3f0d3ad04a99254ee5",
+    "git_branch": "research/exp-k",
+    "source_fingerprints": {
+      "constructive/exp_j/generators.py": "b09b085f682c7221afd417de19d28d70457598a016f2be6c6f4d6f0e22a75ccf",
+      "constructive/exp_j/deep_composition.py": "3e65ab969055f10b503e69a9157c65a5a63d66db271891431aea48145c115737",
+      "constructive/exp_j/transfer.py": "ab77360a7717972e76c6e8aed5e4c6c9de9c3eb4cab1c9bc5ae7c7106d7c1948",
+      "constructive/exp_j/robustness.py": "9e00695cd1ff7bbee9dbe78e10b45c649ec68987a00dfa25ecc02508b9429f72",
+      "constructive/exp_j/metrics.py": "afc91aa9edcab232c72c683b80a075827077baac55696e04c711cf87398a847c",
+      "constructive/exp_i/dsl.py": "b7f0b474c7cd0e78d2a1e1fcab48842b0d72b4534231f447b3da53c9ff06640c",
+      "constructive/exp_i/search.py": "c115d96734e9d0a785b5383b06416b641a1992319c42792aa2debd5af28223aa",
+      "constructive/exp_i/retrieval.py": "cb3759cffe29ceffd295348a0dd0dd5b4df5c1e88cda84342e9b90b2ea4f16cd",
+      "constructive/exp_i/validation.py": "9db84dea68aeb88268538c4b287166914a3c7b64566a18edd7bb872aa3a99314"
+    },
+    "note": "Systems under test (EXP-I/EXP-J) are imported read-only."
+  }
+}

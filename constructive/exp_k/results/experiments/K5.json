@@ -1,0 +1,2303 @@
+{
+  "stage": "K5",
+  "experiment_id": "K5",
+  "experiment_name": "Cross-Mechanism Interactions",
+  "status": "completed",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "n_combinations": 10,
+  "combinations": {
+    "evidence_validation+deep_search": {
+      "mechanism_a": "evidence",
+      "mechanism_b": "deep_search",
+      "source": "deep",
+      "n_episodes": 30,
+      "cells": {
+        "baseline": {
+          "n": 30,
+          "correct": {
+            "n": 30,
+            "mean": 0.033333,
+            "median": 0.0,
+            "std": 0.179505,
+            "ci95": 0.064234,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "wrong": {
+            "n": 30,
+            "mean": 0.966667,
+            "median": 1.0,
+            "std": 0.179505,
+            "ci95": 0.064234,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "coverage": {
+            "n": 30,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "abstention": {
+            "n": 30,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "expansions": {
+            "n": 30,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "timed_out": 0
+        },
+        "A_only[evidence]": {
+          "n": 30,
+          "correct": {
+            "n": 30,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "wrong": {
+            "n": 30,
+            "mean": 0.033333,
+            "median": 0.0,
+            "std": 0.179505,
+            "ci95": 0.064234,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "coverage": {
+            "n": 30,
+            "mean": 0.033333,
+            "median": 0.0,
+            "std": 0.179505,
+            "ci95": 0.064234,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "abstention": {
+            "n": 30,
+            "mean": 0.966667,
+            "median": 1.0,
+            "std": 0.179505,
+            "ci95": 0.064234,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "expansions": {
+            "n": 30,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "timed_out": 0
+        },
+        "B_only[deep_search]": {
+          "n": 30,
+          "correct": {
+            "n": 30,
+            "mean": 0.2,
+            "median": 0.0,
+            "std": 0.4,
+            "ci95": 0.143136,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "wrong": {
+            "n": 30,
+            "mean": 0.733333,
+            "median": 1.0,
+            "std": 0.442217,
+            "ci95": 0.158242,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "coverage": {
+            "n": 30,
+            "mean": 0.933333,
+            "median": 1.0,
+            "std": 0.249444,
+            "ci95": 0.089261,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "abstention": {
+            "n": 30,
+            "mean": 0.066667,
+            "median": 0.0,
+            "std": 0.249444,
+            "ci95": 0.089261,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "expansions": {
+            "n": 30,
+            "mean": 154.7,
+            "median": 179.0,
+            "std": 36.435468,
+            "ci95": 13.038025,
+            "min": 87.0,
+            "max": 183.0
+          },
+          "timed_out": 0
+        },
+        "A_and_B": {
+          "n": 30,
+          "correct": {
+            "n": 30,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "wrong": {
+            "n": 30,
+            "mean": 0.666667,
+            "median": 1.0,
+            "std": 0.471405,
+            "ci95": 0.168687,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "coverage": {
+            "n": 30,
+            "mean": 0.666667,
+            "median": 1.0,
+            "std": 0.471405,
+            "ci95": 0.168687,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "abstention": {
+            "n": 30,
+            "mean": 0.333333,
+            "median": 0.0,
+            "std": 0.471405,
+            "ci95": 0.168687,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "expansions": {
+            "n": 30,
+            "mean": 154.7,
+            "median": 179.0,
+            "std": 36.435468,
+            "ci95": 13.038025,
+            "min": 87.0,
+            "max": 183.0
+          },
+          "timed_out": 0
+        }
+      },
+      "interaction_effects": {
+        "correct": -0.166667,
+        "wrong": 0.866668,
+        "coverage": 0.700001,
+        "abstention": -0.700001,
+        "expansions": 0.0
+      },
+      "regressions": [
+        {
+          "metric": "correct",
+          "combined": 0.0,
+          "best_single": 0.2
+        },
+        {
+          "metric": "wrong",
+          "combined": 0.666667,
+          "best_single": 0.033333
+        },
+        {
+          "metric": "coverage",
+          "combined": 0.666667,
+          "best_single": 0.933333
+        },
+        {
+          "metric": "expansions",
+          "combined": 154.7,
+          "best_single": 0.0
+        }
+      ]
+    },
+    "retrieval+deep_search": {
+      "mechanism_a": "retrieval",
+      "mechanism_b": "deep_search",
+      "source": "deep",
+      "n_episodes": 30,
+      "cells": {
+        "baseline": {
+          "n": 30,
+          "correct": {
+            "n": 30,
+            "mean": 0.033333,
+            "median": 0.0,
+            "std": 0.179505,
+            "ci95": 0.064234,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "wrong": {
+            "n": 30,
+            "mean": 0.966667,
+            "median": 1.0,
+            "std": 0.179505,
+            "ci95": 0.064234,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "coverage": {
+            "n": 30,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "abstention": {
+            "n": 30,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "expansions": {
+            "n": 30,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "timed_out": 0
+        },
+        "A_only[retrieval]": {
+          "n": 30,
+          "correct": {
+            "n": 30,
+            "mean": 0.033333,
+            "median": 0.0,
+            "std": 0.179505,
+            "ci95": 0.064234,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "wrong": {
+            "n": 30,
+            "mean": 0.966667,
+            "median": 1.0,
+            "std": 0.179505,
+            "ci95": 0.064234,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "coverage": {
+            "n": 30,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "abstention": {
+            "n": 30,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "expansions": {
+            "n": 30,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "timed_out": 0
+        },
+        "B_only[deep_search]": {
+          "n": 30,
+          "correct": {
+            "n": 30,
+            "mean": 0.2,
+            "median": 0.0,
+            "std": 0.4,
+            "ci95": 0.143136,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "wrong": {
+            "n": 30,
+            "mean": 0.733333,
+            "median": 1.0,
+            "std": 0.442217,
+            "ci95": 0.158242,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "coverage": {
+            "n": 30,
+            "mean": 0.933333,
+            "median": 1.0,
+            "std": 0.249444,
+            "ci95": 0.089261,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "abstention": {
+            "n": 30,
+            "mean": 0.066667,
+            "median": 0.0,
+            "std": 0.249444,
+            "ci95": 0.089261,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "expansions": {
+            "n": 30,
+            "mean": 154.7,
+            "median": 179.0,
+            "std": 36.435468,
+            "ci95": 13.038025,
+            "min": 87.0,
+            "max": 183.0
+          },
+          "timed_out": 0
+        },
+        "A_and_B": {
+          "n": 30,
+          "correct": {
+            "n": 30,
+            "mean": 0.2,
+            "median": 0.0,
+            "std": 0.4,
+            "ci95": 0.143136,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "wrong": {
+            "n": 30,
+            "mean": 0.733333,
+            "median": 1.0,
+            "std": 0.442217,
+            "ci95": 0.158242,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "coverage": {
+            "n": 30,
+            "mean": 0.933333,
+            "median": 1.0,
+            "std": 0.249444,
+            "ci95": 0.089261,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "abstention": {
+            "n": 30,
+            "mean": 0.066667,
+            "median": 0.0,
+            "std": 0.249444,
+            "ci95": 0.089261,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "expansions": {
+            "n": 30,
+            "mean": 154.7,
+            "median": 179.0,
+            "std": 36.435468,
+            "ci95": 13.038025,
+            "min": 87.0,
+            "max": 183.0
+          },
+          "timed_out": 0
+        }
+      },
+      "interaction_effects": {
+        "correct": 0.0,
+        "wrong": 0.0,
+        "coverage": 0.0,
+        "abstention": 0.0,
+        "expansions": 0.0
+      },
+      "regressions": [
+        {
+          "metric": "coverage",
+          "combined": 0.933333,
+          "best_single": 1.0
+        },
+        {
+          "metric": "expansions",
+          "combined": 154.7,
+          "best_single": 0.0
+        }
+      ]
+    },
+    "retrieval+ood_abstention": {
+      "mechanism_a": "retrieval",
+      "mechanism_b": "ood_abstention",
+      "source": "ood",
+      "n_episodes": 40,
+      "cells": {
+        "baseline": {
+          "n": 40,
+          "correct": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "wrong": {
+            "n": 40,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "coverage": {
+            "n": 40,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "abstention": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "expansions": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "timed_out": 0
+        },
+        "A_only[retrieval]": {
+          "n": 40,
+          "correct": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "wrong": {
+            "n": 40,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "coverage": {
+            "n": 40,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "abstention": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "expansions": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "timed_out": 0
+        },
+        "B_only[ood_abstention]": {
+          "n": 40,
+          "correct": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "wrong": {
+            "n": 40,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "coverage": {
+            "n": 40,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "abstention": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "expansions": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "timed_out": 0
+        },
+        "A_and_B": {
+          "n": 40,
+          "correct": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "wrong": {
+            "n": 40,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "coverage": {
+            "n": 40,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "abstention": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "expansions": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "timed_out": 0
+        }
+      },
+      "interaction_effects": {
+        "correct": 0.0,
+        "wrong": 0.0,
+        "coverage": 0.0,
+        "abstention": 0.0,
+        "expansions": 0.0
+      },
+      "regressions": []
+    },
+    "drift_detection+retrieval": {
+      "mechanism_a": "drift_detection",
+      "mechanism_b": "retrieval",
+      "source": "drift",
+      "n_episodes": 40,
+      "cells": {
+        "baseline": {
+          "n": 40,
+          "correct": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "wrong": {
+            "n": 40,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "coverage": {
+            "n": 40,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "abstention": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "expansions": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "timed_out": 0
+        },
+        "A_only[drift_detection]": {
+          "n": 40,
+          "correct": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "wrong": {
+            "n": 40,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "coverage": {
+            "n": 40,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "abstention": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "expansions": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "timed_out": 0
+        },
+        "B_only[retrieval]": {
+          "n": 40,
+          "correct": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "wrong": {
+            "n": 40,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "coverage": {
+            "n": 40,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "abstention": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "expansions": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "timed_out": 0
+        },
+        "A_and_B": {
+          "n": 40,
+          "correct": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "wrong": {
+            "n": 40,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "coverage": {
+            "n": 40,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "abstention": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "expansions": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "timed_out": 0
+        }
+      },
+      "interaction_effects": {
+        "correct": 0.0,
+        "wrong": 0.0,
+        "coverage": 0.0,
+        "abstention": 0.0,
+        "expansions": 0.0
+      },
+      "regressions": []
+    },
+    "drift_detection+calibration": {
+      "mechanism_a": "drift_detection",
+      "mechanism_b": "calibration",
+      "source": "drift",
+      "n_episodes": 40,
+      "cells": {
+        "baseline": {
+          "n": 40,
+          "correct": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "wrong": {
+            "n": 40,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "coverage": {
+            "n": 40,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "abstention": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "expansions": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "timed_out": 0
+        },
+        "A_only[drift_detection]": {
+          "n": 40,
+          "correct": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "wrong": {
+            "n": 40,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "coverage": {
+            "n": 40,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "abstention": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "expansions": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "timed_out": 0
+        },
+        "B_only[calibration]": {
+          "n": 40,
+          "correct": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "wrong": {
+            "n": 40,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "coverage": {
+            "n": 40,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "abstention": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "expansions": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "timed_out": 0
+        },
+        "A_and_B": {
+          "n": 40,
+          "correct": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "wrong": {
+            "n": 40,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "coverage": {
+            "n": 40,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "abstention": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "expansions": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "timed_out": 0
+        }
+      },
+      "interaction_effects": {
+        "correct": 0.0,
+        "wrong": 0.0,
+        "coverage": 0.0,
+        "abstention": 0.0,
+        "expansions": 0.0
+      },
+      "regressions": []
+    },
+    "noisy_evidence+deep_search": {
+      "mechanism_a": "noisy_evidence",
+      "mechanism_b": "deep_search",
+      "source": "deep",
+      "n_episodes": 30,
+      "cells": {
+        "baseline": {
+          "n": 30,
+          "correct": {
+            "n": 30,
+            "mean": 0.033333,
+            "median": 0.0,
+            "std": 0.179505,
+            "ci95": 0.064234,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "wrong": {
+            "n": 30,
+            "mean": 0.966667,
+            "median": 1.0,
+            "std": 0.179505,
+            "ci95": 0.064234,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "coverage": {
+            "n": 30,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "abstention": {
+            "n": 30,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "expansions": {
+            "n": 30,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "timed_out": 0
+        },
+        "A_only[noisy_evidence]": {
+          "n": 30,
+          "correct": {
+            "n": 30,
+            "mean": 0.033333,
+            "median": 0.0,
+            "std": 0.179505,
+            "ci95": 0.064234,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "wrong": {
+            "n": 30,
+            "mean": 0.966667,
+            "median": 1.0,
+            "std": 0.179505,
+            "ci95": 0.064234,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "coverage": {
+            "n": 30,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "abstention": {
+            "n": 30,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "expansions": {
+            "n": 30,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "timed_out": 0
+        },
+        "B_only[deep_search]": {
+          "n": 30,
+          "correct": {
+            "n": 30,
+            "mean": 0.2,
+            "median": 0.0,
+            "std": 0.4,
+            "ci95": 0.143136,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "wrong": {
+            "n": 30,
+            "mean": 0.733333,
+            "median": 1.0,
+            "std": 0.442217,
+            "ci95": 0.158242,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "coverage": {
+            "n": 30,
+            "mean": 0.933333,
+            "median": 1.0,
+            "std": 0.249444,
+            "ci95": 0.089261,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "abstention": {
+            "n": 30,
+            "mean": 0.066667,
+            "median": 0.0,
+            "std": 0.249444,
+            "ci95": 0.089261,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "expansions": {
+            "n": 30,
+            "mean": 154.7,
+            "median": 179.0,
+            "std": 36.435468,
+            "ci95": 13.038025,
+            "min": 87.0,
+            "max": 183.0
+          },
+          "timed_out": 0
+        },
+        "A_and_B": {
+          "n": 30,
+          "correct": {
+            "n": 30,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "wrong": {
+            "n": 30,
+            "mean": 0.433333,
+            "median": 0.0,
+            "std": 0.495536,
+            "ci95": 0.177322,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "coverage": {
+            "n": 30,
+            "mean": 0.433333,
+            "median": 0.0,
+            "std": 0.495536,
+            "ci95": 0.177322,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "abstention": {
+            "n": 30,
+            "mean": 0.566667,
+            "median": 1.0,
+            "std": 0.495536,
+            "ci95": 0.177322,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "expansions": {
+            "n": 30,
+            "mean": 154.7,
+            "median": 179.0,
+            "std": 36.435468,
+            "ci95": 13.038025,
+            "min": 87.0,
+            "max": 183.0
+          },
+          "timed_out": 0
+        }
+      },
+      "interaction_effects": {
+        "correct": -0.2,
+        "wrong": -0.3,
+        "coverage": -0.5,
+        "abstention": 0.5,
+        "expansions": 0.0
+      },
+      "regressions": [
+        {
+          "metric": "correct",
+          "combined": 0.0,
+          "best_single": 0.2
+        },
+        {
+          "metric": "coverage",
+          "combined": 0.433333,
+          "best_single": 1.0
+        },
+        {
+          "metric": "expansions",
+          "combined": 154.7,
+          "best_single": 0.0
+        }
+      ]
+    },
+    "contradictory_evidence+retrieval": {
+      "mechanism_a": "contradictory_evidence",
+      "mechanism_b": "retrieval",
+      "source": "ood",
+      "n_episodes": 40,
+      "cells": {
+        "baseline": {
+          "n": 40,
+          "correct": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "wrong": {
+            "n": 40,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "coverage": {
+            "n": 40,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "abstention": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "expansions": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "timed_out": 0
+        },
+        "A_only[contradictory_evidence]": {
+          "n": 40,
+          "correct": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "wrong": {
+            "n": 40,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "coverage": {
+            "n": 40,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "abstention": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "expansions": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "timed_out": 0
+        },
+        "B_only[retrieval]": {
+          "n": 40,
+          "correct": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "wrong": {
+            "n": 40,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "coverage": {
+            "n": 40,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "abstention": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "expansions": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "timed_out": 0
+        },
+        "A_and_B": {
+          "n": 40,
+          "correct": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "wrong": {
+            "n": 40,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "coverage": {
+            "n": 40,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "abstention": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "expansions": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "timed_out": 0
+        }
+      },
+      "interaction_effects": {
+        "correct": 0.0,
+        "wrong": 0.0,
+        "coverage": 0.0,
+        "abstention": 0.0,
+        "expansions": 0.0
+      },
+      "regressions": []
+    },
+    "calibration+abstention": {
+      "mechanism_a": "calibration",
+      "mechanism_b": "abstention",
+      "source": "normal",
+      "n_episodes": 40,
+      "cells": {
+        "baseline": {
+          "n": 40,
+          "correct": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "wrong": {
+            "n": 40,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "coverage": {
+            "n": 40,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "abstention": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "expansions": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "timed_out": 0
+        },
+        "A_only[calibration]": {
+          "n": 40,
+          "correct": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "wrong": {
+            "n": 40,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "coverage": {
+            "n": 40,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "abstention": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "expansions": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "timed_out": 0
+        },
+        "B_only[abstention]": {
+          "n": 40,
+          "correct": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "wrong": {
+            "n": 40,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "coverage": {
+            "n": 40,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "abstention": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "expansions": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "timed_out": 0
+        },
+        "A_and_B": {
+          "n": 40,
+          "correct": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "wrong": {
+            "n": 40,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "coverage": {
+            "n": 40,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "abstention": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "expansions": {
+            "n": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "timed_out": 0
+        }
+      },
+      "interaction_effects": {
+        "correct": 0.0,
+        "wrong": 0.0,
+        "coverage": 0.0,
+        "abstention": 0.0,
+        "expansions": 0.0
+      },
+      "regressions": []
+    },
+    "type_checking+composition": {
+      "mechanism_a": "type_checking",
+      "mechanism_b": "deep_search",
+      "source": "deep",
+      "n_episodes": 30,
+      "cells": {
+        "baseline": {
+          "n": 30,
+          "correct": {
+            "n": 30,
+            "mean": 0.033333,
+            "median": 0.0,
+            "std": 0.179505,
+            "ci95": 0.064234,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "wrong": {
+            "n": 30,
+            "mean": 0.966667,
+            "median": 1.0,
+            "std": 0.179505,
+            "ci95": 0.064234,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "coverage": {
+            "n": 30,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "abstention": {
+            "n": 30,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "expansions": {
+            "n": 30,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "timed_out": 0
+        },
+        "A_only[type_checking]": {
+          "n": 30,
+          "correct": {
+            "n": 30,
+            "mean": 0.033333,
+            "median": 0.0,
+            "std": 0.179505,
+            "ci95": 0.064234,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "wrong": {
+            "n": 30,
+            "mean": 0.966667,
+            "median": 1.0,
+            "std": 0.179505,
+            "ci95": 0.064234,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "coverage": {
+            "n": 30,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "abstention": {
+            "n": 30,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "expansions": {
+            "n": 30,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "timed_out": 0
+        },
+        "B_only[deep_search]": {
+          "n": 30,
+          "correct": {
+            "n": 30,
+            "mean": 0.2,
+            "median": 0.0,
+            "std": 0.4,
+            "ci95": 0.143136,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "wrong": {
+            "n": 30,
+            "mean": 0.733333,
+            "median": 1.0,
+            "std": 0.442217,
+            "ci95": 0.158242,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "coverage": {
+            "n": 30,
+            "mean": 0.933333,
+            "median": 1.0,
+            "std": 0.249444,
+            "ci95": 0.089261,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "abstention": {
+            "n": 30,
+            "mean": 0.066667,
+            "median": 0.0,
+            "std": 0.249444,
+            "ci95": 0.089261,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "expansions": {
+            "n": 30,
+            "mean": 154.7,
+            "median": 179.0,
+            "std": 36.435468,
+            "ci95": 13.038025,
+            "min": 87.0,
+            "max": 183.0
+          },
+          "timed_out": 0
+        },
+        "A_and_B": {
+          "n": 30,
+          "correct": {
+            "n": 30,
+            "mean": 0.2,
+            "median": 0.0,
+            "std": 0.4,
+            "ci95": 0.143136,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "wrong": {
+            "n": 30,
+            "mean": 0.733333,
+            "median": 1.0,
+            "std": 0.442217,
+            "ci95": 0.158242,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "coverage": {
+            "n": 30,
+            "mean": 0.933333,
+            "median": 1.0,
+            "std": 0.249444,
+            "ci95": 0.089261,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "abstention": {
+            "n": 30,
+            "mean": 0.066667,
+            "median": 0.0,
+            "std": 0.249444,
+            "ci95": 0.089261,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "expansions": {
+            "n": 30,
+            "mean": 154.7,
+            "median": 179.0,
+            "std": 36.435468,
+            "ci95": 13.038025,
+            "min": 87.0,
+            "max": 183.0
+          },
+          "timed_out": 0
+        }
+      },
+      "interaction_effects": {
+        "correct": 0.0,
+        "wrong": 0.0,
+        "coverage": 0.0,
+        "abstention": 0.0,
+        "expansions": 0.0
+      },
+      "regressions": [
+        {
+          "metric": "coverage",
+          "combined": 0.933333,
+          "best_single": 1.0
+        },
+        {
+          "metric": "expansions",
+          "combined": 154.7,
+          "best_single": 0.0
+        }
+      ]
+    },
+    "cegis+resource_governance": {
+      "mechanism_a": "cegis",
+      "mechanism_b": "resource_governance",
+      "source": "deep",
+      "n_episodes": 30,
+      "cells": {
+        "baseline": {
+          "n": 30,
+          "correct": {
+            "n": 30,
+            "mean": 0.033333,
+            "median": 0.0,
+            "std": 0.179505,
+            "ci95": 0.064234,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "wrong": {
+            "n": 30,
+            "mean": 0.966667,
+            "median": 1.0,
+            "std": 0.179505,
+            "ci95": 0.064234,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "coverage": {
+            "n": 30,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "abstention": {
+            "n": 30,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "expansions": {
+            "n": 30,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "timed_out": 0
+        },
+        "A_only[cegis]": {
+          "n": 30,
+          "correct": {
+            "n": 30,
+            "mean": 0.333333,
+            "median": 0.0,
+            "std": 0.471405,
+            "ci95": 0.168687,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "wrong": {
+            "n": 30,
+            "mean": 0.5,
+            "median": 0.5,
+            "std": 0.5,
+            "ci95": 0.178919,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "coverage": {
+            "n": 30,
+            "mean": 0.833333,
+            "median": 1.0,
+            "std": 0.372678,
+            "ci95": 0.133359,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "abstention": {
+            "n": 30,
+            "mean": 0.166667,
+            "median": 0.0,
+            "std": 0.372678,
+            "ci95": 0.133359,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "expansions": {
+            "n": 30,
+            "mean": 262.1,
+            "median": 287.0,
+            "std": 103.152428,
+            "ci95": 36.911944,
+            "min": 87.0,
+            "max": 366.0
+          },
+          "timed_out": 0
+        },
+        "B_only[resource_governance]": {
+          "n": 30,
+          "correct": {
+            "n": 30,
+            "mean": 0.333333,
+            "median": 0.0,
+            "std": 0.471405,
+            "ci95": 0.168687,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "wrong": {
+            "n": 30,
+            "mean": 0.666667,
+            "median": 1.0,
+            "std": 0.471405,
+            "ci95": 0.168687,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "coverage": {
+            "n": 30,
+            "mean": 1.0,
+            "median": 1.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "abstention": {
+            "n": 30,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "expansions": {
+            "n": 30,
+            "mean": 0.0,
+            "median": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "timed_out": 0
+        },
+        "A_and_B": {
+          "n": 30,
+          "correct": {
+            "n": 30,
+            "mean": 0.333333,
+            "median": 0.0,
+            "std": 0.471405,
+            "ci95": 0.168687,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "wrong": {
+            "n": 30,
+            "mean": 0.5,
+            "median": 0.5,
+            "std": 0.5,
+            "ci95": 0.178919,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "coverage": {
+            "n": 30,
+            "mean": 0.833333,
+            "median": 1.0,
+            "std": 0.372678,
+            "ci95": 0.133359,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "abstention": {
+            "n": 30,
+            "mean": 0.166667,
+            "median": 0.0,
+            "std": 0.372678,
+            "ci95": 0.133359,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "expansions": {
+            "n": 30,
+            "mean": 262.1,
+            "median": 287.0,
+            "std": 103.152428,
+            "ci95": 36.911944,
+            "min": 87.0,
+            "max": 366.0
+          },
+          "timed_out": 0
+        }
+      },
+      "interaction_effects": {
+        "correct": -0.3,
+        "wrong": 0.3,
+        "coverage": 0.0,
+        "abstention": 0.0,
+        "expansions": 0.0
+      },
+      "regressions": [
+        {
+          "metric": "coverage",
+          "combined": 0.833333,
+          "best_single": 1.0
+        },
+        {
+          "metric": "expansions",
+          "combined": 262.1,
+          "best_single": 0.0
+        }
+      ]
+    }
+  },
+  "total_regressions": 13,
+  "limitations": [
+    "Factorial interaction is estimated additively; no significance test is applied to the interaction term.",
+    "Some mechanisms are only meaningful for the episode source where they are applied."
+  ],
+  "resources": {
+    "elapsed_s": 58.081808,
+    "peak_rss_mb": 29.32,
+    "expansions": 0,
+    "nodes": 0,
+    "validation_calls": 0,
+    "candidates_evaluated": 0,
+    "timed_out": false,
+    "notes": []
+  },
+  "completion_status": "COMPLETED",
+  "resource_report": {
+    "elapsed_s": 58.09882670000661,
+    "nodes_used": 0,
+    "global_deadline_s": 1800.0,
+    "node_budget": null,
+    "cancelled": false,
+    "timeouts": [],
+    "diagnostics": {
+      "last_completed_scope": "K5",
+      "last_scope_status": "COMPLETED",
+      "scope_elapsed_s": 58.095635300007416,
+      "scope_nodes": 0
+    },
+    "memory_guard_mb": null,
+    "peak_rss_mb": 29.32
+  },
+  "reproducibility": {
+    "config_fingerprint": "9ab19610ebfae9f2",
+    "configuration": {
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "n_val": 5,
+      "n_train": 4,
+      "n_test": 12,
+      "abstain_threshold": 0.6,
+      "search_beam": 24,
+      "search_node_budget": 12000,
+      "max_cost": 4.0,
+      "fit_deadline_s": 2.5,
+      "experiment_deadline_s": 240.0,
+      "campaign_deadline_s": 1800.0,
+      "depths": [
+        2,
+        3,
+        4,
+        5,
+        8,
+        12,
+        16
+      ],
+      "quick": false
+    },
+    "hardware": {
+      "cpu": "Intel64 Family 6 Model 140 Stepping 1, GenuineIntel",
+      "logical_cores": 8,
+      "ram_gb": 16.82,
+      "os": "Windows-11-10.0.26200-SP0",
+      "device": "cpu",
+      "acceleration": "none (CPU-only; no external APIs)",
+      "python": "3.13.15"
+    },
+    "git_commit": "86a8141c755626658363ed3f0d3ad04a99254ee5",
+    "git_branch": "research/exp-k",
+    "source_fingerprints": {
+      "constructive/exp_j/generators.py": "b09b085f682c7221afd417de19d28d70457598a016f2be6c6f4d6f0e22a75ccf",
+      "constructive/exp_j/deep_composition.py": "3e65ab969055f10b503e69a9157c65a5a63d66db271891431aea48145c115737",
+      "constructive/exp_j/transfer.py": "ab77360a7717972e76c6e8aed5e4c6c9de9c3eb4cab1c9bc5ae7c7106d7c1948",
+      "constructive/exp_j/robustness.py": "9e00695cd1ff7bbee9dbe78e10b45c649ec68987a00dfa25ecc02508b9429f72",
+      "constructive/exp_j/metrics.py": "afc91aa9edcab232c72c683b80a075827077baac55696e04c711cf87398a847c",
+      "constructive/exp_i/dsl.py": "b7f0b474c7cd0e78d2a1e1fcab48842b0d72b4534231f447b3da53c9ff06640c",
+      "constructive/exp_i/search.py": "c115d96734e9d0a785b5383b06416b641a1992319c42792aa2debd5af28223aa",
+      "constructive/exp_i/retrieval.py": "cb3759cffe29ceffd295348a0dd0dd5b4df5c1e88cda84342e9b90b2ea4f16cd",
+      "constructive/exp_i/validation.py": "9db84dea68aeb88268538c4b287166914a3c7b64566a18edd7bb872aa3a99314"
+    },
+    "note": "Systems under test (EXP-I/EXP-J) are imported read-only."
+  }
+}

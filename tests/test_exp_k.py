@@ -124,3 +124,141 @@ def test_k0_results_persisted():
     data = json.loads(latest.read_text(encoding="utf-8"))
     assert "K0" in data["experiments"]
     assert (RESULTS_DIR / "manifests" / "k0_dataset_manifest.json").exists()
+
+
+# --- K1: deep composition root causes --------------------------------------
+
+
+def test_first_error_trace():
+    from constructive.exp_i import dsl as dsl_i
+    from constructive.exp_k.deep_composition import trace_first_error
+    hidden = dsl_i.call("add1", dsl_i.call("add1", dsl_i.call("double", dsl_i.var("int"))))
+    wrong = dsl_i.call("double", dsl_i.call("double", dsl_i.var("int")))
+    probes = [1, 2, 3, 4]
+    tr = trace_first_error(wrong, hidden, probes)
+    assert tr["first_error_depth"] == 3
+    assert tr["hidden_steps"] == 3
+    assert tr["error_propagated"] is True
+
+
+def test_k1_all_arms_and_classification():
+    from constructive.exp_k.deep_composition import ARMS
+    r = runner.run(stage="K1", quick=True)
+    k1 = r["experiments"]["K1"]
+    assert k1["status"] == "completed"
+    assert k1["completion_status"] == "COMPLETED"
+    assert set(k1["by_arm"]) == set(ARMS)
+    assert k1["n_runs"] > 0
+    valid = {x.value for x in __import__(
+        "constructive.exp_k.types", fromlist=["DeepOutcome"]).DeepOutcome}
+    assert all(row["outcome"] in valid for row in k1["episodes"])
+    assert "oracle_contract" in k1["comparison_to_baseline"]
+    assert k1["comparison_to_baseline"]["shifted_validation"]["n_paired"] > 0
+    assert k1["resources"]["peak_rss_mb"] is not None
+
+
+# --- K2: OOD retrieval ------------------------------------------------------
+
+
+def test_retrieval_abstention_on_ood():
+    from constructive.exp_k import retrieval_ood as K2
+    r = runner.run(stage="K2", quick=True)
+    k2 = r["experiments"]["K2"]
+    assert k2["status"] == "completed"
+    assert k2["completion_status"] == "COMPLETED"
+    assert set(k2["by_arm"]) == set(K2.ARMS)
+    assert k2["n_runs"] > 0
+    for arm, v in k2["by_arm"].items():
+        assert "silent_substitution_ood" in v
+        assert "correct_abstention_ood" in v
+        assert "latency_ms" in v
+    assert "independent_verification" in k2["comparison_to_baseline"]
+    assert k2["comparison_to_baseline"]["independent_verification"]["n_paired"] > 0
+
+
+# --- K3: drift detection ----------------------------------------------------
+
+
+def test_drift_thresholds_fixed_on_calibration():
+    from constructive.exp_k import drift_detection as K3
+    r = runner.run(stage="K3", quick=True)
+    k3 = r["experiments"]["K3"]
+    assert k3["status"] == "completed"
+    assert k3["completion_status"] == "COMPLETED"
+    assert set(k3["by_arm"]) == set(K3.ARMS)
+    assert k3["fixed_thresholds"]["feature_threshold"] is not None
+    assert k3["fixed_thresholds"]["window"] == 2
+    assert "stable" in k3["kinds"]
+    assert all(v["n_streams"] > 0 for v in k3["by_arm"].values())
+    assert "combined" in k3["comparison_to_baseline"]
+
+
+# --- K4: calibration --------------------------------------------------------
+
+
+def test_calibration_uses_separate_split():
+    from constructive.exp_k import calibration as K4
+    r = runner.run(stage="K4", quick=True)
+    k4 = r["experiments"]["K4"]
+    assert k4["status"] == "completed"
+    assert k4["completion_status"] == "COMPLETED"
+    assert set(k4["by_method"]) == set(K4.METHODS)
+    assert k4["n_calibration"] > 0 and k4["n_evaluation"] > 0
+    assert set(k4["calibration_seeds"]).isdisjoint(set(k4["seeds"]))
+    assert set(k4["by_condition"]) == set(K4.CONDITIONS)
+    assert k4["by_method"]["raw"]["ece"] is not None
+    assert "caveats" in k4
+
+
+# --- K5: interactions -------------------------------------------------------
+
+
+def test_k5_factorial_arms():
+    from constructive.exp_k import interactions as K5
+    r = runner.run(stage="K5", quick=True)
+    k5 = r["experiments"]["K5"]
+    assert k5["status"] == "completed"
+    assert k5["completion_status"] == "COMPLETED"
+    assert k5["n_combinations"] == len(K5.COMBINATIONS)
+    for name, v in k5["combinations"].items():
+        assert set(v["cells"]) == {"baseline", f"A_only[{v['mechanism_a']}]",
+                                   f"B_only[{v['mechanism_b']}]", "A_and_B"}
+        assert "interaction_effects" in v
+        assert isinstance(v["regressions"], list)
+
+
+# --- K6: adversarial --------------------------------------------------------
+
+
+def test_k6_adversarial_attacks_and_abstain_control():
+    from constructive.exp_k import adversarial as K6
+    r = runner.run(stage="K6", quick=True)
+    k6 = r["experiments"]["K6"]
+    assert k6["status"] == "completed"
+    assert k6["completion_status"] == "COMPLETED"
+    assert set(k6["by_attack"]) == set(K6.ATTACKS)
+    assert k6["n_runs"] > 0
+    assert k6["always_abstain_useful_coverage"]["mean"] == 0.0
+    assert "no_label_leakage" in k6
+
+
+# --- K7: reproduction and integration --------------------------------------
+
+
+def test_k7_integrity_and_integration_decisions():
+    from constructive.exp_k import analysis as K7A
+    from constructive.exp_k import finalize as K7F
+    r = runner.run(stage="K7", quick=True)
+    k7 = r["experiments"]["K7"]
+    assert k7["status"] == "completed"
+    assert k7["completion_status"] == "COMPLETED"
+    assert k7["protected_files_unchanged"] is True
+    assert k7["snapshots"]["total"] > 0
+    assert "K6" in k7["git"]["exp_k_commits"][0]["message"] or any(
+        c["message"].startswith("EXP-K:") for c in k7["git"]["exp_k_commits"])
+    decisions = k7["final_summary"]["integration_decisions"]
+    assert decisions["omeganano_integration"]["decision"] == "NOT_RECOMMENDED"
+    assert set(decisions) >= {"deep_composition_safeguards", "ood_retrieval_safeguards",
+                              "drift_feature_detector", "confidence_temperature_scaling"}
+
+
