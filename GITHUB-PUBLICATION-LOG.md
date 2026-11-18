@@ -42,6 +42,7 @@ Policy: normal commits only; no force push, reset, or history rewriting.
 | Stage | Commit hash | Commit message | Push verification | Tests | Protected hashes |
 |---|---|---|---|---|---|
 | L0 | `b3c7d9a165cd2481de146c827c198c981dc16eb4` | `EXP-L: establish reproducible baseline and integrity` | `git ls-remote origin refs/heads/research/exp-l` returned matching hash | EXP-L 12 passed; smoke OK; full suite 312 passed, 1 skipped | EXP-I 22/22, EXP-J 84/84 unchanged; EXP-K dataset fingerprint matched |
+| L1 | `4a67749573de147454bfaecb9b60fca2e13a2062` | `EXP-L: detect semantic drift under matched feature marginals` | `git ls-remote origin refs/heads/research/exp-l` returned matching hash | EXP-L 20 passed; full suite 320 passed, 1 skipped; gate PASS | EXP-I 22/22, EXP-J 84/84 unchanged |
 
 ## EXP-L notes
 
