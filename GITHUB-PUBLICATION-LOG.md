@@ -48,6 +48,7 @@ Policy: normal commits only; no force push, reset, or history rewriting.
 | L4 | `0e43dc5e8b4dc5ed66345e751fd9db2e01586e13` | `EXP-L: evaluate conditional calibration with disjoint partitions` | `git ls-remote origin refs/heads/research/exp-l` returned matching hash | EXP-L 34 passed; full suite 334 passed, 1 skipped; gate PASS (easy-subgroup regression disclosed) | EXP-I 22/22, EXP-J 84/84 unchanged |
 | L5 | `43fb27bfa7f24d7b286757b1cbbe3adf2e46b1e5` | `EXP-L: measure template-level natural-input transfer with no external model` | `git ls-remote origin refs/heads/research/exp-l` returned matching hash | EXP-L 38 passed; full suite 338 passed, 1 skipped; gate PASS | EXP-I 22/22, EXP-J 84/84 unchanged |
 | L6 | `db68de7cd27785f77de6ab6d8670aeace91f2ee0` | `EXP-L: measure reliability gains against computational cost` | `git ls-remote origin refs/heads/research/exp-l` returned matching hash | EXP-L 40 passed; full suite 340 passed, 1 skipped; gate PASS | EXP-I 22/22, EXP-J 84/84 unchanged |
+| L7 | `e6bbb337c445b5de9f37667fcce38fb61304899d` | `EXP-L: complete independent reproduction and final audit` | `git ls-remote origin refs/heads/research/exp-l` returned matching hash | EXP-L 41 passed; full suite 341 passed, 1 skipped; all 13 audit checks PASS | EXP-I 22/22, EXP-J 84/84 unchanged; `master` unmodified |
 
 ## EXP-L notes
 
