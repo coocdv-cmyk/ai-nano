@@ -27,6 +27,7 @@ python -m constructive.exp_l.runner --stage L3 --no-resume
 python -m constructive.exp_l.runner --stage L4 --no-resume
 python -m constructive.exp_l.runner --stage L5 --no-resume
 python -m constructive.exp_l.runner --stage L6 --no-resume
+python -m constructive.exp_l.runner --stage L7 --no-resume
 python -m constructive.exp_l.runner --stage L6 --merge-only
 ```
 

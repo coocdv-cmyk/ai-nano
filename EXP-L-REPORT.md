@@ -1,6 +1,6 @@
 # EXP-L Research Report
 
-**Status: L0–L6 complete. L7 final audit pending.**
+**Status: EXP-L COMPLETE — L0–L7 all passed their gates.**
 
 Branch: `research/exp-l` — created from the verified EXP-K tip
 `1face37bc9c695f5804baf97e6533113695f7af3` (not from `master`; `master` untouched).
@@ -285,10 +285,76 @@ combinations are `NOT_RECOMMENDED` on cost/benefit grounds.
 
 Artifact: `constructive/exp_l/results/L6-results.json`.
 
-## Decision status
+## L7 — Independent reproduction and final audit (PASS)
 
-No mechanism is `ELIGIBLE_FOR_SEPARATE_REVIEW`. L1 mapping consistency is
-promising but synthetic-only; L2 selective verification is neutral-to-negative
-and costly; L3 behavioral safeguards give the best reliability-per-cost but are
-unvalidated on overlapping realistic families; L4 calibration regresses easy
-subgroups; L5 shows template-level transfer only.
+Every primary experiment was re-run from clean configuration with the documented
+seeds. Deterministic aggregate-metric fingerprints matched on two independent
+runs of L1–L6 (e.g., L1 `1101ab09…`, L2 `4eecf142…`, L7 artifact records all).
+Timestamps and measured wall-clock values were excluded from those comparisons.
+
+| Audit check | Result |
+|---|---|
+| All stages reproduced deterministically | PASS |
+| EXP-L tests | 41 passed in 1.61 s |
+| Full repository suite | 341 passed, 1 skipped in 91.29 s |
+| Protected hashes (EXP-I 22, EXP-J 84, EXP-K dataset) | PASS |
+| No protected source file modified | PASS |
+| Additive manifests / immutable snapshots | PASS |
+| Dataset split fingerprints and no leakage | PASS |
+| No external service and no prohibited/unlicensed data | PASS |
+| Commits pushed and visible on remote | PASS |
+| `master` unmodified | PASS (local `4d18fb7…`, origin `bcf3791…`) |
+
+Machine-readable hypothesis/decision summary:
+`constructive/exp_l/results/hypotheses_decisions.json`
+(6 `NOT_RECOMMENDED`, 3 `PROMISING_BUT_UNVALIDATED`, 2 `REQUIRES_MORE_EVIDENCE`,
+0 `ELIGIBLE_FOR_SEPARATE_REVIEW`).
+
+### Overall compute cost
+
+Measured on Intel64, 8 logical cores, Windows 11, Python 3.13.15, peak RSS
+≈ 26.7 MB across all experiment runs. Experiment wall times: L1 0.122 s,
+L2 0.294 s, L3 0.034 s, L4 0.062 s, L5 0.018 s; L6 configurations 0.03–0.37 s;
+L0 full-suite re-run ≈ 96 s. All CPU-only; no GPU, API, or paid service.
+
+### Final decision status
+
+**No mechanism is `ELIGIBLE_FOR_SEPARATE_REVIEW`; no integration was performed.**
+
+| Mechanism | Decision |
+|---|---|
+| L1 mapping-consistency drift detector | `PROMISING_BUT_UNVALIDATED` |
+| L1 feature-statistic drift detector | `NOT_RECOMMENDED` |
+| L2 selective verification | `REQUIRES_MORE_EVIDENCE` |
+| L2 full/conservative verification | `NOT_RECOMMENDED` |
+| L3 behavioral retrieval verification | `REQUIRES_MORE_EVIDENCE` |
+| L3 type/surface-aware retrieval | `NOT_RECOMMENDED` |
+| L4 temperature scaling | `PROMISING_BUT_UNVALIDATED` |
+| L4 binning / conditional calibration | `NOT_RECOMMENDED` |
+| L5 natural-input adapter | `PROMISING_BUT_UNVALIDATED` |
+| L6 combined configurations | `NOT_RECOMMENDED` |
+| OMEGA-NANO / CCM integration | `NOT_RECOMMENDED` |
+
+### Lessons and unresolved limitations
+
+- **What improved:** mapping-consistency drift detection under matched feature
+  marginals; behavioral retrieval verification (substitution 1.000→0.011 in L6
+  at ~4% latency); aggregate calibration on difficult subgroups.
+- **What did not improve:** selective intermediate verification had no credible
+  effect size; type/surface-aware retrieval did nothing; combinations regressed
+  latency without improving on L3 alone.
+- **What failed:** full/conservative verification eliminated wrong acceptance
+  only by discarding ~44% of useful coverage; conditional-by-family calibration
+  overfit and gave the worst NLL.
+- **Unknown / unresolved:** whether any of this holds for overlapping, realistic
+  concept families, real paraphrase diversity, or genuine distribution shift.
+- **Evidence type:** all L1–L4 and L6 evidence is synthetic; L5 is 14 hand-authored
+  templates. No result demonstrates general capability beyond the tested families.
+- **Fair external comparison:** none was performed; no claim of superiority over
+  large models is made.
+
+### Protected-system confirmation
+
+`omega_nano/`, CCM, the original constructive core, EXP-H, EXP-I, EXP-J and EXP-K
+were not modified; their source hashes are unchanged. `master` was not modified
+by EXP-L. Eight pre-existing untracked EXP-H result files were left untouched.

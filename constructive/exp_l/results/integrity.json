@@ -86,7 +86,27 @@
       },
       "gate_pass": true,
       "snapshot": "constructive\\exp_l\\results\\history\\L6-20261118-134619.json"
+    },
+    "L7": {
+      "stage": "L7",
+      "gate": {
+        "all_stages_reproduced": true,
+        "exp_l_tests_pass": true,
+        "full_suite_pass": true,
+        "protected_hashes_ok": true,
+        "no_protected_source_modified": true,
+        "manifests_ok": true,
+        "snapshots_ok": true,
+        "split_fingerprints_ok": true,
+        "no_leakage": true,
+        "no_external_service": true,
+        "no_prohibited_data": true,
+        "commits_pushed": true,
+        "master_unmodified": true
+      },
+      "gate_pass": true,
+      "snapshot": "constructive\\exp_l\\results\\history\\L7-20261118-135640.json"
     }
   },
-  "fingerprint": "d765250e8e9f6c42"
+  "fingerprint": "eecfa1f1de7d787b"
 }

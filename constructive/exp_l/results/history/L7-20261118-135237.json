@@ -1,0 +1,454 @@
+{
+  "stage": "L7",
+  "schema": "exp-l-stage-block-v1",
+  "config": {
+    "stage": "L7",
+    "seed": 0,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "quick": false,
+    "no_resume": false,
+    "merge_only": false,
+    "generator_version": "exp-l-gen-1",
+    "seed_policy": "explicit_sha256_derived_random.Random(seed, stream); no hash() of strings",
+    "n_train": 4,
+    "n_val": 4,
+    "n_test": 8,
+    "time_limit_s": 120.0,
+    "memory_limit_mb": 512.0,
+    "full_test_timeout_s": 300.0
+  },
+  "config_fingerprint": "9acc32026f2c1c76",
+  "environment": {
+    "captured_utc": "2026-11-18T13:50:57.711713+00:00",
+    "python": {
+      "version": "3.13.15",
+      "implementation": "CPython",
+      "executable": "C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\python.exe"
+    },
+    "os": {
+      "platform": "Windows-11-10.0.26200-SP0",
+      "system": "Windows",
+      "release": "11",
+      "machine": "AMD64",
+      "processor": "Intel64 Family 6 Model 140 Stepping 1, GenuineIntel"
+    },
+    "cpu": {
+      "logical_cores": 8,
+      "device": "cpu",
+      "acceleration": "none"
+    },
+    "memory": {
+      "total_gb": 16.818,
+      "available_gb": 3.887
+    },
+    "dependencies": {
+      "numpy": {
+        "installed": true,
+        "version": "2.5.3"
+      },
+      "scipy": {
+        "installed": true,
+        "version": "1.18.1"
+      },
+      "pytest": {
+        "installed": true,
+        "version": "9.2.0"
+      },
+      "psutil": {
+        "installed": true,
+        "version": "7.2.2"
+      }
+    },
+    "git": {
+      "commit": "4d34c4b8afa7c2ee18bd5f203939a20e5244d99f",
+      "branch": "research/exp-l"
+    },
+    "repository_root": "D:\\ai model",
+    "external_services_required": false,
+    "gpu_required": false
+  },
+  "reproduction": {
+    "L0": {
+      "deterministic": true,
+      "fingerprint": "2a71b32c014c907f"
+    },
+    "L1": {
+      "deterministic": true,
+      "fingerprint_a": "1101ab09a1d20a5a",
+      "fingerprint_b": "1101ab09a1d20a5a",
+      "gate_pass": true
+    },
+    "L2": {
+      "deterministic": true,
+      "fingerprint_a": "4eecf14292d34f89",
+      "fingerprint_b": "4eecf14292d34f89",
+      "gate_pass": true
+    },
+    "L3": {
+      "deterministic": true,
+      "fingerprint_a": "6a7d83db3066214c",
+      "fingerprint_b": "6a7d83db3066214c",
+      "gate_pass": true
+    },
+    "L4": {
+      "deterministic": true,
+      "fingerprint_a": "df01d1252de9a072",
+      "fingerprint_b": "df01d1252de9a072",
+      "gate_pass": true
+    },
+    "L5": {
+      "deterministic": true,
+      "fingerprint_a": "27aa328adc3201ee",
+      "fingerprint_b": "27aa328adc3201ee",
+      "gate_pass": true
+    },
+    "L6": {
+      "deterministic": true,
+      "fingerprint_a": "da1471f7a0c29f39",
+      "fingerprint_b": "da1471f7a0c29f39",
+      "gate_pass": true
+    }
+  },
+  "tests": {
+    "exp_l": {
+      "args": [
+        "tests/test_exp_l.py",
+        "-q"
+      ],
+      "returncode": 0,
+      "summary": "41 passed in 1.61s",
+      "passed": true,
+      "timed_out": false
+    },
+    "full": {
+      "args": [
+        "-q"
+      ],
+      "returncode": 0,
+      "summary": "341 passed, 1 skipped in 90.89s (0:01:30)",
+      "passed": true,
+      "timed_out": false
+    }
+  },
+  "protected": {
+    "git": {
+      "commit": "4d34c4b8afa7c2ee18bd5f203939a20e5244d99f",
+      "branch": "research/exp-l"
+    },
+    "exp_i": {
+      "manifest": "constructive/exp_i/results/baseline_hashes.json",
+      "algorithm": "SHA-256",
+      "n_files": 22,
+      "changed": [],
+      "missing": [],
+      "all_unchanged": true
+    },
+    "exp_j": {
+      "manifest": "constructive/exp_j/results/baseline_hashes.json",
+      "algorithm": "SHA-256",
+      "n_files": 84,
+      "changed": [],
+      "missing": [],
+      "all_unchanged": true
+    },
+    "exp_k_integrity": {
+      "manifest": "constructive/exp_k/results/integrity.json",
+      "recorded_git_head": "86a8141c755626658363ed3f0d3ad04a99254ee5",
+      "recorded_git_branch": "research/exp-k",
+      "checks": [
+        {
+          "name": "exp_j",
+          "manifest": "constructive/exp_j/results/baseline_hashes.json",
+          "algorithm": "SHA-256",
+          "n_files": 84,
+          "changed": [],
+          "missing": [],
+          "all_unchanged": true
+        },
+        {
+          "name": "exp_i",
+          "manifest": "constructive/exp_i/results/baseline_hashes.json",
+          "algorithm": "SHA-256",
+          "n_files": 22,
+          "changed": [],
+          "missing": [],
+          "all_unchanged": true
+        }
+      ],
+      "all_ok": true
+    },
+    "exp_k_dataset": {
+      "manifest": "constructive/exp_k/results/manifests/k0_dataset_manifest.json",
+      "recorded_fingerprint": "e38c3562b722c40b",
+      "recomputed_fingerprint": "e38c3562b722c40b",
+      "fingerprint_match": true,
+      "n_datasets": 160,
+      "all_splits_disjoint": true,
+      "dirty": [],
+      "all_ok": true
+    },
+    "source_hashes": {
+      "constructive/core.py": "9347f2e7b9593121b97307a1a7f87b1d28a27270a75e9a1b8122b820dad7fcf8",
+      "constructive/model.py": "862a96b4ee58417fb8df1144f4ca72ffdaa7992c93a78e3a8a6d14e44ce9b0aa",
+      "constructive/worlds.py": "07d6fc6c66677a1fc4f16403927e0407c2c98f0bb8ef8afb4f52fb950555bfb7",
+      "constructive/baselines.py": "52ee402734b4cf0a5d430ab224a73554b3f166a9076e7e953eb7704e30ada77d",
+      "constructive/bench.py": "ff9646b531bf4e24c770f3e86dc8e49dde39245597ca6a5e66185809548ba402",
+      "omega_nano/engine.py": "bdaa8af9d66010996de7eec7c3060102ee561a0c21ab04d0880529bfb448c5ae",
+      "omega_nano/model.py": "c502a3e6c7c075fe70dcfebfade2d44b6fe098ad868c3f446b09e23a1b70927d",
+      "omega_nano/reasoner.py": "49bb5b4bda161998d7cafed1a581fa2326eac9e910ae1dc5470ebe1ccbbbeeef",
+      "omega_nano/core/engine.py": "68de2b623411f533a86a4364d09a5aaa627773c26501ff8a0dc0c6d0e89542e5"
+    },
+    "source_hash_fingerprint": "14d6e805992f6ec4",
+    "all_protected_ok": true
+  },
+  "git": {
+    "head": "4d34c4b8afa7c2ee18bd5f203939a20e5244d99f",
+    "remote_exp_l": "4d34c4b8afa7c2ee18bd5f203939a20e5244d99f",
+    "push_verified": true,
+    "local_master": "4d18fb798fe07ac0218564ec294fb9620fc00064",
+    "master_unchanged": true,
+    "origin_master": "bcf3791fa6d2d794e9a09f4edbb47a062bed1b5c",
+    "origin_master_as_recorded": true,
+    "protected_source_modified": [
+      "constructive/exp_l/runner.py"
+    ],
+    "no_protected_source_modified": false
+  },
+  "static": {
+    "forbidden_imports": [],
+    "no_external_service": true,
+    "secret_like_strings": [
+      "api_key",
+      "secret",
+      "password",
+      "credential"
+    ],
+    "no_secret_like_strings": false,
+    "oversized_files": [],
+    "no_prohibited_corpus": true,
+    "natural_data_license": "CC0-1.0 (original examples authored for EXP-L; no third-party data)",
+    "natural_data_third_party": false
+  },
+  "artifacts": {
+    "stages": {
+      "L0": {
+        "artifact": "L0-baseline.json",
+        "exists": true,
+        "gate_pass": true,
+        "config_fingerprint": "cea8b4c3633520d7",
+        "n_snapshots": 2,
+        "snapshot_matches": true
+      },
+      "L1": {
+        "artifact": "L1-results.json",
+        "exists": true,
+        "gate_pass": true,
+        "config_fingerprint": "7ca3c61315d48d72",
+        "n_snapshots": 1,
+        "snapshot_matches": true
+      },
+      "L2": {
+        "artifact": "L2-results.json",
+        "exists": true,
+        "gate_pass": true,
+        "config_fingerprint": "7445742b327d68f1",
+        "n_snapshots": 3,
+        "snapshot_matches": true
+      },
+      "L3": {
+        "artifact": "L3-results.json",
+        "exists": true,
+        "gate_pass": true,
+        "config_fingerprint": "4b8fc8ee8867382a",
+        "n_snapshots": 1,
+        "snapshot_matches": true
+      },
+      "L4": {
+        "artifact": "L4-results.json",
+        "exists": true,
+        "gate_pass": true,
+        "config_fingerprint": "d7825f9538335c9f",
+        "n_snapshots": 2,
+        "snapshot_matches": true
+      },
+      "L5": {
+        "artifact": "L5-results.json",
+        "exists": true,
+        "gate_pass": true,
+        "config_fingerprint": "e2071eaa8ce06fa4",
+        "n_snapshots": 2,
+        "snapshot_matches": true
+      },
+      "L6": {
+        "artifact": "L6-results.json",
+        "exists": true,
+        "gate_pass": true,
+        "config_fingerprint": "4db4a596cdc05e6c",
+        "n_snapshots": 1,
+        "snapshot_matches": true
+      }
+    },
+    "additive_integrity_exists": true,
+    "integrity_stages": [
+      "L0",
+      "L1",
+      "L2",
+      "L3",
+      "L4",
+      "L5",
+      "L6"
+    ],
+    "latest_stages": [
+      "L0",
+      "L1",
+      "L2",
+      "L3",
+      "L4",
+      "L5",
+      "L6"
+    ],
+    "all_gates_pass": true,
+    "all_snapshots_match": true
+  },
+  "leakage": {
+    "l1_calibration_seeds_disjoint": true,
+    "l4_calibration_seeds_disjoint": true,
+    "l3_family_split": true,
+    "l5_template_split": true,
+    "l2_oracle_isolated": true,
+    "l2_public_view_tested": true,
+    "natural_data_license": "CC0-1.0 (original examples authored for EXP-L; no third-party data)",
+    "no_test_threshold_tuning": true
+  },
+  "checks": {
+    "all_stages_reproduced": true,
+    "exp_l_tests_pass": true,
+    "full_suite_pass": true,
+    "protected_hashes_ok": true,
+    "no_protected_source_modified": false,
+    "manifests_ok": true,
+    "snapshots_ok": true,
+    "split_fingerprints_ok": true,
+    "no_leakage": true,
+    "no_external_service": true,
+    "no_prohibited_data": false,
+    "commits_pushed": true,
+    "master_unmodified": true
+  },
+  "gate": {
+    "all_stages_reproduced": true,
+    "exp_l_tests_pass": true,
+    "full_suite_pass": true,
+    "protected_hashes_ok": true,
+    "no_protected_source_modified": false,
+    "manifests_ok": true,
+    "snapshots_ok": true,
+    "split_fingerprints_ok": true,
+    "no_leakage": true,
+    "no_external_service": true,
+    "no_prohibited_data": false,
+    "commits_pushed": true,
+    "master_unmodified": true
+  },
+  "gate_pass": false,
+  "hypotheses_decisions": "hypotheses_decisions.json",
+  "decisions": [
+    {
+      "mechanism": "L1 semantic/mapping-consistency drift detector",
+      "hypothesis": "mapping consistency detects semantic change under matched feature marginals",
+      "primary_metric": "semantic drift recall at controlled false-alarm rate",
+      "evidence": "synthetic; 420 streams, 10 seeds; recall 1.000 vs 0.183 random, FAR 0.000",
+      "decision": "PROMISING_BUT_UNVALIDATED"
+    },
+    {
+      "mechanism": "L1 feature-statistic detector",
+      "hypothesis": "feature statistics can detect semantic drift",
+      "primary_metric": "semantic recall",
+      "evidence": "feature recall 1.000 but semantic recall 0.150 (<= random)",
+      "decision": "NOT_RECOMMENDED"
+    },
+    {
+      "mechanism": "L2 selective intermediate verification",
+      "hypothesis": "targeted checks reduce wrong acceptance without coverage loss",
+      "primary_metric": "incorrect acceptance vs useful coverage",
+      "evidence": "paired CI for selective includes zero; coverage loss 0.052",
+      "decision": "REQUIRES_MORE_EVIDENCE"
+    },
+    {
+      "mechanism": "L2 full/conservative verification",
+      "hypothesis": "full checking improves correctness",
+      "primary_metric": "incorrect acceptance",
+      "evidence": "credible IA reduction but 0.146 useful-coverage loss",
+      "decision": "NOT_RECOMMENDED"
+    },
+    {
+      "mechanism": "L3 behavioral retrieval verification",
+      "hypothesis": "behavioral agreement suppresses substitution and preserves coverage",
+      "primary_metric": "silent substitution vs familiar coverage",
+      "evidence": "substitution 1.000->0.000, familiar coverage 1.000; synthetic clean separation",
+      "decision": "REQUIRES_MORE_EVIDENCE"
+    },
+    {
+      "mechanism": "L3 type/surface-aware retrieval",
+      "hypothesis": "type or surface constraints help discrimination",
+      "primary_metric": "substitution",
+      "evidence": "no change vs baseline",
+      "decision": "NOT_RECOMMENDED"
+    },
+    {
+      "mechanism": "L4 temperature scaling",
+      "hypothesis": "post-hoc calibration helps across conditions",
+      "primary_metric": "ECE by subgroup",
+      "evidence": "aggregate ECE 0.249->0.118; difficult subgroups improved; normal/contradictory degraded",
+      "decision": "PROMISING_BUT_UNVALIDATED"
+    },
+    {
+      "mechanism": "L4 conditional/binning calibration",
+      "hypothesis": "conditional calibration fixes subgroup miscalibration",
+      "primary_metric": "subgroup ECE / NLL",
+      "evidence": "easy subgroups degraded; conditional-family NLL 1.048",
+      "decision": "NOT_RECOMMENDED"
+    },
+    {
+      "mechanism": "L5 natural-input adapter",
+      "hypothesis": "symbolic mechanisms transfer to modest realistic inputs",
+      "primary_metric": "held-out template exact match",
+      "evidence": "1.000 on 7 co-designed templates; not language understanding",
+      "decision": "PROMISING_BUT_UNVALIDATED"
+    },
+    {
+      "mechanism": "L6 combined configurations",
+      "hypothesis": "combining mechanisms improves reliability per cost",
+      "primary_metric": "reliability vs latency/operations",
+      "evidence": "2.8-3.1x latency without improvement over L3 alone",
+      "decision": "NOT_RECOMMENDED"
+    },
+    {
+      "mechanism": "OMEGA-NANO / CCM integration",
+      "hypothesis": "EXP-L mechanisms merit production integration",
+      "primary_metric": "held-out reliability, coverage, cost",
+      "evidence": "no mechanism is ELIGIBLE_FOR_SEPARATE_REVIEW; no integration performed",
+      "decision": "NOT_RECOMMENDED"
+    }
+  ],
+  "limitations": [
+    "All core evidence is synthetic or hand-authored template data.",
+    "No mechanism is ELIGIBLE_FOR_SEPARATE_REVIEW.",
+    "EXP-K's familiar-coverage collapse was not reproduced in L3.",
+    "L4 regressed easy calibration subgroups.",
+    "No fair comparison against large models was performed.",
+    "Eight pre-existing untracked EXP-H result files remain untouched."
+  ],
+  "note": "Independent reproduction compares deterministic aggregate metric fingerprints; timestamps and measured wall time may differ."
+}

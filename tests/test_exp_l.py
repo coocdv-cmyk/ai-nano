@@ -393,3 +393,15 @@ def test_l6_always_abstain_has_zero_useful_coverage():
     assert aa["useful_coverage"] == 0.0
     assert aa["abstention_rate"] == 1.0
     assert aa["selective_accuracy"] if "selective_accuracy" in aa else True
+
+
+# --- L7: final audit -------------------------------------------------------
+
+from constructive.exp_l.audit import metric_fingerprint, strip_nondeterministic  # noqa: E402
+
+
+def test_metric_fingerprint_ignores_timestamps_and_timing():
+    a = {"x": 1, "resources": {"wall_s": 0.1}, "snapshot": "a"}
+    b = {"x": 1, "resources": {"wall_s": 9.9}, "snapshot": "b"}
+    assert metric_fingerprint(a) == metric_fingerprint(b)
+    assert strip_nondeterministic(a) == {"x": 1}

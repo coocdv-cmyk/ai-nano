@@ -1,0 +1,87 @@
+{
+  "schema": "exp-l-hypotheses-decisions-v1",
+  "decisions": [
+    {
+      "mechanism": "L1 semantic/mapping-consistency drift detector",
+      "hypothesis": "mapping consistency detects semantic change under matched feature marginals",
+      "primary_metric": "semantic drift recall at controlled false-alarm rate",
+      "evidence": "synthetic; 420 streams, 10 seeds; recall 1.000 vs 0.183 random, FAR 0.000",
+      "decision": "PROMISING_BUT_UNVALIDATED"
+    },
+    {
+      "mechanism": "L1 feature-statistic detector",
+      "hypothesis": "feature statistics can detect semantic drift",
+      "primary_metric": "semantic recall",
+      "evidence": "feature recall 1.000 but semantic recall 0.150 (<= random)",
+      "decision": "NOT_RECOMMENDED"
+    },
+    {
+      "mechanism": "L2 selective intermediate verification",
+      "hypothesis": "targeted checks reduce wrong acceptance without coverage loss",
+      "primary_metric": "incorrect acceptance vs useful coverage",
+      "evidence": "paired CI for selective includes zero; coverage loss 0.052",
+      "decision": "REQUIRES_MORE_EVIDENCE"
+    },
+    {
+      "mechanism": "L2 full/conservative verification",
+      "hypothesis": "full checking improves correctness",
+      "primary_metric": "incorrect acceptance",
+      "evidence": "credible IA reduction but 0.146 useful-coverage loss",
+      "decision": "NOT_RECOMMENDED"
+    },
+    {
+      "mechanism": "L3 behavioral retrieval verification",
+      "hypothesis": "behavioral agreement suppresses substitution and preserves coverage",
+      "primary_metric": "silent substitution vs familiar coverage",
+      "evidence": "substitution 1.000->0.000, familiar coverage 1.000; synthetic clean separation",
+      "decision": "REQUIRES_MORE_EVIDENCE"
+    },
+    {
+      "mechanism": "L3 type/surface-aware retrieval",
+      "hypothesis": "type or surface constraints help discrimination",
+      "primary_metric": "substitution",
+      "evidence": "no change vs baseline",
+      "decision": "NOT_RECOMMENDED"
+    },
+    {
+      "mechanism": "L4 temperature scaling",
+      "hypothesis": "post-hoc calibration helps across conditions",
+      "primary_metric": "ECE by subgroup",
+      "evidence": "aggregate ECE 0.249->0.118; difficult subgroups improved; normal/contradictory degraded",
+      "decision": "PROMISING_BUT_UNVALIDATED"
+    },
+    {
+      "mechanism": "L4 conditional/binning calibration",
+      "hypothesis": "conditional calibration fixes subgroup miscalibration",
+      "primary_metric": "subgroup ECE / NLL",
+      "evidence": "easy subgroups degraded; conditional-family NLL 1.048",
+      "decision": "NOT_RECOMMENDED"
+    },
+    {
+      "mechanism": "L5 natural-input adapter",
+      "hypothesis": "symbolic mechanisms transfer to modest realistic inputs",
+      "primary_metric": "held-out template exact match",
+      "evidence": "1.000 on 7 co-designed templates; not language understanding",
+      "decision": "PROMISING_BUT_UNVALIDATED"
+    },
+    {
+      "mechanism": "L6 combined configurations",
+      "hypothesis": "combining mechanisms improves reliability per cost",
+      "primary_metric": "reliability vs latency/operations",
+      "evidence": "2.8-3.1x latency without improvement over L3 alone",
+      "decision": "NOT_RECOMMENDED"
+    },
+    {
+      "mechanism": "OMEGA-NANO / CCM integration",
+      "hypothesis": "EXP-L mechanisms merit production integration",
+      "primary_metric": "held-out reliability, coverage, cost",
+      "evidence": "no mechanism is ELIGIBLE_FOR_SEPARATE_REVIEW; no integration performed",
+      "decision": "NOT_RECOMMENDED"
+    }
+  ],
+  "decision_counts": {
+    "NOT_RECOMMENDED": 6,
+    "PROMISING_BUT_UNVALIDATED": 3,
+    "REQUIRES_MORE_EVIDENCE": 2
+  }
+}
