@@ -95,6 +95,7 @@ def run_validation(task: Task, cfg: ExpKConfig, *, calibrator: Any = None,
         "calibrated_confidence": (round(float(result.calibrated_confidence), 6)
                                   if result.calibrated_confidence is not None else None),
         "test_accuracy": test_accuracy(prog, task),
+        "val_accuracy": round(float(result.accuracy), 6),
         "coverage": round(float(result.coverage), 6),
         "evidence_informative": sum(1 for e in result.evidence if e.informative),
         "evidence_redundant": sum(1 for e in result.evidence if not e.informative),

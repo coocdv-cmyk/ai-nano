@@ -175,3 +175,20 @@ def test_retrieval_abstention_on_ood():
     assert "independent_verification" in k2["comparison_to_baseline"]
     assert k2["comparison_to_baseline"]["independent_verification"]["n_paired"] > 0
 
+
+# --- K3: drift detection ----------------------------------------------------
+
+
+def test_drift_thresholds_fixed_on_calibration():
+    from constructive.exp_k import drift_detection as K3
+    r = runner.run(stage="K3", quick=True)
+    k3 = r["experiments"]["K3"]
+    assert k3["status"] == "completed"
+    assert k3["completion_status"] == "COMPLETED"
+    assert set(k3["by_arm"]) == set(K3.ARMS)
+    assert k3["fixed_thresholds"]["feature_threshold"] is not None
+    assert k3["fixed_thresholds"]["window"] == 2
+    assert "stable" in k3["kinds"]
+    assert all(v["n_streams"] > 0 for v in k3["by_arm"].values())
+    assert "combined" in k3["comparison_to_baseline"]
+

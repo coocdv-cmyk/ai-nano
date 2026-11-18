@@ -94,3 +94,32 @@ These are hypotheses, not findings. Later stages will confirm or reject them.
 5. Recall@2/precision@2 are dominated by the same trade-off; latency is small
    (<0.3 ms per query) and is not the limiting factor.
 
+## K3 — Drift detection (2,400 stream-arm rows, 5 arms, 10 seeds)
+
+| Arm | Detection recall | Miss rate | False-positive rate (stable) | Median delay |
+|---|---|---|---|---|
+| acceptance baseline | 0.207 | 0.793 | 0.325 | 1 |
+| accuracy window | 0.184 | 0.816 | 0.225 | 0 |
+| **feature window** | **0.998** | **0.002** | **0.000** | 0 |
+| two-window | 0.868 | 0.132 | 0.000 | 1 |
+| combined | 0.998 | 0.002 | 0.225 | 0 |
+
+**Findings.**
+1. The EXP-J failure is **reproduced and worsened** in this matched setting:
+   acceptance-based detection misses 79% of drift streams, and raises false
+   alarms on 32% of stable streams.
+2. Accuracy-based detection fails for the same reason as K0: validation
+   accuracy is often *higher* during drift (0.992) than before it (0.845),
+   because the true rule still generalizes off-domain.
+3. A simple input-feature statistic with a threshold fixed on separate
+   calibration seeds detects 99.8% of drift streams with **zero** false alarms
+   on stable streams. This is the clearest positive result so far. Hypothesis 3
+   (no explicit change-point statistic) is **confirmed** for feature drift.
+4. Caveat: all twelve named "drift kinds" are implemented as input-domain
+   moves; genuine concept drift with unchanged inputs is not separately modeled.
+   The positive result therefore applies to feature/parameter drift, not to all
+   semantic drift. The `combined` arm shows that adding the accuracy signal
+   reintroduces false alarms without improving recall.
+5. Thresholds (`feature_threshold=19.96`, `window=2`, `accuracy_threshold=0.825`)
+   were fixed on calibration seeds 101–103 before held-out evaluation.
+

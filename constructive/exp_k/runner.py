@@ -47,6 +47,9 @@ def _dispatch(stage: str, cfg: ExpKConfig) -> Callable[[], dict[str, Any]]:
     if stage == "K2":
         from . import retrieval_ood
         return lambda: retrieval_ood.run_k2(cfg)
+    if stage == "K3":
+        from . import drift_detection
+        return lambda: drift_detection.run_k3(cfg)
     # Later stages are registered as they are implemented and verified.
     raise KeyError(f"stage {stage} is not implemented in this revision")
 

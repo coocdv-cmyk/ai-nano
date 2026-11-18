@@ -73,9 +73,9 @@ def drift_stream(rule: str, seed: int, kind: DriftKind | str, *,
     for i in range(n_drift):
         step = (i + 1) if kind in (DriftKind.GRADUAL, DriftKind.CYCLIC,
                                     DriftKind.RECURRING) else 2
-        moved = _shift_domain(base_te, step, kind in (DriftKind.GRADUAL,
-                                                       DriftKind.CYCLIC,
-                                                       DriftKind.RECURRING))
+        moved = base_te if kind is DriftKind.STABLE else _shift_domain(
+            base_te, step, kind in (DriftKind.GRADUAL, DriftKind.CYCLIC,
+                                    DriftKind.RECURRING))
         tasks.append(_drift_task(rule, seed, idx, step, tr, moved, moved,
                                  n_val, n_test, "drift", kind))
         idx += 1

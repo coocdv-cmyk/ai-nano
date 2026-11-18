@@ -8,7 +8,8 @@ Policy: normal commits only; no force push, reset, or history rewriting.
 |---|---|---|---|---|---|
 | K0 | `54f3c75422eb98b4f28d484fcc8b1dc0db58b27b` | `EXP-K: establish reproducible baseline` | `git ls-remote origin refs/heads/research/exp-k` returned matching hash | EXP-K 28 passed; smoke 9/9; full suite 292 passed, 1 skipped | EXP-I 22/22, EXP-J 84/84 unchanged |
 | K1 | `f3e9211dfb2e4fa8a7ecde06f00c8154f67e29c0` | `EXP-K: isolate deep composition failure causes` | `git ls-remote` returned matching hash | EXP-K 30 passed; smoke 9/9; full suite 294 passed, 1 skipped | EXP-I 22/22, EXP-J 84/84 unchanged |
-| K2 | pending | `EXP-K: investigate OOD retrieval substitution` | pending | EXP-K 31 passed; full suite 295 passed, 1 skipped | EXP-I 22/22, EXP-J 84/84 unchanged |
+| K2 | `0c4e9812767109a93ba2c8e5ebec68b1a9c233a7` | `EXP-K: investigate OOD retrieval substitution` | `git ls-remote` returned matching hash | EXP-K 31 passed; smoke 9/9; full suite 295 passed, 1 skipped | EXP-I 22/22, EXP-J 84/84 unchanged |
+| K3 | pending | `EXP-K: investigate drift detection failures` | pending | EXP-K 32 passed; full suite 296 passed, 1 skipped | EXP-I 22/22, EXP-J 84/84 unchanged |
 
 ## Notes
 
