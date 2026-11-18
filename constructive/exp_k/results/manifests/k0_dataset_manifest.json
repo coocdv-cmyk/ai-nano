@@ -1,0 +1,10687 @@
+{
+  "config": {
+    "seeds": [
+      0,
+      1
+    ],
+    "n_val": 3,
+    "n_train": 3,
+    "n_test": 8,
+    "abstain_threshold": 0.6,
+    "search_beam": 24,
+    "search_node_budget": 4000,
+    "max_cost": 4.0,
+    "fit_deadline_s": 1.5,
+    "experiment_deadline_s": 90.0,
+    "campaign_deadline_s": 600.0,
+    "depths": [
+      2,
+      3,
+      4,
+      5,
+      8,
+      12,
+      16
+    ],
+    "quick": true
+  },
+  "n_rules": 16,
+  "n_seeds": 2,
+  "n_shifts": 5,
+  "n_datasets": 160,
+  "fingerprint": "e38c3562b722c40b",
+  "all_splits_disjoint": true,
+  "dirty": [],
+  "rows": [
+    {
+      "seed": 0,
+      "rule": "mod_double",
+      "shift": "none",
+      "task": "mod_double-none-s432",
+      "params": {
+        "m": 7
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        2,
+        8,
+        9,
+        5
+      ],
+      "test_inputs": [
+        55,
+        48,
+        43,
+        45,
+        10,
+        56,
+        42,
+        33
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "mod_double",
+      "shift": "magnitude",
+      "task": "mod_double-magnitude-s958",
+      "params": {
+        "m": 7
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 40,
+        "hi": 120
+      },
+      "train_inputs": [
+        0,
+        4,
+        9,
+        3
+      ],
+      "test_inputs": [
+        73,
+        87,
+        58,
+        49,
+        103,
+        107,
+        51,
+        60
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "mod_double",
+      "shift": "sign",
+      "task": "mod_double-sign-s433",
+      "params": {
+        "m": 6
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": -80,
+        "hi": -20
+      },
+      "train_inputs": [
+        1,
+        3,
+        4,
+        9
+      ],
+      "test_inputs": [
+        -29,
+        -53,
+        -64,
+        -70,
+        -79,
+        -75,
+        -58,
+        -32
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "mod_double",
+      "shift": "length",
+      "task": "mod_double-length-s642",
+      "params": {
+        "m": 6
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        8,
+        4,
+        7,
+        3
+      ],
+      "test_inputs": [
+        34,
+        35,
+        22,
+        12,
+        30,
+        10,
+        41,
+        46
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "mod_double",
+      "shift": "both",
+      "task": "mod_double-both-s429",
+      "params": {
+        "m": 9
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        1,
+        8,
+        7,
+        3
+      ],
+      "test_inputs": [
+        24,
+        50,
+        48,
+        11,
+        34,
+        27,
+        22,
+        16
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "digital_root_square",
+      "shift": "none",
+      "task": "digital_root_square-none-s432",
+      "params": {},
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        0,
+        8,
+        4,
+        3
+      ],
+      "test_inputs": [
+        31,
+        11,
+        23,
+        49,
+        17,
+        35,
+        55,
+        38
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "digital_root_square",
+      "shift": "magnitude",
+      "task": "digital_root_square-magnitude-s958",
+      "params": {},
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 40,
+        "hi": 120
+      },
+      "train_inputs": [
+        1,
+        3,
+        7,
+        5
+      ],
+      "test_inputs": [
+        76,
+        71,
+        102,
+        80,
+        98,
+        82,
+        119,
+        41
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "digital_root_square",
+      "shift": "sign",
+      "task": "digital_root_square-sign-s433",
+      "params": {},
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": -80,
+        "hi": -20
+      },
+      "train_inputs": [
+        4,
+        6,
+        7,
+        3
+      ],
+      "test_inputs": [
+        -61,
+        -46,
+        -25,
+        -37,
+        -79,
+        -75,
+        -34,
+        -78
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "digital_root_square",
+      "shift": "length",
+      "task": "digital_root_square-length-s642",
+      "params": {},
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        5,
+        4,
+        1,
+        9
+      ],
+      "test_inputs": [
+        27,
+        17,
+        26,
+        24,
+        34,
+        53,
+        11,
+        31
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "digital_root_square",
+      "shift": "both",
+      "task": "digital_root_square-both-s429",
+      "params": {},
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        9,
+        5,
+        7,
+        4
+      ],
+      "test_inputs": [
+        51,
+        33,
+        24,
+        30,
+        14,
+        18,
+        34,
+        20
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "gt_mod",
+      "shift": "none",
+      "task": "gt_mod-none-s432",
+      "params": {
+        "m": 11,
+        "k": 4
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        7,
+        9,
+        3,
+        8
+      ],
+      "test_inputs": [
+        38,
+        48,
+        24,
+        20,
+        45,
+        25,
+        54,
+        11
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "gt_mod",
+      "shift": "magnitude",
+      "task": "gt_mod-magnitude-s958",
+      "params": {
+        "m": 10,
+        "k": 5
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 40,
+        "hi": 120
+      },
+      "train_inputs": [
+        1,
+        9,
+        8,
+        3
+      ],
+      "test_inputs": [
+        65,
+        82,
+        114,
+        50,
+        52,
+        74,
+        72,
+        96
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "gt_mod",
+      "shift": "sign",
+      "task": "gt_mod-sign-s433",
+      "params": {
+        "m": 11,
+        "k": 3
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": -80,
+        "hi": -20
+      },
+      "train_inputs": [
+        2,
+        0,
+        1,
+        7
+      ],
+      "test_inputs": [
+        -32,
+        -69,
+        -33,
+        -66,
+        -56,
+        -54,
+        -78,
+        -28
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "gt_mod",
+      "shift": "length",
+      "task": "gt_mod-length-s642",
+      "params": {
+        "m": 6,
+        "k": 1
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        1,
+        6,
+        2,
+        0
+      ],
+      "test_inputs": [
+        49,
+        39,
+        47,
+        26,
+        54,
+        57,
+        25,
+        43
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "gt_mod",
+      "shift": "both",
+      "task": "gt_mod-both-s429",
+      "params": {
+        "m": 5,
+        "k": 2
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        6,
+        0,
+        7,
+        2
+      ],
+      "test_inputs": [
+        39,
+        43,
+        17,
+        28,
+        53,
+        40,
+        25,
+        16
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "if_even",
+      "shift": "none",
+      "task": "if_even-none-s432",
+      "params": {},
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        5,
+        4,
+        9,
+        7
+      ],
+      "test_inputs": [
+        24,
+        34,
+        25,
+        60,
+        11,
+        10,
+        40,
+        21
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "if_even",
+      "shift": "magnitude",
+      "task": "if_even-magnitude-s958",
+      "params": {},
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 40,
+        "hi": 120
+      },
+      "train_inputs": [
+        1,
+        9,
+        8,
+        5
+      ],
+      "test_inputs": [
+        115,
+        98,
+        90,
+        81,
+        95,
+        86,
+        57,
+        70
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "if_even",
+      "shift": "sign",
+      "task": "if_even-sign-s433",
+      "params": {},
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": -80,
+        "hi": -20
+      },
+      "train_inputs": [
+        7,
+        4,
+        9,
+        2
+      ],
+      "test_inputs": [
+        -48,
+        -74,
+        -32,
+        -64,
+        -70,
+        -60,
+        -58,
+        -34
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "if_even",
+      "shift": "length",
+      "task": "if_even-length-s642",
+      "params": {},
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        7,
+        1,
+        3,
+        9
+      ],
+      "test_inputs": [
+        43,
+        39,
+        40,
+        51,
+        56,
+        12,
+        10,
+        22
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "if_even",
+      "shift": "both",
+      "task": "if_even-both-s429",
+      "params": {},
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        3,
+        2,
+        8,
+        5
+      ],
+      "test_inputs": [
+        24,
+        13,
+        45,
+        30,
+        32,
+        41,
+        49,
+        19
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "neg_abs_mod",
+      "shift": "none",
+      "task": "neg_abs_mod-none-s432",
+      "params": {
+        "m": 6
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        8,
+        6,
+        1,
+        9
+      ],
+      "test_inputs": [
+        28,
+        23,
+        26,
+        33,
+        49,
+        15,
+        52,
+        58
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "neg_abs_mod",
+      "shift": "magnitude",
+      "task": "neg_abs_mod-magnitude-s958",
+      "params": {
+        "m": 10
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 40,
+        "hi": 120
+      },
+      "train_inputs": [
+        3,
+        5,
+        7,
+        8
+      ],
+      "test_inputs": [
+        109,
+        119,
+        114,
+        65,
+        85,
+        80,
+        94,
+        120
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "neg_abs_mod",
+      "shift": "sign",
+      "task": "neg_abs_mod-sign-s433",
+      "params": {
+        "m": 7
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": -80,
+        "hi": -20
+      },
+      "train_inputs": [
+        8,
+        1,
+        9,
+        5
+      ],
+      "test_inputs": [
+        -23,
+        -22,
+        -55,
+        -72,
+        -50,
+        -21,
+        -42,
+        -70
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "neg_abs_mod",
+      "shift": "length",
+      "task": "neg_abs_mod-length-s642",
+      "params": {
+        "m": 11
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        0,
+        2,
+        5,
+        8
+      ],
+      "test_inputs": [
+        27,
+        22,
+        26,
+        11,
+        10,
+        14,
+        25,
+        49
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "neg_abs_mod",
+      "shift": "both",
+      "task": "neg_abs_mod-both-s429",
+      "params": {
+        "m": 7
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        6,
+        5,
+        8,
+        3
+      ],
+      "test_inputs": [
+        45,
+        34,
+        24,
+        16,
+        29,
+        56,
+        33,
+        37
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "band_shift",
+      "shift": "none",
+      "task": "band_shift-none-s432",
+      "params": {
+        "k": 9,
+        "s": 2
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        2,
+        0,
+        9,
+        7
+      ],
+      "test_inputs": [
+        14,
+        38,
+        27,
+        56,
+        21,
+        60,
+        43,
+        17
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "band_shift",
+      "shift": "magnitude",
+      "task": "band_shift-magnitude-s958",
+      "params": {
+        "k": 7,
+        "s": 3
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 40,
+        "hi": 120
+      },
+      "train_inputs": [
+        0,
+        8,
+        3,
+        6
+      ],
+      "test_inputs": [
+        96,
+        89,
+        88,
+        80,
+        61,
+        104,
+        70,
+        115
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "band_shift",
+      "shift": "sign",
+      "task": "band_shift-sign-s433",
+      "params": {
+        "k": 11,
+        "s": 4
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": -80,
+        "hi": -20
+      },
+      "train_inputs": [
+        0,
+        3,
+        9,
+        5
+      ],
+      "test_inputs": [
+        -76,
+        -24,
+        -41,
+        -21,
+        -26,
+        -56,
+        -20,
+        -62
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "band_shift",
+      "shift": "length",
+      "task": "band_shift-length-s642",
+      "params": {
+        "k": 5,
+        "s": 4
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        8,
+        9,
+        1,
+        4
+      ],
+      "test_inputs": [
+        22,
+        12,
+        26,
+        31,
+        11,
+        48,
+        56,
+        42
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "band_shift",
+      "shift": "both",
+      "task": "band_shift-both-s429",
+      "params": {
+        "k": 15,
+        "s": 2
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        5,
+        8,
+        7,
+        4
+      ],
+      "test_inputs": [
+        11,
+        20,
+        35,
+        38,
+        21,
+        51,
+        43,
+        10
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "max_map_add",
+      "shift": "none",
+      "task": "max_map_add-none-s432",
+      "params": {
+        "k": 3
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 3,
+        "len_hi": 7,
+        "lo": 0,
+        "hi": 15
+      },
+      "train_inputs": [
+        [
+          2,
+          9,
+          4,
+          4
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          9,
+          2
+        ],
+        [
+          4,
+          3,
+          1
+        ]
+      ],
+      "test_inputs": [
+        [
+          0,
+          6,
+          15,
+          10
+        ],
+        [
+          1,
+          1,
+          4,
+          10,
+          3
+        ],
+        [
+          3,
+          3,
+          12,
+          9,
+          0
+        ],
+        [
+          9,
+          14,
+          12
+        ],
+        [
+          15,
+          7,
+          2,
+          11,
+          6,
+          1,
+          6
+        ],
+        [
+          7,
+          14,
+          2
+        ],
+        [
+          10,
+          7,
+          12,
+          9,
+          12,
+          6
+        ],
+        [
+          10,
+          9,
+          12
+        ]
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "max_map_add",
+      "shift": "magnitude",
+      "task": "max_map_add-magnitude-s958",
+      "params": {
+        "k": 3
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 3,
+        "len_hi": 7,
+        "lo": 0,
+        "hi": 15
+      },
+      "train_inputs": [
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          2,
+          5
+        ],
+        [
+          3,
+          7,
+          2,
+          6
+        ],
+        [
+          3,
+          5,
+          1,
+          2
+        ]
+      ],
+      "test_inputs": [
+        [
+          6,
+          11,
+          1,
+          9,
+          7
+        ],
+        [
+          10,
+          14,
+          4,
+          2,
+          12
+        ],
+        [
+          0,
+          11,
+          3,
+          14
+        ],
+        [
+          13,
+          1,
+          15,
+          12,
+          6,
+          0
+        ],
+        [
+          7,
+          4,
+          14,
+          4
+        ],
+        [
+          3,
+          0,
+          6,
+          6,
+          14
+        ],
+        [
+          6,
+          12,
+          14,
+          14,
+          7,
+          6,
+          5
+        ],
+        [
+          3,
+          9,
+          10,
+          14,
+          6,
+          10,
+          11
+        ]
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "max_map_add",
+      "shift": "sign",
+      "task": "max_map_add-sign-s433",
+      "params": {
+        "k": 5
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 3,
+        "len_hi": 7,
+        "lo": 0,
+        "hi": 15
+      },
+      "train_inputs": [
+        [
+          9,
+          2,
+          6,
+          8,
+          9
+        ],
+        [
+          0,
+          6,
+          4,
+          6,
+          3
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          7,
+          4,
+          6,
+          7
+        ]
+      ],
+      "test_inputs": [
+        [
+          11,
+          9,
+          14,
+          0,
+          11
+        ],
+        [
+          3,
+          11,
+          9,
+          3
+        ],
+        [
+          9,
+          5,
+          13,
+          10,
+          14,
+          8,
+          9
+        ],
+        [
+          6,
+          13,
+          11,
+          11
+        ],
+        [
+          11,
+          10,
+          5,
+          11,
+          7,
+          2,
+          2
+        ],
+        [
+          13,
+          11,
+          8,
+          10
+        ],
+        [
+          11,
+          15,
+          4,
+          0,
+          6,
+          6,
+          7
+        ],
+        [
+          9,
+          10,
+          7,
+          14
+        ]
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "max_map_add",
+      "shift": "length",
+      "task": "max_map_add-length-s642",
+      "params": {
+        "k": 5
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 8,
+        "len_hi": 14,
+        "lo": 0,
+        "hi": 9
+      },
+      "train_inputs": [
+        [
+          8,
+          8,
+          9
+        ],
+        [
+          7,
+          5,
+          9,
+          4
+        ],
+        [
+          0,
+          4,
+          7,
+          7,
+          4
+        ],
+        [
+          2,
+          9
+        ]
+      ],
+      "test_inputs": [
+        [
+          7,
+          4,
+          5,
+          1,
+          7,
+          8,
+          1,
+          5,
+          4,
+          6,
+          2,
+          9,
+          1
+        ],
+        [
+          8,
+          2,
+          8,
+          8,
+          6,
+          8,
+          7,
+          7,
+          7,
+          2
+        ],
+        [
+          7,
+          0,
+          2,
+          4,
+          0,
+          7,
+          1,
+          6,
+          3
+        ],
+        [
+          0,
+          1,
+          7,
+          3,
+          6,
+          8,
+          9,
+          0,
+          2,
+          8,
+          1,
+          4,
+          2
+        ],
+        [
+          7,
+          7,
+          0,
+          3,
+          4,
+          8,
+          3,
+          6,
+          1,
+          7,
+          4,
+          4,
+          6
+        ],
+        [
+          9,
+          0,
+          9,
+          7,
+          6,
+          8,
+          1,
+          1,
+          7,
+          8,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          3,
+          0,
+          6,
+          0,
+          2,
+          9,
+          3,
+          8,
+          4,
+          6
+        ],
+        [
+          5,
+          1,
+          9,
+          3,
+          0,
+          8,
+          0,
+          8,
+          3
+        ]
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "max_map_add",
+      "shift": "both",
+      "task": "max_map_add-both-s429",
+      "params": {
+        "k": 4
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 8,
+        "len_hi": 14,
+        "lo": 30,
+        "hi": 90
+      },
+      "train_inputs": [
+        [
+          6,
+          0,
+          1,
+          5
+        ],
+        [
+          5,
+          1,
+          1,
+          5
+        ],
+        [
+          9,
+          5,
+          7,
+          0
+        ],
+        [
+          6,
+          9,
+          4,
+          0
+        ]
+      ],
+      "test_inputs": [
+        [
+          86,
+          30,
+          53,
+          63,
+          65,
+          39,
+          54,
+          31,
+          31,
+          31,
+          46,
+          37
+        ],
+        [
+          38,
+          51,
+          54,
+          76,
+          82,
+          78,
+          39,
+          42,
+          61,
+          35,
+          38
+        ],
+        [
+          90,
+          32,
+          71,
+          38,
+          67,
+          34,
+          31,
+          64,
+          32
+        ],
+        [
+          46,
+          77,
+          59,
+          47,
+          79,
+          71,
+          57,
+          37
+        ],
+        [
+          51,
+          88,
+          81,
+          32,
+          78,
+          34,
+          89,
+          87,
+          80,
+          85
+        ],
+        [
+          45,
+          49,
+          54,
+          52,
+          67,
+          52,
+          60,
+          50,
+          68,
+          64
+        ],
+        [
+          31,
+          54,
+          80,
+          83,
+          84,
+          43,
+          47,
+          46,
+          77,
+          74,
+          58,
+          58
+        ],
+        [
+          58,
+          74,
+          77,
+          87,
+          51,
+          39,
+          74,
+          36,
+          34,
+          75,
+          90,
+          86,
+          48
+        ]
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "reverse_take_sum",
+      "shift": "none",
+      "task": "reverse_take_sum-none-s432",
+      "params": {
+        "k": 3
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 3,
+        "len_hi": 7,
+        "lo": 0,
+        "hi": 15
+      },
+      "train_inputs": [
+        [
+          8,
+          3,
+          4,
+          7
+        ],
+        [
+          2,
+          9,
+          7
+        ],
+        [
+          4,
+          1,
+          4,
+          9
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "test_inputs": [
+        [
+          4,
+          5,
+          0,
+          3
+        ],
+        [
+          11,
+          1,
+          14,
+          4,
+          1,
+          13,
+          4
+        ],
+        [
+          1,
+          0,
+          14,
+          2
+        ],
+        [
+          0,
+          9,
+          0,
+          3,
+          1,
+          2,
+          5
+        ],
+        [
+          2,
+          14,
+          7,
+          4,
+          12,
+          14,
+          12
+        ],
+        [
+          14,
+          7,
+          10,
+          8
+        ],
+        [
+          15,
+          12,
+          10,
+          8,
+          2,
+          7,
+          2
+        ],
+        [
+          3,
+          13,
+          3,
+          10,
+          6,
+          11
+        ]
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "reverse_take_sum",
+      "shift": "magnitude",
+      "task": "reverse_take_sum-magnitude-s958",
+      "params": {
+        "k": 3
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 3,
+        "len_hi": 7,
+        "lo": 0,
+        "hi": 15
+      },
+      "train_inputs": [
+        [
+          2,
+          3,
+          5
+        ],
+        [
+          4,
+          7,
+          8
+        ],
+        [
+          2,
+          8,
+          9,
+          0,
+          4
+        ],
+        [
+          8,
+          6
+        ]
+      ],
+      "test_inputs": [
+        [
+          13,
+          13,
+          5,
+          15,
+          12,
+          12,
+          15
+        ],
+        [
+          0,
+          3,
+          11
+        ],
+        [
+          11,
+          11,
+          8,
+          12,
+          10,
+          13,
+          15
+        ],
+        [
+          3,
+          14,
+          0,
+          5,
+          0
+        ],
+        [
+          0,
+          13,
+          3,
+          9
+        ],
+        [
+          14,
+          15,
+          3,
+          14
+        ],
+        [
+          14,
+          9,
+          0,
+          3,
+          0,
+          10,
+          1
+        ],
+        [
+          1,
+          6,
+          0,
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "reverse_take_sum",
+      "shift": "sign",
+      "task": "reverse_take_sum-sign-s433",
+      "params": {
+        "k": 2
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 3,
+        "len_hi": 7,
+        "lo": 0,
+        "hi": 15
+      },
+      "train_inputs": [
+        [
+          3,
+          9,
+          5,
+          9
+        ],
+        [
+          1,
+          3,
+          0
+        ],
+        [
+          2,
+          6,
+          5
+        ],
+        [
+          0,
+          1,
+          5
+        ]
+      ],
+      "test_inputs": [
+        [
+          3,
+          0,
+          0,
+          1,
+          13
+        ],
+        [
+          7,
+          14,
+          4
+        ],
+        [
+          13,
+          8,
+          15
+        ],
+        [
+          9,
+          5,
+          5,
+          7
+        ],
+        [
+          4,
+          0,
+          5,
+          7,
+          3,
+          5,
+          7
+        ],
+        [
+          6,
+          4,
+          9,
+          7,
+          13,
+          7,
+          14
+        ],
+        [
+          7,
+          6,
+          1,
+          1,
+          0,
+          3,
+          12
+        ],
+        [
+          15,
+          9,
+          2
+        ]
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "reverse_take_sum",
+      "shift": "length",
+      "task": "reverse_take_sum-length-s642",
+      "params": {
+        "k": 2
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 8,
+        "len_hi": 14,
+        "lo": 0,
+        "hi": 9
+      },
+      "train_inputs": [
+        [
+          4,
+          7,
+          8,
+          9
+        ],
+        [
+          4,
+          4,
+          1
+        ],
+        [
+          2,
+          4,
+          9
+        ],
+        [
+          5,
+          9,
+          3
+        ]
+      ],
+      "test_inputs": [
+        [
+          6,
+          0,
+          3,
+          9,
+          4,
+          6,
+          0,
+          7,
+          1
+        ],
+        [
+          3,
+          0,
+          6,
+          3,
+          7,
+          3,
+          9,
+          8,
+          0,
+          6,
+          0,
+          8
+        ],
+        [
+          7,
+          8,
+          5,
+          4,
+          8,
+          3,
+          6,
+          3,
+          1,
+          0
+        ],
+        [
+          2,
+          1,
+          4,
+          9,
+          2,
+          4,
+          0,
+          3,
+          6,
+          1,
+          3,
+          2,
+          1,
+          6
+        ],
+        [
+          1,
+          6,
+          1,
+          5,
+          4,
+          3,
+          9,
+          3,
+          5,
+          4,
+          9
+        ],
+        [
+          4,
+          8,
+          9,
+          2,
+          6,
+          4,
+          8,
+          5,
+          9
+        ],
+        [
+          3,
+          9,
+          2,
+          5,
+          2,
+          0,
+          9,
+          9,
+          2,
+          0,
+          5,
+          3,
+          4
+        ],
+        [
+          6,
+          7,
+          1,
+          7,
+          9,
+          3,
+          9,
+          1,
+          4,
+          9,
+          1,
+          6
+        ]
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "reverse_take_sum",
+      "shift": "both",
+      "task": "reverse_take_sum-both-s429",
+      "params": {
+        "k": 3
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 8,
+        "len_hi": 14,
+        "lo": 30,
+        "hi": 90
+      },
+      "train_inputs": [
+        [
+          4,
+          8,
+          7,
+          8,
+          8
+        ],
+        [
+          6,
+          2,
+          3,
+          7,
+          0
+        ],
+        [
+          7,
+          3,
+          5
+        ],
+        [
+          5,
+          1
+        ]
+      ],
+      "test_inputs": [
+        [
+          81,
+          81,
+          38,
+          53,
+          84,
+          65,
+          87,
+          40,
+          78,
+          85,
+          85,
+          74,
+          71
+        ],
+        [
+          73,
+          62,
+          68,
+          67,
+          89,
+          64,
+          55,
+          71
+        ],
+        [
+          48,
+          60,
+          64,
+          44,
+          77,
+          44,
+          52,
+          56,
+          65,
+          51,
+          79,
+          42
+        ],
+        [
+          55,
+          81,
+          60,
+          89,
+          32,
+          83,
+          72,
+          52,
+          76,
+          53,
+          46,
+          85,
+          41
+        ],
+        [
+          43,
+          62,
+          81,
+          40,
+          77,
+          78,
+          57,
+          84,
+          43,
+          35,
+          54
+        ],
+        [
+          34,
+          66,
+          61,
+          62,
+          76,
+          75,
+          60,
+          82
+        ],
+        [
+          81,
+          32,
+          61,
+          57,
+          57,
+          32,
+          51,
+          38,
+          43,
+          33,
+          77
+        ],
+        [
+          63,
+          41,
+          40,
+          48,
+          44,
+          56,
+          34,
+          60,
+          50,
+          61,
+          44,
+          64
+        ]
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "count_even_unique",
+      "shift": "none",
+      "task": "count_even_unique-none-s432",
+      "params": {},
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 3,
+        "len_hi": 7,
+        "lo": 0,
+        "hi": 15
+      },
+      "train_inputs": [
+        [
+          1,
+          6,
+          9
+        ],
+        [
+          5,
+          2,
+          5,
+          5,
+          2
+        ],
+        [
+          8,
+          5,
+          4,
+          9
+        ],
+        [
+          2,
+          1,
+          6,
+          1,
+          1
+        ]
+      ],
+      "test_inputs": [
+        [
+          5,
+          0,
+          5,
+          13,
+          10,
+          2,
+          13
+        ],
+        [
+          6,
+          7,
+          3,
+          9
+        ],
+        [
+          1,
+          10,
+          14,
+          15
+        ],
+        [
+          7,
+          12,
+          0,
+          14,
+          15,
+          8
+        ],
+        [
+          4,
+          11,
+          7
+        ],
+        [
+          0,
+          12,
+          2,
+          5,
+          8,
+          0,
+          2
+        ],
+        [
+          11,
+          0,
+          4,
+          10
+        ],
+        [
+          13,
+          9,
+          4,
+          5,
+          8,
+          4
+        ]
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "count_even_unique",
+      "shift": "magnitude",
+      "task": "count_even_unique-magnitude-s958",
+      "params": {},
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 3,
+        "len_hi": 7,
+        "lo": 0,
+        "hi": 15
+      },
+      "train_inputs": [
+        [
+          5,
+          3
+        ],
+        [
+          2,
+          0,
+          5,
+          2,
+          5
+        ],
+        [
+          5,
+          3,
+          5,
+          8
+        ],
+        [
+          9,
+          7,
+          5,
+          1
+        ]
+      ],
+      "test_inputs": [
+        [
+          8,
+          5,
+          9,
+          14,
+          0
+        ],
+        [
+          11,
+          12,
+          3,
+          5,
+          0
+        ],
+        [
+          11,
+          9,
+          14,
+          15,
+          14,
+          10
+        ],
+        [
+          9,
+          6,
+          0,
+          11
+        ],
+        [
+          2,
+          8,
+          11
+        ],
+        [
+          13,
+          7,
+          5,
+          11
+        ],
+        [
+          8,
+          12,
+          9,
+          10,
+          6,
+          6,
+          7
+        ],
+        [
+          2,
+          6,
+          13,
+          13,
+          2
+        ]
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "count_even_unique",
+      "shift": "sign",
+      "task": "count_even_unique-sign-s433",
+      "params": {},
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 3,
+        "len_hi": 7,
+        "lo": 0,
+        "hi": 15
+      },
+      "train_inputs": [
+        [
+          5,
+          1,
+          6,
+          4,
+          4
+        ],
+        [
+          5,
+          7,
+          5,
+          2,
+          4
+        ],
+        [
+          3,
+          4,
+          8,
+          9,
+          1
+        ],
+        [
+          9,
+          4,
+          9
+        ]
+      ],
+      "test_inputs": [
+        [
+          9,
+          12,
+          4,
+          10,
+          8,
+          14
+        ],
+        [
+          4,
+          4,
+          8
+        ],
+        [
+          3,
+          11,
+          0,
+          15,
+          1,
+          15,
+          11
+        ],
+        [
+          6,
+          3,
+          14
+        ],
+        [
+          6,
+          9,
+          6,
+          1,
+          11
+        ],
+        [
+          2,
+          1,
+          5,
+          9,
+          0,
+          7
+        ],
+        [
+          10,
+          12,
+          7,
+          4,
+          1,
+          11,
+          3
+        ],
+        [
+          4,
+          14,
+          0,
+          14,
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "count_even_unique",
+      "shift": "length",
+      "task": "count_even_unique-length-s642",
+      "params": {},
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 8,
+        "len_hi": 14,
+        "lo": 0,
+        "hi": 9
+      },
+      "train_inputs": [
+        [
+          8,
+          7,
+          5,
+          7,
+          4
+        ],
+        [
+          7,
+          9,
+          4
+        ],
+        [
+          7,
+          3,
+          4,
+          6,
+          9
+        ],
+        [
+          8,
+          4,
+          7,
+          3,
+          8
+        ]
+      ],
+      "test_inputs": [
+        [
+          0,
+          8,
+          0,
+          3,
+          5,
+          3,
+          7,
+          9,
+          9,
+          7
+        ],
+        [
+          8,
+          3,
+          6,
+          2,
+          2,
+          0,
+          1,
+          5
+        ],
+        [
+          4,
+          5,
+          7,
+          0,
+          8,
+          4,
+          6,
+          5
+        ],
+        [
+          5,
+          5,
+          0,
+          9,
+          6,
+          2,
+          9,
+          5,
+          0,
+          9,
+          5
+        ],
+        [
+          4,
+          5,
+          0,
+          4,
+          6,
+          4,
+          9,
+          4
+        ],
+        [
+          0,
+          2,
+          5,
+          3,
+          0,
+          0,
+          4,
+          8,
+          6
+        ],
+        [
+          8,
+          1,
+          6,
+          8,
+          9,
+          9,
+          7,
+          2,
+          7,
+          4
+        ],
+        [
+          0,
+          4,
+          5,
+          3,
+          5,
+          8,
+          6,
+          8,
+          2,
+          9,
+          6,
+          9
+        ]
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "count_even_unique",
+      "shift": "both",
+      "task": "count_even_unique-both-s429",
+      "params": {},
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 8,
+        "len_hi": 14,
+        "lo": 30,
+        "hi": 90
+      },
+      "train_inputs": [
+        [
+          6,
+          0,
+          3
+        ],
+        [
+          1,
+          8,
+          5
+        ],
+        [
+          4,
+          3,
+          3,
+          3
+        ],
+        [
+          8,
+          3,
+          2
+        ]
+      ],
+      "test_inputs": [
+        [
+          60,
+          42,
+          53,
+          65,
+          45,
+          76,
+          65,
+          77,
+          45,
+          85,
+          31,
+          59
+        ],
+        [
+          76,
+          44,
+          47,
+          41,
+          86,
+          38,
+          90,
+          90,
+          47,
+          58,
+          54,
+          52,
+          54
+        ],
+        [
+          67,
+          87,
+          58,
+          40,
+          33,
+          47,
+          49,
+          37,
+          86,
+          33,
+          52,
+          43,
+          40
+        ],
+        [
+          46,
+          43,
+          69,
+          60,
+          88,
+          83,
+          47,
+          77,
+          81,
+          56,
+          40,
+          80,
+          59
+        ],
+        [
+          40,
+          81,
+          61,
+          38,
+          69,
+          60,
+          47,
+          54
+        ],
+        [
+          72,
+          56,
+          32,
+          40,
+          80,
+          90,
+          80,
+          75,
+          64,
+          34,
+          60,
+          61,
+          69,
+          80
+        ],
+        [
+          59,
+          66,
+          39,
+          84,
+          47,
+          64,
+          88,
+          52,
+          67,
+          46,
+          32,
+          83,
+          30,
+          81
+        ],
+        [
+          43,
+          57,
+          83,
+          73,
+          67,
+          61,
+          74,
+          87,
+          85,
+          75,
+          43
+        ]
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "sum_squares_evens",
+      "shift": "none",
+      "task": "sum_squares_evens-none-s432",
+      "params": {},
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 3,
+        "len_hi": 7,
+        "lo": 0,
+        "hi": 15
+      },
+      "train_inputs": [
+        [
+          2,
+          1,
+          7
+        ],
+        [
+          5,
+          7,
+          6,
+          2
+        ],
+        [
+          8,
+          2,
+          2,
+          1
+        ],
+        [
+          7,
+          4
+        ]
+      ],
+      "test_inputs": [
+        [
+          1,
+          9,
+          5,
+          5,
+          0,
+          5,
+          10
+        ],
+        [
+          2,
+          2,
+          7
+        ],
+        [
+          14,
+          10,
+          9,
+          13,
+          12,
+          5,
+          14
+        ],
+        [
+          4,
+          4,
+          15,
+          13
+        ],
+        [
+          14,
+          14,
+          15,
+          14,
+          5
+        ],
+        [
+          4,
+          13,
+          10
+        ],
+        [
+          0,
+          5,
+          2,
+          13,
+          4
+        ],
+        [
+          5,
+          0,
+          11,
+          7
+        ]
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "sum_squares_evens",
+      "shift": "magnitude",
+      "task": "sum_squares_evens-magnitude-s958",
+      "params": {},
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 3,
+        "len_hi": 7,
+        "lo": 0,
+        "hi": 15
+      },
+      "train_inputs": [
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          1,
+          9,
+          2,
+          5
+        ],
+        [
+          8,
+          5,
+          8,
+          1,
+          1
+        ],
+        [
+          6,
+          9,
+          4,
+          2
+        ]
+      ],
+      "test_inputs": [
+        [
+          10,
+          2,
+          7
+        ],
+        [
+          8,
+          9,
+          1
+        ],
+        [
+          7,
+          4,
+          7
+        ],
+        [
+          11,
+          8,
+          12,
+          6,
+          14
+        ],
+        [
+          9,
+          9,
+          14,
+          6,
+          5
+        ],
+        [
+          4,
+          3,
+          1,
+          3
+        ],
+        [
+          15,
+          12,
+          6
+        ],
+        [
+          11,
+          15,
+          14,
+          9,
+          11,
+          5
+        ]
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "sum_squares_evens",
+      "shift": "sign",
+      "task": "sum_squares_evens-sign-s433",
+      "params": {},
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 3,
+        "len_hi": 7,
+        "lo": 0,
+        "hi": 15
+      },
+      "train_inputs": [
+        [
+          3,
+          6,
+          9,
+          6,
+          9
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          8,
+          7,
+          1,
+          5
+        ],
+        [
+          6,
+          8,
+          5
+        ]
+      ],
+      "test_inputs": [
+        [
+          5,
+          0,
+          15,
+          15,
+          9,
+          2,
+          9
+        ],
+        [
+          13,
+          8,
+          5,
+          9,
+          6
+        ],
+        [
+          9,
+          15,
+          13,
+          5
+        ],
+        [
+          1,
+          14,
+          14
+        ],
+        [
+          6,
+          9,
+          6,
+          10,
+          2,
+          1
+        ],
+        [
+          4,
+          5,
+          10
+        ],
+        [
+          1,
+          5,
+          5,
+          0
+        ],
+        [
+          13,
+          12,
+          0
+        ]
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "sum_squares_evens",
+      "shift": "length",
+      "task": "sum_squares_evens-length-s642",
+      "params": {},
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 8,
+        "len_hi": 14,
+        "lo": 0,
+        "hi": 9
+      },
+      "train_inputs": [
+        [
+          5,
+          3,
+          2,
+          8
+        ],
+        [
+          6,
+          5,
+          5
+        ],
+        [
+          8,
+          5,
+          5,
+          2,
+          5
+        ],
+        [
+          8,
+          2,
+          3,
+          1,
+          5
+        ]
+      ],
+      "test_inputs": [
+        [
+          7,
+          3,
+          3,
+          5,
+          3,
+          6,
+          6,
+          5,
+          9
+        ],
+        [
+          2,
+          3,
+          2,
+          8,
+          5,
+          8,
+          5,
+          9
+        ],
+        [
+          6,
+          1,
+          6,
+          3,
+          9,
+          8,
+          3,
+          0,
+          9,
+          9
+        ],
+        [
+          2,
+          6,
+          7,
+          6,
+          0,
+          8,
+          7,
+          7,
+          7,
+          5,
+          2,
+          0,
+          5
+        ],
+        [
+          5,
+          4,
+          1,
+          8,
+          8,
+          0,
+          4,
+          8,
+          2,
+          1,
+          1,
+          1,
+          6,
+          0
+        ],
+        [
+          0,
+          4,
+          4,
+          7,
+          0,
+          8,
+          8,
+          1
+        ],
+        [
+          6,
+          1,
+          0,
+          9,
+          0,
+          0,
+          8,
+          2,
+          0,
+          8,
+          4,
+          2
+        ],
+        [
+          3,
+          2,
+          3,
+          1,
+          9,
+          4,
+          1,
+          3,
+          3,
+          4,
+          8
+        ]
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "sum_squares_evens",
+      "shift": "both",
+      "task": "sum_squares_evens-both-s429",
+      "params": {},
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 8,
+        "len_hi": 14,
+        "lo": 30,
+        "hi": 90
+      },
+      "train_inputs": [
+        [
+          8,
+          0,
+          4
+        ],
+        [
+          3,
+          8,
+          3,
+          4
+        ],
+        [
+          6,
+          9
+        ],
+        [
+          1,
+          3,
+          2,
+          4
+        ]
+      ],
+      "test_inputs": [
+        [
+          37,
+          84,
+          64,
+          87,
+          51,
+          75,
+          81,
+          48
+        ],
+        [
+          63,
+          36,
+          68,
+          56,
+          88,
+          71,
+          51,
+          57,
+          38,
+          33,
+          53,
+          86,
+          84,
+          64
+        ],
+        [
+          62,
+          45,
+          37,
+          67,
+          75,
+          41,
+          56,
+          86,
+          78,
+          30
+        ],
+        [
+          57,
+          63,
+          49,
+          86,
+          59,
+          59,
+          68,
+          90,
+          52,
+          48,
+          75,
+          44
+        ],
+        [
+          33,
+          32,
+          48,
+          81,
+          34,
+          76,
+          67,
+          74,
+          55
+        ],
+        [
+          38,
+          58,
+          70,
+          83,
+          77,
+          67,
+          41,
+          66
+        ],
+        [
+          57,
+          45,
+          62,
+          35,
+          80,
+          50,
+          70,
+          89,
+          58,
+          74,
+          86,
+          32
+        ],
+        [
+          63,
+          51,
+          43,
+          40,
+          33,
+          52,
+          62,
+          86,
+          79,
+          78
+        ]
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "filter_gt_max",
+      "shift": "none",
+      "task": "filter_gt_max-none-s432",
+      "params": {
+        "k": 1
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 3,
+        "len_hi": 7,
+        "lo": 0,
+        "hi": 15
+      },
+      "train_inputs": [
+        [
+          5,
+          9
+        ],
+        [
+          2,
+          8,
+          4,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          9,
+          5,
+          3,
+          4,
+          2
+        ]
+      ],
+      "test_inputs": [
+        [
+          15,
+          0,
+          8
+        ],
+        [
+          14,
+          13,
+          7,
+          2,
+          11
+        ],
+        [
+          0,
+          13,
+          12,
+          5,
+          8
+        ],
+        [
+          9,
+          1,
+          13,
+          3,
+          5
+        ],
+        [
+          7,
+          4,
+          13,
+          13,
+          9,
+          1,
+          8
+        ],
+        [
+          6,
+          7,
+          10,
+          0,
+          9,
+          2
+        ],
+        [
+          14,
+          12,
+          3,
+          7
+        ],
+        [
+          13,
+          1,
+          5,
+          7
+        ]
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "filter_gt_max",
+      "shift": "magnitude",
+      "task": "filter_gt_max-magnitude-s958",
+      "params": {
+        "k": 4
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 3,
+        "len_hi": 7,
+        "lo": 0,
+        "hi": 15
+      },
+      "train_inputs": [
+        [
+          5,
+          0,
+          6,
+          8,
+          2
+        ],
+        [
+          2,
+          8,
+          7,
+          6,
+          1
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          2,
+          4,
+          6,
+          7,
+          3
+        ]
+      ],
+      "test_inputs": [
+        [
+          8,
+          15,
+          9,
+          2
+        ],
+        [
+          8,
+          14,
+          15,
+          14
+        ],
+        [
+          0,
+          9,
+          6,
+          8,
+          12
+        ],
+        [
+          3,
+          5,
+          15
+        ],
+        [
+          14,
+          7,
+          12,
+          11,
+          4,
+          7
+        ],
+        [
+          4,
+          15,
+          14
+        ],
+        [
+          6,
+          11,
+          13,
+          1,
+          15,
+          3,
+          11
+        ],
+        [
+          11,
+          12,
+          11,
+          10,
+          7,
+          5,
+          0
+        ]
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "filter_gt_max",
+      "shift": "sign",
+      "task": "filter_gt_max-sign-s433",
+      "params": {
+        "k": 2
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 3,
+        "len_hi": 7,
+        "lo": 0,
+        "hi": 15
+      },
+      "train_inputs": [
+        [
+          2,
+          2,
+          3,
+          2
+        ],
+        [
+          1,
+          2,
+          5,
+          6
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          0,
+          9
+        ]
+      ],
+      "test_inputs": [
+        [
+          10,
+          2,
+          13
+        ],
+        [
+          13,
+          10,
+          3,
+          14,
+          7,
+          0,
+          4
+        ],
+        [
+          5,
+          12,
+          1,
+          4,
+          12,
+          0,
+          13
+        ],
+        [
+          6,
+          1,
+          8
+        ],
+        [
+          15,
+          5,
+          3,
+          14,
+          14
+        ],
+        [
+          6,
+          12,
+          12,
+          7,
+          1,
+          14,
+          6
+        ],
+        [
+          15,
+          3,
+          11,
+          4,
+          5,
+          5
+        ],
+        [
+          10,
+          7,
+          5,
+          6,
+          4
+        ]
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "filter_gt_max",
+      "shift": "length",
+      "task": "filter_gt_max-length-s642",
+      "params": {
+        "k": 5
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 8,
+        "len_hi": 14,
+        "lo": 0,
+        "hi": 9
+      },
+      "train_inputs": [
+        [
+          3,
+          3,
+          2,
+          2
+        ],
+        [
+          9,
+          5
+        ],
+        [
+          4,
+          7,
+          3
+        ],
+        [
+          8,
+          6,
+          4,
+          5
+        ]
+      ],
+      "test_inputs": [
+        [
+          4,
+          9,
+          5,
+          9,
+          1,
+          8,
+          2,
+          3,
+          3,
+          4,
+          4,
+          2,
+          6
+        ],
+        [
+          3,
+          3,
+          1,
+          9,
+          9,
+          3,
+          2,
+          8
+        ],
+        [
+          2,
+          1,
+          8,
+          2,
+          3,
+          6,
+          2,
+          4,
+          9
+        ],
+        [
+          4,
+          8,
+          6,
+          5,
+          9,
+          3,
+          2,
+          1,
+          5,
+          5,
+          8,
+          4
+        ],
+        [
+          0,
+          4,
+          6,
+          2,
+          7,
+          7,
+          0,
+          4
+        ],
+        [
+          3,
+          2,
+          0,
+          7,
+          1,
+          2,
+          9,
+          1,
+          3,
+          8
+        ],
+        [
+          2,
+          8,
+          8,
+          9,
+          9,
+          2,
+          8,
+          2,
+          0,
+          6
+        ],
+        [
+          3,
+          4,
+          7,
+          5,
+          0,
+          1,
+          5,
+          7,
+          7
+        ]
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "filter_gt_max",
+      "shift": "both",
+      "task": "filter_gt_max-both-s429",
+      "params": {
+        "k": 6
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 8,
+        "len_hi": 14,
+        "lo": 30,
+        "hi": 90
+      },
+      "train_inputs": [
+        [
+          3,
+          7,
+          7,
+          0
+        ],
+        [
+          3,
+          8,
+          0,
+          5,
+          4
+        ],
+        [
+          1,
+          4,
+          4,
+          5,
+          8
+        ],
+        [
+          3,
+          8,
+          0,
+          1,
+          8
+        ]
+      ],
+      "test_inputs": [
+        [
+          79,
+          82,
+          36,
+          53,
+          48,
+          88,
+          88,
+          40
+        ],
+        [
+          80,
+          87,
+          60,
+          33,
+          46,
+          35,
+          53,
+          61,
+          84
+        ],
+        [
+          44,
+          42,
+          38,
+          66,
+          30,
+          38,
+          57,
+          51
+        ],
+        [
+          74,
+          73,
+          78,
+          45,
+          40,
+          72,
+          76,
+          50
+        ],
+        [
+          74,
+          74,
+          75,
+          57,
+          36,
+          66,
+          58,
+          33,
+          59,
+          73
+        ],
+        [
+          42,
+          71,
+          41,
+          75,
+          39,
+          63,
+          39,
+          69,
+          59,
+          65
+        ],
+        [
+          37,
+          40,
+          60,
+          39,
+          48,
+          83,
+          38,
+          72,
+          73
+        ],
+        [
+          55,
+          63,
+          81,
+          38,
+          54,
+          68,
+          62,
+          64,
+          35
+        ]
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "diff_scaled",
+      "shift": "none",
+      "task": "diff_scaled-none-s432",
+      "params": {
+        "k": 2
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        [
+          7,
+          9
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          4
+        ]
+      ],
+      "test_inputs": [
+        [
+          32,
+          23
+        ],
+        [
+          49,
+          12
+        ],
+        [
+          27,
+          15
+        ],
+        [
+          27,
+          35
+        ],
+        [
+          11,
+          42
+        ],
+        [
+          55,
+          43
+        ],
+        [
+          57,
+          27
+        ],
+        [
+          55,
+          54
+        ]
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "diff_scaled",
+      "shift": "magnitude",
+      "task": "diff_scaled-magnitude-s958",
+      "params": {
+        "k": 5
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 40,
+        "hi": 120
+      },
+      "train_inputs": [
+        [
+          0,
+          7
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "test_inputs": [
+        [
+          79,
+          56
+        ],
+        [
+          113,
+          105
+        ],
+        [
+          80,
+          63
+        ],
+        [
+          64,
+          114
+        ],
+        [
+          50,
+          76
+        ],
+        [
+          49,
+          82
+        ],
+        [
+          67,
+          58
+        ],
+        [
+          42,
+          100
+        ]
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "diff_scaled",
+      "shift": "sign",
+      "task": "diff_scaled-sign-s433",
+      "params": {
+        "k": 2
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        [
+          1,
+          9
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          2,
+          5
+        ]
+      ],
+      "test_inputs": [
+        [
+          36,
+          30
+        ],
+        [
+          22,
+          53
+        ],
+        [
+          49,
+          11
+        ],
+        [
+          46,
+          41
+        ],
+        [
+          49,
+          26
+        ],
+        [
+          43,
+          56
+        ],
+        [
+          11,
+          43
+        ],
+        [
+          44,
+          60
+        ]
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "diff_scaled",
+      "shift": "length",
+      "task": "diff_scaled-length-s642",
+      "params": {
+        "k": 5
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        [
+          6,
+          9
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          3
+        ]
+      ],
+      "test_inputs": [
+        [
+          38,
+          56
+        ],
+        [
+          27,
+          56
+        ],
+        [
+          13,
+          46
+        ],
+        [
+          12,
+          14
+        ],
+        [
+          46,
+          28
+        ],
+        [
+          19,
+          52
+        ],
+        [
+          45,
+          23
+        ],
+        [
+          52,
+          31
+        ]
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "diff_scaled",
+      "shift": "both",
+      "task": "diff_scaled-both-s429",
+      "params": {
+        "k": 3
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        [
+          7,
+          6
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          2,
+          6
+        ]
+      ],
+      "test_inputs": [
+        [
+          33,
+          28
+        ],
+        [
+          55,
+          25
+        ],
+        [
+          56,
+          59
+        ],
+        [
+          34,
+          60
+        ],
+        [
+          30,
+          25
+        ],
+        [
+          11,
+          29
+        ],
+        [
+          22,
+          35
+        ],
+        [
+          19,
+          18
+        ]
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "abs_double_mod",
+      "shift": "none",
+      "task": "abs_double_mod-none-s432",
+      "params": {
+        "m": 10
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        0,
+        4,
+        2,
+        7
+      ],
+      "test_inputs": [
+        41,
+        13,
+        12,
+        11,
+        51,
+        18,
+        37,
+        20
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "abs_double_mod",
+      "shift": "magnitude",
+      "task": "abs_double_mod-magnitude-s958",
+      "params": {
+        "m": 8
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 40,
+        "hi": 120
+      },
+      "train_inputs": [
+        3,
+        8,
+        4,
+        9
+      ],
+      "test_inputs": [
+        114,
+        49,
+        86,
+        76,
+        41,
+        72,
+        43,
+        107
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "abs_double_mod",
+      "shift": "sign",
+      "task": "abs_double_mod-sign-s433",
+      "params": {
+        "m": 6
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": -80,
+        "hi": -20
+      },
+      "train_inputs": [
+        6,
+        9,
+        7,
+        4
+      ],
+      "test_inputs": [
+        -76,
+        -44,
+        -32,
+        -42,
+        -63,
+        -33,
+        -30,
+        -41
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "abs_double_mod",
+      "shift": "length",
+      "task": "abs_double_mod-length-s642",
+      "params": {
+        "m": 10
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        5,
+        3,
+        1,
+        6
+      ],
+      "test_inputs": [
+        27,
+        12,
+        25,
+        24,
+        58,
+        10,
+        54,
+        30
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "abs_double_mod",
+      "shift": "both",
+      "task": "abs_double_mod-both-s429",
+      "params": {
+        "m": 7
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        2,
+        0,
+        1,
+        6
+      ],
+      "test_inputs": [
+        52,
+        48,
+        45,
+        31,
+        56,
+        25,
+        27,
+        24
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "sumdigits_add",
+      "shift": "none",
+      "task": "sumdigits_add-none-s432",
+      "params": {
+        "k": 5
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        1,
+        4,
+        2,
+        5
+      ],
+      "test_inputs": [
+        12,
+        15,
+        10,
+        42,
+        57,
+        45,
+        46,
+        11
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "sumdigits_add",
+      "shift": "magnitude",
+      "task": "sumdigits_add-magnitude-s958",
+      "params": {
+        "k": 2
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 40,
+        "hi": 120
+      },
+      "train_inputs": [
+        6,
+        4,
+        3,
+        2
+      ],
+      "test_inputs": [
+        48,
+        87,
+        96,
+        104,
+        91,
+        42,
+        108,
+        111
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "sumdigits_add",
+      "shift": "sign",
+      "task": "sumdigits_add-sign-s433",
+      "params": {
+        "k": 5
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": -80,
+        "hi": -20
+      },
+      "train_inputs": [
+        7,
+        6,
+        8,
+        5
+      ],
+      "test_inputs": [
+        -23,
+        -31,
+        -30,
+        -70,
+        -44,
+        -38,
+        -66,
+        -36
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "sumdigits_add",
+      "shift": "length",
+      "task": "sumdigits_add-length-s642",
+      "params": {
+        "k": 1
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        7,
+        6,
+        2,
+        9
+      ],
+      "test_inputs": [
+        20,
+        30,
+        16,
+        22,
+        26,
+        53,
+        19,
+        35
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "sumdigits_add",
+      "shift": "both",
+      "task": "sumdigits_add-both-s429",
+      "params": {
+        "k": 4
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        1,
+        6,
+        7,
+        3
+      ],
+      "test_inputs": [
+        33,
+        22,
+        34,
+        60,
+        51,
+        47,
+        46,
+        35
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "sub_square",
+      "shift": "none",
+      "task": "sub_square-none-s432",
+      "params": {
+        "k": 3
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        6,
+        3,
+        5,
+        9
+      ],
+      "test_inputs": [
+        29,
+        58,
+        41,
+        10,
+        42,
+        57,
+        54,
+        11
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "sub_square",
+      "shift": "magnitude",
+      "task": "sub_square-magnitude-s958",
+      "params": {
+        "k": 4
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 40,
+        "hi": 120
+      },
+      "train_inputs": [
+        5,
+        8,
+        9,
+        4
+      ],
+      "test_inputs": [
+        80,
+        55,
+        114,
+        72,
+        109,
+        118,
+        60,
+        65
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "sub_square",
+      "shift": "sign",
+      "task": "sub_square-sign-s433",
+      "params": {
+        "k": 5
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": -80,
+        "hi": -20
+      },
+      "train_inputs": [
+        1,
+        5,
+        7,
+        0
+      ],
+      "test_inputs": [
+        -49,
+        -70,
+        -22,
+        -32,
+        -74,
+        -50,
+        -69,
+        -59
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "sub_square",
+      "shift": "length",
+      "task": "sub_square-length-s642",
+      "params": {
+        "k": 4
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        7,
+        3,
+        5,
+        4
+      ],
+      "test_inputs": [
+        22,
+        13,
+        14,
+        23,
+        56,
+        40,
+        11,
+        39
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "sub_square",
+      "shift": "both",
+      "task": "sub_square-both-s429",
+      "params": {
+        "k": 3
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        6,
+        5,
+        2,
+        3
+      ],
+      "test_inputs": [
+        27,
+        13,
+        35,
+        32,
+        33,
+        52,
+        58,
+        60
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "odd_and_gt",
+      "shift": "none",
+      "task": "odd_and_gt-none-s432",
+      "params": {
+        "k": 0
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        7,
+        5,
+        0,
+        1
+      ],
+      "test_inputs": [
+        46,
+        39,
+        16,
+        37,
+        13,
+        28,
+        26,
+        29
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "odd_and_gt",
+      "shift": "magnitude",
+      "task": "odd_and_gt-magnitude-s958",
+      "params": {
+        "k": 6
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 40,
+        "hi": 120
+      },
+      "train_inputs": [
+        6,
+        1,
+        8,
+        4
+      ],
+      "test_inputs": [
+        47,
+        42,
+        76,
+        99,
+        111,
+        78,
+        92,
+        40
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "odd_and_gt",
+      "shift": "sign",
+      "task": "odd_and_gt-sign-s433",
+      "params": {
+        "k": 6
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": -80,
+        "hi": -20
+      },
+      "train_inputs": [
+        0,
+        8,
+        2,
+        3
+      ],
+      "test_inputs": [
+        -21,
+        -27,
+        -30,
+        -33,
+        -29,
+        -74,
+        -61,
+        -24
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "odd_and_gt",
+      "shift": "length",
+      "task": "odd_and_gt-length-s642",
+      "params": {
+        "k": 8
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        4,
+        6,
+        9,
+        2
+      ],
+      "test_inputs": [
+        12,
+        37,
+        53,
+        38,
+        26,
+        42,
+        30,
+        32
+      ]
+    },
+    {
+      "seed": 0,
+      "rule": "odd_and_gt",
+      "shift": "both",
+      "task": "odd_and_gt-both-s429",
+      "params": {
+        "k": 1
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        4,
+        1,
+        3,
+        5
+      ],
+      "test_inputs": [
+        14,
+        60,
+        33,
+        12,
+        34,
+        41,
+        10,
+        48
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "mod_double",
+      "shift": "none",
+      "task": "mod_double-none-s449",
+      "params": {
+        "m": 5
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        6,
+        7,
+        5,
+        1
+      ],
+      "test_inputs": [
+        58,
+        20,
+        34,
+        50,
+        14,
+        53,
+        55,
+        33
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "mod_double",
+      "shift": "magnitude",
+      "task": "mod_double-magnitude-s975",
+      "params": {
+        "m": 5
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 40,
+        "hi": 120
+      },
+      "train_inputs": [
+        0,
+        5,
+        9,
+        4
+      ],
+      "test_inputs": [
+        97,
+        98,
+        89,
+        120,
+        63,
+        84,
+        60,
+        47
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "mod_double",
+      "shift": "sign",
+      "task": "mod_double-sign-s450",
+      "params": {
+        "m": 6
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": -80,
+        "hi": -20
+      },
+      "train_inputs": [
+        3,
+        1,
+        7,
+        5
+      ],
+      "test_inputs": [
+        -29,
+        -75,
+        -60,
+        -63,
+        -72,
+        -40,
+        -54,
+        -22
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "mod_double",
+      "shift": "length",
+      "task": "mod_double-length-s659",
+      "params": {
+        "m": 6
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        1,
+        2,
+        5,
+        8
+      ],
+      "test_inputs": [
+        27,
+        19,
+        10,
+        18,
+        14,
+        59,
+        37,
+        12
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "mod_double",
+      "shift": "both",
+      "task": "mod_double-both-s446",
+      "params": {
+        "m": 9
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        0,
+        3,
+        7,
+        1
+      ],
+      "test_inputs": [
+        47,
+        60,
+        40,
+        28,
+        25,
+        30,
+        55,
+        29
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "digital_root_square",
+      "shift": "none",
+      "task": "digital_root_square-none-s449",
+      "params": {},
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        7,
+        3,
+        5,
+        8
+      ],
+      "test_inputs": [
+        57,
+        22,
+        60,
+        49,
+        10,
+        45,
+        56,
+        39
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "digital_root_square",
+      "shift": "magnitude",
+      "task": "digital_root_square-magnitude-s975",
+      "params": {},
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 40,
+        "hi": 120
+      },
+      "train_inputs": [
+        4,
+        0,
+        9,
+        6
+      ],
+      "test_inputs": [
+        102,
+        45,
+        109,
+        70,
+        66,
+        120,
+        80,
+        84
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "digital_root_square",
+      "shift": "sign",
+      "task": "digital_root_square-sign-s450",
+      "params": {},
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": -80,
+        "hi": -20
+      },
+      "train_inputs": [
+        4,
+        6,
+        2,
+        5
+      ],
+      "test_inputs": [
+        -27,
+        -72,
+        -69,
+        -30,
+        -56,
+        -40,
+        -75,
+        -68
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "digital_root_square",
+      "shift": "length",
+      "task": "digital_root_square-length-s659",
+      "params": {},
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        7,
+        6,
+        4,
+        2
+      ],
+      "test_inputs": [
+        26,
+        13,
+        39,
+        29,
+        18,
+        37,
+        19,
+        35
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "digital_root_square",
+      "shift": "both",
+      "task": "digital_root_square-both-s446",
+      "params": {},
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        6,
+        3,
+        1,
+        8
+      ],
+      "test_inputs": [
+        39,
+        26,
+        52,
+        32,
+        14,
+        22,
+        41,
+        28
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "gt_mod",
+      "shift": "none",
+      "task": "gt_mod-none-s449",
+      "params": {
+        "m": 5,
+        "k": 5
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        1,
+        6,
+        8,
+        2
+      ],
+      "test_inputs": [
+        38,
+        41,
+        18,
+        15,
+        48,
+        53,
+        47,
+        25
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "gt_mod",
+      "shift": "magnitude",
+      "task": "gt_mod-magnitude-s975",
+      "params": {
+        "m": 10,
+        "k": 5
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 40,
+        "hi": 120
+      },
+      "train_inputs": [
+        5,
+        0,
+        2,
+        7
+      ],
+      "test_inputs": [
+        108,
+        52,
+        54,
+        100,
+        85,
+        119,
+        61,
+        43
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "gt_mod",
+      "shift": "sign",
+      "task": "gt_mod-sign-s450",
+      "params": {
+        "m": 5,
+        "k": 3
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": -80,
+        "hi": -20
+      },
+      "train_inputs": [
+        7,
+        0,
+        6,
+        5
+      ],
+      "test_inputs": [
+        -45,
+        -69,
+        -25,
+        -75,
+        -70,
+        -58,
+        -52,
+        -65
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "gt_mod",
+      "shift": "length",
+      "task": "gt_mod-length-s659",
+      "params": {
+        "m": 9,
+        "k": 4
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        1,
+        0,
+        7,
+        4
+      ],
+      "test_inputs": [
+        19,
+        50,
+        26,
+        24,
+        42,
+        58,
+        54,
+        46
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "gt_mod",
+      "shift": "both",
+      "task": "gt_mod-both-s446",
+      "params": {
+        "m": 6,
+        "k": 5
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        4,
+        6,
+        3,
+        5
+      ],
+      "test_inputs": [
+        17,
+        13,
+        55,
+        21,
+        18,
+        57,
+        50,
+        45
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "if_even",
+      "shift": "none",
+      "task": "if_even-none-s449",
+      "params": {},
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        9,
+        0,
+        3,
+        7
+      ],
+      "test_inputs": [
+        58,
+        29,
+        20,
+        37,
+        47,
+        49,
+        60,
+        52
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "if_even",
+      "shift": "magnitude",
+      "task": "if_even-magnitude-s975",
+      "params": {},
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 40,
+        "hi": 120
+      },
+      "train_inputs": [
+        3,
+        1,
+        4,
+        6
+      ],
+      "test_inputs": [
+        74,
+        100,
+        47,
+        116,
+        55,
+        107,
+        106,
+        98
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "if_even",
+      "shift": "sign",
+      "task": "if_even-sign-s450",
+      "params": {},
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": -80,
+        "hi": -20
+      },
+      "train_inputs": [
+        5,
+        4,
+        1,
+        3
+      ],
+      "test_inputs": [
+        -28,
+        -71,
+        -39,
+        -20,
+        -54,
+        -43,
+        -61,
+        -37
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "if_even",
+      "shift": "length",
+      "task": "if_even-length-s659",
+      "params": {},
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        7,
+        9,
+        4,
+        1
+      ],
+      "test_inputs": [
+        24,
+        30,
+        50,
+        18,
+        53,
+        27,
+        43,
+        45
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "if_even",
+      "shift": "both",
+      "task": "if_even-both-s446",
+      "params": {},
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        3,
+        2,
+        6,
+        5
+      ],
+      "test_inputs": [
+        58,
+        23,
+        19,
+        48,
+        37,
+        51,
+        45,
+        21
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "neg_abs_mod",
+      "shift": "none",
+      "task": "neg_abs_mod-none-s449",
+      "params": {
+        "m": 11
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        3,
+        5,
+        0,
+        2
+      ],
+      "test_inputs": [
+        38,
+        50,
+        37,
+        56,
+        29,
+        10,
+        33,
+        16
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "neg_abs_mod",
+      "shift": "magnitude",
+      "task": "neg_abs_mod-magnitude-s975",
+      "params": {
+        "m": 6
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 40,
+        "hi": 120
+      },
+      "train_inputs": [
+        6,
+        1,
+        3,
+        4
+      ],
+      "test_inputs": [
+        47,
+        108,
+        66,
+        62,
+        46,
+        89,
+        105,
+        88
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "neg_abs_mod",
+      "shift": "sign",
+      "task": "neg_abs_mod-sign-s450",
+      "params": {
+        "m": 7
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": -80,
+        "hi": -20
+      },
+      "train_inputs": [
+        3,
+        9,
+        8,
+        4
+      ],
+      "test_inputs": [
+        -60,
+        -27,
+        -62,
+        -46,
+        -63,
+        -37,
+        -35,
+        -24
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "neg_abs_mod",
+      "shift": "length",
+      "task": "neg_abs_mod-length-s659",
+      "params": {
+        "m": 10
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        5,
+        9,
+        8,
+        0
+      ],
+      "test_inputs": [
+        28,
+        22,
+        36,
+        14,
+        54,
+        27,
+        38,
+        52
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "neg_abs_mod",
+      "shift": "both",
+      "task": "neg_abs_mod-both-s446",
+      "params": {
+        "m": 9
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        1,
+        7,
+        6,
+        8
+      ],
+      "test_inputs": [
+        19,
+        48,
+        36,
+        18,
+        16,
+        59,
+        15,
+        10
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "band_shift",
+      "shift": "none",
+      "task": "band_shift-none-s449",
+      "params": {
+        "k": 14,
+        "s": 4
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        8,
+        2,
+        4,
+        6
+      ],
+      "test_inputs": [
+        58,
+        56,
+        16,
+        14,
+        10,
+        17,
+        26,
+        45
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "band_shift",
+      "shift": "magnitude",
+      "task": "band_shift-magnitude-s975",
+      "params": {
+        "k": 14,
+        "s": 4
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 40,
+        "hi": 120
+      },
+      "train_inputs": [
+        0,
+        7,
+        3,
+        1
+      ],
+      "test_inputs": [
+        70,
+        96,
+        77,
+        65,
+        113,
+        59,
+        52,
+        58
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "band_shift",
+      "shift": "sign",
+      "task": "band_shift-sign-s450",
+      "params": {
+        "k": 12,
+        "s": 1
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": -80,
+        "hi": -20
+      },
+      "train_inputs": [
+        6,
+        0,
+        7,
+        4
+      ],
+      "test_inputs": [
+        -56,
+        -62,
+        -52,
+        -27,
+        -74,
+        -47,
+        -37,
+        -20
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "band_shift",
+      "shift": "length",
+      "task": "band_shift-length-s659",
+      "params": {
+        "k": 15,
+        "s": 2
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        4,
+        6,
+        2,
+        1
+      ],
+      "test_inputs": [
+        54,
+        11,
+        53,
+        36,
+        30,
+        12,
+        44,
+        13
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "band_shift",
+      "shift": "both",
+      "task": "band_shift-both-s446",
+      "params": {
+        "k": 10,
+        "s": 2
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        2,
+        5,
+        0,
+        3
+      ],
+      "test_inputs": [
+        28,
+        58,
+        34,
+        46,
+        47,
+        38,
+        44,
+        35
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "max_map_add",
+      "shift": "none",
+      "task": "max_map_add-none-s449",
+      "params": {
+        "k": 2
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 3,
+        "len_hi": 7,
+        "lo": 0,
+        "hi": 15
+      },
+      "train_inputs": [
+        [
+          7,
+          3,
+          6,
+          8
+        ],
+        [
+          3,
+          1,
+          3,
+          1
+        ],
+        [
+          9,
+          2
+        ],
+        [
+          9,
+          3,
+          7
+        ]
+      ],
+      "test_inputs": [
+        [
+          15,
+          9,
+          9,
+          10,
+          2,
+          7
+        ],
+        [
+          9,
+          14,
+          6,
+          15,
+          7
+        ],
+        [
+          6,
+          15,
+          15
+        ],
+        [
+          7,
+          12,
+          11,
+          13,
+          4,
+          9
+        ],
+        [
+          5,
+          13,
+          10,
+          0,
+          11,
+          6,
+          5
+        ],
+        [
+          9,
+          5,
+          3,
+          8
+        ],
+        [
+          14,
+          0,
+          0,
+          1,
+          14,
+          3,
+          0
+        ],
+        [
+          3,
+          9,
+          15,
+          8,
+          8,
+          10
+        ]
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "max_map_add",
+      "shift": "magnitude",
+      "task": "max_map_add-magnitude-s975",
+      "params": {
+        "k": 3
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 3,
+        "len_hi": 7,
+        "lo": 0,
+        "hi": 15
+      },
+      "train_inputs": [
+        [
+          7,
+          2,
+          6,
+          5,
+          9
+        ],
+        [
+          3,
+          4,
+          0,
+          1
+        ],
+        [
+          8,
+          3,
+          2,
+          6
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "test_inputs": [
+        [
+          8,
+          11,
+          14,
+          14,
+          9,
+          9,
+          12
+        ],
+        [
+          7,
+          13,
+          0,
+          2,
+          13,
+          1,
+          7
+        ],
+        [
+          4,
+          14,
+          15
+        ],
+        [
+          9,
+          1,
+          14,
+          13,
+          13,
+          4,
+          14
+        ],
+        [
+          15,
+          4,
+          11,
+          8
+        ],
+        [
+          13,
+          15,
+          6,
+          6
+        ],
+        [
+          14,
+          1,
+          9,
+          2,
+          4
+        ],
+        [
+          5,
+          0,
+          9,
+          15,
+          6,
+          0
+        ]
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "max_map_add",
+      "shift": "sign",
+      "task": "max_map_add-sign-s450",
+      "params": {
+        "k": 2
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 3,
+        "len_hi": 7,
+        "lo": 0,
+        "hi": 15
+      },
+      "train_inputs": [
+        [
+          0,
+          3,
+          5
+        ],
+        [
+          7,
+          1,
+          8,
+          0
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          3,
+          7,
+          2
+        ]
+      ],
+      "test_inputs": [
+        [
+          6,
+          14,
+          1,
+          8,
+          13
+        ],
+        [
+          6,
+          9,
+          13,
+          11,
+          14,
+          9,
+          3
+        ],
+        [
+          8,
+          8,
+          10,
+          8
+        ],
+        [
+          4,
+          9,
+          9,
+          4,
+          13
+        ],
+        [
+          4,
+          13,
+          7,
+          15,
+          5,
+          1
+        ],
+        [
+          13,
+          4,
+          11
+        ],
+        [
+          4,
+          14,
+          10,
+          13,
+          9
+        ],
+        [
+          9,
+          3,
+          8,
+          11,
+          0,
+          15,
+          4
+        ]
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "max_map_add",
+      "shift": "length",
+      "task": "max_map_add-length-s659",
+      "params": {
+        "k": 5
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 8,
+        "len_hi": 14,
+        "lo": 0,
+        "hi": 9
+      },
+      "train_inputs": [
+        [
+          9,
+          5,
+          5,
+          1
+        ],
+        [
+          9,
+          7,
+          6,
+          8
+        ],
+        [
+          7,
+          4,
+          8
+        ],
+        [
+          5,
+          8,
+          7,
+          0,
+          6
+        ]
+      ],
+      "test_inputs": [
+        [
+          2,
+          3,
+          6,
+          1,
+          5,
+          2,
+          2,
+          1,
+          1,
+          4,
+          8,
+          2,
+          6
+        ],
+        [
+          2,
+          0,
+          8,
+          7,
+          3,
+          8,
+          7,
+          8,
+          1,
+          6,
+          1
+        ],
+        [
+          1,
+          4,
+          4,
+          9,
+          8,
+          0,
+          7,
+          9,
+          8,
+          8,
+          4,
+          0,
+          4
+        ],
+        [
+          0,
+          7,
+          4,
+          9,
+          6,
+          9,
+          3,
+          5,
+          9,
+          0,
+          1,
+          0,
+          5
+        ],
+        [
+          7,
+          8,
+          7,
+          9,
+          8,
+          9,
+          1,
+          8
+        ],
+        [
+          6,
+          6,
+          6,
+          1,
+          4,
+          1,
+          7,
+          2,
+          9,
+          5
+        ],
+        [
+          0,
+          3,
+          7,
+          9,
+          6,
+          5,
+          2,
+          8,
+          3,
+          1,
+          3
+        ],
+        [
+          7,
+          5,
+          7,
+          8,
+          1,
+          6,
+          4,
+          9,
+          6
+        ]
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "max_map_add",
+      "shift": "both",
+      "task": "max_map_add-both-s446",
+      "params": {
+        "k": 3
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 8,
+        "len_hi": 14,
+        "lo": 30,
+        "hi": 90
+      },
+      "train_inputs": [
+        [
+          7,
+          9,
+          8,
+          5
+        ],
+        [
+          4,
+          9
+        ],
+        [
+          3,
+          2,
+          1,
+          8,
+          3
+        ],
+        [
+          1,
+          8
+        ]
+      ],
+      "test_inputs": [
+        [
+          89,
+          41,
+          49,
+          60,
+          88,
+          45,
+          54,
+          43,
+          41,
+          65
+        ],
+        [
+          89,
+          47,
+          83,
+          75,
+          46,
+          54,
+          43,
+          62,
+          59,
+          35,
+          52,
+          38,
+          72
+        ],
+        [
+          51,
+          30,
+          63,
+          54,
+          63,
+          39,
+          70,
+          66,
+          37,
+          90
+        ],
+        [
+          73,
+          33,
+          66,
+          57,
+          68,
+          64,
+          39,
+          90,
+          35,
+          75,
+          42,
+          42,
+          46,
+          32
+        ],
+        [
+          56,
+          63,
+          63,
+          75,
+          69,
+          74,
+          79,
+          37,
+          65,
+          47,
+          89,
+          47,
+          63
+        ],
+        [
+          30,
+          50,
+          86,
+          82,
+          80,
+          50,
+          83,
+          70,
+          46,
+          32
+        ],
+        [
+          84,
+          42,
+          49,
+          61,
+          46,
+          49,
+          38,
+          42,
+          35,
+          66,
+          81,
+          32
+        ],
+        [
+          43,
+          50,
+          68,
+          56,
+          88,
+          36,
+          44,
+          84,
+          38,
+          79
+        ]
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "reverse_take_sum",
+      "shift": "none",
+      "task": "reverse_take_sum-none-s449",
+      "params": {
+        "k": 3
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 3,
+        "len_hi": 7,
+        "lo": 0,
+        "hi": 15
+      },
+      "train_inputs": [
+        [
+          5,
+          4
+        ],
+        [
+          1,
+          2,
+          9
+        ],
+        [
+          4,
+          2,
+          5
+        ],
+        [
+          6,
+          3,
+          6,
+          2,
+          0
+        ]
+      ],
+      "test_inputs": [
+        [
+          4,
+          12,
+          14,
+          13,
+          0
+        ],
+        [
+          11,
+          12,
+          3
+        ],
+        [
+          10,
+          2,
+          8,
+          9,
+          12
+        ],
+        [
+          4,
+          0,
+          12,
+          3,
+          6,
+          10,
+          3
+        ],
+        [
+          14,
+          11,
+          13,
+          0,
+          6,
+          10
+        ],
+        [
+          9,
+          10,
+          7
+        ],
+        [
+          3,
+          9,
+          13
+        ],
+        [
+          13,
+          0,
+          6,
+          0,
+          3
+        ]
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "reverse_take_sum",
+      "shift": "magnitude",
+      "task": "reverse_take_sum-magnitude-s975",
+      "params": {
+        "k": 2
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 3,
+        "len_hi": 7,
+        "lo": 0,
+        "hi": 15
+      },
+      "train_inputs": [
+        [
+          4,
+          2,
+          1
+        ],
+        [
+          9,
+          0,
+          6,
+          2
+        ],
+        [
+          8,
+          3,
+          1,
+          4
+        ],
+        [
+          0,
+          5
+        ]
+      ],
+      "test_inputs": [
+        [
+          6,
+          3,
+          7
+        ],
+        [
+          10,
+          4,
+          5
+        ],
+        [
+          6,
+          15,
+          9,
+          3,
+          12,
+          10,
+          4
+        ],
+        [
+          5,
+          2,
+          15,
+          10,
+          6,
+          3
+        ],
+        [
+          9,
+          12,
+          10
+        ],
+        [
+          4,
+          1,
+          12,
+          7,
+          2
+        ],
+        [
+          2,
+          7,
+          2,
+          9,
+          14,
+          0
+        ],
+        [
+          11,
+          14,
+          13,
+          5,
+          7,
+          7
+        ]
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "reverse_take_sum",
+      "shift": "sign",
+      "task": "reverse_take_sum-sign-s450",
+      "params": {
+        "k": 3
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 3,
+        "len_hi": 7,
+        "lo": 0,
+        "hi": 15
+      },
+      "train_inputs": [
+        [
+          2,
+          1,
+          0,
+          7,
+          2
+        ],
+        [
+          2,
+          1,
+          0,
+          6,
+          4
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          5
+        ]
+      ],
+      "test_inputs": [
+        [
+          6,
+          4,
+          4,
+          6
+        ],
+        [
+          14,
+          13,
+          14
+        ],
+        [
+          13,
+          10,
+          6,
+          0,
+          11,
+          0,
+          10
+        ],
+        [
+          8,
+          11,
+          5
+        ],
+        [
+          9,
+          7,
+          15
+        ],
+        [
+          10,
+          4,
+          7,
+          11,
+          14,
+          10
+        ],
+        [
+          0,
+          9,
+          3,
+          7
+        ],
+        [
+          10,
+          3,
+          11,
+          5,
+          7,
+          6
+        ]
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "reverse_take_sum",
+      "shift": "length",
+      "task": "reverse_take_sum-length-s659",
+      "params": {
+        "k": 3
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 8,
+        "len_hi": 14,
+        "lo": 0,
+        "hi": 9
+      },
+      "train_inputs": [
+        [
+          0,
+          2,
+          8,
+          2
+        ],
+        [
+          0,
+          8,
+          8,
+          1,
+          0
+        ],
+        [
+          5,
+          5,
+          2,
+          4,
+          2
+        ],
+        [
+          9,
+          6,
+          8,
+          7
+        ]
+      ],
+      "test_inputs": [
+        [
+          5,
+          3,
+          2,
+          8,
+          4,
+          1,
+          6,
+          3,
+          9,
+          8,
+          7
+        ],
+        [
+          9,
+          8,
+          2,
+          1,
+          6,
+          3,
+          6,
+          0,
+          2,
+          0,
+          2,
+          9,
+          0,
+          4
+        ],
+        [
+          1,
+          8,
+          1,
+          8,
+          2,
+          6,
+          2,
+          0
+        ],
+        [
+          0,
+          1,
+          3,
+          1,
+          9,
+          3,
+          6,
+          2,
+          5,
+          0,
+          2,
+          3,
+          5,
+          2
+        ],
+        [
+          3,
+          6,
+          4,
+          1,
+          5,
+          1,
+          3,
+          7,
+          6
+        ],
+        [
+          1,
+          9,
+          3,
+          4,
+          6,
+          1,
+          7,
+          6,
+          7,
+          1,
+          0
+        ],
+        [
+          2,
+          4,
+          1,
+          3,
+          5,
+          7,
+          9,
+          6,
+          2
+        ],
+        [
+          4,
+          4,
+          7,
+          2,
+          9,
+          8,
+          4,
+          8,
+          2,
+          1,
+          2
+        ]
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "reverse_take_sum",
+      "shift": "both",
+      "task": "reverse_take_sum-both-s446",
+      "params": {
+        "k": 2
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 8,
+        "len_hi": 14,
+        "lo": 30,
+        "hi": 90
+      },
+      "train_inputs": [
+        [
+          8,
+          1,
+          6,
+          7,
+          3
+        ],
+        [
+          9,
+          1
+        ],
+        [
+          9,
+          0,
+          6,
+          3
+        ],
+        [
+          6,
+          5,
+          4
+        ]
+      ],
+      "test_inputs": [
+        [
+          43,
+          69,
+          36,
+          46,
+          74,
+          32,
+          40,
+          61,
+          33,
+          78
+        ],
+        [
+          61,
+          55,
+          35,
+          79,
+          54,
+          82,
+          77,
+          62,
+          87,
+          82
+        ],
+        [
+          43,
+          34,
+          63,
+          85,
+          42,
+          61,
+          76,
+          33
+        ],
+        [
+          86,
+          62,
+          62,
+          60,
+          70,
+          38,
+          80,
+          65,
+          51,
+          36
+        ],
+        [
+          37,
+          79,
+          30,
+          42,
+          32,
+          52,
+          33,
+          38,
+          64,
+          67,
+          53,
+          85,
+          50
+        ],
+        [
+          78,
+          39,
+          90,
+          40,
+          48,
+          65,
+          62,
+          53
+        ],
+        [
+          36,
+          34,
+          32,
+          38,
+          56,
+          84,
+          37,
+          69
+        ],
+        [
+          89,
+          65,
+          69,
+          76,
+          85,
+          47,
+          88,
+          39,
+          80,
+          41,
+          43,
+          73
+        ]
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "count_even_unique",
+      "shift": "none",
+      "task": "count_even_unique-none-s449",
+      "params": {},
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 3,
+        "len_hi": 7,
+        "lo": 0,
+        "hi": 15
+      },
+      "train_inputs": [
+        [
+          4,
+          8,
+          5,
+          8
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          6,
+          3,
+          9,
+          2,
+          9
+        ],
+        [
+          2,
+          4,
+          7,
+          2,
+          9
+        ]
+      ],
+      "test_inputs": [
+        [
+          13,
+          10,
+          15,
+          2,
+          9
+        ],
+        [
+          13,
+          3,
+          2
+        ],
+        [
+          9,
+          3,
+          13,
+          9,
+          4
+        ],
+        [
+          0,
+          2,
+          8,
+          3,
+          14
+        ],
+        [
+          1,
+          11,
+          5
+        ],
+        [
+          2,
+          11,
+          4,
+          9,
+          0,
+          13
+        ],
+        [
+          11,
+          7,
+          10,
+          7,
+          4,
+          9,
+          8
+        ],
+        [
+          12,
+          1,
+          9,
+          14,
+          0,
+          14
+        ]
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "count_even_unique",
+      "shift": "magnitude",
+      "task": "count_even_unique-magnitude-s975",
+      "params": {},
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 3,
+        "len_hi": 7,
+        "lo": 0,
+        "hi": 15
+      },
+      "train_inputs": [
+        [
+          5,
+          0,
+          4
+        ],
+        [
+          5,
+          2,
+          3,
+          7
+        ],
+        [
+          9,
+          9,
+          3
+        ],
+        [
+          6,
+          3,
+          7,
+          0,
+          5
+        ]
+      ],
+      "test_inputs": [
+        [
+          8,
+          13,
+          9
+        ],
+        [
+          7,
+          0,
+          10,
+          9,
+          10,
+          15
+        ],
+        [
+          3,
+          15,
+          13,
+          6,
+          2
+        ],
+        [
+          9,
+          0,
+          15,
+          5,
+          8
+        ],
+        [
+          7,
+          4,
+          9
+        ],
+        [
+          1,
+          9,
+          1
+        ],
+        [
+          3,
+          3,
+          2,
+          9,
+          12,
+          12,
+          4
+        ],
+        [
+          12,
+          10,
+          14,
+          11
+        ]
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "count_even_unique",
+      "shift": "sign",
+      "task": "count_even_unique-sign-s450",
+      "params": {},
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 3,
+        "len_hi": 7,
+        "lo": 0,
+        "hi": 15
+      },
+      "train_inputs": [
+        [
+          7,
+          4,
+          2,
+          6
+        ],
+        [
+          8,
+          9
+        ],
+        [
+          1,
+          0,
+          6,
+          5,
+          0
+        ],
+        [
+          5,
+          5
+        ]
+      ],
+      "test_inputs": [
+        [
+          2,
+          5,
+          12,
+          1
+        ],
+        [
+          5,
+          3,
+          5,
+          7,
+          3
+        ],
+        [
+          15,
+          4,
+          6,
+          9,
+          3,
+          12
+        ],
+        [
+          8,
+          5,
+          8,
+          7,
+          10,
+          15
+        ],
+        [
+          10,
+          12,
+          3,
+          9,
+          5,
+          2,
+          7
+        ],
+        [
+          15,
+          13,
+          13,
+          14,
+          11
+        ],
+        [
+          6,
+          14,
+          14,
+          8,
+          10,
+          13
+        ],
+        [
+          9,
+          15,
+          13,
+          0,
+          11,
+          2
+        ]
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "count_even_unique",
+      "shift": "length",
+      "task": "count_even_unique-length-s659",
+      "params": {},
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 8,
+        "len_hi": 14,
+        "lo": 0,
+        "hi": 9
+      },
+      "train_inputs": [
+        [
+          4,
+          9
+        ],
+        [
+          5,
+          8,
+          0
+        ],
+        [
+          3,
+          2,
+          0
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "test_inputs": [
+        [
+          9,
+          4,
+          4,
+          1,
+          0,
+          3,
+          2,
+          4,
+          9,
+          6,
+          6
+        ],
+        [
+          9,
+          8,
+          5,
+          5,
+          0,
+          7,
+          3,
+          7,
+          5,
+          1,
+          0,
+          5
+        ],
+        [
+          8,
+          9,
+          3,
+          0,
+          6,
+          3,
+          6,
+          9,
+          6
+        ],
+        [
+          1,
+          8,
+          1,
+          3,
+          7,
+          4,
+          4,
+          5
+        ],
+        [
+          6,
+          6,
+          5,
+          6,
+          6,
+          7,
+          1,
+          1,
+          8,
+          6,
+          3,
+          7,
+          8,
+          1
+        ],
+        [
+          1,
+          3,
+          4,
+          6,
+          5,
+          6,
+          1,
+          0,
+          8
+        ],
+        [
+          1,
+          3,
+          4,
+          1,
+          5,
+          8,
+          8,
+          5,
+          7,
+          8
+        ],
+        [
+          7,
+          2,
+          4,
+          3,
+          8,
+          9,
+          8,
+          7,
+          0,
+          6,
+          5,
+          4
+        ]
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "count_even_unique",
+      "shift": "both",
+      "task": "count_even_unique-both-s446",
+      "params": {},
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 8,
+        "len_hi": 14,
+        "lo": 30,
+        "hi": 90
+      },
+      "train_inputs": [
+        [
+          1,
+          3,
+          2,
+          2
+        ],
+        [
+          9,
+          7,
+          6
+        ],
+        [
+          4,
+          1,
+          9
+        ],
+        [
+          1,
+          6,
+          5
+        ]
+      ],
+      "test_inputs": [
+        [
+          46,
+          90,
+          67,
+          81,
+          70,
+          70,
+          83,
+          55,
+          64,
+          67,
+          49,
+          59,
+          60
+        ],
+        [
+          54,
+          53,
+          89,
+          83,
+          81,
+          55,
+          49,
+          75,
+          43,
+          73,
+          72
+        ],
+        [
+          66,
+          33,
+          64,
+          61,
+          85,
+          59,
+          59,
+          85,
+          68,
+          39,
+          67,
+          90,
+          40
+        ],
+        [
+          79,
+          63,
+          40,
+          52,
+          36,
+          82,
+          72,
+          49,
+          69,
+          68,
+          73
+        ],
+        [
+          41,
+          72,
+          78,
+          70,
+          47,
+          77,
+          89,
+          67,
+          62,
+          72,
+          68,
+          51
+        ],
+        [
+          60,
+          62,
+          46,
+          62,
+          53,
+          65,
+          55,
+          74,
+          84,
+          41,
+          71,
+          76,
+          90,
+          48
+        ],
+        [
+          65,
+          51,
+          51,
+          88,
+          69,
+          81,
+          31,
+          72,
+          82
+        ],
+        [
+          30,
+          41,
+          52,
+          58,
+          89,
+          84,
+          64,
+          53,
+          53,
+          37,
+          59
+        ]
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "sum_squares_evens",
+      "shift": "none",
+      "task": "sum_squares_evens-none-s449",
+      "params": {},
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 3,
+        "len_hi": 7,
+        "lo": 0,
+        "hi": 15
+      },
+      "train_inputs": [
+        [
+          3,
+          5
+        ],
+        [
+          0,
+          9
+        ],
+        [
+          4,
+          6,
+          5
+        ],
+        [
+          5,
+          1,
+          6
+        ]
+      ],
+      "test_inputs": [
+        [
+          10,
+          0,
+          4,
+          0,
+          8,
+          12
+        ],
+        [
+          0,
+          2,
+          12,
+          4,
+          3,
+          7,
+          10
+        ],
+        [
+          4,
+          11,
+          0,
+          15,
+          12,
+          14
+        ],
+        [
+          14,
+          7,
+          11
+        ],
+        [
+          11,
+          4,
+          11,
+          0
+        ],
+        [
+          1,
+          8,
+          7,
+          4,
+          1,
+          15
+        ],
+        [
+          11,
+          1,
+          5
+        ],
+        [
+          14,
+          14,
+          12
+        ]
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "sum_squares_evens",
+      "shift": "magnitude",
+      "task": "sum_squares_evens-magnitude-s975",
+      "params": {},
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 3,
+        "len_hi": 7,
+        "lo": 0,
+        "hi": 15
+      },
+      "train_inputs": [
+        [
+          9,
+          7
+        ],
+        [
+          5,
+          0,
+          5,
+          6
+        ],
+        [
+          5,
+          7,
+          9,
+          4,
+          3
+        ],
+        [
+          1,
+          8,
+          7,
+          2
+        ]
+      ],
+      "test_inputs": [
+        [
+          5,
+          3,
+          11
+        ],
+        [
+          15,
+          1,
+          7,
+          1
+        ],
+        [
+          7,
+          0,
+          15
+        ],
+        [
+          8,
+          11,
+          10
+        ],
+        [
+          0,
+          15,
+          4,
+          14,
+          14,
+          11
+        ],
+        [
+          6,
+          8,
+          15,
+          8,
+          14,
+          1
+        ],
+        [
+          1,
+          14,
+          9,
+          10,
+          8,
+          11,
+          14
+        ],
+        [
+          13,
+          6,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "sum_squares_evens",
+      "shift": "sign",
+      "task": "sum_squares_evens-sign-s450",
+      "params": {},
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 3,
+        "len_hi": 7,
+        "lo": 0,
+        "hi": 15
+      },
+      "train_inputs": [
+        [
+          1,
+          4
+        ],
+        [
+          5,
+          6,
+          6,
+          6,
+          6
+        ],
+        [
+          0,
+          1,
+          9
+        ],
+        [
+          5,
+          3,
+          2
+        ]
+      ],
+      "test_inputs": [
+        [
+          9,
+          1,
+          3,
+          12,
+          7
+        ],
+        [
+          7,
+          1,
+          6
+        ],
+        [
+          14,
+          4,
+          8,
+          4,
+          12,
+          14
+        ],
+        [
+          2,
+          2,
+          13,
+          7,
+          13,
+          12,
+          4
+        ],
+        [
+          15,
+          9,
+          10,
+          15,
+          15,
+          9,
+          9
+        ],
+        [
+          3,
+          1,
+          0,
+          4,
+          6,
+          8
+        ],
+        [
+          13,
+          15,
+          8,
+          9,
+          5,
+          8,
+          15
+        ],
+        [
+          7,
+          8,
+          14,
+          2,
+          13,
+          0
+        ]
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "sum_squares_evens",
+      "shift": "length",
+      "task": "sum_squares_evens-length-s659",
+      "params": {},
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 8,
+        "len_hi": 14,
+        "lo": 0,
+        "hi": 9
+      },
+      "train_inputs": [
+        [
+          4,
+          8,
+          1
+        ],
+        [
+          0,
+          5,
+          4
+        ],
+        [
+          4,
+          2,
+          9,
+          8
+        ],
+        [
+          0,
+          4,
+          5,
+          5,
+          8
+        ]
+      ],
+      "test_inputs": [
+        [
+          2,
+          5,
+          4,
+          6,
+          8,
+          2,
+          2,
+          6
+        ],
+        [
+          4,
+          7,
+          9,
+          0,
+          9,
+          8,
+          6,
+          5,
+          2,
+          5,
+          0
+        ],
+        [
+          0,
+          4,
+          3,
+          2,
+          7,
+          4,
+          9,
+          4,
+          7
+        ],
+        [
+          2,
+          6,
+          6,
+          2,
+          7,
+          4,
+          9,
+          6,
+          7
+        ],
+        [
+          0,
+          6,
+          2,
+          3,
+          9,
+          6,
+          9,
+          4
+        ],
+        [
+          6,
+          9,
+          6,
+          4,
+          0,
+          4,
+          7,
+          9,
+          5,
+          2,
+          8
+        ],
+        [
+          4,
+          5,
+          2,
+          2,
+          2,
+          7,
+          4,
+          7,
+          7,
+          8,
+          3,
+          3,
+          0
+        ],
+        [
+          7,
+          3,
+          2,
+          4,
+          4,
+          0,
+          6,
+          3,
+          9,
+          8,
+          8,
+          3,
+          8,
+          5
+        ]
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "sum_squares_evens",
+      "shift": "both",
+      "task": "sum_squares_evens-both-s446",
+      "params": {},
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 8,
+        "len_hi": 14,
+        "lo": 30,
+        "hi": 90
+      },
+      "train_inputs": [
+        [
+          1,
+          1,
+          2
+        ],
+        [
+          2,
+          4,
+          0
+        ],
+        [
+          9,
+          8,
+          7,
+          7,
+          7
+        ],
+        [
+          3,
+          3,
+          2,
+          7,
+          2
+        ]
+      ],
+      "test_inputs": [
+        [
+          36,
+          49,
+          67,
+          36,
+          37,
+          57,
+          78,
+          36,
+          42,
+          61,
+          74,
+          32,
+          36
+        ],
+        [
+          51,
+          62,
+          33,
+          75,
+          35,
+          89,
+          45,
+          58,
+          49,
+          61,
+          85,
+          77
+        ],
+        [
+          79,
+          69,
+          63,
+          42,
+          35,
+          44,
+          72,
+          72,
+          34
+        ],
+        [
+          52,
+          60,
+          71,
+          37,
+          31,
+          88,
+          78,
+          75,
+          73,
+          37,
+          83,
+          87,
+          87,
+          46
+        ],
+        [
+          68,
+          48,
+          51,
+          58,
+          84,
+          57,
+          89,
+          37,
+          42,
+          86
+        ],
+        [
+          36,
+          61,
+          78,
+          41,
+          39,
+          82,
+          46,
+          63,
+          85,
+          51,
+          81
+        ],
+        [
+          33,
+          52,
+          50,
+          77,
+          32,
+          51,
+          88,
+          59,
+          90
+        ],
+        [
+          64,
+          70,
+          45,
+          35,
+          84,
+          56,
+          30,
+          88,
+          41,
+          35
+        ]
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "filter_gt_max",
+      "shift": "none",
+      "task": "filter_gt_max-none-s449",
+      "params": {
+        "k": 4
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 3,
+        "len_hi": 7,
+        "lo": 0,
+        "hi": 15
+      },
+      "train_inputs": [
+        [
+          5,
+          3,
+          3,
+          6
+        ],
+        [
+          8,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          4,
+          9,
+          2
+        ]
+      ],
+      "test_inputs": [
+        [
+          1,
+          8,
+          4,
+          14
+        ],
+        [
+          8,
+          4,
+          10,
+          1
+        ],
+        [
+          3,
+          7,
+          3
+        ],
+        [
+          7,
+          8,
+          5,
+          6
+        ],
+        [
+          14,
+          8,
+          12,
+          8,
+          0
+        ],
+        [
+          15,
+          9,
+          2,
+          14,
+          2,
+          5,
+          3
+        ],
+        [
+          2,
+          10,
+          3
+        ],
+        [
+          11,
+          2,
+          14,
+          15,
+          12
+        ]
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "filter_gt_max",
+      "shift": "magnitude",
+      "task": "filter_gt_max-magnitude-s975",
+      "params": {
+        "k": 2
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 3,
+        "len_hi": 7,
+        "lo": 0,
+        "hi": 15
+      },
+      "train_inputs": [
+        [
+          2,
+          1,
+          7,
+          7
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          7,
+          9
+        ],
+        [
+          7,
+          5,
+          3,
+          1
+        ]
+      ],
+      "test_inputs": [
+        [
+          13,
+          9,
+          3,
+          7,
+          7,
+          3,
+          7
+        ],
+        [
+          5,
+          15,
+          10,
+          8,
+          6,
+          1
+        ],
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          10,
+          14,
+          4,
+          6,
+          5,
+          2,
+          8
+        ],
+        [
+          0,
+          5,
+          8,
+          12,
+          12,
+          15,
+          8
+        ],
+        [
+          2,
+          11,
+          3,
+          1,
+          12,
+          3,
+          6
+        ],
+        [
+          11,
+          14,
+          15,
+          9,
+          0,
+          3
+        ],
+        [
+          4,
+          0,
+          13,
+          4,
+          0,
+          10,
+          7
+        ]
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "filter_gt_max",
+      "shift": "sign",
+      "task": "filter_gt_max-sign-s450",
+      "params": {
+        "k": 3
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 3,
+        "len_hi": 7,
+        "lo": 0,
+        "hi": 15
+      },
+      "train_inputs": [
+        [
+          6,
+          7,
+          6,
+          3
+        ],
+        [
+          4,
+          1,
+          1,
+          9,
+          1
+        ],
+        [
+          0,
+          0,
+          3,
+          3
+        ],
+        [
+          9,
+          7
+        ]
+      ],
+      "test_inputs": [
+        [
+          14,
+          0,
+          7,
+          15
+        ],
+        [
+          5,
+          5,
+          14,
+          1,
+          10
+        ],
+        [
+          13,
+          9,
+          4,
+          11,
+          2,
+          9
+        ],
+        [
+          13,
+          15,
+          1,
+          1
+        ],
+        [
+          10,
+          15,
+          8,
+          10
+        ],
+        [
+          1,
+          2,
+          3,
+          2,
+          7
+        ],
+        [
+          15,
+          14,
+          6,
+          7,
+          9
+        ],
+        [
+          5,
+          9,
+          0,
+          12
+        ]
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "filter_gt_max",
+      "shift": "length",
+      "task": "filter_gt_max-length-s659",
+      "params": {
+        "k": 4
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 8,
+        "len_hi": 14,
+        "lo": 0,
+        "hi": 9
+      },
+      "train_inputs": [
+        [
+          7,
+          5,
+          4,
+          7
+        ],
+        [
+          2,
+          1,
+          1,
+          4,
+          8
+        ],
+        [
+          8,
+          9,
+          4,
+          3,
+          1
+        ],
+        [
+          1,
+          6,
+          0,
+          8,
+          5
+        ]
+      ],
+      "test_inputs": [
+        [
+          3,
+          8,
+          0,
+          3,
+          8,
+          0,
+          6,
+          8,
+          3,
+          4,
+          3,
+          1,
+          7
+        ],
+        [
+          0,
+          3,
+          9,
+          0,
+          7,
+          5,
+          4,
+          9,
+          9,
+          4,
+          3
+        ],
+        [
+          7,
+          3,
+          2,
+          6,
+          1,
+          8,
+          6,
+          1,
+          1,
+          9
+        ],
+        [
+          4,
+          2,
+          3,
+          7,
+          7,
+          1,
+          2,
+          3,
+          5,
+          1,
+          0
+        ],
+        [
+          6,
+          9,
+          7,
+          4,
+          1,
+          6,
+          1,
+          7
+        ],
+        [
+          8,
+          2,
+          0,
+          4,
+          7,
+          5,
+          9,
+          1,
+          8,
+          4
+        ],
+        [
+          1,
+          6,
+          1,
+          7,
+          6,
+          0,
+          8,
+          1,
+          6,
+          4,
+          8,
+          7,
+          4
+        ],
+        [
+          7,
+          5,
+          9,
+          2,
+          7,
+          6,
+          3,
+          1,
+          0,
+          7,
+          3
+        ]
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "filter_gt_max",
+      "shift": "both",
+      "task": "filter_gt_max-both-s446",
+      "params": {
+        "k": 3
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "len": 2,
+        "len_hi": 5,
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "len": 8,
+        "len_hi": 14,
+        "lo": 30,
+        "hi": 90
+      },
+      "train_inputs": [
+        [
+          8,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          9,
+          7,
+          8,
+          9,
+          5
+        ],
+        [
+          1,
+          0,
+          7,
+          4,
+          6
+        ]
+      ],
+      "test_inputs": [
+        [
+          86,
+          81,
+          39,
+          47,
+          90,
+          33,
+          75,
+          89
+        ],
+        [
+          31,
+          39,
+          86,
+          76,
+          66,
+          49,
+          80,
+          70,
+          77,
+          89,
+          79,
+          31,
+          77,
+          71
+        ],
+        [
+          78,
+          36,
+          61,
+          48,
+          54,
+          38,
+          36,
+          60,
+          33,
+          72
+        ],
+        [
+          90,
+          90,
+          41,
+          80,
+          60,
+          42,
+          74,
+          30,
+          90
+        ],
+        [
+          70,
+          68,
+          84,
+          55,
+          87,
+          72,
+          78,
+          33,
+          39,
+          88
+        ],
+        [
+          52,
+          72,
+          40,
+          33,
+          78,
+          35,
+          35,
+          46,
+          75,
+          71
+        ],
+        [
+          81,
+          84,
+          64,
+          37,
+          54,
+          59,
+          82,
+          55,
+          68,
+          30,
+          56
+        ],
+        [
+          30,
+          71,
+          31,
+          79,
+          54,
+          85,
+          79,
+          90,
+          47,
+          74,
+          84,
+          50
+        ]
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "diff_scaled",
+      "shift": "none",
+      "task": "diff_scaled-none-s449",
+      "params": {
+        "k": 2
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        [
+          9,
+          4
+        ],
+        [
+          9,
+          8
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          7,
+          0
+        ]
+      ],
+      "test_inputs": [
+        [
+          60,
+          57
+        ],
+        [
+          39,
+          15
+        ],
+        [
+          10,
+          51
+        ],
+        [
+          18,
+          38
+        ],
+        [
+          30,
+          33
+        ],
+        [
+          45,
+          55
+        ],
+        [
+          20,
+          26
+        ],
+        [
+          26,
+          26
+        ]
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "diff_scaled",
+      "shift": "magnitude",
+      "task": "diff_scaled-magnitude-s975",
+      "params": {
+        "k": 5
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 40,
+        "hi": 120
+      },
+      "train_inputs": [
+        [
+          2,
+          4
+        ],
+        [
+          9,
+          4
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "test_inputs": [
+        [
+          100,
+          112
+        ],
+        [
+          58,
+          44
+        ],
+        [
+          102,
+          61
+        ],
+        [
+          107,
+          74
+        ],
+        [
+          85,
+          75
+        ],
+        [
+          54,
+          117
+        ],
+        [
+          60,
+          77
+        ],
+        [
+          115,
+          100
+        ]
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "diff_scaled",
+      "shift": "sign",
+      "task": "diff_scaled-sign-s450",
+      "params": {
+        "k": 5
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        [
+          3,
+          8
+        ],
+        [
+          8,
+          3
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          2,
+          6
+        ]
+      ],
+      "test_inputs": [
+        [
+          45,
+          25
+        ],
+        [
+          55,
+          30
+        ],
+        [
+          23,
+          42
+        ],
+        [
+          19,
+          43
+        ],
+        [
+          28,
+          18
+        ],
+        [
+          37,
+          49
+        ],
+        [
+          54,
+          16
+        ],
+        [
+          46,
+          16
+        ]
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "diff_scaled",
+      "shift": "length",
+      "task": "diff_scaled-length-s659",
+      "params": {
+        "k": 3
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        [
+          5,
+          1
+        ],
+        [
+          7,
+          2
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      "test_inputs": [
+        [
+          33,
+          14
+        ],
+        [
+          23,
+          14
+        ],
+        [
+          20,
+          51
+        ],
+        [
+          31,
+          56
+        ],
+        [
+          20,
+          28
+        ],
+        [
+          13,
+          28
+        ],
+        [
+          56,
+          44
+        ],
+        [
+          19,
+          23
+        ]
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "diff_scaled",
+      "shift": "both",
+      "task": "diff_scaled-both-s446",
+      "params": {
+        "k": 2
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        [
+          0,
+          2
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          9,
+          7
+        ],
+        [
+          5,
+          5
+        ]
+      ],
+      "test_inputs": [
+        [
+          44,
+          41
+        ],
+        [
+          48,
+          57
+        ],
+        [
+          51,
+          42
+        ],
+        [
+          52,
+          19
+        ],
+        [
+          17,
+          20
+        ],
+        [
+          39,
+          45
+        ],
+        [
+          17,
+          21
+        ],
+        [
+          45,
+          43
+        ]
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "abs_double_mod",
+      "shift": "none",
+      "task": "abs_double_mod-none-s449",
+      "params": {
+        "m": 6
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        3,
+        1,
+        9,
+        4
+      ],
+      "test_inputs": [
+        25,
+        58,
+        43,
+        53,
+        15,
+        39,
+        14,
+        13
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "abs_double_mod",
+      "shift": "magnitude",
+      "task": "abs_double_mod-magnitude-s975",
+      "params": {
+        "m": 7
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 40,
+        "hi": 120
+      },
+      "train_inputs": [
+        7,
+        1,
+        3,
+        5
+      ],
+      "test_inputs": [
+        54,
+        51,
+        73,
+        42,
+        74,
+        68,
+        89,
+        55
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "abs_double_mod",
+      "shift": "sign",
+      "task": "abs_double_mod-sign-s450",
+      "params": {
+        "m": 6
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": -80,
+        "hi": -20
+      },
+      "train_inputs": [
+        4,
+        8,
+        0,
+        1
+      ],
+      "test_inputs": [
+        -52,
+        -42,
+        -44,
+        -64,
+        -50,
+        -79,
+        -26,
+        -30
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "abs_double_mod",
+      "shift": "length",
+      "task": "abs_double_mod-length-s659",
+      "params": {
+        "m": 7
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        9,
+        6,
+        0,
+        3
+      ],
+      "test_inputs": [
+        14,
+        57,
+        32,
+        53,
+        44,
+        21,
+        31,
+        19
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "abs_double_mod",
+      "shift": "both",
+      "task": "abs_double_mod-both-s446",
+      "params": {
+        "m": 8
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        4,
+        5,
+        6,
+        1
+      ],
+      "test_inputs": [
+        57,
+        13,
+        14,
+        56,
+        26,
+        44,
+        34,
+        37
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "sumdigits_add",
+      "shift": "none",
+      "task": "sumdigits_add-none-s449",
+      "params": {
+        "k": 3
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        7,
+        8,
+        3,
+        2
+      ],
+      "test_inputs": [
+        18,
+        58,
+        51,
+        30,
+        27,
+        37,
+        19,
+        44
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "sumdigits_add",
+      "shift": "magnitude",
+      "task": "sumdigits_add-magnitude-s975",
+      "params": {
+        "k": 1
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 40,
+        "hi": 120
+      },
+      "train_inputs": [
+        6,
+        3,
+        7,
+        8
+      ],
+      "test_inputs": [
+        120,
+        79,
+        84,
+        52,
+        114,
+        117,
+        78,
+        110
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "sumdigits_add",
+      "shift": "sign",
+      "task": "sumdigits_add-sign-s450",
+      "params": {
+        "k": 3
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": -80,
+        "hi": -20
+      },
+      "train_inputs": [
+        4,
+        5,
+        6,
+        0
+      ],
+      "test_inputs": [
+        -53,
+        -73,
+        -71,
+        -59,
+        -55,
+        -77,
+        -32,
+        -58
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "sumdigits_add",
+      "shift": "length",
+      "task": "sumdigits_add-length-s659",
+      "params": {
+        "k": 3
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        7,
+        2,
+        5,
+        6
+      ],
+      "test_inputs": [
+        58,
+        41,
+        27,
+        19,
+        13,
+        20,
+        39,
+        54
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "sumdigits_add",
+      "shift": "both",
+      "task": "sumdigits_add-both-s446",
+      "params": {
+        "k": 5
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        6,
+        9,
+        0,
+        7
+      ],
+      "test_inputs": [
+        16,
+        26,
+        39,
+        27,
+        56,
+        33,
+        14,
+        35
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "sub_square",
+      "shift": "none",
+      "task": "sub_square-none-s449",
+      "params": {
+        "k": 5
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        0,
+        3,
+        5,
+        4
+      ],
+      "test_inputs": [
+        57,
+        15,
+        54,
+        19,
+        46,
+        25,
+        20,
+        13
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "sub_square",
+      "shift": "magnitude",
+      "task": "sub_square-magnitude-s975",
+      "params": {
+        "k": 5
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 40,
+        "hi": 120
+      },
+      "train_inputs": [
+        8,
+        6,
+        9,
+        2
+      ],
+      "test_inputs": [
+        72,
+        70,
+        119,
+        95,
+        69,
+        58,
+        89,
+        59
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "sub_square",
+      "shift": "sign",
+      "task": "sub_square-sign-s450",
+      "params": {
+        "k": 1
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": -80,
+        "hi": -20
+      },
+      "train_inputs": [
+        8,
+        2,
+        5,
+        9
+      ],
+      "test_inputs": [
+        -62,
+        -32,
+        -74,
+        -41,
+        -26,
+        -21,
+        -76,
+        -45
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "sub_square",
+      "shift": "length",
+      "task": "sub_square-length-s659",
+      "params": {
+        "k": 5
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        8,
+        4,
+        9,
+        0
+      ],
+      "test_inputs": [
+        25,
+        39,
+        53,
+        27,
+        49,
+        46,
+        16,
+        18
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "sub_square",
+      "shift": "both",
+      "task": "sub_square-both-s446",
+      "params": {
+        "k": 5
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        4,
+        8,
+        3,
+        6
+      ],
+      "test_inputs": [
+        52,
+        12,
+        42,
+        38,
+        26,
+        37,
+        30,
+        50
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "odd_and_gt",
+      "shift": "none",
+      "task": "odd_and_gt-none-s449",
+      "params": {
+        "k": 8
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        3,
+        2,
+        6,
+        5
+      ],
+      "test_inputs": [
+        13,
+        54,
+        18,
+        44,
+        60,
+        28,
+        12,
+        58
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "odd_and_gt",
+      "shift": "magnitude",
+      "task": "odd_and_gt-magnitude-s975",
+      "params": {
+        "k": 3
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 40,
+        "hi": 120
+      },
+      "train_inputs": [
+        3,
+        7,
+        4,
+        6
+      ],
+      "test_inputs": [
+        106,
+        64,
+        101,
+        54,
+        80,
+        119,
+        95,
+        69
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "odd_and_gt",
+      "shift": "sign",
+      "task": "odd_and_gt-sign-s450",
+      "params": {
+        "k": 5
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": -80,
+        "hi": -20
+      },
+      "train_inputs": [
+        5,
+        7,
+        0,
+        1
+      ],
+      "test_inputs": [
+        -24,
+        -36,
+        -38,
+        -77,
+        -42,
+        -57,
+        -68,
+        -32
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "odd_and_gt",
+      "shift": "length",
+      "task": "odd_and_gt-length-s659",
+      "params": {
+        "k": 6
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        2,
+        7,
+        4,
+        1
+      ],
+      "test_inputs": [
+        13,
+        33,
+        21,
+        38,
+        22,
+        59,
+        32,
+        11
+      ]
+    },
+    {
+      "seed": 1,
+      "rule": "odd_and_gt",
+      "shift": "both",
+      "task": "odd_and_gt-both-s446",
+      "params": {
+        "k": 2
+      },
+      "n_train": 4,
+      "n_val": 3,
+      "n_test": 8,
+      "clean": true,
+      "train_domain": {
+        "lo": 0,
+        "hi": 9
+      },
+      "test_domain": {
+        "lo": 10,
+        "hi": 60
+      },
+      "train_inputs": [
+        9,
+        5,
+        4,
+        7
+      ],
+      "test_inputs": [
+        11,
+        33,
+        10,
+        23,
+        16,
+        27,
+        59,
+        26
+      ]
+    }
+  ]
+}
