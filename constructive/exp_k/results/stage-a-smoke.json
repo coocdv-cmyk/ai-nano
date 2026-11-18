@@ -1,0 +1,55 @@
+{
+  "stage": "A",
+  "experiment": "EXP-K smoke",
+  "status": "completed",
+  "n_checks": 9,
+  "passed": 9,
+  "failures": 0,
+  "checks": [
+    {
+      "name": "independent_generators",
+      "passed": true,
+      "detail": "no EXP-H/I/J generator import in exp_k.generators"
+    },
+    {
+      "name": "new_rule_families",
+      "passed": true,
+      "detail": "16 new rules disjoint from EXP-I/J"
+    },
+    {
+      "name": "deterministic_generation",
+      "passed": true,
+      "detail": "same seed yields identical splits"
+    },
+    {
+      "name": "disjoint_splits",
+      "passed": true,
+      "detail": "all train/validation/test splits disjoint"
+    },
+    {
+      "name": "correct_reference_labels",
+      "passed": true,
+      "detail": "reference labels coincide with true programs"
+    },
+    {
+      "name": "deep_chain_tracing",
+      "passed": true,
+      "detail": "deep chains have exact declared depth and trace steps"
+    },
+    {
+      "name": "drift_phase_order",
+      "passed": true,
+      "detail": "drift phases ordered base < drift < recover"
+    },
+    {
+      "name": "metric_correctness",
+      "passed": true,
+      "detail": "mean/median/std/CI and ECE correct"
+    },
+    {
+      "name": "protected_file_integrity",
+      "passed": true,
+      "detail": "106 protected files unchanged"
+    }
+  ]
+}

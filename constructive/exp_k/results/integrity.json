@@ -1,0 +1,18 @@
+{
+  "git_head": "4d18fb798fe07ac0218564ec294fb9620fc00064",
+  "git_branch": "research/exp-k",
+  "manifests": {
+    "exp_j": {
+      "path": "constructive\\exp_j\\results\\baseline_hashes.json",
+      "n_files": 84,
+      "changed": [],
+      "all_unchanged": true
+    },
+    "exp_i": {
+      "path": "constructive\\exp_i\\results\\baseline_hashes.json",
+      "n_files": 22,
+      "changed": [],
+      "all_unchanged": true
+    }
+  }
+}
