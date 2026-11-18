@@ -59,15 +59,19 @@ def _dispatch(stage: str, cfg: ExpKConfig) -> Callable[[], dict[str, Any]]:
     if stage == "K6":
         from . import adversarial
         return lambda: adversarial.run_k6(cfg)
-    # Later stages are registered as they are implemented and verified.
+    if stage == "K7":
+        from . import finalize
+        return lambda: finalize.run_k7(cfg)
     raise KeyError(f"stage {stage} is not implemented in this revision")
 
 
-def _save(stage: str, block: dict[str, Any], stamp: str) -> None:
+def _save(stage: str, block: dict[str, Any], stamp: str, *, quick: bool = False) -> None:
+    """Persist a stage block. Quick runs never overwrite principal results."""
     _paths()
     payload = json.dumps(block, indent=2, default=str)
-    (HISTORY_DIR / f"{stage}-{stamp}.json").write_text(payload, encoding="utf-8")
-    (EXPERIMENTS_DIR / f"{stage}.json").write_text(payload, encoding="utf-8")
+    suffix = "-quick" if quick else ""
+    (HISTORY_DIR / f"{stage}{suffix}-{stamp}.json").write_text(payload, encoding="utf-8")
+    (EXPERIMENTS_DIR / f"{stage}{suffix}.json").write_text(payload, encoding="utf-8")
 
 
 def verify_integrity() -> dict[str, Any]:
@@ -132,7 +136,7 @@ def run(stage: str = "K0", quick: bool = False, no_resume: bool = False,
                  "error": f"{type(exc).__name__}: {exc}",
                  "completion_status": Completion.ERROR.value,
                  "resource_report": gov.report()}
-    _save(stage, block, stamp)
+    _save(stage, block, stamp, quick=cfg.quick)
     return merge_only(cfg)
 
 

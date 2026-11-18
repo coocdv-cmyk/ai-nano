@@ -1,0 +1,1115 @@
+{
+  "stage": "K4",
+  "experiment_id": "K4",
+  "experiment_name": "Confidence Calibration",
+  "status": "completed",
+  "seeds": [
+    0,
+    1
+  ],
+  "calibration_seeds": [
+    201,
+    202,
+    203,
+    204
+  ],
+  "n_calibration": 140,
+  "n_evaluation": 70,
+  "fitted_parameters": {
+    "temperature": 1.0,
+    "bins": [
+      0.0,
+      null,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.9117647058823529,
+      0.4,
+      null
+    ],
+    "conformal_threshold": 0.794286
+  },
+  "methods": [
+    "raw",
+    "temperature",
+    "isotonic",
+    "binning",
+    "conformal_abstention"
+  ],
+  "episodes": [
+    {
+      "condition": "normal",
+      "family": "mod_double",
+      "seed": 0,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "NON_IDENTIFIABLE"
+    },
+    {
+      "condition": "normal",
+      "family": "mod_double",
+      "seed": 0,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "NON_IDENTIFIABLE"
+    },
+    {
+      "condition": "normal",
+      "family": "digital_root_square",
+      "seed": 0,
+      "confidence": 0.822857,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "digital_root_square",
+      "seed": 0,
+      "confidence": 0.794286,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "gt_mod",
+      "seed": 0,
+      "confidence": 0.794286,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "gt_mod",
+      "seed": 0,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "NON_IDENTIFIABLE"
+    },
+    {
+      "condition": "normal",
+      "family": "if_even",
+      "seed": 0,
+      "confidence": 0.794286,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "if_even",
+      "seed": 0,
+      "confidence": 0.794286,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "neg_abs_mod",
+      "seed": 0,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "NON_IDENTIFIABLE"
+    },
+    {
+      "condition": "normal",
+      "family": "neg_abs_mod",
+      "seed": 0,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "NON_IDENTIFIABLE"
+    },
+    {
+      "condition": "normal",
+      "family": "band_shift",
+      "seed": 0,
+      "confidence": 0.794286,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "band_shift",
+      "seed": 0,
+      "confidence": 0.794286,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "max_map_add",
+      "seed": 0,
+      "confidence": 0.794286,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "max_map_add",
+      "seed": 0,
+      "confidence": 0.794286,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "reverse_take_sum",
+      "seed": 0,
+      "confidence": 0.794286,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "reverse_take_sum",
+      "seed": 0,
+      "confidence": 0.794286,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "deep",
+      "family": "depth-2",
+      "seed": 0,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "REJECTED"
+    },
+    {
+      "condition": "deep",
+      "family": "depth-5",
+      "seed": 0,
+      "confidence": 0.822857,
+      "correct": 0,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "deep",
+      "family": "depth-12",
+      "seed": 0,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "REJECTED"
+    },
+    {
+      "condition": "ood",
+      "family": "mod_double",
+      "seed": 0,
+      "confidence": 0.794286,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "ood",
+      "family": "digital_root_square",
+      "seed": 0,
+      "confidence": 0.794286,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "ood",
+      "family": "gt_mod",
+      "seed": 0,
+      "confidence": 0.822857,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "ood",
+      "family": "if_even",
+      "seed": 0,
+      "confidence": 0.794286,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "noise",
+      "family": "mod_double",
+      "seed": 0,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "noise",
+      "family": "digital_root_square",
+      "seed": 0,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "noise",
+      "family": "gt_mod",
+      "seed": 0,
+      "confidence": 0.794286,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "noise",
+      "family": "if_even",
+      "seed": 0,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "mod_double",
+      "seed": 0,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "digital_root_square",
+      "seed": 0,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "gt_mod",
+      "seed": 0,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "if_even",
+      "seed": 0,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "retrieval",
+      "family": "abs_double_mod",
+      "seed": 0,
+      "confidence": 0.342857,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    },
+    {
+      "condition": "retrieval",
+      "family": "sumdigits_add",
+      "seed": 0,
+      "confidence": 0.271429,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    },
+    {
+      "condition": "retrieval",
+      "family": "sub_square",
+      "seed": 0,
+      "confidence": 0.271429,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    },
+    {
+      "condition": "retrieval",
+      "family": "odd_and_gt",
+      "seed": 0,
+      "confidence": 0.485714,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    },
+    {
+      "condition": "normal",
+      "family": "mod_double",
+      "seed": 1,
+      "confidence": 0.794286,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "mod_double",
+      "seed": 1,
+      "confidence": 0.794286,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "digital_root_square",
+      "seed": 1,
+      "confidence": 0.822857,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "digital_root_square",
+      "seed": 1,
+      "confidence": 0.794286,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "gt_mod",
+      "seed": 1,
+      "confidence": 0.794286,
+      "correct": 0,
+      "state": "INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "condition": "normal",
+      "family": "gt_mod",
+      "seed": 1,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "NON_IDENTIFIABLE"
+    },
+    {
+      "condition": "normal",
+      "family": "if_even",
+      "seed": 1,
+      "confidence": 0.794286,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "if_even",
+      "seed": 1,
+      "confidence": 0.794286,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "neg_abs_mod",
+      "seed": 1,
+      "confidence": 0.794286,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "neg_abs_mod",
+      "seed": 1,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "NON_IDENTIFIABLE"
+    },
+    {
+      "condition": "normal",
+      "family": "band_shift",
+      "seed": 1,
+      "confidence": 0.794286,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "band_shift",
+      "seed": 1,
+      "confidence": 0.794286,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "max_map_add",
+      "seed": 1,
+      "confidence": 0.794286,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "max_map_add",
+      "seed": 1,
+      "confidence": 0.794286,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "reverse_take_sum",
+      "seed": 1,
+      "confidence": 0.794286,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "normal",
+      "family": "reverse_take_sum",
+      "seed": 1,
+      "confidence": 0.794286,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "deep",
+      "family": "depth-2",
+      "seed": 1,
+      "confidence": 0.839286,
+      "correct": 0,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "deep",
+      "family": "depth-5",
+      "seed": 1,
+      "confidence": 0.822857,
+      "correct": 0,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "deep",
+      "family": "depth-12",
+      "seed": 1,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "REJECTED"
+    },
+    {
+      "condition": "ood",
+      "family": "mod_double",
+      "seed": 1,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "NON_IDENTIFIABLE"
+    },
+    {
+      "condition": "ood",
+      "family": "digital_root_square",
+      "seed": 1,
+      "confidence": 0.794286,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "ood",
+      "family": "gt_mod",
+      "seed": 1,
+      "confidence": 0.794286,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "ood",
+      "family": "if_even",
+      "seed": 1,
+      "confidence": 0.794286,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "noise",
+      "family": "mod_double",
+      "seed": 1,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "noise",
+      "family": "digital_root_square",
+      "seed": 1,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "noise",
+      "family": "gt_mod",
+      "seed": 1,
+      "confidence": 0.794286,
+      "correct": 1,
+      "state": "ACCEPTED"
+    },
+    {
+      "condition": "noise",
+      "family": "if_even",
+      "seed": 1,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "mod_double",
+      "seed": 1,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "digital_root_square",
+      "seed": 1,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "gt_mod",
+      "seed": 1,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "contradictory",
+      "family": "if_even",
+      "seed": 1,
+      "confidence": 0.0,
+      "correct": 0,
+      "state": "CONTRADICTORY"
+    },
+    {
+      "condition": "retrieval",
+      "family": "abs_double_mod",
+      "seed": 1,
+      "confidence": 0.414286,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    },
+    {
+      "condition": "retrieval",
+      "family": "sumdigits_add",
+      "seed": 1,
+      "confidence": 0.485714,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    },
+    {
+      "condition": "retrieval",
+      "family": "sub_square",
+      "seed": 1,
+      "confidence": 0.342857,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    },
+    {
+      "condition": "retrieval",
+      "family": "odd_and_gt",
+      "seed": 1,
+      "confidence": 0.557143,
+      "correct": 0,
+      "state": "RETRIEVAL_SUBSTITUTION"
+    }
+  ],
+  "by_method": {
+    "raw": {
+      "n": 70,
+      "ece": 0.15003,
+      "brier": 0.076993,
+      "nll": 0.264538,
+      "accuracy": {
+        "n": 70,
+        "mean": 0.471429,
+        "median": 0.0,
+        "std": 0.499183,
+        "ci95": 0.116939,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "confidence": {
+        "n": 70,
+        "mean": 0.467827,
+        "median": 0.794286,
+        "std": 0.37155,
+        "ci95": 0.08704,
+        "min": 0.0,
+        "max": 0.839286
+      },
+      "reliability_diagram": [
+        {
+          "bin": 0,
+          "n": 25,
+          "mean_confidence": 0.0,
+          "empirical_accuracy": 0.0
+        },
+        {
+          "bin": 2,
+          "n": 2,
+          "mean_confidence": 0.271429,
+          "empirical_accuracy": 0.0
+        },
+        {
+          "bin": 3,
+          "n": 2,
+          "mean_confidence": 0.342857,
+          "empirical_accuracy": 0.0
+        },
+        {
+          "bin": 4,
+          "n": 3,
+          "mean_confidence": 0.461905,
+          "empirical_accuracy": 0.0
+        },
+        {
+          "bin": 5,
+          "n": 1,
+          "mean_confidence": 0.557143,
+          "empirical_accuracy": 0.0
+        },
+        {
+          "bin": 7,
+          "n": 31,
+          "mean_confidence": 0.794286,
+          "empirical_accuracy": 0.967742
+        },
+        {
+          "bin": 8,
+          "n": 6,
+          "mean_confidence": 0.825595,
+          "empirical_accuracy": 0.5
+        }
+      ]
+    },
+    "temperature": {
+      "n": 70,
+      "ece": 0.150031,
+      "brier": 0.076993,
+      "nll": 0.264539,
+      "accuracy": {
+        "n": 70,
+        "mean": 0.471429,
+        "median": 0.0,
+        "std": 0.499183,
+        "ci95": 0.116939,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "confidence": {
+        "n": 70,
+        "mean": 0.467827,
+        "median": 0.794286,
+        "std": 0.37155,
+        "ci95": 0.087039,
+        "min": 1e-06,
+        "max": 0.839286
+      },
+      "reliability_diagram": [
+        {
+          "bin": 0,
+          "n": 25,
+          "mean_confidence": 1e-06,
+          "empirical_accuracy": 0.0
+        },
+        {
+          "bin": 2,
+          "n": 2,
+          "mean_confidence": 0.271429,
+          "empirical_accuracy": 0.0
+        },
+        {
+          "bin": 3,
+          "n": 2,
+          "mean_confidence": 0.342857,
+          "empirical_accuracy": 0.0
+        },
+        {
+          "bin": 4,
+          "n": 3,
+          "mean_confidence": 0.461905,
+          "empirical_accuracy": 0.0
+        },
+        {
+          "bin": 5,
+          "n": 1,
+          "mean_confidence": 0.557143,
+          "empirical_accuracy": 0.0
+        },
+        {
+          "bin": 7,
+          "n": 31,
+          "mean_confidence": 0.794286,
+          "empirical_accuracy": 0.967742
+        },
+        {
+          "bin": 8,
+          "n": 6,
+          "mean_confidence": 0.825595,
+          "empirical_accuracy": 0.5
+        }
+      ]
+    },
+    "isotonic": {
+      "n": 70,
+      "ece": 0.035153,
+      "brier": 0.05367,
+      "nll": 0.191504,
+      "accuracy": {
+        "n": 70,
+        "mean": 0.471429,
+        "median": 0.0,
+        "std": 0.499183,
+        "ci95": 0.116939,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "confidence": {
+        "n": 70,
+        "mean": 0.436276,
+        "median": 0.825,
+        "std": 0.412022,
+        "ci95": 0.096521,
+        "min": 0.0,
+        "max": 0.839286
+      },
+      "reliability_diagram": [
+        {
+          "bin": 0,
+          "n": 33,
+          "mean_confidence": 0.0,
+          "empirical_accuracy": 0.0
+        },
+        {
+          "bin": 8,
+          "n": 37,
+          "mean_confidence": 0.825386,
+          "empirical_accuracy": 0.891892
+        }
+      ]
+    },
+    "binning": {
+      "n": 70,
+      "ece": 0.061525,
+      "brier": 0.056589,
+      "nll": 0.194753,
+      "accuracy": {
+        "n": 70,
+        "mean": 0.471429,
+        "median": 0.0,
+        "std": 0.499183,
+        "ci95": 0.116939,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "confidence": {
+        "n": 70,
+        "mean": 0.483373,
+        "median": 0.407143,
+        "std": 0.409034,
+        "ci95": 0.09582,
+        "min": 0.0,
+        "max": 0.911765
+      },
+      "reliability_diagram": [
+        {
+          "bin": 0,
+          "n": 25,
+          "mean_confidence": 0.0,
+          "empirical_accuracy": 0.0
+        },
+        {
+          "bin": 2,
+          "n": 2,
+          "mean_confidence": 0.271429,
+          "empirical_accuracy": 0.0
+        },
+        {
+          "bin": 3,
+          "n": 2,
+          "mean_confidence": 0.342857,
+          "empirical_accuracy": 0.0
+        },
+        {
+          "bin": 4,
+          "n": 9,
+          "mean_confidence": 0.420635,
+          "empirical_accuracy": 0.333333
+        },
+        {
+          "bin": 5,
+          "n": 1,
+          "mean_confidence": 0.557143,
+          "empirical_accuracy": 0.0
+        },
+        {
+          "bin": 9,
+          "n": 31,
+          "mean_confidence": 0.911765,
+          "empirical_accuracy": 0.967742
+        }
+      ]
+    },
+    "conformal_abstention": {
+      "n": 70,
+      "acc": {
+        "n": 70,
+        "mean": 0.471429,
+        "median": 0.0,
+        "std": 0.499183,
+        "ci95": 0.116939,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "coverage": {
+        "n": 70,
+        "mean": 0.528571,
+        "median": 1.0,
+        "std": 0.499183,
+        "ci95": 0.116939,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "selective_accuracy": 0.8918918918918919,
+      "ece_on_accepted": 0.198127,
+      "note": "Risk-controlled abstention; not a probability transform."
+    }
+  },
+  "by_condition": {
+    "normal": {
+      "n": 32,
+      "accuracy": {
+        "n": 32,
+        "mean": 0.75,
+        "median": 1.0,
+        "std": 0.433013,
+        "ci95": 0.150028,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "raw_confidence": {
+        "n": 32,
+        "mean": 0.622322,
+        "median": 0.794286,
+        "std": 0.329373,
+        "ci95": 0.11412,
+        "min": 0.0,
+        "max": 0.822857
+      },
+      "raw_ece": 0.127678,
+      "temperature_ece": 0.127679,
+      "states": {
+        "ACCEPTED": 24,
+        "INSUFFICIENT_EVIDENCE": 1,
+        "NON_IDENTIFIABLE": 7
+      }
+    },
+    "deep": {
+      "n": 6,
+      "accuracy": {
+        "n": 6,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "raw_confidence": {
+        "n": 6,
+        "mean": 0.414167,
+        "median": 0.411428,
+        "std": 0.414203,
+        "ci95": 0.331425,
+        "min": 0.0,
+        "max": 0.839286
+      },
+      "raw_ece": 0.414167,
+      "temperature_ece": 0.414167,
+      "states": {
+        "ACCEPTED": 3,
+        "REJECTED": 3
+      }
+    },
+    "ood": {
+      "n": 8,
+      "accuracy": {
+        "n": 8,
+        "mean": 0.875,
+        "median": 1.0,
+        "std": 0.330719,
+        "ci95": 0.229172,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "raw_confidence": {
+        "n": 8,
+        "mean": 0.698572,
+        "median": 0.794286,
+        "std": 0.264201,
+        "ci95": 0.183078,
+        "min": 0.0,
+        "max": 0.822857
+      },
+      "raw_ece": 0.176428,
+      "temperature_ece": 0.176428,
+      "states": {
+        "ACCEPTED": 7,
+        "NON_IDENTIFIABLE": 1
+      }
+    },
+    "noise": {
+      "n": 8,
+      "accuracy": {
+        "n": 8,
+        "mean": 0.25,
+        "median": 0.0,
+        "std": 0.433013,
+        "ci95": 0.300057,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "raw_confidence": {
+        "n": 8,
+        "mean": 0.198572,
+        "median": 0.0,
+        "std": 0.343936,
+        "ci95": 0.238331,
+        "min": 0.0,
+        "max": 0.794286
+      },
+      "raw_ece": 0.051428,
+      "temperature_ece": 0.051429,
+      "states": {
+        "ACCEPTED": 2,
+        "CONTRADICTORY": 6
+      }
+    },
+    "contradictory": {
+      "n": 8,
+      "accuracy": {
+        "n": 8,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "raw_confidence": {
+        "n": 8,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "raw_ece": 0.0,
+      "temperature_ece": 1e-06,
+      "states": {
+        "CONTRADICTORY": 8
+      }
+    },
+    "retrieval": {
+      "n": 8,
+      "accuracy": {
+        "n": 8,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "ci95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "raw_confidence": {
+        "n": 8,
+        "mean": 0.396429,
+        "median": 0.378572,
+        "std": 0.099424,
+        "ci95": 0.068896,
+        "min": 0.271429,
+        "max": 0.557143
+      },
+      "raw_ece": 0.396429,
+      "temperature_ece": 0.396429,
+      "states": {
+        "RETRIEVAL_SUBSTITUTION": 8
+      }
+    }
+  },
+  "baseline_reference": {
+    "exp_j_independent_ece": 0.159648
+  },
+  "caveats": [
+    "Predictive confidence is not proof of correctness.",
+    "Confidence values are heuristic blends, not posterior probabilities; post-hoc transforms can reduce ECE without improving decision quality.",
+    "Retrieval substitutions are scored on retrieval confidence, not answer confidence."
+  ],
+  "resources": {
+    "elapsed_s": 2.90961,
+    "peak_rss_mb": 64.73,
+    "expansions": 0,
+    "nodes": 0,
+    "validation_calls": 0,
+    "candidates_evaluated": 0,
+    "timed_out": false,
+    "notes": []
+  },
+  "completion_status": "COMPLETED",
+  "resource_report": {
+    "elapsed_s": 2.923591099999612,
+    "nodes_used": 0,
+    "global_deadline_s": 600.0,
+    "node_budget": null,
+    "cancelled": false,
+    "timeouts": [],
+    "diagnostics": {
+      "last_completed_scope": "K4",
+      "last_scope_status": "COMPLETED",
+      "scope_elapsed_s": 2.9098098000104073,
+      "scope_nodes": 0
+    },
+    "memory_guard_mb": null,
+    "peak_rss_mb": 64.73
+  },
+  "reproducibility": {
+    "config_fingerprint": "753747c19207d0e9",
+    "configuration": {
+      "seeds": [
+        0,
+        1
+      ],
+      "n_val": 3,
+      "n_train": 3,
+      "n_test": 8,
+      "abstain_threshold": 0.6,
+      "search_beam": 24,
+      "search_node_budget": 4000,
+      "max_cost": 4.0,
+      "fit_deadline_s": 1.5,
+      "experiment_deadline_s": 90.0,
+      "campaign_deadline_s": 600.0,
+      "depths": [
+        2,
+        3,
+        4,
+        5,
+        8,
+        12,
+        16
+      ],
+      "quick": true
+    },
+    "hardware": {
+      "cpu": "Intel64 Family 6 Model 140 Stepping 1, GenuineIntel",
+      "logical_cores": 8,
+      "ram_gb": 16.82,
+      "os": "Windows-11-10.0.26200-SP0",
+      "device": "cpu",
+      "acceleration": "none (CPU-only; no external APIs)",
+      "python": "3.13.15"
+    },
+    "git_commit": "86a8141c755626658363ed3f0d3ad04a99254ee5",
+    "git_branch": "research/exp-k",
+    "source_fingerprints": {
+      "constructive/exp_j/generators.py": "b09b085f682c7221afd417de19d28d70457598a016f2be6c6f4d6f0e22a75ccf",
+      "constructive/exp_j/deep_composition.py": "3e65ab969055f10b503e69a9157c65a5a63d66db271891431aea48145c115737",
+      "constructive/exp_j/transfer.py": "ab77360a7717972e76c6e8aed5e4c6c9de9c3eb4cab1c9bc5ae7c7106d7c1948",
+      "constructive/exp_j/robustness.py": "9e00695cd1ff7bbee9dbe78e10b45c649ec68987a00dfa25ecc02508b9429f72",
+      "constructive/exp_j/metrics.py": "afc91aa9edcab232c72c683b80a075827077baac55696e04c711cf87398a847c",
+      "constructive/exp_i/dsl.py": "b7f0b474c7cd0e78d2a1e1fcab48842b0d72b4534231f447b3da53c9ff06640c",
+      "constructive/exp_i/search.py": "c115d96734e9d0a785b5383b06416b641a1992319c42792aa2debd5af28223aa",
+      "constructive/exp_i/retrieval.py": "cb3759cffe29ceffd295348a0dd0dd5b4df5c1e88cda84342e9b90b2ea4f16cd",
+      "constructive/exp_i/validation.py": "9db84dea68aeb88268538c4b287166914a3c7b64566a18edd7bb872aa3a99314"
+    },
+    "note": "Systems under test (EXP-I/EXP-J) are imported read-only."
+  }
+}

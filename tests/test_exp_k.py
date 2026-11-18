@@ -241,3 +241,24 @@ def test_k6_adversarial_attacks_and_abstain_control():
     assert k6["always_abstain_useful_coverage"]["mean"] == 0.0
     assert "no_label_leakage" in k6
 
+
+# --- K7: reproduction and integration --------------------------------------
+
+
+def test_k7_integrity_and_integration_decisions():
+    from constructive.exp_k import analysis as K7A
+    from constructive.exp_k import finalize as K7F
+    r = runner.run(stage="K7", quick=True)
+    k7 = r["experiments"]["K7"]
+    assert k7["status"] == "completed"
+    assert k7["completion_status"] == "COMPLETED"
+    assert k7["protected_files_unchanged"] is True
+    assert k7["snapshots"]["total"] > 0
+    assert "K6" in k7["git"]["exp_k_commits"][0]["message"] or any(
+        c["message"].startswith("EXP-K:") for c in k7["git"]["exp_k_commits"])
+    decisions = k7["final_summary"]["integration_decisions"]
+    assert decisions["omeganano_integration"]["decision"] == "NOT_RECOMMENDED"
+    assert set(decisions) >= {"deep_composition_safeguards", "ood_retrieval_safeguards",
+                              "drift_feature_detector", "confidence_temperature_scaling"}
+
+

@@ -1,0 +1,347 @@
+{
+  "stage": "K7",
+  "experiment_id": "K7",
+  "experiment_name": "Final Reproduction and Integrity",
+  "status": "completed",
+  "config": {
+    "seeds": [
+      0,
+      1
+    ],
+    "n_val": 3,
+    "n_train": 3,
+    "n_test": 8,
+    "abstain_threshold": 0.6,
+    "search_beam": 24,
+    "search_node_budget": 4000,
+    "max_cost": 4.0,
+    "fit_deadline_s": 1.5,
+    "experiment_deadline_s": 90.0,
+    "campaign_deadline_s": 600.0,
+    "depths": [
+      2,
+      3,
+      4,
+      5,
+      8,
+      12,
+      16
+    ],
+    "quick": true
+  },
+  "config_fingerprint": "753747c19207d0e9",
+  "git": {
+    "branch": "research/exp-k",
+    "head": "86a8141c755626658363ed3f0d3ad04a99254ee5",
+    "exp_k_commits": [
+      {
+        "hash": "86a8141c755626658363ed3f0d3ad04a99254ee5",
+        "message": "EXP-K: complete adversarial reliability campaign"
+      },
+      {
+        "hash": "f58b50477e32372e0e5b335f4ced6f986062cbcc",
+        "message": "EXP-K: test cross-mechanism interactions"
+      },
+      {
+        "hash": "74c581e5ae33808b73521a15e03ae80315ba081c",
+        "message": "EXP-K: evaluate confidence calibration"
+      },
+      {
+        "hash": "3d445c9de0ea09994229b1f3b9f741498def96fc",
+        "message": "EXP-K: investigate drift detection failures"
+      },
+      {
+        "hash": "0c4e9812767109a93ba2c8e5ebec68b1a9c233a7",
+        "message": "EXP-K: investigate OOD retrieval substitution"
+      },
+      {
+        "hash": "f3e9211dfb2e4fa8a7ecde06f00c8154f67e29c0",
+        "message": "EXP-K: isolate deep composition failure causes"
+      },
+      {
+        "hash": "54f3c75422eb98b4f28d484fcc8b1dc0db58b27b",
+        "message": "EXP-K: establish reproducible baseline"
+      }
+    ]
+  },
+  "protected_manifests": {
+    "exp_i": {
+      "n_files": 22,
+      "changed": [],
+      "all_unchanged": true
+    },
+    "exp_j": {
+      "n_files": 84,
+      "changed": [],
+      "all_unchanged": true
+    }
+  },
+  "snapshots": {
+    "total": 105,
+    "per_stage": {
+      "K0": 25,
+      "K1": 21,
+      "K2": 15,
+      "K3": 13,
+      "K4": 11,
+      "K5": 9,
+      "K6": 8,
+      "K7": 3
+    }
+  },
+  "reruns": {
+    "K2": {
+      "stored_silent_substitution": 1.0,
+      "rerun_silent_substitution": 1.0,
+      "stored_runs": 720,
+      "rerun_runs": 144,
+      "deterministic": false
+    },
+    "K3": {
+      "stored_miss_rate": 0.793182,
+      "rerun_miss_rate": 0.784091,
+      "stored_runs": 2400,
+      "rerun_runs": 480,
+      "deterministic": false
+    },
+    "K4": {
+      "stored_raw_ece": 0.125802,
+      "rerun_raw_ece": 0.15003,
+      "deterministic": false
+    }
+  },
+  "final_summary": {
+    "git": {
+      "branch": "research/exp-k",
+      "commit": "86a8141c755626658363ed3f0d3ad04a99254ee5"
+    },
+    "stages": [
+      "K0",
+      "K1",
+      "K2",
+      "K3",
+      "K4",
+      "K5",
+      "K6",
+      "K7"
+    ],
+    "resources": {
+      "per_stage": {
+        "K0": {
+          "elapsed_s": 14.507926,
+          "peak_rss_mb": 33.88,
+          "expansions": 0,
+          "nodes": 0,
+          "validation_calls": 0,
+          "candidates_evaluated": 0,
+          "timed_out": false
+        },
+        "K1": {
+          "elapsed_s": 73.57716,
+          "peak_rss_mb": 28.75,
+          "expansions": 64599,
+          "nodes": 190772,
+          "validation_calls": 2800,
+          "candidates_evaluated": 0,
+          "timed_out": false
+        },
+        "K2": {
+          "elapsed_s": 0.193199,
+          "peak_rss_mb": 25.32,
+          "expansions": 0,
+          "nodes": 0,
+          "validation_calls": 0,
+          "candidates_evaluated": 0,
+          "timed_out": false
+        },
+        "K3": {
+          "elapsed_s": 4.223447,
+          "peak_rss_mb": 26.37,
+          "expansions": 0,
+          "nodes": 0,
+          "validation_calls": 0,
+          "candidates_evaluated": 0,
+          "timed_out": false
+        },
+        "K4": {
+          "elapsed_s": 6.871397,
+          "peak_rss_mb": 26.66,
+          "expansions": 0,
+          "nodes": 0,
+          "validation_calls": 0,
+          "candidates_evaluated": 0,
+          "timed_out": false
+        },
+        "K5": {
+          "elapsed_s": 58.081808,
+          "peak_rss_mb": 29.32,
+          "expansions": 0,
+          "nodes": 0,
+          "validation_calls": 0,
+          "candidates_evaluated": 0,
+          "timed_out": false
+        },
+        "K6": {
+          "elapsed_s": 6.825805,
+          "peak_rss_mb": 26.82,
+          "expansions": 0,
+          "nodes": 0,
+          "validation_calls": 1152,
+          "candidates_evaluated": 638,
+          "timed_out": false
+        },
+        "K7": {
+          "elapsed_s": 12.04851,
+          "peak_rss_mb": 44.82,
+          "expansions": 0,
+          "nodes": 0,
+          "validation_calls": 0,
+          "candidates_evaluated": 0,
+          "timed_out": false
+        }
+      },
+      "total_wall_s": 176.329252,
+      "peak_rss_mb": 44.82,
+      "total_expansions": 64599,
+      "total_validation_calls": 3952,
+      "timed_out_stages": [],
+      "cpu_only": true
+    },
+    "integration_decisions": {
+      "deep_composition_safeguards": {
+        "decision": "REQUIRES_MORE_EVIDENCE",
+        "reason": "Shifted validation cuts incorrect acceptance by 0.229 but raises abstention from 0.443 to 0.671 with zero correct discoveries; oracle contracts are not deployable.",
+        "baseline_wrong": 0.557143,
+        "best_wrong": 0.328571
+      },
+      "ood_retrieval_safeguards": {
+        "decision": "REQUIRES_MORE_EVIDENCE",
+        "reason": "Independent verification removes silent substitution but loses two thirds of familiar coverage; type-aware ranking does not help.",
+        "baseline_substitution": 1.0,
+        "best_substitution": 0.0
+      },
+      "drift_feature_detector": {
+        "decision": "PROMISING_BUT_UNVALIDATED",
+        "reason": "99.8% recall and 0 false alarms on feature drift with calibration-fixed thresholds, but semantic/concept drift with unchanged inputs was not modeled.",
+        "recall": 0.997727,
+        "false_positive_rate": 0.0
+      },
+      "confidence_temperature_scaling": {
+        "decision": "PROMISING_BUT_UNVALIDATED",
+        "reason": "ECE 0.126 -> 0.074 on held-out data with no accuracy change; fails on deep composition and retrieval where accuracy is ~0.",
+        "raw_ece": 0.125802,
+        "temperature_ece": 0.074089
+      },
+      "cross_mechanism_combination": {
+        "decision": "NOT_RECOMMENDED",
+        "reason": "13 regressions were recorded, including coverage loss and correct-acceptance regression."
+      },
+      "adversarial_hardening": {
+        "decision": "REQUIRES_MORE_EVIDENCE",
+        "reason": "All non-composition attacks handled with zero wrong acceptance, but deep deceptive and resource-exhaustion attacks still show 40% incorrect acceptance.",
+        "useful_coverage": 0.408333
+      },
+      "omeganano_integration": {
+        "decision": "NOT_RECOMMENDED",
+        "reason": "No mechanism is authorized for integration; integration remains a separate task."
+      }
+    },
+    "integrity": {
+      "exp_i": {
+        "n_files": 22,
+        "changed": [],
+        "all_unchanged": true
+      },
+      "exp_j": {
+        "n_files": 84,
+        "changed": [],
+        "all_unchanged": true
+      }
+    }
+  },
+  "all_deterministic": false,
+  "protected_files_unchanged": true,
+  "limitations": [
+    "Reruns compare aggregate metrics, not byte-for-byte result files (timestamps differ).",
+    "No natural-input or external-data validation was performed."
+  ],
+  "resources": {
+    "elapsed_s": 4.584775,
+    "peak_rss_mb": 528.53,
+    "expansions": 0,
+    "nodes": 0,
+    "validation_calls": 0,
+    "candidates_evaluated": 0,
+    "timed_out": false,
+    "notes": []
+  },
+  "completion_status": "COMPLETED",
+  "resource_report": {
+    "elapsed_s": 4.669100500002969,
+    "nodes_used": 0,
+    "global_deadline_s": 600.0,
+    "node_budget": null,
+    "cancelled": false,
+    "timeouts": [],
+    "diagnostics": {
+      "last_completed_scope": "K7",
+      "last_scope_status": "COMPLETED",
+      "scope_elapsed_s": 4.586409499985166,
+      "scope_nodes": 0
+    },
+    "memory_guard_mb": null,
+    "peak_rss_mb": 528.53
+  },
+  "reproducibility": {
+    "config_fingerprint": "753747c19207d0e9",
+    "configuration": {
+      "seeds": [
+        0,
+        1
+      ],
+      "n_val": 3,
+      "n_train": 3,
+      "n_test": 8,
+      "abstain_threshold": 0.6,
+      "search_beam": 24,
+      "search_node_budget": 4000,
+      "max_cost": 4.0,
+      "fit_deadline_s": 1.5,
+      "experiment_deadline_s": 90.0,
+      "campaign_deadline_s": 600.0,
+      "depths": [
+        2,
+        3,
+        4,
+        5,
+        8,
+        12,
+        16
+      ],
+      "quick": true
+    },
+    "hardware": {
+      "cpu": "Intel64 Family 6 Model 140 Stepping 1, GenuineIntel",
+      "logical_cores": 8,
+      "ram_gb": 16.82,
+      "os": "Windows-11-10.0.26200-SP0",
+      "device": "cpu",
+      "acceleration": "none (CPU-only; no external APIs)",
+      "python": "3.13.15"
+    },
+    "git_commit": "86a8141c755626658363ed3f0d3ad04a99254ee5",
+    "git_branch": "research/exp-k",
+    "source_fingerprints": {
+      "constructive/exp_j/generators.py": "b09b085f682c7221afd417de19d28d70457598a016f2be6c6f4d6f0e22a75ccf",
+      "constructive/exp_j/deep_composition.py": "3e65ab969055f10b503e69a9157c65a5a63d66db271891431aea48145c115737",
+      "constructive/exp_j/transfer.py": "ab77360a7717972e76c6e8aed5e4c6c9de9c3eb4cab1c9bc5ae7c7106d7c1948",
+      "constructive/exp_j/robustness.py": "9e00695cd1ff7bbee9dbe78e10b45c649ec68987a00dfa25ecc02508b9429f72",
+      "constructive/exp_j/metrics.py": "afc91aa9edcab232c72c683b80a075827077baac55696e04c711cf87398a847c",
+      "constructive/exp_i/dsl.py": "b7f0b474c7cd0e78d2a1e1fcab48842b0d72b4534231f447b3da53c9ff06640c",
+      "constructive/exp_i/search.py": "c115d96734e9d0a785b5383b06416b641a1992319c42792aa2debd5af28223aa",
+      "constructive/exp_i/retrieval.py": "cb3759cffe29ceffd295348a0dd0dd5b4df5c1e88cda84342e9b90b2ea4f16cd",
+      "constructive/exp_i/validation.py": "9db84dea68aeb88268538c4b287166914a3c7b64566a18edd7bb872aa3a99314"
+    },
+    "note": "Systems under test (EXP-I/EXP-J) are imported read-only."
+  }
+}
