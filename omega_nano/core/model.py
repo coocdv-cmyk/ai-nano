@@ -29,11 +29,17 @@ class CoreConfig:
     hidden: int = 704  # SwiGLU width (~2/3 of 4d, multiple of 32)
     ctx: int = 256
     ternary: bool = False
-    arch: str = "v0"  # "v0" standard decoder | "v1" looped adaptive-depth + MTP core
+    arch: str = "v0"  # "v0" decoder | "v1" looped ACT+MTP | "v2" patched fast-weight copy core
     n_loops: int = 1
     mtp_k: int = 1
     ponder_weight: float = 0.01
     halt_eps: float = 0.05
+    patch_size: int = 4
+    hash_buckets: int = 2048
+    fast_dim: int = 16
+    use_fast_weights: bool = True
+    use_copy_gate: bool = True
+    copy_window: int = 4096
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -268,6 +274,9 @@ class LoopedOmegaCore(nn.Module):
 
 
 def build_model(cfg: CoreConfig) -> nn.Module:
+    if cfg.arch == "v2":
+        from .model_v2 import OmegaCoreV2
+        return OmegaCoreV2(cfg)
     if cfg.arch == "v1":
         return LoopedOmegaCore(cfg)
     return OmegaCore(cfg)

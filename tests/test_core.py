@@ -9,6 +9,7 @@ pytest.importorskip("numba")
 from omega_nano.core.data import baselines, build_corpus  # noqa: E402
 from omega_nano.core.engine import Engine  # noqa: E402
 from omega_nano.core.model import CoreConfig, LoopedOmegaCore, OmegaCore, build_model, ternarize  # noqa: E402
+from omega_nano.core.model_v2 import OmegaCoreV2, _extract_copy_numba, _extract_copy_py  # noqa: E402
 
 SMALL = dict(d=64, layers=2, heads=2, hidden=96, ctx=32)
 
@@ -153,3 +154,61 @@ def test_clean_corpus_excludes_site_packages_and_copyleft(tmp_path):
     assert b"def f_0" in combined
     assert meta["rejected_count"] == 1
     assert len(meta["train_sha256"]) == 64 and len(meta["val_sha256"]) == 64
+
+
+def test_v2_copy_extractor_matches_python_and_is_causal():
+    rng = np.random.default_rng(7)
+    arr = rng.integers(0, 12, (2, 120), dtype=np.int64)
+    py_res = _extract_copy_py(arr, window=64)
+    if _extract_copy_numba is not None:
+        nb_res = _extract_copy_numba(arr, window=64)
+        for p, n in zip(py_res, nb_res):
+            assert np.allclose(p, n)
+
+    mut = arr.copy()
+    mut[:, 55:] = (mut[:, 55:] + 3) % 12
+    a_res = _extract_copy_py(arr, window=64)
+    b_res = _extract_copy_py(mut, window=64)
+    for a_t, b_t in zip(a_res, b_res):
+        assert np.allclose(a_t[:, :55], b_t[:, :55])
+
+
+@pytest.mark.parametrize("use_copy", [False, True])
+def test_v2_patched_fast_weights_causality_grads_and_long_context(use_copy):
+    cfg = CoreConfig(
+        d=64, layers=1, heads=2, hidden=96, ctx=32, arch="v2",
+        n_loops=2, mtp_k=2, patch_size=4, hash_buckets=256, fast_dim=8,
+        use_fast_weights=True, use_copy_gate=use_copy, copy_window=2048, ternary=True,
+    )
+    m = build_model(cfg)
+    assert isinstance(m, OmegaCoreV2)
+
+    x = torch.randint(0, 256, (2, 24))
+    y = torch.randint(0, 256, (2, 24))
+    m.train()
+    _, loss = m(x, y)
+    assert loss.isfinite()
+    loss.backward()
+    assert m.emb_h2.weight.grad is not None and m.dw_conv.weight.grad is not None
+    assert m.blocks[0].fw.gates.weight.grad is not None
+    if use_copy:
+        assert m.copy_gate_net.weight.grad is not None
+
+    m.eval()
+    with torch.no_grad():
+        # Strict causality across every length & patch boundary
+        a = torch.randint(0, 256, (1, 25))
+        for cut in (1, 4, 15, 16, 17):
+            b = a.clone()
+            b[0, cut:] = (b[0, cut:] + 13) % 256
+            la, lb = m(a)[0], m(b)[0]
+            assert torch.allclose(la[0, :cut], lb[0, :cut], atol=1e-5), f"leak at cut={cut}"
+
+        # Handles short sequences < patch_size and long sequences > ctx (e.g. 600 > 32)
+        for length in (1, 3, 4, 5, 600):
+            s = torch.randint(0, 256, (1, length))
+            scores, _ = m(s)
+            assert scores.shape == (1, length, 256) and scores.isfinite().all()
+
+    out = m.generate(b"def f(", 12, temperature=0.8, seed=2)
+    assert len(out) == 12

@@ -1,0 +1,415 @@
+{
+  "experiment": "EXP-005-m1-v2-core",
+  "date": "2026-11-18 21:31",
+  "hardware": {
+    "os": "Windows 10 (10.0.22621)",
+    "machine": "AMD64",
+    "cpu": "Intel(R) Core(TM) i7-7820HQ CPU @ 2.90GHz",
+    "logical_cpus": 7,
+    "ram_gb": 7.41,
+    "python": "3.10.11",
+    "sqlite": "3.40.1",
+    "numpy": "1.26.4",
+    "torch": "2.1.2+cpu",
+    "cuda": false,
+    "runtime_path": "cpu"
+  },
+  "corpus_meta": {
+    "source": "Python clean stdlib (C:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.10_3.10.3056.0_x64__qbz5n2kfra8p0\\lib) excluding site-packages",
+    "license_policy": "PSF-2.0 stdlib + explicitly allowed clean sources; no site-packages, no GPL/LGPL/AGPL",
+    "excluded_dirs": [
+      ".venv",
+      "__pycache__",
+      "dist-packages",
+      "ensurepip",
+      "pip",
+      "pkg_resources",
+      "setuptools",
+      "site-packages",
+      "venv"
+    ],
+    "rejected_count": 0,
+    "rejected_sample": [],
+    "files_train": 747,
+    "files_val": 32,
+    "bytes_train": 12174386,
+    "bytes_val": 581475,
+    "train_sha256": "77fac0c191473c389324f95c0e0002dfa2f9553e7a2bc1fccb01f05d47ca6106",
+    "val_sha256": "e65e65328e2314d761fe3ccf040d1006a3992282c43cb13e33eb0caf42903b70",
+    "split": "sha256(rel_key) per file"
+  },
+  "baselines_bpb": {
+    "uniform": 8.0,
+    "zlib-9": 1.837,
+    "bz2-9": 1.5724,
+    "lzma-extreme": 1.554,
+    "order2-ngram (trained)": 2.5854
+  },
+  "arms": [
+    {
+      "name": "v0_baseline",
+      "config": {
+        "vocab": 256,
+        "d": 128,
+        "layers": 4,
+        "heads": 4,
+        "hidden": 352,
+        "ctx": 256,
+        "ternary": false,
+        "arch": "v0",
+        "n_loops": 1,
+        "mtp_k": 1,
+        "ponder_weight": 0.01,
+        "halt_eps": 0.05,
+        "patch_size": 4,
+        "hash_buckets": 2048,
+        "fast_dim": 16,
+        "use_fast_weights": true,
+        "use_copy_gate": true,
+        "copy_window": 4096
+      },
+      "params": {
+        "total": 869504,
+        "block_matrices": 802816,
+        "other": 66688
+      },
+      "steps": 152,
+      "seconds": 94.39,
+      "train_bytes": 622592,
+      "train_tok_s": 6596,
+      "final_val_bpb": 3.0608,
+      "curve": [
+        {
+          "elapsed_s": 19.0,
+          "step": 34,
+          "train_bpb": 3.6832,
+          "val_bpb": 3.9909
+        },
+        {
+          "elapsed_s": 34.2,
+          "step": 58,
+          "train_bpb": 3.154,
+          "val_bpb": 3.5182
+        },
+        {
+          "elapsed_s": 49.1,
+          "step": 83,
+          "train_bpb": 3.4209,
+          "val_bpb": 3.3238
+        },
+        {
+          "elapsed_s": 64.9,
+          "step": 107,
+          "train_bpb": 3.256,
+          "val_bpb": 3.1765
+        },
+        {
+          "elapsed_s": 79.5,
+          "step": 131,
+          "train_bpb": 3.0905,
+          "val_bpb": 3.0933
+        },
+        {
+          "elapsed_s": 94.4,
+          "step": 152,
+          "train_bpb": 2.8187,
+          "val_bpb": 3.035
+        }
+      ],
+      "long_range_2048": {
+        "eval_horizon_bytes": 2048,
+        "model_visible_window": 256,
+        "needle_bpb": 12.0955,
+        "needle_top1_acc": 0.0052
+      },
+      "long_range_2048_copy_mem": null,
+      "arabic_ctx256": {
+        "model_bpb": 12.1485,
+        "zlib9_bpb": 4.5447,
+        "bytes": 256
+      },
+      "english_ctx256": {
+        "model_bpb": 3.9427,
+        "zlib9_bpb": 5.8521,
+        "bytes": 256
+      }
+    },
+    {
+      "name": "v2_pure_neural",
+      "config": {
+        "vocab": 256,
+        "d": 128,
+        "layers": 2,
+        "heads": 4,
+        "hidden": 256,
+        "ctx": 256,
+        "ternary": false,
+        "arch": "v2",
+        "n_loops": 2,
+        "mtp_k": 1,
+        "ponder_weight": 0.01,
+        "halt_eps": 0.05,
+        "patch_size": 4,
+        "hash_buckets": 2048,
+        "fast_dim": 16,
+        "use_fast_weights": true,
+        "use_copy_gate": false,
+        "copy_window": 4096
+      },
+      "params": {
+        "total": 869650,
+        "block_matrices": 395264,
+        "other": 474386
+      },
+      "steps": 138,
+      "seconds": 93.37,
+      "train_bytes": 565248,
+      "train_tok_s": 6054,
+      "final_val_bpb": 2.4548,
+      "curve": [
+        {
+          "elapsed_s": 18.5,
+          "step": 29,
+          "train_bpb": 4.0982,
+          "val_bpb": 4.1048
+        },
+        {
+          "elapsed_s": 33.4,
+          "step": 51,
+          "train_bpb": 2.8088,
+          "val_bpb": 2.9932
+        },
+        {
+          "elapsed_s": 48.3,
+          "step": 73,
+          "train_bpb": 2.5174,
+          "val_bpb": 2.6517
+        },
+        {
+          "elapsed_s": 63.4,
+          "step": 95,
+          "train_bpb": 2.5466,
+          "val_bpb": 2.5329
+        },
+        {
+          "elapsed_s": 78.6,
+          "step": 117,
+          "train_bpb": 2.4305,
+          "val_bpb": 2.4705
+        },
+        {
+          "elapsed_s": 93.4,
+          "step": 138,
+          "train_bpb": 2.7882,
+          "val_bpb": 2.433
+        }
+      ],
+      "long_range_2048": {
+        "eval_horizon_bytes": 2048,
+        "model_visible_window": 2048,
+        "needle_bpb": 10.6836,
+        "needle_top1_acc": 0.0052
+      },
+      "long_range_2048_copy_mem": null,
+      "arabic_ctx256": {
+        "model_bpb": 10.5712,
+        "zlib9_bpb": 4.5447,
+        "bytes": 256
+      },
+      "english_ctx256": {
+        "model_bpb": 3.5855,
+        "zlib9_bpb": 5.8521,
+        "bytes": 256
+      },
+      "eval_avg_loops": 1.025
+    },
+    {
+      "name": "v2_hybrid_ctx256",
+      "config": {
+        "vocab": 256,
+        "d": 128,
+        "layers": 2,
+        "heads": 4,
+        "hidden": 256,
+        "ctx": 256,
+        "ternary": false,
+        "arch": "v2",
+        "n_loops": 2,
+        "mtp_k": 1,
+        "ponder_weight": 0.01,
+        "halt_eps": 0.05,
+        "patch_size": 4,
+        "hash_buckets": 2048,
+        "fast_dim": 16,
+        "use_fast_weights": true,
+        "use_copy_gate": true,
+        "copy_window": 256
+      },
+      "params": {
+        "total": 869916,
+        "block_matrices": 395264,
+        "other": 474652
+      },
+      "steps": 126,
+      "seconds": 93.8,
+      "train_bytes": 516096,
+      "train_tok_s": 5502,
+      "final_val_bpb": 2.286,
+      "curve": [
+        {
+          "elapsed_s": 18.7,
+          "step": 26,
+          "train_bpb": 3.4378,
+          "val_bpb": 3.5741
+        },
+        {
+          "elapsed_s": 34.0,
+          "step": 46,
+          "train_bpb": 2.9771,
+          "val_bpb": 2.7919
+        },
+        {
+          "elapsed_s": 48.9,
+          "step": 66,
+          "train_bpb": 2.3713,
+          "val_bpb": 2.4924
+        },
+        {
+          "elapsed_s": 63.8,
+          "step": 86,
+          "train_bpb": 2.3218,
+          "val_bpb": 2.3637
+        },
+        {
+          "elapsed_s": 78.7,
+          "step": 106,
+          "train_bpb": 2.2624,
+          "val_bpb": 2.3049
+        },
+        {
+          "elapsed_s": 93.8,
+          "step": 126,
+          "train_bpb": 2.0177,
+          "val_bpb": 2.2666
+        }
+      ],
+      "long_range_2048": {
+        "eval_horizon_bytes": 2048,
+        "model_visible_window": 2048,
+        "needle_bpb": 9.5982,
+        "needle_top1_acc": 0.0443
+      },
+      "long_range_2048_copy_mem": {
+        "eval_horizon_bytes": 2048,
+        "model_visible_window": 2048,
+        "needle_bpb": 1.0644,
+        "needle_top1_acc": 1.0
+      },
+      "arabic_ctx256": {
+        "model_bpb": 7.7667,
+        "zlib9_bpb": 4.5447,
+        "bytes": 256
+      },
+      "english_ctx256": {
+        "model_bpb": 3.6418,
+        "zlib9_bpb": 5.8521,
+        "bytes": 256
+      },
+      "eval_avg_loops": 1.026
+    },
+    {
+      "name": "v2_hybrid_ternary",
+      "config": {
+        "vocab": 256,
+        "d": 128,
+        "layers": 2,
+        "heads": 4,
+        "hidden": 256,
+        "ctx": 256,
+        "ternary": true,
+        "arch": "v2",
+        "n_loops": 2,
+        "mtp_k": 1,
+        "ponder_weight": 0.01,
+        "halt_eps": 0.05,
+        "patch_size": 4,
+        "hash_buckets": 2048,
+        "fast_dim": 16,
+        "use_fast_weights": true,
+        "use_copy_gate": true,
+        "copy_window": 256
+      },
+      "params": {
+        "total": 869916,
+        "block_matrices": 395264,
+        "other": 474652
+      },
+      "steps": 116,
+      "seconds": 94.46,
+      "train_bytes": 475136,
+      "train_tok_s": 5030,
+      "final_val_bpb": 2.372,
+      "curve": [
+        {
+          "elapsed_s": 19.3,
+          "step": 25,
+          "train_bpb": 3.622,
+          "val_bpb": 3.6869
+        },
+        {
+          "elapsed_s": 34.4,
+          "step": 43,
+          "train_bpb": 2.871,
+          "val_bpb": 2.8969
+        },
+        {
+          "elapsed_s": 49.4,
+          "step": 61,
+          "train_bpb": 2.5081,
+          "val_bpb": 2.5804
+        },
+        {
+          "elapsed_s": 64.2,
+          "step": 79,
+          "train_bpb": 2.1624,
+          "val_bpb": 2.4425
+        },
+        {
+          "elapsed_s": 79.6,
+          "step": 98,
+          "train_bpb": 2.0468,
+          "val_bpb": 2.3809
+        },
+        {
+          "elapsed_s": 94.5,
+          "step": 116,
+          "train_bpb": 2.2422,
+          "val_bpb": 2.3502
+        }
+      ],
+      "long_range_2048": {
+        "eval_horizon_bytes": 2048,
+        "model_visible_window": 2048,
+        "needle_bpb": 9.4382,
+        "needle_top1_acc": 0.0443
+      },
+      "long_range_2048_copy_mem": {
+        "eval_horizon_bytes": 2048,
+        "model_visible_window": 2048,
+        "needle_bpb": 1.0901,
+        "needle_top1_acc": 1.0
+      },
+      "arabic_ctx256": {
+        "model_bpb": 7.7998,
+        "zlib9_bpb": 4.5447,
+        "bytes": 256
+      },
+      "english_ctx256": {
+        "model_bpb": 3.6902,
+        "zlib9_bpb": 5.8521,
+        "bytes": 256
+      },
+      "eval_avg_loops": 1.031
+    }
+  ]
+}
