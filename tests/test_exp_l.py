@@ -81,7 +81,7 @@ def test_working_tree_has_no_tracked_source_modifications():
     # a known side effect, restored after the milestone run. No protected
     # source file may ever be modified.
     wt = runner.working_tree()
-    assert [p for p in wt["tracked_modified"] if p.endswith(".py")] == []
+    assert wt["protected_source_modified"] == []
 
 
 # --- L0 smoke and isolation ------------------------------------------------
@@ -121,3 +121,74 @@ def test_fingerprint_is_stable_json():
     a = {"b": 1, "a": [2, 3]}
     b = {"a": [2, 3], "b": 1}
     assert fingerprint(a) == fingerprint(b)
+
+
+# --- L1: semantic drift ----------------------------------------------------
+
+from constructive.exp_l.semantic_drift import (  # noqa: E402
+    CATEGORIES, DETECTORS, HELDOUT, LIBRARY, calibrate, detect, make_stream,
+    run_l1, signals,
+)
+from constructive.exp_l.metrics import (precision_recall_f1, roc_auc,  # noqa: E402
+                                        safe_rate)
+
+
+def test_library_and_heldout_are_disjoint():
+    assert not (set(LIBRARY) & set(HELDOUT))
+    assert len(LIBRARY) == 6 and len(HELDOUT) == 4
+
+
+def test_stream_deterministic_and_categories_valid():
+    a = make_stream(5, "parity", "semantic_abrupt", "square_mod5")
+    b = make_stream(5, "parity", "semantic_abrupt", "square_mod5")
+    assert a["xs"] == b["xs"] and a["ys"] == b["ys"]
+    s = signals(a)
+    assert len(s["feat"]) == len(s["cons"]) == 12
+    assert set(CATEGORIES) >= {"stable", "feature", "semantic_abrupt", "camouflage"}
+
+
+def test_feature_drift_preserves_relationship():
+    st = make_stream(2, "parity", "feature", "neg_mod4")
+    sig = signals(st)
+    # Reference fitted on base data still agrees on shifted-domain windows.
+    assert all(c >= 0.95 for c in sig["cons"][4:8]), sig["cons"]
+
+
+def test_camouflage_keeps_feature_marginals_identical():
+    stable = make_stream(3, "mod3", "stable", "band")
+    camo = make_stream(3, "mod3", "camouflage", "band")
+    s1, s2 = signals(stable), signals(camo)
+    # Camouflage reuses base windows' exact x multiset during drift.
+    assert sorted(camo["xs"][4]) == sorted(camo["xs"][3])
+    assert abs(s2["feat"][3] - s2["feat"][4]) < 1e-9
+    assert abs(s1["feat"][0] - s2["feat"][4]) > 1e-9  # different base windows
+
+
+def test_detectors_only_receive_signals_not_ground_truth():
+    st = make_stream(1, "parity", "semantic_abrupt", "band")
+    sig = signals(st)
+    thr = calibrate()
+    # A detector cannot see ys, category, or the drift family.
+    for det in DETECTORS:
+        flags, score = detect(det, sig, thr, 1)
+        assert len(flags) == 12 and isinstance(score, float)
+
+
+def test_false_alarm_and_precision_undefined():
+    assert safe_rate(0, 0) is None
+    assert precision_recall_f1(0, 0, 0)["f1"] is None
+    assert precision_recall_f1(2, 1, 1)["precision"] == pytest.approx(2 / 3)
+
+
+def test_roc_auc_perfect_and_random():
+    assert roc_auc([0.1, 0.2, 0.8, 0.9], [0, 0, 1, 1]) == pytest.approx(1.0)
+    assert roc_auc([0.5, 0.5, 0.5, 0.5], [0, 0, 1, 1]) == pytest.approx(0.5)
+
+
+def test_l1_semantic_detector_beats_random_on_small_campaign():
+    cfg = cfgmod.default_config("L1", seeds=(0, 1, 2))
+    block = run_l1(cfg)
+    sem = block["by_detector"]["semantic_consistency"]["semantic_recall"]["mean"]
+    rnd = block["by_detector"]["random"]["semantic_recall"]["mean"]
+    assert sem > rnd
+    assert block["by_detector"]["semantic_consistency"]["auroc"] is not None

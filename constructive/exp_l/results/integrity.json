@@ -13,7 +13,18 @@
       "gate_pass": true,
       "protected": true,
       "snapshot": "constructive\\exp_l\\results\\history\\L0-20261118-131300.json"
+    },
+    "L1": {
+      "stage": "L1",
+      "gate": {
+        "semantic_beats_random": true,
+        "feature_not_credited_as_semantic": true,
+        "false_alarms_controlled": true,
+        "reproducible": true
+      },
+      "gate_pass": true,
+      "snapshot": "constructive\\exp_l\\results\\history\\L1-20261118-131756.json"
     }
   },
-  "fingerprint": "1061a3261f77e4a4"
+  "fingerprint": "3ce464350b92e35d"
 }

@@ -20,6 +20,8 @@ python -m pytest tests/test_exp_l.py -q
 python -m constructive.exp_l.runner --stage L0 --no-resume
 python -m constructive.exp_l.runner --stage L0 --merge-only
 python -m constructive.exp_l.runner --stage L0 --quick   # pilot only; writes *-quick.json
+
+python -m constructive.exp_l.runner --stage L1 --no-resume
 ```
 
 `--quick` results are written to separate `*-quick.json` artifacts and snapshots

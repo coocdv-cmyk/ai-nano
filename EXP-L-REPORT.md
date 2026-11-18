@@ -1,6 +1,6 @@
 # EXP-L Research Report
 
-**Status: L0 complete (baseline, integrity, reproducibility). Stages L1–L7 pending.**
+**Status: L0 and L1 complete. Stages L2–L7 pending.**
 
 Branch: `research/exp-l` — created from the verified EXP-K tip
 `1face37bc9c695f5804baf97e6533113695f7af3` (not from `master`; `master` untouched).
@@ -61,7 +61,43 @@ as hypotheses, not assumptions: semantic drift, composition safeguard coverage
 cost, retrieval substitution/coverage cost, subgroup calibration failure, and
 a purely synthetic evidence base.
 
+## L1 — Semantic drift detection (gate PASS)
+
+420 streams × 6 detectors = 2,520 evaluations, 10 seeds. Semantic target rules
+were held out of the six-rule reference library; thresholds were fitted only on
+calibration seeds 101–103. Wall 0.122 s, CPU 0.125 s, peak RSS 25.19 MB.
+
+| Detector | Semantic recall [95% CI] | Feature recall | Stable FAR | AUROC |
+|---|---|---|---|---|
+| acceptance | 1.000 [1.000, 1.000] | 0.000 | 0.000 | 0.917 |
+| feature-statistic (independently reimplemented) | 0.150 [0.121, 0.179] | 1.000 | 0.133 | 0.642 |
+| semantic consistency (2-window) | 1.000 [1.000, 1.000] | 0.000 | 0.000 | 0.917 |
+| change-point (CUSUM) | 1.000 [1.000, 1.000] | 0.000 | 0.000 | 0.917 |
+| combined | 1.000 [1.000, 1.000] | 1.000 | 0.133 | 0.737 |
+| random (no-information) | 0.183 [0.117, 0.250] | 0.250 | 0.183 | 0.475 |
+
+Semantic recall is reported **separately** for abrupt, gradual,
+context-dependent and camouflaged change (all 1.000 for the mapping-based
+detectors, median detection delay 0–1 windows). The feature-statistic detector
+detects feature drift perfectly but *does not* detect semantic drift
+(0.150, at or below the random baseline) — it is **not** credited with semantic
+detection. The camouflage condition reused the exact base input multiset, so
+feature marginals were identical across stable and semantic-change windows.
+
+**Limits.** This is a synthetic rule-switching benchmark. The reference library
+identifies one of six simple arithmetic rules from base data; semantic "change"
+is a switch to a held-out rule, which yields a large, clean consistency drop.
+A real concept shift may be subtler, and parsing/natural inputs are out of
+scope here. The feature detector's stable FAR (0.133) exceeds the 0.10 target
+on held-out seeds — it is a useful feature-drift alarm but not a low-false-alarm
+semantic detector.
+
+Decision: `PROMISING_BUT_UNVALIDATED` (mapping-consistency detection);
+`NOT_RECOMMENDED` (feature-only detector as a semantic detector).
+
+Artifact: `constructive/exp_l/results/L1-results.json`.
+
 ## Decision status
 
-No mechanism has been evaluated or approved for integration at this stage.
-Nothing is `ELIGIBLE_FOR_SEPARATE_REVIEW` yet.
+No mechanism is `ELIGIBLE_FOR_SEPARATE_REVIEW` yet. L1 mapping-consistency
+detection is promising but synthetic-only and unvalidated on realistic inputs.

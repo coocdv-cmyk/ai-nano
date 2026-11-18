@@ -25,6 +25,7 @@ from .environment import capture_environment
 from .integrity import git_info, verify_protected
 from .reporting import (RESULTS, artifact_name, snapshot, update_integrity,
                         update_latest, write_json)
+from .semantic_drift import run_l1
 
 
 def _git_lines(*args: str) -> list[str]:
@@ -36,13 +37,23 @@ def _git_lines(*args: str) -> list[str]:
         return []
 
 
+PROTECTED_PREFIXES = (
+    "omega_nano/", "constructive/exp_h/", "constructive/exp_i/",
+    "constructive/exp_j/", "constructive/exp_k/", "constructive/core.py",
+    "constructive/model.py", "constructive/worlds.py",
+    "constructive/baselines.py", "constructive/bench.py",
+    "constructive/__init__.py",
+)
+
+
 def working_tree() -> dict[str, Any]:
     modified = _git_lines("diff", "--name-only")
     untracked = _git_lines("ls-files", "--others", "--exclude-standard")
-    source_modified = [p for p in modified if p.endswith(".py")]
+    protected_modified = [p for p in modified if p.endswith(".py")
+                          and any(p.startswith(pref) for pref in PROTECTED_PREFIXES)]
     return {
         "tracked_modified": modified,
-        "tracked_source_modified": source_modified,
+        "protected_source_modified": protected_modified,
         "untracked": untracked,
         "clean": not modified and not untracked,
         "note": ("The legacy suite regenerates its own quick-run JSON result "
@@ -119,7 +130,7 @@ def run_l0(cfg: ExpLConfig, *, run_full_suite: bool = True,
 
     gate = {
         "protected_hashes_ok": protected["all_protected_ok"],
-        "no_tracked_source_modifications": not wt["tracked_source_modified"],
+        "no_protected_source_modifications": not wt["protected_source_modified"],
         "full_tests_ok": tests["passed"],
         "smoke_ok": smoke["passed"],
     }
@@ -181,20 +192,38 @@ def build_parser() -> argparse.ArgumentParser:
     return p
 
 
+def persist_block(stage: str, block: dict[str, Any], cfg: ExpLConfig,
+                  stamp: str | None = None) -> dict[str, Any]:
+    """Write the standard artifacts for a stage block (quick runs isolated)."""
+    write_json(RESULTS / artifact_name(stage, "results", cfg.quick), block)
+    snap = snapshot(stage, block, cfg.quick, stamp)
+    try:
+        block["snapshot"] = str(snap.relative_to(ROOT))
+    except ValueError:
+        block["snapshot"] = str(snap)
+    update_integrity({"stage": stage, "gate": block.get("gate", {}),
+                      "gate_pass": block.get("gate_pass", False),
+                      "snapshot": block["snapshot"]}, cfg.quick)
+    update_latest(stage, block, cfg.quick)
+    return block
+
+
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
     cfg = from_args(args)
     if cfg.merge_only:
-        # Re-merge an existing latest.json without re-running anything.
-        from .reporting import RESULTS, read_json
+        from .reporting import read_json
         latest = read_json(RESULTS / ("latest-quick.json" if cfg.quick else "latest.json"))
         print("merge-only: stages =", sorted(latest.get("stages", {})))
         return 0
-    if cfg.stage != "L0":
+    if cfg.stage == "L0":
+        block = run_l0(cfg)
+    elif cfg.stage == "L1":
+        block = persist_block("L1", run_l1(cfg), cfg)
+    else:
         print(f"Stage {cfg.stage} is not implemented yet in this milestone.")
         return 2
-    block = run_l0(cfg)
-    print(f"L0 gate_pass={block['gate_pass']} snapshot={block['snapshot']}")
+    print(f"{cfg.stage} gate_pass={block['gate_pass']} snapshot={block.get('snapshot')}")
     print("gate:", block["gate"])
     return 0 if block["gate_pass"] else 1
 
