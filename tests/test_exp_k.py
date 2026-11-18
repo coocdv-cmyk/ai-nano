@@ -124,3 +124,34 @@ def test_k0_results_persisted():
     data = json.loads(latest.read_text(encoding="utf-8"))
     assert "K0" in data["experiments"]
     assert (RESULTS_DIR / "manifests" / "k0_dataset_manifest.json").exists()
+
+
+# --- K1: deep composition root causes --------------------------------------
+
+
+def test_first_error_trace():
+    from constructive.exp_i import dsl as dsl_i
+    from constructive.exp_k.deep_composition import trace_first_error
+    hidden = dsl_i.call("add1", dsl_i.call("add1", dsl_i.call("double", dsl_i.var("int"))))
+    wrong = dsl_i.call("double", dsl_i.call("double", dsl_i.var("int")))
+    probes = [1, 2, 3, 4]
+    tr = trace_first_error(wrong, hidden, probes)
+    assert tr["first_error_depth"] == 3
+    assert tr["hidden_steps"] == 3
+    assert tr["error_propagated"] is True
+
+
+def test_k1_all_arms_and_classification():
+    from constructive.exp_k.deep_composition import ARMS
+    r = runner.run(stage="K1", quick=True)
+    k1 = r["experiments"]["K1"]
+    assert k1["status"] == "completed"
+    assert k1["completion_status"] == "COMPLETED"
+    assert set(k1["by_arm"]) == set(ARMS)
+    assert k1["n_runs"] > 0
+    valid = {x.value for x in __import__(
+        "constructive.exp_k.types", fromlist=["DeepOutcome"]).DeepOutcome}
+    assert all(row["outcome"] in valid for row in k1["episodes"])
+    assert "oracle_contract" in k1["comparison_to_baseline"]
+    assert k1["resources"]["peak_rss_mb"] is not None
+

@@ -30,10 +30,10 @@
     "quick": true
   },
   "config_fingerprint": "753747c19207d0e9",
-  "git_commit": "4d18fb798fe07ac0218564ec294fb9620fc00064",
+  "git_commit": "54f3c75422eb98b4f28d484fcc8b1dc0db58b27b",
   "git_branch": "research/exp-k",
   "integrity": {
-    "git_head": "4d18fb798fe07ac0218564ec294fb9620fc00064",
+    "git_head": "54f3c75422eb98b4f28d484fcc8b1dc0db58b27b",
     "git_branch": "research/exp-k",
     "manifests": {
       "exp_j": {
@@ -106,7 +106,7 @@
           "evidence_informative": 0,
           "evidence_redundant": 0,
           "expansions": 65,
-          "elapsed_s": 0.029007,
+          "elapsed_s": 0.026607,
           "timed_out": false,
           "n_candidates": 0
         },
@@ -130,7 +130,7 @@
           "evidence_informative": 0,
           "evidence_redundant": 0,
           "expansions": 48,
-          "elapsed_s": 0.024507,
+          "elapsed_s": 0.025749,
           "timed_out": false,
           "n_candidates": 1
         },
@@ -154,7 +154,7 @@
           "evidence_informative": 1,
           "evidence_redundant": 0,
           "expansions": 180,
-          "elapsed_s": 0.145385,
+          "elapsed_s": 0.153928,
           "timed_out": false,
           "n_candidates": 3
         },
@@ -178,7 +178,7 @@
           "evidence_informative": 1,
           "evidence_redundant": 0,
           "expansions": 179,
-          "elapsed_s": 0.149349,
+          "elapsed_s": 0.157269,
           "timed_out": false,
           "n_candidates": 3
         },
@@ -202,7 +202,7 @@
           "evidence_informative": 1,
           "evidence_redundant": 0,
           "expansions": 178,
-          "elapsed_s": 0.229013,
+          "elapsed_s": 0.241418,
           "timed_out": false,
           "n_candidates": 2
         },
@@ -226,7 +226,7 @@
           "evidence_informative": 1,
           "evidence_redundant": 0,
           "expansions": 180,
-          "elapsed_s": 0.232648,
+          "elapsed_s": 0.235151,
           "timed_out": false,
           "n_candidates": 2
         },
@@ -250,7 +250,7 @@
           "evidence_informative": 1,
           "evidence_redundant": 0,
           "expansions": 182,
-          "elapsed_s": 0.235351,
+          "elapsed_s": 0.254497,
           "timed_out": false,
           "n_candidates": 2
         },
@@ -274,7 +274,7 @@
           "evidence_informative": 1,
           "evidence_redundant": 0,
           "expansions": 179,
-          "elapsed_s": 0.227482,
+          "elapsed_s": 0.240504,
           "timed_out": false,
           "n_candidates": 2
         },
@@ -298,7 +298,7 @@
           "evidence_informative": 0,
           "evidence_redundant": 0,
           "expansions": 180,
-          "elapsed_s": 0.247961,
+          "elapsed_s": 0.248325,
           "timed_out": false,
           "n_candidates": 0
         },
@@ -322,7 +322,7 @@
           "evidence_informative": 0,
           "evidence_redundant": 0,
           "expansions": 180,
-          "elapsed_s": 0.342816,
+          "elapsed_s": 0.330951,
           "timed_out": false,
           "n_candidates": 1
         },
@@ -346,7 +346,7 @@
           "evidence_informative": 0,
           "evidence_redundant": 0,
           "expansions": 181,
-          "elapsed_s": 0.254963,
+          "elapsed_s": 0.268405,
           "timed_out": false,
           "n_candidates": 1
         },
@@ -370,7 +370,7 @@
           "evidence_informative": 1,
           "evidence_redundant": 0,
           "expansions": 183,
-          "elapsed_s": 0.250842,
+          "elapsed_s": 0.271207,
           "timed_out": false,
           "n_candidates": 2
         },
@@ -394,7 +394,7 @@
           "evidence_informative": 0,
           "evidence_redundant": 0,
           "expansions": 179,
-          "elapsed_s": 0.23555,
+          "elapsed_s": 0.238398,
           "timed_out": false,
           "n_candidates": 0
         },
@@ -418,7 +418,7 @@
           "evidence_informative": 1,
           "evidence_redundant": 0,
           "expansions": 180,
-          "elapsed_s": 0.235256,
+          "elapsed_s": 0.240771,
           "timed_out": false,
           "n_candidates": 2
         }
@@ -3093,7 +3093,7 @@
       "acceleration": "none (CPU-only; no external APIs)",
       "python": "3.13.15"
     },
-    "git_commit": "4d18fb798fe07ac0218564ec294fb9620fc00064",
+    "git_commit": "54f3c75422eb98b4f28d484fcc8b1dc0db58b27b",
     "git_branch": "research/exp-k",
     "source_fingerprints": {
       "constructive/exp_j/generators.py": "b09b085f682c7221afd417de19d28d70457598a016f2be6c6f4d6f0e22a75ccf",
@@ -3120,8 +3120,8 @@
     "Systems under test (EXP-I/EXP-J) are unchanged and imported read-only."
   ],
   "resources": {
-    "elapsed_s": 3.2687,
-    "peak_rss_mb": 527.35,
+    "elapsed_s": 3.35671,
+    "peak_rss_mb": 524.94,
     "expansions": 0,
     "nodes": 0,
     "validation_calls": 0,
@@ -3131,7 +3131,7 @@
   },
   "completion_status": "COMPLETED",
   "resource_report": {
-    "elapsed_s": 3.3524433999846224,
+    "elapsed_s": 3.4409107000101358,
     "nodes_used": 0,
     "global_deadline_s": 600.0,
     "node_budget": null,
@@ -3140,10 +3140,10 @@
     "diagnostics": {
       "last_completed_scope": "K0",
       "last_scope_status": "COMPLETED",
-      "scope_elapsed_s": 3.269023200002266,
+      "scope_elapsed_s": 3.35702179998043,
       "scope_nodes": 0
     },
     "memory_guard_mb": null,
-    "peak_rss_mb": 527.35
+    "peak_rss_mb": 524.94
   }
 }

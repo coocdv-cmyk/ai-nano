@@ -33,3 +33,36 @@ EXP-K uses independent generators, so exact equality is not expected.
    splits leaves substantial ECE. To be isolated in K4.
 
 These are hypotheses, not findings. Later stages will confirm or reject them.
+
+## K1 — Deep composition (350 matched runs, 5 arms × 7 depths × 10 seeds)
+
+| Arm | Incorrect acceptance | Correct acceptance | Abstention | Mean expansions |
+|---|---|---|---|---|
+| baseline | 0.557 (CI ±0.116) | 0.000 | 0.443 | 163.6 |
+| shifted validation | 0.329 | 0.000 | 0.671 | 163.6 |
+| CEGIS refinement | 0.329 | 0.000 | 0.671 | 268.4 |
+| conservative abstention | 0.329 | 0.000 | 0.671 | 163.6 |
+| oracle intermediate contracts | **0.000** | 0.000 | 1.000 | 163.6 |
+
+**Findings.**
+1. Incorrect acceptance is **reproduced** (39/70 baseline) and is not caused by
+   resource exhaustion (0 timeouts) or representation limits (all chains are
+   in-DSL). It is a validation blind spot: support-consistent, incidentally
+   fitting programs survive.
+2. First-error tracing shows the earliest divergence occurs at composition step
+   **2** (median), i.e. early and propagates to the final answer.
+3. Three deployable safeguards each cut incorrect acceptance by 0.229 absolute
+   (41% relative) on 70 paired episodes, but **all buy it with coverage**:
+   abstention rises 0.443 → 0.671, and correct acceptance stays at 0.000.
+   CEGIS costs 64% more expansions for the same outcome as shifted validation.
+4. The **oracle-contract arm eliminates all incorrect acceptance but abstains
+   on everything**. This confirms that perfect intermediate verification would
+   solve the safety problem, but it is not deployable (needs the hidden chain)
+   and provides no useful coverage.
+5. Hypothesis 1 is therefore **partially confirmed**: the cause is a validation
+   blind spot, but the tested fixes trade safety for coverage rather than
+   solving composition. `shifted_validation` is the best deployable arm on the
+   safety/cost trade-off, yet it is not a solution.
+
+**Resource:** 80.22 s wall, peak RSS measured per block, 0 timeouts.
+

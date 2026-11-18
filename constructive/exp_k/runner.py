@@ -41,6 +41,9 @@ def _paths() -> None:
 def _dispatch(stage: str, cfg: ExpKConfig) -> Callable[[], dict[str, Any]]:
     if stage == "K0":
         return lambda: baseline.run_k0(cfg)
+    if stage == "K1":
+        from . import deep_composition
+        return lambda: deep_composition.run_k1(cfg)
     # Later stages are registered as they are implemented and verified.
     raise KeyError(f"stage {stage} is not implemented in this revision")
 
