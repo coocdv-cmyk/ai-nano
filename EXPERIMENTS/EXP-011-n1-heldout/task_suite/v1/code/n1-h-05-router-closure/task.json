@@ -1,0 +1,7 @@
+{
+  "id": "n1-h-05-router-closure",
+  "title": "Routes capture the last handler id",
+  "domain": "code",
+  "statement": "`router.py` builds callables in a loop, but every route returns the last handler id. Repair it so the tests under `tests/` pass without changing the public signature.",
+  "timeout_s": 60
+}

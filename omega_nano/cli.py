@@ -97,6 +97,12 @@ def main(argv: list[str] | None = None) -> int:
     bir = bsub.add_parser("index-repo", help="index Python repository symbols and call graph into memory")
     bir.add_argument("--path", default=".", help="repository or module path to index")
     bir.add_argument("--no-memory", action="store_true", help="skip persisting indexed symbols into MemoryFabric")
+    brp = bsub.add_parser("repair", help="execution-verified AST repair of a failing Python workspace")
+    brp.add_argument("--path", default=".", help="workspace root containing the failing tests")
+    brp.add_argument("--tests", default="tests", help="test directory or node path to run (default: tests)")
+    brp.add_argument("--max-calls", type=int, default=80, help="verifier-call budget (default: 80)")
+    brp.add_argument("--dry-run", action="store_true", help="search but do not write the accepted patch")
+    brp.add_argument("--attempts", dest="repair_attempts", type=int, default=3, help="maximum composed edits (default: 3)")
     bd = bsub.add_parser("distill", help="run Wake-Sleep replay distillation into compact v2 core")
     bd.add_argument("--seconds", type=float, default=6.0)
     bd.add_argument("--steps", type=int, default=80)
@@ -208,6 +214,17 @@ def _dispatch(args, eng: Engine, cfg) -> int:
             )
             print(json.dumps(graph.summarize(), indent=2, ensure_ascii=False))
             return 0
+
+        if args.bcmd == "repair":
+            from .brain import RepairEngine
+
+            report = RepairEngine(
+                tests_dir=args.tests,
+                max_verifier_calls=args.max_calls,
+                max_depth=args.repair_attempts,
+            ).repair(args.path, apply=not args.dry_run)
+            print(json.dumps(report.to_dict(), indent=2, ensure_ascii=False, default=str))
+            return 0 if report.solved else 2
 
         skills = SkillLibrary(cfg.home / "brain.db", memory=eng.memory)
         try:

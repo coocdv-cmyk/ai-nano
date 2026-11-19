@@ -1,0 +1,7 @@
+{
+  "id": "n1-h-04-memo-locale",
+  "title": "Memoised formatter ignores one argument",
+  "domain": "code",
+  "statement": "`formatting.py` memoises `render` per first argument, so a second call that changes the template returns stale text. Repair it so the tests under `tests/` pass without changing the function signature.",
+  "timeout_s": 60
+}

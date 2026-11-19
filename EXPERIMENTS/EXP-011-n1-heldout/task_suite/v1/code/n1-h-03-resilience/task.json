@@ -1,0 +1,7 @@
+{
+  "id": "n1-h-03-resilience",
+  "title": "Retry client retries permanent failures",
+  "domain": "code",
+  "statement": "`client.py` retries a callable, but it retries every failure. Using the error types in `faults.py`, repair it so the tests under `tests/` pass: only `RecoverableError` is retried, `BadRequest` and unexpected exceptions propagate on the first call, and exhaustion re-raises the last recoverable error.",
+  "timeout_s": 60
+}

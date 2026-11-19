@@ -1,0 +1,41 @@
+{
+  "suite_version": "v1",
+  "suite_id": "EXP-011-N1-HELDOUT",
+  "created": "2026-11-19",
+  "frozen": true,
+  "counts": {
+    "code": 7
+  },
+  "note": "Held-out same-family transfer probe. Authored after the N1 operator set was frozen.",
+  "files": {
+    ".sealed/solutions/n1-h-01-window-slice/windows.py": "6614bd820e71a904eaa39b3e09838a5460ccaf46117404561283672e27d7195c",
+    ".sealed/solutions/n1-h-02-buffer-default/buffer.py": "f2978f65bfb157c3f945c68e455acd22bf30a96a1301a5936644bfa3c74119ca",
+    ".sealed/solutions/n1-h-03-resilience/client.py": "1b3c10533ea6ed9456fce4cd0933f7ceaae3e3a8fbe9ca16e8141fba044c2546",
+    ".sealed/solutions/n1-h-04-memo-locale/formatting.py": "582fe4e7e5a34883d120e3ebae3d888cd1cf02eee474410711418283dfcd31bb",
+    ".sealed/solutions/n1-h-05-router-closure/router.py": "f72780403f80d343f597866e891a9a543896d774d2f80bb158bae9ea0aac6703",
+    ".sealed/solutions/n1-h-06-points/points.py": "59be6f4f5525d329126d97f7dc7d584bbd1d062db46b7470deff9da76eb0d549",
+    ".sealed/solutions/n1-h-07-bisect-bound/search.py": "553112b40459ca37e62ec5018ad5d4dfd19b7ad67b3a4e26ad40a6f025278850",
+    "code/n1-h-01-window-slice/repo/windows.py": "b8fec8404e9886bdff8527db1c5e00fbdfd49eaeac7abe42b1dfac177abe65c5",
+    "code/n1-h-01-window-slice/task.json": "9cb990665dee612a5261e2ab24ce522d69961f538e2b71a052ca9752a10e475c",
+    "code/n1-h-01-window-slice/tests/test_windows.py": "60c04a5ead8288fe69b28a52c11e60f1af22dee288b16183676dbec85ec71287",
+    "code/n1-h-02-buffer-default/repo/buffer.py": "f4d52b676ce03588762aad8e49ba5023b3de87dbbf0b89ae5fb6b533d850713a",
+    "code/n1-h-02-buffer-default/task.json": "9c50f93291184ac43856290b822c54d2ae7c37710e654509557620019121d1e8",
+    "code/n1-h-02-buffer-default/tests/test_buffer.py": "d7ae04ea39f5ee6baf8a49be5ba0add642efbeefa742962a1f8eab01ccce5a05",
+    "code/n1-h-03-resilience/repo/client.py": "8c24215d30c6b292a959c914f8471ba8c81de86894bec5d2742c46c28829ce39",
+    "code/n1-h-03-resilience/repo/faults.py": "48e56723fa47f440137a0f380d56e4a52668e5a972f43c93d14f1dab3ec488aa",
+    "code/n1-h-03-resilience/task.json": "a59f10a88754457d57e690d1491363e558cdc9e76c7444fab756a4a984e46314",
+    "code/n1-h-03-resilience/tests/test_client.py": "55b6d5a286bde925b2059b75d93d2d5d71c0db6f133875857526bc8beec8d3b9",
+    "code/n1-h-04-memo-locale/repo/formatting.py": "62fe05f57c4eb3104f3cd1742068a9cd4d3bdb0de7758af74aabb3aed71b9b3a",
+    "code/n1-h-04-memo-locale/task.json": "4b2f6b6ab70ecc53d35f11d7835d10b593a57943b22c3df60779f623bfe87d17",
+    "code/n1-h-04-memo-locale/tests/test_formatting.py": "f151ab4765acf60feeb6553c7bf16f3568e51c53996cdcc6fae2707f4b6d2cb6",
+    "code/n1-h-05-router-closure/repo/router.py": "fe100775171fa9c4e7a6d85d2e2ab11688ea99a819348209b425f098b6ab7bbc",
+    "code/n1-h-05-router-closure/task.json": "ec2761046e1f5f948f7626eae78f571a16cd44450a3671133c3494b7c6d654c7",
+    "code/n1-h-05-router-closure/tests/test_router.py": "c3147248abf95d598597b4fab53ed3b60a1a71d14c34774f590e5b21c3fabf04",
+    "code/n1-h-06-points/repo/points.py": "7a8808d4d18faa602045572a0f8882be196b2ee4d5a5babe0976a3c6f8e6dc6b",
+    "code/n1-h-06-points/task.json": "e8947b94b22f4a65662da43630dc410b25c7a9299d25b57d874fd213b503f689",
+    "code/n1-h-06-points/tests/test_points.py": "45a88935e26c1c083b3e2fa5935dcb486225fe878feab105568519421b759327",
+    "code/n1-h-07-bisect-bound/repo/search.py": "8536944ca5cd6b87ee153f3deaf0cea8de3de2dc8f0d12f760495a12e6017b14",
+    "code/n1-h-07-bisect-bound/task.json": "ce0d0aad411435e734bfe8be85db02e2d9ce59f3c2cee42832cdca5c8ec8a20a",
+    "code/n1-h-07-bisect-bound/tests/test_search.py": "261e56cd6c4ffc05bb4917c4037fffaeab39137d9a5a8c4560db76daef75a280"
+  }
+}

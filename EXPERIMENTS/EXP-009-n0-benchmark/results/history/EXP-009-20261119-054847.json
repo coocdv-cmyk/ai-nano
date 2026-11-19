@@ -1,0 +1,474 @@
+{
+  "exp_id": "EXP-009",
+  "title": "N0 — sealed EXP-N benchmark v1 (oracle + product baseline)",
+  "date": "2026-11-19 05:47:04 UTC",
+  "suite": {
+    "ok": true,
+    "checked": 32,
+    "suite_version": "v1",
+    "manifest_sha256": "a16e73d315fe7a8ccf6c693c624d70d0100b90f590eac6cd8794bcdf7db75ac8",
+    "mismatches": [],
+    "mismatch_count": 0
+  },
+  "hardware": {
+    "os": "Windows 11 (10.0.26200)",
+    "machine": "AMD64",
+    "cpu": "11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz",
+    "logical_cpus": 8,
+    "ram_gb": 15.66,
+    "python": "3.13.15",
+    "sqlite": "3.50.4",
+    "numpy": "2.5.3",
+    "torch": "2.14.1+cpu",
+    "cuda": false,
+    "runtime_path": "cpu"
+  },
+  "counts": {
+    "code": 6,
+    "reasoning": 12,
+    "retrieval_queries": 18
+  },
+  "oracle": {
+    "code": {
+      "passed": 6,
+      "total": 6,
+      "pass_rate": 1.0,
+      "elapsed_s": 3.547
+    },
+    "reasoning": {
+      "passed": 12,
+      "total": 12,
+      "tasks": [
+        {
+          "id": "n0-r-01-digits-2pow100",
+          "passed": true
+        },
+        {
+          "id": "n0-r-02-zeros-100fact",
+          "passed": true
+        },
+        {
+          "id": "n0-r-03-filtered-sum",
+          "passed": true
+        },
+        {
+          "id": "n0-r-04-climb-10",
+          "passed": true
+        },
+        {
+          "id": "n0-r-05-largest-prime-2pow20",
+          "passed": true
+        },
+        {
+          "id": "n0-r-06-coins-23",
+          "passed": true
+        },
+        {
+          "id": "n0-r-07-palindromes-7",
+          "passed": true
+        },
+        {
+          "id": "n0-r-08-heads-5",
+          "passed": true
+        },
+        {
+          "id": "n0-r-09-determinant",
+          "passed": true
+        },
+        {
+          "id": "n0-r-10-digits-3pow50",
+          "passed": true
+        },
+        {
+          "id": "n0-r-11-mod-7pow2026",
+          "passed": true
+        },
+        {
+          "id": "n0-r-12-divisors-220",
+          "passed": true
+        }
+      ]
+    },
+    "retrieval": {
+      "queries": 18,
+      "k": 5,
+      "recall_at_5": 1.0,
+      "mrr": 1.0,
+      "hits": 18,
+      "labels_resolve_to_documents": true,
+      "passed": true
+    },
+    "wall_s": 3.592,
+    "ok": true
+  },
+  "baseline": {
+    "code": {
+      "passed": 0,
+      "total": 6,
+      "pass_rate": 0.0,
+      "elapsed_s": 3.892,
+      "tasks": [
+        {
+          "id": "n0-code-01-pagination",
+          "title": "One-based pagination with validation",
+          "route": "workspace_agent",
+          "status": "blocked",
+          "tier": "t1:rules",
+          "files_changed": [],
+          "agent_elapsed_ms": 1.17,
+          "passed": false,
+          "tests": "5 failed, 1 passed in 0.06s",
+          "elapsed_s": 0.66
+        },
+        {
+          "id": "n0-code-02-audit-default",
+          "title": "Shared mutable default in the event log",
+          "route": "workspace_agent",
+          "status": "blocked",
+          "tier": "t1:rules",
+          "files_changed": [],
+          "agent_elapsed_ms": 0.75,
+          "passed": false,
+          "tests": "2 failed, 2 passed in 0.06s",
+          "elapsed_s": 0.692
+        },
+        {
+          "id": "n0-code-03-retry-policy",
+          "title": "Retry policy retries fatal errors",
+          "route": "workspace_agent",
+          "status": "blocked",
+          "tier": "t1:rules",
+          "files_changed": [],
+          "agent_elapsed_ms": 0.74,
+          "passed": false,
+          "tests": "2 failed, 2 passed in 0.05s",
+          "elapsed_s": 0.654
+        },
+        {
+          "id": "n0-code-04-cache-key",
+          "title": "Report cache ignores the locale",
+          "route": "workspace_agent",
+          "status": "blocked",
+          "tier": "t1:rules",
+          "files_changed": [],
+          "agent_elapsed_ms": 0.65,
+          "passed": false,
+          "tests": "2 failed, 1 passed in 0.05s",
+          "elapsed_s": 0.636
+        },
+        {
+          "id": "n0-code-05-closure",
+          "title": "Handlers capture the loop variable",
+          "route": "workspace_agent",
+          "status": "blocked",
+          "tier": "t1:rules",
+          "files_changed": [],
+          "agent_elapsed_ms": 0.53,
+          "passed": false,
+          "tests": "2 failed, 1 passed in 0.05s",
+          "elapsed_s": 0.635
+        },
+        {
+          "id": "n0-code-06-money-split",
+          "title": "Money split loses the remainder",
+          "route": "workspace_agent",
+          "status": "blocked",
+          "tier": "t1:rules",
+          "files_changed": [],
+          "agent_elapsed_ms": 0.74,
+          "passed": false,
+          "tests": "3 failed, 2 passed in 0.05s",
+          "elapsed_s": 0.615
+        }
+      ]
+    },
+    "reasoning": {
+      "passed": 0,
+      "total": 12,
+      "pass_rate": 0.0,
+      "tasks": [
+        {
+          "id": "n0-r-01-digits-2pow100",
+          "passed": false,
+          "candidates_tried": 1,
+          "route": "workspace_agent",
+          "status": "failed"
+        },
+        {
+          "id": "n0-r-02-zeros-100fact",
+          "passed": false,
+          "candidates_tried": 2,
+          "route": "workspace_agent",
+          "status": "blocked"
+        },
+        {
+          "id": "n0-r-03-filtered-sum",
+          "passed": false,
+          "candidates_tried": 1,
+          "route": "workspace_agent",
+          "status": "failed"
+        },
+        {
+          "id": "n0-r-04-climb-10",
+          "passed": false,
+          "candidates_tried": 4,
+          "route": "workspace_agent",
+          "status": "blocked"
+        },
+        {
+          "id": "n0-r-05-largest-prime-2pow20",
+          "passed": false,
+          "candidates_tried": 1,
+          "route": "workspace_agent",
+          "status": "failed"
+        },
+        {
+          "id": "n0-r-06-coins-23",
+          "passed": false,
+          "candidates_tried": 4,
+          "route": "workspace_agent",
+          "status": "blocked"
+        },
+        {
+          "id": "n0-r-07-palindromes-7",
+          "passed": false,
+          "candidates_tried": 1,
+          "route": "workspace_agent",
+          "status": "blocked"
+        },
+        {
+          "id": "n0-r-08-heads-5",
+          "passed": false,
+          "candidates_tried": 2,
+          "route": "workspace_agent",
+          "status": "blocked"
+        },
+        {
+          "id": "n0-r-09-determinant",
+          "passed": false,
+          "candidates_tried": 2,
+          "route": "workspace_agent",
+          "status": "failed"
+        },
+        {
+          "id": "n0-r-10-digits-3pow50",
+          "passed": false,
+          "candidates_tried": 1,
+          "route": "workspace_agent",
+          "status": "failed"
+        },
+        {
+          "id": "n0-r-11-mod-7pow2026",
+          "passed": false,
+          "candidates_tried": 1,
+          "route": "workspace_agent",
+          "status": "failed"
+        },
+        {
+          "id": "n0-r-12-divisors-220",
+          "passed": false,
+          "candidates_tried": 1,
+          "route": "workspace_agent",
+          "status": "failed"
+        }
+      ]
+    },
+    "retrieval": {
+      "queries": [
+        {
+          "id": "n0-q-01",
+          "top": [
+            "d22",
+            "d30",
+            "d26",
+            "d07",
+            "d24"
+          ]
+        },
+        {
+          "id": "n0-q-02",
+          "top": [
+            "d01",
+            "d06",
+            "d11",
+            "d04",
+            "d16"
+          ]
+        },
+        {
+          "id": "n0-q-03",
+          "top": [
+            "d21",
+            "d33",
+            "d26",
+            "d25",
+            "d27"
+          ]
+        },
+        {
+          "id": "n0-q-04",
+          "top": [
+            "d02",
+            "d08",
+            "d11",
+            "d25",
+            "d03"
+          ]
+        },
+        {
+          "id": "n0-q-05",
+          "top": [
+            "d23",
+            "d35",
+            "d32",
+            "d08",
+            "d24"
+          ]
+        },
+        {
+          "id": "n0-q-06",
+          "top": [
+            "d08",
+            "d07",
+            "d09",
+            "d02",
+            "d12"
+          ]
+        },
+        {
+          "id": "n0-q-07",
+          "top": [
+            "d27",
+            "d26",
+            "d22",
+            "d24",
+            "d34"
+          ]
+        },
+        {
+          "id": "n0-q-08",
+          "top": [
+            "d13",
+            "d09",
+            "d12",
+            "d06",
+            "d31"
+          ]
+        },
+        {
+          "id": "n0-q-09",
+          "top": [
+            "d30",
+            "d22",
+            "d26",
+            "d08",
+            "d07"
+          ]
+        },
+        {
+          "id": "n0-q-10",
+          "top": [
+            "d16",
+            "d01",
+            "d06",
+            "d09",
+            "d24"
+          ]
+        },
+        {
+          "id": "n0-q-11",
+          "top": [
+            "d35",
+            "d29",
+            "d36",
+            "d28",
+            "d23"
+          ]
+        },
+        {
+          "id": "n0-q-12",
+          "top": [
+            "d18",
+            "d04",
+            "d22",
+            "d16",
+            "d28"
+          ]
+        },
+        {
+          "id": "n0-q-13",
+          "top": [
+            "d25",
+            "d21",
+            "d07",
+            "d22",
+            "d04"
+          ]
+        },
+        {
+          "id": "n0-q-14",
+          "top": [
+            "d06",
+            "d01",
+            "d04",
+            "d15",
+            "d11"
+          ]
+        },
+        {
+          "id": "n0-q-15",
+          "top": [
+            "d32",
+            "d30",
+            "d12"
+          ]
+        },
+        {
+          "id": "n0-q-16",
+          "top": [
+            "d10",
+            "d14",
+            "d13",
+            "d02",
+            "d12"
+          ]
+        },
+        {
+          "id": "n0-q-17",
+          "top": [
+            "d27",
+            "d29",
+            "d33",
+            "d20",
+            "d35"
+          ]
+        },
+        {
+          "id": "n0-q-18",
+          "top": [
+            "d16",
+            "d01",
+            "d13",
+            "d34",
+            "d32"
+          ]
+        }
+      ],
+      "k": 5,
+      "recall_at_5": 0.6667,
+      "mrr": 0.625,
+      "hits": 12,
+      "elapsed_s": 0.047
+    },
+    "wall_s": 4.269
+  },
+  "efficiency": {
+    "peak_rss_mb": 231.87,
+    "total_wall_seconds": 10.503
+  },
+  "gaps": [
+    "Code track at 0: the product has no patch operator or traceback-driven localization (EXP-N N1).",
+    "Reasoning track at 0: no general arithmetic/word-problem path exists outside the symbolic families.",
+    "Retrieval is below the sealed label ceiling; EXP-N N3 must raise it without raising false accepts."
+  ]
+}

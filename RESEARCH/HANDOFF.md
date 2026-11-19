@@ -1,5 +1,9 @@
 # OMEGA-NANO — Sync & Next-Phase Handoff (`EXP-M -> EXP-N`)
 
+> **Status note (2026-11-19):** `N0` and `N1` are complete and recorded on `research/exp-n`; resume from
+> `PROJECT-STATE.md`, not from this historical handoff. N1's as-built verification runs the suite in an isolated
+> workspace copy — it is **not** an OS sandbox; the deviation is recorded in `RESEARCH/EXP-N-PLAN.md` §3.
+
 **Canonical Remote:** `https://github.com/coocdv-cmyk/ai-nano.git` (`origin`)  
 **Policy Rule:** Never push unverified code. Push to `origin` only after full tests pass and benchmark outputs are recorded.
 

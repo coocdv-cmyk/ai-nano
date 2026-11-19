@@ -1,0 +1,7 @@
+{
+  "id": "n1-h-07-bisect-bound",
+  "title": "Binary search drops the final element",
+  "domain": "code",
+  "statement": "`search.py` finds the last index whose value is at most `target`, but it never checks the final candidate. Repair it so the tests under `tests/` pass.",
+  "timeout_s": 60
+}

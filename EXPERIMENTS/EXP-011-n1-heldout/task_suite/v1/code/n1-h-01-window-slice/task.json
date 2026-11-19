@@ -1,0 +1,7 @@
+{
+  "id": "n1-h-01-window-slice",
+  "title": "One-based text window",
+  "domain": "code",
+  "statement": "`windows.py` returns a fixed-size window of `items` for a 1-based `page`. Repair it so the failing tests under `tests/` pass: page 1 starts at index 0, `page < 1` and `size < 1` raise ValueError, and a page beyond the end returns [].",
+  "timeout_s": 60
+}

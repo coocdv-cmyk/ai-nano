@@ -1,0 +1,10 @@
+{
+  "id": "n0-code-01-pagination",
+  "title": "One-based pagination with validation",
+  "domain": "code",
+  "statement": "The module `pagination.py` slices a list for page `page_number` (1-based) with size `page_size`. Its current behaviour is wrong. Repair it so the failing test suite under `tests/` passes. Pages beyond the end return an empty list; `page_number < 1` or `page_size < 1` raise ValueError.",
+  "entrypoint": [
+    "repo/pagination.py"
+  ],
+  "timeout_s": 60
+}

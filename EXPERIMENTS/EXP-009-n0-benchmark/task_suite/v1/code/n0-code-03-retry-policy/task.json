@@ -1,0 +1,11 @@
+{
+  "id": "n0-code-03-retry-policy",
+  "title": "Retry policy retries fatal errors",
+  "domain": "code",
+  "statement": "`retry.py` wraps a callable with retries, but it retries every exception, including fatal ones. Repair it using the exception types in `errors.py` so the tests under `tests/` pass: only `TransientError` is retried; `FatalError` and unexpected exceptions propagate on the first call; when retries are exhausted the last `TransientError` is re-raised.",
+  "entrypoint": [
+    "repo/errors.py",
+    "repo/retry.py"
+  ],
+  "timeout_s": 60
+}

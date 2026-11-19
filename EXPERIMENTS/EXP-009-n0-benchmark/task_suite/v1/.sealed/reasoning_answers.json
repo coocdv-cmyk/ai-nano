@@ -1,0 +1,14 @@
+{
+  "n0-r-01-digits-2pow100": "115",
+  "n0-r-02-zeros-100fact": "24",
+  "n0-r-03-filtered-sum": "266332",
+  "n0-r-04-climb-10": "274",
+  "n0-r-05-largest-prime-2pow20": "41",
+  "n0-r-06-coins-23": "6",
+  "n0-r-07-palindromes-7": "18",
+  "n0-r-08-heads-5": "5/16",
+  "n0-r-09-determinant": "41",
+  "n0-r-10-digits-3pow50": "144",
+  "n0-r-11-mod-7pow2026": "4",
+  "n0-r-12-divisors-220": "284"
+}

@@ -1,0 +1,368 @@
+{
+  "exp_id": "EXP-011",
+  "title": "N1-heldout — same-family transfer probe (operators frozen on EXP-010)",
+  "date": "2026-11-19 06:13:27 UTC",
+  "suite": {
+    "ok": true,
+    "checked": 29,
+    "suite_version": "v1",
+    "manifest_sha256": "4cf5c03cb5a615f5d1bd06a3d462d2cfc820a49af4fc3adf43c5c3ba685875f1",
+    "mismatches": [],
+    "mismatch_count": 0
+  },
+  "hardware": {
+    "os": "Windows 11 (10.0.26200)",
+    "machine": "AMD64",
+    "cpu": "11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz",
+    "logical_cpus": 8,
+    "ram_gb": 15.66,
+    "python": "3.13.15",
+    "sqlite": "3.50.4",
+    "numpy": "2.5.3",
+    "torch": "2.14.1+cpu",
+    "cuda": false,
+    "runtime_path": "cpu"
+  },
+  "operators": [
+    "mutable_default",
+    "exception_scope",
+    "cache_key",
+    "closure_binding",
+    "boundary_guard",
+    "off_by_one",
+    "integer_distribution",
+    "mapping_fallback",
+    "comparison_flip"
+  ],
+  "configuration": {
+    "max_verifier_calls": 80,
+    "max_depth": 3
+  },
+  "oracle_code": {
+    "passed": 7,
+    "total": 7,
+    "pass_rate": 1.0,
+    "elapsed_s": 4.517
+  },
+  "tasks": [
+    {
+      "id": "n1-h-01-window-slice",
+      "title": "One-based text window",
+      "engine_solved": true,
+      "scorer_passed": true,
+      "initial_failed": 4,
+      "final_failed": 0,
+      "verifier_calls": 6,
+      "attempted_candidates": 4,
+      "accepted_without_execution": 0,
+      "budget_exhausted": false,
+      "edits": [
+        {
+          "operator": "boundary_guard",
+          "file": "windows.py",
+          "target": "window",
+          "description": "raise on boundary values rejected by the tests in window",
+          "verified": true
+        },
+        {
+          "operator": "off_by_one",
+          "file": "windows.py",
+          "target": "window",
+          "description": "shift index arithmetic in window by -1 (operand 0)",
+          "verified": true
+        }
+      ],
+      "targets": [
+        {
+          "name": "window",
+          "qualname": "windows.window",
+          "file": "windows.py",
+          "lineno": 4,
+          "score": 43.0,
+          "depth": 0,
+          "reasons": [
+            "called by tests/test_windows.py::test_first_page_starts_at_zero",
+            "called by tests/test_windows.py::test_third_page",
+            "called by tests/test_windows.py::test_page_zero_is_rejected",
+            "called by tests/test_windows.py::test_zero_size_is_rejected",
+            "callee of window"
+          ]
+        }
+      ],
+      "diffs": [
+        "--- a/windows.py\n+++ b/windows.py\n@@ -1,6 +1,9 @@\n \"\"\"Fixed-size windows over a sequence.\"\"\"\n \n-\n def window(items, page, size):\n-    start = page * size\n+    if page < 1:\n+        raise ValueError('page must be >= 1')\n+    if size < 1:\n+        raise ValueError('size must be >= 1')\n+    start = (page - 1) * size\n     return items[start:start + size]\n"
+      ],
+      "elapsed_s": 4.632
+    },
+    {
+      "id": "n1-h-02-buffer-default",
+      "title": "Queue buffer leaks between calls",
+      "engine_solved": true,
+      "scorer_passed": true,
+      "initial_failed": 2,
+      "final_failed": 0,
+      "verifier_calls": 3,
+      "attempted_candidates": 1,
+      "accepted_without_execution": 0,
+      "budget_exhausted": false,
+      "edits": [
+        {
+          "operator": "mutable_default",
+          "file": "buffer.py",
+          "target": "push",
+          "description": "replace mutable default(s) in push",
+          "verified": true
+        }
+      ],
+      "targets": [
+        {
+          "name": "push",
+          "qualname": "buffer.push",
+          "file": "buffer.py",
+          "lineno": 4,
+          "score": 40.0,
+          "depth": 0,
+          "reasons": [
+            "called by tests/test_buffer.py::test_default_calls_are_isolated",
+            "called by tests/test_buffer.py::test_default_after_explicit_use_is_still_empty"
+          ]
+        }
+      ],
+      "diffs": [
+        "--- a/buffer.py\n+++ b/buffer.py\n@@ -1,6 +1,7 @@\n \"\"\"Append-only buffers.\"\"\"\n \n-\n-def push(buffer=[], item=\"x\"):\n+def push(buffer=None, item='x'):\n+    if buffer is None:\n+        buffer = []\n     buffer.append(item)\n     return buffer\n"
+      ],
+      "elapsed_s": 2.538
+    },
+    {
+      "id": "n1-h-03-resilience",
+      "title": "Retry client retries permanent failures",
+      "engine_solved": true,
+      "scorer_passed": true,
+      "initial_failed": 2,
+      "final_failed": 0,
+      "verifier_calls": 4,
+      "attempted_candidates": 2,
+      "accepted_without_execution": 0,
+      "budget_exhausted": false,
+      "edits": [
+        {
+          "operator": "exception_scope",
+          "file": "client.py",
+          "target": "call_with_retry",
+          "description": "narrow broad handler(s) in call_with_retry to RecoverableError",
+          "verified": true
+        }
+      ],
+      "targets": [
+        {
+          "name": "call_with_retry",
+          "qualname": "client.call_with_retry",
+          "file": "client.py",
+          "lineno": 4,
+          "score": 20.0,
+          "depth": 0,
+          "reasons": [
+            "called by tests/test_client.py::test_bad_request_is_not_retried",
+            "called by tests/test_client.py::test_unexpected_error_is_not_retried"
+          ]
+        },
+        {
+          "name": "BadRequest",
+          "qualname": "faults.BadRequest",
+          "file": "faults.py",
+          "lineno": 8,
+          "score": 10.0,
+          "depth": 0,
+          "reasons": [
+            "called by tests/test_client.py::test_bad_request_is_not_retried"
+          ]
+        }
+      ],
+      "diffs": [
+        "--- a/client.py\n+++ b/client.py\n@@ -1,11 +1,11 @@\n \"\"\"Retry wrapper.\"\"\"\n-\n+from faults import RecoverableError\n \n def call_with_retry(fn, attempts=4):\n     last = None\n     for _ in range(attempts):\n         try:\n             return fn()\n-        except Exception as exc:\n+        except RecoverableError as exc:\n             last = exc\n     raise last\n"
+      ],
+      "elapsed_s": 3.259
+    },
+    {
+      "id": "n1-h-04-memo-locale",
+      "title": "Memoised formatter ignores one argument",
+      "engine_solved": true,
+      "scorer_passed": true,
+      "initial_failed": 1,
+      "final_failed": 0,
+      "verifier_calls": 3,
+      "attempted_candidates": 1,
+      "accepted_without_execution": 0,
+      "budget_exhausted": false,
+      "edits": [
+        {
+          "operator": "cache_key",
+          "file": "formatting.py",
+          "target": "render",
+          "description": "include every parameter in the cache key of render",
+          "verified": true
+        }
+      ],
+      "targets": [
+        {
+          "name": "render",
+          "qualname": "formatting.render",
+          "file": "formatting.py",
+          "lineno": 6,
+          "score": 30.0,
+          "depth": 0,
+          "reasons": [
+            "called by tests/test_formatting.py::test_template_is_part_of_the_cache_key"
+          ]
+        }
+      ],
+      "diffs": [
+        "--- a/formatting.py\n+++ b/formatting.py\n@@ -1,10 +1,8 @@\n \"\"\"Memoised text formatting.\"\"\"\n-\n _CACHE = {}\n \n-\n def render(name, template):\n-    key = name\n+    key = (name, template)\n     if key not in _CACHE:\n         _CACHE[key] = template.format(name=name)\n     return _CACHE[key]\n"
+      ],
+      "elapsed_s": 2.515
+    },
+    {
+      "id": "n1-h-05-router-closure",
+      "title": "Routes capture the last handler id",
+      "engine_solved": true,
+      "scorer_passed": true,
+      "initial_failed": 1,
+      "final_failed": 0,
+      "verifier_calls": 3,
+      "attempted_candidates": 1,
+      "accepted_without_execution": 0,
+      "budget_exhausted": false,
+      "edits": [
+        {
+          "operator": "closure_binding",
+          "file": "router.py",
+          "target": "make_routes",
+          "description": "bind loop variables by default in closures of make_routes",
+          "verified": true
+        }
+      ],
+      "targets": [
+        {
+          "name": "make_routes",
+          "qualname": "router.make_routes",
+          "file": "router.py",
+          "lineno": 4,
+          "score": 10.0,
+          "depth": 0,
+          "reasons": [
+            "called by tests/test_router.py::test_each_route_returns_its_own_id"
+          ]
+        }
+      ],
+      "diffs": [
+        "--- a/router.py\n+++ b/router.py\n@@ -1,8 +1,7 @@\n \"\"\"Build route callables.\"\"\"\n-\n \n def make_routes(table):\n     routes = {}\n     for path, handler_id in table.items():\n-        routes[path] = lambda: handler_id\n+        routes[path] = lambda *, handler_id=handler_id: handler_id\n     return routes\n"
+      ],
+      "elapsed_s": 2.464
+    },
+    {
+      "id": "n1-h-06-points",
+      "title": "Point distribution loses the remainder",
+      "engine_solved": true,
+      "scorer_passed": true,
+      "initial_failed": 3,
+      "final_failed": 0,
+      "verifier_calls": 4,
+      "attempted_candidates": 2,
+      "accepted_without_execution": 0,
+      "budget_exhausted": false,
+      "edits": [
+        {
+          "operator": "boundary_guard",
+          "file": "points.py",
+          "target": "distribute",
+          "description": "raise on boundary values rejected by the tests in distribute",
+          "verified": true
+        },
+        {
+          "operator": "integer_distribution",
+          "file": "points.py",
+          "target": "distribute",
+          "description": "distribute the integer remainder in distribute",
+          "verified": true
+        }
+      ],
+      "targets": [
+        {
+          "name": "distribute",
+          "qualname": "points.distribute",
+          "file": "points.py",
+          "lineno": 4,
+          "score": 50.0,
+          "depth": 0,
+          "reasons": [
+            "called by tests/test_points.py::test_total_is_preserved",
+            "called by tests/test_points.py::test_remainder_goes_to_the_first_buckets",
+            "called by tests/test_points.py::test_negative_total_is_rejected"
+          ]
+        }
+      ],
+      "diffs": [
+        "--- a/points.py\n+++ b/points.py\n@@ -1,8 +1,10 @@\n \"\"\"Distribute an integer total across buckets.\"\"\"\n \n-\n def distribute(total, buckets):\n+    if total < 0:\n+        raise ValueError('total must be >= 0')\n     if buckets <= 0:\n-        raise ValueError(\"buckets must be positive\")\n+        raise ValueError('buckets must be positive')\n     base = total // buckets\n-    return [base] * buckets\n+    q, r = divmod(total, buckets)\n+    return [q + 1 if i < r else q for i in range(buckets)]\n"
+      ],
+      "elapsed_s": 3.176
+    },
+    {
+      "id": "n1-h-07-bisect-bound",
+      "title": "Binary search drops the final element",
+      "engine_solved": true,
+      "scorer_passed": true,
+      "initial_failed": 1,
+      "final_failed": 0,
+      "verifier_calls": 3,
+      "attempted_candidates": 1,
+      "accepted_without_execution": 0,
+      "budget_exhausted": false,
+      "edits": [
+        {
+          "operator": "comparison_flip",
+          "file": "search.py",
+          "target": "find_last_at_most",
+          "description": "flip comparison 0 at line 7 in find_last_at_most",
+          "verified": true
+        }
+      ],
+      "targets": [
+        {
+          "name": "find_last_at_most",
+          "qualname": "search.find_last_at_most",
+          "file": "search.py",
+          "lineno": 4,
+          "score": 10.0,
+          "depth": 0,
+          "reasons": [
+            "called by tests/test_search.py::test_last_element_can_match"
+          ]
+        }
+      ],
+      "diffs": [
+        "--- a/search.py\n+++ b/search.py\n@@ -1,10 +1,9 @@\n \"\"\"Binary search helpers.\"\"\"\n \n-\n def find_last_at_most(values, target):\n-    low, high = 0, len(values) - 1\n+    low, high = (0, len(values) - 1)\n     answer = -1\n-    while low < high:\n+    while low <= high:\n         mid = (low + high) // 2\n         if values[mid] <= target:\n             answer = mid\n"
+      ],
+      "elapsed_s": 2.562
+    }
+  ],
+  "summary": {
+    "solved": 7,
+    "total": 7,
+    "pass_rate": 1.0,
+    "verifier_calls_total": 26,
+    "verifier_calls_per_solved_mean": 3.71,
+    "accepted_without_execution": 0,
+    "independent_scorer_agrees": true
+  },
+  "gate": {
+    "oracle_still_100": true,
+    "zero_unexecuted_patches": true,
+    "independent_scorer_agrees": true,
+    "transfer_rate_at_least_half": true,
+    "passed": true
+  },
+  "efficiency": {
+    "peak_rss_mb": 228.2,
+    "total_wall_seconds": 27.883
+  }
+}

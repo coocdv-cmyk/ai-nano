@@ -117,6 +117,28 @@ class OmegaAgent:
         """Solve a structured BlindProblem (math or code) via SelfPlayEngine + Verifier."""
         return self.selfplay.solve(problem, self.solver, max_attempts=max_attempts)
 
+    def repair_workspace(
+        self,
+        root: str | Path | None = None,
+        *,
+        tests_dir: str = "tests",
+        max_verifier_calls: int = 80,
+        apply: bool = True,
+    ) -> dict[str, Any]:
+        """Repair a failing multi-file Python workspace through verified AST mutation.
+
+        The engine runs the workspace's own suite in an isolated copy. Nothing is
+        written to ``root`` unless the suite passes, and every kept edit is
+        recorded with the execution that accepted it.
+        """
+        from .brain.repair import RepairEngine
+
+        target = Path(root) if root is not None else self.cfg.workspace
+        report = RepairEngine(tests_dir=tests_dir, max_verifier_calls=max_verifier_calls).repair(
+            target, apply=apply
+        )
+        return report.to_dict()
+
     def handle(self, goal: str, mode: str = "workspace", max_attempts: int = 5) -> dict[str, Any]:
         """Execute either a formal/coding problem or a durable workspace/memory task."""
         t0 = time.perf_counter()
