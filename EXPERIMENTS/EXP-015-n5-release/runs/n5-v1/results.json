@@ -1,0 +1,25 @@
+{
+  "exp_id": "EXP-015",
+  "track": "N5",
+  "date_utc": "2026-11-19",
+  "gate": "every number resolves to a machine-readable result file AND a recorded command",
+  "verdict": {
+    "provenance_clean": true,
+    "claims": 19,
+    "resolved": 19,
+    "live_reproduced": true,
+    "api_tests": "2 passed"
+  },
+  "cost": {
+    "wall_s": 8.312,
+    "peak_rss_mb": 21.32,
+    "verifier_calls": 0,
+    "command": "python EXPERIMENTS/EXP-015-n5-release/matrix.py --repro",
+    "note": "parent RSS only; live N3 child measured 57.82 MB in EXP-013"
+  },
+  "negative_results": [
+    "Historical numbers without a machine-readable result file are excluded from the matrix; EXP-005 v2 bpb 1.7482 was located in showdown_results.json and included.",
+    "Only N3 recall@5 was live re-run here; the other 18 commands are recorded but not re-executed in this session.",
+    "Peak RSS sampler covers the parent matrix process; the live repro child is accounted in EXP-013."
+  ]
+}

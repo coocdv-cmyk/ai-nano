@@ -44,7 +44,7 @@ beachhead, not open-world repository engineering. The next honest gate is N2 (ve
 | **N2** | verified corpus scaling + trained MTP heads | **evaluated, gates failed**: 108/108 fresh verified tasks, 90x EXP-008 corpus, greedy-identical over 10k tokens, but acceptance 29–38% and 0.87x–0.92x speed (< 10,509 tok/s); speculation not adopted, speed claim rests on non-spec engine |
 | **N3** | learned bilingual metric encoder `< 500 KB int8` | **met on a fresh synthetic held-out set**: 393,216 B int8, recall@5 0.7333 (AR 0.70 / EN 0.7667) vs static 0.0833 and cited N0 0.6667, false-accept 6.25%; static baseline was near-useless, probe is not open-world |
 | **N4** | best-first / MCTS over verified candidates | **evaluated, gate missed**: on six fresh three-function tasks both arms reached 100% pass, but value-guided ranking used 72.4% of linear's verifier calls (7.0 vs 9.667), above the 60% threshold; linear stays default |
-| **N5** | `V2` release gate: capability + efficiency matrix, local UI/API | every number reproducible from a recorded command |
+| **N5** | `V2` release gate: capability + efficiency matrix, local UI/API | **met**: 19/19 claims resolve to a result file + command, N3 recall@5 live-reproduced exactly, loopback UI/API tests pass |
 
 ## Prioritized backlog (highest value first)
 

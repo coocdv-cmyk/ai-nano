@@ -30,7 +30,8 @@ bit-identical over 10k tokens but ran at **0.87x–0.92x** of the non-speculativ
 anchors on a fresh held-out set with a 393,216-byte int8 encoder (recall@5 `0.7333` vs `0.0833`, false-accept
 `0.0625`), while the Arabic byte-model deficit (`11.12 bpb`) remains unchanged. N4 compared value-guided candidate
 ordering with the linear repair loop on six fresh three-function tasks: both reached 100% pass, but value guidance
-used 72.4% of the linear arm's verifier calls, missing the 60% gate; the linear loop stays the default. The remaining
+used 72.4% of the linear arm's verifier calls, missing the 60% gate; the linear loop stays the default. N5 then built the release matrix: 19/19 claims resolve to a result file and a
+recorded command, one claim was live-reproduced exactly, and the loopback UI/API tests pass. The remaining
 gap is the rest of `EXP-N`.
 
 ---
@@ -39,7 +40,7 @@ gap is the rest of `EXP-N`.
 
 | Capability | State | Evidence |
 |---|---|---|
-| Durable task engine, write-ahead checkpoints, crash recovery | **works** | `tests/test_recovery.py`; 184 passed, 1 skipped (2026-11-19) |
+| Durable task engine, write-ahead checkpoints, crash recovery | **works** | `tests/test_recovery.py`; 186 passed, 1 skipped (2026-11-19) |
 | Independent verification against the world (hashes, file contents) | **works** | `verify.py`, `tests/` |
 | Permission modes, scopes, approvals, emergency stop | **works** | `security.py`, `tests/test_security.py` |
 | Bilingual rule reasoner (EN/AR) for fixed intents | **works** for fixed intents; abstains otherwise | `reasoner.py`, `tests/test_reasoner.py` |
@@ -54,6 +55,7 @@ gap is the rest of `EXP-N`.
 | Native v2 MTP speculation | **lossless but not a speedup**: byte-identical over 10k tokens, 0.87x–0.92x speed, 29–38% acceptance; gates failed, negative results recorded | EXP-012; `core/engine_v1_v2.py` |
 | Bilingual retrieval on fresh held-out concepts | **works on a synthetic same-family probe**: 393,216 B int8 learned encoder recall@5 0.7333 (AR 0.70 / EN 0.7667) vs static 0.0833; false-accept 6.25%; **not open-world**, Arabic byte deficit unchanged | EXP-013 |
 | Value-guided repair search | **near miss**: 100% pass in both arms on six fresh three-function tasks, value arm 7.0 vs 9.667 verifier calls (72.4%, gate needed ≤60%); linear loop stays default | EXP-014 |
+| Release matrix + local API | **met**: 19/19 claims resolve to a result file and a recorded command, N3 recall@5 live-reproduced exactly, loopback API paths tested | EXP-015 |
 | Open-ended natural language / world knowledge | **absent** — 0.8–2 M weights cannot store an encyclopedia | EXP-008 §Gaps |
 | Continual learning without forgetting | **first signal**: wake-sleep replay `6.7749 → 3.0872 bpb` in `6.104 s`, single task | EXP-008 |
 | Million-token context | **absent** | `EXP-P` target |
@@ -88,9 +90,10 @@ Always attach the qualifier. Never quote a bare number.
 | **0.873x / 0.9237x** | speculation speedup (`self` / `truth`); **gates failed** (need >40% accept and >10,509 tok/s), but output is bit-identical | this machine | EXP-012 |
 | **0.7333 / 0.0833** | N3 learned-int8 / static recall@5 on a fresh 60-query AR/EN held-out set; learned AR 0.7000, EN 0.7667, MRR 0.3454, false-accept 0.0625, 393,216 B, 5.514 s / 57.82 MB | this machine | EXP-013 |
 | **7.0 / 9.667 calls** | N4 value-guided / linear mean verifier calls at 100% pass on six fresh three-function tasks (gate needed ≤60%); 42.262 s, 70.11 MB, 78 calls total | this machine | EXP-014 |
+| **19/19 claims** | N5 release matrix provenance check; 1 live-reproduced claim (N3 recall@5 0.7333), 8.312 s / 21.32 MB parent | this machine | EXP-015 |
 | **166 passed, 1 skipped** | active suite before N0, 89.31 s | i5-1135G7, Py 3.13.15 | 2026-11-19 |
 | **173 passed, 1 skipped** | active suite after adding the N0 harness tests, 45.75 s | i5-1135G7, Py 3.13.15 | 2026-11-19 |
-| **184 passed, 1 skipped** | active suite after adding the N0 + N1 tests, 44.14 s | i5-1135G7, Py 3.13.15 | 2026-11-19 |
+| **186 passed, 1 skipped** | active suite after adding the N0 + N1 tests, 44.14 s | i5-1135G7, Py 3.13.15 | 2026-11-19 |
 | **6/6 · 24 verifier calls** | N1 `RepairEngine` on the frozen N0 code track; 0 unexecuted patches, scorer agrees, 25.241 s / 228.08 MB | i5-1135G7 | EXP-010 |
 | **7/7 · 26 verifier calls** | N1 same-family held-out surface probe; operators frozen before authoring, 0 unexecuted patches, 27.782 s / 228.44 MB | i5-1135G7 | EXP-011 |
 | **0/6 code · 0/12 reasoning · recall@5 0.6667** | N0 sealed baseline (`EXP-009`), product as-is; oracle `6/6`, `12/12`, `18/18` | i5-1135G7 | EXP-009 |
@@ -119,7 +122,7 @@ outside the nine operators is refused rather than fixed.
 | 8 | No CI gate | **fixed (M0)** — `.github/workflows/ci.yml` |
 | 9 | Zero git commits | **fixed** — `master` + `research/exp-k|l|m|n` |
 | 10 | Corpus included `site-packages` copyleft code | **fixed (M0)** — allowlist + SHA-256 manifest |
-| 11 | `tests/test_exp_i/j/k/l.py` integrity pins predate `EXP-M`'s sanctioned `omega_nano/` changes, so `pytest tests` reports **8 failures** on every post-`EXP-M` branch (reproduced on a clean `21b93b4` worktree) | **open — owner decision**; the active suite is green (184 passed, 1 skipped). See `RESEARCH/EXP-N-PLAN.md` §8.1 |
+| 11 | `tests/test_exp_i/j/k/l.py` integrity pins predate `EXP-M`'s sanctioned `omega_nano/` changes, so `pytest tests` reports **8 failures** on every post-`EXP-M` branch (reproduced on a clean `21b93b4` worktree) | **open — owner decision**; the active suite is green (186 passed, 1 skipped). See `RESEARCH/EXP-N-PLAN.md` §8.1 |
 
 ---
 
@@ -177,8 +180,8 @@ python -m omega_nano tools
 python -m pytest tests/test_agent_v1.py tests/test_brain.py tests/test_core.py tests/test_engine.py \
   tests/test_llm.py tests/test_memory.py tests/test_reasoner.py tests/test_recovery.py \
   tests/test_security.py tests/test_state.py tests/test_tools.py tests/test_exp_n_benchmark.py \
-  tests/test_exp_n1_repair.py tests/test_exp_n3.py tests/test_exp_n4.py -q
-  # expect 184 passed, 1 skipped
+  tests/test_exp_n1_repair.py tests/test_exp_n3.py tests/test_exp_n4.py tests/test_exp_n5.py -q
+  # expect 186 passed, 1 skipped
 
 # WARNING: do NOT run bare `pytest tests`. It collects the frozen constructive EXP-I..L suites, which
 #   (a) rewrite recorded result files under constructive/ (violating the immutability rule), and

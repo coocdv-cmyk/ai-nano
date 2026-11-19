@@ -1,0 +1,321 @@
+{
+  "exp_id": "EXP-015",
+  "track": "N5",
+  "created_utc": "2026-11-19T11:25:10Z",
+  "gate": "every number resolves to a machine-readable result file AND a recorded command",
+  "rows": [
+    {
+      "track": "M1",
+      "metric": "v2 clean-split bpb",
+      "source": "EXPERIMENTS/EXP-005-m1-v2-core/showdown_results.json",
+      "json_path": [
+        "arms",
+        1,
+        "final_val_bpb"
+      ],
+      "unit": "bpb",
+      "qualifier": "2.00M params, 306.3 s CPU",
+      "command": "python EXPERIMENTS/EXP-005-m1-v2-core/showdown.py",
+      "value": 1.7482,
+      "ok": true,
+      "display": "1.7482"
+    },
+    {
+      "track": "M1",
+      "metric": "zlib-9 baseline bpb",
+      "source": "EXPERIMENTS/EXP-005-m1-v2-core/results.json",
+      "json_path": [
+        "baselines_bpb",
+        "zlib-9"
+      ],
+      "unit": "bpb",
+      "qualifier": "identical clean split",
+      "command": "python EXPERIMENTS/EXP-005-m1-v2-core/run_exp.py",
+      "value": 1.837,
+      "ok": true,
+      "display": "1.837"
+    },
+    {
+      "track": "M2",
+      "metric": "native v2 single-stream",
+      "source": "EXPERIMENTS/EXP-008-m4-omega-v1-matrix/results.json",
+      "json_path": [
+        "native_v2_runtime",
+        "single_stream_tok_s"
+      ],
+      "unit": "tok/s",
+      "qualifier": "packed 2-bit, greedy",
+      "command": "python EXPERIMENTS/EXP-008-m4-omega-v1-matrix/run_exp.py",
+      "value": 13209.0,
+      "ok": true,
+      "display": "13209"
+    },
+    {
+      "track": "M2",
+      "metric": "native v2 batch-4",
+      "source": "EXPERIMENTS/EXP-008-m4-omega-v1-matrix/results.json",
+      "json_path": [
+        "native_v2_runtime",
+        "aggregate_tok_s_batch4"
+      ],
+      "unit": "tok/s",
+      "qualifier": "same checkpoint, batch 4",
+      "command": "python EXPERIMENTS/EXP-008-m4-omega-v1-matrix/run_exp.py",
+      "value": 25177.6,
+      "ok": true,
+      "display": "25177.6"
+    },
+    {
+      "track": "M2",
+      "metric": "incremental engine baseline",
+      "source": "EXPERIMENTS/EXP-007-m2-bitpacked-engine/results.json",
+      "json_path": [
+        "arms",
+        "v2_streaming_core",
+        "native_v2",
+        "single_stream_tok_s"
+      ],
+      "unit": "tok/s",
+      "qualifier": "the N2 throughput gate threshold",
+      "command": "python EXPERIMENTS/EXP-007-m2-bitpacked-engine/run_exp.py",
+      "value": 10509.2,
+      "ok": true,
+      "display": "10509.2"
+    },
+    {
+      "track": "N0",
+      "metric": "strict retrieval recall@5",
+      "source": "EXPERIMENTS/EXP-009-n0-benchmark/results.json",
+      "json_path": [
+        "baseline",
+        "retrieval",
+        "recall_at_5"
+      ],
+      "unit": "fraction",
+      "qualifier": "sealed N0 v1, baseline before N1",
+      "command": "python EXPERIMENTS/EXP-009-n0-benchmark/run_exp.py",
+      "value": 0.6667,
+      "ok": true,
+      "display": "0.6667"
+    },
+    {
+      "track": "N0",
+      "metric": "peak RSS",
+      "source": "EXPERIMENTS/EXP-009-n0-benchmark/results.json",
+      "json_path": [
+        "efficiency",
+        "peak_rss_mb"
+      ],
+      "unit": "MB",
+      "qualifier": "full benchmark run",
+      "command": "python EXPERIMENTS/EXP-009-n0-benchmark/run_exp.py",
+      "value": 232.47,
+      "ok": true,
+      "display": "232.47"
+    },
+    {
+      "track": "N1",
+      "metric": "N0 code solved",
+      "source": "EXPERIMENTS/EXP-010-n1-ast-repair/results.json",
+      "json_path": [
+        "summary",
+        "solved"
+      ],
+      "unit": "tasks",
+      "qualifier": "6 of 6, zero unexecuted patches",
+      "command": "python EXPERIMENTS/EXP-010-n1-ast-repair/run_exp.py",
+      "value": 6,
+      "ok": true,
+      "display": "6"
+    },
+    {
+      "track": "N1",
+      "metric": "N0 code verifier calls",
+      "source": "EXPERIMENTS/EXP-010-n1-ast-repair/results.json",
+      "json_path": [
+        "summary",
+        "verifier_calls_total"
+      ],
+      "unit": "calls",
+      "qualifier": "6/6 solved",
+      "command": "python EXPERIMENTS/EXP-010-n1-ast-repair/run_exp.py",
+      "value": 24,
+      "ok": true,
+      "display": "24"
+    },
+    {
+      "track": "N1",
+      "metric": "held-out solved",
+      "source": "EXPERIMENTS/EXP-011-n1-heldout/results.json",
+      "json_path": [
+        "summary",
+        "solved"
+      ],
+      "unit": "tasks",
+      "qualifier": "7 of 7, same-family surface probe",
+      "command": "python EXPERIMENTS/EXP-011-n1-heldout/run_exp.py",
+      "value": 7,
+      "ok": true,
+      "display": "7"
+    },
+    {
+      "track": "N2",
+      "metric": "fresh verified corpus",
+      "source": "EXPERIMENTS/EXP-012-n2-mtp/results.json",
+      "json_path": [
+        "corpus",
+        "solved"
+      ],
+      "unit": "tasks",
+      "qualifier": "108/108, leak check clean",
+      "command": "python EXPERIMENTS/EXP-012-n2-mtp/corpus.py --out runs/corpus-v1 --max-calls 24",
+      "value": 108,
+      "ok": true,
+      "display": "108"
+    },
+    {
+      "track": "N2",
+      "metric": "frozen base bpb",
+      "source": "EXPERIMENTS/EXP-012-n2-mtp/results.json",
+      "json_path": [
+        "model",
+        "base_probe_bpb"
+      ],
+      "unit": "bpb",
+      "qualifier": "N2 held-out probe",
+      "command": "python EXPERIMENTS/EXP-012-n2-mtp/train_mtp.py --corpus runs/corpus-v1 --out runs/mtp-v1",
+      "value": 2.1156,
+      "ok": true,
+      "display": "2.1156"
+    },
+    {
+      "track": "N2",
+      "metric": "engine accept rate",
+      "source": "EXPERIMENTS/EXP-012-n2-mtp/results.json",
+      "json_path": [
+        "native_measurement_10k",
+        "self",
+        "engine_accept_rate"
+      ],
+      "unit": "fraction",
+      "qualifier": "self objective, 10k greedy probe",
+      "command": "python EXPERIMENTS/EXP-012-n2-mtp/measure_engine.py --ckpt runs/mtp-v1/mtp-self.pt --corpus runs/corpus-v1 --tokens 10000 --reps 3",
+      "value": 0.3801,
+      "ok": true,
+      "display": "0.3801"
+    },
+    {
+      "track": "N2",
+      "metric": "speculative tok/s",
+      "source": "EXPERIMENTS/EXP-012-n2-mtp/results.json",
+      "json_path": [
+        "native_measurement_10k",
+        "self",
+        "speculative_tok_s"
+      ],
+      "unit": "tok/s",
+      "qualifier": "self objective, slower than non-spec — gate failed",
+      "command": "python EXPERIMENTS/EXP-012-n2-mtp/measure_engine.py --ckpt runs/mtp-v1/mtp-self.pt --corpus runs/corpus-v1 --tokens 10000 --reps 3",
+      "value": 7512.4,
+      "ok": true,
+      "display": "7512.4"
+    },
+    {
+      "track": "N3",
+      "metric": "learned recall@5",
+      "source": "EXPERIMENTS/EXP-013-n3-bilingual/runs/n3-v1/results.json",
+      "json_path": [
+        "learned",
+        "retrieval",
+        "recall_at_5"
+      ],
+      "unit": "fraction",
+      "qualifier": "393,216 B int8, fresh AR/EN held-out",
+      "command": "python EXPERIMENTS/EXP-013-n3-bilingual/run_exp.py --steps 600 --lr 0.005 --tau 0.2",
+      "value": 0.7333,
+      "ok": true,
+      "display": "0.7333"
+    },
+    {
+      "track": "N3",
+      "metric": "static recall@5",
+      "source": "EXPERIMENTS/EXP-013-n3-bilingual/runs/n3-v1/results.json",
+      "json_path": [
+        "static_baseline",
+        "retrieval",
+        "recall_at_5"
+      ],
+      "unit": "fraction",
+      "qualifier": "same held-out set, recorded before training",
+      "command": "python EXPERIMENTS/EXP-013-n3-bilingual/run_exp.py --steps 600 --lr 0.005 --tau 0.2",
+      "value": 0.0833,
+      "ok": true,
+      "display": "0.0833"
+    },
+    {
+      "track": "N3",
+      "metric": "out-of-scope false accept",
+      "source": "EXPERIMENTS/EXP-013-n3-bilingual/runs/n3-v1/results.json",
+      "json_path": [
+        "learned",
+        "out_of_scope",
+        "false_accept_rate"
+      ],
+      "unit": "fraction",
+      "qualifier": "16 OOS queries",
+      "command": "python EXPERIMENTS/EXP-013-n3-bilingual/run_exp.py --steps 600 --lr 0.005 --tau 0.2",
+      "value": 0.0625,
+      "ok": true,
+      "display": "0.0625"
+    },
+    {
+      "track": "N4",
+      "metric": "value-arm pass rate",
+      "source": "EXPERIMENTS/EXP-014-n4-search/runs/n4-v1/results.json",
+      "json_path": [
+        "value",
+        "pass_rate"
+      ],
+      "unit": "fraction",
+      "qualifier": "three fresh three-function held-out tasks",
+      "command": "python EXPERIMENTS/EXP-014-n4-search/run_exp.py --budget 12 --timeout 20",
+      "value": 1.0,
+      "ok": true,
+      "display": "1"
+    },
+    {
+      "track": "N4",
+      "metric": "value-arm verifier calls",
+      "source": "EXPERIMENTS/EXP-014-n4-search/runs/n4-v1/results.json",
+      "json_path": [
+        "value",
+        "mean_calls"
+      ],
+      "unit": "calls",
+      "qualifier": "vs linear 9.667; 72.4% > 60% gate",
+      "command": "python EXPERIMENTS/EXP-014-n4-search/run_exp.py --budget 12 --timeout 20",
+      "value": 7.0,
+      "ok": true,
+      "display": "7"
+    }
+  ],
+  "integrity": {
+    "claims": 19,
+    "resolved": 19,
+    "problems": [],
+    "clean": true
+  },
+  "live_reproducibility": {
+    "exit_code": 0,
+    "recorded": 0.7333,
+    "reproduced": 0.7333,
+    "identical": true,
+    "command": "C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\python.exe D:\\ai model\\EXPERIMENTS\\EXP-013-n3-bilingual\\run_exp.py --out C:\\Users\\USER\\AppData\\Local\\Temp\\tmpgctu6wbj --steps 600 --lr 0.005 --tau 0.2"
+  },
+  "cost": {
+    "wall_s": 8.312,
+    "peak_rss_mb": 21.32,
+    "verifier_calls": 0,
+    "command": "python EXPERIMENTS/EXP-015-n5-release/matrix.py --repro"
+  }
+}

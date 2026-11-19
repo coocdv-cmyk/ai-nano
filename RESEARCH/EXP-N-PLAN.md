@@ -177,6 +177,14 @@ composition, and an earlier 0%/0% result came from a 3-edit cap plus N1's coarse
 - A local UI/API that exercises the same code paths the matrix measures.
 - **Gate:** every number reproducible from a command recorded in the matrix; no claim without a `results.json`.
 
+**As-built status (2026-11-19, `EXPERIMENTS/EXP-015-n5-release/`).** The pre-registration above is unchanged. `matrix.py`
+extracts 19 claims from existing result files by explicit JSON paths and records the producing command for each;
+**19/19 resolve, integrity clean**. One claim (N3 recall@5 `0.7333`) was live re-run into a fresh temp directory and
+reproduced exactly; the remaining 18 are recorded but not re-executed. `serve.py` exposes a loopback UI/API calling the
+same `encode_text`, `MemoryFabric.recall` and `Engine.generate` implementations the matrix measures; 2 API/provenance
+tests pass. Numbers without a machine-readable result file were excluded; the EXP-005 v2 figure was sourced from
+`showdown_results.json`.
+
 ---
 
 ## 8. Order and budget
