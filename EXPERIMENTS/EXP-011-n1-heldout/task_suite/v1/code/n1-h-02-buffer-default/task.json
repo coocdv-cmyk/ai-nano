@@ -1,0 +1,7 @@
+{
+  "id": "n1-h-02-buffer-default",
+  "title": "Queue buffer leaks between calls",
+  "domain": "code",
+  "statement": "`buffer.py` appends to a buffer, but a default call leaks state into the next call. Repair `push` so the tests under `tests/` pass: a default call starts empty, an explicit list is mutated in place, and two default calls never share state.",
+  "timeout_s": 60
+}

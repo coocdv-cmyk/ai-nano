@@ -1,0 +1,11 @@
+{
+  "id": "n0-code-04-cache-key",
+  "title": "Report cache ignores the locale",
+  "domain": "code",
+  "statement": "`report.py` builds a greeting line and caches it per user, but the cache key omits the locale, so a second locale returns the first language. `greeting.py` also raises on an unknown locale instead of falling back to English. Repair both modules so the tests under `tests/` pass.",
+  "entrypoint": [
+    "repo/greeting.py",
+    "repo/report.py"
+  ],
+  "timeout_s": 60
+}

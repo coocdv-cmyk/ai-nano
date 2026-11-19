@@ -176,3 +176,21 @@ def test_report_renders(engine):
     t = run_goal(engine, "calculate 1/3 + 1/3")
     md = render(t, engine.store)
     assert "2/3" in md and "independently verified" in md and "Audit log" in md
+
+
+def test_append_write_does_not_duplicate_on_verification_retry(cfg):
+    cfg.max_retries = 2
+    eng = Engine(cfg)
+    try:
+        plan = [{
+            "tool": "fs.write",
+            "args": {"path": "log.txt", "content": "xxx", "mode": "append"},
+            "expect": [{"kind": "file_contains", "path": "log.txt", "text": "never_present"}],
+        }]
+        t = eng.submit("append once", plan=plan)
+        t = eng.run(t.id)
+        assert t.status == TaskStatus.FAILED
+        assert t.steps[0].attempts == 1
+        assert (cfg.workspace / "log.txt").read_text(encoding="utf-8") == "xxx"
+    finally:
+        eng.close()

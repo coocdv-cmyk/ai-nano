@@ -17,7 +17,7 @@ import numpy as np
 import torch
 
 from .data import baselines, batches, bits_per_byte, build_corpus, load
-from .model import CoreConfig, OmegaCore
+from .model import CoreConfig, build_model
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / ".omega" / "core_data"
@@ -42,6 +42,17 @@ def main(argv=None) -> None:
     sys.stdout.reconfigure(encoding="utf-8")
     ap = argparse.ArgumentParser()
     ap.add_argument("--arm", choices=["fp32", "ternary"], required=True)
+    ap.add_argument("--arch", choices=["v0", "v1", "v2"], default="v0")
+    ap.add_argument("--layers", type=int, default=4)
+    ap.add_argument("--d", type=int, default=256)
+    ap.add_argument("--hidden", type=int, default=704)
+    ap.add_argument("--ctx", type=int, default=256)
+    ap.add_argument("--n-loops", type=int, default=1)
+    ap.add_argument("--mtp-k", type=int, default=1)
+    ap.add_argument("--patch-size", type=int, default=4)
+    ap.add_argument("--no-copy-gate", action="store_true")
+    ap.add_argument("--no-fast-weights", action="store_true")
+    ap.add_argument("--out-name", default=None)
     ap.add_argument("--minutes", type=float, default=20)
     ap.add_argument("--batch", type=int, default=32)
     ap.add_argument("--lr", type=float, default=2e-3)
@@ -58,10 +69,15 @@ def main(argv=None) -> None:
     if not base_file.exists():
         base_file.write_text(json.dumps(baselines(train, val), indent=2), encoding="utf-8")
 
-    cfg = CoreConfig(ternary=a.arm == "ternary")
-    model = OmegaCore(cfg)
+    cfg = CoreConfig(
+        d=a.d, layers=a.layers, hidden=a.hidden, ctx=a.ctx, ternary=a.arm == "ternary",
+        arch=a.arch, n_loops=a.n_loops, mtp_k=a.mtp_k,
+        patch_size=a.patch_size, use_copy_gate=not a.no_copy_gate,
+        use_fast_weights=not a.no_fast_weights,
+    )
+    model = build_model(cfg)
     opt = torch.optim.AdamW(model.parameters(), lr=a.lr, betas=(0.9, 0.95), weight_decay=0.05)
-    out = RUNS / a.arm
+    out = RUNS / (a.out_name or a.arm)
     out.mkdir(parents=True, exist_ok=True)
     log = {"arm": a.arm, "config": cfg.to_dict(), "params": model.n_params(), "args": vars(a),
            "baselines_bpb": json.loads(base_file.read_text()), "curve": []}

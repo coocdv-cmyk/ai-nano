@@ -1,0 +1,10 @@
+{
+  "id": "n0-code-05-closure",
+  "title": "Handlers capture the loop variable",
+  "domain": "code",
+  "statement": "`handlers.py` builds callables in a loop, but every callable returns the last value because the closure captures the loop variable by reference. Repair both factories so the tests under `tests/` pass, without changing the public signature.",
+  "entrypoint": [
+    "repo/handlers.py"
+  ],
+  "timeout_s": 60
+}

@@ -1,0 +1,10 @@
+{
+  "id": "n0-code-06-money-split",
+  "title": "Money split loses the remainder",
+  "domain": "code",
+  "statement": "`money.py` splits an integer amount of cents into `n` parts, but it drops the remainder so the parts no longer sum to the total. Repair it so the tests under `tests/` pass: the remainder is distributed one cent at a time to the first parts, and negative totals or non-positive `n` raise ValueError.",
+  "entrypoint": [
+    "repo/money.py"
+  ],
+  "timeout_s": 60
+}

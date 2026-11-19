@@ -1,0 +1,186 @@
+{
+  "suite_version": "v1",
+  "track": "retrieval",
+  "documents": [
+    {
+      "id": "d01",
+      "lang": "en",
+      "text": "The verifier rejects any answer that no executing checker has proven."
+    },
+    {
+      "id": "d02",
+      "lang": "en",
+      "text": "The memory fabric stores records with provenance and never deletes old versions."
+    },
+    {
+      "id": "d03",
+      "lang": "en",
+      "text": "The native engine keeps a rolling ring key-value cache to avoid re-encoding the window."
+    },
+    {
+      "id": "d04",
+      "lang": "en",
+      "text": "Wake-sleep distillation replays verified trajectories into the compact weights."
+    },
+    {
+      "id": "d05",
+      "lang": "en",
+      "text": "The repository indexer builds an abstract syntax tree symbol map and a call graph."
+    },
+    {
+      "id": "d06",
+      "lang": "en",
+      "text": "The skill library compiles a verified solution into a parameterised tactic."
+    },
+    {
+      "id": "d07",
+      "lang": "en",
+      "text": "The copy gate lets the model recall a byte that appeared earlier in the window."
+    },
+    {
+      "id": "d08",
+      "lang": "en",
+      "text": "Delta fast weights adapt the core at inference time with constant memory per step."
+    },
+    {
+      "id": "d09",
+      "lang": "en",
+      "text": "The agent checkpoints every step before executing it, so a crash can be resumed."
+    },
+    {
+      "id": "d10",
+      "lang": "en",
+      "text": "Shell commands run with a sanitized environment allowlist rather than the full process environment."
+    },
+    {
+      "id": "d11",
+      "lang": "en",
+      "text": "The planner cache stores only plans that were verified against the world."
+    },
+    {
+      "id": "d12",
+      "lang": "en",
+      "text": "Ternary weights are packed at two bits per value and multiplied with a lookup table."
+    },
+    {
+      "id": "d13",
+      "lang": "en",
+      "text": "Arabic text is normalized for diacritics, alef variants, taa marbuta and Arabic-Indic digits."
+    },
+    {
+      "id": "d14",
+      "lang": "en",
+      "text": "The rule reasoner covers a fixed set of intents and abstains on anything else."
+    },
+    {
+      "id": "d15",
+      "lang": "en",
+      "text": "Blind evaluation hides the reference solution until every attempt has finished."
+    },
+    {
+      "id": "d16",
+      "lang": "en",
+      "text": "The math verifier proves identities symbolically and falls back to fifty-digit numerics."
+    },
+    {
+      "id": "d17",
+      "lang": "en",
+      "text": "An idempotency key makes a repeated request return the original task instead of running it again."
+    },
+    {
+      "id": "d18",
+      "lang": "en",
+      "text": "The corpus builder excludes site-packages and copyleft headers and records SHA-256 manifests."
+    },
+    {
+      "id": "d19",
+      "lang": "ar",
+      "text": "المُتحقِّق يرفض أي إجابة لم يثبتها فاحص يعمل فعلياً."
+    },
+    {
+      "id": "d20",
+      "lang": "ar",
+      "text": "ذاكرة المشروع تحفظ مصدر كل معلومة ولا تحذف النسخ القديمة."
+    },
+    {
+      "id": "d21",
+      "lang": "ar",
+      "text": "المحرك الأصلي يحتفظ بذاكرة مؤقتة دائرية لتجنب إعادة ترميز النافذة."
+    },
+    {
+      "id": "d22",
+      "lang": "ar",
+      "text": "التقطير بين اليقظة والنوم يعيد تشغيل المسارات المتحققة داخل الأوزان الصغيرة."
+    },
+    {
+      "id": "d23",
+      "lang": "ar",
+      "text": "فهرس المستودع يبني شجرة نحوية وخريطة رموز ورسم نداءات للدوال."
+    },
+    {
+      "id": "d24",
+      "lang": "ar",
+      "text": "مكتبة المهارات تحوّل الحل المتحقق إلى تكتيك قابل لإعادة الاستخدام."
+    },
+    {
+      "id": "d25",
+      "lang": "ar",
+      "text": "بوابة النسخ تسمح للنموذج باسترجاع بايت ظهر سابقاً في النافذة."
+    },
+    {
+      "id": "d26",
+      "lang": "ar",
+      "text": "الأوزان السريعة تعدّل النواة أثناء الاستدلال بذاكرة ثابتة لكل خطوة."
+    },
+    {
+      "id": "d27",
+      "lang": "ar",
+      "text": "الوكيل يحفظ نقطة تفتيش لكل خطوة قبل تنفيذها حتى يمكن استئنافها بعد الانهيار."
+    },
+    {
+      "id": "d28",
+      "lang": "ar",
+      "text": "أوامر الطرفية تعمل ببيئة مصفّاة بدل تمرير بيئة النظام كاملة."
+    },
+    {
+      "id": "d29",
+      "lang": "ar",
+      "text": "ذاكرة الخطط تخزن فقط الخطط التي تحققت فعلياً."
+    },
+    {
+      "id": "d30",
+      "lang": "ar",
+      "text": "الأوزان الثلاثية تُحزم ببتين لكل قيمة وتُضرب بجدول بحث."
+    },
+    {
+      "id": "d31",
+      "lang": "ar",
+      "text": "النص العربي يُطبَّع من التشكيل وأشكال الألف والتاء المربوطة والأرقام الهندية."
+    },
+    {
+      "id": "d32",
+      "lang": "ar",
+      "text": "مفكك القواعد يغطي مجموعة ثابتة من النوايا ويمتنع عن التخمين."
+    },
+    {
+      "id": "d33",
+      "lang": "ar",
+      "text": "التقييم الأعمى يخفي الحل المرجعي حتى تنتهي كل المحاولات."
+    },
+    {
+      "id": "d34",
+      "lang": "ar",
+      "text": "متحقق الرياضيات يثبت المتطابقات رمزياً ثم يعود إلى حساب رقمي بخمسين خانة."
+    },
+    {
+      "id": "d35",
+      "lang": "ar",
+      "text": "مفتاح عدم التكرار يعيد المهمة الأصلية بدل تنفيذ الطلب مرتين."
+    },
+    {
+      "id": "d36",
+      "lang": "ar",
+      "text": "باني المدونة يستبعد مكتبات الطرف الثالث ويسجل بصمات SHA-256."
+    }
+  ]
+}

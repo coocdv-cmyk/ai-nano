@@ -1,0 +1,96 @@
+{
+  "suite_version": "v1",
+  "track": "retrieval",
+  "queries": [
+    {
+      "id": "n0-q-01",
+      "lang": "ar",
+      "query": "كيف تتحول التجارب المتحققة إلى أوزان النموذج؟"
+    },
+    {
+      "id": "n0-q-02",
+      "lang": "en",
+      "query": "What happens to an answer that no checker has verified?"
+    },
+    {
+      "id": "n0-q-03",
+      "lang": "ar",
+      "query": "كيف يتجنب المحرك إعادة ترميز النافذة في كل خطوة؟"
+    },
+    {
+      "id": "n0-q-04",
+      "lang": "en",
+      "query": "Does the memory keep old versions or delete them?"
+    },
+    {
+      "id": "n0-q-05",
+      "lang": "ar",
+      "query": "ما الذي يبنيه فهرس المستودع من رموز ونداءات؟"
+    },
+    {
+      "id": "n0-q-06",
+      "lang": "en",
+      "query": "How does the model adapt during inference without growing memory per step?"
+    },
+    {
+      "id": "n0-q-07",
+      "lang": "ar",
+      "query": "ماذا يحدث إذا انهار الوكيل في منتصف خطوة؟"
+    },
+    {
+      "id": "n0-q-08",
+      "lang": "en",
+      "query": "Which Arabic characters are normalized before search?"
+    },
+    {
+      "id": "n0-q-09",
+      "lang": "ar",
+      "query": "كيف تُضرب الأوزان الثلاثية بدون ضرب عادي؟"
+    },
+    {
+      "id": "n0-q-10",
+      "lang": "en",
+      "query": "How are mathematical identities proven and then checked numerically?"
+    },
+    {
+      "id": "n0-q-11",
+      "lang": "ar",
+      "query": "ماذا يحدث لو أرسلت نفس الطلب مرتين؟"
+    },
+    {
+      "id": "n0-q-12",
+      "lang": "en",
+      "query": "Which directories and licence headers are excluded from the corpus?"
+    },
+    {
+      "id": "n0-q-13",
+      "lang": "ar",
+      "query": "كيف يسترجع النموذج بايتاً ظهر سابقاً في النافذة؟"
+    },
+    {
+      "id": "n0-q-14",
+      "lang": "en",
+      "query": "What does the skill library produce from a verified solution?"
+    },
+    {
+      "id": "n0-q-15",
+      "lang": "ar",
+      "query": "ماذا يفعل مفكك القواعد عند مواجهة نية غير معروفة؟"
+    },
+    {
+      "id": "n0-q-16",
+      "lang": "en",
+      "query": "Which environment variables reach a shell command?"
+    },
+    {
+      "id": "n0-q-17",
+      "lang": "ar",
+      "query": "متى تُحفظ نقطة التفتيش قبل تنفيذ الخطوة؟"
+    },
+    {
+      "id": "n0-q-18",
+      "lang": "en",
+      "query": "How does the math verifier handle large numbers?"
+    }
+  ]
+}

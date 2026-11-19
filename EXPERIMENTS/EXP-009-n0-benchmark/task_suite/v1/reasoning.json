@@ -1,0 +1,78 @@
+{
+  "suite_version": "v1",
+  "track": "reasoning",
+  "tasks": [
+    {
+      "id": "n0-r-01-digits-2pow100",
+      "statement": "What is the sum of the decimal digits of 2^100?",
+      "canon": "int",
+      "answer_sha256": "28dae7c8bde2f3ca608f86d0e16a214dee74c74bee011cdfdd46bc04b655bc14"
+    },
+    {
+      "id": "n0-r-02-zeros-100fact",
+      "statement": "How many trailing zeros does 100! have in base 10?",
+      "canon": "int",
+      "answer_sha256": "c2356069e9d1e79ca924378153cfbbfb4d4416b1f99d41a2940bfdb66c5319db"
+    },
+    {
+      "id": "n0-r-03-filtered-sum",
+      "statement": "What is the sum of all integers from 1 to 1000 inclusive that are divisible by neither 3 nor 5?",
+      "canon": "int",
+      "answer_sha256": "bd6b5ff298b0d8a5c251bf01e1b25d193c365d298e0241c6068210fb43220317"
+    },
+    {
+      "id": "n0-r-04-climb-10",
+      "statement": "How many distinct ways are there to climb 10 stairs if each step is 1, 2, or 3 stairs?",
+      "canon": "int",
+      "answer_sha256": "718127812c05853f0bec61582a4a3840b1c844fe11fe1a004b5b7eb8b8b59846"
+    },
+    {
+      "id": "n0-r-05-largest-prime-2pow20",
+      "statement": "What is the largest prime factor of 2^20 - 1?",
+      "canon": "int",
+      "answer_sha256": "3d914f9348c9cc0ff8a79716700b9fcd4d2f3e711608004eb8f138bcba7f14d9"
+    },
+    {
+      "id": "n0-r-06-coins-23",
+      "statement": "Using coin denominations 1, 3 and 4, what is the minimum number of coins that sum to 23?",
+      "canon": "int",
+      "answer_sha256": "e7f6c011776e8db7cd330b54174fd76f7d0216b612387a5ffcfb81e6f0919683"
+    },
+    {
+      "id": "n0-r-07-palindromes-7",
+      "statement": "How many four-digit decimal palindromes are divisible by 7?",
+      "canon": "int",
+      "answer_sha256": "4ec9599fc203d176a301536c2e091a19bc852759b255bd6818810a42c5fed14a"
+    },
+    {
+      "id": "n0-r-08-heads-5",
+      "statement": "A fair coin is flipped 5 times. What is the probability of exactly 2 heads, as a reduced fraction?",
+      "canon": "frac",
+      "answer_sha256": "f331957a62292c73355411dfc69ba9518d25d6b986d2013b277dc725a0ddf748"
+    },
+    {
+      "id": "n0-r-09-determinant",
+      "statement": "What is the determinant of the matrix [[2, 1, 3], [0, 4, 5], [1, 0, 6]]?",
+      "canon": "int",
+      "answer_sha256": "3d914f9348c9cc0ff8a79716700b9fcd4d2f3e711608004eb8f138bcba7f14d9"
+    },
+    {
+      "id": "n0-r-10-digits-3pow50",
+      "statement": "What is the sum of the decimal digits of 3^50?",
+      "canon": "int",
+      "answer_sha256": "5ec1a0c99d428601ce42b407ae9c675e0836a8ba591c8ca6e2a2cf5563d97ff0"
+    },
+    {
+      "id": "n0-r-11-mod-7pow2026",
+      "statement": "What is the remainder when 7^2026 is divided by 13?",
+      "canon": "int",
+      "answer_sha256": "4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a"
+    },
+    {
+      "id": "n0-r-12-divisors-220",
+      "statement": "What is the sum of the proper positive divisors of 220 (excluding 220 itself)?",
+      "canon": "int",
+      "answer_sha256": "1e68ed4e3d58a51096a7feea3947f40debf1fd9246ec977eb62ab93c81823ad9"
+    }
+  ]
+}

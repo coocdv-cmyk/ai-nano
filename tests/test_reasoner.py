@@ -69,3 +69,29 @@ def test_memory_key_extraction():
 def test_language_detection():
     assert tools_for("احسب 1+1")[0]["language"] == "ar"
     assert tools_for("calculate 1+1")[0]["language"] == "en"
+
+
+@pytest.mark.parametrize("goal,expected", [
+    ("احكيلي عن سارة", ["memory.recall"]),
+    ("كلمني عن ذاكرة النظام", ["memory.recall"]),
+    ("فين الداتا المخزنة؟", ["memory.recall"]),
+    ("احسبلي ١٢ * ٤", ["math.eval"]),
+    ("2^10 + 5", ["math.eval"]),
+    ("سجل عندك ان النواة سريعة", ["memory.remember"]),
+    ("explain semantic memory", ["memory.recall"]),
+    ("search in codebase for SelfPlayEngine", ["fs.search"]),
+    ("do you remember Sara?", ["memory.recall"]),
+])
+def test_flexible_colloquial_arabic_and_english_intents(goal, expected):
+    und, tools, _ = tools_for(goal)
+    assert tools == expected and und["confidence"] == 1.0, und
+
+
+@pytest.mark.parametrize("nonsense", [
+    "make me a sandwich",
+    "احجز لي تذكرة طيران للقاهرة",
+    "tell me a funny joke",
+])
+def test_unknown_nonsense_still_rejected_honestly(nonsense):
+    und, tools, _ = tools_for(nonsense)
+    assert tools == [] and und["confidence"] == 0.0 and und["unparsed"]

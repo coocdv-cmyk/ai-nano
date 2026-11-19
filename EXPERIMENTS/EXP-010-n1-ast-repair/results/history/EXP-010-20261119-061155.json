@@ -1,0 +1,406 @@
+{
+  "exp_id": "EXP-010",
+  "title": "N1 — execution-verified AST repair on the frozen N0 code track",
+  "date": "2026-11-19 06:09:20 UTC",
+  "suite": {
+    "ok": true,
+    "checked": 32,
+    "suite_version": "v1",
+    "manifest_sha256": "a16e73d315fe7a8ccf6c693c624d70d0100b90f590eac6cd8794bcdf7db75ac8",
+    "mismatches": [],
+    "mismatch_count": 0
+  },
+  "hardware": {
+    "os": "Windows 11 (10.0.26200)",
+    "machine": "AMD64",
+    "cpu": "11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz",
+    "logical_cpus": 8,
+    "ram_gb": 15.66,
+    "python": "3.13.15",
+    "sqlite": "3.50.4",
+    "numpy": "2.5.3",
+    "torch": "2.14.1+cpu",
+    "cuda": false,
+    "runtime_path": "cpu"
+  },
+  "operators": [
+    "mutable_default",
+    "exception_scope",
+    "cache_key",
+    "closure_binding",
+    "boundary_guard",
+    "off_by_one",
+    "integer_distribution",
+    "mapping_fallback"
+  ],
+  "configuration": {
+    "max_verifier_calls": 80,
+    "max_depth": 3
+  },
+  "baseline_reference": {
+    "experiment": "EXP-009",
+    "suite_manifest_sha256": "a16e73d315fe7a8ccf6c693c624d70d0100b90f590eac6cd8794bcdf7db75ac8",
+    "code_passed": 0,
+    "code_total": 6,
+    "code_pass_rate": 0.0,
+    "source": "EXPERIMENTS/EXP-009-n0-benchmark/results.json"
+  },
+  "oracle_code": {
+    "passed": 6,
+    "total": 6,
+    "pass_rate": 1.0,
+    "elapsed_s": 3.525
+  },
+  "tasks": [
+    {
+      "id": "n0-code-01-pagination",
+      "title": "One-based pagination with validation",
+      "engine_solved": true,
+      "scorer_passed": true,
+      "scorer_summary": "6 passed in 0.01s",
+      "initial_failed": 5,
+      "final_failed": 0,
+      "verifier_calls": 6,
+      "attempted_candidates": 4,
+      "accepted_without_execution": 0,
+      "budget_exhausted": false,
+      "edits": [
+        {
+          "operator": "boundary_guard",
+          "file": "pagination.py",
+          "target": "page",
+          "description": "raise on boundary values rejected by the tests in page",
+          "verified": true
+        },
+        {
+          "operator": "off_by_one",
+          "file": "pagination.py",
+          "target": "page",
+          "description": "shift index arithmetic in page by -1 (operand 0)",
+          "verified": true
+        }
+      ],
+      "targets": [
+        {
+          "name": "page",
+          "qualname": "pagination.page",
+          "file": "pagination.py",
+          "lineno": 4,
+          "score": 53.0,
+          "depth": 0,
+          "reasons": [
+            "called by tests/test_pagination.py::test_first_page_is_one_based",
+            "called by tests/test_pagination.py::test_second_page",
+            "called by tests/test_pagination.py::test_last_partial_page",
+            "called by tests/test_pagination.py::test_page_zero_is_rejected",
+            "called by tests/test_pagination.py::test_non_positive_page_size_is_rejected",
+            "callee of page"
+          ]
+        }
+      ],
+      "diffs": [
+        "--- a/pagination.py\n+++ b/pagination.py\n@@ -1,7 +1,10 @@\n \"\"\"Simple pagination helper.\"\"\"\n \n-\n def page(items, page_number, page_size):\n-    start = page_number * page_size\n+    if page_number < 1:\n+        raise ValueError('page_number must be >= 1')\n+    if page_size < 1:\n+        raise ValueError('page_size must be >= 1')\n+    start = (page_number - 1) * page_size\n     end = start + page_size\n     return items[start:end]\n"
+      ],
+      "elapsed_s": 4.336
+    },
+    {
+      "id": "n0-code-02-audit-default",
+      "title": "Shared mutable default in the event log",
+      "engine_solved": true,
+      "scorer_passed": true,
+      "scorer_summary": "4 passed in 0.01s",
+      "initial_failed": 2,
+      "final_failed": 0,
+      "verifier_calls": 3,
+      "attempted_candidates": 1,
+      "accepted_without_execution": 0,
+      "budget_exhausted": false,
+      "edits": [
+        {
+          "operator": "mutable_default",
+          "file": "audit.py",
+          "target": "add_event",
+          "description": "replace mutable default(s) in add_event",
+          "verified": true
+        }
+      ],
+      "targets": [
+        {
+          "name": "add_event",
+          "qualname": "audit.add_event",
+          "file": "audit.py",
+          "lineno": 4,
+          "score": 36.0,
+          "depth": 0,
+          "reasons": [
+            "called by tests/test_audit.py::test_default_is_not_shared_between_calls",
+            "called by tests/test_audit.py::test_default_call_after_log_use_is_still_empty",
+            "callee of add",
+            "callee of EventLog"
+          ]
+        },
+        {
+          "name": "EventLog",
+          "qualname": "audit.EventLog",
+          "file": "audit.py",
+          "lineno": 9,
+          "score": 10.0,
+          "depth": 0,
+          "reasons": [
+            "called by tests/test_audit.py::test_default_call_after_log_use_is_still_empty"
+          ]
+        },
+        {
+          "name": "add",
+          "qualname": "audit.EventLog.add",
+          "file": "audit.py",
+          "lineno": 13,
+          "score": 10.0,
+          "depth": 0,
+          "reasons": [
+            "called by tests/test_audit.py::test_default_call_after_log_use_is_still_empty"
+          ]
+        }
+      ],
+      "diffs": [
+        "--- a/audit.py\n+++ b/audit.py\n@@ -1,12 +1,13 @@\n \"\"\"Event log helpers.\"\"\"\n \n-\n-def add_event(event, events=[]):\n+def add_event(event, events=None):\n+    if events is None:\n+        events = []\n     events.append(event)\n     return events\n \n+class EventLog:\n \n-class EventLog:\n     def __init__(self):\n         self._events = []\n \n"
+      ],
+      "elapsed_s": 2.421
+    },
+    {
+      "id": "n0-code-03-retry-policy",
+      "title": "Retry policy retries fatal errors",
+      "engine_solved": true,
+      "scorer_passed": true,
+      "scorer_summary": "4 passed in 0.01s",
+      "initial_failed": 2,
+      "final_failed": 0,
+      "verifier_calls": 4,
+      "attempted_candidates": 2,
+      "accepted_without_execution": 0,
+      "budget_exhausted": false,
+      "edits": [
+        {
+          "operator": "exception_scope",
+          "file": "retry.py",
+          "target": "with_retry",
+          "description": "narrow broad handler(s) in with_retry to TransientError",
+          "verified": true
+        }
+      ],
+      "targets": [
+        {
+          "name": "with_retry",
+          "qualname": "retry.with_retry",
+          "file": "retry.py",
+          "lineno": 4,
+          "score": 20.0,
+          "depth": 0,
+          "reasons": [
+            "called by tests/test_retry.py::test_fatal_is_not_retried",
+            "called by tests/test_retry.py::test_unexpected_exception_propagates_without_retry"
+          ]
+        },
+        {
+          "name": "FatalError",
+          "qualname": "errors.FatalError",
+          "file": "errors.py",
+          "lineno": 8,
+          "score": 10.0,
+          "depth": 0,
+          "reasons": [
+            "called by tests/test_retry.py::test_fatal_is_not_retried"
+          ]
+        }
+      ],
+      "diffs": [
+        "--- a/retry.py\n+++ b/retry.py\n@@ -1,11 +1,11 @@\n \"\"\"Retry helper.\"\"\"\n-\n+from errors import TransientError\n \n def with_retry(fn, attempts=3):\n     last = None\n     for _ in range(attempts):\n         try:\n             return fn()\n-        except Exception as exc:  # retries everything\n+        except TransientError as exc:\n             last = exc\n     raise last\n"
+      ],
+      "elapsed_s": 2.966
+    },
+    {
+      "id": "n0-code-04-cache-key",
+      "title": "Report cache ignores the locale",
+      "engine_solved": true,
+      "scorer_passed": true,
+      "scorer_summary": "3 passed in 0.01s",
+      "initial_failed": 2,
+      "final_failed": 0,
+      "verifier_calls": 4,
+      "attempted_candidates": 2,
+      "accepted_without_execution": 0,
+      "budget_exhausted": false,
+      "edits": [
+        {
+          "operator": "cache_key",
+          "file": "report.py",
+          "target": "build_report",
+          "description": "include every parameter in the cache key of build_report",
+          "verified": true
+        },
+        {
+          "operator": "mapping_fallback",
+          "file": "greeting.py",
+          "target": "greeting",
+          "description": "fall back to the declared default for missing keys in GREETINGS",
+          "verified": true
+        }
+      ],
+      "targets": [
+        {
+          "name": "build_report",
+          "qualname": "report.build_report",
+          "file": "report.py",
+          "lineno": 6,
+          "score": 70.0,
+          "depth": 0,
+          "reasons": [
+            "called by tests/test_report.py::test_same_user_different_locales",
+            "called by tests/test_report.py::test_unknown_locale_falls_back_to_english",
+            "traceback frame report.py:9"
+          ]
+        },
+        {
+          "name": "greeting",
+          "qualname": "greeting.greeting",
+          "file": "greeting.py",
+          "lineno": 8,
+          "score": 23.0,
+          "depth": 0,
+          "reasons": [
+            "traceback frame greeting.py:9",
+            "callee of build_report"
+          ]
+        }
+      ],
+      "diffs": [
+        "--- a/greeting.py\n+++ b/greeting.py\n@@ -1,9 +1,4 @@\n-GREETINGS = {\n-    \"en\": \"Hello\",\n-    \"ar\": \"مرحبا\",\n-    \"fr\": \"Bonjour\",\n-}\n-\n+GREETINGS = {'en': 'Hello', 'ar': 'مرحبا', 'fr': 'Bonjour'}\n \n def greeting(locale):\n-    return GREETINGS[locale]\n+    return GREETINGS.get(locale, 'Hello')\n",
+        "--- a/report.py\n+++ b/report.py\n@@ -1,10 +1,8 @@\n from greeting import greeting\n-\n _CACHE = {}\n \n-\n def build_report(user_id, locale):\n-    key = user_id\n+    key = (user_id, locale)\n     if key not in _CACHE:\n-        _CACHE[key] = f\"{greeting(locale)}, user {user_id}\"\n+        _CACHE[key] = f'{greeting(locale)}, user {user_id}'\n     return _CACHE[key]\n"
+      ],
+      "elapsed_s": 2.994
+    },
+    {
+      "id": "n0-code-05-closure",
+      "title": "Handlers capture the loop variable",
+      "engine_solved": true,
+      "scorer_passed": true,
+      "scorer_summary": "3 passed in 0.01s",
+      "initial_failed": 2,
+      "final_failed": 0,
+      "verifier_calls": 3,
+      "attempted_candidates": 1,
+      "accepted_without_execution": 0,
+      "budget_exhausted": false,
+      "edits": [
+        {
+          "operator": "closure_binding",
+          "file": "handlers.py",
+          "target": "make_handlers,make_handlers_with_label",
+          "description": "bind loop variables by default in closures of make_handlers, make_handlers_with_label",
+          "verified": true
+        }
+      ],
+      "targets": [
+        {
+          "name": "make_handlers",
+          "qualname": "handlers.make_handlers",
+          "file": "handlers.py",
+          "lineno": 4,
+          "score": 10.0,
+          "depth": 0,
+          "reasons": [
+            "called by tests/test_handlers.py::test_each_handler_returns_its_own_code"
+          ]
+        },
+        {
+          "name": "make_handlers_with_label",
+          "qualname": "handlers.make_handlers_with_label",
+          "file": "handlers.py",
+          "lineno": 11,
+          "score": 10.0,
+          "depth": 0,
+          "reasons": [
+            "called by tests/test_handlers.py::test_label_captures_name_and_code"
+          ]
+        }
+      ],
+      "diffs": [
+        "--- a/handlers.py\n+++ b/handlers.py\n@@ -1,15 +1,13 @@\n \"\"\"Build callbacks for a set of actions.\"\"\"\n-\n \n def make_handlers(actions):\n     handlers = {}\n     for name, code in actions.items():\n-        handlers[name] = lambda: code\n+        handlers[name] = lambda *, code=code: code\n     return handlers\n-\n \n def make_handlers_with_label(actions):\n     handlers = {}\n     for name, code in actions.items():\n-        handlers[name] = lambda: f\"{name}:{code}\"\n+        handlers[name] = lambda *, code=code, name=name: f'{name}:{code}'\n     return handlers\n"
+      ],
+      "elapsed_s": 2.417
+    },
+    {
+      "id": "n0-code-06-money-split",
+      "title": "Money split loses the remainder",
+      "engine_solved": true,
+      "scorer_passed": true,
+      "scorer_summary": "5 passed in 0.01s",
+      "initial_failed": 3,
+      "final_failed": 0,
+      "verifier_calls": 4,
+      "attempted_candidates": 2,
+      "accepted_without_execution": 0,
+      "budget_exhausted": false,
+      "edits": [
+        {
+          "operator": "boundary_guard",
+          "file": "money.py",
+          "target": "split_amount",
+          "description": "raise on boundary values rejected by the tests in split_amount",
+          "verified": true
+        },
+        {
+          "operator": "integer_distribution",
+          "file": "money.py",
+          "target": "split_amount",
+          "description": "distribute the integer remainder in split_amount",
+          "verified": true
+        }
+      ],
+      "targets": [
+        {
+          "name": "split_amount",
+          "qualname": "money.split_amount",
+          "file": "money.py",
+          "lineno": 4,
+          "score": 50.0,
+          "depth": 0,
+          "reasons": [
+            "called by tests/test_money.py::test_sum_is_preserved",
+            "called by tests/test_money.py::test_remainder_goes_to_the_first_parts",
+            "called by tests/test_money.py::test_negative_total_is_rejected"
+          ]
+        }
+      ],
+      "diffs": [
+        "--- a/money.py\n+++ b/money.py\n@@ -1,8 +1,10 @@\n \"\"\"Split an integer amount of cents into n parts.\"\"\"\n \n-\n def split_amount(total_cents, n):\n+    if total_cents < 0:\n+        raise ValueError('total_cents must be >= 0')\n     if n <= 0:\n-        raise ValueError(\"n must be positive\")\n+        raise ValueError('n must be positive')\n     base = total_cents // n\n-    return [base] * n\n+    q, r = divmod(total_cents, n)\n+    return [q + 1 if i < r else q for i in range(n)]\n"
+      ],
+      "elapsed_s": 3.046
+    }
+  ],
+  "summary": {
+    "solved": 6,
+    "total": 6,
+    "pass_rate": 1.0,
+    "verifier_calls_total": 24,
+    "verifier_calls_per_solved_mean": 4.0,
+    "verifier_calls_per_solved_max": 6,
+    "accepted_without_execution": 0,
+    "independent_scorer_agrees": true
+  },
+  "wall_s": 18.209,
+  "gate": {
+    "code_pass_rate_above_baseline": true,
+    "zero_unexecuted_patches": true,
+    "independent_scorer_agrees": true,
+    "oracle_still_100": true,
+    "passed": true
+  },
+  "efficiency": {
+    "peak_rss_mb": 228.06,
+    "total_wall_seconds": 25.066
+  },
+  "gaps": [
+    "N1 covers eight operator families on six synthetic multi-file tasks; this is not open-world repository repair. Held-out transfer must be measured before generalising."
+  ]
+}

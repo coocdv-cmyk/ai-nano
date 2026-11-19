@@ -1,0 +1,255 @@
+{
+  "exp_id": "EXP-006",
+  "title": "M3 Execution-Guided Neuro-Symbolic & Bilingual Semantic Brain",
+  "blind_and_heldout": {
+    "baseline_blind": {
+      "passed": 5,
+      "total": 10,
+      "pass_rate": 0.5,
+      "math_passed": 5,
+      "code_passed": 0,
+      "elapsed_ms": 271.27
+    },
+    "m3_blind": {
+      "passed": 10,
+      "total": 10,
+      "pass_rate": 1.0,
+      "math_passed": 5,
+      "code_passed": 5,
+      "avg_attempts": 1.3,
+      "elapsed_ms": 1529.61
+    },
+    "m3_heldout": {
+      "passed": 10,
+      "total": 10,
+      "pass_rate": 1.0,
+      "avg_attempts": 2.2,
+      "elapsed_ms": 4052.89,
+      "details": [
+        {
+          "id": "held-bsearch-leftmost",
+          "passed": true,
+          "attempts": 2,
+          "source": "search"
+        },
+        {
+          "id": "held-longest-unique",
+          "passed": true,
+          "attempts": 1,
+          "source": "search"
+        },
+        {
+          "id": "held-coin-change",
+          "passed": true,
+          "attempts": 1,
+          "source": "search"
+        },
+        {
+          "id": "held-valid-brackets",
+          "passed": true,
+          "attempts": 2,
+          "source": "search"
+        },
+        {
+          "id": "held-group-anagrams",
+          "passed": true,
+          "attempts": 4,
+          "source": "search"
+        },
+        {
+          "id": "held-edit-distance",
+          "passed": true,
+          "attempts": 2,
+          "source": "search"
+        },
+        {
+          "id": "held-house-robber",
+          "passed": true,
+          "attempts": 3,
+          "source": "search"
+        },
+        {
+          "id": "held-rle-encode",
+          "passed": true,
+          "attempts": 2,
+          "source": "search"
+        },
+        {
+          "id": "held-kadane-subarray",
+          "passed": true,
+          "attempts": 2,
+          "source": "search"
+        },
+        {
+          "id": "held-non-overlap-intervals",
+          "passed": true,
+          "attempts": 3,
+          "source": "search"
+        }
+      ]
+    }
+  },
+  "selfplay_and_policy": {
+    "cycle_1": {
+      "cycle": 1,
+      "tasks": 12,
+      "solved": 12,
+      "solve_rate": 1.0,
+      "avg_attempts": 1.08,
+      "compiled_skills": [
+        "code_eval_postfix",
+        "code_merge_ranges",
+        "lucas_reciprocal_power",
+        "pell_continued_fraction",
+        "sliding_window_max_sum"
+      ],
+      "drift_events": 0,
+      "library_stats": {
+        "skills": 5,
+        "replay_traces": 12,
+        "policy_features": 1049
+      }
+    },
+    "cycle_2": {
+      "cycle": 2,
+      "tasks": 12,
+      "solved": 12,
+      "solve_rate": 1.0,
+      "avg_attempts": 1.0,
+      "compiled_skills": [],
+      "drift_events": 0,
+      "library_stats": {
+        "skills": 5,
+        "replay_traces": 24,
+        "policy_features": 1049
+      }
+    },
+    "policy_transfer": {
+      "cold_attempts": 2,
+      "warm_unseen_name_attempts": 1,
+      "warm_passed": true,
+      "policy_features_persisted": 418
+    }
+  },
+  "l3_guard_and_l1_drift": {
+    "steps": [
+      {
+        "step": 1,
+        "l3_rejected_stale_skill": true,
+        "repaired_and_passed": true,
+        "drift_flagged": false
+      },
+      {
+        "step": 2,
+        "l3_rejected_stale_skill": true,
+        "repaired_and_passed": true,
+        "drift_flagged": false
+      },
+      {
+        "step": 3,
+        "l3_rejected_stale_skill": true,
+        "repaired_and_passed": true,
+        "drift_flagged": true
+      }
+    ],
+    "any_drift_flagged": true,
+    "all_self_healed": true,
+    "post_heal_attempts": 1,
+    "post_heal_source": "skill:code_merge_exp_0"
+  },
+  "repo_and_semantic_memory": {
+    "repo_graph": {
+      "root": "D:\\مواقع وتجارب برمجية\\ai model\\omega_nano",
+      "files_indexed": 35,
+      "total_symbols": 374,
+      "kinds": {
+        "function": 135,
+        "class": 56,
+        "method": 183
+      },
+      "top_called": [
+        {
+          "symbol": "len",
+          "call_sites": 65
+        },
+        {
+          "symbol": "append",
+          "call_sites": 51
+        },
+        {
+          "symbol": "get",
+          "call_sites": 49
+        },
+        {
+          "symbol": "str",
+          "call_sites": 32
+        },
+        {
+          "symbol": "range",
+          "call_sites": 32
+        },
+        {
+          "symbol": "isinstance",
+          "call_sites": 31
+        },
+        {
+          "symbol": "strip",
+          "call_sites": 29
+        },
+        {
+          "symbol": "execute",
+          "call_sites": 28
+        }
+      ],
+      "errors": 0,
+      "elapsed_ms": 183.69
+    },
+    "repo_recall_top_hit": "[symbol:class] brain.synthesizer.ExecutionGuidedSynthesizer in brain/synthesizer.py:748-811 | doc: C",
+    "repo_recall_ms": 2.96,
+    "identifier_split_in_repo_hit": true,
+    "identifier_split_ms": 1.99,
+    "semantic_probes_passed": 4,
+    "semantic_probes_total": 4,
+    "semantic_probes": [
+      {
+        "probe": "arabic_true_synonym",
+        "top_keys": [
+          "engine_care",
+          "secrets_cfg"
+        ],
+        "hit_top3": true,
+        "ms": 1.25
+      },
+      {
+        "probe": "crosslingual_en_to_ar",
+        "top_keys": [
+          "backup_loc",
+          "secrets_cfg"
+        ],
+        "hit_top3": true,
+        "ms": 0.88
+      },
+      {
+        "probe": "arabic_paraphrase_secrets",
+        "top_keys": [
+          "secrets_cfg",
+          "backup_loc",
+          "water_boil"
+        ],
+        "hit_top3": true,
+        "ms": 1.26
+      },
+      {
+        "probe": "code_identifier_split_in_374_symbols",
+        "top_keys": [
+          null,
+          null,
+          "fn_profile"
+        ],
+        "hit_top3": true,
+        "ms": 1.88
+      }
+    ]
+  },
+  "total_wall_seconds": 9.83
+}

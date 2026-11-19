@@ -1,59 +1,67 @@
 # Roadmap — evidence gates (constitution §11)
 
-Updated 2026-11-18 by the Phase 0 audit. The **research** sequence (experiments, gates, kill criteria) is in
-`RESEARCH-ROADMAP.md`; this file tracks product maturity against the constitution's phases.
+Updated 2026-11-19, after `EXP-M` (`M0`–`M4`) completed on `research/exp-m` and `EXP-N` N0–N1 completed on
+`research/exp-n`. The **research** sequence (experiments, gates, kill criteria) is in `RESEARCH/EXP-N-PLAN.md`; this file
+tracks product maturity against the constitution's phases.
 
 | Phase | Gate | Status |
 |---|---|---|
-| 0 Mission & repo audit | can explain the current state and the next experiment | **passed 2026-11-18** — full audit in `PHASE-0-REPOSITORY-AUDIT.md`; architecture corrected; research plan defined |
-| 1 Local agent slice | end-to-end behaviour, automated tests, recovery tests | **passed**: 126 passed, 1 skipped (127 collected); includes real kill-and-resume |
-| 2 Core model & inference baselines | measured local core with a profile | **first point measured, below the quality floor**: 3.34 M-param byte-level core, 1.8944 bpb fp32 / 2.0554 ternary vs zlib 1.8296 (EXP-003). Decode 1,425 B/s single-stream / 5,027 B/s aggregate (batch 8) on the current laptop. Not a usable language model |
-| 3 Memory & knowledge fabric | retrieve evidence, cite provenance, update, survive restart | **largely met** at 50k records (recorded on a different machine); no labelled query set; document ingestion missing |
-| 4 Software engineering | real repository tasks with verified tests | not started; blocked by the missing OS sandbox (S0) |
+| 0 Mission & repo audit | can explain the current state and the next experiment | **passed 2026-11-18** — `PHASE-0-REPOSITORY-AUDIT.md`; 9 of 10 audit defects repaired in `M0` |
+| 1 Local agent slice | end-to-end behaviour, automated tests, recovery tests | **passed**: 166 passed, 1 skipped at the `EXP-M` gate (2026-11-19); active suite now **180 passed, 1 skipped** after the N0/N1 tests |
+| 2 Core model & inference baselines | measured local core with a profile | **compression gate passed on a clean split** (EXP-005): `v2` 2.00 M → **1.7482 bpb** vs `zlib-9` **1.8370**; `v0` 3.34 M → **2.7841** under the same 300 s budget. Native runtime **10,509–13,209 tok/s** single-stream (EXP-007/008). Still **not** a usable language model: Arabic 256-byte windows are **11.12 bpb** vs zlib `4.5447`, and `bz2`/`lzma` remain ahead |
+| 3 Memory & knowledge fabric | retrieve evidence, cite provenance, update, survive restart | **largely met** at 50k records (older machine); bilingual AR→EN recall demonstrated (EXP-008); no labelled open-world query set yet |
+| 4 Software engineering | real repository tasks with verified tests | **bounded capability (`EXP-N` N1)**: `RepairEngine` solved **6/6** frozen N0 code tasks (24 verifier calls) and **7/7** same-family held-out surface tasks (26 calls), with **0** unexecuted patches. Nine AST operators + traceback/`RepoGraph` localisation; **not open-world** — synthetic workspaces, no OS sandbox |
 | 5 Browser & desktop | bounded workflows under permissions | not started |
-| 6 Adaptive reasoning | quality gains over baselines at acceptable cost | planning tiers exist; **no quality benchmark**, so the gate cannot be evaluated |
+| 6 Adaptive reasoning | quality gains over baselines at acceptable cost | **partially measured**: 20/20 on sealed author-designed suites (EXP-006/008); **no open-world benchmark** — N0 provides a frozen, contamination-controlled diagnostic, not open-world coverage |
 | 7 Multimodal | per-modality quality/latency tests | not started |
 | 8 Multi-agent & long autonomy | long-horizon tasks with measured reliability | single-agent durability only |
 | 9 Frontier competition | independent, repeatable results | not started |
 
-**Reading the table honestly.** Phase 2 is not "passed" because the model is worse than zlib; it has a measured point on a
-contaminated corpus. Phase 3 is strong on mechanism and weak on evaluation. Phase 6 looks advanced because tiers exist, but
-a tier without a quality benchmark is an architecture, not a capability.
+**Reading the table honestly.** Phase 2 passed the *compression* gate, not the *language* gate: beating `zlib-9` on Python
+bytes says the representation is sound, not that the model can converse, reason in Arabic, or hold world knowledge. Phase 6
+looks advanced because the sealed suites pass; they were authored with verifiers and are deliberately narrow. Phase 4 now
+has a measured repair capability, but on six synthetic N0 tasks plus seven same-family surface variants — it is a
+beachhead, not open-world repository engineering. The next honest gate is N2 (verified corpus + trained MTP).
 
-## Research tracks (next 90 days)
+## Research programs
 
-The research roadmap supersedes the old backlog for anything that produces a claim. Detail: `RESEARCH-ROADMAP.md`.
-
-| Track | Stage | Gate |
+| Program | Family | Status |
 |---|---|---|
-| A — Skill Fabric | EXP-005 (designed, not run) | ≥ 2× the best baseline at k=3, or kill |
-| B — Verified workbench | V0 (30 Z3/SymPy goals) | ≥ 90% closed, 0 unsound |
-| C — Kernel/core | K0 (blocked matvec), K1 (rolling cache) | ≥ 2× in isolation; ≥ 4,000 B/s single-stream |
-| D — Hygiene | corpus allowlist, first commit, CI | zero copyleft markers; green CI |
+| Foundation validation | `EXP-L` (L0–L7) | **complete**, merged to `master` (`03149eb`) |
+| Architectural evolution | `EXP-M` (M0–M4) | **complete**, `research/exp-m` (`21b93b4`) |
+| Integrated model / reasoning dominance | `EXP-N` (N0–N5) | **active** — N0 frozen/baselined; N1 gated (`6/6` N0, `7/7` held-out surface) |
+| General capability & learning | `EXP-O` | planned |
+| Memory, context, autonomy | `EXP-P` | planned |
+| Extreme efficiency | `EXP-Q` | planned |
+| Global competitive evaluation | `EXP-R` | planned |
+
+### `EXP-N` tracks (detail: `RESEARCH/EXP-N-PLAN.md`)
+
+| Track | Scope | Gate |
+|---|---|---|
+| **N0** | sealed `EXP-009` benchmark v1 (repo repair, verifiable reasoning, bilingual retrieval) + baseline | **met**: suite hashed, oracle `100%`, baseline recorded **before** any N1 change (`0/6`, `0/12`, `0.6667` strict recall@5) |
+| **N1** | AST patch operators, traceback→localization, execution verification on multi-file bugs | **met (bounded)**: `6/6` N0 at 24 verifier calls, `7/7` same-family held-out at 26 calls, zero unexecuted patches; **not open-world** |
+| **N2** | verified corpus scaling + trained MTP heads | MTP acceptance `> 40%`, `> 10,509 tok/s` with greedy-identical output |
+| **N3** | learned bilingual metric encoder `< 500 KB int8` | zero-shot AR/EN synonym recall beats the N0 retrieval baseline, honest abstention preserved |
+| **N4** | best-first / MCTS over verified candidates | improve multi-function synthesis success at equal verifier budget |
+| **N5** | `V2` release gate: capability + efficiency matrix, local UI/API | every number reproducible from a recorded command |
 
 ## Prioritized backlog (highest value first)
 
-0. **Owner decisions:** project licence, corpus rebuild approval, first git commit. Nothing may be published before these.
-1. **Implement and run EXP-005** (`OMEGA-EXPERIMENT-001.md`): the cheapest test of the project's central research claim.
-2. **Repair the confirmed defects** (audit §8), highest severity first:
-   - `fs.write` append idempotency (data corruption, reproduced);
-   - `LocalLLMReasoner.revise` prompt-injection path;
-   - `shell.run` environment leakage and missing OS sandbox;
-   - hash-chained audit log.
-3. **Corpus remediation** (`LICENSE-AND-PROVENANCE-REGISTER.md` §9): allowlist + SPDX + SHA-256, then re-train and
-   re-measure. Required before any external quality claim.
-4. **Core engine speed** (K0–K3): blocked int8/2-bit matvec and a rolling KV cache. Target ≥ 4,000 B/s single-stream with
-   identical greedy output; the 10k ambition is only claimable after a measured decomposition.
-5. **EXP-004: AVX2 SIMD-LUT 2-bit kernel** in C — still blocked by the absent compiler. Supersedes K0 if a toolchain
-   appears.
-6. **OS-level sandbox for `shell.run`** (Windows job object / restricted token). Blocks Phase 4 and any autonomous coding.
-7. **Connect a real local model to tier t2** (llama.cpp / Ollama) and build a 50-goal EN+AR task benchmark comparing the
-   rule and LLM tiers on success, verification-pass rate and latency.
-8. **Semantic-paraphrase retrieval benchmark** (300 labelled queries) to justify or replace the hashed vector signal.
-9. **Repository indexing tool** (file map, symbols, dependency graph) into project memory — the first Phase 4 step.
-10. **Document ingestion** (Markdown/PDF/text → chunks with provenance) into the memory fabric.
-11. **CI**: tests, SPDX headers, corpus manifest check, packaging smoke test.
-12. Multi-worker task queue with leases; distributed recovery.
+0. **Owner decisions:** project licence (still no `LICENSE`), OS sandbox for `shell.run` (defect #4), benchmark-seal
+   confirmation.
+1. **`EXP-N` N2** — export the verified N1 trajectories into a `(spec, trace, verified_code)` corpus and train the MTP
+   heads; gate is acceptance `> 40%` at `> 10,509 tok/s` with greedy-identical output.
+2. **`EXP-N` N4** — value-guided search over verified candidates at equal verifier budget (can start from the N1 engine
+   independently of N2).
+3. **Defect #5** — hash-chain the audit log.
+4. **Arabic byte efficiency** (`11.12 bpb` vs zlib `4.5447`): the single worst measured number in the project; `N3` must
+   address it or the bilingual claim is empty.
+5. **Sandbox** for `shell.run` (job object / restricted token) before any autonomous editing of the real workspace.
+6. **Corpus expansion** under the same licence policy (multi-domain: Python, Markdown, Arabic prose, English prose).
+7. **Document ingestion** (Markdown/PDF/text → provenance-bearing chunks) into the memory fabric.
+8. **Long-context measurement** beyond the 2048-byte copy-gate horizon.
+9. Multi-worker task queue with leases; distributed recovery.
 
 ## What is not on the backlog, deliberately
 

@@ -1,0 +1,7 @@
+{
+  "id": "n1-h-06-points",
+  "title": "Point distribution loses the remainder",
+  "domain": "code",
+  "statement": "`points.py` distributes an integer total across buckets, but the parts no longer sum to the total. Repair it so the tests under `tests/` pass: the remainder goes one unit at a time to the first buckets, and a negative total raises ValueError.",
+  "timeout_s": 60
+}

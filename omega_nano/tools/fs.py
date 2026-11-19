@@ -48,7 +48,8 @@ def _write_scopes(ctx: ToolContext, args: dict) -> frozenset[Scope]:
     except PermissionError:
         return frozenset()
     if args.get("mode", "overwrite") == "overwrite" and target.is_file():
-        if target.read_bytes() != str(args.get("content", "")).encode("utf-8"):
+        raw = str(args.get("content", "")).encode("utf-8")
+        if target.stat().st_size != len(raw) or target.read_bytes() != raw:
             return frozenset({Scope.DESTRUCTIVE})
     return frozenset()
 
@@ -123,6 +124,7 @@ TOOLS = [
         params={"path": Param("str", doc="workspace-relative path"), "content": Param("str"),
                 "mode": Param("str", required=False, default="overwrite", doc="overwrite | append")},
         scopes=frozenset({Scope.WRITE}), fn=_write, idempotent=True, dynamic_scopes=_write_scopes,
+        dynamic_idempotent=lambda ctx, args: args.get("mode", "overwrite") != "append",
         examples=["write file notes.txt with hello"],
     ),
     Tool(

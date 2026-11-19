@@ -1,0 +1,10 @@
+{
+  "id": "n0-code-02-audit-default",
+  "title": "Shared mutable default in the event log",
+  "domain": "code",
+  "statement": "`audit.py` appends events, but state leaks between unrelated calls. Repair `add_event` and the `EventLog` helper so that the tests under `tests/` pass: a default call must start empty, an explicitly supplied list must still be mutated in place, and two logs must not share state.",
+  "entrypoint": [
+    "repo/audit.py"
+  ],
+  "timeout_s": 60
+}
