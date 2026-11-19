@@ -162,6 +162,15 @@ was recorded, the N0 comparison is cross-suite, the probe is synthetic, and the 
 - **Gate:** higher pass rate at equal budget, or equal pass rate at ≤ 60% of the verifier calls.
 - **Kill criterion:** if branching only wins by spending more verifier calls, the linear loop stays.
 
+**As-built status (2026-11-19, `EXPERIMENTS/EXP-014-n4-search/`).** The pre-registration above is unchanged. Six fresh
+three-function workspaces (three train / three held-out) were composed from N4-only themes; N0 was cited, not used.
+Both arms used the same generator, verifier and 12-call budget. The value arm was fitted only from the linear arm's
+train-split decisions and spent no verifier calls at ranking time. Final held-out result: both arms `1.000` pass, with
+**9.667 → 7.000** mean verifier calls (72.4% of linear, a 27.6% reduction). This misses the 60% gate, so the gate is
+**not met**, while the kill criterion is not triggered either (it wins by spending fewer calls). The linear loop stays
+the default. Instrument defects were recorded rather than hidden: unsolvable `off_by_one` variants were excluded from
+composition, and an earlier 0%/0% result came from a 3-edit cap plus N1's coarse dedup key.
+
 ## 7. N5 — `V2` release gate
 
 - Full capability + efficiency matrix (accuracy, tok/s, TTFT, peak RSS, model bytes, verifier calls) for every track.

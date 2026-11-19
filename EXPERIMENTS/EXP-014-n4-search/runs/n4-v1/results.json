@@ -1,0 +1,129 @@
+{
+  "exp_id": "EXP-014",
+  "track": "N4",
+  "date_utc": "2026-11-19",
+  "hypothesis": "value-guided branching beats linear attempt 1..N at equal verifier cost",
+  "budget": 12,
+  "timeout_s": 20.0,
+  "tasks": {
+    "train": 3,
+    "holdout": 3,
+    "families": [
+      "multi"
+    ],
+    "functions_per_task": 3,
+    "compositions": {
+      "n4-multi-00": [
+        "n2-mutable-default-00",
+        "n2-boundary-guard-00",
+        "n2-comparison-flip-00"
+      ],
+      "n4-multi-01": [
+        "n2-mutable-default-01",
+        "n2-boundary-guard-01",
+        "n2-comparison-flip-01"
+      ],
+      "n4-multi-02": [
+        "n2-mutable-default-02",
+        "n2-boundary-guard-02",
+        "n2-comparison-flip-02"
+      ],
+      "n4-multi-03": [
+        "n2-mutable-default-03",
+        "n2-boundary-guard-03",
+        "n2-comparison-flip-03"
+      ],
+      "n4-multi-04": [
+        "n2-mutable-default-04",
+        "n2-boundary-guard-04",
+        "n2-comparison-flip-04"
+      ],
+      "n4-multi-05": [
+        "n2-mutable-default-05",
+        "n2-boundary-guard-05",
+        "n2-comparison-flip-05"
+      ]
+    }
+  },
+  "linear": {
+    "pass_rate": 1.0,
+    "mean_calls": 9.667,
+    "mean_calls_when_solved": 9.667,
+    "attempts_to_first_success": 8.667,
+    "calls": [
+      9,
+      10,
+      10
+    ]
+  },
+  "value": {
+    "pass_rate": 1.0,
+    "mean_calls": 7.0,
+    "mean_calls_when_solved": 7.0,
+    "attempts_to_first_success": 6.0,
+    "calls": [
+      7,
+      7,
+      7
+    ]
+  },
+  "gates": {
+    "higher_pass_rate": false,
+    "equal_pass_60pct_calls": false,
+    "overall": false
+  },
+  "negative_results": [
+    "N0 tasks are cited only; all measured tasks are fresh N4 themes, not the frozen N0 suite.",
+    "Fresh `off_by_one` N4 variants are not repaired by the current operator (4 candidates, none fixing them). Including them made every composed task unsolvable and produced a vacuous 0%/0% gate; they were excluded from composition and the fact is recorded here.",
+    "First composed runs capped edits at 3 and used N1's coarse (operator, file, target) dedup key; both arms scored 0% pass. The cap was raised to 6 and the key now includes the patch source hash.",
+    "Final held-out comparison: both arms reach 100% pass, but the value arm uses 72.4% of the linear arm's verifier calls — a 27.6% reduction that misses the pre-registered 60% threshold. The gate is NOT met; the linear loop stays the default, with value-guided ordering recorded as a promising direction."
+  ],
+  "cost": {
+    "wall_s": 42.262,
+    "peak_rss_mb": 70.11,
+    "verifier_calls_total": 78,
+    "command": "python EXPERIMENTS/EXP-014-n4-search/run_exp.py --out EXPERIMENTS\\EXP-014-n4-search\\runs\\n4-v1 --budget 12 --timeout 20.0"
+  },
+  "per_task": {
+    "linear": [
+      {
+        "id": "n4-multi-03",
+        "solved": true,
+        "calls": 9,
+        "attempts": 8
+      },
+      {
+        "id": "n4-multi-04",
+        "solved": true,
+        "calls": 10,
+        "attempts": 9
+      },
+      {
+        "id": "n4-multi-05",
+        "solved": true,
+        "calls": 10,
+        "attempts": 9
+      }
+    ],
+    "value": [
+      {
+        "id": "n4-multi-03",
+        "solved": true,
+        "calls": 7,
+        "attempts": 6
+      },
+      {
+        "id": "n4-multi-04",
+        "solved": true,
+        "calls": 7,
+        "attempts": 6
+      },
+      {
+        "id": "n4-multi-05",
+        "solved": true,
+        "calls": 7,
+        "attempts": 6
+      }
+    ]
+  }
+}

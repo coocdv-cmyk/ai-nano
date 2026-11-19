@@ -43,7 +43,7 @@ beachhead, not open-world repository engineering. The next honest gate is N2 (ve
 | **N1** | AST patch operators, traceback→localization, execution verification on multi-file bugs | **met (bounded)**: `6/6` N0 at 24 verifier calls, `7/7` same-family held-out at 26 calls, zero unexecuted patches; **not open-world** |
 | **N2** | verified corpus scaling + trained MTP heads | **evaluated, gates failed**: 108/108 fresh verified tasks, 90x EXP-008 corpus, greedy-identical over 10k tokens, but acceptance 29–38% and 0.87x–0.92x speed (< 10,509 tok/s); speculation not adopted, speed claim rests on non-spec engine |
 | **N3** | learned bilingual metric encoder `< 500 KB int8` | **met on a fresh synthetic held-out set**: 393,216 B int8, recall@5 0.7333 (AR 0.70 / EN 0.7667) vs static 0.0833 and cited N0 0.6667, false-accept 6.25%; static baseline was near-useless, probe is not open-world |
-| **N4** | best-first / MCTS over verified candidates | improve multi-function synthesis success at equal verifier budget |
+| **N4** | best-first / MCTS over verified candidates | **evaluated, gate missed**: on six fresh three-function tasks both arms reached 100% pass, but value-guided ranking used 72.4% of linear's verifier calls (7.0 vs 9.667), above the 60% threshold; linear stays default |
 | **N5** | `V2` release gate: capability + efficiency matrix, local UI/API | every number reproducible from a recorded command |
 
 ## Prioritized backlog (highest value first)
@@ -53,8 +53,9 @@ beachhead, not open-world repository engineering. The next honest gate is N2 (ve
 1. **`EXP-N` N2 — done, negative result**. 108/108 verified fresh frames, two MTP objectives trained, native
    speculation lossless but 0.87x–0.92x and below both quantitative gates. Keep speculation disabled by default and
    record the defect (patch-boundary copy hand-off) before revisiting it. Results: `EXPERIMENTS/EXP-012-n2-mtp/results.json`.
-2. **`EXP-N` N4** — value-guided search over verified candidates at equal verifier budget (can start from the N1 engine
-   independently of N2).
+2. **`EXP-N` N4 — done, near miss**. Value-guided candidate ordering kept 100% pass with 27.6% fewer verifier calls but
+   did not reach the pre-registered 60% call ratio; more training traces are needed before changing the default.
+   Results: `EXPERIMENTS/EXP-014-n4-search/results.json`.
 3. **Defect #5** — hash-chain the audit log.
 4. **Arabic byte efficiency** (`11.12 bpb` vs zlib `4.5447`): the single worst measured number in the project. `N3`
    improved bilingual *retrieval* (recall@5 0.7333) but did **not** address byte-level generation; the bilingual claim
