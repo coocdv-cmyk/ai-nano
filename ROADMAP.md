@@ -42,7 +42,7 @@ beachhead, not open-world repository engineering. The next honest gate is N2 (ve
 | **N0** | sealed `EXP-009` benchmark v1 (repo repair, verifiable reasoning, bilingual retrieval) + baseline | **met**: suite hashed, oracle `100%`, baseline recorded **before** any N1 change (`0/6`, `0/12`, `0.6667` strict recall@5) |
 | **N1** | AST patch operators, traceback→localization, execution verification on multi-file bugs | **met (bounded)**: `6/6` N0 at 24 verifier calls, `7/7` same-family held-out at 26 calls, zero unexecuted patches; **not open-world** |
 | **N2** | verified corpus scaling + trained MTP heads | **evaluated, gates failed**: 108/108 fresh verified tasks, 90x EXP-008 corpus, greedy-identical over 10k tokens, but acceptance 29–38% and 0.87x–0.92x speed (< 10,509 tok/s); speculation not adopted, speed claim rests on non-spec engine |
-| **N3** | learned bilingual metric encoder `< 500 KB int8` | zero-shot AR/EN synonym recall beats the N0 retrieval baseline, honest abstention preserved |
+| **N3** | learned bilingual metric encoder `< 500 KB int8` | **met on a fresh synthetic held-out set**: 393,216 B int8, recall@5 0.7333 (AR 0.70 / EN 0.7667) vs static 0.0833 and cited N0 0.6667, false-accept 6.25%; static baseline was near-useless, probe is not open-world |
 | **N4** | best-first / MCTS over verified candidates | improve multi-function synthesis success at equal verifier budget |
 | **N5** | `V2` release gate: capability + efficiency matrix, local UI/API | every number reproducible from a recorded command |
 
@@ -56,8 +56,9 @@ beachhead, not open-world repository engineering. The next honest gate is N2 (ve
 2. **`EXP-N` N4** — value-guided search over verified candidates at equal verifier budget (can start from the N1 engine
    independently of N2).
 3. **Defect #5** — hash-chain the audit log.
-4. **Arabic byte efficiency** (`11.12 bpb` vs zlib `4.5447`): the single worst measured number in the project; `N3` must
-   address it or the bilingual claim is empty.
+4. **Arabic byte efficiency** (`11.12 bpb` vs zlib `4.5447`): the single worst measured number in the project. `N3`
+   improved bilingual *retrieval* (recall@5 0.7333) but did **not** address byte-level generation; the bilingual claim
+   remains scoped to retrieval until this is fixed.
 5. **Sandbox** for `shell.run` (job object / restricted token) before any autonomous editing of the real workspace.
 6. **Corpus expansion** under the same licence policy (multi-domain: Python, Markdown, Arabic prose, English prose).
 7. **Document ingestion** (Markdown/PDF/text → provenance-bearing chunks) into the memory fabric.

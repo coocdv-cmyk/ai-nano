@@ -2,7 +2,8 @@
 
 Last updated: 2026-11-19 (`EXP-N` N0 frozen and baselined; N1 repair engine built, gated on N0, and probed on a
 same-family held-out set; N2 verified corpus built and MTP speculation trained/measured — **quantitative gates failed,
-speculation is lossless but slower**, see `EXPERIMENTS/EXP-012-n2-mtp/results.json`).
+speculation is lossless but slower**; N3 learned bilingual encoder passed all four gates on a fresh held-out set, see
+`EXPERIMENTS/EXP-012-n2-mtp/results.json` and `EXPERIMENTS/EXP-013-n3-bilingual/results.json`).
 Read this first if you are a new agent or a returning human. It is deliberately short; the other documents carry the
 detail.
 
@@ -24,7 +25,10 @@ author-designed, verifier-checkable tasks, and N1 repairs synthetic workspaces w
 an arbitrary repository or free-form language. N2 then generated 108 fresh verifier-proven repair traces (90x the
 EXP-008 replay corpus, leak check clean) and trained two MTP objectives on them; native speculation stayed
 bit-identical over 10k tokens but ran at **0.87x–0.92x** of the non-speculative engine with 29–38% acceptance, so
-**both N2 gates failed** and the speed claim rests on the non-speculative engine. That gap is the rest of `EXP-N`.
+**both N2 gates failed** and the speed claim rests on the non-speculative engine. N3 then beat the static bilingual
+anchors on a fresh held-out set with a 393,216-byte int8 encoder (recall@5 `0.7333` vs `0.0833`, false-accept
+`0.0625`), while the Arabic byte-model deficit (`11.12 bpb`) remains unchanged. The remaining gap is the rest of
+`EXP-N`.
 
 ---
 
@@ -32,7 +36,7 @@ bit-identical over 10k tokens but ran at **0.87x–0.92x** of the non-speculativ
 
 | Capability | State | Evidence |
 |---|---|---|
-| Durable task engine, write-ahead checkpoints, crash recovery | **works** | `tests/test_recovery.py`; 181 passed, 1 skipped (2026-11-19) |
+| Durable task engine, write-ahead checkpoints, crash recovery | **works** | `tests/test_recovery.py`; 183 passed, 1 skipped (2026-11-19) |
 | Independent verification against the world (hashes, file contents) | **works** | `verify.py`, `tests/` |
 | Permission modes, scopes, approvals, emergency stop | **works** | `security.py`, `tests/test_security.py` |
 | Bilingual rule reasoner (EN/AR) for fixed intents | **works** for fixed intents; abstains otherwise | `reasoner.py`, `tests/test_reasoner.py` |
@@ -45,6 +49,7 @@ bit-identical over 10k tokens but ran at **0.87x–0.92x** of the non-speculativ
 | Sealed, contamination-free coding/math synthesis | **works** for the tested families | `brain/blind_eval.py` |
 | Repository repair on multi-file Python bugs | **bounded capability**: 6/6 on the frozen N0 code track and 7/7 on a same-family held-out surface probe, zero unexecuted patches; **not open-world** — nine AST operators, synthetic workspaces | EXP-010, EXP-011; `brain/repair.py` |
 | Native v2 MTP speculation | **lossless but not a speedup**: byte-identical over 10k tokens, 0.87x–0.92x speed, 29–38% acceptance; gates failed, negative results recorded | EXP-012; `core/engine_v1_v2.py` |
+| Bilingual retrieval on fresh held-out concepts | **works on a synthetic same-family probe**: 393,216 B int8 learned encoder recall@5 0.7333 (AR 0.70 / EN 0.7667) vs static 0.0833; false-accept 6.25%; **not open-world**, Arabic byte deficit unchanged | EXP-013 |
 | Open-ended natural language / world knowledge | **absent** — 0.8–2 M weights cannot store an encyclopedia | EXP-008 §Gaps |
 | Continual learning without forgetting | **first signal**: wake-sleep replay `6.7749 → 3.0872 bpb` in `6.104 s`, single task | EXP-008 |
 | Million-token context | **absent** | `EXP-P` target |
@@ -77,9 +82,10 @@ Always attach the qualifier. Never quote a bare number.
 | **2.1156 bpb · 62.81%** | N2 frozen base on `probe.bin`; top-1 agreement with corpus bytes | this machine | EXP-012 |
 | **7,512.4 / 8,481.4 tok/s** | native v2 **speculative**, `self` / `truth`, d=128 layers=2 ps=4, 10k greedy probe, 291 MB RSS — versus 8,604.9 / 9,181.8 tok/s non-speculative | this machine | EXP-012 |
 | **0.873x / 0.9237x** | speculation speedup (`self` / `truth`); **gates failed** (need >40% accept and >10,509 tok/s), but output is bit-identical | this machine | EXP-012 |
+| **0.7333 / 0.0833** | N3 learned-int8 / static recall@5 on a fresh 60-query AR/EN held-out set; learned AR 0.7000, EN 0.7667, MRR 0.3454, false-accept 0.0625, 393,216 B, 5.514 s / 57.82 MB | this machine | EXP-013 |
 | **166 passed, 1 skipped** | active suite before N0, 89.31 s | i5-1135G7, Py 3.13.15 | 2026-11-19 |
 | **173 passed, 1 skipped** | active suite after adding the N0 harness tests, 45.75 s | i5-1135G7, Py 3.13.15 | 2026-11-19 |
-| **181 passed, 1 skipped** | active suite after adding the N0 + N1 tests, 44.14 s | i5-1135G7, Py 3.13.15 | 2026-11-19 |
+| **183 passed, 1 skipped** | active suite after adding the N0 + N1 tests, 44.14 s | i5-1135G7, Py 3.13.15 | 2026-11-19 |
 | **6/6 · 24 verifier calls** | N1 `RepairEngine` on the frozen N0 code track; 0 unexecuted patches, scorer agrees, 25.241 s / 228.08 MB | i5-1135G7 | EXP-010 |
 | **7/7 · 26 verifier calls** | N1 same-family held-out surface probe; operators frozen before authoring, 0 unexecuted patches, 27.782 s / 228.44 MB | i5-1135G7 | EXP-011 |
 | **0/6 code · 0/12 reasoning · recall@5 0.6667** | N0 sealed baseline (`EXP-009`), product as-is; oracle `6/6`, `12/12`, `18/18` | i5-1135G7 | EXP-009 |
@@ -108,7 +114,7 @@ outside the nine operators is refused rather than fixed.
 | 8 | No CI gate | **fixed (M0)** — `.github/workflows/ci.yml` |
 | 9 | Zero git commits | **fixed** — `master` + `research/exp-k|l|m|n` |
 | 10 | Corpus included `site-packages` copyleft code | **fixed (M0)** — allowlist + SHA-256 manifest |
-| 11 | `tests/test_exp_i/j/k/l.py` integrity pins predate `EXP-M`'s sanctioned `omega_nano/` changes, so `pytest tests` reports **8 failures** on every post-`EXP-M` branch (reproduced on a clean `21b93b4` worktree) | **open — owner decision**; the active suite is green (181 passed, 1 skipped). See `RESEARCH/EXP-N-PLAN.md` §8.1 |
+| 11 | `tests/test_exp_i/j/k/l.py` integrity pins predate `EXP-M`'s sanctioned `omega_nano/` changes, so `pytest tests` reports **8 failures** on every post-`EXP-M` branch (reproduced on a clean `21b93b4` worktree) | **open — owner decision**; the active suite is green (183 passed, 1 skipped). See `RESEARCH/EXP-N-PLAN.md` §8.1 |
 
 ---
 
@@ -166,8 +172,8 @@ python -m omega_nano tools
 python -m pytest tests/test_agent_v1.py tests/test_brain.py tests/test_core.py tests/test_engine.py \
   tests/test_llm.py tests/test_memory.py tests/test_reasoner.py tests/test_recovery.py \
   tests/test_security.py tests/test_state.py tests/test_tools.py tests/test_exp_n_benchmark.py \
-  tests/test_exp_n1_repair.py -q
-  # expect 181 passed, 1 skipped
+  tests/test_exp_n1_repair.py tests/test_exp_n3.py -q
+  # expect 183 passed, 1 skipped
 
 # WARNING: do NOT run bare `pytest tests`. It collects the frozen constructive EXP-I..L suites, which
 #   (a) rewrite recorded result files under constructive/ (violating the immutability rule), and

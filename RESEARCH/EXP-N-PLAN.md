@@ -145,6 +145,15 @@ concept anchors do not.
 - **Hard constraint:** the Arabic byte-model deficit (`11.12 bpb` vs zlib `4.5447`, EXP-005) must be reported alongside
   any retrieval gain; retrieval success does not repair the language model.
 
+**As-built status (2026-11-19, `EXPERIMENTS/EXP-013-n3-bilingual/`).** The pre-registration above is unchanged. A fresh
+62-concept train / 30-concept held-out inventory was authored with exact-string disjointness; the probe has one gold
+document per query, zero shared query/target surface tokens and two near-duplicate distractors per gold. The static
+baseline was recorded before any training: recall@5 `0.0833`, false-accept `0.8125` — effectively non-functional on
+this set. A tied char-ngram → int8 encoder (393,216 bytes) then reached recall@5 `0.7333` (AR `0.7000`, EN `0.7667`),
+MRR `0.3454`, false-accept `0.0625`, beating both the static baseline and the cited N0 `0.6667`; all four gates pass.
+Caveats recorded, not hidden: the static false-accept comparator is weak, the first hyperparameter attempt diverged and
+was recorded, the N0 comparison is cross-suite, the probe is synthetic, and the Arabic byte deficit is unchanged.
+
 ## 6. N4 — Best-first / MCTS over verified candidates
 
 **Hypothesis N4:** value-guided branching beats linear `attempt 1..N` on multi-function synthesis at equal verifier cost.

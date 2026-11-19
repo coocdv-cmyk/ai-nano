@@ -1,0 +1,103 @@
+{
+  "exp_id": "EXP-013",
+  "track": "N3",
+  "date_utc": "2026-11-19",
+  "hypothesis": "a <500 KB int8 contrastive bi-encoder generalises across unseen AR/EN synonyms where static anchors do not",
+  "probe": {
+    "doc_sha256": "1467df1db51dd264c7d0dfd18df38ce603a5f9f06faf24cd44a20d4eaee3558e",
+    "query_sha256": "e89daed15769bd69537992e5da271c7b207047cf1e73ec97a79eaddf416fd11c"
+  },
+  "probe_counts": {
+    "docs": 90,
+    "queries": 60,
+    "oos": 16
+  },
+  "static_baseline": {
+    "encoder": "static concept anchors (omega_nano.semantic.encode_text)",
+    "retrieval": {
+      "recall_at_5": 0.0833,
+      "mrr": 0.0725,
+      "queries": 60,
+      "by_language": {
+        "ar": {
+          "recall_at_5": 0.0667,
+          "mrr": 0.0867,
+          "queries": 30
+        },
+        "en": {
+          "recall_at_5": 0.1,
+          "mrr": 0.0583,
+          "queries": 30
+        }
+      }
+    },
+    "out_of_scope": {
+      "threshold_top1_p05": 0.0472,
+      "false_accept_rate": 0.8125,
+      "oos_queries": 16
+    }
+  },
+  "learned": {
+    "encoder": "tied char-ngram -> int8 embedding, contrastively trained",
+    "bytes": 393216,
+    "dim": 96,
+    "buckets": 4096,
+    "ngrams": [
+      3,
+      4,
+      5
+    ],
+    "training": {
+      "steps": 600,
+      "seconds": 5.405,
+      "first_loss": 4.7386,
+      "last_loss": 0.8016
+    },
+    "retrieval": {
+      "recall_at_5": 0.7333,
+      "mrr": 0.3454,
+      "queries": 60,
+      "by_language": {
+        "ar": {
+          "recall_at_5": 0.7,
+          "mrr": 0.3388,
+          "queries": 30
+        },
+        "en": {
+          "recall_at_5": 0.7667,
+          "mrr": 0.3521,
+          "queries": 30
+        }
+      }
+    },
+    "out_of_scope": {
+      "threshold_top1_p05": 0.8834,
+      "false_accept_rate": 0.0625,
+      "oos_queries": 16
+    }
+  },
+  "gates": {
+    "beats_static_on_new_set": true,
+    "beats_n0_baseline_0_6667": true,
+    "no_false_accept_increase": true,
+    "under_500KB_int8": true,
+    "overall": true
+  },
+  "hard_constraint": {
+    "arabic_byte_bpb": 11.12,
+    "zlib9_arabic_byte_bpb": 4.5447,
+    "note": "retrieval success does not repair the byte-level language model (EXP-005)"
+  },
+  "negative_results": [
+    "Static anchors on the fresh held-out set: recall@5 0.0833, MRR 0.0725, false-accept 0.8125 — the baseline is near-useless here, so its false-accept number is a weak comparator rather than evidence of safety.",
+    "First training attempt with lr=0.02, tau=0.07 diverged (loss 13.2 vs uniform 3.43, recall@5 0.1167, false-accept 1.0). Recorded, not deleted; the shipped run uses lr=0.005, tau=0.2.",
+    "N0's strict 0.6667 is a different suite; it is reported as a cited sanity number, not as a like-for-like comparison with the new probe."
+  ],
+  "cost": {
+    "wall_s": 5.514,
+    "peak_rss_mb": 57.82,
+    "verifier_calls": 0,
+    "encoder_bytes": 393216,
+    "command": "python EXPERIMENTS/EXP-013-n3-bilingual/run_exp.py --out EXPERIMENTS\\EXP-013-n3-bilingual\\runs\\n3-v1 --steps 600 --lr 0.005 --tau 0.2 --seed 7"
+  }
+}

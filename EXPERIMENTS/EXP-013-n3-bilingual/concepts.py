@@ -1,0 +1,125 @@
+"""Fresh bilingual concept inventory for EXP-013 (N3).
+
+Every tuple is ``(en, ar, en_alt, ar_alt)``.  The four variants of one concept
+are positive pairs for contrastive training; concepts in TRAIN and HELD_OUT are
+disjoint.  The held-out inventory was authored for N3 and is not a member of
+`omega_nano.semantic._CONCEPT_CLUSTERS`, so the static encoder has no anchor for
+it.  This is a synthetic, same-family probe — not evidence of open-world
+bilingual understanding.
+"""
+
+from __future__ import annotations
+
+TRAIN: tuple[tuple[str, str, str, str], ...] = (
+    ("book", "كتاب", "volume", "مجلد"),
+    ("door", "باب", "gate", "بوابة"),
+    ("water", "ماء", "liquid", "سائل"),
+    ("fire", "نار", "flame", "لهب"),
+    ("tree", "شجرة", "plant", "نبتة"),
+    ("sun", "شمس", "star", "نجم"),
+    ("river", "نهر", "stream", "مجرى"),
+    ("mountain", "جبل", "peak", "قمة"),
+    ("city", "مدينة", "town", "بلدة"),
+    ("road", "طريق", "street", "شارع"),
+    ("bridge", "جسر", "overpass", "معبر"),
+    ("house", "منزل", "home", "بيت"),
+    ("window", "نافذة", "pane", "لوح"),
+    ("table", "طاولة", "desk", "مكتب"),
+    ("chair", "كرسي", "seat", "مقعد"),
+    ("pen", "قلم", "pencil", "قلم رصاص"),
+    ("paper", "ورقة", "sheet", "صحيفة"),
+    ("key", "مفتاح", "clue", "دليل"),
+    ("lock", "قفل", "bolt", "مزلاج"),
+    ("bag", "حقيبة", "sack", "كيس"),
+    ("shoe", "حذاء", "boot", "جزمة"),
+    ("shirt", "قميص", "dress", "ثوب"),
+    ("hat", "قبعة", "cap", "طاقية"),
+    ("bread", "خبز", "loaf", "رغيف"),
+    ("milk", "حليب", "dairy", "ألبان"),
+    ("rice", "أرز", "grain", "حبوب"),
+    ("salt", "ملح", "seasoning", "بهار"),
+    ("sugar", "سكر", "syrup", "شراب"),
+    ("tea", "شاي", "beverage", "مشروب"),
+    ("horse", "حصان", "steed", "جواد"),
+    ("bird", "طائر", "fowl", "طير"),
+    ("cat", "قط", "kitten", "هرة"),
+    ("dog", "كلب", "puppy", "جرو"),
+    ("garden", "حديقة", "park", "منتزه"),
+    ("field", "حقل", "meadow", "مرج"),
+    ("forest", "غابة", "woods", "أدغال"),
+    ("desert", "صحراء", "sand", "رمال"),
+    ("sea", "بحر", "ocean", "محيط"),
+    ("sky", "سماء", "firmament", "فلك"),
+    ("cloud", "سحابة", "mist", "ضباب"),
+    ("rain", "مطر", "shower", "زخة"),
+    ("snow", "ثلج", "frost", "صقيع"),
+    ("wind", "ريح", "breeze", "نسيم"),
+    ("storm", "عاصفة", "tempest", "ريح شديدة"),
+    ("light", "ضوء", "lamp", "مصباح"),
+    ("color", "لون", "hue", "درجة"),
+    ("red", "أحمر", "crimson", "قاني"),
+    ("blue", "أزرق", "azure", "سماوي"),
+    ("green", "أخضر", "emerald", "زمردي"),
+    ("black", "أسود", "dark", "داكن"),
+    ("white", "أبيض", "pale", "باهت"),
+    ("big", "كبير", "large", "ضخم"),
+    ("small", "صغير", "tiny", "ضئيل"),
+    ("fast", "سريع", "rapid", "مسرع"),
+    ("slow", "بطيء", "gradual", "تدريجي"),
+    ("hot", "ساخن", "warm", "دافئ"),
+    ("cold", "بارد", "chilly", "قارس"),
+    ("old", "قديم", "ancient", "عتيق"),
+    ("new", "جديد", "modern", "حديث"),
+)
+
+HELD_OUT: tuple[tuple[str, str, str, str], ...] = (
+    ("strong", "قوي", "mighty", "جبار"),
+    ("weak", "ضعيف", "frail", "هش"),
+    ("happy", "سعيد", "joyful", "مبتهج"),
+    ("sad", "حزين", "sorrowful", "مكتئب"),
+    ("angry", "غاضب", "furious", "ثائر"),
+    ("calm", "هادئ", "quiet", "صامت"),
+    ("loud", "صاخب", "noisy", "مزعج"),
+    ("soft", "ناعم", "gentle", "لطيف"),
+    ("hard", "صلب", "rigid", "جامد"),
+    ("smooth", "أملس", "even", "مستوٍ"),
+    ("rough", "خشن", "gritty", "حبيبي"),
+    ("sweet", "حلو", "sugary", "محلى"),
+    ("bitter", "مر", "sour", "حامض"),
+    ("clean", "نظيف", "tidy", "مرتب"),
+    ("dirty", "قذر", "filthy", "وسخ"),
+    ("full", "ممتلئ", "packed", "مزدحم"),
+    ("empty", "فارغ", "vacant", "خالٍ"),
+    ("open", "مفتوح", "unlocked", "غير مقفل"),
+    ("closed", "مغلق", "shut", "مطبق"),
+    ("near", "قريب", "adjacent", "مجاور"),
+    ("far", "بعيد", "distant", "ناءٍ"),
+    ("high", "مرتفع", "tall", "طويل"),
+    ("low", "منخفض", "short", "قصير"),
+    ("deep", "عميق", "bottomless", "غور"),
+    ("shallow", "ضحل", "surface", "سطحي"),
+    ("wide", "عريض", "broad", "واسع"),
+    ("narrow", "ضيق", "slender", "نحيف"),
+    ("thick", "سميك", "dense", "كثيف"),
+    ("thin", "رقيق", "slim", "نحيل"),
+    ("heavy", "ثقيل", "weighty", "وزين"),
+)
+
+# Qualifiers are drawn from TRAIN concepts only: held-out concepts stay unseen.
+QUALIFIERS: tuple[tuple[str, str], ...] = (
+    ("bridge", "جسر"), ("door", "باب"), ("book", "كتاب"),
+    ("sea", "بحر"), ("tree", "شجرة"), ("road", "طريق"),
+    ("window", "نافذة"), ("mountain", "جبل"), ("river", "نهر"),
+    ("table", "طاولة"), ("sky", "سماء"), ("garden", "حديقة"),
+)
+
+OUT_OF_SCOPE: tuple[tuple[str, str], ...] = (
+    ("spaceship", "مركبة فضائية"),
+    ("telescope", "تلسكوب"),
+    ("vaccine", "لقاح"),
+    ("parliament", "برلمان"),
+    ("volcano", "بركان"),
+    ("keyboard", "لوحة مفاتيح"),
+    ("carpet", "سجادة"),
+    ("puzzle", "أحجية"),
+)
