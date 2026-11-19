@@ -1,0 +1,24 @@
+<SPEC>
+The portions splitter must distribute the integer remainder one unit at a time; the current answer drops it, so the parts do not sum to the whole.
+<TEST>
+# tests/test_service.py
+from portions import share_portions
+
+
+def test_remainder_is_distributed():
+    assert share_portions(101, 3) == [34, 34, 33]
+    assert share_portions(13, 4) == [4, 3, 3, 3]
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: integer_distribution -> 
+@@ -1,3 +1,4 @@
+-    return [share] * people
++    q, r = divmod(amount, people)
++    return [q + 1 if i < r else q for i in range(people)]
+<SOL>
+# portions.py
+def share_portions(amount, people):
+    share = amount // people
+    q, r = divmod(amount, people)
+    return [q + 1 if i < r else q for i in range(people)]
+</SOL>

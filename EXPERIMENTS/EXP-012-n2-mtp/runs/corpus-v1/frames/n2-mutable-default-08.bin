@@ -1,0 +1,34 @@
+<SPEC>
+The harbor service appends a vessel to a collection. Each call must start from an empty collection; the current default is shared between calls.
+<TEST>
+# tests/test_service.py
+from harbor import dock_vessel
+
+
+def test_each_call_gets_its_own_berths():
+    first = dock_vessel('tug')
+    second = dock_vessel('ferry')
+    assert first == ['tug']
+    assert second == ['ferry']
+    assert first is not second
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: mutable_default -> 
+@@ -1,6 +1,8 @@
+-def dock_vessel(value, berths=[]):
++def dock_vessel(value, berths=None):
++    if berths is None:
++        berths = []
+<SOL>
+# harbor.py
+"""Helpers for the harbor service."""
+
+def dock_vessel(value, berths=None):
+    if berths is None:
+        berths = []
+    berths.append(value)
+    return berths
+
+def count_vessel(items):
+    return len(items)
+</SOL>

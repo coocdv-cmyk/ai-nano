@@ -1,0 +1,27 @@
+<SPEC>
+The colors lookup must fall back to the declared default for an unknown key instead of raising KeyError.
+<TEST>
+# tests/test_service.py
+from colors import color_for
+
+
+def test_known_key():
+    assert color_for('accent') == 'blue'
+
+
+def test_missing_key_falls_back():
+    assert color_for('border') == 'blue'
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: mapping_fallback -> 
+@@ -1,5 +1,4 @@
+-
+-    return PALETTE[name]
++    return PALETTE.get(name, 'blue')
+<SOL>
+# colors.py
+PALETTE = {'accent': 'blue'}
+
+def color_for(name):
+    return PALETTE.get(name, 'blue')
+</SOL>

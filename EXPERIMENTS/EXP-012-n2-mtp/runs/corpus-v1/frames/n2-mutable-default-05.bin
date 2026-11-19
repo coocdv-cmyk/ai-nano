@@ -1,0 +1,34 @@
+<SPEC>
+The library service appends a book to a collection. Each call must start from an empty collection; the current default is shared between calls.
+<TEST>
+# tests/test_service.py
+from library import checkout_book
+
+
+def test_each_call_gets_its_own_loans():
+    first = checkout_book('dune')
+    second = checkout_book('emma')
+    assert first == ['dune']
+    assert second == ['emma']
+    assert first is not second
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: mutable_default -> 
+@@ -1,6 +1,8 @@
+-def checkout_book(value, loans=[]):
++def checkout_book(value, loans=None):
++    if loans is None:
++        loans = []
+<SOL>
+# library.py
+"""Helpers for the library service."""
+
+def checkout_book(value, loans=None):
+    if loans is None:
+        loans = []
+    loans.append(value)
+    return loans
+
+def count_book(items):
+    return len(items)
+</SOL>

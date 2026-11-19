@@ -1,0 +1,34 @@
+<SPEC>
+The orchard service appends a crate to a collection. Each call must start from an empty collection; the current default is shared between calls.
+<TEST>
+# tests/test_service.py
+from orchard import pack_crate
+
+
+def test_each_call_gets_its_own_crates():
+    first = pack_crate('plum')
+    second = pack_crate('fig')
+    assert first == ['plum']
+    assert second == ['fig']
+    assert first is not second
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: mutable_default -> 
+@@ -1,6 +1,8 @@
+-def pack_crate(value, crates=[]):
++def pack_crate(value, crates=None):
++    if crates is None:
++        crates = []
+<SOL>
+# orchard.py
+"""Helpers for the orchard service."""
+
+def pack_crate(value, crates=None):
+    if crates is None:
+        crates = []
+    crates.append(value)
+    return crates
+
+def count_crate(items):
+    return len(items)
+</SOL>

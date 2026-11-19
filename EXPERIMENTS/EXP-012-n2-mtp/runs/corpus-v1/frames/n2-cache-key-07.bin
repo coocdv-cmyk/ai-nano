@@ -1,0 +1,27 @@
+<SPEC>
+The stages cache key must include both front and back; omitting one returns a stale result when only that input changes.
+<TEST>
+# tests/test_service.py
+from stages import deck_area
+
+
+def test_result_depends_on_both_inputs():
+    assert deck_area(9, 2) == 9 * 2
+    assert deck_area(9, 6) == 9 * 6
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: cache_key -> 
+@@ -1,8 +1,7 @@
+-
+-    key = front
++    key = (front, back)
+<SOL>
+# stages.py
+_CACHE = {}
+
+def deck_area(front, back):
+    key = (front, back)
+    if key not in _CACHE:
+        _CACHE[key] = front * back
+    return _CACHE[key]
+</SOL>

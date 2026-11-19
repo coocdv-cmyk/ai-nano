@@ -302,3 +302,49 @@ def test_native_v2_matches_pytorch_and_greedy(tmp_path, ternary):
     assert eng.generate(prompt, 12, temperature=0) == want
     batch_out = eng.generate_batch([prompt, prompt], 10, temperature=0.8, seed=1)
     assert len(batch_out) == 2 and all(len(b) == 10 for b in batch_out)
+
+
+def test_native_v2_speculation_is_lossless(tmp_path):
+    """EXP-012 N2: speculation, its undo log, and its gate preserve bytes exactly."""
+    torch.manual_seed(13)
+    cfg = CoreConfig(
+        d=64, layers=1, heads=2, hidden=96, ctx=32, arch="v2",
+        n_loops=1, mtp_k=4, patch_size=4, hash_buckets=256, fast_dim=8,
+        use_fast_weights=True, use_copy_gate=True, copy_window=2048, ternary=True,
+    )
+
+    # Random MTP heads: almost every draft is rejected, so the undo path runs.
+    m = build_model(cfg)
+    with torch.no_grad():
+        for p in m.parameters():
+            if p.dim() >= 2:
+                p.normal_(0, 0.14)
+    ck = tmp_path / "v2_spec_random.pt"
+    torch.save({"config": cfg.to_dict(), "state": m.state_dict()}, ck)
+    eng = Engine.load(ck, packed=True)
+    eng.spec_adaptive = False
+    prompt = b"def f(x):\n    return x\n# ---\n"
+    plain = eng.generate(prompt, 96, temperature=0, speculative=False)
+    assert eng.generate(prompt, 96, temperature=0, speculative=True) == plain
+    assert eng.last_stats["speculative_drafts"] > 0
+
+    # The production gate must disable itself on a <25% acceptance stream.
+    # One draft per 4-token patch when draft 0 rejects, so 320 tokens > 64.
+    plain_long = eng.generate(prompt, 320, temperature=0, speculative=False)
+    eng.spec_adaptive = True
+    assert eng.generate(prompt, 320, temperature=0, speculative=True) == plain_long
+    assert eng.last_stats["spec_disabled"] is True
+
+    # All-zero weights make base and drafts agree on token 0: the commit path.
+    m0 = build_model(cfg)
+    with torch.no_grad():
+        for p in m0.parameters():
+            p.zero_()
+    ck0 = tmp_path / "v2_spec_zero.pt"
+    torch.save({"config": cfg.to_dict(), "state": m0.state_dict()}, ck0)
+    eng0 = Engine.load(ck0, packed=True)
+    eng0.spec_adaptive = False
+    plain0 = eng0.generate(b"abcd", 61, temperature=0, speculative=False)
+    spec0 = eng0.generate(b"abcd", 61, temperature=0, speculative=True)
+    assert plain0 == spec0 == b"\x00" * 61
+    assert eng0.last_stats["spec_accept_rate"] == 1.0

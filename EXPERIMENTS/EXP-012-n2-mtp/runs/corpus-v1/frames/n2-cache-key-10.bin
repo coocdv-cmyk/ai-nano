@@ -1,0 +1,27 @@
+<SPEC>
+The pavilion cache key must include both side_a and side_b; omitting one returns a stale result when only that input changes.
+<TEST>
+# tests/test_service.py
+from pavilion import floor_area
+
+
+def test_result_depends_on_both_inputs():
+    assert floor_area(12, 2) == 12 * 2
+    assert floor_area(12, 6) == 12 * 6
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: cache_key -> 
+@@ -1,8 +1,7 @@
+-
+-    key = side_a
++    key = (side_a, side_b)
+<SOL>
+# pavilion.py
+_CACHE = {}
+
+def floor_area(side_a, side_b):
+    key = (side_a, side_b)
+    if key not in _CACHE:
+        _CACHE[key] = side_a * side_b
+    return _CACHE[key]
+</SOL>

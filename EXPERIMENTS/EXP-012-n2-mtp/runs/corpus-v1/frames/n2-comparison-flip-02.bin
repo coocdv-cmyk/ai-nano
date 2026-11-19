@@ -1,0 +1,30 @@
+<SPEC>
+The doors gate must allow only values strictly below threshold; equality is not enough and the current comparison admits it.
+<TEST>
+# tests/test_service.py
+from doors import opens_at
+
+
+def test_equal_is_denied():
+    assert opens_at(4, 4) is False
+
+
+def test_lower_is_allowed():
+    assert opens_at(3, 4) is True
+
+
+def test_higher_is_denied():
+    assert opens_at(5, 4) is False
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: comparison_flip -> 
+@@ -1,4 +1,4 @@
+-    if badge <= threshold:
++    if badge < threshold:
+<SOL>
+# doors.py
+def opens_at(badge, threshold):
+    if badge < threshold:
+        return True
+    return False
+</SOL>

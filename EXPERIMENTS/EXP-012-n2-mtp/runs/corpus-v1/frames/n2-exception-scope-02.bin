@@ -1,0 +1,41 @@
+<SPEC>
+The inbox helper may convert a policy failure into -1, but a programming error such as TypeError must never be swallowed.
+<TEST>
+# tests/test_service.py
+import pytest
+from errors import PolicyError
+from inbox import queue_message
+
+
+def test_policy_error_falls_back():
+    def handler(value):
+        raise PolicyError('blocked')
+    assert queue_message(handler, 1) == -1
+
+
+def test_type_error_propagates():
+    def handler(value):
+        raise TypeError('bad')
+    with pytest.raises(TypeError):
+        queue_message(handler, 1)
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: exception_scope -> 
+@@ -1,8 +1,7 @@
+-
+-    except Exception:
++    except PolicyError:
+<SOL>
+# errors.py
+class PolicyError(Exception):
+    pass
+
+# inbox.py
+from errors import PolicyError
+
+def queue_message(handler, value):
+    try:
+        return handler(value)
+    except PolicyError:
+        return -1
+</SOL>

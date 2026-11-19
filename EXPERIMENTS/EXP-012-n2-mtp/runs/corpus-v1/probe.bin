@@ -1,0 +1,1110 @@
+<SPEC>
+The harbor service appends a vessel to a collection. Each call must start from an empty collection; the current default is shared between calls.
+<TEST>
+# tests/test_service.py
+from harbor import dock_vessel
+
+
+def test_each_call_gets_its_own_berths():
+    first = dock_vessel('tug')
+    second = dock_vessel('ferry')
+    assert first == ['tug']
+    assert second == ['ferry']
+    assert first is not second
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: mutable_default -> 
+@@ -1,6 +1,8 @@
+-def dock_vessel(value, berths=[]):
++def dock_vessel(value, berths=None):
++    if berths is None:
++        berths = []
+<SOL>
+# harbor.py
+"""Helpers for the harbor service."""
+
+def dock_vessel(value, berths=None):
+    if berths is None:
+        berths = []
+    berths.append(value)
+    return berths
+
+def count_vessel(items):
+    return len(items)
+</SOL>
+
+<SPEC>
+The orchard service appends a crate to a collection. Each call must start from an empty collection; the current default is shared between calls.
+<TEST>
+# tests/test_service.py
+from orchard import pack_crate
+
+
+def test_each_call_gets_its_own_crates():
+    first = pack_crate('plum')
+    second = pack_crate('fig')
+    assert first == ['plum']
+    assert second == ['fig']
+    assert first is not second
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: mutable_default -> 
+@@ -1,6 +1,8 @@
+-def pack_crate(value, crates=[]):
++def pack_crate(value, crates=None):
++    if crates is None:
++        crates = []
+<SOL>
+# orchard.py
+"""Helpers for the orchard service."""
+
+def pack_crate(value, crates=None):
+    if crates is None:
+        crates = []
+    crates.append(value)
+    return crates
+
+def count_crate(items):
+    return len(items)
+</SOL>
+
+<SPEC>
+The atelier service appends a swatch to a collection. Each call must start from an empty collection; the current default is shared between calls.
+<TEST>
+# tests/test_service.py
+from atelier import pin_swatch
+
+
+def test_each_call_gets_its_own_swatches():
+    first = pin_swatch('linen')
+    second = pin_swatch('wool')
+    assert first == ['linen']
+    assert second == ['wool']
+    assert first is not second
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: mutable_default -> 
+@@ -1,6 +1,8 @@
+-def pin_swatch(value, swatches=[]):
++def pin_swatch(value, swatches=None):
++    if swatches is None:
++        swatches = []
+<SOL>
+# atelier.py
+"""Helpers for the atelier service."""
+
+def pin_swatch(value, swatches=None):
+    if swatches is None:
+        swatches = []
+    swatches.append(value)
+    return swatches
+
+def count_swatch(items):
+    return len(items)
+</SOL>
+
+<SPEC>
+The aviary service appends a bird to a collection. Each call must start from an empty collection; the current default is shared between calls.
+<TEST>
+# tests/test_service.py
+from aviary import tag_bird
+
+
+def test_each_call_gets_its_own_tags():
+    first = tag_bird('finch')
+    second = tag_bird('robin')
+    assert first == ['finch']
+    assert second == ['robin']
+    assert first is not second
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: mutable_default -> 
+@@ -1,6 +1,8 @@
+-def tag_bird(value, tags=[]):
++def tag_bird(value, tags=None):
++    if tags is None:
++        tags = []
+<SOL>
+# aviary.py
+"""Helpers for the aviary service."""
+
+def tag_bird(value, tags=None):
+    if tags is None:
+        tags = []
+    tags.append(value)
+    return tags
+
+def count_bird(items):
+    return len(items)
+</SOL>
+
+<SPEC>
+The harbor helper may convert a policy failure into -1, but a programming error such as TypeError must never be swallowed.
+<TEST>
+# tests/test_service.py
+import pytest
+from errors import PolicyError
+from harbor import dock_vessel
+
+
+def test_policy_error_falls_back():
+    def handler(value):
+        raise PolicyError('blocked')
+    assert dock_vessel(handler, 1) == -1
+
+
+def test_type_error_propagates():
+    def handler(value):
+        raise TypeError('bad')
+    with pytest.raises(TypeError):
+        dock_vessel(handler, 1)
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: exception_scope -> 
+@@ -1,8 +1,7 @@
+-
+-    except Exception:
++    except PolicyError:
+<SOL>
+# errors.py
+class PolicyError(Exception):
+    pass
+
+# harbor.py
+from errors import PolicyError
+
+def dock_vessel(handler, value):
+    try:
+        return handler(value)
+    except PolicyError:
+        return -1
+</SOL>
+
+<SPEC>
+The orchard helper may convert a policy failure into -1, but a programming error such as TypeError must never be swallowed.
+<TEST>
+# tests/test_service.py
+import pytest
+from errors import PolicyError
+from orchard import pack_crate
+
+
+def test_policy_error_falls_back():
+    def handler(value):
+        raise PolicyError('blocked')
+    assert pack_crate(handler, 1) == -1
+
+
+def test_type_error_propagates():
+    def handler(value):
+        raise TypeError('bad')
+    with pytest.raises(TypeError):
+        pack_crate(handler, 1)
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: exception_scope -> 
+@@ -1,8 +1,7 @@
+-
+-    except Exception:
++    except PolicyError:
+<SOL>
+# errors.py
+class PolicyError(Exception):
+    pass
+
+# orchard.py
+from errors import PolicyError
+
+def pack_crate(handler, value):
+    try:
+        return handler(value)
+    except PolicyError:
+        return -1
+</SOL>
+
+<SPEC>
+The atelier helper may convert a policy failure into -1, but a programming error such as TypeError must never be swallowed.
+<TEST>
+# tests/test_service.py
+import pytest
+from errors import PolicyError
+from atelier import pin_swatch
+
+
+def test_policy_error_falls_back():
+    def handler(value):
+        raise PolicyError('blocked')
+    assert pin_swatch(handler, 1) == -1
+
+
+def test_type_error_propagates():
+    def handler(value):
+        raise TypeError('bad')
+    with pytest.raises(TypeError):
+        pin_swatch(handler, 1)
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: exception_scope -> 
+@@ -1,8 +1,7 @@
+-
+-    except Exception:
++    except PolicyError:
+<SOL>
+# atelier.py
+from errors import PolicyError
+
+def pin_swatch(handler, value):
+    try:
+        return handler(value)
+    except PolicyError:
+        return -1
+
+# errors.py
+class PolicyError(Exception):
+    pass
+</SOL>
+
+<SPEC>
+The aviary helper may convert a policy failure into -1, but a programming error such as TypeError must never be swallowed.
+<TEST>
+# tests/test_service.py
+import pytest
+from errors import PolicyError
+from aviary import tag_bird
+
+
+def test_policy_error_falls_back():
+    def handler(value):
+        raise PolicyError('blocked')
+    assert tag_bird(handler, 1) == -1
+
+
+def test_type_error_propagates():
+    def handler(value):
+        raise TypeError('bad')
+    with pytest.raises(TypeError):
+        tag_bird(handler, 1)
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: exception_scope -> 
+@@ -1,8 +1,7 @@
+-
+-    except Exception:
++    except PolicyError:
+<SOL>
+# aviary.py
+from errors import PolicyError
+
+def tag_bird(handler, value):
+    try:
+        return handler(value)
+    except PolicyError:
+        return -1
+
+# errors.py
+class PolicyError(Exception):
+    pass
+</SOL>
+
+<SPEC>
+The terrace cache key must include both near and far; omitting one returns a stale result when only that input changes.
+<TEST>
+# tests/test_service.py
+from terrace import patio_area
+
+
+def test_result_depends_on_both_inputs():
+    assert patio_area(10, 3) == 10 * 3
+    assert patio_area(10, 7) == 10 * 7
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: cache_key -> 
+@@ -1,8 +1,7 @@
+-
+-    key = near
++    key = (near, far)
+<SOL>
+# terrace.py
+_CACHE = {}
+
+def patio_area(near, far):
+    key = (near, far)
+    if key not in _CACHE:
+        _CACHE[key] = near * far
+    return _CACHE[key]
+</SOL>
+
+<SPEC>
+The hangar cache key must include both width_x and depth_y; omitting one returns a stale result when only that input changes.
+<TEST>
+# tests/test_service.py
+from hangar import bay_area
+
+
+def test_result_depends_on_both_inputs():
+    assert bay_area(11, 4) == 11 * 4
+    assert bay_area(11, 5) == 11 * 5
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: cache_key -> 
+@@ -1,8 +1,7 @@
+-
+-    key = width_x
++    key = (width_x, depth_y)
+<SOL>
+# hangar.py
+_CACHE = {}
+
+def bay_area(width_x, depth_y):
+    key = (width_x, depth_y)
+    if key not in _CACHE:
+        _CACHE[key] = width_x * depth_y
+    return _CACHE[key]
+</SOL>
+
+<SPEC>
+The pavilion cache key must include both side_a and side_b; omitting one returns a stale result when only that input changes.
+<TEST>
+# tests/test_service.py
+from pavilion import floor_area
+
+
+def test_result_depends_on_both_inputs():
+    assert floor_area(12, 2) == 12 * 2
+    assert floor_area(12, 6) == 12 * 6
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: cache_key -> 
+@@ -1,8 +1,7 @@
+-
+-    key = side_a
++    key = (side_a, side_b)
+<SOL>
+# pavilion.py
+_CACHE = {}
+
+def floor_area(side_a, side_b):
+    key = (side_a, side_b)
+    if key not in _CACHE:
+        _CACHE[key] = side_a * side_b
+    return _CACHE[key]
+</SOL>
+
+<SPEC>
+The gallery cache key must include both high and low; omitting one returns a stale result when only that input changes.
+<TEST>
+# tests/test_service.py
+from gallery import wall_area
+
+
+def test_result_depends_on_both_inputs():
+    assert wall_area(13, 5) == 13 * 5
+    assert wall_area(13, 3) == 13 * 3
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: cache_key -> 
+@@ -1,8 +1,7 @@
+-
+-    key = high
++    key = (high, low)
+<SOL>
+# gallery.py
+_CACHE = {}
+
+def wall_area(high, low):
+    key = (high, low)
+    if key not in _CACHE:
+        _CACHE[key] = high * low
+    return _CACHE[key]
+</SOL>
+
+<SPEC>
+The decorators factory must bind the loop variable into each closure; today every closure sees the final value.
+<TEST>
+# tests/test_service.py
+from decorators import make_decorators
+
+
+def test_each_closure_binds_its_own_name():
+    handlers = make_decorators('dec', ['one', 'two', 'three'])
+    assert [h(1) for h in handlers] == ['dec:one:1', 'dec:two:1', 'dec:three:1']
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: closure_binding -> 
+@@ -1,5 +1,5 @@
+-        handlers.append(lambda value: f'{flavor}:{name}:{value}')
++        handlers.append(lambda value, *, name=name: f'{flavor}:{name}:{value}')
+<SOL>
+# decorators.py
+def make_decorators(flavor, steps):
+    handlers = []
+    for name in steps:
+        handlers.append(lambda value, *, name=name: f'{flavor}:{name}:{value}')
+    return handlers
+</SOL>
+
+<SPEC>
+The adapters factory must bind the loop variable into each closure; today every closure sees the final value.
+<TEST>
+# tests/test_service.py
+from adapters import make_adapters
+
+
+def test_each_closure_binds_its_own_name():
+    handlers = make_adapters('adp', ['csv', 'json', 'xml'])
+    assert [h(1) for h in handlers] == ['adp:csv:1', 'adp:json:1', 'adp:xml:1']
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: closure_binding -> 
+@@ -1,5 +1,5 @@
+-        handlers.append(lambda value: f'{format}:{name}:{value}')
++        handlers.append(lambda value, *, name=name: f'{format}:{name}:{value}')
+<SOL>
+# adapters.py
+def make_adapters(format, sources):
+    handlers = []
+    for name in sources:
+        handlers.append(lambda value, *, name=name: f'{format}:{name}:{value}')
+    return handlers
+</SOL>
+
+<SPEC>
+The listeners factory must bind the loop variable into each closure; today every closure sees the final value.
+<TEST>
+# tests/test_service.py
+from listeners import make_listeners
+
+
+def test_each_closure_binds_its_own_name():
+    handlers = make_listeners('lst', ['a', 'b', 'c'])
+    assert [h(1) for h in handlers] == ['lst:a:1', 'lst:b:1', 'lst:c:1']
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: closure_binding -> 
+@@ -1,5 +1,5 @@
+-        handlers.append(lambda value: f'{topic}:{name}:{value}')
++        handlers.append(lambda value, *, name=name: f'{topic}:{name}:{value}')
+<SOL>
+# listeners.py
+def make_listeners(topic, channels):
+    handlers = []
+    for name in channels:
+        handlers.append(lambda value, *, name=name: f'{topic}:{name}:{value}')
+    return handlers
+</SOL>
+
+<SPEC>
+The middleware factory must bind the loop variable into each closure; today every closure sees the final value.
+<TEST>
+# tests/test_service.py
+from middleware import make_middleware
+
+
+def test_each_closure_binds_its_own_name():
+    handlers = make_middleware('mid', ['pre', 'core', 'post'])
+    assert [h(1) for h in handlers] == ['mid:pre:1', 'mid:core:1', 'mid:post:1']
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: closure_binding -> 
+@@ -1,5 +1,5 @@
+-        handlers.append(lambda value: f'{layer}:{name}:{value}')
++        handlers.append(lambda value, *, name=name: f'{layer}:{name}:{value}')
+<SOL>
+# middleware.py
+def make_middleware(layer, phases):
+    handlers = []
+    for name in phases:
+        handlers.append(lambda value, *, name=name: f'{layer}:{name}:{value}')
+    return handlers
+</SOL>
+
+<SPEC>
+The tray accessor accepts only positions 0..2 and must raise IndexError for negative or overflowing positions instead of returning a silent None.
+<TEST>
+# tests/test_service.py
+import pytest
+from tray import sample_at
+
+
+def test_valid_positions():
+    assert sample_at([51, 52, 53], 0) == 51
+    assert sample_at([51, 52, 53], 2) == 53
+
+
+def test_negative_rejected():
+    with pytest.raises(IndexError):
+        sample_at([51, 52, 53], -1)
+
+
+def test_overflow_rejected():
+    with pytest.raises(IndexError):
+        sample_at([51, 52, 53], 3)
+<FAIL>
+pytest: 2 failed before repair; 5 verifier call(s); 0 failed after repair
+candidate: boundary_guard -> 
+candidate: comparison_flip -> 
+candidate: comparison_flip -> 
+@@ -1,4 +1,6 @@
+-    if where < len(samples):
++    if where < 0:
++        raise IndexError('where must be >= 0')
++    if where <= len(samples):
+<SOL>
+# tray.py
+def sample_at(samples, where):
+    if where < 0:
+        raise IndexError('where must be >= 0')
+    if where <= len(samples):
+        return samples[where]
+    return None
+</SOL>
+
+<SPEC>
+The bins accessor accepts only positions 0..2 and must raise IndexError for negative or overflowing positions instead of returning a silent None.
+<TEST>
+# tests/test_service.py
+import pytest
+from bins import bucket_at
+
+
+def test_valid_positions():
+    assert bucket_at([61, 62, 63], 0) == 61
+    assert bucket_at([61, 62, 63], 2) == 63
+
+
+def test_negative_rejected():
+    with pytest.raises(IndexError):
+        bucket_at([61, 62, 63], -1)
+
+
+def test_overflow_rejected():
+    with pytest.raises(IndexError):
+        bucket_at([61, 62, 63], 3)
+<FAIL>
+pytest: 2 failed before repair; 5 verifier call(s); 0 failed after repair
+candidate: boundary_guard -> 
+candidate: comparison_flip -> 
+candidate: comparison_flip -> 
+@@ -1,4 +1,6 @@
+-    if pick < len(bins):
++    if pick < 0:
++        raise IndexError('pick must be >= 0')
++    if pick <= len(bins):
+<SOL>
+# bins.py
+def bucket_at(bins, pick):
+    if pick < 0:
+        raise IndexError('pick must be >= 0')
+    if pick <= len(bins):
+        return bins[pick]
+    return None
+</SOL>
+
+<SPEC>
+The lanes accessor accepts only positions 0..2 and must raise IndexError for negative or overflowing positions instead of returning a silent None.
+<TEST>
+# tests/test_service.py
+import pytest
+from lanes import runner_at
+
+
+def test_valid_positions():
+    assert runner_at([71, 72, 73], 0) == 71
+    assert runner_at([71, 72, 73], 2) == 73
+
+
+def test_negative_rejected():
+    with pytest.raises(IndexError):
+        runner_at([71, 72, 73], -1)
+
+
+def test_overflow_rejected():
+    with pytest.raises(IndexError):
+        runner_at([71, 72, 73], 3)
+<FAIL>
+pytest: 2 failed before repair; 5 verifier call(s); 0 failed after repair
+candidate: boundary_guard -> 
+candidate: comparison_flip -> 
+candidate: comparison_flip -> 
+@@ -1,4 +1,6 @@
+-    if rank < len(lanes):
++    if rank < 0:
++        raise IndexError('rank must be >= 0')
++    if rank <= len(lanes):
+<SOL>
+# lanes.py
+def runner_at(lanes, rank):
+    if rank < 0:
+        raise IndexError('rank must be >= 0')
+    if rank <= len(lanes):
+        return lanes[rank]
+    return None
+</SOL>
+
+<SPEC>
+The shelves accessor accepts only positions 0..2 and must raise IndexError for negative or overflowing positions instead of returning a silent None.
+<TEST>
+# tests/test_service.py
+import pytest
+from shelves import book_at
+
+
+def test_valid_positions():
+    assert book_at([81, 82, 83], 0) == 81
+    assert book_at([81, 82, 83], 2) == 83
+
+
+def test_negative_rejected():
+    with pytest.raises(IndexError):
+        book_at([81, 82, 83], -1)
+
+
+def test_overflow_rejected():
+    with pytest.raises(IndexError):
+        book_at([81, 82, 83], 3)
+<FAIL>
+pytest: 2 failed before repair; 5 verifier call(s); 0 failed after repair
+candidate: boundary_guard -> 
+candidate: comparison_flip -> 
+candidate: comparison_flip -> 
+@@ -1,4 +1,6 @@
+-    if place < len(shelves):
++    if place < 0:
++        raise IndexError('place must be >= 0')
++    if place <= len(shelves):
+<SOL>
+# shelves.py
+def book_at(shelves, place):
+    if place < 0:
+        raise IndexError('place must be >= 0')
+    if place <= len(shelves):
+        return shelves[place]
+    return None
+</SOL>
+
+<SPEC>
+The trims window must cover (n + 1) * 2 bytes; the current multiplication omits the extra slot at every size.
+<TEST>
+# tests/test_service.py
+from trims import leading_trim
+
+
+def test_window_includes_the_extra_slot():
+    assert leading_trim('abcdef', 1) == 'abcd'
+    assert leading_trim('abcdef', 2) == 'abcdef'
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: off_by_one -> 
+@@ -1,3 +1,3 @@
+-    size = cuts * 2
++    size = (cuts + 1) * 2
+<SOL>
+# trims.py
+def leading_trim(data, cuts):
+    size = (cuts + 1) * 2
+    return data[:size]
+</SOL>
+
+<SPEC>
+The fences window must cover (n + 1) * 3 bytes; the current multiplication omits the extra slot at every size.
+<TEST>
+# tests/test_service.py
+from fences import front_fence
+
+
+def test_window_includes_the_extra_slot():
+    assert front_fence('abcdef', 1) == 'abcd'
+    assert front_fence('abcdef', 2) == 'abcdef'
+<FAIL>
+pytest: 1 failed before repair; 4 verifier call(s); 0 failed after repair
+candidate: off_by_one -> 
+candidate: off_by_one -> 
+@@ -1,3 +1,3 @@
+-    size = posts * 3
++    size = posts * (3 + 1)
+<SOL>
+# fences.py
+def front_fence(data, posts):
+    size = posts * (3 + 1)
+    return data[:size]
+</SOL>
+
+<SPEC>
+The bands window must cover (n + 1) * 4 bytes; the current multiplication omits the extra slot at every size.
+<TEST>
+# tests/test_service.py
+from bands import opening_band
+
+
+def test_window_includes_the_extra_slot():
+    assert opening_band('abcdef', 1) == 'abcd'
+    assert opening_band('abcdef', 2) == 'abcdef'
+<FAIL>
+pytest: 0 failed before repair; 1 verifier call(s); 0 failed after repair
+<SOL>
+# bands.py
+def opening_band(data, rings):
+    size = rings * 4
+    return data[:size]
+</SOL>
+
+<SPEC>
+The zones window must cover (n + 1) * 5 bytes; the current multiplication omits the extra slot at every size.
+<TEST>
+# tests/test_service.py
+from zones import first_zone
+
+
+def test_window_includes_the_extra_slot():
+    assert first_zone('abcdef', 1) == 'abcd'
+    assert first_zone('abcdef', 2) == 'abcdef'
+<FAIL>
+pytest: 1 failed before repair; 6 verifier call(s); 0 failed after repair
+candidate: off_by_one -> 
+candidate: off_by_one -> 
+candidate: off_by_one -> 
+@@ -1,3 +1,3 @@
+-    size = cells * 5
++    size = cells * (5 - 1)
+<SOL>
+# zones.py
+def first_zone(data, cells):
+    size = cells * (5 - 1)
+    return data[:size]
+</SOL>
+
+<SPEC>
+The funds splitter must distribute the integer remainder one unit at a time; the current answer drops it, so the parts do not sum to the whole.
+<TEST>
+# tests/test_service.py
+from funds import split_funds
+
+
+def test_remainder_is_distributed():
+    assert split_funds(108, 3) == [36, 36, 36]
+    assert split_funds(41, 4) == [11, 10, 10, 10]
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: integer_distribution -> 
+@@ -1,3 +1,4 @@
+-    return [share] * accounts
++    q, r = divmod(funds, accounts)
++    return [q + 1 if i < r else q for i in range(accounts)]
+<SOL>
+# funds.py
+def split_funds(funds, accounts):
+    share = funds // accounts
+    q, r = divmod(funds, accounts)
+    return [q + 1 if i < r else q for i in range(accounts)]
+</SOL>
+
+<SPEC>
+The credits splitter must distribute the integer remainder one unit at a time; the current answer drops it, so the parts do not sum to the whole.
+<TEST>
+# tests/test_service.py
+from credits import share_credits
+
+
+def test_remainder_is_distributed():
+    assert share_credits(109, 3) == [37, 36, 36]
+    assert share_credits(43, 4) == [11, 11, 11, 10]
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: integer_distribution -> 
+@@ -1,3 +1,4 @@
+-    return [share] * teams
++    q, r = divmod(credits, teams)
++    return [q + 1 if i < r else q for i in range(teams)]
+<SOL>
+# credits.py
+def share_credits(credits, teams):
+    share = credits // teams
+    q, r = divmod(credits, teams)
+    return [q + 1 if i < r else q for i in range(teams)]
+</SOL>
+
+<SPEC>
+The marbles splitter must distribute the integer remainder one unit at a time; the current answer drops it, so the parts do not sum to the whole.
+<TEST>
+# tests/test_service.py
+from marbles import divide_marbles
+
+
+def test_remainder_is_distributed():
+    assert divide_marbles(110, 3) == [37, 37, 36]
+    assert divide_marbles(47, 4) == [12, 12, 12, 11]
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: integer_distribution -> 
+@@ -1,3 +1,4 @@
+-    return [share] * jars
++    q, r = divmod(marbles, jars)
++    return [q + 1 if i < r else q for i in range(jars)]
+<SOL>
+# marbles.py
+def divide_marbles(marbles, jars):
+    share = marbles // jars
+    q, r = divmod(marbles, jars)
+    return [q + 1 if i < r else q for i in range(jars)]
+</SOL>
+
+<SPEC>
+The cards splitter must distribute the integer remainder one unit at a time; the current answer drops it, so the parts do not sum to the whole.
+<TEST>
+# tests/test_service.py
+from cards import deal_cards
+
+
+def test_remainder_is_distributed():
+    assert deal_cards(111, 3) == [37, 37, 37]
+    assert deal_cards(53, 4) == [14, 13, 13, 13]
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: integer_distribution -> 
+@@ -1,3 +1,4 @@
+-    return [share] * hands
++    q, r = divmod(cards, hands)
++    return [q + 1 if i < r else q for i in range(hands)]
+<SOL>
+# cards.py
+def deal_cards(cards, hands):
+    share = cards // hands
+    q, r = divmod(cards, hands)
+    return [q + 1 if i < r else q for i in range(hands)]
+</SOL>
+
+<SPEC>
+The themes lookup must fall back to the declared default for an unknown key instead of raising KeyError.
+<TEST>
+# tests/test_service.py
+from themes import theme_for
+
+
+def test_known_key():
+    assert theme_for('dark') == 'night'
+
+
+def test_missing_key_falls_back():
+    assert theme_for('sepia') == 'night'
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: mapping_fallback -> 
+@@ -1,5 +1,4 @@
+-
+-    return THEMES[name]
++    return THEMES.get(name, 'night')
+<SOL>
+# themes.py
+THEMES = {'dark': 'night'}
+
+def theme_for(name):
+    return THEMES.get(name, 'night')
+</SOL>
+
+<SPEC>
+The sizes lookup must fall back to the declared default for an unknown key instead of raising KeyError.
+<TEST>
+# tests/test_service.py
+from sizes import size_for
+
+
+def test_known_key():
+    assert size_for('small') == 'tiny'
+
+
+def test_missing_key_falls_back():
+    assert size_for('huge') == 'tiny'
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: mapping_fallback -> 
+@@ -1,5 +1,4 @@
+-
+-    return SIZES[name]
++    return SIZES.get(name, 'tiny')
+<SOL>
+# sizes.py
+SIZES = {'small': 'tiny'}
+
+def size_for(name):
+    return SIZES.get(name, 'tiny')
+</SOL>
+
+<SPEC>
+The speeds lookup must fall back to the declared default for an unknown key instead of raising KeyError.
+<TEST>
+# tests/test_service.py
+from speeds import speed_for
+
+
+def test_known_key():
+    assert speed_for('slow') == 'crawl'
+
+
+def test_missing_key_falls_back():
+    assert speed_for('warp') == 'crawl'
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: mapping_fallback -> 
+@@ -1,5 +1,4 @@
+-
+-    return SPEEDS[name]
++    return SPEEDS.get(name, 'crawl')
+<SOL>
+# speeds.py
+SPEEDS = {'slow': 'crawl'}
+
+def speed_for(name):
+    return SPEEDS.get(name, 'crawl')
+</SOL>
+
+<SPEC>
+The grades lookup must fall back to the declared default for an unknown key instead of raising KeyError.
+<TEST>
+# tests/test_service.py
+from grades import grade_for
+
+
+def test_known_key():
+    assert grade_for('pass') == 'ok'
+
+
+def test_missing_key_falls_back():
+    assert grade_for('top') == 'ok'
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: mapping_fallback -> 
+@@ -1,5 +1,4 @@
+-
+-    return GRADES[name]
++    return GRADES.get(name, 'ok')
+<SOL>
+# grades.py
+GRADES = {'pass': 'ok'}
+
+def grade_for(name):
+    return GRADES.get(name, 'ok')
+</SOL>
+
+<SPEC>
+The clearance gate must allow only values strictly below gate; equality is not enough and the current comparison admits it.
+<TEST>
+# tests/test_service.py
+from clearance import clears_clearance
+
+
+def test_equal_is_denied():
+    assert clears_clearance(10, 10) is False
+
+
+def test_lower_is_allowed():
+    assert clears_clearance(9, 10) is True
+
+
+def test_higher_is_denied():
+    assert clears_clearance(11, 10) is False
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: comparison_flip -> 
+@@ -1,4 +1,4 @@
+-    if clearance <= gate:
++    if clearance < gate:
+<SOL>
+# clearance.py
+def clears_clearance(clearance, gate):
+    if clearance < gate:
+        return True
+    return False
+</SOL>
+
+<SPEC>
+The badges gate must allow only values strictly below lock; equality is not enough and the current comparison admits it.
+<TEST>
+# tests/test_service.py
+from badges import badge_opens
+
+
+def test_equal_is_denied():
+    assert badge_opens(11, 11) is False
+
+
+def test_lower_is_allowed():
+    assert badge_opens(10, 11) is True
+
+
+def test_higher_is_denied():
+    assert badge_opens(12, 11) is False
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: comparison_flip -> 
+@@ -1,4 +1,4 @@
+-    if badge <= lock:
++    if badge < lock:
+<SOL>
+# badges.py
+def badge_opens(badge, lock):
+    if badge < lock:
+        return True
+    return False
+</SOL>
+
+<SPEC>
+The ranks gate must allow only values strictly below need; equality is not enough and the current comparison admits it.
+<TEST>
+# tests/test_service.py
+from ranks import rank_meets
+
+
+def test_equal_is_denied():
+    assert rank_meets(12, 12) is False
+
+
+def test_lower_is_allowed():
+    assert rank_meets(11, 12) is True
+
+
+def test_higher_is_denied():
+    assert rank_meets(13, 12) is False
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: comparison_flip -> 
+@@ -1,4 +1,4 @@
+-    if rank <= need:
++    if rank < need:
+<SOL>
+# ranks.py
+def rank_meets(rank, need):
+    if rank < need:
+        return True
+    return False
+</SOL>
+
+<SPEC>
+The quotas gate must allow only values strictly below target; equality is not enough and the current comparison admits it.
+<TEST>
+# tests/test_service.py
+from quotas import quota_meets
+
+
+def test_equal_is_denied():
+    assert quota_meets(13, 13) is False
+
+
+def test_lower_is_allowed():
+    assert quota_meets(12, 13) is True
+
+
+def test_higher_is_denied():
+    assert quota_meets(14, 13) is False
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: comparison_flip -> 
+@@ -1,4 +1,4 @@
+-    if quota <= target:
++    if quota < target:
+<SOL>
+# quotas.py
+def quota_meets(quota, target):
+    if quota < target:
+        return True
+    return False
+</SOL>

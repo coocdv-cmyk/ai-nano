@@ -1,0 +1,27 @@
+<SPEC>
+The labels lookup must fall back to the declared default for an unknown key instead of raising KeyError.
+<TEST>
+# tests/test_service.py
+from labels import label_for
+
+
+def test_known_key():
+    assert label_for('title') == 'draft'
+
+
+def test_missing_key_falls_back():
+    assert label_for('footer') == 'draft'
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: mapping_fallback -> 
+@@ -1,5 +1,4 @@
+-
+-    return LABELS[name]
++    return LABELS.get(name, 'draft')
+<SOL>
+# labels.py
+LABELS = {'title': 'draft'}
+
+def label_for(name):
+    return LABELS.get(name, 'draft')
+</SOL>

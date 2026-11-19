@@ -1,0 +1,24 @@
+<SPEC>
+The adapters factory must bind the loop variable into each closure; today every closure sees the final value.
+<TEST>
+# tests/test_service.py
+from adapters import make_adapters
+
+
+def test_each_closure_binds_its_own_name():
+    handlers = make_adapters('adp', ['csv', 'json', 'xml'])
+    assert [h(1) for h in handlers] == ['adp:csv:1', 'adp:json:1', 'adp:xml:1']
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: closure_binding -> 
+@@ -1,5 +1,5 @@
+-        handlers.append(lambda value: f'{format}:{name}:{value}')
++        handlers.append(lambda value, *, name=name: f'{format}:{name}:{value}')
+<SOL>
+# adapters.py
+def make_adapters(format, sources):
+    handlers = []
+    for name in sources:
+        handlers.append(lambda value, *, name=name: f'{format}:{name}:{value}')
+    return handlers
+</SOL>

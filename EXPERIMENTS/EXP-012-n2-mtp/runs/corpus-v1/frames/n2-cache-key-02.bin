@@ -1,0 +1,27 @@
+<SPEC>
+The surfaces cache key must include both across and down; omitting one returns a stale result when only that input changes.
+<TEST>
+# tests/test_service.py
+from surfaces import panel_area
+
+
+def test_result_depends_on_both_inputs():
+    assert panel_area(4, 3) == 4 * 3
+    assert panel_area(4, 8) == 4 * 8
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: cache_key -> 
+@@ -1,8 +1,7 @@
+-
+-    key = across
++    key = (across, down)
+<SOL>
+# surfaces.py
+_CACHE = {}
+
+def panel_area(across, down):
+    key = (across, down)
+    if key not in _CACHE:
+        _CACHE[key] = across * down
+    return _CACHE[key]
+</SOL>

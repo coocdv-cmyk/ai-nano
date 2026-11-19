@@ -1,0 +1,27 @@
+<SPEC>
+The hangar cache key must include both width_x and depth_y; omitting one returns a stale result when only that input changes.
+<TEST>
+# tests/test_service.py
+from hangar import bay_area
+
+
+def test_result_depends_on_both_inputs():
+    assert bay_area(11, 4) == 11 * 4
+    assert bay_area(11, 5) == 11 * 5
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: cache_key -> 
+@@ -1,8 +1,7 @@
+-
+-    key = width_x
++    key = (width_x, depth_y)
+<SOL>
+# hangar.py
+_CACHE = {}
+
+def bay_area(width_x, depth_y):
+    key = (width_x, depth_y)
+    if key not in _CACHE:
+        _CACHE[key] = width_x * depth_y
+    return _CACHE[key]
+</SOL>

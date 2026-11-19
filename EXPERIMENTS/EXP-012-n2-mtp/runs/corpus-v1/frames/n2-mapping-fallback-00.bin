@@ -1,0 +1,27 @@
+<SPEC>
+The settings lookup must fall back to the declared default for an unknown key instead of raising KeyError.
+<TEST>
+# tests/test_service.py
+from settings import setting
+
+
+def test_known_key():
+    assert setting('theme') == 'light'
+
+
+def test_missing_key_falls_back():
+    assert setting('font') == 'light'
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: mapping_fallback -> 
+@@ -1,5 +1,4 @@
+-
+-    return DEFAULTS[name]
++    return DEFAULTS.get(name, 'light')
+<SOL>
+# settings.py
+DEFAULTS = {'theme': 'light'}
+
+def setting(name):
+    return DEFAULTS.get(name, 'light')
+</SOL>

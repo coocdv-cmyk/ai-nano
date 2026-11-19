@@ -1,0 +1,116 @@
+{
+  "exp_id": "EXP-012",
+  "corpus": {
+    "train_bytes": 56531,
+    "probe_bytes": 28306,
+    "train_sha256": "8da4a02ef8a34536284c5c5eef781fe5c8f0e58ade5ebc0c0a93233374b6de15",
+    "probe_sha256": "a16d33c2a3ec8f1569c87e1849387ab97b12cb2ca850d00abe7cbd2eac0ca1ae",
+    "sealed_leak_check": {
+      "sealed_shingles": 35875,
+      "hits": [],
+      "clean": true
+    }
+  },
+  "cfg": {
+    "vocab": 256,
+    "d": 128,
+    "layers": 2,
+    "heads": 4,
+    "hidden": 320,
+    "ctx": 256,
+    "ternary": true,
+    "arch": "v2",
+    "n_loops": 1,
+    "mtp_k": 4,
+    "ponder_weight": 0.01,
+    "halt_eps": 0.05,
+    "patch_size": 4,
+    "hash_buckets": 1024,
+    "fast_dim": 16,
+    "use_fast_weights": true,
+    "use_copy_gate": true,
+    "copy_window": 2048
+  },
+  "params": {
+    "total": 870172,
+    "block_matrices": 444416,
+    "other": 425756
+  },
+  "base_training": [
+    {
+      "tag": "core",
+      "steps": 218,
+      "seconds": 180.157,
+      "first_loss": 2.7637,
+      "last_loss": 1.4901
+    },
+    {
+      "tag": "frames",
+      "steps": 48,
+      "seconds": 60.024,
+      "first_loss": 2.0767,
+      "last_loss": 1.3927
+    }
+  ],
+  "base_probe_bpb": 2.1156,
+  "mtp": {
+    "self": {
+      "train": {
+        "objective": "self",
+        "steps": 80,
+        "seconds": 60.47,
+        "first_loss": 4.3948,
+        "last_loss": 2.4179
+      },
+      "acceptance": {
+        "rounds": 62464,
+        "k": 3,
+        "conditional_accept_rate": {
+          "offset1": 0.6091,
+          "offset2": 0.3103,
+          "offset3": 0.4233
+        },
+        "mean_prefix_len": 0.8782,
+        "accept_rate_per_draft": 0.2927,
+        "all_accepted_rate": 0.08,
+        "prefix_hist": {
+          "0": 24415,
+          "1": 26241,
+          "2": 6810,
+          "3": 4998
+        },
+        "base_top1_vs_bytes": 0.6281
+      },
+      "checkpoint": "mtp-self.pt"
+    },
+    "truth": {
+      "train": {
+        "objective": "truth",
+        "steps": 89,
+        "seconds": 61.853,
+        "first_loss": 4.4654,
+        "last_loss": 2.8531
+      },
+      "acceptance": {
+        "rounds": 62464,
+        "k": 3,
+        "conditional_accept_rate": {
+          "offset1": 0.5794,
+          "offset2": 0.3024,
+          "offset3": 0.3957
+        },
+        "mean_prefix_len": 0.824,
+        "accept_rate_per_draft": 0.2747,
+        "all_accepted_rate": 0.0693,
+        "prefix_hist": {
+          "0": 26270,
+          "1": 25249,
+          "2": 6614,
+          "3": 4331
+        },
+        "base_top1_vs_bytes": 0.6281
+      },
+      "checkpoint": "mtp-truth.pt"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+<SPEC>
+The roster service appends a member to a collection. Each call must start from an empty collection; the current default is shared between calls.
+<TEST>
+# tests/test_service.py
+from roster import append_member
+
+
+def test_each_call_gets_its_own_members():
+    first = append_member('alice')
+    second = append_member('bob')
+    assert first == ['alice']
+    assert second == ['bob']
+    assert first is not second
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: mutable_default -> 
+@@ -1,6 +1,8 @@
+-def append_member(value, members=[]):
++def append_member(value, members=None):
++    if members is None:
++        members = []
+<SOL>
+# roster.py
+"""Helpers for the roster service."""
+
+def append_member(value, members=None):
+    if members is None:
+        members = []
+    members.append(value)
+    return members
+
+def count_member(items):
+    return len(items)
+</SOL>

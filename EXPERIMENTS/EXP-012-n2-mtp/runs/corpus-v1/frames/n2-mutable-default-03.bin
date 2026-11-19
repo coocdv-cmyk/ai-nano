@@ -1,0 +1,34 @@
+<SPEC>
+The cart service appends a line to a collection. Each call must start from an empty collection; the current default is shared between calls.
+<TEST>
+# tests/test_service.py
+from cart import add_line
+
+
+def test_each_call_gets_its_own_lines():
+    first = add_line('apple')
+    second = add_line('pear')
+    assert first == ['apple']
+    assert second == ['pear']
+    assert first is not second
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: mutable_default -> 
+@@ -1,6 +1,8 @@
+-def add_line(value, lines=[]):
++def add_line(value, lines=None):
++    if lines is None:
++        lines = []
+<SOL>
+# cart.py
+"""Helpers for the cart service."""
+
+def add_line(value, lines=None):
+    if lines is None:
+        lines = []
+    lines.append(value)
+    return lines
+
+def count_line(items):
+    return len(items)
+</SOL>

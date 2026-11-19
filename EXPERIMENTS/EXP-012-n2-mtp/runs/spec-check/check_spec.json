@@ -1,0 +1,65 @@
+{
+  "exp_id": "EXP-012",
+  "instrument": "check_spec",
+  "verdict": true,
+  "cases": [
+    {
+      "case": "reject",
+      "identical": true,
+      "n": 192,
+      "plain_s": 0.0037,
+      "spec_s": 0.0037,
+      "stats": {
+        "arch": "v2",
+        "speculative_drafts": 48,
+        "speculative_accepted": 0,
+        "spec_rounds": 48,
+        "spec_accept_rate": 0.0,
+        "spec_batch_forwards": 0,
+        "spec_first_rejections": 48,
+        "spec_disabled": false
+      },
+      "plain_sha": "6ef53dfe1cd841b2a1f4864cba175e3c76b4765a6ebbad854ee2dddd2b0600854ee2dddd2b0600854ee2dddd2b0600854ee2dddd2b0600854ee2dddd2b0600854ee2dddd2b0600854ee2dddd2b0600854ee2dddd2b0600854ee2dddd2b0600854ee2dddd2b0600854ee2dddd2b0600854ee2dddd2b0600854ee2dddd2b0600854ee2dddd2b0600854ee2dddd2b0600854ee2dddd2b0600854ee2dddd2b0600854ee2dddd2b0600854ee2dddd2b0600854ee2dddd2b0600854ee2dddd2b060085",
+      "spec_sha": "6ef53dfe1cd841b2a1f4864cba175e3c76b4765a6ebbad854ee2dddd2b0600854ee2dddd2b0600854ee2dddd2b0600854ee2dddd2b0600854ee2dddd2b0600854ee2dddd2b0600854ee2dddd2b0600854ee2dddd2b0600854ee2dddd2b0600854ee2dddd2b0600854ee2dddd2b0600854ee2dddd2b0600854ee2dddd2b0600854ee2dddd2b0600854ee2dddd2b0600854ee2dddd2b0600854ee2dddd2b0600854ee2dddd2b0600854ee2dddd2b0600854ee2dddd2b0600854ee2dddd2b060085"
+    },
+    {
+      "case": "accept",
+      "identical": true,
+      "n": 97,
+      "plain_s": 0.0021,
+      "spec_s": 0.0019,
+      "stats": {
+        "arch": "v2",
+        "speculative_drafts": 48,
+        "speculative_accepted": 48,
+        "spec_rounds": 24,
+        "spec_accept_rate": 1.0,
+        "spec_batch_forwards": 48,
+        "spec_first_rejections": 0,
+        "spec_disabled": false
+      },
+      "plain_sha": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "spec_sha": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "case": "adaptive",
+      "identical": true,
+      "n": 700,
+      "plain_s": 0.0145,
+      "spec_s": 0.0136,
+      "stats": {
+        "arch": "v2",
+        "speculative_drafts": 64,
+        "speculative_accepted": 0,
+        "spec_rounds": 64,
+        "spec_accept_rate": 0.0,
+        "spec_batch_forwards": 0,
+        "spec_first_rejections": 64,
+        "spec_disabled": true
+      },
+      "plain_sha": "06ebf031fac762d2f615bd6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6f",
+      "spec_sha": "06ebf031fac762d2f615bd6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6ffa6f"
+    }
+  ],
+  "note": "accept case must reach rate 1.0; adaptive must disable after >=64 drafts"
+}

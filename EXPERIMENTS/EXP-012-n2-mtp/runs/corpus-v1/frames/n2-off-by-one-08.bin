@@ -1,0 +1,22 @@
+<SPEC>
+The trims window must cover (n + 1) * 2 bytes; the current multiplication omits the extra slot at every size.
+<TEST>
+# tests/test_service.py
+from trims import leading_trim
+
+
+def test_window_includes_the_extra_slot():
+    assert leading_trim('abcdef', 1) == 'abcd'
+    assert leading_trim('abcdef', 2) == 'abcdef'
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: off_by_one -> 
+@@ -1,3 +1,3 @@
+-    size = cuts * 2
++    size = (cuts + 1) * 2
+<SOL>
+# trims.py
+def leading_trim(data, cuts):
+    size = (cuts + 1) * 2
+    return data[:size]
+</SOL>

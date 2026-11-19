@@ -43,6 +43,102 @@ def _lin_bias(wf: np.ndarray, bf: np.ndarray, x: np.ndarray, out: np.ndarray) ->
 
 
 @numba.njit(fastmath=True, cache=True, nogil=True)
+def _rmsnorm_batch(x: np.ndarray, w: np.ndarray, out: np.ndarray, B: int) -> None:
+    I = x.shape[1]
+    for b in range(B):
+        ss = np.float32(0.0)
+        for i in range(I):
+            ss += x[b, i] * x[b, i]
+        r = np.float32(1.0) / np.sqrt(ss / I + np.float32(1e-6))
+        for i in range(I):
+            out[b, i] = x[b, i] * r * w[i]
+
+
+@numba.njit(fastmath=True, cache=True, nogil=True)
+def _matvec_fp32_batch(w: np.ndarray, s: np.float32, xs: np.ndarray, B: int,
+                       outs: np.ndarray) -> None:
+    """Dense fp32 batched matvec; one pass over `w` for up to three rows."""
+    O = w.shape[0]
+    I = w.shape[1]
+    if B == 2:
+        for o in range(O):
+            a0 = np.float32(0.0)
+            a1 = np.float32(0.0)
+            for j in range(I):
+                wv = w[o, j]
+                a0 += wv * xs[0, j]
+                a1 += wv * xs[1, j]
+            outs[0, o] = a0 * s
+            outs[1, o] = a1 * s
+    elif B == 3:
+        for o in range(O):
+            a0 = np.float32(0.0)
+            a1 = np.float32(0.0)
+            a2 = np.float32(0.0)
+            for j in range(I):
+                wv = w[o, j]
+                a0 += wv * xs[0, j]
+                a1 += wv * xs[1, j]
+                a2 += wv * xs[2, j]
+            outs[0, o] = a0 * s
+            outs[1, o] = a1 * s
+            outs[2, o] = a2 * s
+    else:
+        for b in range(B):
+            for o in range(O):
+                acc = np.float32(0.0)
+                for j in range(I):
+                    acc += w[o, j] * xs[b, j]
+                outs[b, o] = acc * s
+
+
+@numba.njit(fastmath=True, cache=True, nogil=True)
+def _lin_bias_batch(wf: np.ndarray, bf: np.ndarray, xs: np.ndarray, B: int,
+                    outs: np.ndarray) -> None:
+    O = wf.shape[0]
+    I = wf.shape[1]
+    if B == 2:
+        for o in range(O):
+            a0 = bf[o]
+            a1 = bf[o]
+            for j in range(I):
+                wv = wf[o, j]
+                a0 += wv * xs[0, j]
+                a1 += wv * xs[1, j]
+            outs[0, o] = a0
+            outs[1, o] = a1
+    elif B == 3:
+        for o in range(O):
+            a0 = bf[o]
+            a1 = bf[o]
+            a2 = bf[o]
+            for j in range(I):
+                wv = wf[o, j]
+                a0 += wv * xs[0, j]
+                a1 += wv * xs[1, j]
+                a2 += wv * xs[2, j]
+            outs[0, o] = a0
+            outs[1, o] = a1
+            outs[2, o] = a2
+    else:
+        for b in range(B):
+            for o in range(O):
+                acc = bf[o]
+                for j in range(I):
+                    acc += wf[o, j] * xs[b, j]
+                outs[b, o] = acc
+
+
+@numba.njit(fastmath=True, cache=True, nogil=True)
+def _lin_batch(is_ternary: bool, wf: np.ndarray, wp: np.ndarray, s: np.float32,
+               xs: np.ndarray, B: int, I: int, luts: np.ndarray, outs: np.ndarray) -> None:
+    if is_ternary:
+        matvec_packed_batch(wp, s, xs, B, I, luts, outs)
+    else:
+        _matvec_fp32_batch(wf, s, xs, B, outs)
+
+
+@numba.njit(fastmath=True, cache=True, nogil=True)
 def _rmsnorm(x: np.ndarray, w: np.ndarray, out: np.ndarray) -> None:
     ss = np.float32(0.0)
     for i in range(x.shape[0]):
@@ -64,6 +160,17 @@ def _sample(logits: np.ndarray, temperature: float, u: float) -> int:
         if c[i] >= r:
             return i
     return c.shape[0] - 1
+
+
+@numba.njit(fastmath=True, cache=True, nogil=True)
+def _argmax_i(logits: np.ndarray) -> int:
+    best = 0
+    best_v = logits[0]
+    for i in range(1, logits.shape[0]):
+        if logits[i] > best_v:
+            best_v = logits[i]
+            best = i
+    return best
 
 
 def _export_linear(st: dict, key: str, ternary: bool):
@@ -816,6 +923,9 @@ class V2Weights:
     fine_down_s: np.float32
     norm: np.ndarray
     head: np.ndarray
+    mtp_norms: np.ndarray
+    mtp_ws: np.ndarray
+    mtp_count: int
     use_copy_gate: bool
     copy_w: np.ndarray
     copy_b: np.ndarray
@@ -881,6 +991,14 @@ def export_v2(cfg: CoreConfig, st: dict) -> V2Weights:
     inv = 1.0 / 10000.0 ** (np.arange(0, hd, 2, dtype=np.float64) / hd)
     ang = np.outer(np.arange(max_patches, dtype=np.float64), inv)
 
+    M = max(0, cfg.mtp_k - 1)
+    if M:
+        mtp_norms = np.ascontiguousarray(np.stack([f(f"mtp_projs.{k}.0.weight") for k in range(M)]))
+        mtp_ws = np.ascontiguousarray(np.stack([f(f"mtp_projs.{k}.1.weight") for k in range(M)]))
+    else:
+        mtp_norms = np.zeros((1, cfg.d), dtype=np.float32)
+        mtp_ws = np.zeros((1, cfg.d, cfg.d), dtype=np.float32)
+
     return V2Weights(
         cfg=cfg, is_ternary=t,
         emb=f("emb.weight"), emb_h2=f("emb_h2.weight"), emb_h3=f("emb_h3.weight"), emb_h4=f("emb_h4.weight"),
@@ -900,6 +1018,7 @@ def export_v2(cfg: CoreConfig, st: dict) -> V2Weights:
         fine_up_w=fu_w, fine_up_p=fu_p, fine_up_s=fu_s,
         fine_down_w=fd_w, fine_down_p=fd_p, fine_down_s=fd_s,
         norm=f("norm.weight"), head=f("head.weight"),
+        mtp_norms=mtp_norms, mtp_ws=mtp_ws, mtp_count=M,
         use_copy_gate=bool(cfg.use_copy_gate), copy_w=copy_w, copy_b=copy_b,
         cos=np.cos(ang).astype(np.float32), sin=np.sin(ang).astype(np.float32),
     )
@@ -1158,6 +1277,8 @@ def _v2_run(
     fine_up_w: np.ndarray, fine_up_p: np.ndarray, fine_up_s: np.float32,
     fine_down_w: np.ndarray, fine_down_p: np.ndarray, fine_down_s: np.float32,
     norm: np.ndarray, head: np.ndarray, copy_w: np.ndarray, copy_b: np.ndarray,
+    mtp_norms: np.ndarray, mtp_ws: np.ndarray, mtp_count: int,
+    speculative: bool, adaptive: bool, spec_stats: np.ndarray,
     cos: np.ndarray, sin: np.ndarray,
 ):
     T = seq.shape[0]
@@ -1221,9 +1342,88 @@ def _v2_run(
     p_neural = np.empty(V, np.float32)
     halt_buf = np.empty(1, np.float32)
 
+    # --- within-patch speculative verification buffers (EXP-012 N2) -------- #
+    max_B = 1 + max(1, mtp_count)
+    xf_b = np.empty((max_B, d), np.float32)
+    cat_b = np.empty((max_B, 2 * d), np.float32)
+    cg_b = np.empty((max_B, d), np.float32)
+    hf_b = np.empty((max_B, d), np.float32)
+    h_b = np.empty((max_B, d), np.float32)
+    fg_b = np.empty((max_B, fine_hid), np.float32)
+    fu_b = np.empty((max_B, fine_hid), np.float32)
+    down_b = np.empty((max_B, d), np.float32)
+    logits_b = np.empty((max_B, V), np.float32)
+    scores_b = np.empty((max_B, V), np.float32)
+    projs = np.empty((max_B, d), np.float32)
+    draft_logits = np.empty((max_B, V), np.float32)
+    drafts = np.empty(max_B, np.int64)
+    tok_b = np.empty(max_B, np.int64)
+    mi1 = np.empty(max_B, np.int64)
+    mi2 = np.empty(max_B, np.int64)
+    mi3 = np.empty(max_B, np.int64)
+    offs_b = np.empty(max_B, np.int64)
+    hist_snap = np.empty((max_B + 1, 3, d), np.float32)
+    ring_old = np.empty(max_B, np.int64)
+    k2_b = np.empty(max_B, np.int64)
+    k3_b = np.empty(max_B, np.int64)
+    k4_b = np.empty(max_B, np.int64)
+    l2_old = np.empty(max_B, np.int64)
+    l3_old = np.empty(max_B, np.int64)
+    l4_old = np.empty(max_B, np.int64)
+    has2 = np.empty(max_B, np.int64)
+    has3 = np.empty(max_B, np.int64)
+    has4 = np.empty(max_B, np.int64)
+    luts_d_b = np.empty((max_B, (d + 3) // 4, 256), np.float32)
+    luts_fh_b = np.empty((max_B, (fine_hid + 3) // 4, 256), np.float32)
+    htmp = np.empty(d, np.float32)
+
+    spec_stats[0] = 0
+    spec_stats[1] = 0
+    spec_stats[2] = 0
+    spec_stats[3] = 0
+    spec_stats[4] = 0
+    spec_stats[5] = 0
+    spec_on = speculative
+
     np.random.seed(seed)
     total_steps = T if is_logits_mode else (T + n_new)
-    for pos in range(total_steps):
+    pending_patch = -1
+    pos = 0
+    while pos < total_steps:
+        # The coarse patch update is deferred to the first iteration of the next
+        # patch so that the sequential path and the batched speculative path
+        # share exactly one implementation of it.
+        if pending_patch >= 0:
+            p_idx = pending_patch
+            valid_p = p_idx + 1 if p_idx < max_p else max_p
+            _v2_pool_patch(patch_size, patch_chunk, patch_scorer_w, patch_scorer_b[0], patch_proj, ptmp, z0)
+            for i in range(d):
+                px[i] = z0[i]
+                cur_coarse[i] = np.float32(0.0)
+            rem = np.float32(1.0)
+            for t in range(n_loops):
+                _v1_prep_anchor(px, z0, loop_emb[t], anchor_w, anchor_b, cat2d, p_gate, px)
+                for l in range(L):
+                    _attn_loop_step(is_ternary, l, t, p_idx, valid_p, heads, max_p, inv_sqrt, px, kc, vc,
+                                    n1, wqkv, pqkv, sqkv, wo, po, so, cos, sin, ph, qkv, att, ptmp, scores, lut_d)
+                    if use_fw:
+                        _v2_fw_step(is_ternary, l, t, heads, fast_dim, px, n_fw, fw_wqkv, fw_pqkv, fw_sqkv,
+                                    fw_gates_w, fw_gates_b, fw_wo, fw_po, fw_so, fw_W, ph, fqkv, f_g, fmp, ptmp, lut_d, lut_fd)
+                    _swiglu_step(is_ternary, l, px, n2, wg, pg, sg, wu, pu, su, wd, pd, sd, ph, pg_buf, pu_buf, ptmp, lut_d, lut_h)
+                _rmsnorm(px, halt_norm, ph)
+                _lin_bias(halt_w, halt_b, ph, halt_buf)
+                p_halt = np.float32(1.0) / (np.float32(1.0) + np.exp(-halt_buf[0]))
+                is_last = t == n_loops - 1
+                q_w = rem if is_last else rem * p_halt
+                rem = rem * (np.float32(1.0) - p_halt)
+                for i in range(d):
+                    cur_coarse[i] += q_w * px[i]
+                if early_exit and not is_last and (np.float32(1.0) - rem) >= (np.float32(1.0) - halt_eps):
+                    for i in range(d):
+                        cur_coarse[i] += rem * px[i]
+                    break
+            pending_patch = -1
+
         if pos < T:
             tok = int(seq[pos])
         else:
@@ -1271,33 +1471,160 @@ def _v2_run(
         for i in range(d):
             patch_chunk[off, i] = xf[i]
         if off == patch_size - 1:
-            p_idx = pos // patch_size
-            valid_p = p_idx + 1 if p_idx < max_p else max_p
-            _v2_pool_patch(patch_size, patch_chunk, patch_scorer_w, patch_scorer_b[0], patch_proj, ptmp, z0)
-            for i in range(d):
-                px[i] = z0[i]
-                cur_coarse[i] = np.float32(0.0)
-            rem = np.float32(1.0)
-            for t in range(n_loops):
-                _v1_prep_anchor(px, z0, loop_emb[t], anchor_w, anchor_b, cat2d, p_gate, px)
-                for l in range(L):
-                    _attn_loop_step(is_ternary, l, t, p_idx, valid_p, heads, max_p, inv_sqrt, px, kc, vc,
-                                    n1, wqkv, pqkv, sqkv, wo, po, so, cos, sin, ph, qkv, att, ptmp, scores, lut_d)
-                    if use_fw:
-                        _v2_fw_step(is_ternary, l, t, heads, fast_dim, px, n_fw, fw_wqkv, fw_pqkv, fw_sqkv,
-                                    fw_gates_w, fw_gates_b, fw_wo, fw_po, fw_so, fw_W, ph, fqkv, f_g, fmp, ptmp, lut_d, lut_fd)
-                    _swiglu_step(is_ternary, l, px, n2, wg, pg, sg, wu, pu, su, wd, pd, sd, ph, pg_buf, pu_buf, ptmp, lut_d, lut_h)
-                _rmsnorm(px, halt_norm, ph)
-                _lin_bias(halt_w, halt_b, ph, halt_buf)
-                p_halt = np.float32(1.0) / (np.float32(1.0) + np.exp(-halt_buf[0]))
-                is_last = t == n_loops - 1
-                q_w = rem if is_last else rem * p_halt
-                rem = rem * (np.float32(1.0) - p_halt)
-                for i in range(d):
-                    cur_coarse[i] += q_w * px[i]
-                if early_exit and not is_last and (np.float32(1.0) - rem) >= (np.float32(1.0) - halt_eps):
-                    for i in range(d):
-                        cur_coarse[i] += rem * px[i]
-                    break
+            pending_patch = pos // patch_size
+        pos += 1
+
+        # --- within-patch MTP speculation (EXP-012 N2) --------------------- #
+        # Drafts stay inside the current patch because `cur_coarse` is constant
+        # there.  Draft 1 is checked against the already-computed `scores_buf`
+        # before any forward runs, so a first-token rejection costs only the
+        # draft projection, never a wasted full forward.
+        if (spec_on and not is_logits_mode and temperature <= 0.0 and mtp_count > 0
+                and pos >= T and pos < total_steps):
+            off_prev = (pos - 1) % patch_size
+            K = mtp_count
+            # Drafts must stay strictly inside the patch and must not occupy its
+            # final token: the coarse patch hand-off is left to the sequential
+            # path.  Allowing a draft at offset `patch_size-1` was traced to a
+            # copy-gate state divergence at the next patch boundary (recorded
+            # as a negative result in the EXP-012 README).
+            if K > patch_size - 2 - off_prev:
+                K = patch_size - 2 - off_prev
+            if K > total_steps - pos:
+                K = total_steps - pos
+            if K >= 2:
+                _rmsnorm(hf, mtp_norms[0], htmp)
+                matvec_fp32(mtp_ws[0], np.float32(1.0), htmp, projs[0])
+                matvec_fp32(head, np.float32(1.0), projs[0], draft_logits[0])
+                drafts[0] = _argmax_i(draft_logits[0])
+                spec_stats[0] += 1
+                spec_stats[2] += 1
+                if drafts[0] != _argmax_i(scores_buf):
+                    spec_stats[5] += 1
+                else:
+                    for m in range(1, K):
+                        _rmsnorm(hf, mtp_norms[m], htmp)
+                        matvec_fp32(mtp_ws[m], np.float32(1.0), htmp, projs[m])
+                        matvec_fp32(head, np.float32(1.0), projs[m], draft_logits[m])
+                        drafts[m] = _argmax_i(draft_logits[m])
+                    spec_stats[0] += K - 1
+
+                    # Sequential stem (state is rolled back on rejection) ...
+                    for b in range(K):
+                        for r in range(3):
+                            for i in range(d):
+                                hist_snap[b, r, i] = xf0_hist[r, i]
+                        pos_b = pos + b
+                        tok_b[b] = drafts[b]
+                        ring_old[b] = tok_ring[pos_b % r_cap]
+                        mi1[b], mi2[b], mi3[b] = _v2_stem_step(
+                            tok_b[b], pos_b, hash_buckets, emb, emb_h2, emb_h3, emb_h4,
+                            ngram_proj, stem_norm, dw_w, dw_b, dw_proj, tok_ring, xf0_hist,
+                            xf_b[b], ng_cat, e_ng, xf0, c_out, tmp,
+                        )
+                        offs_b[b] = pos_b % patch_size
+                        t_b = tok_b[b]
+                        if pos_b >= 1:
+                            k2_b[b] = (mi1[b] << 8) | t_b
+                            has2[b] = 1
+                        else:
+                            has2[b] = 0
+                        if pos_b >= 2:
+                            k3_b[b] = (((mi2[b] * 131 + mi1[b]) * 131 + t_b) * 2654435761) & 32767
+                            has3[b] = 1
+                        else:
+                            has3[b] = 0
+                        if pos_b >= 3:
+                            k4_b[b] = ((((mi3[b] * 131 + mi2[b]) * 131 + mi1[b]) * 131 + t_b) * 2654435761) & 32767
+                            has4[b] = 1
+                        else:
+                            has4[b] = 0
+                        spec_stats[4] += 1
+
+                    # ... batched fine path ...
+                    for b in range(K):
+                        ob = offs_b[b]
+                        for i in range(d):
+                            xo = xf_b[b, i] + offset_emb[ob, i]
+                            cat_b[b, i] = xo
+                            cat_b[b, d + i] = cur_coarse[i]
+                    _lin_bias_batch(cross_gate_w, cross_gate_b, cat_b, K, cg_b)
+                    for b in range(K):
+                        for i in range(d):
+                            gs = np.float32(1.0) / (np.float32(1.0) + np.exp(-cg_b[b, i]))
+                            hf_b[b, i] = xf_b[b, i] + gs * cur_coarse[i]
+                    _rmsnorm_batch(hf_b, fine_norm, h_b, K)
+                    _lin_batch(is_ternary, fine_gate_w, fine_gate_p, fine_gate_s,
+                               h_b, K, d, luts_d_b, fg_b)
+                    _lin_batch(is_ternary, fine_up_w, fine_up_p, fine_up_s,
+                               h_b, K, d, luts_d_b, fu_b)
+                    for b in range(K):
+                        for i in range(fine_hid):
+                            gi = fg_b[b, i]
+                            fg_b[b, i] = gi / (np.float32(1.0) + np.exp(-gi)) * fu_b[b, i]
+                    _lin_batch(is_ternary, fine_down_w, fine_down_p, fine_down_s,
+                               fg_b, K, fine_hid, luts_fh_b, down_b)
+                    for b in range(K):
+                        for i in range(d):
+                            hf_b[b, i] += down_b[b, i]
+                    _rmsnorm_batch(hf_b, norm, h_b, K)
+                    for b in range(K):
+                        matvec_fp32(head, np.float32(1.0), h_b[b], logits_b[b])
+                        # Snapshot each key immediately before its own copy step:
+                        # an earlier draft may already have written the same slot,
+                        # and a later rollback must restore that intermediate value.
+                        if has2[b] == 1:
+                            l2_old[b] = last2[k2_b[b]]
+                        if has3[b] == 1:
+                            l3_old[b] = last3[k3_b[b]]
+                        if has4[b] == 1:
+                            l4_old[b] = last4[k4_b[b]]
+                        if use_copy:
+                            _v2_copy_step(tok_b[b], pos + b, mi1[b], mi2[b], mi3[b], copy_window,
+                                          tok_ring, last2, last3, last4, copy_w, copy_b,
+                                          h_b[b], logits_b[b], scores_b[b], cg_in, p_neural)
+                        else:
+                            for v_i in range(V):
+                                scores_b[b, v_i] = logits_b[b, v_i]
+
+                    # ... then commit the accepted prefix and undo the rest.
+                    a = 1
+                    for j in range(1, K):
+                        if _argmax_i(scores_b[j - 1]) == drafts[j]:
+                            a += 1
+                        else:
+                            break
+                    spec_stats[1] += a
+                    # `pos` is now the first unwritten generation position; every
+                    # accepted draft (including draft 0) fills it in order.
+                    for b in range(a):
+                        gen_out[pos + b - T] = drafts[b]
+                    for b in range(a):
+                        ob = offs_b[b]
+                        for i in range(d):
+                            patch_chunk[ob, i] = xf_b[b, i]
+                    if a < K:
+                        for b in range(K - 1, a - 1, -1):
+                            pos_b = pos + b
+                            tok_ring[pos_b % r_cap] = ring_old[b]
+                            if has2[b] == 1:
+                                last2[k2_b[b]] = l2_old[b]
+                            if has3[b] == 1:
+                                last3[k3_b[b]] = l3_old[b]
+                            if has4[b] == 1:
+                                last4[k4_b[b]] = l4_old[b]
+                        for r in range(3):
+                            for i in range(d):
+                                xf0_hist[r, i] = hist_snap[a, r, i]
+                    else:
+                        if offs_b[K - 1] == patch_size - 1:
+                            pending_patch = (pos + K - 1) // patch_size
+                    for i in range(V):
+                        scores_buf[i] = scores_b[a - 1][i]
+                    pos += a
+
+        if adaptive and spec_on and spec_stats[0] >= 64 and spec_stats[1] * 4 < spec_stats[0]:
+            spec_on = False
+            spec_stats[3] = 1
 
     return out_logits, gen_out

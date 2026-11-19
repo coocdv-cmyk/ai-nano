@@ -1,0 +1,34 @@
+<SPEC>
+The atelier service appends a swatch to a collection. Each call must start from an empty collection; the current default is shared between calls.
+<TEST>
+# tests/test_service.py
+from atelier import pin_swatch
+
+
+def test_each_call_gets_its_own_swatches():
+    first = pin_swatch('linen')
+    second = pin_swatch('wool')
+    assert first == ['linen']
+    assert second == ['wool']
+    assert first is not second
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: mutable_default -> 
+@@ -1,6 +1,8 @@
+-def pin_swatch(value, swatches=[]):
++def pin_swatch(value, swatches=None):
++    if swatches is None:
++        swatches = []
+<SOL>
+# atelier.py
+"""Helpers for the atelier service."""
+
+def pin_swatch(value, swatches=None):
+    if swatches is None:
+        swatches = []
+    swatches.append(value)
+    return swatches
+
+def count_swatch(items):
+    return len(items)
+</SOL>

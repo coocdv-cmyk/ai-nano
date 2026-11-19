@@ -41,7 +41,7 @@ beachhead, not open-world repository engineering. The next honest gate is N2 (ve
 |---|---|---|
 | **N0** | sealed `EXP-009` benchmark v1 (repo repair, verifiable reasoning, bilingual retrieval) + baseline | **met**: suite hashed, oracle `100%`, baseline recorded **before** any N1 change (`0/6`, `0/12`, `0.6667` strict recall@5) |
 | **N1** | AST patch operators, traceback→localization, execution verification on multi-file bugs | **met (bounded)**: `6/6` N0 at 24 verifier calls, `7/7` same-family held-out at 26 calls, zero unexecuted patches; **not open-world** |
-| **N2** | verified corpus scaling + trained MTP heads | MTP acceptance `> 40%`, `> 10,509 tok/s` with greedy-identical output |
+| **N2** | verified corpus scaling + trained MTP heads | **evaluated, gates failed**: 108/108 fresh verified tasks, 90x EXP-008 corpus, greedy-identical over 10k tokens, but acceptance 29–38% and 0.87x–0.92x speed (< 10,509 tok/s); speculation not adopted, speed claim rests on non-spec engine |
 | **N3** | learned bilingual metric encoder `< 500 KB int8` | zero-shot AR/EN synonym recall beats the N0 retrieval baseline, honest abstention preserved |
 | **N4** | best-first / MCTS over verified candidates | improve multi-function synthesis success at equal verifier budget |
 | **N5** | `V2` release gate: capability + efficiency matrix, local UI/API | every number reproducible from a recorded command |
@@ -50,8 +50,9 @@ beachhead, not open-world repository engineering. The next honest gate is N2 (ve
 
 0. **Owner decisions:** project licence (still no `LICENSE`), OS sandbox for `shell.run` (defect #4), benchmark-seal
    confirmation.
-1. **`EXP-N` N2** — export the verified N1 trajectories into a `(spec, trace, verified_code)` corpus and train the MTP
-   heads; gate is acceptance `> 40%` at `> 10,509 tok/s` with greedy-identical output.
+1. **`EXP-N` N2 — done, negative result**. 108/108 verified fresh frames, two MTP objectives trained, native
+   speculation lossless but 0.87x–0.92x and below both quantitative gates. Keep speculation disabled by default and
+   record the defect (patch-boundary copy hand-off) before revisiting it. Results: `EXPERIMENTS/EXP-012-n2-mtp/results.json`.
 2. **`EXP-N` N4** — value-guided search over verified candidates at equal verifier budget (can start from the N1 engine
    independently of N2).
 3. **Defect #5** — hash-chain the audit log.

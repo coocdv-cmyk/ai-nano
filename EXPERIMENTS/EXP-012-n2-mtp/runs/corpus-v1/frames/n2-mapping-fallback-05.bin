@@ -1,0 +1,27 @@
+<SPEC>
+The formats lookup must fall back to the declared default for an unknown key instead of raising KeyError.
+<TEST>
+# tests/test_service.py
+from formats import format_for
+
+
+def test_known_key():
+    assert format_for('text') == 'plain'
+
+
+def test_missing_key_falls_back():
+    assert format_for('html') == 'plain'
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: mapping_fallback -> 
+@@ -1,5 +1,4 @@
+-
+-    return FORMATS[name]
++    return FORMATS.get(name, 'plain')
+<SOL>
+# formats.py
+FORMATS = {'text': 'plain'}
+
+def format_for(name):
+    return FORMATS.get(name, 'plain')
+</SOL>

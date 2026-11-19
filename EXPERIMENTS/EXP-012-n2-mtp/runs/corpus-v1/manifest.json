@@ -1,0 +1,2316 @@
+{
+  "exp_id": "EXP-012",
+  "title": "N2 fresh verified corpus",
+  "created_utc": "2026-11-19 08:29:46 UTC",
+  "operators": [
+    "mutable_default",
+    "exception_scope",
+    "cache_key",
+    "closure_binding",
+    "boundary_guard",
+    "off_by_one",
+    "integer_distribution",
+    "mapping_fallback",
+    "comparison_flip"
+  ],
+  "split_rule": "variant index < train_count is train; the last four variants per family are probe",
+  "max_verifier_calls": 24,
+  "tasks": [
+    {
+      "id": "n2-mutable-default-00",
+      "family": "mutable_default",
+      "variant": 0,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "mutable_default",
+          "file": "ledger.py",
+          "target": "record_entry",
+          "description": "replace mutable default(s) in record_entry",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 6.636,
+      "cached_utc": "2026-11-19T07:50:20Z"
+    },
+    {
+      "id": "n2-mutable-default-01",
+      "family": "mutable_default",
+      "variant": 1,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "mutable_default",
+          "file": "roster.py",
+          "target": "append_member",
+          "description": "replace mutable default(s) in append_member",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 6.032,
+      "cached_utc": "2026-11-19T07:50:26Z"
+    },
+    {
+      "id": "n2-mutable-default-02",
+      "family": "mutable_default",
+      "variant": 2,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "mutable_default",
+          "file": "inbox.py",
+          "target": "queue_message",
+          "description": "replace mutable default(s) in queue_message",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 11.023,
+      "cached_utc": "2026-11-19T07:50:38Z"
+    },
+    {
+      "id": "n2-mutable-default-03",
+      "family": "mutable_default",
+      "variant": 3,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "mutable_default",
+          "file": "cart.py",
+          "target": "add_line",
+          "description": "replace mutable default(s) in add_line",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 8.483,
+      "cached_utc": "2026-11-19T07:50:46Z"
+    },
+    {
+      "id": "n2-mutable-default-04",
+      "family": "mutable_default",
+      "variant": 4,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "mutable_default",
+          "file": "garden.py",
+          "target": "plant_seed",
+          "description": "replace mutable default(s) in plant_seed",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 6.56,
+      "cached_utc": "2026-11-19T07:50:53Z"
+    },
+    {
+      "id": "n2-mutable-default-05",
+      "family": "mutable_default",
+      "variant": 5,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "mutable_default",
+          "file": "library.py",
+          "target": "checkout_book",
+          "description": "replace mutable default(s) in checkout_book",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 5.069,
+      "cached_utc": "2026-11-19T07:50:58Z"
+    },
+    {
+      "id": "n2-mutable-default-06",
+      "family": "mutable_default",
+      "variant": 6,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "mutable_default",
+          "file": "kitchen.py",
+          "target": "add_order",
+          "description": "replace mutable default(s) in add_order",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 4.396,
+      "cached_utc": "2026-11-19T07:51:02Z"
+    },
+    {
+      "id": "n2-mutable-default-07",
+      "family": "mutable_default",
+      "variant": 7,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "mutable_default",
+          "file": "studio.py",
+          "target": "schedule_take",
+          "description": "replace mutable default(s) in schedule_take",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 4.963,
+      "cached_utc": "2026-11-19T07:51:07Z"
+    },
+    {
+      "id": "n2-mutable-default-08",
+      "family": "mutable_default",
+      "variant": 8,
+      "split": "probe",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "mutable_default",
+          "file": "harbor.py",
+          "target": "dock_vessel",
+          "description": "replace mutable default(s) in dock_vessel",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 6.796,
+      "cached_utc": "2026-11-19T07:51:14Z"
+    },
+    {
+      "id": "n2-mutable-default-09",
+      "family": "mutable_default",
+      "variant": 9,
+      "split": "probe",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "mutable_default",
+          "file": "orchard.py",
+          "target": "pack_crate",
+          "description": "replace mutable default(s) in pack_crate",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 4.727,
+      "cached_utc": "2026-11-19T07:51:19Z"
+    },
+    {
+      "id": "n2-mutable-default-10",
+      "family": "mutable_default",
+      "variant": 10,
+      "split": "probe",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "mutable_default",
+          "file": "atelier.py",
+          "target": "pin_swatch",
+          "description": "replace mutable default(s) in pin_swatch",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 6.628,
+      "cached_utc": "2026-11-19T07:51:25Z"
+    },
+    {
+      "id": "n2-mutable-default-11",
+      "family": "mutable_default",
+      "variant": 11,
+      "split": "probe",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "mutable_default",
+          "file": "aviary.py",
+          "target": "tag_bird",
+          "description": "replace mutable default(s) in tag_bird",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 6.975,
+      "cached_utc": "2026-11-19T07:51:32Z"
+    },
+    {
+      "id": "n2-exception-scope-00",
+      "family": "exception_scope",
+      "variant": 0,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "exception_scope",
+          "file": "ledger.py",
+          "target": "record_entry",
+          "description": "narrow broad handler(s) in record_entry to PolicyError",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 5.639,
+      "cached_utc": "2026-11-19T07:51:38Z"
+    },
+    {
+      "id": "n2-exception-scope-01",
+      "family": "exception_scope",
+      "variant": 1,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "exception_scope",
+          "file": "roster.py",
+          "target": "append_member",
+          "description": "narrow broad handler(s) in append_member to PolicyError",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 4.456,
+      "cached_utc": "2026-11-19T07:51:42Z"
+    },
+    {
+      "id": "n2-exception-scope-02",
+      "family": "exception_scope",
+      "variant": 2,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "exception_scope",
+          "file": "inbox.py",
+          "target": "queue_message",
+          "description": "narrow broad handler(s) in queue_message to PolicyError",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 5.08,
+      "cached_utc": "2026-11-19T07:51:47Z"
+    },
+    {
+      "id": "n2-exception-scope-03",
+      "family": "exception_scope",
+      "variant": 3,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "exception_scope",
+          "file": "cart.py",
+          "target": "add_line",
+          "description": "narrow broad handler(s) in add_line to PolicyError",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 3.203,
+      "cached_utc": "2026-11-19T07:51:51Z"
+    },
+    {
+      "id": "n2-exception-scope-04",
+      "family": "exception_scope",
+      "variant": 4,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "exception_scope",
+          "file": "garden.py",
+          "target": "plant_seed",
+          "description": "narrow broad handler(s) in plant_seed to PolicyError",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 4.442,
+      "cached_utc": "2026-11-19T07:51:55Z"
+    },
+    {
+      "id": "n2-exception-scope-05",
+      "family": "exception_scope",
+      "variant": 5,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "exception_scope",
+          "file": "library.py",
+          "target": "checkout_book",
+          "description": "narrow broad handler(s) in checkout_book to PolicyError",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 5.112,
+      "cached_utc": "2026-11-19T07:52:00Z"
+    },
+    {
+      "id": "n2-exception-scope-06",
+      "family": "exception_scope",
+      "variant": 6,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "exception_scope",
+          "file": "kitchen.py",
+          "target": "add_order",
+          "description": "narrow broad handler(s) in add_order to PolicyError",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 5.247,
+      "cached_utc": "2026-11-19T07:52:05Z"
+    },
+    {
+      "id": "n2-exception-scope-07",
+      "family": "exception_scope",
+      "variant": 7,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "exception_scope",
+          "file": "studio.py",
+          "target": "schedule_take",
+          "description": "narrow broad handler(s) in schedule_take to PolicyError",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 6.936,
+      "cached_utc": "2026-11-19T07:52:12Z"
+    },
+    {
+      "id": "n2-exception-scope-08",
+      "family": "exception_scope",
+      "variant": 8,
+      "split": "probe",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "exception_scope",
+          "file": "harbor.py",
+          "target": "dock_vessel",
+          "description": "narrow broad handler(s) in dock_vessel to PolicyError",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 5.484,
+      "cached_utc": "2026-11-19T07:52:18Z"
+    },
+    {
+      "id": "n2-exception-scope-09",
+      "family": "exception_scope",
+      "variant": 9,
+      "split": "probe",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "exception_scope",
+          "file": "orchard.py",
+          "target": "pack_crate",
+          "description": "narrow broad handler(s) in pack_crate to PolicyError",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 9.608,
+      "cached_utc": "2026-11-19T07:52:27Z"
+    },
+    {
+      "id": "n2-exception-scope-10",
+      "family": "exception_scope",
+      "variant": 10,
+      "split": "probe",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "exception_scope",
+          "file": "atelier.py",
+          "target": "pin_swatch",
+          "description": "narrow broad handler(s) in pin_swatch to PolicyError",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 9.556,
+      "cached_utc": "2026-11-19T07:52:37Z"
+    },
+    {
+      "id": "n2-exception-scope-11",
+      "family": "exception_scope",
+      "variant": 11,
+      "split": "probe",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "exception_scope",
+          "file": "aviary.py",
+          "target": "tag_bird",
+          "description": "narrow broad handler(s) in tag_bird to PolicyError",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 15.713,
+      "cached_utc": "2026-11-19T07:52:53Z"
+    },
+    {
+      "id": "n2-cache-key-00",
+      "family": "cache_key",
+      "variant": 0,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "cache_key",
+          "file": "geometry.py",
+          "target": "rectangle_area",
+          "description": "include every parameter in the cache key of rectangle_area",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 18.27,
+      "cached_utc": "2026-11-19T07:53:11Z"
+    },
+    {
+      "id": "n2-cache-key-01",
+      "family": "cache_key",
+      "variant": 1,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "cache_key",
+          "file": "shapes.py",
+          "target": "tile_area",
+          "description": "include every parameter in the cache key of tile_area",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 10.372,
+      "cached_utc": "2026-11-19T07:53:21Z"
+    },
+    {
+      "id": "n2-cache-key-02",
+      "family": "cache_key",
+      "variant": 2,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "cache_key",
+          "file": "surfaces.py",
+          "target": "panel_area",
+          "description": "include every parameter in the cache key of panel_area",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 10.147,
+      "cached_utc": "2026-11-19T07:53:32Z"
+    },
+    {
+      "id": "n2-cache-key-03",
+      "family": "cache_key",
+      "variant": 3,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "cache_key",
+          "file": "frames.py",
+          "target": "window_area",
+          "description": "include every parameter in the cache key of window_area",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 8.357,
+      "cached_utc": "2026-11-19T07:53:40Z"
+    },
+    {
+      "id": "n2-cache-key-04",
+      "family": "cache_key",
+      "variant": 4,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "cache_key",
+          "file": "plots.py",
+          "target": "field_area",
+          "description": "include every parameter in the cache key of field_area",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 12.063,
+      "cached_utc": "2026-11-19T07:53:52Z"
+    },
+    {
+      "id": "n2-cache-key-05",
+      "family": "cache_key",
+      "variant": 5,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "cache_key",
+          "file": "boards.py",
+          "target": "sheet_area",
+          "description": "include every parameter in the cache key of sheet_area",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 10.642,
+      "cached_utc": "2026-11-19T07:54:03Z"
+    },
+    {
+      "id": "n2-cache-key-06",
+      "family": "cache_key",
+      "variant": 6,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "cache_key",
+          "file": "panels.py",
+          "target": "face_area",
+          "description": "include every parameter in the cache key of face_area",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 8.175,
+      "cached_utc": "2026-11-19T07:54:11Z"
+    },
+    {
+      "id": "n2-cache-key-07",
+      "family": "cache_key",
+      "variant": 7,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "cache_key",
+          "file": "stages.py",
+          "target": "deck_area",
+          "description": "include every parameter in the cache key of deck_area",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 52.521,
+      "cached_utc": "2026-11-19T07:55:03Z"
+    },
+    {
+      "id": "n2-cache-key-08",
+      "family": "cache_key",
+      "variant": 8,
+      "split": "probe",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "cache_key",
+          "file": "terrace.py",
+          "target": "patio_area",
+          "description": "include every parameter in the cache key of patio_area",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 41.709,
+      "cached_utc": "2026-11-19T07:55:45Z"
+    },
+    {
+      "id": "n2-cache-key-09",
+      "family": "cache_key",
+      "variant": 9,
+      "split": "probe",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "cache_key",
+          "file": "hangar.py",
+          "target": "bay_area",
+          "description": "include every parameter in the cache key of bay_area",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 34.767,
+      "cached_utc": "2026-11-19T07:56:20Z"
+    },
+    {
+      "id": "n2-cache-key-10",
+      "family": "cache_key",
+      "variant": 10,
+      "split": "probe",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "cache_key",
+          "file": "pavilion.py",
+          "target": "floor_area",
+          "description": "include every parameter in the cache key of floor_area",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 6.612,
+      "cached_utc": "2026-11-19T08:25:21Z"
+    },
+    {
+      "id": "n2-cache-key-11",
+      "family": "cache_key",
+      "variant": 11,
+      "split": "probe",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "cache_key",
+          "file": "gallery.py",
+          "target": "wall_area",
+          "description": "include every parameter in the cache key of wall_area",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 7.391,
+      "cached_utc": "2026-11-19T08:25:28Z"
+    },
+    {
+      "id": "n2-closure-binding-00",
+      "family": "closure_binding",
+      "variant": 0,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "closure_binding",
+          "file": "handlers.py",
+          "target": "make_handlers",
+          "description": "bind loop variables by default in closures of make_handlers",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 16.291,
+      "cached_utc": "2026-11-19T07:58:48Z"
+    },
+    {
+      "id": "n2-closure-binding-01",
+      "family": "closure_binding",
+      "variant": 1,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "closure_binding",
+          "file": "routes.py",
+          "target": "make_routes",
+          "description": "bind loop variables by default in closures of make_routes",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 9.711,
+      "cached_utc": "2026-11-19T07:58:58Z"
+    },
+    {
+      "id": "n2-closure-binding-02",
+      "family": "closure_binding",
+      "variant": 2,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "closure_binding",
+          "file": "formatters.py",
+          "target": "make_formatters",
+          "description": "bind loop variables by default in closures of make_formatters",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 10.584,
+      "cached_utc": "2026-11-19T07:59:09Z"
+    },
+    {
+      "id": "n2-closure-binding-03",
+      "family": "closure_binding",
+      "variant": 3,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "closure_binding",
+          "file": "validators.py",
+          "target": "make_validators",
+          "description": "bind loop variables by default in closures of make_validators",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 13.863,
+      "cached_utc": "2026-11-19T07:59:22Z"
+    },
+    {
+      "id": "n2-closure-binding-04",
+      "family": "closure_binding",
+      "variant": 4,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "closure_binding",
+          "file": "renderers.py",
+          "target": "make_renderers",
+          "description": "bind loop variables by default in closures of make_renderers",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 6.362,
+      "cached_utc": "2026-11-19T08:25:35Z"
+    },
+    {
+      "id": "n2-closure-binding-05",
+      "family": "closure_binding",
+      "variant": 5,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "closure_binding",
+          "file": "filters.py",
+          "target": "make_filters",
+          "description": "bind loop variables by default in closures of make_filters",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 4.163,
+      "cached_utc": "2026-11-19T08:25:39Z"
+    },
+    {
+      "id": "n2-closure-binding-06",
+      "family": "closure_binding",
+      "variant": 6,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "closure_binding",
+          "file": "dispatchers.py",
+          "target": "make_dispatchers",
+          "description": "bind loop variables by default in closures of make_dispatchers",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 3.968,
+      "cached_utc": "2026-11-19T08:25:43Z"
+    },
+    {
+      "id": "n2-closure-binding-07",
+      "family": "closure_binding",
+      "variant": 7,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "closure_binding",
+          "file": "wrappers.py",
+          "target": "make_wrappers",
+          "description": "bind loop variables by default in closures of make_wrappers",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 3.505,
+      "cached_utc": "2026-11-19T08:25:46Z"
+    },
+    {
+      "id": "n2-closure-binding-08",
+      "family": "closure_binding",
+      "variant": 8,
+      "split": "probe",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "closure_binding",
+          "file": "decorators.py",
+          "target": "make_decorators",
+          "description": "bind loop variables by default in closures of make_decorators",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 67.285,
+      "cached_utc": "2026-11-19T08:05:23Z"
+    },
+    {
+      "id": "n2-closure-binding-09",
+      "family": "closure_binding",
+      "variant": 9,
+      "split": "probe",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "closure_binding",
+          "file": "adapters.py",
+          "target": "make_adapters",
+          "description": "bind loop variables by default in closures of make_adapters",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 104.315,
+      "cached_utc": "2026-11-19T08:07:07Z"
+    },
+    {
+      "id": "n2-closure-binding-10",
+      "family": "closure_binding",
+      "variant": 10,
+      "split": "probe",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "closure_binding",
+          "file": "listeners.py",
+          "target": "make_listeners",
+          "description": "bind loop variables by default in closures of make_listeners",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 72.068,
+      "cached_utc": "2026-11-19T08:08:19Z"
+    },
+    {
+      "id": "n2-closure-binding-11",
+      "family": "closure_binding",
+      "variant": 11,
+      "split": "probe",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "closure_binding",
+          "file": "middleware.py",
+          "target": "make_middleware",
+          "description": "bind loop variables by default in closures of make_middleware",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 90.896,
+      "cached_utc": "2026-11-19T08:09:50Z"
+    },
+    {
+      "id": "n2-boundary-guard-00",
+      "family": "boundary_guard",
+      "variant": 0,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 5,
+      "initial_failed": 2,
+      "edits": [
+        {
+          "operator": "boundary_guard",
+          "file": "racks.py",
+          "target": "peek",
+          "description": "raise on boundary values rejected by the tests in peek",
+          "verified": true
+        },
+        {
+          "operator": "comparison_flip",
+          "file": "racks.py",
+          "target": "peek",
+          "description": "flip comparison 0 at line 4 in peek",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 75.804,
+      "cached_utc": "2026-11-19T08:11:06Z"
+    },
+    {
+      "id": "n2-boundary-guard-01",
+      "family": "boundary_guard",
+      "variant": 1,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 5,
+      "initial_failed": 2,
+      "edits": [
+        {
+          "operator": "boundary_guard",
+          "file": "stack.py",
+          "target": "top_at",
+          "description": "raise on boundary values rejected by the tests in top_at",
+          "verified": true
+        },
+        {
+          "operator": "comparison_flip",
+          "file": "stack.py",
+          "target": "top_at",
+          "description": "flip comparison 0 at line 4 in top_at",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 172.616,
+      "cached_utc": "2026-11-19T08:13:59Z"
+    },
+    {
+      "id": "n2-boundary-guard-02",
+      "family": "boundary_guard",
+      "variant": 2,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 5,
+      "initial_failed": 2,
+      "edits": [
+        {
+          "operator": "boundary_guard",
+          "file": "buffer.py",
+          "target": "read_at",
+          "description": "raise on boundary values rejected by the tests in read_at",
+          "verified": true
+        },
+        {
+          "operator": "comparison_flip",
+          "file": "buffer.py",
+          "target": "read_at",
+          "description": "flip comparison 0 at line 4 in read_at",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 6.576,
+      "cached_utc": "2026-11-19T08:25:53Z"
+    },
+    {
+      "id": "n2-boundary-guard-03",
+      "family": "boundary_guard",
+      "variant": 3,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 5,
+      "initial_failed": 2,
+      "edits": [
+        {
+          "operator": "boundary_guard",
+          "file": "window.py",
+          "target": "show_at",
+          "description": "raise on boundary values rejected by the tests in show_at",
+          "verified": true
+        },
+        {
+          "operator": "comparison_flip",
+          "file": "window.py",
+          "target": "show_at",
+          "description": "flip comparison 0 at line 4 in show_at",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 6.987,
+      "cached_utc": "2026-11-19T08:26:00Z"
+    },
+    {
+      "id": "n2-boundary-guard-04",
+      "family": "boundary_guard",
+      "variant": 4,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 5,
+      "initial_failed": 2,
+      "edits": [
+        {
+          "operator": "boundary_guard",
+          "file": "track.py",
+          "target": "clip_at",
+          "description": "raise on boundary values rejected by the tests in clip_at",
+          "verified": true
+        },
+        {
+          "operator": "comparison_flip",
+          "file": "track.py",
+          "target": "clip_at",
+          "description": "flip comparison 0 at line 4 in clip_at",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 9.909,
+      "cached_utc": "2026-11-19T08:26:10Z"
+    },
+    {
+      "id": "n2-boundary-guard-05",
+      "family": "boundary_guard",
+      "variant": 5,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 5,
+      "initial_failed": 2,
+      "edits": [
+        {
+          "operator": "boundary_guard",
+          "file": "pages.py",
+          "target": "line_at",
+          "description": "raise on boundary values rejected by the tests in line_at",
+          "verified": true
+        },
+        {
+          "operator": "comparison_flip",
+          "file": "pages.py",
+          "target": "line_at",
+          "description": "flip comparison 0 at line 4 in line_at",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 6.206,
+      "cached_utc": "2026-11-19T08:26:16Z"
+    },
+    {
+      "id": "n2-boundary-guard-06",
+      "family": "boundary_guard",
+      "variant": 6,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 5,
+      "initial_failed": 2,
+      "edits": [
+        {
+          "operator": "boundary_guard",
+          "file": "slots.py",
+          "target": "entry_at",
+          "description": "raise on boundary values rejected by the tests in entry_at",
+          "verified": true
+        },
+        {
+          "operator": "comparison_flip",
+          "file": "slots.py",
+          "target": "entry_at",
+          "description": "flip comparison 0 at line 4 in entry_at",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 14.618,
+      "cached_utc": "2026-11-19T08:20:40Z"
+    },
+    {
+      "id": "n2-boundary-guard-07",
+      "family": "boundary_guard",
+      "variant": 7,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 5,
+      "initial_failed": 2,
+      "edits": [
+        {
+          "operator": "boundary_guard",
+          "file": "grid.py",
+          "target": "cell_at",
+          "description": "raise on boundary values rejected by the tests in cell_at",
+          "verified": true
+        },
+        {
+          "operator": "comparison_flip",
+          "file": "grid.py",
+          "target": "cell_at",
+          "description": "flip comparison 0 at line 4 in cell_at",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 11.415,
+      "cached_utc": "2026-11-19T08:20:51Z"
+    },
+    {
+      "id": "n2-boundary-guard-08",
+      "family": "boundary_guard",
+      "variant": 8,
+      "split": "probe",
+      "solved": true,
+      "verifier_calls": 5,
+      "initial_failed": 2,
+      "edits": [
+        {
+          "operator": "boundary_guard",
+          "file": "tray.py",
+          "target": "sample_at",
+          "description": "raise on boundary values rejected by the tests in sample_at",
+          "verified": true
+        },
+        {
+          "operator": "comparison_flip",
+          "file": "tray.py",
+          "target": "sample_at",
+          "description": "flip comparison 0 at line 4 in sample_at",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 66.737,
+      "cached_utc": "2026-11-19T08:21:58Z"
+    },
+    {
+      "id": "n2-boundary-guard-09",
+      "family": "boundary_guard",
+      "variant": 9,
+      "split": "probe",
+      "solved": true,
+      "verifier_calls": 5,
+      "initial_failed": 2,
+      "edits": [
+        {
+          "operator": "boundary_guard",
+          "file": "bins.py",
+          "target": "bucket_at",
+          "description": "raise on boundary values rejected by the tests in bucket_at",
+          "verified": true
+        },
+        {
+          "operator": "comparison_flip",
+          "file": "bins.py",
+          "target": "bucket_at",
+          "description": "flip comparison 0 at line 4 in bucket_at",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 6.832,
+      "cached_utc": "2026-11-19T08:26:23Z"
+    },
+    {
+      "id": "n2-boundary-guard-10",
+      "family": "boundary_guard",
+      "variant": 10,
+      "split": "probe",
+      "solved": true,
+      "verifier_calls": 5,
+      "initial_failed": 2,
+      "edits": [
+        {
+          "operator": "boundary_guard",
+          "file": "lanes.py",
+          "target": "runner_at",
+          "description": "raise on boundary values rejected by the tests in runner_at",
+          "verified": true
+        },
+        {
+          "operator": "comparison_flip",
+          "file": "lanes.py",
+          "target": "runner_at",
+          "description": "flip comparison 0 at line 4 in runner_at",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 9.524,
+      "cached_utc": "2026-11-19T08:26:33Z"
+    },
+    {
+      "id": "n2-boundary-guard-11",
+      "family": "boundary_guard",
+      "variant": 11,
+      "split": "probe",
+      "solved": true,
+      "verifier_calls": 5,
+      "initial_failed": 2,
+      "edits": [
+        {
+          "operator": "boundary_guard",
+          "file": "shelves.py",
+          "target": "book_at",
+          "description": "raise on boundary values rejected by the tests in book_at",
+          "verified": true
+        },
+        {
+          "operator": "comparison_flip",
+          "file": "shelves.py",
+          "target": "book_at",
+          "description": "flip comparison 0 at line 4 in book_at",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 6.84,
+      "cached_utc": "2026-11-19T08:26:39Z"
+    },
+    {
+      "id": "n2-off-by-one-00",
+      "family": "off_by_one",
+      "variant": 0,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "off_by_one",
+          "file": "pagination.py",
+          "target": "window",
+          "description": "shift index arithmetic in window by +1 (operand 0)",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 2.657,
+      "cached_utc": "2026-11-19T08:26:42Z"
+    },
+    {
+      "id": "n2-off-by-one-01",
+      "family": "off_by_one",
+      "variant": 1,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 4,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "off_by_one",
+          "file": "slicing.py",
+          "target": "take_prefix",
+          "description": "shift index arithmetic in take_prefix by +1 (operand 1)",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 6.995,
+      "cached_utc": "2026-11-19T08:26:49Z"
+    },
+    {
+      "id": "n2-off-by-one-02",
+      "family": "off_by_one",
+      "variant": 2,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 1,
+      "initial_failed": 0,
+      "edits": [],
+      "elapsed_s": 1.499,
+      "cached_utc": "2026-11-19T08:26:51Z"
+    },
+    {
+      "id": "n2-off-by-one-03",
+      "family": "off_by_one",
+      "variant": 3,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 6,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "off_by_one",
+          "file": "chunks.py",
+          "target": "lead_chunk",
+          "description": "shift index arithmetic in lead_chunk by -1 (operand 1)",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 7.672,
+      "cached_utc": "2026-11-19T08:26:58Z"
+    },
+    {
+      "id": "n2-off-by-one-04",
+      "family": "off_by_one",
+      "variant": 4,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "off_by_one",
+          "file": "segments.py",
+          "target": "front_segment",
+          "description": "shift index arithmetic in front_segment by +1 (operand 0)",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 4.509,
+      "cached_utc": "2026-11-19T08:27:03Z"
+    },
+    {
+      "id": "n2-off-by-one-05",
+      "family": "off_by_one",
+      "variant": 5,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 4,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "off_by_one",
+          "file": "sections.py",
+          "target": "opening_section",
+          "description": "shift index arithmetic in opening_section by +1 (operand 1)",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 7.177,
+      "cached_utc": "2026-11-19T08:27:10Z"
+    },
+    {
+      "id": "n2-off-by-one-06",
+      "family": "off_by_one",
+      "variant": 6,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 1,
+      "initial_failed": 0,
+      "edits": [],
+      "elapsed_s": 1.43,
+      "cached_utc": "2026-11-19T08:27:11Z"
+    },
+    {
+      "id": "n2-off-by-one-07",
+      "family": "off_by_one",
+      "variant": 7,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 6,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "off_by_one",
+          "file": "strides.py",
+          "target": "start_stride",
+          "description": "shift index arithmetic in start_stride by -1 (operand 1)",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 10.78,
+      "cached_utc": "2026-11-19T08:27:22Z"
+    },
+    {
+      "id": "n2-off-by-one-08",
+      "family": "off_by_one",
+      "variant": 8,
+      "split": "probe",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "off_by_one",
+          "file": "trims.py",
+          "target": "leading_trim",
+          "description": "shift index arithmetic in leading_trim by +1 (operand 0)",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 5.378,
+      "cached_utc": "2026-11-19T08:27:27Z"
+    },
+    {
+      "id": "n2-off-by-one-09",
+      "family": "off_by_one",
+      "variant": 9,
+      "split": "probe",
+      "solved": true,
+      "verifier_calls": 4,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "off_by_one",
+          "file": "fences.py",
+          "target": "front_fence",
+          "description": "shift index arithmetic in front_fence by +1 (operand 1)",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 5.196,
+      "cached_utc": "2026-11-19T08:27:33Z"
+    },
+    {
+      "id": "n2-off-by-one-10",
+      "family": "off_by_one",
+      "variant": 10,
+      "split": "probe",
+      "solved": true,
+      "verifier_calls": 1,
+      "initial_failed": 0,
+      "edits": [],
+      "elapsed_s": 0.981,
+      "cached_utc": "2026-11-19T08:27:34Z"
+    },
+    {
+      "id": "n2-off-by-one-11",
+      "family": "off_by_one",
+      "variant": 11,
+      "split": "probe",
+      "solved": true,
+      "verifier_calls": 6,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "off_by_one",
+          "file": "zones.py",
+          "target": "first_zone",
+          "description": "shift index arithmetic in first_zone by -1 (operand 1)",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 7.362,
+      "cached_utc": "2026-11-19T08:27:41Z"
+    },
+    {
+      "id": "n2-integer-distribution-00",
+      "family": "integer_distribution",
+      "variant": 0,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "integer_distribution",
+          "file": "budget.py",
+          "target": "split_budget",
+          "description": "distribute the integer remainder in split_budget",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 2.312,
+      "cached_utc": "2026-11-19T08:27:43Z"
+    },
+    {
+      "id": "n2-integer-distribution-01",
+      "family": "integer_distribution",
+      "variant": 1,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "integer_distribution",
+          "file": "portions.py",
+          "target": "share_portions",
+          "description": "distribute the integer remainder in share_portions",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 1.385,
+      "cached_utc": "2026-11-19T08:27:45Z"
+    },
+    {
+      "id": "n2-integer-distribution-02",
+      "family": "integer_distribution",
+      "variant": 2,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "integer_distribution",
+          "file": "rewards.py",
+          "target": "distribute_rewards",
+          "description": "distribute the integer remainder in distribute_rewards",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 2.504,
+      "cached_utc": "2026-11-19T08:27:47Z"
+    },
+    {
+      "id": "n2-integer-distribution-03",
+      "family": "integer_distribution",
+      "variant": 3,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "integer_distribution",
+          "file": "tasks.py",
+          "target": "assign_tasks",
+          "description": "distribute the integer remainder in assign_tasks",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 3.492,
+      "cached_utc": "2026-11-19T08:27:51Z"
+    },
+    {
+      "id": "n2-integer-distribution-04",
+      "family": "integer_distribution",
+      "variant": 4,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "integer_distribution",
+          "file": "coins.py",
+          "target": "divide_coins",
+          "description": "distribute the integer remainder in divide_coins",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 3.711,
+      "cached_utc": "2026-11-19T08:27:54Z"
+    },
+    {
+      "id": "n2-integer-distribution-05",
+      "family": "integer_distribution",
+      "variant": 5,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "integer_distribution",
+          "file": "seats.py",
+          "target": "allocate_seats",
+          "description": "distribute the integer remainder in allocate_seats",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 2.011,
+      "cached_utc": "2026-11-19T08:27:56Z"
+    },
+    {
+      "id": "n2-integer-distribution-06",
+      "family": "integer_distribution",
+      "variant": 6,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "integer_distribution",
+          "file": "pages.py",
+          "target": "spread_pages",
+          "description": "distribute the integer remainder in spread_pages",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 2.624,
+      "cached_utc": "2026-11-19T08:27:59Z"
+    },
+    {
+      "id": "n2-integer-distribution-07",
+      "family": "integer_distribution",
+      "variant": 7,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "integer_distribution",
+          "file": "tokens.py",
+          "target": "split_tokens",
+          "description": "distribute the integer remainder in split_tokens",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 3.035,
+      "cached_utc": "2026-11-19T08:28:02Z"
+    },
+    {
+      "id": "n2-integer-distribution-08",
+      "family": "integer_distribution",
+      "variant": 8,
+      "split": "probe",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "integer_distribution",
+          "file": "funds.py",
+          "target": "split_funds",
+          "description": "distribute the integer remainder in split_funds",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 1.508,
+      "cached_utc": "2026-11-19T08:28:04Z"
+    },
+    {
+      "id": "n2-integer-distribution-09",
+      "family": "integer_distribution",
+      "variant": 9,
+      "split": "probe",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "integer_distribution",
+          "file": "credits.py",
+          "target": "share_credits",
+          "description": "distribute the integer remainder in share_credits",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 2.001,
+      "cached_utc": "2026-11-19T08:28:06Z"
+    },
+    {
+      "id": "n2-integer-distribution-10",
+      "family": "integer_distribution",
+      "variant": 10,
+      "split": "probe",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "integer_distribution",
+          "file": "marbles.py",
+          "target": "divide_marbles",
+          "description": "distribute the integer remainder in divide_marbles",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 3.347,
+      "cached_utc": "2026-11-19T08:28:09Z"
+    },
+    {
+      "id": "n2-integer-distribution-11",
+      "family": "integer_distribution",
+      "variant": 11,
+      "split": "probe",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "integer_distribution",
+          "file": "cards.py",
+          "target": "deal_cards",
+          "description": "distribute the integer remainder in deal_cards",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 3.598,
+      "cached_utc": "2026-11-19T08:28:13Z"
+    },
+    {
+      "id": "n2-mapping-fallback-00",
+      "family": "mapping_fallback",
+      "variant": 0,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "mapping_fallback",
+          "file": "settings.py",
+          "target": "setting",
+          "description": "fall back to the declared default for missing keys in DEFAULTS",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 4.274,
+      "cached_utc": "2026-11-19T08:28:17Z"
+    },
+    {
+      "id": "n2-mapping-fallback-01",
+      "family": "mapping_fallback",
+      "variant": 1,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "mapping_fallback",
+          "file": "colors.py",
+          "target": "color_for",
+          "description": "fall back to the declared default for missing keys in PALETTE",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 3.714,
+      "cached_utc": "2026-11-19T08:28:21Z"
+    },
+    {
+      "id": "n2-mapping-fallback-02",
+      "family": "mapping_fallback",
+      "variant": 2,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "mapping_fallback",
+          "file": "labels.py",
+          "target": "label_for",
+          "description": "fall back to the declared default for missing keys in LABELS",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 4.022,
+      "cached_utc": "2026-11-19T08:28:25Z"
+    },
+    {
+      "id": "n2-mapping-fallback-03",
+      "family": "mapping_fallback",
+      "variant": 3,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "mapping_fallback",
+          "file": "modes.py",
+          "target": "mode_for",
+          "description": "fall back to the declared default for missing keys in MODES",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 3.513,
+      "cached_utc": "2026-11-19T08:28:28Z"
+    },
+    {
+      "id": "n2-mapping-fallback-04",
+      "family": "mapping_fallback",
+      "variant": 4,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "mapping_fallback",
+          "file": "levels.py",
+          "target": "level_for",
+          "description": "fall back to the declared default for missing keys in LEVELS",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 3.963,
+      "cached_utc": "2026-11-19T08:28:32Z"
+    },
+    {
+      "id": "n2-mapping-fallback-05",
+      "family": "mapping_fallback",
+      "variant": 5,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "mapping_fallback",
+          "file": "formats.py",
+          "target": "format_for",
+          "description": "fall back to the declared default for missing keys in FORMATS",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 4.042,
+      "cached_utc": "2026-11-19T08:28:36Z"
+    },
+    {
+      "id": "n2-mapping-fallback-06",
+      "family": "mapping_fallback",
+      "variant": 6,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "mapping_fallback",
+          "file": "routes.py",
+          "target": "route_for",
+          "description": "fall back to the declared default for missing keys in ROUTES",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 5.835,
+      "cached_utc": "2026-11-19T08:28:42Z"
+    },
+    {
+      "id": "n2-mapping-fallback-07",
+      "family": "mapping_fallback",
+      "variant": 7,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "mapping_fallback",
+          "file": "units.py",
+          "target": "unit_for",
+          "description": "fall back to the declared default for missing keys in UNITS",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 4.325,
+      "cached_utc": "2026-11-19T08:28:46Z"
+    },
+    {
+      "id": "n2-mapping-fallback-08",
+      "family": "mapping_fallback",
+      "variant": 8,
+      "split": "probe",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "mapping_fallback",
+          "file": "themes.py",
+          "target": "theme_for",
+          "description": "fall back to the declared default for missing keys in THEMES",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 3.491,
+      "cached_utc": "2026-11-19T08:28:50Z"
+    },
+    {
+      "id": "n2-mapping-fallback-09",
+      "family": "mapping_fallback",
+      "variant": 9,
+      "split": "probe",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "mapping_fallback",
+          "file": "sizes.py",
+          "target": "size_for",
+          "description": "fall back to the declared default for missing keys in SIZES",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 4.117,
+      "cached_utc": "2026-11-19T08:28:54Z"
+    },
+    {
+      "id": "n2-mapping-fallback-10",
+      "family": "mapping_fallback",
+      "variant": 10,
+      "split": "probe",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "mapping_fallback",
+          "file": "speeds.py",
+          "target": "speed_for",
+          "description": "fall back to the declared default for missing keys in SPEEDS",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 4.584,
+      "cached_utc": "2026-11-19T08:28:59Z"
+    },
+    {
+      "id": "n2-mapping-fallback-11",
+      "family": "mapping_fallback",
+      "variant": 11,
+      "split": "probe",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "mapping_fallback",
+          "file": "grades.py",
+          "target": "grade_for",
+          "description": "fall back to the declared default for missing keys in GRADES",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 3.575,
+      "cached_utc": "2026-11-19T08:29:02Z"
+    },
+    {
+      "id": "n2-comparison-flip-00",
+      "family": "comparison_flip",
+      "variant": 0,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "comparison_flip",
+          "file": "access.py",
+          "target": "can_access",
+          "description": "flip comparison 0 at line 2 in can_access",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 3.12,
+      "cached_utc": "2026-11-19T08:29:05Z"
+    },
+    {
+      "id": "n2-comparison-flip-01",
+      "family": "comparison_flip",
+      "variant": 1,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "comparison_flip",
+          "file": "gates.py",
+          "target": "may_enter",
+          "description": "flip comparison 0 at line 2 in may_enter",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 2.86,
+      "cached_utc": "2026-11-19T08:29:08Z"
+    },
+    {
+      "id": "n2-comparison-flip-02",
+      "family": "comparison_flip",
+      "variant": 2,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "comparison_flip",
+          "file": "doors.py",
+          "target": "opens_at",
+          "description": "flip comparison 0 at line 2 in opens_at",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 3.422,
+      "cached_utc": "2026-11-19T08:29:11Z"
+    },
+    {
+      "id": "n2-comparison-flip-03",
+      "family": "comparison_flip",
+      "variant": 3,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "comparison_flip",
+          "file": "locks.py",
+          "target": "unlocks_with",
+          "description": "flip comparison 0 at line 2 in unlocks_with",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 3.748,
+      "cached_utc": "2026-11-19T08:29:15Z"
+    },
+    {
+      "id": "n2-comparison-flip-04",
+      "family": "comparison_flip",
+      "variant": 4,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "comparison_flip",
+          "file": "permits.py",
+          "target": "permits_level",
+          "description": "flip comparison 0 at line 2 in permits_level",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 3.605,
+      "cached_utc": "2026-11-19T08:29:19Z"
+    },
+    {
+      "id": "n2-comparison-flip-05",
+      "family": "comparison_flip",
+      "variant": 5,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "comparison_flip",
+          "file": "tickets.py",
+          "target": "admits_ticket",
+          "description": "flip comparison 0 at line 2 in admits_ticket",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 3.755,
+      "cached_utc": "2026-11-19T08:29:23Z"
+    },
+    {
+      "id": "n2-comparison-flip-06",
+      "family": "comparison_flip",
+      "variant": 6,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "comparison_flip",
+          "file": "passes.py",
+          "target": "passes_bar",
+          "description": "flip comparison 0 at line 2 in passes_bar",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 3.628,
+      "cached_utc": "2026-11-19T08:29:26Z"
+    },
+    {
+      "id": "n2-comparison-flip-07",
+      "family": "comparison_flip",
+      "variant": 7,
+      "split": "train",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "comparison_flip",
+          "file": "lanes.py",
+          "target": "clears_lane",
+          "description": "flip comparison 0 at line 2 in clears_lane",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 3.428,
+      "cached_utc": "2026-11-19T08:29:30Z"
+    },
+    {
+      "id": "n2-comparison-flip-08",
+      "family": "comparison_flip",
+      "variant": 8,
+      "split": "probe",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "comparison_flip",
+          "file": "clearance.py",
+          "target": "clears_clearance",
+          "description": "flip comparison 0 at line 2 in clears_clearance",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 3.388,
+      "cached_utc": "2026-11-19T08:29:33Z"
+    },
+    {
+      "id": "n2-comparison-flip-09",
+      "family": "comparison_flip",
+      "variant": 9,
+      "split": "probe",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "comparison_flip",
+          "file": "badges.py",
+          "target": "badge_opens",
+          "description": "flip comparison 0 at line 2 in badge_opens",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 3.283,
+      "cached_utc": "2026-11-19T08:29:36Z"
+    },
+    {
+      "id": "n2-comparison-flip-10",
+      "family": "comparison_flip",
+      "variant": 10,
+      "split": "probe",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "comparison_flip",
+          "file": "ranks.py",
+          "target": "rank_meets",
+          "description": "flip comparison 0 at line 2 in rank_meets",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 3.429,
+      "cached_utc": "2026-11-19T08:29:40Z"
+    },
+    {
+      "id": "n2-comparison-flip-11",
+      "family": "comparison_flip",
+      "variant": 11,
+      "split": "probe",
+      "solved": true,
+      "verifier_calls": 3,
+      "initial_failed": 1,
+      "edits": [
+        {
+          "operator": "comparison_flip",
+          "file": "quotas.py",
+          "target": "quota_meets",
+          "description": "flip comparison 0 at line 2 in quota_meets",
+          "verified": true
+        }
+      ],
+      "elapsed_s": 3.413,
+      "cached_utc": "2026-11-19T08:29:43Z"
+    }
+  ],
+  "by_family": {
+    "mutable_default": {
+      "total": 12,
+      "solved": 12,
+      "train": 8,
+      "probe": 4
+    },
+    "exception_scope": {
+      "total": 12,
+      "solved": 12,
+      "train": 8,
+      "probe": 4
+    },
+    "cache_key": {
+      "total": 12,
+      "solved": 12,
+      "train": 8,
+      "probe": 4
+    },
+    "closure_binding": {
+      "total": 12,
+      "solved": 12,
+      "train": 8,
+      "probe": 4
+    },
+    "boundary_guard": {
+      "total": 12,
+      "solved": 12,
+      "train": 8,
+      "probe": 4
+    },
+    "off_by_one": {
+      "total": 12,
+      "solved": 12,
+      "train": 8,
+      "probe": 4
+    },
+    "integer_distribution": {
+      "total": 12,
+      "solved": 12,
+      "train": 8,
+      "probe": 4
+    },
+    "mapping_fallback": {
+      "total": 12,
+      "solved": 12,
+      "train": 8,
+      "probe": 4
+    },
+    "comparison_flip": {
+      "total": 12,
+      "solved": 12,
+      "train": 8,
+      "probe": 4
+    }
+  },
+  "solved": 108,
+  "total": 108,
+  "streams": {
+    "train.bin": {
+      "bytes": 56531,
+      "sha256": "8da4a02ef8a34536284c5c5eef781fe5c8f0e58ade5ebc0c0a93233374b6de15",
+      "frames": 72
+    },
+    "probe.bin": {
+      "bytes": 28306,
+      "sha256": "a16d33c2a3ec8f1569c87e1849387ab97b12cb2ca850d00abe7cbd2eac0ca1ae",
+      "frames": 36
+    }
+  },
+  "sealed_leak_check": {
+    "sealed_shingles": 35875,
+    "hits": [],
+    "clean": true
+  },
+  "wall_s": 271.572
+}

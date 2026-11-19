@@ -1,0 +1,5 @@
+# Byte-exact research artifacts: no line-ending conversion, ever.
+# Corpus streams, cached frames and checkpoints carry recorded SHA-256 hashes;
+# autocrlf would silently change their bytes on checkout and break reproducibility.
+*.bin -text
+*.pt -text

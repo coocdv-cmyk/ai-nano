@@ -1,0 +1,103 @@
+{
+  "exp_id": "EXP-012",
+  "instrument": "measure_engine",
+  "checkpoint": "EXPERIMENTS\\EXP-012-n2-mtp\\runs\\mtp-v1\\mtp-truth.pt",
+  "config": {
+    "vocab": 256,
+    "d": 128,
+    "layers": 2,
+    "heads": 4,
+    "hidden": 320,
+    "ctx": 256,
+    "ternary": true,
+    "arch": "v2",
+    "n_loops": 1,
+    "mtp_k": 4,
+    "ponder_weight": 0.01,
+    "halt_eps": 0.05,
+    "patch_size": 4,
+    "hash_buckets": 1024,
+    "fast_dim": 16,
+    "use_fast_weights": true,
+    "use_copy_gate": true,
+    "copy_window": 2048
+  },
+  "mtp_count": 3,
+  "probe": {
+    "prompt_bytes": 64,
+    "n_tokens": 10000,
+    "reps": 3
+  },
+  "non_speculative": {
+    "path": "non_speculative",
+    "n_tokens": 10000,
+    "tok_per_s_median": 9181.8,
+    "tok_per_s_min": 9102.6,
+    "tok_per_s_max": 9517.8,
+    "seconds": [
+      1.0507,
+      1.0891,
+      1.0986
+    ],
+    "sha256": "7d382dda25c2d26731f6c72a8fd910b7d65fec55d68a64d0c760ff9a2dfc08df",
+    "bytes_prefix_hex": "20636f6c6c656374696f6e732061207665726966696572207365727320612070",
+    "stats": {
+      "arch": "v2",
+      "speculative_drafts": 0,
+      "speculative_accepted": 0,
+      "spec_rounds": 0,
+      "spec_accept_rate": 0.0,
+      "spec_batch_forwards": 0,
+      "spec_first_rejections": 0,
+      "spec_disabled": false
+    }
+  },
+  "speculative": {
+    "path": "speculative",
+    "n_tokens": 10000,
+    "tok_per_s_median": 8481.4,
+    "tok_per_s_min": 8420.4,
+    "tok_per_s_max": 9083.4,
+    "seconds": [
+      1.1009,
+      1.1791,
+      1.1876
+    ],
+    "sha256": "7d382dda25c2d26731f6c72a8fd910b7d65fec55d68a64d0c760ff9a2dfc08df",
+    "bytes_prefix_hex": "20636f6c6c656374696f6e732061207665726966696572207365727320612070",
+    "stats": {
+      "arch": "v2",
+      "speculative_drafts": 3686,
+      "speculative_accepted": 1320,
+      "spec_rounds": 2500,
+      "spec_accept_rate": 0.3581,
+      "spec_batch_forwards": 2372,
+      "spec_first_rejections": 1314,
+      "spec_disabled": false
+    }
+  },
+  "identical_greedy": true,
+  "first_divergence": null,
+  "speedup": 0.9237,
+  "accept_rate": 0.3581,
+  "peak_rss_mb": 291.96,
+  "production_default": {
+    "n_tokens": 2000,
+    "seconds": 0.109,
+    "stats": {
+      "arch": "v2",
+      "speculative_drafts": 738,
+      "speculative_accepted": 266,
+      "spec_rounds": 500,
+      "spec_accept_rate": 0.3604,
+      "spec_batch_forwards": 476,
+      "spec_first_rejections": 262,
+      "spec_disabled": false
+    }
+  },
+  "gates": {
+    "acceptance_gt_0.40": false,
+    "throughput_gt_10509": false,
+    "greedy_identical_10k": true
+  }
+}

@@ -1,0 +1,34 @@
+<SPEC>
+The garden service appends a seed to a collection. Each call must start from an empty collection; the current default is shared between calls.
+<TEST>
+# tests/test_service.py
+from garden import plant_seed
+
+
+def test_each_call_gets_its_own_bed():
+    first = plant_seed('tulip')
+    second = plant_seed('rose')
+    assert first == ['tulip']
+    assert second == ['rose']
+    assert first is not second
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: mutable_default -> 
+@@ -1,6 +1,8 @@
+-def plant_seed(value, bed=[]):
++def plant_seed(value, bed=None):
++    if bed is None:
++        bed = []
+<SOL>
+# garden.py
+"""Helpers for the garden service."""
+
+def plant_seed(value, bed=None):
+    if bed is None:
+        bed = []
+    bed.append(value)
+    return bed
+
+def count_seed(items):
+    return len(items)
+</SOL>

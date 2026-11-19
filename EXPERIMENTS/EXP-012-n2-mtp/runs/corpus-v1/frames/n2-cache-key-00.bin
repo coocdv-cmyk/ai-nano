@@ -1,0 +1,27 @@
+<SPEC>
+The geometry cache key must include both width and height; omitting one returns a stale result when only that input changes.
+<TEST>
+# tests/test_service.py
+from geometry import rectangle_area
+
+
+def test_result_depends_on_both_inputs():
+    assert rectangle_area(3, 4) == 3 * 4
+    assert rectangle_area(3, 5) == 3 * 5
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: cache_key -> 
+@@ -1,8 +1,7 @@
+-
+-    key = width
++    key = (width, height)
+<SOL>
+# geometry.py
+_CACHE = {}
+
+def rectangle_area(width, height):
+    key = (width, height)
+    if key not in _CACHE:
+        _CACHE[key] = width * height
+    return _CACHE[key]
+</SOL>

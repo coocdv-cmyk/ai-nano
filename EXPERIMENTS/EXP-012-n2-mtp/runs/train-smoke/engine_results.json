@@ -1,0 +1,99 @@
+{
+  "exp_id": "EXP-012",
+  "instrument": "measure_engine",
+  "checkpoint": "EXPERIMENTS\\EXP-012-n2-mtp\\runs\\train-smoke\\mtp-self.pt",
+  "config": {
+    "vocab": 256,
+    "d": 128,
+    "layers": 2,
+    "heads": 4,
+    "hidden": 320,
+    "ctx": 256,
+    "ternary": true,
+    "arch": "v2",
+    "n_loops": 1,
+    "mtp_k": 4,
+    "ponder_weight": 0.01,
+    "halt_eps": 0.05,
+    "patch_size": 4,
+    "hash_buckets": 1024,
+    "fast_dim": 16,
+    "use_fast_weights": true,
+    "use_copy_gate": true,
+    "copy_window": 2048
+  },
+  "mtp_count": 3,
+  "probe": {
+    "prompt_bytes": 64,
+    "n_tokens": 2000,
+    "reps": 1
+  },
+  "non_speculative": {
+    "path": "non_speculative",
+    "n_tokens": 2000,
+    "tok_per_s_median": 2341.1,
+    "tok_per_s_min": 2341.1,
+    "tok_per_s_max": 2341.1,
+    "seconds": [
+      0.8543
+    ],
+    "sha256": "4ee77bde061116d821ccf8cfe95b1e3382aadd877b5d6e937ec163bc02889665",
+    "bytes_prefix_hex": "a48737aa2e4ec520fb7f20fb7f20fb7f20fb7f20fb7f20fb7f20fb7f20fb7f20",
+    "stats": {
+      "arch": "v2",
+      "speculative_drafts": 0,
+      "speculative_accepted": 0,
+      "spec_rounds": 0,
+      "spec_accept_rate": 0.0,
+      "spec_batch_forwards": 0,
+      "spec_first_rejections": 0,
+      "spec_disabled": false
+    }
+  },
+  "speculative": {
+    "path": "speculative",
+    "n_tokens": 2000,
+    "tok_per_s_median": 4629.9,
+    "tok_per_s_min": 4629.9,
+    "tok_per_s_max": 4629.9,
+    "seconds": [
+      0.432
+    ],
+    "sha256": "4ee77bde061116d821ccf8cfe95b1e3382aadd877b5d6e937ec163bc02889665",
+    "bytes_prefix_hex": "a48737aa2e4ec520fb7f20fb7f20fb7f20fb7f20fb7f20fb7f20fb7f20fb7f20",
+    "stats": {
+      "arch": "v2",
+      "speculative_drafts": 1332,
+      "speculative_accepted": 332,
+      "spec_rounds": 834,
+      "spec_accept_rate": 0.2492,
+      "spec_batch_forwards": 830,
+      "spec_first_rejections": 502,
+      "spec_disabled": false
+    }
+  },
+  "identical_greedy": true,
+  "first_divergence": null,
+  "speedup": 1.9777,
+  "accept_rate": 0.2492,
+  "peak_rss_mb": 288.38,
+  "production_default": {
+    "n_tokens": 2000,
+    "seconds": 0.4566,
+    "stats": {
+      "arch": "v2",
+      "speculative_drafts": 66,
+      "speculative_accepted": 16,
+      "spec_rounds": 42,
+      "spec_accept_rate": 0.2424,
+      "spec_batch_forwards": 40,
+      "spec_first_rejections": 26,
+      "spec_disabled": true
+    }
+  },
+  "gates": {
+    "acceptance_gt_0.40": false,
+    "throughput_gt_10509": false,
+    "greedy_identical_10k": true
+  }
+}

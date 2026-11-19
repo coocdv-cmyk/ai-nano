@@ -128,6 +128,10 @@ def _safe_env(extra: dict[str, str] | None = None) -> dict[str, str]:
     env["PYTHONIOENCODING"] = "utf-8"
     env["PYTHONNOUSERSITE"] = "1"
     env["PYTHONDONTWRITEBYTECODE"] = "1"
+    # The verifier must be hermetic: autoloaded third-party pytest plugins can
+    # shadow a workspace module name (e.g. `filters` or `renderers`) and hang the
+    # subprocess, which would be misrecorded as an unsolvable repair task.
+    env["PYTEST_DISABLE_PLUGIN_AUTOLOAD"] = "1"
     if extra:
         env.update(extra)
     return env

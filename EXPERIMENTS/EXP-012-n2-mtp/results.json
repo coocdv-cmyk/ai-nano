@@ -1,0 +1,104 @@
+{
+  "exp_id": "EXP-012",
+  "phase": "N2",
+  "status": "lossless_but_gates_not_met",
+  "date_utc": "2026-11-19",
+  "hypothesis": "MTP speculation becomes a net speedup once the heads are trained on verifier-proven frames.",
+  "verdict": {
+    "acceptance_gt_0.40": false,
+    "throughput_gt_10509_tok_s": false,
+    "greedy_identical_10k": true,
+    "kill_criterion_triggered": false,
+    "note": "Speculation is lossless but is not a speedup on this core. Both quantitative gates fail; the speed claim rests on the non-speculative engine and Engine.generate/generate_batch now default to speculative=False."
+  },
+  "corpus": {
+    "tasks": 108,
+    "solved": 108,
+    "train_frames": 72,
+    "probe_frames": 36,
+    "train_bytes": 56531,
+    "probe_bytes": 28306,
+    "train_sha256": "8da4a02ef8a34536284c5c5eef781fe5c8f0e58ade5ebc0c0a93233374b6de15",
+    "probe_sha256": "a16d33c2a3ec8f1569c87e1849387ab97b12cb2ca850d00abe7cbd2eac0ca1ae",
+    "verifier_calls": 354,
+    "sealed_leak_check": {"sealed_shingles": 35875, "hits": 0, "clean": true},
+    "corpus_vs_exp008_replay": {"exp008_bytes": 625, "ratio": 90.45, "kill_floor_bytes": 6250}
+  },
+  "model": {
+    "params": 870172,
+    "arch": "v2",
+    "d": 128,
+    "layers": 2,
+    "patch_size": 4,
+    "mtp_heads": 3,
+    "base_probe_bpb": 2.1156,
+    "base_top1_vs_bytes": 0.6281
+  },
+  "training": {
+    "core_steps": 218,
+    "core_seconds": 180.157,
+    "frames_steps": 48,
+    "frames_seconds": 60.024,
+    "self_mtp_steps": 80,
+    "self_mtp_seconds": 60.47,
+    "truth_mtp_steps": 89,
+    "truth_mtp_seconds": 61.853,
+    "objective_comparison": {
+      "self": {
+        "accept_rate_per_draft_mean_prefix_over_k": 0.2927,
+        "conditional": {"offset1": 0.6091, "offset2": 0.3103, "offset3": 0.4233},
+        "mean_prefix_len": 0.8782,
+        "all_accepted_rate": 0.08
+      },
+      "truth": {
+        "accept_rate_per_draft_mean_prefix_over_k": 0.2747,
+        "conditional": {"offset1": 0.5794, "offset2": 0.3024, "offset3": 0.3957},
+        "mean_prefix_len": 0.824,
+        "all_accepted_rate": 0.0693
+      }
+    }
+  },
+  "native_measurement_10k": {
+    "self": {
+      "non_speculative_tok_s": 8604.9,
+      "speculative_tok_s": 7512.4,
+      "speedup": 0.873,
+      "engine_accept_rate": 0.3801,
+      "acceptance_per_draft": 0.3822,
+      "identical_greedy": true,
+      "first_divergence": null,
+      "peak_rss_mb": 291.7,
+      "seconds_per_rep": [1.2662, 1.3311, 1.3443]
+    },
+    "truth": {
+      "non_speculative_tok_s": 9181.8,
+      "speculative_tok_s": 8481.4,
+      "speedup": 0.9237,
+      "engine_accept_rate": 0.3581,
+      "acceptance_per_draft": 0.3604,
+      "identical_greedy": true,
+      "first_divergence": null,
+      "peak_rss_mb": 291.96,
+      "seconds_per_rep": [1.1009, 1.1791, 1.1876]
+    }
+  },
+  "negative_results": [
+    "First two corpus builds wrote nothing: block-buffered stdout with end-only persistence. Fixed with per-task flush and incremental records/frames.",
+    "Ten verifier timeouts (final_failed=999) caused by third-party pytest plugin autoload shadowing workspace module names; archived verbatim in records-failed-timeouts.jsonl, root-caused and retried successfully.",
+    "Speculation skipped prompt bytes and left accepted drafts unwritten in gen_out; both fixed and pinned by tests/test_core.py::test_native_v2_speculation_is_lossless.",
+    "Speculation lost byte identity whenever a draft occupied the final token of a patch (coarse hand-off): traced to a copy-gate state divergence at the following patch boundary. Drafts are now confined to non-final patch positions; the full-K variant is recorded as a defect, not silently dropped.",
+    "Engine acceptance rate (accepted/attempted, 38.0%/35.8%) differs from the pre-registered mean_prefix/K metric (29.3%/27.5%); both reported. Engine metric is higher because drafts 2..K are only attempted after draft 1 matches.",
+    "Speculation is 0.87x-0.92x the non-speculative speed: draft projections and batched copy steps cost more than the fine-path batching saves at ~38% acceptance."
+  ],
+  "cost": {
+    "corpus_wall_s": 271.572,
+    "corpus_retried_wall_s": 268.8,
+    "lost_build_attempts": "two runs timed out at 1800 s each with no output before resumability was added",
+    "training_wall_s": 362.5,
+    "measurement_wall_s": 7.55,
+    "peak_rss_mb": 291.96,
+    "verifier_calls_total": 354,
+    "archived_timeout_verifier_calls": 14,
+    "active_tests": "181 passed, 1 skipped"
+  }
+}

@@ -1,0 +1,27 @@
+<SPEC>
+The shapes cache key must include both length and breadth; omitting one returns a stale result when only that input changes.
+<TEST>
+# tests/test_service.py
+from shapes import tile_area
+
+
+def test_result_depends_on_both_inputs():
+    assert tile_area(2, 6) == 2 * 6
+    assert tile_area(2, 7) == 2 * 7
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: cache_key -> 
+@@ -1,8 +1,7 @@
+-
+-    key = length
++    key = (length, breadth)
+<SOL>
+# shapes.py
+_CACHE = {}
+
+def tile_area(length, breadth):
+    key = (length, breadth)
+    if key not in _CACHE:
+        _CACHE[key] = length * breadth
+    return _CACHE[key]
+</SOL>

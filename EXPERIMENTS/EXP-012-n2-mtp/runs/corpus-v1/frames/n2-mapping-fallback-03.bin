@@ -1,0 +1,27 @@
+<SPEC>
+The modes lookup must fall back to the declared default for an unknown key instead of raising KeyError.
+<TEST>
+# tests/test_service.py
+from modes import mode_for
+
+
+def test_known_key():
+    assert mode_for('fast') == 'turbo'
+
+
+def test_missing_key_falls_back():
+    assert mode_for('safe') == 'turbo'
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: mapping_fallback -> 
+@@ -1,5 +1,4 @@
+-
+-    return MODES[name]
++    return MODES.get(name, 'turbo')
+<SOL>
+# modes.py
+MODES = {'fast': 'turbo'}
+
+def mode_for(name):
+    return MODES.get(name, 'turbo')
+</SOL>

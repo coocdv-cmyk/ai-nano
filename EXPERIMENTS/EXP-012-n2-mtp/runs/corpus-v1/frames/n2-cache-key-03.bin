@@ -1,0 +1,27 @@
+<SPEC>
+The frames cache key must include both span and rise; omitting one returns a stale result when only that input changes.
+<TEST>
+# tests/test_service.py
+from frames import window_area
+
+
+def test_result_depends_on_both_inputs():
+    assert window_area(5, 2) == 5 * 2
+    assert window_area(5, 6) == 5 * 6
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: cache_key -> 
+@@ -1,8 +1,7 @@
+-
+-    key = span
++    key = (span, rise)
+<SOL>
+# frames.py
+_CACHE = {}
+
+def window_area(span, rise):
+    key = (span, rise)
+    if key not in _CACHE:
+        _CACHE[key] = span * rise
+    return _CACHE[key]
+</SOL>

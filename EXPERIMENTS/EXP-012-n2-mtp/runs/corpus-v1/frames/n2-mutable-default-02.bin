@@ -1,0 +1,34 @@
+<SPEC>
+The inbox service appends a message to a collection. Each call must start from an empty collection; the current default is shared between calls.
+<TEST>
+# tests/test_service.py
+from inbox import queue_message
+
+
+def test_each_call_gets_its_own_pending():
+    first = queue_message('hello')
+    second = queue_message('goodbye')
+    assert first == ['hello']
+    assert second == ['goodbye']
+    assert first is not second
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: mutable_default -> 
+@@ -1,6 +1,8 @@
+-def queue_message(value, pending=[]):
++def queue_message(value, pending=None):
++    if pending is None:
++        pending = []
+<SOL>
+# inbox.py
+"""Helpers for the inbox service."""
+
+def queue_message(value, pending=None):
+    if pending is None:
+        pending = []
+    pending.append(value)
+    return pending
+
+def count_message(items):
+    return len(items)
+</SOL>

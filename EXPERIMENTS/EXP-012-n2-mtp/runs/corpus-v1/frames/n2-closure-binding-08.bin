@@ -1,0 +1,24 @@
+<SPEC>
+The decorators factory must bind the loop variable into each closure; today every closure sees the final value.
+<TEST>
+# tests/test_service.py
+from decorators import make_decorators
+
+
+def test_each_closure_binds_its_own_name():
+    handlers = make_decorators('dec', ['one', 'two', 'three'])
+    assert [h(1) for h in handlers] == ['dec:one:1', 'dec:two:1', 'dec:three:1']
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: closure_binding -> 
+@@ -1,5 +1,5 @@
+-        handlers.append(lambda value: f'{flavor}:{name}:{value}')
++        handlers.append(lambda value, *, name=name: f'{flavor}:{name}:{value}')
+<SOL>
+# decorators.py
+def make_decorators(flavor, steps):
+    handlers = []
+    for name in steps:
+        handlers.append(lambda value, *, name=name: f'{flavor}:{name}:{value}')
+    return handlers
+</SOL>

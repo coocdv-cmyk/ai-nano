@@ -1,0 +1,40 @@
+<SPEC>
+The track accessor accepts only positions 0..2 and must raise IndexError for negative or overflowing positions instead of returning a silent None.
+<TEST>
+# tests/test_service.py
+import pytest
+from track import clip_at
+
+
+def test_valid_positions():
+    assert clip_at([11, 12, 13], 0) == 11
+    assert clip_at([11, 12, 13], 2) == 13
+
+
+def test_negative_rejected():
+    with pytest.raises(IndexError):
+        clip_at([11, 12, 13], -1)
+
+
+def test_overflow_rejected():
+    with pytest.raises(IndexError):
+        clip_at([11, 12, 13], 3)
+<FAIL>
+pytest: 2 failed before repair; 5 verifier call(s); 0 failed after repair
+candidate: boundary_guard -> 
+candidate: comparison_flip -> 
+candidate: comparison_flip -> 
+@@ -1,4 +1,6 @@
+-    if cursor < len(frames):
++    if cursor < 0:
++        raise IndexError('cursor must be >= 0')
++    if cursor <= len(frames):
+<SOL>
+# track.py
+def clip_at(frames, cursor):
+    if cursor < 0:
+        raise IndexError('cursor must be >= 0')
+    if cursor <= len(frames):
+        return frames[cursor]
+    return None
+</SOL>

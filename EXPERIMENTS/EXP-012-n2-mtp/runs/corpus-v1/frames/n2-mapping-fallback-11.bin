@@ -1,0 +1,27 @@
+<SPEC>
+The grades lookup must fall back to the declared default for an unknown key instead of raising KeyError.
+<TEST>
+# tests/test_service.py
+from grades import grade_for
+
+
+def test_known_key():
+    assert grade_for('pass') == 'ok'
+
+
+def test_missing_key_falls_back():
+    assert grade_for('top') == 'ok'
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: mapping_fallback -> 
+@@ -1,5 +1,4 @@
+-
+-    return GRADES[name]
++    return GRADES.get(name, 'ok')
+<SOL>
+# grades.py
+GRADES = {'pass': 'ok'}
+
+def grade_for(name):
+    return GRADES.get(name, 'ok')
+</SOL>

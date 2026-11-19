@@ -1,0 +1,27 @@
+<SPEC>
+The terrace cache key must include both near and far; omitting one returns a stale result when only that input changes.
+<TEST>
+# tests/test_service.py
+from terrace import patio_area
+
+
+def test_result_depends_on_both_inputs():
+    assert patio_area(10, 3) == 10 * 3
+    assert patio_area(10, 7) == 10 * 7
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: cache_key -> 
+@@ -1,8 +1,7 @@
+-
+-    key = near
++    key = (near, far)
+<SOL>
+# terrace.py
+_CACHE = {}
+
+def patio_area(near, far):
+    key = (near, far)
+    if key not in _CACHE:
+        _CACHE[key] = near * far
+    return _CACHE[key]
+</SOL>

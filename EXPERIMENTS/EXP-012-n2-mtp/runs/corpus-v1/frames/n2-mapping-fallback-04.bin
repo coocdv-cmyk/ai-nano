@@ -1,0 +1,27 @@
+<SPEC>
+The levels lookup must fall back to the declared default for an unknown key instead of raising KeyError.
+<TEST>
+# tests/test_service.py
+from levels import level_for
+
+
+def test_known_key():
+    assert level_for('low') == 'quiet'
+
+
+def test_missing_key_falls_back():
+    assert level_for('high') == 'quiet'
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: mapping_fallback -> 
+@@ -1,5 +1,4 @@
+-
+-    return LEVELS[name]
++    return LEVELS.get(name, 'quiet')
+<SOL>
+# levels.py
+LEVELS = {'low': 'quiet'}
+
+def level_for(name):
+    return LEVELS.get(name, 'quiet')
+</SOL>

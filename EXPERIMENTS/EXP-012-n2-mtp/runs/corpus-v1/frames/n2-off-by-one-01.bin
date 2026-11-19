@@ -1,0 +1,23 @@
+<SPEC>
+The slicing window must cover (n + 1) * 3 bytes; the current multiplication omits the extra slot at every size.
+<TEST>
+# tests/test_service.py
+from slicing import take_prefix
+
+
+def test_window_includes_the_extra_slot():
+    assert take_prefix('abcdef', 1) == 'abcd'
+    assert take_prefix('abcdef', 2) == 'abcdef'
+<FAIL>
+pytest: 1 failed before repair; 4 verifier call(s); 0 failed after repair
+candidate: off_by_one -> 
+candidate: off_by_one -> 
+@@ -1,3 +1,3 @@
+-    size = steps * 3
++    size = steps * (3 + 1)
+<SOL>
+# slicing.py
+def take_prefix(data, steps):
+    size = steps * (3 + 1)
+    return data[:size]
+</SOL>

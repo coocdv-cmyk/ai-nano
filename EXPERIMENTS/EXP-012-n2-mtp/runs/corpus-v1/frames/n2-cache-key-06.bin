@@ -1,0 +1,27 @@
+<SPEC>
+The panels cache key must include both wide and tall; omitting one returns a stale result when only that input changes.
+<TEST>
+# tests/test_service.py
+from panels import face_area
+
+
+def test_result_depends_on_both_inputs():
+    assert face_area(8, 4) == 8 * 4
+    assert face_area(8, 3) == 8 * 3
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: cache_key -> 
+@@ -1,8 +1,7 @@
+-
+-    key = wide
++    key = (wide, tall)
+<SOL>
+# panels.py
+_CACHE = {}
+
+def face_area(wide, tall):
+    key = (wide, tall)
+    if key not in _CACHE:
+        _CACHE[key] = wide * tall
+    return _CACHE[key]
+</SOL>

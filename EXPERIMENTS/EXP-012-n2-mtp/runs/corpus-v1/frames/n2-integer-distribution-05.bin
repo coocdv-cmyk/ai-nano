@@ -1,0 +1,24 @@
+<SPEC>
+The seats splitter must distribute the integer remainder one unit at a time; the current answer drops it, so the parts do not sum to the whole.
+<TEST>
+# tests/test_service.py
+from seats import allocate_seats
+
+
+def test_remainder_is_distributed():
+    assert allocate_seats(105, 3) == [35, 35, 35]
+    assert allocate_seats(29, 4) == [8, 7, 7, 7]
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: integer_distribution -> 
+@@ -1,3 +1,4 @@
+-    return [share] * tables
++    q, r = divmod(seats, tables)
++    return [q + 1 if i < r else q for i in range(tables)]
+<SOL>
+# seats.py
+def allocate_seats(seats, tables):
+    share = seats // tables
+    q, r = divmod(seats, tables)
+    return [q + 1 if i < r else q for i in range(tables)]
+</SOL>

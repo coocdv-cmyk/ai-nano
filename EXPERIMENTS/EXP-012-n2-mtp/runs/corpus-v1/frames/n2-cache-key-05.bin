@@ -1,0 +1,27 @@
+<SPEC>
+The boards cache key must include both rows and cols; omitting one returns a stale result when only that input changes.
+<TEST>
+# tests/test_service.py
+from boards import sheet_area
+
+
+def test_result_depends_on_both_inputs():
+    assert sheet_area(7, 2) == 7 * 2
+    assert sheet_area(7, 5) == 7 * 5
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: cache_key -> 
+@@ -1,8 +1,7 @@
+-
+-    key = rows
++    key = (rows, cols)
+<SOL>
+# boards.py
+_CACHE = {}
+
+def sheet_area(rows, cols):
+    key = (rows, cols)
+    if key not in _CACHE:
+        _CACHE[key] = rows * cols
+    return _CACHE[key]
+</SOL>

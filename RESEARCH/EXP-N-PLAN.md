@@ -116,6 +116,17 @@ is not exercised by any N0 task, and is exercised exactly once by `EXP-011` (`n1
 - **Kill criterion:** if acceptance stays `< 5%` after the corpus is ≥ 10× the EXP-008 replay set, speculation is
   disabled by default and the speed claim rests on the non-speculative engine only.
 
+**As-built status (2026-11-19, `EXPERIMENTS/EXP-012-n2-mtp/`).** The pre-registration above is unchanged. The
+instrument deviated in three recorded ways: the shipped EXP-008 checkpoint (40 steps / 625 B) was too degenerate to
+be a meaningful speculation target, so a real v2 base was trained before freezing it and training the MTP heads;
+native v2 speculation had two losslessness bugs (prompt-byte skipping, unwritten accepted drafts) that were fixed
+and pinned by tests; and a patch-boundary copy-gate divergence forced drafts to stay off the final token of a patch.
+Result: 108/108 verified fresh tasks, 90× the EXP-008 corpus, leak check clean, greedy output bit-identical over
+10k tokens — but acceptance 29.3%/27.5% (`mean_prefix/K`) or 38.0%/35.8% (engine) and throughput 7,512/8,481 tok/s,
+so **both quantitative gates fail** and speculation is a 0.87x-0.92x slowdown. The kill criterion did not trigger;
+the speed claim rests on the non-speculative engine. Negative results and the boundary defect are recorded in the
+EXP-012 README rather than discarded.
+
 ## 5. N3 — Learned bilingual encoder
 
 **Hypothesis N3:** a `< 500 KB int8` contrastive bi-encoder generalises across unseen AR/EN synonyms where the static

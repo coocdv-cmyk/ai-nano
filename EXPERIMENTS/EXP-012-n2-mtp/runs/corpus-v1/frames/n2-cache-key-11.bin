@@ -1,0 +1,27 @@
+<SPEC>
+The gallery cache key must include both high and low; omitting one returns a stale result when only that input changes.
+<TEST>
+# tests/test_service.py
+from gallery import wall_area
+
+
+def test_result_depends_on_both_inputs():
+    assert wall_area(13, 5) == 13 * 5
+    assert wall_area(13, 3) == 13 * 3
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: cache_key -> 
+@@ -1,8 +1,7 @@
+-
+-    key = high
++    key = (high, low)
+<SOL>
+# gallery.py
+_CACHE = {}
+
+def wall_area(high, low):
+    key = (high, low)
+    if key not in _CACHE:
+        _CACHE[key] = high * low
+    return _CACHE[key]
+</SOL>

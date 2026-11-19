@@ -1,0 +1,24 @@
+<SPEC>
+The chunks window must cover (n + 1) * 5 bytes; the current multiplication omits the extra slot at every size.
+<TEST>
+# tests/test_service.py
+from chunks import lead_chunk
+
+
+def test_window_includes_the_extra_slot():
+    assert lead_chunk('abcdef', 1) == 'abcd'
+    assert lead_chunk('abcdef', 2) == 'abcdef'
+<FAIL>
+pytest: 1 failed before repair; 6 verifier call(s); 0 failed after repair
+candidate: off_by_one -> 
+candidate: off_by_one -> 
+candidate: off_by_one -> 
+@@ -1,3 +1,3 @@
+-    size = groups * 5
++    size = groups * (5 - 1)
+<SOL>
+# chunks.py
+def lead_chunk(data, groups):
+    size = groups * (5 - 1)
+    return data[:size]
+</SOL>

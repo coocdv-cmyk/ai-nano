@@ -1,0 +1,30 @@
+<SPEC>
+The lanes gate must allow only values strictly below cap; equality is not enough and the current comparison admits it.
+<TEST>
+# tests/test_service.py
+from lanes import clears_lane
+
+
+def test_equal_is_denied():
+    assert clears_lane(9, 9) is False
+
+
+def test_lower_is_allowed():
+    assert clears_lane(8, 9) is True
+
+
+def test_higher_is_denied():
+    assert clears_lane(10, 9) is False
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: comparison_flip -> 
+@@ -1,4 +1,4 @@
+-    if speed <= cap:
++    if speed < cap:
+<SOL>
+# lanes.py
+def clears_lane(speed, cap):
+    if speed < cap:
+        return True
+    return False
+</SOL>

@@ -1,0 +1,30 @@
+<SPEC>
+The ranks gate must allow only values strictly below need; equality is not enough and the current comparison admits it.
+<TEST>
+# tests/test_service.py
+from ranks import rank_meets
+
+
+def test_equal_is_denied():
+    assert rank_meets(12, 12) is False
+
+
+def test_lower_is_allowed():
+    assert rank_meets(11, 12) is True
+
+
+def test_higher_is_denied():
+    assert rank_meets(13, 12) is False
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: comparison_flip -> 
+@@ -1,4 +1,4 @@
+-    if rank <= need:
++    if rank < need:
+<SOL>
+# ranks.py
+def rank_meets(rank, need):
+    if rank < need:
+        return True
+    return False
+</SOL>

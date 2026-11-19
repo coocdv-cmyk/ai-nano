@@ -1,0 +1,34 @@
+<SPEC>
+The ledger service appends a entry to a collection. Each call must start from an empty collection; the current default is shared between calls.
+<TEST>
+# tests/test_service.py
+from ledger import record_entry
+
+
+def test_each_call_gets_its_own_journal():
+    first = record_entry('open')
+    second = record_entry('close')
+    assert first == ['open']
+    assert second == ['close']
+    assert first is not second
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: mutable_default -> 
+@@ -1,6 +1,8 @@
+-def record_entry(value, journal=[]):
++def record_entry(value, journal=None):
++    if journal is None:
++        journal = []
+<SOL>
+# ledger.py
+"""Helpers for the ledger service."""
+
+def record_entry(value, journal=None):
+    if journal is None:
+        journal = []
+    journal.append(value)
+    return journal
+
+def count_entry(items):
+    return len(items)
+</SOL>

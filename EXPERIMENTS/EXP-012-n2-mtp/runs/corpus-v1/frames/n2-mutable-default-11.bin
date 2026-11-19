@@ -1,0 +1,34 @@
+<SPEC>
+The aviary service appends a bird to a collection. Each call must start from an empty collection; the current default is shared between calls.
+<TEST>
+# tests/test_service.py
+from aviary import tag_bird
+
+
+def test_each_call_gets_its_own_tags():
+    first = tag_bird('finch')
+    second = tag_bird('robin')
+    assert first == ['finch']
+    assert second == ['robin']
+    assert first is not second
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: mutable_default -> 
+@@ -1,6 +1,8 @@
+-def tag_bird(value, tags=[]):
++def tag_bird(value, tags=None):
++    if tags is None:
++        tags = []
+<SOL>
+# aviary.py
+"""Helpers for the aviary service."""
+
+def tag_bird(value, tags=None):
+    if tags is None:
+        tags = []
+    tags.append(value)
+    return tags
+
+def count_bird(items):
+    return len(items)
+</SOL>

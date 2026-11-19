@@ -1,0 +1,30 @@
+<SPEC>
+The quotas gate must allow only values strictly below target; equality is not enough and the current comparison admits it.
+<TEST>
+# tests/test_service.py
+from quotas import quota_meets
+
+
+def test_equal_is_denied():
+    assert quota_meets(13, 13) is False
+
+
+def test_lower_is_allowed():
+    assert quota_meets(12, 13) is True
+
+
+def test_higher_is_denied():
+    assert quota_meets(14, 13) is False
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: comparison_flip -> 
+@@ -1,4 +1,4 @@
+-    if quota <= target:
++    if quota < target:
+<SOL>
+# quotas.py
+def quota_meets(quota, target):
+    if quota < target:
+        return True
+    return False
+</SOL>

@@ -1,0 +1,27 @@
+<SPEC>
+The routes lookup must fall back to the declared default for an unknown key instead of raising KeyError.
+<TEST>
+# tests/test_service.py
+from routes import route_for
+
+
+def test_known_key():
+    assert route_for('home') == '/'
+
+
+def test_missing_key_falls_back():
+    assert route_for('/missing') == '/'
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: mapping_fallback -> 
+@@ -1,5 +1,4 @@
+-
+-    return ROUTES[name]
++    return ROUTES.get(name, '/')
+<SOL>
+# routes.py
+ROUTES = {'home': '/'}
+
+def route_for(name):
+    return ROUTES.get(name, '/')
+</SOL>

@@ -1,0 +1,27 @@
+<SPEC>
+The themes lookup must fall back to the declared default for an unknown key instead of raising KeyError.
+<TEST>
+# tests/test_service.py
+from themes import theme_for
+
+
+def test_known_key():
+    assert theme_for('dark') == 'night'
+
+
+def test_missing_key_falls_back():
+    assert theme_for('sepia') == 'night'
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: mapping_fallback -> 
+@@ -1,5 +1,4 @@
+-
+-    return THEMES[name]
++    return THEMES.get(name, 'night')
+<SOL>
+# themes.py
+THEMES = {'dark': 'night'}
+
+def theme_for(name):
+    return THEMES.get(name, 'night')
+</SOL>

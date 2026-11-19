@@ -1,0 +1,18 @@
+<SPEC>
+The bands window must cover (n + 1) * 4 bytes; the current multiplication omits the extra slot at every size.
+<TEST>
+# tests/test_service.py
+from bands import opening_band
+
+
+def test_window_includes_the_extra_slot():
+    assert opening_band('abcdef', 1) == 'abcd'
+    assert opening_band('abcdef', 2) == 'abcdef'
+<FAIL>
+pytest: 0 failed before repair; 1 verifier call(s); 0 failed after repair
+<SOL>
+# bands.py
+def opening_band(data, rings):
+    size = rings * 4
+    return data[:size]
+</SOL>

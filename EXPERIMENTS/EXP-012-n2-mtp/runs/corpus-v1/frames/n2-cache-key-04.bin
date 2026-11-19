@@ -1,0 +1,27 @@
+<SPEC>
+The plots cache key must include both east and north; omitting one returns a stale result when only that input changes.
+<TEST>
+# tests/test_service.py
+from plots import field_area
+
+
+def test_result_depends_on_both_inputs():
+    assert field_area(6, 3) == 6 * 3
+    assert field_area(6, 4) == 6 * 4
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: cache_key -> 
+@@ -1,8 +1,7 @@
+-
+-    key = east
++    key = (east, north)
+<SOL>
+# plots.py
+_CACHE = {}
+
+def field_area(east, north):
+    key = (east, north)
+    if key not in _CACHE:
+        _CACHE[key] = east * north
+    return _CACHE[key]
+</SOL>

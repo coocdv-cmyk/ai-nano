@@ -343,6 +343,9 @@ class Engine:
         hd = weights.cfg.d // weights.cfg.heads
         self._inv = 1.0 / 10000.0 ** (np.arange(0, hd, 2, dtype=np.float64) / hd)
         self.last_stats: dict[str, float | int | str] = {}
+        # N2 adaptive speculation gate.  The instrument disables it to measure a
+        # pure speculative run; production keeps it on.
+        self.spec_adaptive = True
 
     def _rope(self, max_pos: int) -> tuple[np.ndarray, np.ndarray]:
         if max_pos <= self.w.cos.shape[0]:
@@ -406,12 +409,16 @@ class Engine:
             w.loop_emb, w.anchor_w, w.anchor_b, w.halt_norm, w.halt_w, w.halt_b,
             w.offset_emb, w.cross_gate_w, w.cross_gate_b, w.fine_norm,
             w.fine_gate_w, w.fine_gate_p, w.fine_gate_s, w.fine_up_w, w.fine_up_p, w.fine_up_s,
-            w.fine_down_w, w.fine_down_p, w.fine_down_s, w.norm, w.head, w.copy_w, w.copy_b, cos, sin,
+            w.fine_down_w, w.fine_down_p, w.fine_down_s, w.norm, w.head, w.copy_w, w.copy_b,
+            w.mtp_norms, w.mtp_ws, w.mtp_count, False, False, np.zeros(6, np.int64), cos, sin,
         )
         return out
 
     def generate(self, prompt: bytes, n: int, temperature: float = 0.8, seed: int = 0,
-                 speculative: bool = True) -> bytes:
+                 speculative: bool = False) -> bytes:
+        # EXP-012 N2: native v2 speculation is lossless but 0.87x-0.92x on the
+        # trained checkpoints, so it is off by default. Measurement instruments
+        # pass speculative=True explicitly; callers can opt in.
         arr = np.frombuffer(prompt, np.uint8).astype(np.int64)
         ctx = self.w.cfg.ctx
         if self.arch == "v0":
@@ -442,6 +449,7 @@ class Engine:
         assert isinstance(w, V2Weights)
         ps = max(2, w.cfg.patch_size)
         cos, sin = self._rope(max(w.cos.shape[0], ((len(prompt) + n) // ps) + 8))
+        stats = np.zeros(6, np.int64)
         _, out = _v2_run(
             arr, n, temperature, seed, True, False,
             ps, max(256, w.cfg.hash_buckets), max(1, w.cfg.n_loops), w.cfg.heads, w.cfg.fast_dim,
@@ -453,12 +461,24 @@ class Engine:
             w.loop_emb, w.anchor_w, w.anchor_b, w.halt_norm, w.halt_w, w.halt_b,
             w.offset_emb, w.cross_gate_w, w.cross_gate_b, w.fine_norm,
             w.fine_gate_w, w.fine_gate_p, w.fine_gate_s, w.fine_up_w, w.fine_up_p, w.fine_up_s,
-            w.fine_down_w, w.fine_down_p, w.fine_down_s, w.norm, w.head, w.copy_w, w.copy_b, cos, sin,
+            w.fine_down_w, w.fine_down_p, w.fine_down_s, w.norm, w.head, w.copy_w, w.copy_b,
+            w.mtp_norms, w.mtp_ws, w.mtp_count, speculative, self.spec_adaptive,
+            stats, cos, sin,
         )
+        self.last_stats = {
+            "arch": "v2",
+            "speculative_drafts": int(stats[0]),
+            "speculative_accepted": int(stats[1]),
+            "spec_rounds": int(stats[2]),
+            "spec_accept_rate": round(float(stats[1]) / max(1, int(stats[0])), 4),
+            "spec_batch_forwards": int(stats[4]),
+            "spec_first_rejections": int(stats[5]),
+            "spec_disabled": bool(stats[3]),
+        }
         return bytes(out[:n].astype(np.uint8).tolist())
 
     def generate_batch(self, prompts: list[bytes], n: int, temperature: float = 0.8, seed: int = 0,
-                       speculative: bool = True) -> list[bytes]:
+                       speculative: bool = False) -> list[bytes]:
         if self.arch == "v0":
             ctx = self.w.cfg.ctx
             L = min(len(p) for p in prompts)

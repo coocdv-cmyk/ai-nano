@@ -1,0 +1,30 @@
+<SPEC>
+The badges gate must allow only values strictly below lock; equality is not enough and the current comparison admits it.
+<TEST>
+# tests/test_service.py
+from badges import badge_opens
+
+
+def test_equal_is_denied():
+    assert badge_opens(11, 11) is False
+
+
+def test_lower_is_allowed():
+    assert badge_opens(10, 11) is True
+
+
+def test_higher_is_denied():
+    assert badge_opens(12, 11) is False
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: comparison_flip -> 
+@@ -1,4 +1,4 @@
+-    if badge <= lock:
++    if badge < lock:
+<SOL>
+# badges.py
+def badge_opens(badge, lock):
+    if badge < lock:
+        return True
+    return False
+</SOL>

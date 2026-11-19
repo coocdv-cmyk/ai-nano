@@ -1,0 +1,27 @@
+<SPEC>
+The sizes lookup must fall back to the declared default for an unknown key instead of raising KeyError.
+<TEST>
+# tests/test_service.py
+from sizes import size_for
+
+
+def test_known_key():
+    assert size_for('small') == 'tiny'
+
+
+def test_missing_key_falls_back():
+    assert size_for('huge') == 'tiny'
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: mapping_fallback -> 
+@@ -1,5 +1,4 @@
+-
+-    return SIZES[name]
++    return SIZES.get(name, 'tiny')
+<SOL>
+# sizes.py
+SIZES = {'small': 'tiny'}
+
+def size_for(name):
+    return SIZES.get(name, 'tiny')
+</SOL>

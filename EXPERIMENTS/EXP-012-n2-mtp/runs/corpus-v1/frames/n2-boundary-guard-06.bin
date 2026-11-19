@@ -1,0 +1,40 @@
+<SPEC>
+The slots accessor accepts only positions 0..2 and must raise IndexError for negative or overflowing positions instead of returning a silent None.
+<TEST>
+# tests/test_service.py
+import pytest
+from slots import entry_at
+
+
+def test_valid_positions():
+    assert entry_at([31, 32, 33], 0) == 31
+    assert entry_at([31, 32, 33], 2) == 33
+
+
+def test_negative_rejected():
+    with pytest.raises(IndexError):
+        entry_at([31, 32, 33], -1)
+
+
+def test_overflow_rejected():
+    with pytest.raises(IndexError):
+        entry_at([31, 32, 33], 3)
+<FAIL>
+pytest: 2 failed before repair; 5 verifier call(s); 0 failed after repair
+candidate: boundary_guard -> 
+candidate: comparison_flip -> 
+candidate: comparison_flip -> 
+@@ -1,4 +1,6 @@
+-    if which < len(slots):
++    if which < 0:
++        raise IndexError('which must be >= 0')
++    if which <= len(slots):
+<SOL>
+# slots.py
+def entry_at(slots, which):
+    if which < 0:
+        raise IndexError('which must be >= 0')
+    if which <= len(slots):
+        return slots[which]
+    return None
+</SOL>

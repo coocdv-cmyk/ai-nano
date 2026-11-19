@@ -1,0 +1,40 @@
+<SPEC>
+The tray accessor accepts only positions 0..2 and must raise IndexError for negative or overflowing positions instead of returning a silent None.
+<TEST>
+# tests/test_service.py
+import pytest
+from tray import sample_at
+
+
+def test_valid_positions():
+    assert sample_at([51, 52, 53], 0) == 51
+    assert sample_at([51, 52, 53], 2) == 53
+
+
+def test_negative_rejected():
+    with pytest.raises(IndexError):
+        sample_at([51, 52, 53], -1)
+
+
+def test_overflow_rejected():
+    with pytest.raises(IndexError):
+        sample_at([51, 52, 53], 3)
+<FAIL>
+pytest: 2 failed before repair; 5 verifier call(s); 0 failed after repair
+candidate: boundary_guard -> 
+candidate: comparison_flip -> 
+candidate: comparison_flip -> 
+@@ -1,4 +1,6 @@
+-    if where < len(samples):
++    if where < 0:
++        raise IndexError('where must be >= 0')
++    if where <= len(samples):
+<SOL>
+# tray.py
+def sample_at(samples, where):
+    if where < 0:
+        raise IndexError('where must be >= 0')
+    if where <= len(samples):
+        return samples[where]
+    return None
+</SOL>

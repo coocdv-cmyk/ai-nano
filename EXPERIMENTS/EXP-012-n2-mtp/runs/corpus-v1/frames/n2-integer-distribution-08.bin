@@ -1,0 +1,24 @@
+<SPEC>
+The funds splitter must distribute the integer remainder one unit at a time; the current answer drops it, so the parts do not sum to the whole.
+<TEST>
+# tests/test_service.py
+from funds import split_funds
+
+
+def test_remainder_is_distributed():
+    assert split_funds(108, 3) == [36, 36, 36]
+    assert split_funds(41, 4) == [11, 10, 10, 10]
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: integer_distribution -> 
+@@ -1,3 +1,4 @@
+-    return [share] * accounts
++    q, r = divmod(funds, accounts)
++    return [q + 1 if i < r else q for i in range(accounts)]
+<SOL>
+# funds.py
+def split_funds(funds, accounts):
+    share = funds // accounts
+    q, r = divmod(funds, accounts)
+    return [q + 1 if i < r else q for i in range(accounts)]
+</SOL>

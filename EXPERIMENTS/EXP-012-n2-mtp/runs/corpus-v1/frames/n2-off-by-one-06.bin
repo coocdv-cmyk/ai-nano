@@ -1,0 +1,18 @@
+<SPEC>
+The batches window must cover (n + 1) * 4 bytes; the current multiplication omits the extra slot at every size.
+<TEST>
+# tests/test_service.py
+from batches import first_batch
+
+
+def test_window_includes_the_extra_slot():
+    assert first_batch('abcdef', 1) == 'abcd'
+    assert first_batch('abcdef', 2) == 'abcdef'
+<FAIL>
+pytest: 0 failed before repair; 1 verifier call(s); 0 failed after repair
+<SOL>
+# batches.py
+def first_batch(data, rounds):
+    size = rounds * 4
+    return data[:size]
+</SOL>

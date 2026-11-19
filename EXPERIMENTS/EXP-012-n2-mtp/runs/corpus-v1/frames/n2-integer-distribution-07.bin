@@ -1,0 +1,24 @@
+<SPEC>
+The tokens splitter must distribute the integer remainder one unit at a time; the current answer drops it, so the parts do not sum to the whole.
+<TEST>
+# tests/test_service.py
+from tokens import split_tokens
+
+
+def test_remainder_is_distributed():
+    assert split_tokens(107, 3) == [36, 36, 35]
+    assert split_tokens(37, 4) == [10, 9, 9, 9]
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: integer_distribution -> 
+@@ -1,3 +1,4 @@
+-    return [share] * buckets
++    q, r = divmod(tokens, buckets)
++    return [q + 1 if i < r else q for i in range(buckets)]
+<SOL>
+# tokens.py
+def split_tokens(tokens, buckets):
+    share = tokens // buckets
+    q, r = divmod(tokens, buckets)
+    return [q + 1 if i < r else q for i in range(buckets)]
+</SOL>

@@ -1,0 +1,24 @@
+<SPEC>
+The tasks splitter must distribute the integer remainder one unit at a time; the current answer drops it, so the parts do not sum to the whole.
+<TEST>
+# tests/test_service.py
+from tasks import assign_tasks
+
+
+def test_remainder_is_distributed():
+    assert assign_tasks(103, 3) == [35, 34, 34]
+    assert assign_tasks(19, 4) == [5, 5, 5, 4]
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: integer_distribution -> 
+@@ -1,3 +1,4 @@
+-    return [share] * agents
++    q, r = divmod(jobs, agents)
++    return [q + 1 if i < r else q for i in range(agents)]
+<SOL>
+# tasks.py
+def assign_tasks(jobs, agents):
+    share = jobs // agents
+    q, r = divmod(jobs, agents)
+    return [q + 1 if i < r else q for i in range(agents)]
+</SOL>

@@ -1,0 +1,40 @@
+<SPEC>
+The shelves accessor accepts only positions 0..2 and must raise IndexError for negative or overflowing positions instead of returning a silent None.
+<TEST>
+# tests/test_service.py
+import pytest
+from shelves import book_at
+
+
+def test_valid_positions():
+    assert book_at([81, 82, 83], 0) == 81
+    assert book_at([81, 82, 83], 2) == 83
+
+
+def test_negative_rejected():
+    with pytest.raises(IndexError):
+        book_at([81, 82, 83], -1)
+
+
+def test_overflow_rejected():
+    with pytest.raises(IndexError):
+        book_at([81, 82, 83], 3)
+<FAIL>
+pytest: 2 failed before repair; 5 verifier call(s); 0 failed after repair
+candidate: boundary_guard -> 
+candidate: comparison_flip -> 
+candidate: comparison_flip -> 
+@@ -1,4 +1,6 @@
+-    if place < len(shelves):
++    if place < 0:
++        raise IndexError('place must be >= 0')
++    if place <= len(shelves):
+<SOL>
+# shelves.py
+def book_at(shelves, place):
+    if place < 0:
+        raise IndexError('place must be >= 0')
+    if place <= len(shelves):
+        return shelves[place]
+    return None
+</SOL>

@@ -1,0 +1,40 @@
+<SPEC>
+The stack accessor accepts only positions 0..2 and must raise IndexError for negative or overflowing positions instead of returning a silent None.
+<TEST>
+# tests/test_service.py
+import pytest
+from stack import top_at
+
+
+def test_valid_positions():
+    assert top_at([4, 8, 16], 0) == 4
+    assert top_at([4, 8, 16], 2) == 16
+
+
+def test_negative_rejected():
+    with pytest.raises(IndexError):
+        top_at([4, 8, 16], -1)
+
+
+def test_overflow_rejected():
+    with pytest.raises(IndexError):
+        top_at([4, 8, 16], 3)
+<FAIL>
+pytest: 2 failed before repair; 5 verifier call(s); 0 failed after repair
+candidate: boundary_guard -> 
+candidate: comparison_flip -> 
+candidate: comparison_flip -> 
+@@ -1,4 +1,6 @@
+-    if slot < len(values):
++    if slot < 0:
++        raise IndexError('slot must be >= 0')
++    if slot <= len(values):
+<SOL>
+# stack.py
+def top_at(values, slot):
+    if slot < 0:
+        raise IndexError('slot must be >= 0')
+    if slot <= len(values):
+        return values[slot]
+    return None
+</SOL>

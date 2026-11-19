@@ -1,0 +1,27 @@
+<SPEC>
+The speeds lookup must fall back to the declared default for an unknown key instead of raising KeyError.
+<TEST>
+# tests/test_service.py
+from speeds import speed_for
+
+
+def test_known_key():
+    assert speed_for('slow') == 'crawl'
+
+
+def test_missing_key_falls_back():
+    assert speed_for('warp') == 'crawl'
+<FAIL>
+pytest: 1 failed before repair; 3 verifier call(s); 0 failed after repair
+candidate: mapping_fallback -> 
+@@ -1,5 +1,4 @@
+-
+-    return SPEEDS[name]
++    return SPEEDS.get(name, 'crawl')
+<SOL>
+# speeds.py
+SPEEDS = {'slow': 'crawl'}
+
+def speed_for(name):
+    return SPEEDS.get(name, 'crawl')
+</SOL>
